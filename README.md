@@ -6,7 +6,7 @@ uses the [libzbc](https://github.com/zeebe-io/libzbc) to communicate with the Ze
 Following snipped can be used as an example for how to poll and complete job's with the C# client.
 
 
-```java
+```csharp
 
 using System;
 using System.Collections.Generic;
