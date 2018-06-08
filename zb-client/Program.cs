@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace zbclient
 {
@@ -6,30 +7,22 @@ namespace zbclient
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            //  GoString str;
-            //  str.p = "0.0.0.0:51015";
-            //  str.n = str.p.Length;
             ZeebeClient zeebeClient = new ZeebeClient("0.0.0.0:51015");
 
-            zeebeClient.DefaultTopic
-                       .JobClient("thisWorker", "myType")
-                       .Poll(1);
+            JobClient jobClient = zeebeClient.DefaultTopic
+                                             .JobClient("thisWorker", "myType");
+            
+            IList<zbclient.JobClient.Job> jobs = jobClient.Poll(4);
 
-            //String status = InitClient(str);
-            //Console.WriteLine(status);
-            //GoString str2;
-            //str2.p = "hello";
-            //str2.n = 5;
-            //String xyz = CreateTopic(str2, 1, 1);
-            //Console.WriteLine(xyz);
+            Console.WriteLine("Polled {0} jobs", jobs.Count);
+            foreach (zbclient.JobClient.Job job in jobs)
+            {
+                Console.WriteLine("Complete Job {0}", job.jobKey);
+                jobClient.Complete(job.jobKey, "{}");
+            }
+
+            while (true) ;
         }
-
-
-
-        //[DllImport("libzbc-linux-amd64")]
-        //private static extern String CreateTopic(GoString topicName, Int32 partitions, Int32 replicationFactor);
-
 
     }
 }
