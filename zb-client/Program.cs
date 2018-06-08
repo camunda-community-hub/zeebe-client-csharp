@@ -1,38 +1,35 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace zbclient
 {
     class MainClass
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            //  GoString str;
+            //  str.p = "0.0.0.0:51015";
+            //  str.n = str.p.Length;
+            ZeebeClient zeebeClient = new ZeebeClient("0.0.0.0:51015");
 
-            MainClass m = new MainClass();
-            Task t = m.workingMethod();
+            zeebeClient.DefaultTopic
+                       .JobClient("thisWorker", "myType")
+                       .Poll(1);
 
-            Console.WriteLine("After Working method in Main");
-
-            t.ContinueWith((task, obj) => Console.WriteLine("Test"), TaskStatus.RanToCompletion);
-            Thread.Sleep(1000);
+            //String status = InitClient(str);
+            //Console.WriteLine(status);
+            //GoString str2;
+            //str2.p = "hello";
+            //str2.n = 5;
+            //String xyz = CreateTopic(str2, 1, 1);
+            //Console.WriteLine(xyz);
         }
 
-        public async Task workingMethod()
-        {
-            Console.WriteLine("Working method.");
 
-            String result = await asyncMethod();
 
-            Console.WriteLine("Printing" +
-                              " result: " + result);
-        }
+        //[DllImport("libzbc-linux-amd64")]
+        //private static extern String CreateTopic(GoString topicName, Int32 partitions, Int32 replicationFactor);
 
-        public async Task<String> asyncMethod()
-        {
-            await Task.Delay(100);
-            return "1234";
-        }
+
     }
 }
