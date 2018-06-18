@@ -25,7 +25,7 @@ namespace zbclient
         }
 
 
-        [DllImport("libzbc-linux-amd64")]
+        [DllImport("lib/libzbc-linux-amd64")]
         private static extern String InitClient(GoString bootstrapAddress);
 
         public TopicClient TopicClient(string topicName)

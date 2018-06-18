@@ -41,15 +41,18 @@ namespace zbclient
             JobWorker(this.topicName, this.workerName, this.jobType, timeout, credits);
         }
 
-        [DllImport("libzbc-linux-amd64")]
+        [DllImport("lib/libzbc-linux-amd64")]
         private static extern string JobWorker(GoString topic, GoString workerName, GoString jobType, int timeout, int credits);
 
 
-        [DllImport("libzbc-linux-amd64")]
+        [DllImport("lib/libzbc-linux-amd64")]
         private static extern string PollJob(int numberOfJobs);
 
-        [DllImport("libzbc-linux-amd64")]
+        [DllImport("lib/libzbc-linux-amd64")]
         private static extern string CompleteJob(GoString jobKey, GoString payload);
+
+        [DllImport("lib/libzbc-linux-amd64")]
+        private static extern string FailJob(GoString jobKey);
 
         public IList<Job> Poll(int count)
         {
