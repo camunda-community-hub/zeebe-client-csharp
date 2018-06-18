@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props')" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -13,12 +13,12 @@
     <PackageId>zb-csharp-client</PackageId>
     <PackageVersion>0.1.0</PackageVersion>
     <Authors>Christopher Zell</Authors>
-    <PackageIconUrl>zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
+    <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
     <NeutralLanguage>de</NeutralLanguage>
-    <PackageLicenseUrl>www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Owners>Christopher Zell</Owners>
-    <PackageProjectUrl>zeebe.io</PackageProjectUrl>
+    <PackageProjectUrl>http://zeebe.io</PackageProjectUrl>
     <Summary>Csharp client for Zeebe Broker</Summary>
     <PackageTags>zeebe </PackageTags>
     <Title>Zeebe csharp client</Title>
@@ -64,5 +64,5 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets')" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets')" />
 </Project>
