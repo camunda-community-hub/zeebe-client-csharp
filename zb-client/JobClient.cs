@@ -10,19 +10,19 @@ namespace zbclient
 
         public class Response
         {
-            public string error { get; set; }
-            public Data data { get; set; }
+            public string Error { get; set; }
+            public Data Data { get; set; }
         }
 
         public class Data
         {
-            public IList<Job> jobs { get; set; }
+            public IList<Job> Jobs { get; set; }
         }
 
         public class Job
         {
-            public string jobKey { get; set; }
-            public Object payload { get; set; }
+            public string JobKey { get; set; }
+            public Object Payload { get; set; }
         }
 
         private const int timeout = 60_000;
@@ -56,10 +56,10 @@ namespace zbclient
             string result = PollJob(count);
             Response response = JsonConvert.DeserializeObject<Response>(result);
 
-            if (response.data != null)
-                return response.data.jobs;
-            else if (response.error != null)
-                throw new InvalidOperationException(response.error);
+            if (response.Data != null)
+                return response.Data.Jobs;
+            else if (response.Error != null)
+                throw new InvalidOperationException(response.Error);
             else
                 return new List<Job>();
         }
@@ -69,8 +69,14 @@ namespace zbclient
             GoString goJobKey = new GoString(jobKey);
             GoString goPayload = new GoString(payload);
 
-            string result = CompleteJob(goJobKey, goPayload);
-            Console.WriteLine(result);
+            CompleteJob(goJobKey, goPayload);
+        }
+
+        public void Fail(string jobKey)
+        {
+            GoString goJobKey = new GoString(jobKey);
+
+            FailJob(goJobKey);
         }
 
     }

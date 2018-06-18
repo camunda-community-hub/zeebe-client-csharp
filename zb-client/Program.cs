@@ -12,13 +12,23 @@ namespace zbclient
             JobClient jobClient = zeebeClient.DefaultTopic
                                              .JobClient("thisWorker", "myType");
             
-            IList<zbclient.JobClient.Job> jobs = jobClient.Poll(4);
+            IList<zbclient.JobClient.Job> jobs = jobClient.Poll(1);
 
             Console.WriteLine("Polled {0} jobs", jobs.Count);
             foreach (zbclient.JobClient.Job job in jobs)
             {
-                Console.WriteLine("Complete Job {0}", job.jobKey);
-                jobClient.Complete(job.jobKey, "{}");
+                Console.WriteLine("Complete Job {0}", job.JobKey);
+                jobClient.Complete(job.JobKey, "{\"csharpPayload\":true}");
+            }
+
+
+            jobs = jobClient.Poll(1);
+
+            Console.WriteLine("Polled {0} jobs", jobs.Count);
+            foreach (zbclient.JobClient.Job job in jobs)
+            {
+                Console.WriteLine("Fail Job {0}", job.JobKey);
+                jobClient.Fail(job.JobKey);
             }
 
             while (true) ;
