@@ -14,16 +14,20 @@
     <PackageVersion>0.1.0</PackageVersion>
     <Authors>Christopher Zell</Authors>
     <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
-    <NeutralLanguage>de</NeutralLanguage>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Owners>Christopher Zell</Owners>
-    <PackageProjectUrl>http://zeebe.io</PackageProjectUrl>
-    <Summary>Csharp client for Zeebe Broker</Summary>
-    <PackageTags>zeebe </PackageTags>
-    <Title>Zeebe csharp client</Title>
-    <Description>Contains an csharp client for an zeebe broker. Uses as backend the libzb to comunicate with the broker.</Description>
+    <Owners>Zelldon</Owners>
+    <PackageProjectUrl>https://github.com/zeebe-io/zb-csharp-client</PackageProjectUrl>
+    <Summary>Client to communicate with an zeebe broker.</Summary>
+    <PackageTags>zeebe, zb, zb-csharp, zb-client</PackageTags>
+    <Title>Zeebe C# client</Title>
+    <Description>Represents an Zeebe C# client.
+
+Uses as backend the libzbc project (https://github.com/zeebe-io/libzbc) to comunicate with the zeebe broker. For more information about the zeebe project please visit http://zeebe.io</Description>
     <CodePage>65001</CodePage>
+    <PackageReleaseNotes>Contains the core functionallity, like: poll, complete and fail, to create an job worker in C#. 
+
+This release is based on the zeebe 0.10.0 release (https://github.com/zeebe-io/zeebe) and uses the libzbc 0.10,0 as backend (https://github.com/zeebe-io/libzbc)</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
