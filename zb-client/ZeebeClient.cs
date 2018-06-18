@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace zbclient
+namespace Zeebe
 {
     public class ZeebeClient
     {

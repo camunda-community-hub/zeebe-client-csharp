@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace zbclient
+namespace Zeebe
 {
     public class JobClient
     {

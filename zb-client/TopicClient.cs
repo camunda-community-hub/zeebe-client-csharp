@@ -1,5 +1,4 @@
-﻿using System;
-namespace zbclient
+﻿namespace Zeebe
 {
     public class TopicClient
     {

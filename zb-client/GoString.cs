@@ -1,10 +1,9 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
-namespace zbclient
+namespace Zeebe
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct GoString
+    internal struct GoString
     {
         public string value;
         public long length;
