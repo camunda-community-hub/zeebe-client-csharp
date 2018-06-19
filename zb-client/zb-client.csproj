@@ -64,6 +64,7 @@ This release is based on the zeebe 0.10.0 release (https://github.com/zeebe-io/z
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="zb-client.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="libzbc\libzbc-linux-amd64.so">
