@@ -56,9 +56,7 @@
     <file src="lib/libzbc-darwin-10.6-amd64.dylib" target="runtimes/osx-x64/native" />
     <file src="lib/libzbc-darwin-10.6-amd64.h" target="runtimes/osx-x64/native" />
 
-    <file src="lib/libzbc-linux-amd64.h" target="lib/net461" />
     <file src="bin/Release/zb-client.dll" target="lib/net461" />
-
     <file src="zb-client.targets" target="build/native"/>
   </files>
 </package>

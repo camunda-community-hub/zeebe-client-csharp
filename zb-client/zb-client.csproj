@@ -10,8 +10,8 @@
     <AssemblyName>zb-client</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <PackOnBuild>true</PackOnBuild>
-    <PackageId>zb-csharp-client</PackageId>
-    <PackageVersion>0.1.2</PackageVersion>
+    <PackageId>zb-client</PackageId>
+    <PackageVersion>0.1.0</PackageVersion>
     <Authors>Christopher Zell</Authors>
     <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
@@ -25,7 +25,7 @@
 
 Uses as backend the libzbc project (https://github.com/zeebe-io/libzbc) to comunicate with the zeebe broker. For more information about the zeebe project please visit http://zeebe.io</Description>
     <CodePage>65001</CodePage>
-    <PackageReleaseNotes>Note: Patch release fixes libzbc packing
+    <PackageReleaseNotes>Note: Currently only linux is supported as platform
 
 Contains the core functionallity, like: poll, complete and fail, to create an job worker in C#. 
 
