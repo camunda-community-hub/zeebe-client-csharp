@@ -25,22 +25,40 @@
     <summary>Client to communicate with an zeebe broker.</summary>
     <tags>zeebe, zb, zb-csharp, zb-client</tags>
     <dependencies>
-      <group targetFramework=".NETFramework4.7">
+      <group targetFramework="net461">
         <dependency id="Newtonsoft.Json" version="11.0.2" />
       </group>
     </dependencies>
     <frameworkAssemblies>
-      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.7" />
-      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.7" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="net461" />
+      <frameworkAssembly assemblyName="System" targetFramework="net461" />
     </frameworkAssemblies>
-    <references>
-        <reference file="libzbc-linux-amd64.so"/>
-    </references>
+    <!-- <references>
+       <group targetFramework="net461">
+          <reference file="libzbc-linux-amd64.so"/>
+            <reference file="libzbc-linux-amd64.h"/>
+            <reference file="zb-client.dll"/>
+       </group>
+    </references> -->
   </metadata>
 
   <files>
-    <file src="lib/libzbc-linux-amd64.so" target="lib/net47" />
-    <file src="bin/Release/zb-client.dll" target="lib/net47" />
-  </files>
 
+    <!-- linux -->
+    <file src="lib/libzbc-linux-amd64.so" target="runtimes/linux-x64/native" />
+    <file src="lib/libzbc-linux-amd64.h" target="runtimes/linux-x64/native" />
+
+    <!-- windows -->
+    <file src="lib/libzbc-windows-4.0-amd64.dll" target="runtimes/win4-x64/native" />
+    <file src="lib/libzbc-windows-4.0-amd64.h" target="runtimes/win4-x64/native" />
+
+    <!-- mac os -->
+    <file src="lib/libzbc-darwin-10.6-amd64.dylib" target="runtimes/osx-x64/native" />
+    <file src="lib/libzbc-darwin-10.6-amd64.h" target="runtimes/osx-x64/native" />
+
+    <file src="lib/libzbc-linux-amd64.h" target="lib/net461" />
+    <file src="bin/Release/zb-client.dll" target="lib/net461" />
+
+    <file src="zb-client.targets" target="build/native"/>
+  </files>
 </package>
