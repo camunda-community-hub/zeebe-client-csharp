@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zb-grpc", "zb-grpc\zb-grpc.csproj", "{86325E12-E104-4360-B4F4-B21B30754EF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zb-csharp-grpc", "zb-csharp-grpc\zb-csharp-grpc.csproj", "{B0D55C14-B4D9-4DBE-BC2F-4827E4446DF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,5 +15,9 @@ Global
 		{86325E12-E104-4360-B4F4-B21B30754EF3}.Debug|x86.Build.0 = Debug|x86
 		{86325E12-E104-4360-B4F4-B21B30754EF3}.Release|x86.ActiveCfg = Release|x86
 		{86325E12-E104-4360-B4F4-B21B30754EF3}.Release|x86.Build.0 = Release|x86
+		{B0D55C14-B4D9-4DBE-BC2F-4827E4446DF0}.Debug|x86.ActiveCfg = Debug|x86
+		{B0D55C14-B4D9-4DBE-BC2F-4827E4446DF0}.Debug|x86.Build.0 = Debug|x86
+		{B0D55C14-B4D9-4DBE-BC2F-4827E4446DF0}.Release|x86.ActiveCfg = Release|x86
+		{B0D55C14-B4D9-4DBE-BC2F-4827E4446DF0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
