@@ -1,6 +1,8 @@
 # Autosave files
 *~
 
+target/
+
 # build
 [Oo]bj/
 [Bb]in/
