@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
+using Zeebe.Impl;
 
 namespace zbgrpc
 {
@@ -9,13 +10,30 @@ namespace zbgrpc
     {
         public static async Task Main(string[] args)
         {
-            Channel channel = new Channel("127.0.0.1:26500", ChannelCredentials.Insecure);
             Console.WriteLine("Sending health request.");
 
-            HealthResponse response = await HealthRequest(channel);
+            ZeebeClient client = new ZeebeClient("localhost:26500");
+            HealthResponse response = await client.HealtRequest();
+
+            var brokers = response.Brokers;
+            Console.WriteLine("Got response: " + brokers);
+            var enumerator = brokers.GetEnumerator();
+            enumerator.MoveNext();
+            var partitions = enumerator.Current.Partitions;
+
+            Console.WriteLine("Partitions: " + partitions);
+
+            var parEmumerator = partitions.GetEnumerator();
+            parEmumerator.MoveNext();
+            var parId = parEmumerator.Current.PartitionId;
+            var state = parEmumerator.Current.Role;
+
+            Console.WriteLine("Partition id: " + parId);
+            Console.WriteLine("Partition state: " + state);
 
 
-            Console.WriteLine("Got response: " + response.Brokers);
+            client.PublishMessage();
+            Console.WriteLine("Publish message.");
         }
 
         public static async Task<HealthResponse> HealthRequest(Channel channel)
