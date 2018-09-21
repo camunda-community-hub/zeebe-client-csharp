@@ -26,10 +26,10 @@ namespace Zeebe
          * @param messageName the name of the message
          * @return the builder for this command
          */
-        PublishMessageCommandStep2 MessageName(string messageName);
+        IPublishMessageCommandStep2 MessageName(string messageName);
     }
 
-    public interface PublishMessageCommandStep2
+    public interface IPublishMessageCommandStep2
     {
         /**
          * Set the correlation-key of the message.
@@ -37,10 +37,10 @@ namespace Zeebe
          * @param correlationKey the correlation-key of the message
          * @return the builder for this command
          */
-        PublishMessageCommandStep3 CorrelationKey(String correlationKey);
+        IPublishMessageCommandStep3 CorrelationKey(String correlationKey);
     }
 
-    public interface PublishMessageCommandStep3 : IFinalCommandStep<Empty>
+    public interface IPublishMessageCommandStep3 : IFinalCommandStep<Empty>
     {
         /**
          * Set the id of the message. The message is rejected if another message is already published
@@ -50,7 +50,7 @@ namespace Zeebe
          * @return the builder for this command. Call {@link #send()} to complete the command and send
          *     it to the broker.
          */
-        PublishMessageCommandStep3 messageId(String messageId);
+        IPublishMessageCommandStep3 messageId(String messageId);
 
         /**
          * Set the time-to-live of the message. The message can only be correlated within the given
@@ -65,7 +65,7 @@ namespace Zeebe
          * @return the builder for this command. Call {@link #send()} to complete the command and send
          *     it to the broker.
          */
-        PublishMessageCommandStep3 timeToLive(long timeToLive);
+        IPublishMessageCommandStep3 timeToLive(long timeToLive);
 
         /**
          * Set the payload of the message.
@@ -74,6 +74,6 @@ namespace Zeebe
          * @return the builder for this command. Call {@link #send()} to complete the command and send
          *     it to the broker.
          */
-        PublishMessageCommandStep3 payload(String payload);
+        IPublishMessageCommandStep3 payload(String payload);
     }
 }
