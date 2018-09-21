@@ -50,7 +50,7 @@ namespace Zeebe
          * @return the builder for this command. Call {@link #send()} to complete the command and send
          *     it to the broker.
          */
-        IPublishMessageCommandStep3 messageId(String messageId);
+        IPublishMessageCommandStep3 MessageId(String messageId);
 
         /**
          * Set the time-to-live of the message. The message can only be correlated within the given
@@ -65,7 +65,7 @@ namespace Zeebe
          * @return the builder for this command. Call {@link #send()} to complete the command and send
          *     it to the broker.
          */
-        IPublishMessageCommandStep3 timeToLive(long timeToLive);
+        IPublishMessageCommandStep3 TimeToLive(long timeToLive);
 
         /**
          * Set the payload of the message.
@@ -74,6 +74,6 @@ namespace Zeebe
          * @return the builder for this command. Call {@link #send()} to complete the command and send
          *     it to the broker.
          */
-        IPublishMessageCommandStep3 payload(String payload);
+        IPublishMessageCommandStep3 Payload(String payload);
     }
 }

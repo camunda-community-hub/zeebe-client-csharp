@@ -27,9 +27,11 @@ namespace Zeebe.Impl
      */
     public class WorkflowClient
     {
-        public WorkflowClient()
+        private GatewayProtocol.Gateway.GatewayClient gatewayClient;
+
+        public WorkflowClient(GatewayProtocol.Gateway.GatewayClient client)
         {
-            
+            gatewayClient = client;    
         }
 
         /**
@@ -121,9 +123,9 @@ namespace Zeebe.Impl
          *
          * @return a builder for the command
          */
-        IPublishMessageCommandStep1 NewPublishMessageCommand()
+        public IPublishMessageCommandStep1 NewPublishMessageCommand()
         {
-            return null;
+            return new PublishMessageCommand(gatewayClient);
         }
           /**
            * Request to get the resource of a workflow (i.e. the XML representation).

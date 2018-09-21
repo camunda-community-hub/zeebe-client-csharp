@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
 using Zeebe.Impl;
+using Zeebe;
 
 namespace zbgrpc
 {
@@ -31,23 +32,14 @@ namespace zbgrpc
             Console.WriteLine("Partition id: " + parId);
             Console.WriteLine("Partition state: " + state);
 
+            await client.WorkflowClient()
+                        .NewPublishMessageCommand()
+                        .MessageName("messageName")
+                        .CorrelationKey("key")
+                        .Payload("{}")
+                        .Send();
 
-            client.PublishMessage();
             Console.WriteLine("Publish message.");
         }
-
-        public static async Task<HealthResponse> HealthRequest(Channel channel)
-        {
-            var client = new Gateway.GatewayClient(channel);
-            var reply = client.HealthAsync(new HealthRequest());
-
-            Console.WriteLine("Send health request.");
-
-            var response = await reply.ResponseAsync;
-            return response;
-        }
-
-
-
     }
 }

@@ -23,7 +23,7 @@ namespace Zeebe.Impl
             return this;
         }
 
-        public IPublishMessageCommandStep3 messageId(string messageId)
+        public IPublishMessageCommandStep3 MessageId(string messageId)
         {
             request.MessageId = messageId;
             return this;
@@ -35,13 +35,13 @@ namespace Zeebe.Impl
             return this;
         }
 
-        public IPublishMessageCommandStep3 payload(string payload)
+        public IPublishMessageCommandStep3 Payload(string payload)
         {
             request.Payload = payload;
             return this;
         }
 
-        public IPublishMessageCommandStep3 timeToLive(long timeToLive)
+        public IPublishMessageCommandStep3 TimeToLive(long timeToLive)
         {
             request.TimeToLive = timeToLive;
             return this;

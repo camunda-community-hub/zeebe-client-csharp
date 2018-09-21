@@ -26,17 +26,6 @@ namespace Zeebe.Impl
             return response;
         }
 
-        public void PublishMessage()
-        {
-            var publishMessageRequest = new PublishMessageRequest();
-
-            publishMessageRequest.CorrelationKey = "key";
-            publishMessageRequest.Name = "messageName";
-            publishMessageRequest.Payload = "payload";
-            publishMessageRequest.TimeToLive = 1000;
-            publishMessageRequest.Payload = "{}";
-
-            var asyncReply = gatewayClient.PublishMessage(publishMessageRequest);
-        }
+        public WorkflowClient WorkflowClient() => new WorkflowClient(gatewayClient);
     }
 }
