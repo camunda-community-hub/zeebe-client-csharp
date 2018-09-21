@@ -14,6 +14,8 @@
 * limitations under the License.
 */
 using System;
+using System.IO;
+using System.Text;
 using GatewayProtocol;
 
 namespace Zeebe
@@ -41,7 +43,7 @@ namespace Zeebe
          *     to the broker.
          */
         IDeployWorkflowCommandBuilderStep2 AddResourceString(
-            String resourceString, Charset charset, String resourceName);
+            String resourceString, Encoding encoding, String resourceName);
 
         /**
          * Add the given resource to the deployment.
@@ -63,7 +65,7 @@ namespace Zeebe
          *     to the broker.
          */
         IDeployWorkflowCommandBuilderStep2 AddResourceStream(
-            InputStream resourceStream, String resourceName);
+            Stream resourceStream, String resourceName);
 
         /**
          * Add the given resource to the deployment.

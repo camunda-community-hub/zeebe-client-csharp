@@ -55,6 +55,7 @@
     <Compile Include="Zeebe\Impl\ZeebeClient.cs" />
     <Compile Include="Zeebe\IPublishMessageCommandStep1.cs" />
     <Compile Include="Zeebe\Impl\PublishMessageCommand.cs" />
+    <Compile Include="Zeebe\Impl\DeployWorkflowCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
