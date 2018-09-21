@@ -107,22 +107,24 @@ namespace Zeebe.Impl
              */
             //UpdatePayloadWorkflowInstanceCommandStep1 newUpdatePayloadCommand(WorkflowInstanceEvent event);
 
-            /**
-             * Command to publish a message which can be correlated to a workflow instance.
-             *
-             * <pre>
-             * workflowClient
-             *  .newPublishMessageCommand()
-             *  .messageName("order canceled")
-             *  .correlationKey(orderId)
-             *  .payload(json)
-             *  .send();
-             * </pre>
-             *
-             * @return a builder for the command
-             */
-            //PublishMessageCommandStep1 newPublishMessageCommand();
-
+        /**
+         * Command to publish a message which can be correlated to a workflow instance.
+         *
+         * <pre>
+         * workflowClient
+         *  .newPublishMessageCommand()
+         *  .messageName("order canceled")
+         *  .correlationKey(orderId)
+         *  .payload(json)
+         *  .send();
+         * </pre>
+         *
+         * @return a builder for the command
+         */
+        IPublishMessageCommandStep1 NewPublishMessageCommand()
+        {
+            return null;
+        }
           /**
            * Request to get the resource of a workflow (i.e. the XML representation).
            *
