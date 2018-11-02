@@ -14,7 +14,7 @@ namespace zbgrpc
             Console.WriteLine("Sending health request.");
 
             ZeebeClient client = new ZeebeClient("localhost:26500");
-            HealthResponse response = await client.HealtRequest();
+            TopologyResponse response = await client.TopologyRequest();
 
             var brokers = response.Brokers;
             Console.WriteLine("Got response: " + brokers);

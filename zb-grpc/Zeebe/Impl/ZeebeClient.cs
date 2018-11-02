@@ -7,7 +7,7 @@ namespace Zeebe.Impl
 {
     public class ZeebeClient
     {
-        private HealthRequest healtRequest = new HealthRequest();
+        private TopologyRequest topologyRequest = new TopologyRequest();
 
         private Channel channelToGateway;
         private Gateway.GatewayClient gatewayClient;
@@ -19,9 +19,9 @@ namespace Zeebe.Impl
         }
 
 
-        public async Task<HealthResponse> HealtRequest()
+        public async Task<TopologyResponse> TopologyRequest()
         {
-            var asyncReply = gatewayClient.HealthAsync(healtRequest);
+            var asyncReply = gatewayClient.TopologyAsync(topologyRequest);
             var response = await asyncReply.ResponseAsync;
             return response;
         }
