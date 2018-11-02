@@ -29,6 +29,16 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="System.Interactive.Async">
+      <HintPath>..\packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Core">
+      <HintPath>..\packages\Grpc.Core.1.16.0\lib\net45\Grpc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Grpc.Core.Testing">
+      <HintPath>..\packages\Grpc.Core.Testing.1.16.0\lib\net45\Grpc.Core.Testing.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ZeebeTest.cs" />
@@ -43,4 +53,5 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Grpc.Core.1.16.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.16.0\build\net45\Grpc.Core.targets')" />
 </Project>

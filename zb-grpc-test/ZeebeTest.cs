@@ -2,7 +2,7 @@
 using System;
 using Zeebe.Impl;
 using GatewayProtocol;
-
+using Grpc.Core.Testing;
 
 namespace zbgrpctest
 {
@@ -14,15 +14,14 @@ namespace zbgrpctest
         [Test]
         public async void RequestToplogy()
         {
-
             // given
+            Grpc.Core.Server s = new Grpc.Core.Server();
+            s.Start();
 
             // when
-            HealthResponse response = await zeebeClient.HealtRequest();
+            TopologyResponse response = await zeebeClient.TopologyRequest();
 
             // then
-
-
         }
     }
 }
