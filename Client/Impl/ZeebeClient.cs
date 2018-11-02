@@ -1,13 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Grpc.Core;
 using GatewayProtocol;
+using Zeebe.Client.Api.Clients;
+using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Impl.Commands;
 
 namespace Zeebe.Client.Impl
 {
-    public class ZeebeClient
+    public class ZeebeClient : IZeebeClient
     {
-        private TopologyRequest topologyRequest = new TopologyRequest();
-
         private Channel channelToGateway;
         private Gateway.GatewayClient gatewayClient;
 
@@ -18,13 +19,15 @@ namespace Zeebe.Client.Impl
         }
 
 
-        public async Task<TopologyResponse> TopologyRequest()
+        public IJobClient JobClient()
         {
-            var asyncReply = gatewayClient.TopologyAsync(topologyRequest);
-            var response = await asyncReply.ResponseAsync;
-            return response;
+            throw new System.NotImplementedException();
         }
 
-        public WorkflowClient WorkflowClient() => new WorkflowClient(gatewayClient);
+        public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient);
+
+        public IWorkflowClient WorkflowClient() => new WorkflowClient(gatewayClient);
+
+        public void Dispose() => channelToGateway.ShutdownAsync();
     }
 }

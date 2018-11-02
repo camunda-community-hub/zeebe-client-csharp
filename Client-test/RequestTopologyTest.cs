@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
 using GatewayProtocol;
+using Zeebe.Client.Impl.Responses;
+using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client
 {
@@ -13,7 +15,7 @@ namespace Zeebe.Client
             TopologyRequest expectedRequest = new TopologyRequest();
 
             // when
-            TopologyResponse response = await ZeebeClient.TopologyRequest();
+            ITopology topology = await ZeebeClient.TopologyRequest().Send();
 
             // then
             var actualRequest = TestService.Requests[0];
@@ -28,7 +30,7 @@ namespace Zeebe.Client
             // given
 
             // when
-            TopologyResponse response = await ZeebeClient.TopologyRequest();
+            ITopology response = await ZeebeClient.TopologyRequest().Send();
 
             // then
 

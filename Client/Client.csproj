@@ -49,13 +49,24 @@
     <Compile Include="Api\Commands\IDeployWorkflowCommandStep1.cs" />
     <Compile Include="Api\Commands\IFinalCommandStep.cs" />
     <Compile Include="Api\Commands\IPublishMessageCommandStep1.cs" />
-    <Compile Include="Api\Responses\Topology.cs" />
     <Compile Include="Impl\Commands\DeployWorkflowCommand.cs" />
     <Compile Include="Impl\Commands\PublishMessageCommand.cs" />
     <Compile Include="Impl\WorkflowClient.cs" />
     <Compile Include="Impl\ZeebeClient.cs" />
     <Compile Include="Impl\proto\Gateway.cs" />
     <Compile Include="Impl\proto\GatewayGrpc.cs" />
+    <Compile Include="Api\Responses\PartitionBrokerRole.cs" />
+    <Compile Include="Api\Clients\IJobClient.cs" />
+    <Compile Include="Api\Clients\IWorkflowClient.cs" />
+    <Compile Include="IZeebeClient.cs" />
+    <Compile Include="Api\Commands\ITopologyRequestStep1.cs" />
+    <Compile Include="Api\Responses\ITopology.cs" />
+    <Compile Include="Api\Responses\IBrokerInfo.cs" />
+    <Compile Include="Api\Responses\IPartitionInfo.cs" />
+    <Compile Include="Impl\Commands\TopologyRequestCommand.cs" />
+    <Compile Include="Impl\Responses\Topology.cs" />
+    <Compile Include="Impl\Responses\BrokerInfo.cs" />
+    <Compile Include="Impl\Responses\PartitionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -65,6 +76,8 @@
     <Folder Include="Api\" />
     <Folder Include="Impl\" />
     <Folder Include="Impl\proto\" />
+    <Folder Include="Api\Clients\" />
+    <Folder Include="Impl\Responses\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.16.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.16.0\build\net45\Grpc.Core.targets')" />

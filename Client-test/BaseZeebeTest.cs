@@ -9,11 +9,11 @@ namespace Zeebe.Client
     {
         private Server server;
         private GatewayTestService testService;
-        private ZeebeClient client;
+        private IZeebeClient client;
 
         public Server Server { get { return server; }}
         public GatewayTestService TestService { get { return testService; }}
-        public ZeebeClient ZeebeClient { get { return client; }}
+        public IZeebeClient ZeebeClient { get { return client; }}
 
 
         [SetUp]

@@ -14,6 +14,7 @@
 * limitations under the License.
 */
 
+using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Impl.Commands;
 
@@ -28,7 +29,7 @@ namespace Zeebe.Client.Impl
      * <li>request a workflow resource
      * <li>request all deployed workflows
      */
-    public class WorkflowClient
+    public class WorkflowClient : IWorkflowClient
     {
         private GatewayProtocol.Gateway.GatewayClient gatewayClient;
 
