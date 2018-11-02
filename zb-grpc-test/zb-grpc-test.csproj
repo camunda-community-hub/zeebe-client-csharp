@@ -39,9 +39,13 @@
     <Reference Include="Grpc.Core.Testing">
       <HintPath>..\packages\Grpc.Core.Testing.1.16.0\lib\net45\Grpc.Core.Testing.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ZeebeTest.cs" />
+    <Compile Include="GatewayTestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

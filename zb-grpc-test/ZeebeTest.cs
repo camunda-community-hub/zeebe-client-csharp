@@ -3,6 +3,7 @@ using System;
 using Zeebe.Impl;
 using GatewayProtocol;
 using Grpc.Core.Testing;
+using Grpc.Core;
 
 namespace zbgrpctest
 {
@@ -15,11 +16,16 @@ namespace zbgrpctest
         public async void RequestToplogy()
         {
             // given
-            Grpc.Core.Server s = new Grpc.Core.Server();
-            s.Start();
+            Server server = new Grpc.Core.Server();
+            server.Ports.Add(new ServerPort("localhost", 26500, ServerCredentials.Insecure));
+            var testService = new GatewayTestService();
+            var serviceDefinition = Gateway.BindService(testService);
+            server.Services.Add(serviceDefinition);
+            server.Start();
 
             // when
             TopologyResponse response = await zeebeClient.TopologyRequest();
+
 
             // then
         }
