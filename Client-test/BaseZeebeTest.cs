@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 using Grpc.Core;
 using GatewayProtocol;
-using Zeebe.Impl;
+using Zeebe.Client.Impl;
 
-namespace zbgrpctest
+namespace Zeebe.Client
 {
     public class BaseZeebeTest
     {

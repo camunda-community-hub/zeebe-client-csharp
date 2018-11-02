@@ -18,7 +18,7 @@ using System.IO;
 using System.Text;
 using GatewayProtocol;
 
-namespace Zeebe
+namespace Zeebe.Client.Api.Commands
 {
     public interface IDeployWorkflowCommandStep1
     {

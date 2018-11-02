@@ -1,9 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Grpc.Core;
 using GatewayProtocol;
 
-namespace Zeebe.Impl
+namespace Zeebe.Client.Impl
 {
     public class ZeebeClient
     {

@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{98FB2560-2C8F-4A55-AD83-5D004F6833DC}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>zbgrpctest</RootNamespace>
-    <AssemblyName>zb-grpc-test</AssemblyName>
+    <RootNamespace>Zeebe.Client</RootNamespace>
+    <AssemblyName>client-test</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -52,9 +52,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\zb-grpc\zb-grpc.csproj">
+    <ProjectReference Include="..\Client\Client.csproj">
       <Project>{86325E12-E104-4360-B4F4-B21B30754EF3}</Project>
-      <Name>zb-grpc</Name>
+      <Name>Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

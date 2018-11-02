@@ -15,7 +15,7 @@
 */
 using System.Threading.Tasks;
 
-namespace Zeebe
+namespace Zeebe.Client.Api.Commands
 {
     public interface IFinalCommandStep<T>
     {

@@ -4,8 +4,9 @@ using System.Text;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Google.Protobuf;
+using Zeebe.Client.Api.Commands;
 
-namespace Zeebe.Impl
+namespace Zeebe.Client.Impl.Commands
 {
     public class DeployWorkflowCommand : IDeployWorkflowCommandStep1, IDeployWorkflowCommandBuilderStep2
     {

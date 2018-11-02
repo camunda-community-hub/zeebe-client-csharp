@@ -3,8 +3,9 @@ using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using GatewayProtocol;
+using Zeebe.Client.Api.Commands;
 
-namespace Zeebe.Impl
+namespace Zeebe.Client.Impl.Commands
 {
     public class PublishMessageCommand : IPublishMessageCommandStep1, IPublishMessageCommandStep2, IPublishMessageCommandStep3
     {

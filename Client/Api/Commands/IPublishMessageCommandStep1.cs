@@ -16,7 +16,7 @@
 using System;
 using Google.Protobuf.WellKnownTypes;
 
-namespace Zeebe
+namespace Zeebe.Client.Api.Commands
 {
     public interface IPublishMessageCommandStep1
     {

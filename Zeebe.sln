@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zb-grpc", "zb-grpc\zb-grpc.csproj", "{86325E12-E104-4360-B4F4-B21B30754EF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{86325E12-E104-4360-B4F4-B21B30754EF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zb-grpc-test", "zb-grpc-test\zb-grpc-test.csproj", "{98FB2560-2C8F-4A55-AD83-5D004F6833DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client-test", "Client-test\Client-test.csproj", "{98FB2560-2C8F-4A55-AD83-5D004F6833DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

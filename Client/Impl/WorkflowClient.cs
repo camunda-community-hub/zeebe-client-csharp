@@ -14,7 +14,10 @@
 * limitations under the License.
 */
 
-namespace Zeebe.Impl
+using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Impl.Commands;
+
+namespace Zeebe.Client.Impl
 {
     /**
      * A client with access to all workflow-related operations:

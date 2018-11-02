@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Google.Protobuf;
 using System.Threading.Tasks;
 
-namespace zbgrpctest
+namespace Zeebe.Client
 {
     public class GatewayTestService : GatewayProtocol.Gateway.GatewayBase
     {

@@ -1,11 +1,7 @@
 ﻿using NUnit.Framework;
-using System;
-using Zeebe.Impl;
 using GatewayProtocol;
-using Grpc.Core.Testing;
-using Grpc.Core;
 
-namespace zbgrpctest
+namespace Zeebe.Client
 {
     [TestFixture]
     public class RequestTopologyTest : BaseZeebeTest
@@ -23,6 +19,19 @@ namespace zbgrpctest
             var actualRequest = TestService.Requests[0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
+        }
+
+
+        [Test]
+        public async void ShouldReceiveResponseAsExpected()
+        {
+            // given
+
+            // when
+            TopologyResponse response = await ZeebeClient.TopologyRequest();
+
+            // then
+
         }
     }
 }
