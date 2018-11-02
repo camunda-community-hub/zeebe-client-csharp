@@ -47,10 +47,9 @@ namespace Zeebe.Impl
          *
          * @return a builder for the command
          */
-         IDeployWorkflowCommandStep1 NewDeployCommand()
+        public IDeployWorkflowCommandStep1 NewDeployCommand()
         {
-            
-            return null;
+            return new DeployWorkflowCommand(gatewayClient);
         }
 
             /**

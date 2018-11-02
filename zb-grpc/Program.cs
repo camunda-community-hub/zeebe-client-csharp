@@ -38,7 +38,6 @@ namespace zbgrpc
                         .CorrelationKey("key")
                         .Payload("{}")
                         .Send();
-
             Console.WriteLine("Publish message.");
         }
     }
