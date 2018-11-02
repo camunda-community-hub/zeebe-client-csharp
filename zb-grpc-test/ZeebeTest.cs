@@ -23,11 +23,15 @@ namespace zbgrpctest
             server.Services.Add(serviceDefinition);
             server.Start();
 
+            TopologyRequest expectedRequest = new TopologyRequest();
+
             // when
             TopologyResponse response = await zeebeClient.TopologyRequest();
 
-
             // then
+            var actualRequest = testService.Requests[0];
+
+            Assert.AreEqual(expectedRequest, actualRequest);
         }
     }
 }
