@@ -44,8 +44,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ZeebeTest.cs" />
+    <Compile Include="RequestTopologyTest.cs" />
     <Compile Include="GatewayTestService.cs" />
+    <Compile Include="BaseZeebeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
