@@ -14,7 +14,7 @@ namespace Zeebe.Client.Api.Responses
         /** @return the address port of the broker */
         int Port { get; }
 
-        /** @return the address (host+port) of the broker */
+        /** @return the address (host+port) of the broker separated by a ':'*/
         string Address { get; }
 
         /** @return all partitions of the broker */
