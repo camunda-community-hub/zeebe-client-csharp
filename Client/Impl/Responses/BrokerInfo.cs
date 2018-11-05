@@ -7,6 +7,8 @@ namespace Zeebe.Client.Impl.Responses
 {
     public class BrokerInfo : IBrokerInfo
     {
+        private const char AddressSeparator = ':';
+
         public string Address { get; set; }
         public string Host { get; set; }
         public int NodeId { get; set; }
@@ -15,7 +17,7 @@ namespace Zeebe.Client.Impl.Responses
 
         public BrokerInfo(GatewayProtocol.BrokerInfo brokerInfo)
         {
-            Address = brokerInfo.Host + brokerInfo.Port;
+            Address = brokerInfo.Host + AddressSeparator + brokerInfo.Port;
             Host = brokerInfo.Host;
             NodeId = brokerInfo.NodeId;
             Port = brokerInfo.Port;

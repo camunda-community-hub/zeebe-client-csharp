@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace Zeebe.Client
 {
+    public delegate IMessage RequestHandler(IMessage request);
+
     public class GatewayTestService : GatewayProtocol.Gateway.GatewayBase
     {
         
@@ -17,14 +19,14 @@ namespace Zeebe.Client
          */
         private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new Dictionary<Type, RequestHandler>();
 
-        delegate IMessage RequestHandler(IMessage request);
-
         public IList<IMessage> Requests { get { return requests; } }
 
         public GatewayTestService()
         {
             typedRequestHandler.Add(typeof(GatewayProtocol.TopologyRequest), (request) => new GatewayProtocol.TopologyResponse());
         }
+
+        public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
 
         //
         // overwrite base methods to handle requests
