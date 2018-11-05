@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client-test", "Client-test\Client-test.csproj", "{98FB2560-2C8F-4A55-AD83-5D004F6833DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client-Example", "Client-Example\Client-Example.csproj", "{5A429B91-AC70-418D-93B6-A72E9D75B2C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,6 +21,10 @@ Global
 		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Debug|x86.Build.0 = Debug|Any CPU
 		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Release|x86.ActiveCfg = Release|Any CPU
 		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Release|x86.Build.0 = Release|Any CPU
+		{5A429B91-AC70-418D-93B6-A72E9D75B2C3}.Debug|x86.ActiveCfg = Debug|x86
+		{5A429B91-AC70-418D-93B6-A72E9D75B2C3}.Debug|x86.Build.0 = Debug|x86
+		{5A429B91-AC70-418D-93B6-A72E9D75B2C3}.Release|x86.ActiveCfg = Release|x86
+		{5A429B91-AC70-418D-93B6-A72E9D75B2C3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
