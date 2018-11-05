@@ -43,6 +43,9 @@
     <Reference Include="Grpc.Core">
       <HintPath>..\packages\Grpc.Core.1.16.0\lib\net45\Grpc.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -67,6 +70,14 @@
     <Compile Include="Impl\Responses\Topology.cs" />
     <Compile Include="Impl\Responses\BrokerInfo.cs" />
     <Compile Include="Impl\Responses\PartitionInfo.cs" />
+    <Compile Include="Api\Subscription\IJobWorker.cs" />
+    <Compile Include="Api\Subscription\IJobWorkerBuilderStep1.cs" />
+    <Compile Include="Api\Responses\IJob.cs" />
+    <Compile Include="Api\Responses\IJobHeaders.cs" />
+    <Compile Include="Impl\Subscription\JobWorkerBuilder.cs" />
+    <Compile Include="Impl\Subscription\JobWorker.cs" />
+    <Compile Include="Impl\Responses\ActivatedJob.cs" />
+    <Compile Include="Impl\Responses\JobHeaders.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -78,6 +89,8 @@
     <Folder Include="Impl\proto\" />
     <Folder Include="Api\Clients\" />
     <Folder Include="Impl\Responses\" />
+    <Folder Include="Api\Subscription\" />
+    <Folder Include="Impl\Subscription\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.16.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.16.0\build\net45\Grpc.Core.targets')" />
