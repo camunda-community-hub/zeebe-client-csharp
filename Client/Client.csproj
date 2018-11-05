@@ -78,6 +78,7 @@
     <Compile Include="Impl\Subscription\JobWorker.cs" />
     <Compile Include="Impl\Responses\ActivatedJob.cs" />
     <Compile Include="Impl\Responses\JobHeaders.cs" />
+    <Compile Include="Impl\JobClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

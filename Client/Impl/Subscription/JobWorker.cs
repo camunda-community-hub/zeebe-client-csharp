@@ -52,22 +52,29 @@ namespace Zeebe.Client.Impl.Subscription
             isRunning = true;
             CancellationToken cancellationToken = source.Token;
 
-            var poller = new TaskFactory().StartNew(async () => await Poll(cancellationToken), cancellationToken);
-            poller.Start();
+            TaskFactory taskFactory = new TaskFactory();
+            var poller = taskFactory.StartNew(async () => await Poll(cancellationToken));
+            var handler = taskFactory.StartNew(() => HandleActivatedJobs());
 
-            var handler = new TaskFactory().StartNew(() => HandleActivatedJobs(), cancellationToken);
-            handler.Start();
+            Task.WaitAll(poller, handler);
         }
 
         private void HandleActivatedJobs()
         {
-            while (isRunning && !workItems.IsEmpty)
+            while (isRunning)
             {
-                bool success = workItems.TryDequeue(out IJob activatedJob);
-
-                if (success)
+                if (!workItems.IsEmpty)
                 {
-                    jobHandler.Invoke(jobClient, activatedJob);
+                    bool success = workItems.TryDequeue(out IJob activatedJob);
+
+                    if (success)
+                    {
+                        jobHandler.Invoke(jobClient, activatedJob);
+                    }
+                }
+                else
+                {
+                    Thread.Sleep(pollInterval);
                 }
             }
         }

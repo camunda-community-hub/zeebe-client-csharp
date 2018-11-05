@@ -18,11 +18,7 @@ namespace Zeebe.Client.Impl
             gatewayClient = new Gateway.GatewayClient(channelToGateway);
         }
 
-
-        public IJobClient JobClient()
-        {
-            throw new System.NotImplementedException();
-        }
+        public IJobClient JobClient() => new JobClient(gatewayClient);
 
         public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient);
 

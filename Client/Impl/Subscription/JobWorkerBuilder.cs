@@ -28,7 +28,7 @@ namespace Zeebe.Client.Impl.Subscription
         private JobHandler handler;
         private int pollInterval;
 
-        public JobWorkerBuilder(GatewayProtocol.Gateway.GatewayClient client, IJobClient jobClient)
+        public JobWorkerBuilder(Gateway.GatewayClient client, IJobClient jobClient)
         {
             this.gatewayClient = client;
             this.jobClient = jobClient;
