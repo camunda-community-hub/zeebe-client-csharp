@@ -3,6 +3,7 @@ using GatewayProtocol;
 using Zeebe.Client.Impl.Responses;
 using Zeebe.Client.Api.Responses;
 using System.Diagnostics.Contracts;
+using System.Threading.Tasks;
 
 namespace Zeebe.Client
 {
@@ -10,7 +11,7 @@ namespace Zeebe.Client
     public class RequestTopologyTest : BaseZeebeTest
     {
         [Test]
-        public async void ShouldSendRequestAsExpected()
+        public async Task ShouldSendRequestAsExpected()
         {
             // given
             TopologyRequest expectedRequest = new TopologyRequest();
@@ -26,7 +27,7 @@ namespace Zeebe.Client
 
 
         [Test]
-        public async void ShouldReceiveResponseAsExpected()
+        public async Task ShouldReceiveResponseAsExpected()
         {
             // given
             TopologyResponse expectedResponse = new TopologyResponse();
