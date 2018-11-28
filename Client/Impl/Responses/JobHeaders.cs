@@ -12,7 +12,6 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using System;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Impl.Responses
@@ -29,17 +28,17 @@ namespace Zeebe.Client.Impl.Responses
             ElementInstanceKey = jobHeaders.ElementInstanceKey;
         }
 
-        public long WorkflowInstanceKey { get; private set; }
+        public long WorkflowInstanceKey { get; }
 
-        public string BpmnProcessId { get; private set; }
+        public string BpmnProcessId { get; }
 
-        public int WorkflowDefinitionVersion { get; private set; }
+        public int WorkflowDefinitionVersion { get; }
 
-        public long WorkflowKey { get; private set; }
+        public long WorkflowKey { get; }
 
-        public string ElementId { get; private set; }
+        public string ElementId { get; }
 
-        public long ElementInstanceKey { get; private set; }
+        public long ElementInstanceKey { get; }
 
     }
 }

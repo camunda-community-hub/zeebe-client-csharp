@@ -8,7 +8,7 @@ namespace Zeebe.Client.Impl.Responses
 {
     public class Topology : ITopology
     {
-        public IList<IBrokerInfo> Brokers { get; set; }
+        public IList<IBrokerInfo> Brokers { get; }
 
         public Topology(TopologyResponse response)
         {

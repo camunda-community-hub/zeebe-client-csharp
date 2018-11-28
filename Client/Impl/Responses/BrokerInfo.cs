@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Zeebe.Client.Api.Responses;
 
@@ -9,11 +8,11 @@ namespace Zeebe.Client.Impl.Responses
     {
         private const char AddressSeparator = ':';
 
-        public string Address { get; set; }
-        public string Host { get; set; }
-        public int NodeId { get; set; }
-        public int Port { get; set; }
-        public IList<IPartitionInfo> Partitions { get; set; }
+        public string Address { get; }
+        public string Host { get; }
+        public int NodeId { get; }
+        public int Port { get; }
+        public IList<IPartitionInfo> Partitions { get; }
 
         public BrokerInfo(GatewayProtocol.BrokerInfo brokerInfo)
         {
@@ -23,7 +22,7 @@ namespace Zeebe.Client.Impl.Responses
             Port = brokerInfo.Port;
 
             Partitions = brokerInfo.Partitions
-                .Select(parition => new PartitionInfo(parition))
+                .Select(partition => new PartitionInfo(partition))
                 .Cast<IPartitionInfo>()
                 .ToList();
         }

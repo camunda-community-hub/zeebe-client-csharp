@@ -23,7 +23,7 @@ namespace Zeebe.Client.Impl.Responses
     {
         private static DateTime FromUTCTimestamp(long milliseconds)
         {
-            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
             dtDateTime = dtDateTime.AddMilliseconds(milliseconds).ToLocalTime();
             return dtDateTime;
         }
@@ -40,21 +40,21 @@ namespace Zeebe.Client.Impl.Responses
             PayloadAsDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(Payload);
         }
 
-        public long Key { get; set; }
+        public long Key { get; }
 
-        public string Type { get; set; }
+        public string Type { get; }
 
-        public IJobHeaders Headers { get; set; }
+        public IJobHeaders Headers { get; }
 
-        public string Worker { get; set; }
+        public string Worker { get; }
 
-        public int Retries { get; set; }
+        public int Retries { get; }
 
-        public DateTime Deadline { get; set; }
+        public DateTime Deadline { get; }
 
-        public string Payload { get; set; }
+        public string Payload { get; }
 
-        public IDictionary<string, object> PayloadAsDictionary { get; set; }
+        public IDictionary<string, object> PayloadAsDictionary { get; }
 
         public InstanceType PayloadAsType<InstanceType>() {
             return JsonConvert.DeserializeObject<InstanceType>(Payload);

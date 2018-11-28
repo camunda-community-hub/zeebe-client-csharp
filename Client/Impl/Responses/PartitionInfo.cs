@@ -5,9 +5,9 @@ namespace Zeebe.Client.Impl.Responses
 {
     public class PartitionInfo : IPartitionInfo
     {
-        public int PartitionId { get; set; }
-        public bool IsLeader { get; set; }
-        public PartitionBrokerRole Role { get; set; }
+        public int PartitionId { get; }
+        public bool IsLeader { get; }
+        public PartitionBrokerRole Role { get; }
 
         public PartitionInfo(GatewayProtocol.Partition partition)
         {

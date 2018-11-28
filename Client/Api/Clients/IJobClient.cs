@@ -21,7 +21,6 @@ namespace Zeebe.Client.Api.Clients
 {
     /**
      * A client with access to all job-related operation:
-     * <li>create a (standalone) job
      * <li>complete a job
      * <li>mark a job as failed
      * <li>update the retries of a job

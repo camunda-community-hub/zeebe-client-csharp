@@ -1,18 +1,17 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
-using Grpc.Core;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
+using static GatewayProtocol.Gateway;
 
 namespace Zeebe.Client.Impl.Commands
 {
     public class PublishMessageCommand : IPublishMessageCommandStep1, IPublishMessageCommandStep2, IPublishMessageCommandStep3
     {
-        private PublishMessageRequest request;
-        private GatewayProtocol.Gateway.GatewayClient gatewayClient;
+        private readonly PublishMessageRequest request;
+        private readonly GatewayClient gatewayClient;
 
-        public PublishMessageCommand(Gateway.GatewayClient client)
+        public PublishMessageCommand(GatewayClient client)
         {
             gatewayClient = client;
             request = new PublishMessageRequest();
