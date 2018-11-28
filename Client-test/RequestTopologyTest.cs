@@ -17,7 +17,7 @@ namespace Zeebe.Client
             TopologyRequest expectedRequest = new TopologyRequest();
 
             // when
-            ITopology topology = await ZeebeClient.TopologyRequest().Send();
+            await ZeebeClient.TopologyRequest().Send();
 
             // then
             var actualRequest = TestService.Requests[0];
@@ -34,7 +34,7 @@ namespace Zeebe.Client
             expectedResponse.Brokers.Add(CreateBrokerInfo(0, "host", 26501, 0, true));
             expectedResponse.Brokers.Add(CreateBrokerInfo(1, "host", 26501, 0, false));
             expectedResponse.Brokers.Add(CreateBrokerInfo(2, "host", 26501, 0, false));
-            TestService.AddRequestHandler(typeof(GatewayProtocol.TopologyRequest), (request) => expectedResponse);
+            TestService.AddRequestHandler(typeof(TopologyRequest), (request) => expectedResponse);
 
             // when
             ITopology response = await ZeebeClient.TopologyRequest().Send();
@@ -71,14 +71,18 @@ namespace Zeebe.Client
 
         private GatewayProtocol.BrokerInfo CreateBrokerInfo(int nodeId, string host, int port, int partitionId, bool leader)
         {
-            GatewayProtocol.BrokerInfo brokerInfo = new GatewayProtocol.BrokerInfo();
-            brokerInfo.Host = host + nodeId;
-            brokerInfo.NodeId = nodeId;
-            brokerInfo.Port = port;
+            var brokerInfo = new GatewayProtocol.BrokerInfo
+            {
+                Host = host + nodeId, NodeId = nodeId, Port = port
+            };
 
-            GatewayProtocol.Partition partition = new GatewayProtocol.Partition();
-            partition.PartitionId = partitionId;
-            partition.Role = leader ? Partition.Types.PartitionBrokerRole.Leader : Partition.Types.PartitionBrokerRole.Follower;
+            var partition = new Partition
+            {
+                PartitionId = partitionId,
+                Role = leader
+                    ? Partition.Types.PartitionBrokerRole.Leader
+                    : Partition.Types.PartitionBrokerRole.Follower
+            };
             brokerInfo.Partitions.Add(partition);
 
             return brokerInfo;

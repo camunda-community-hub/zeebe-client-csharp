@@ -19,7 +19,7 @@ namespace Zeebe.Client
          */
         private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new Dictionary<Type, RequestHandler>();
 
-        public IList<IMessage> Requests { get { return requests; } }
+        public IList<IMessage> Requests => requests;
 
         public GatewayTestService()
         {
@@ -32,7 +32,7 @@ namespace Zeebe.Client
         // overwrite base methods to handle requests
         //
 
-        public override System.Threading.Tasks.Task<GatewayProtocol.TopologyResponse> Topology(GatewayProtocol.TopologyRequest request, Grpc.Core.ServerCallContext context)
+        public override Task<GatewayProtocol.TopologyResponse> Topology(GatewayProtocol.TopologyRequest request, Grpc.Core.ServerCallContext context)
         {
             return Task.FromResult((GatewayProtocol.TopologyResponse) HandleRequest(request, context));
         }

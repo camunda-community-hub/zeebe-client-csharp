@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Subscription;
 
 namespace Zeebe.Client.Api.Clients
@@ -48,7 +47,7 @@ namespace Zeebe.Client.Api.Clients
          * Example JobHandler implementation:
          *
          * <pre>
-         * public class PaymentHandler implements JobHandler
+         * public class PaymentHandler : JobHandler
          * {
          *   &#64;Override
          *   public void handle(JobClient client, JobEvent jobEvent)
