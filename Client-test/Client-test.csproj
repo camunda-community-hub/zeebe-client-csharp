@@ -42,10 +42,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JobWorkerTest.cs" />
     <Compile Include="RequestTopologyTest.cs" />
     <Compile Include="GatewayTestService.cs" />
     <Compile Include="BaseZeebeTest.cs" />
-    <Compile Include="ExampleMain.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

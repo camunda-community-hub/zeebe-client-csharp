@@ -13,7 +13,11 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using System;
+using GatewayProtocol;
+using Google.Protobuf.Collections;
+using Grpc.Core;
 using Zeebe.Client;
+using Zeebe.Client.Impl;
 
 namespace ClientExample
 {
@@ -23,8 +27,35 @@ namespace ClientExample
         {
             Console.WriteLine("Hello World!");
 
+            var server = new Server();
+            server.Ports.Add(new ServerPort("localhost", 26500, ServerCredentials.Insecure));
 
-            IZeebeClient client = new Zeebe.Client.Impl.ZeebeClient("localhost:26500");
+            var testService = new GatewayTestService();
+            var serviceDefinition = Gateway.BindService(testService);
+            server.Services.Add(serviceDefinition);
+            server.Start();
+            
+            var client = new ZeebeClient("localhost:26500");
+
+            // given
+            
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 123L, Amount = 1, Type = "foo", Worker = "jobWorker"
+            };
+            
+            var expectedResponse = new ActivateJobsResponse
+            {
+                Jobs = 
+                { 
+                    new ActivatedJob{Key = 1, JobHeaders = new JobHeaders()},
+                    new ActivatedJob{Key = 2, JobHeaders = new JobHeaders()},
+                    new ActivatedJob{Key = 3, JobHeaders = new JobHeaders()}
+                }
+            };
+            
+            testService.AddRequestHandler(typeof(ActivateJobsRequest), request => expectedResponse);
+
 
             client.JobClient()
                   .Worker()

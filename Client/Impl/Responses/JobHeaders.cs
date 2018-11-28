@@ -40,5 +40,9 @@ namespace Zeebe.Client.Impl.Responses
 
         public long ElementInstanceKey { get; }
 
+        public override string ToString()
+        {
+            return $"{nameof(WorkflowInstanceKey)}: {WorkflowInstanceKey}, {nameof(BpmnProcessId)}: {BpmnProcessId}, {nameof(WorkflowDefinitionVersion)}: {WorkflowDefinitionVersion}, {nameof(WorkflowKey)}: {WorkflowKey}, {nameof(ElementId)}: {ElementId}, {nameof(ElementInstanceKey)}: {ElementInstanceKey}";
+        }
     }
 }

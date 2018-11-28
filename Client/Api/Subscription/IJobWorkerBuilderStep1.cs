@@ -15,6 +15,7 @@
  */
 
 using System;
+using System.Threading.Tasks;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Responses;
 

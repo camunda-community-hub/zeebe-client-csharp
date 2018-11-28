@@ -59,5 +59,10 @@ namespace Zeebe.Client.Impl.Responses
         public InstanceType PayloadAsType<InstanceType>() {
             return JsonConvert.DeserializeObject<InstanceType>(Payload);
         }
+
+        public override string ToString()
+        {
+            return $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(Headers)}: {Headers}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Payload)}: {Payload}, {nameof(PayloadAsDictionary)}: {PayloadAsDictionary}";
+        }
     }
 }

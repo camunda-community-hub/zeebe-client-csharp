@@ -11,15 +11,14 @@ namespace Zeebe.Client
         private GatewayTestService testService;
         private IZeebeClient client;
 
-        public Server Server { get { return server; }}
-        public GatewayTestService TestService { get { return testService; }}
-        public IZeebeClient ZeebeClient { get { return client; }}
+        public Server Server => server;
+        public GatewayTestService TestService => testService;
+        public IZeebeClient ZeebeClient => client;
 
 
         [SetUp]
         public void Init()
         {
-            client = new ZeebeClient("localhost:26500");
             server = new Server();
             server.Ports.Add(new ServerPort("localhost", 26500, ServerCredentials.Insecure));
 
@@ -27,6 +26,8 @@ namespace Zeebe.Client
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
+            
+            client = new ZeebeClient("localhost:26500");
         }
 
         [TearDown]

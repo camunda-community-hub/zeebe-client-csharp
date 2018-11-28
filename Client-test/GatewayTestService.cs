@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using Google.Protobuf;
 using System.Threading.Tasks;
+using GatewayProtocol;
+using Grpc.Core;
 
 namespace Zeebe.Client
 {
     public delegate IMessage RequestHandler(IMessage request);
 
-    public class GatewayTestService : GatewayProtocol.Gateway.GatewayBase
+    public class GatewayTestService : Gateway.GatewayBase
     {
         
         private readonly List<IMessage> requests = new List<IMessage>();
@@ -23,7 +25,8 @@ namespace Zeebe.Client
 
         public GatewayTestService()
         {
-            typedRequestHandler.Add(typeof(GatewayProtocol.TopologyRequest), (request) => new GatewayProtocol.TopologyResponse());
+            typedRequestHandler.Add(typeof(TopologyRequest), request => new TopologyResponse());
+            typedRequestHandler.Add(typeof(ActivateJobsRequest), request => new ActivateJobsResponse());
         }
 
         public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
@@ -32,17 +35,21 @@ namespace Zeebe.Client
         // overwrite base methods to handle requests
         //
 
-        public override Task<GatewayProtocol.TopologyResponse> Topology(GatewayProtocol.TopologyRequest request, Grpc.Core.ServerCallContext context)
+        public override Task<TopologyResponse> Topology(TopologyRequest request, ServerCallContext context)
         {
-            return Task.FromResult((GatewayProtocol.TopologyResponse) HandleRequest(request, context));
+            return Task.FromResult((TopologyResponse) HandleRequest(request, context));
         }
 
+        public override async Task ActivateJobs(ActivateJobsRequest request, IServerStreamWriter<ActivateJobsResponse> responseStream, ServerCallContext context)
+        {
+            await responseStream.WriteAsync((ActivateJobsResponse) HandleRequest(request, context));
+        }
 
-        private IMessage HandleRequest(IMessage request, Grpc.Core.ServerCallContext context)
+        private IMessage HandleRequest(IMessage request, ServerCallContext context)
         {
             requests.Add(request);
 
-            RequestHandler handler = typedRequestHandler[request.GetType()];
+            var handler = typedRequestHandler[request.GetType()];
             return handler.Invoke(request);
         }
     }

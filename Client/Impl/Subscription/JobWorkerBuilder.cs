@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using System;
+using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Subscription;
@@ -30,7 +31,7 @@ namespace Zeebe.Client.Impl.Subscription
 
         public JobWorkerBuilder(Gateway.GatewayClient client, IJobClient jobClient)
         {
-            this.gatewayClient = client;
+            gatewayClient = client;
             this.jobClient = jobClient;
         }
 

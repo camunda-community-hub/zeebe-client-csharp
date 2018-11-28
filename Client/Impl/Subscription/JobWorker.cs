@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,12 +21,13 @@ using GatewayProtocol;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Subscription;
+using ActivatedJob = Zeebe.Client.Impl.Responses.ActivatedJob;
 
 namespace Zeebe.Client.Impl.Subscription
 {
     public class JobWorker : IJobWorker
     {
-        private ConcurrentQueue<IJob> workItems = new ConcurrentQueue<IJob>();
+        private readonly ConcurrentQueue<IJob> workItems = new ConcurrentQueue<IJob>();
 
         private readonly ActivateJobsRequest activeRequest;
         private readonly Gateway.GatewayClient client;
@@ -36,11 +38,12 @@ namespace Zeebe.Client.Impl.Subscription
 
         private bool isRunning;
 
-        public JobWorker(Gateway.GatewayClient client, ActivateJobsRequest request, int pollInterval, IJobClient jobClient, JobHandler jobHandler)
+        internal JobWorker(Gateway.GatewayClient client, ActivateJobsRequest request, int pollInterval,
+            IJobClient jobClient, JobHandler jobHandler)
         {
-            this.source = new CancellationTokenSource();
+            source = new CancellationTokenSource();
             this.client = client;
-            this.activeRequest = request;
+            activeRequest = request;
             this.pollInterval = pollInterval;
             this.jobClient = jobClient;
             this.jobHandler = jobHandler;
@@ -50,13 +53,21 @@ namespace Zeebe.Client.Impl.Subscription
         internal void Open()
         {
             isRunning = true;
-            CancellationToken cancellationToken = source.Token;
+            var cancellationToken = source.Token;
 
-            TaskFactory taskFactory = new TaskFactory();
-            var poller = taskFactory.StartNew(async () => await Poll(cancellationToken));
-            var handler = taskFactory.StartNew(() => HandleActivatedJobs());
+            var taskFactory = new TaskFactory();
 
-            Task.WaitAll(poller, handler);
+            taskFactory.StartNew(async () => 
+                await Poll(cancellationToken)
+                    .ContinueWith(t => Console.WriteLine(t.Exception.ToString()), 
+                        TaskContinuationOptions.OnlyOnFaulted)
+            ).ContinueWith(
+                    t => Console.WriteLine(t.Exception.ToString()),
+                    TaskContinuationOptions.OnlyOnFaulted);
+            
+            taskFactory.StartNew(() => HandleActivatedJobs())
+                .ContinueWith(t => Console.WriteLine(t.Exception.ToString()), 
+                    TaskContinuationOptions.OnlyOnFaulted);
         }
 
         private void HandleActivatedJobs()
@@ -69,7 +80,15 @@ namespace Zeebe.Client.Impl.Subscription
 
                     if (success)
                     {
-                        jobHandler.Invoke(jobClient, activatedJob);
+                        try
+                        {
+                            jobHandler(jobClient, activatedJob);
+                        }
+                        catch (Exception exception)
+                        {
+                            Console.WriteLine("Fail to handle job with values '{0}', job handler throws exception {1}", activatedJob, exception);
+                            // TODO fail job
+                        }
                     }
                 }
                 else
@@ -90,13 +109,16 @@ namespace Zeebe.Client.Impl.Subscription
 
         private async Task PollJobs(CancellationToken cancellationToken)
         {
-            var stream = client.ActivateJobs(activeRequest).ResponseStream;
-            while (await stream.MoveNext(cancellationToken))
+            using (var stream = client.ActivateJobs(activeRequest))
             {
-                ActivateJobsResponse response = stream.Current;
-                foreach (ActivatedJob job in response.Jobs)
+                var responseStream = stream.ResponseStream;
+                while (await responseStream.MoveNext(cancellationToken))
                 {
-                    workItems.Enqueue(new Responses.ActivatedJob(job));
+                    var response = responseStream.Current;
+                    foreach (var job in response.Jobs)
+                    {
+                        workItems.Enqueue(new ActivatedJob(job));
+                    }
                 }
             }
         }
