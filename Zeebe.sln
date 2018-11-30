@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{86325E12-E104-4360-B4F4-B21B30754EF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client-test", "Client-test\Client-test.csproj", "{98FB2560-2C8F-4A55-AD83-5D004F6833DC}"
@@ -9,45 +10,57 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client-Example", "Client-Ex
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86325E12-E104-4360-B4F4-B21B30754EF3}.Debug|x64.ActiveCfg = Debug|x86
 		{86325E12-E104-4360-B4F4-B21B30754EF3}.Debug|x86.ActiveCfg = Debug|x86
 		{86325E12-E104-4360-B4F4-B21B30754EF3}.Debug|x86.Build.0 = Debug|x86
+		{86325E12-E104-4360-B4F4-B21B30754EF3}.Release|x64.ActiveCfg = Release|x86
 		{86325E12-E104-4360-B4F4-B21B30754EF3}.Release|x86.ActiveCfg = Release|x86
 		{86325E12-E104-4360-B4F4-B21B30754EF3}.Release|x86.Build.0 = Release|x86
+		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Debug|x64.Build.0 = Debug|Any CPU
 		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Debug|x86.Build.0 = Debug|Any CPU
+		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Release|x64.ActiveCfg = Release|Any CPU
+		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Release|x64.Build.0 = Release|Any CPU
 		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Release|x86.ActiveCfg = Release|Any CPU
 		{98FB2560-2C8F-4A55-AD83-5D004F6833DC}.Release|x86.Build.0 = Release|Any CPU
+		{5A429B91-AC70-418D-93B6-A72E9D75B2C3}.Debug|x64.ActiveCfg = Debug|x86
 		{5A429B91-AC70-418D-93B6-A72E9D75B2C3}.Debug|x86.ActiveCfg = Debug|x86
 		{5A429B91-AC70-418D-93B6-A72E9D75B2C3}.Debug|x86.Build.0 = Debug|x86
+		{5A429B91-AC70-418D-93B6-A72E9D75B2C3}.Release|x64.ActiveCfg = Release|x86
 		{5A429B91-AC70-418D-93B6-A72E9D75B2C3}.Release|x86.ActiveCfg = Release|x86
 		{5A429B91-AC70-418D-93B6-A72E9D75B2C3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31AB08BD-022A-472A-B128-4465608975B3}
+	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
-		$0.TextStylePolicy = $1
+		$0.TextStylePolicy = $6
 		$1.FileWidth = 80
 		$1.TabsToSpaces = True
 		$1.scope = text/x-csharp
 		$0.CSharpFormattingPolicy = $2
 		$2.scope = text/x-csharp
-		$0.TextStylePolicy = $3
 		$3.FileWidth = 80
 		$3.TabsToSpaces = True
 		$3.scope = text/plain
-		$0.TextStylePolicy = $4
 		$4.inheritsSet = null
 		$4.scope = application/config+xml
-		$0.XmlFormattingPolicy = $5
+		$0.XmlFormattingPolicy = $7
 		$5.inheritsSet = null
 		$5.scope = application/config+xml
-		$0.TextStylePolicy = $6
 		$6.inheritsSet = null
 		$6.scope = application/xml
-		$0.XmlFormattingPolicy = $7
 		$7.scope = application/xml
 		$0.StandardHeader = $8
 		$8.Text = @\n Copyright ${Year}  ${CopyrightHolder}\n\n   Licensed under the Apache License, Version 2.0 (the "License");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an "AS IS" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.
