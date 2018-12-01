@@ -35,7 +35,7 @@ namespace ClientExample
             server.Services.Add(serviceDefinition);
             server.Start();
             
-            var client = new ZeebeClient("localhost:26500");
+            var client = ZeebeClient.NewZeebeClient("localhost:26500");
 
             // given
             
@@ -57,8 +57,7 @@ namespace ClientExample
             testService.AddRequestHandler(typeof(ActivateJobsRequest), request => expectedResponse);
 
 
-            client.JobClient()
-                  .Worker()
+            client.NewWorker()
                   .JobType("foo")
                   .Handler((jobClient, job) =>
                   {

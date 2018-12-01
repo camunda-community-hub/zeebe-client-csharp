@@ -16,7 +16,7 @@ namespace Zeebe.Client
     public class JobWorkerTest : BaseZeebeTest
     {
         [Test]
-        public async Task ShouldSendRequestAsExpected()
+        public void ShouldSendRequestAsExpected()
         {
             // given
             var expectedRequest = new ActivateJobsRequest
@@ -38,8 +38,7 @@ namespace Zeebe.Client
 
             // when
             var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
-            using (var jobWorker = ZeebeClient.JobClient()
-                .Worker()
+            using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler((jobClient, job) => { signal.Set(); })
                 .Limit(1)

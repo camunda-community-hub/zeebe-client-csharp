@@ -27,7 +27,7 @@ namespace Zeebe.Client
             server.Services.Add(serviceDefinition);
             server.Start();
             
-            client = new ZeebeClient("localhost:26500");
+            client = Client.ZeebeClient.NewZeebeClient("localhost:26500");
         }
 
         [TearDown]
