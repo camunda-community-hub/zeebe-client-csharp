@@ -16,52 +16,80 @@
 using System;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Subscription;
 
 namespace Zeebe.Client
 {
 
     /** The client to communicate with a Zeebe broker/cluster. */
-    public interface IZeebeClient : IDisposable
+    public interface IZeebeClient : IJobClient, IDisposable
     {
 
         /**
-         * A client to
-         * <li>deploy a workflow
-         * <li>create a workflow instance
-         * <li>cancel a workflow instance
-         * <li>update the payload of a workflow instance
-         * <li>request a workflow resource
-         * <li>request all deployed workflows
+         * Registers a new job worker for jobs of a given type.
          *
-         * @return a client with access to all workflow-related operations.
+         * <p>After registration, the broker activates available jobs and assigns them to this worker. It
+         * then publishes them to the client. The given worker is called for every received job, works on
+         * them and eventually completes them.
+         *
+         * <pre>
+         * using(IJobWorker worker = zeebeClient
+         *  .NewWorker()
+         *  .jobType("payment")
+         *  .handler(paymentHandler)
+         *  .open())
+         *  {
+         *  ...
+         *  }
+         * </pre>
+         *
+         * Example JobHandler implementation:
+         *
+         * <pre>
+         * public class PaymentHandler : IJobHandler
+         * {
+         *   public override void handle(IJobClient client, JobEvent jobEvent)
+         *   {
+         *     String json = jobEvent.getPayload();
+         *     // modify payload
+         *
+         *     client
+         *      .CompleteCommand()
+         *      .event(jobEvent)
+         *      .payload(json)
+         *      .send();
+         *   }
+         * };
+         * </pre>
+         *
+         * @return a builder for the worker registration
          */
-        IWorkflowClient WorkflowClient();
+        IJobWorkerBuilderStep1 NewWorker();
+
 
         /**
-         * A client to
-         * <li>create a (standalone) job
-         * <li>complete a job
-         * <li>mark a job as failed
-         * <li>update the retries of a job
+         * Command to publish a message which can be correlated to a workflow instance.
          *
-         * @return a client with access to all job-related operations.
+         * <pre>
+         * zeebeClient
+         *  .newPublishMessageCommand()
+         *  .messageName("order canceled")
+         *  .correlationKey(orderId)
+         *  .payload(json)
+         *  .send();
+         * </pre>
+         *
+         * @return a builder for the command
          */
-        IJobClient JobClient();
+        IPublishMessageCommandStep1 NewPublishMessageCommand();
 
         /**
          * Request the current cluster topology. Can be used to inspect which brokers are available at
          * which endpoint and which broker is the leader of which partition.
          *
          * <pre>
-         * List&#60;BrokerInfo&#62; brokers = zeebeClient
-         *  .newTopologyRequest()
-         *  .send()
-         *  .join()
-         *  .getBrokers();
-         *
-         *  SocketAddress address = broker.getSocketAddress();
-         *
-         *  List&#60;PartitionInfo&#62; partitions = broker.getPartitions();
+         * ITopology response = await ZeebeClient.TopologyRequest().Send();
+         * IList<IBrokerInfo> brokers = response.Brokers;
          * </pre>
          *
          * @return the request where you must call {@code send()}

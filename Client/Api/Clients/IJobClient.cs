@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-using Zeebe.Client.Api.Subscription;
-
 namespace Zeebe.Client.Api.Clients
 {
     /**
@@ -26,46 +24,5 @@ namespace Zeebe.Client.Api.Clients
      */
     public interface IJobClient
     {
-        /**
-         * Registers a new job worker for jobs of a given type.
-         *
-         * <p>After registration, the broker activates available jobs and assigns them to this worker. It
-         * then publishes them to the client. The given worker is called for every received job, works on
-         * them and eventually completes them.
-         *
-         * <pre>
-         * IJobWorker worker = jobClient
-         *  .Worker()
-         *  .jobType("payment")
-         *  .handler(paymentHandler)
-         *  .open();
-         *
-         * ...
-         * worker.close();
-         * </pre>
-         *
-         * Example JobHandler implementation:
-         *
-         * <pre>
-         * public class PaymentHandler : JobHandler
-         * {
-         *   &#64;Override
-         *   public void handle(JobClient client, JobEvent jobEvent)
-         *   {
-         *     String json = jobEvent.getPayload();
-         *     // modify payload
-         *
-         *     client
-         *      .CompleteCommand()
-         *      .event(jobEvent)
-         *      .payload(json)
-         *      .send();
-         *   }
-         * };
-         * </pre>
-         *
-         * @return a builder for the worker registration
-         */
-        IJobWorkerBuilderStep1 Worker();
     }
 }
