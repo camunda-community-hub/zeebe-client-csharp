@@ -1,13 +1,7 @@
 using System;
 using NUnit.Framework;
 using GatewayProtocol;
-using Zeebe.Client.Impl.Responses;
-using Zeebe.Client.Api.Responses;
-using System.Diagnostics.Contracts;
 using System.Threading;
-using System.Threading.Tasks;
-using Grpc.Core;
-using Zeebe.Client.Api.Subscription;
 
 
 namespace Zeebe.Client
