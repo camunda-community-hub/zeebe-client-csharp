@@ -57,12 +57,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Commands\ICompleteJobCommandStep1.cs" />
+    <Compile Include="Api\Responses\ICompleteJobResponse.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Api\Commands\IDeployWorkflowCommandStep1.cs" />
     <Compile Include="Api\Commands\IFinalCommandStep.cs" />
     <Compile Include="Api\Commands\IPublishMessageCommandStep1.cs" />
+    <Compile Include="Impl\Commands\CompleteJobCommand.cs" />
     <Compile Include="Impl\Commands\DeployWorkflowCommand.cs" />
     <Compile Include="Impl\Commands\PublishMessageCommand.cs" />
+    <Compile Include="Impl\Responses\CompleteJobResponse.cs" />
     <Compile Include="ZeebeClient.cs" />
     <Compile Include="Impl\proto\Gateway.cs" />
     <Compile Include="Impl\proto\GatewayGrpc.cs" />

@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+using Zeebe.Client.Api.Commands;
+
 namespace Zeebe.Client.Api.Clients
 {
     /**
@@ -24,5 +26,26 @@ namespace Zeebe.Client.Api.Clients
      */
     public interface IJobClient
     {
+
+        /**
+         * Command to complete a job.
+         *
+         * <pre>
+         * long jobKey = ..;
+         *
+         * jobClient
+         *  .NewCompleteJobCommand(jobKey)
+         *  .payload(json)
+         *  .send();
+         * </pre>
+         *
+         * <p>If the job is linked to a workflow instance then this command will complete the related
+         * activity and continue the flow.
+         *
+         * @param jobKey the key which identifies the job
+         * @return a builder for the command
+         */
+        ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey);
+
     }
 }

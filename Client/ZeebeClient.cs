@@ -26,6 +26,11 @@ namespace Zeebe.Client
         }
 
 
+        public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
+        {
+            return new CompleteJobCommand(gatewayClient, jobKey);
+        }
+
         /**
          * Command to deploy new workflows.
          *
