@@ -33,6 +33,7 @@ namespace Zeebe.Client
         [TearDown]
         public void Stop()
         {
+            client.Dispose();
             server.ShutdownAsync();
         }
     }

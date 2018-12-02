@@ -14,8 +14,10 @@ namespace Zeebe.Client.Impl.Commands
         public CompleteJobCommand(GatewayClient client, long jobKey)
         {
             gatewayClient = client;
-            request = new CompleteJobRequest();
-            request.JobKey = jobKey;
+            request = new CompleteJobRequest
+            {
+                JobKey = jobKey
+            };
         }
 
         public ICompleteJobCommandStep1 Payload(string payload)

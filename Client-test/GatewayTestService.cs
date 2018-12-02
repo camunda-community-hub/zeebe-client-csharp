@@ -27,7 +27,7 @@ namespace Zeebe.Client
         {
             typedRequestHandler.Add(typeof(TopologyRequest), request => new TopologyResponse());
             typedRequestHandler.Add(typeof(ActivateJobsRequest), request => new ActivateJobsResponse());
-            typedRequestHandler.Add(typeof(CompleteJobResponse), request => new CompleteJobResponse());
+            typedRequestHandler.Add(typeof(CompleteJobRequest), request => new CompleteJobResponse());
         }
 
         public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
