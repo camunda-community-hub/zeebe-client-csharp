@@ -1,6 +1,7 @@
 ﻿using GatewayProtocol;
 using NUnit.Framework;
 using System.Threading.Tasks;
+using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client
 {
