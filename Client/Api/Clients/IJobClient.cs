@@ -35,8 +35,8 @@ namespace Zeebe.Client.Api.Clients
          *
          * jobClient
          *  .NewCompleteJobCommand(jobKey)
-         *  .payload(json)
-         *  .send();
+         *  .Payload(json)
+         *  .Send();
          * </pre>
          *
          * <p>If the job is linked to a workflow instance then this command will complete the related
@@ -47,5 +47,24 @@ namespace Zeebe.Client.Api.Clients
          */
         ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey);
 
+        /**
+         * Command to mark a job as failed.
+         *
+         * <pre>
+         * long jobKey = ..;
+         *
+         * jobClient
+         *  .NewFailCommand(jobKey)
+         *  .Retries(3)
+         *  .Send();
+         * </pre>
+         *
+         * <p>If the given retries are greater than zero then this job will be picked up again by a job
+         * worker. Otherwise, an incident is created for this job.
+         *
+         * @param jobKey the key which identifies the job
+         * @return a builder for the command
+         */
+        IFailJobCommandStep1 NewFailCommand(long jobKey);
     }
 }
