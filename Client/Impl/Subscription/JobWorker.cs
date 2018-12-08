@@ -1,5 +1,5 @@
 ﻿//
-//  Copyright 2018  camunda services gmbh
+//    Copyright (c) 2018 camunda services GmbH (info@camunda.com)
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -12,12 +12,11 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-
+using GatewayProtocol;
 using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
-using GatewayProtocol;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Subscription;
@@ -57,16 +56,16 @@ namespace Zeebe.Client.Impl.Subscription
 
             var taskFactory = new TaskFactory();
 
-            taskFactory.StartNew(async () => 
+            taskFactory.StartNew(async () =>
                 await Poll(cancellationToken)
-                    .ContinueWith(t => Console.WriteLine(t.Exception.ToString()), 
+                    .ContinueWith(t => Console.WriteLine(t.Exception.ToString()),
                         TaskContinuationOptions.OnlyOnFaulted)
             ).ContinueWith(
                     t => Console.WriteLine(t.Exception.ToString()),
                     TaskContinuationOptions.OnlyOnFaulted);
-            
+
             taskFactory.StartNew(() => HandleActivatedJobs())
-                .ContinueWith(t => Console.WriteLine(t.Exception.ToString()), 
+                .ContinueWith(t => Console.WriteLine(t.Exception.ToString()),
                     TaskContinuationOptions.OnlyOnFaulted);
         }
 

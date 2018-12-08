@@ -1,9 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using Google.Protobuf;
-using System.Threading.Tasks;
+﻿//
+//    Copyright (c) 2018 camunda services GmbH (info@camunda.com)
+//
+//    Licensed under the Apache License, Version 2.0 (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//        http://www.apache.org/licenses/LICENSE-2.0
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
 using GatewayProtocol;
+using Google.Protobuf;
 using Grpc.Core;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Zeebe.Client
 {
@@ -11,7 +25,7 @@ namespace Zeebe.Client
 
     public class GatewayTestService : Gateway.GatewayBase
     {
-        
+
         private readonly List<IMessage> requests = new List<IMessage>();
 
         /**
@@ -38,17 +52,17 @@ namespace Zeebe.Client
 
         public override Task<TopologyResponse> Topology(TopologyRequest request, ServerCallContext context)
         {
-            return Task.FromResult((TopologyResponse) HandleRequest(request, context));
+            return Task.FromResult((TopologyResponse)HandleRequest(request, context));
         }
 
         public override async Task ActivateJobs(ActivateJobsRequest request, IServerStreamWriter<ActivateJobsResponse> responseStream, ServerCallContext context)
         {
-            await responseStream.WriteAsync((ActivateJobsResponse) HandleRequest(request, context));
+            await responseStream.WriteAsync((ActivateJobsResponse)HandleRequest(request, context));
         }
 
         public override Task<CompleteJobResponse> CompleteJob(CompleteJobRequest request, ServerCallContext context)
         {
-            return Task.FromResult((CompleteJobResponse) HandleRequest(request, context));
+            return Task.FromResult((CompleteJobResponse)HandleRequest(request, context));
         }
 
         private IMessage HandleRequest(IMessage request, ServerCallContext context)

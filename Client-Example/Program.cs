@@ -1,5 +1,5 @@
 ﻿//
-//  Copyright 2018  camunda services gmbh
+//    Copyright (c) 2018 camunda services GmbH (info@camunda.com)
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -12,16 +12,14 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using System;
 using GatewayProtocol;
-using Google.Protobuf.Collections;
 using Grpc.Core;
+using System;
 using Zeebe.Client;
-using Zeebe.Client.Impl;
 
 namespace ClientExample
 {
-    class MainClass
+    internal class MainClass
     {
         public static void Main(string[] args)
         {
@@ -34,26 +32,29 @@ namespace ClientExample
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
-            
+
             var client = ZeebeClient.NewZeebeClient("localhost:26500");
 
             // given
-            
+
             var expectedRequest = new ActivateJobsRequest
             {
-                Timeout = 123L, Amount = 1, Type = "foo", Worker = "jobWorker"
+                Timeout = 123L,
+                Amount = 1,
+                Type = "foo",
+                Worker = "jobWorker"
             };
-            
+
             var expectedResponse = new ActivateJobsResponse
             {
-                Jobs = 
-                { 
+                Jobs =
+                {
                     new ActivatedJob{Key = 1, JobHeaders = new JobHeaders()},
                     new ActivatedJob{Key = 2, JobHeaders = new JobHeaders()},
                     new ActivatedJob{Key = 3, JobHeaders = new JobHeaders()}
                 }
             };
-            
+
             testService.AddRequestHandler(typeof(ActivateJobsRequest), request => expectedResponse);
 
 
@@ -61,8 +62,8 @@ namespace ClientExample
                   .JobType("foo")
                   .Handler((jobClient, job) =>
                   {
-                        Console.WriteLine("Handle job: ");
-                        Console.WriteLine(job.Key);
+                      Console.WriteLine("Handle job: ");
+                      Console.WriteLine(job.Key);
                   })
                   .Limit(5)
                   .Name("csharpWorker")

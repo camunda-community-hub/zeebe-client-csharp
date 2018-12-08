@@ -1,5 +1,5 @@
 ﻿//
-//  Copyright 2018  camunda services gmbh
+//    Copyright (c) 2018 camunda services GmbH (info@camunda.com)
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
 //    you may not use this file except in compliance with the License.
@@ -12,9 +12,8 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using System;
-using System.Threading.Tasks;
 using GatewayProtocol;
+using System;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Subscription;
 
