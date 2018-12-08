@@ -17,7 +17,7 @@
 namespace Zeebe.Client.Api.Responses
 {
     /**
-     * Represents an response for an job complete command request.
+     * Represents an response for an job fail command request.
      */
     public interface IFailJobResponse
     {

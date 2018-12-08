@@ -1,8 +1,8 @@
-﻿using Grpc.Core;
-using GatewayProtocol;
+﻿using GatewayProtocol;
+using Grpc.Core;
 using Zeebe.Client.Api.Commands;
-using Zeebe.Client.Impl.Commands;
 using Zeebe.Client.Api.Subscription;
+using Zeebe.Client.Impl.Commands;
 using Zeebe.Client.Impl.Subscription;
 
 namespace Zeebe.Client
@@ -12,7 +12,7 @@ namespace Zeebe.Client
         private const string DEFAULT_ADDRESS = "localhost:26500";
 
         private Channel channelToGateway;
-        private Gateway.GatewayClient gatewayClient;
+        private readonly Gateway.GatewayClient gatewayClient;
 
         internal ZeebeClient(string address)
         {
@@ -29,6 +29,11 @@ namespace Zeebe.Client
         public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
         {
             return new CompleteJobCommand(gatewayClient, jobKey);
+        }
+
+        public IFailJobCommandStep1 NewFailCommand(long jobKey)
+        {
+            return new FailJobCommand(gatewayClient, jobKey);
         }
 
         /**
