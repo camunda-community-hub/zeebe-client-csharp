@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>zb-client</id>
+    <version>0.2.0</version>
+    <title>Zeebe C# client</title>
+    <authors>Christopher Zell</authors>
+    <owners>Zelldon</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/zeebe-io/zb-csharp-client</projectUrl>
+    <iconUrl>http://zeebe.io/img/zeebe-logo.svg</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+
+    <description>
+        Represents an Zeebe C# client.
+
+	Uses GRPC as protocol to communicate with the Zeebe Broker.
+        For more information about the zeebe project please visit http://zeebe.io
+    </description>
+    <releaseNotes>
+	Zeebe C# client was rewritten and now uses the GRPC protocol to communicate with the broker.
+        Contains the core functionallity like: complete, fail a job and to create an job worker in C#.
+
+	This release is based on the zeebe 0.14.0 release (https://github.com/zeebe-io/zeebe).
+    </releaseNotes>
+    <summary>Client to communicate with an zeebe broker.</summary>
+    <tags>zeebe, zb, zb-csharp, zb-client</tags>
+  </metadata>
+</package>

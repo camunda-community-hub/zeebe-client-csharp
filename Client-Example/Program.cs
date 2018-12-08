@@ -12,8 +12,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using GatewayProtocol;
-using Grpc.Core;
+
 using System;
 using Zeebe.Client;
 
@@ -23,47 +22,23 @@ namespace ClientExample
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-            var server = new Server();
-            server.Ports.Add(new ServerPort("localhost", 26500, ServerCredentials.Insecure));
-
-            var testService = new GatewayTestService();
-            var serviceDefinition = Gateway.BindService(testService);
-            server.Services.Add(serviceDefinition);
-            server.Start();
-
             var client = ZeebeClient.NewZeebeClient("localhost:26500");
-
-            // given
-
-            var expectedRequest = new ActivateJobsRequest
-            {
-                Timeout = 123L,
-                Amount = 1,
-                Type = "foo",
-                Worker = "jobWorker"
-            };
-
-            var expectedResponse = new ActivateJobsResponse
-            {
-                Jobs =
-                {
-                    new ActivatedJob{Key = 1, JobHeaders = new JobHeaders()},
-                    new ActivatedJob{Key = 2, JobHeaders = new JobHeaders()},
-                    new ActivatedJob{Key = 3, JobHeaders = new JobHeaders()}
-                }
-            };
-
-            testService.AddRequestHandler(typeof(ActivateJobsRequest), request => expectedResponse);
-
 
             client.NewWorker()
                   .JobType("foo")
                   .Handler((jobClient, job) =>
                   {
-                      Console.WriteLine("Handle job: ");
-                      Console.WriteLine(job.Key);
+                      var jobKey = job.Key;
+                      Console.WriteLine("Handle job: " + jobKey);
+
+                      if (jobKey % 2 == 0)
+                      {
+                          jobClient.NewCompleteJobCommand(jobKey).Payload("{\"foo\":2}").Send();
+                      }
+                      else
+                      {
+                          jobClient.NewFailCommand(jobKey).Retries(job.Retries - 1).ErrorMessage("Example fail").Send();
+                      }
                   })
                   .Limit(5)
                   .Name("csharpWorker")

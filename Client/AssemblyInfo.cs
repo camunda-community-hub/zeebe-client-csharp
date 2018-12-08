@@ -1,4 +1,5 @@
-﻿//
+﻿using System.Resources;
+//
 //    Copyright (c) 2018 camunda services GmbH (info@camunda.com)
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,11 +18,11 @@ using System.Reflection;
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle("Zeebe-Client")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Zeebe C# Client")]
+[assembly: AssemblyDescription("Represents an Zeebe C# client.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
+[assembly: AssemblyCompany("camunda services GmbH")]
+[assembly: AssemblyProduct("Zeebe C# Client")]
 [assembly: AssemblyCopyright("${AuthorCopyright}")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -30,7 +31,8 @@ using System.Reflection;
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,
 // and "{Major}.{Minor}.{Build}.*" will update just the revision.
 
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("0.2.0")]
+[assembly: NeutralResourcesLanguage("en")]
 
 // The following attributes are used to specify the signing key for the assembly, 
 // if desired. See the Mono documentation for more information about signing.
