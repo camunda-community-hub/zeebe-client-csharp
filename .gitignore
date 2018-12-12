@@ -2,7 +2,7 @@
 *~
 
 target/
-proto/
+# proto/
 
 # build
 [Oo]bj/
