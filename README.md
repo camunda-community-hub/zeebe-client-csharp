@@ -11,7 +11,7 @@ for more information about the Zeebe project.
 
 ## Hot to build
 
-Simply run `msbuild Zeebe.sln`
+Simply run `msbuild Zeebe.sln` or `dotnet build Zeebe.sln`
 
 ## Current supported Features
 
@@ -25,6 +25,9 @@ Simply run `msbuild Zeebe.sln`
 * Update an element instance payload 
 * Update retries of an job
 * Resolve an existing incident
+* Cancel an existing workflow instance
+* List all workflows
+* Request a workflow resource
 
 ## Examples
 To create a client use this:
@@ -101,6 +104,23 @@ await client.NewUpdateRetriesCommand(45).Retries(2).Send();
 
 ```csharp
 await client.NewResolveIncidentCommand(17).Send();
+```
+
+### Cancel an existing workflow instance
+```csharp
+await client.NewCancelInstanceCommand(workflowInstanceResponse.WorkflowInstanceKey).Send();
+```
+
+### List all workflows
+
+```csharp
+var workflowListResponse = await client.NewListWorkflowRequest().Send();
+```
+
+### Request workflow resource
+
+```csharp
+var workflowResourceResponse = await client.NewWorkflowResourceRequest().BpmnProcessId("ship-parcel").LatestVersion().Send();
 ```
 
 
