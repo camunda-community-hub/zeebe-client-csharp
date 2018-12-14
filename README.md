@@ -4,6 +4,15 @@ The Zeebe C# client is a C# wrapper implementation around the GRPC (https://gith
 It makes it possible to communicate with Zeebe Broker via the GRPC protocol, see the [Zeebe documentation](https://docs.zeebe.io/)
 for more information about the Zeebe project.
 
+## Requirements
+
+ * .net 4.7.1
+ * latest zeebe release ([0.14.0](https://github.com/zeebe-io/zeebe/releases/tag/0.14.0))
+
+## Hot to build
+
+Simply run `msbuild Zeebe.sln`
+
 ## Current supported Features
 
 * Request topology
@@ -11,6 +20,11 @@ for more information about the Zeebe project.
 * Complete Job
 * Fail Job
 * Publish Message
+* Deploy an resource
+* Create a workflow instance
+* Update an element instance payload 
+* Update retries of an job
+* Resolve an existing incident
 
 ## Examples
 To create a client use this:
