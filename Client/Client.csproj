@@ -60,12 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Commands\ICancelWorkflowInstanceCommandStep1.cs" />
     <Compile Include="Api\Commands\ICreateWorkflowInstanceCommandStep1.cs" />
     <Compile Include="Api\Commands\IFailJobCommandStep1.cs" />
     <Compile Include="Api\Commands\ICompleteJobCommandStep1.cs" />
     <Compile Include="Api\Commands\IResolveIncidentCommandStep1.cs" />
     <Compile Include="Api\Commands\IUpdatePayloadCommandStep1.cs" />
     <Compile Include="Api\Commands\IUpdateRetriesCommandStep1.cs" />
+    <Compile Include="Api\Responses\ICancelWorkflowInstanceResponse.cs" />
     <Compile Include="Api\Responses\ICompleteJobResponse.cs" />
     <Compile Include="Api\Responses\IDeployResponse.cs" />
     <Compile Include="Api\Responses\IFailJobResponse.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Api\Commands\IDeployWorkflowCommandStep1.cs" />
     <Compile Include="Api\Commands\IFinalCommandStep.cs" />
     <Compile Include="Api\Commands\IPublishMessageCommandStep1.cs" />
+    <Compile Include="Impl\Commands\CancelWorkflowInstanceCommand.cs" />
     <Compile Include="Impl\Commands\CompleteJobCommand.cs" />
     <Compile Include="Impl\Commands\CreateWorkflowInstanceCommand.cs" />
     <Compile Include="Impl\Commands\DeployWorkflowCommand.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="Impl\Commands\ResolveIncidentCommand.cs" />
     <Compile Include="Impl\Commands\UpdatePayloadCommand.cs" />
     <Compile Include="Impl\Commands\UpdateRetriesCommand.cs" />
+    <Compile Include="Impl\Responses\CancelWorkflowInstanceResponse.cs" />
     <Compile Include="Impl\Responses\CompleteJobResponse.cs" />
     <Compile Include="Impl\Responses\ResolveIncidentResponse.cs" />
     <Compile Include="Impl\Responses\PublishMessageResponse.cs" />

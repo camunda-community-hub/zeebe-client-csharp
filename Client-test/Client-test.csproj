@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CancelWorkflowInstanceTest.cs" />
     <Compile Include="CompleteJobTest.cs" />
     <Compile Include="CreateWorkflowInstanceTest.cs" />
     <Compile Include="DeploymentTest.cs" />

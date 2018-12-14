@@ -73,6 +73,11 @@ namespace Zeebe.Client
             return new CreateWorkflowInstanceCommand(gatewayClient);
         }
 
+        public ICancelWorkflowInstanceCommandStep1 NewCancelInstanceCommand(long workflowInstanceKey)
+        {
+            return new CancelWorkflowInstanceCommand(gatewayClient, workflowInstanceKey);
+        }
+
         public IUpdatePayloadCommandStep1 NewUpdatePayloadCommand(long elementInstanceKey)
         {
             return new UpdatePayloadCommand(gatewayClient, elementInstanceKey);

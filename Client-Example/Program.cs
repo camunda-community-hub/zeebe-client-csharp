@@ -69,6 +69,7 @@ namespace ClientExample
             await client.NewPublishMessageCommand().MessageName("Payment Details updated").CorrelationKey("p-1").Send();
 
 
+            await client.NewCancelInstanceCommand(1437).Send();
 
 //          RESOLVE an incident
 //            await client.NewUpdatePayloadCommand(14)

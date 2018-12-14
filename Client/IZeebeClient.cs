@@ -119,6 +119,20 @@ namespace Zeebe.Client
 
 
      /// <summary>
+     /// Command to cancel a workflow instance.
+     ///
+     /// <pre>
+     /// zeebeClient
+     ///  .NewCancelInstanceCommand(workflowInstanceKey)
+     ///  .Send();
+     /// </pre>
+     /// </summary>
+     /// <param name="elementInstanceKey">workflowInstanceKey the key which identifies the corresponding workflow instance </param>
+     /// <returns> a builder for the command </returns>
+     ///
+     ICancelWorkflowInstanceCommandStep1 NewCancelInstanceCommand(long workflowInstanceKey);
+
+     /// <summary>
      /// Command to update the payload of a workflow instance.
      ///  <pre>
      ///   zeebeClient
