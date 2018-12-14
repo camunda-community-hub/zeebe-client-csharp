@@ -14,18 +14,25 @@
 //    limitations under the License.
 
 using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using Zeebe.Client;
 
 namespace ClientExample
 {
     internal class MainClass
     {
-        public static void Main(string[] args)
-        {
-            var client = ZeebeClient.NewZeebeClient("localhost:26500");
+        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "resources/demo-process.bpmn");
 
+        public static async Task Main(string[] args)
+        {
+            var client = ZeebeClient.NewZeebeClient("192.168.30.220:26500");
+
+            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
             client.NewWorker()
-                  .JobType("foo")
+                  .JobType("collect-money")
                   .Handler((jobClient, job) =>
                   {
                       var jobKey = job.Key;
@@ -42,13 +49,13 @@ namespace ClientExample
                   })
                   .Limit(5)
                   .Name("csharpWorker")
-                  .PollInterval(TimeSpan.FromMilliseconds(100))
-                  .Timeout(100)
+                  .PollInterval(TimeSpan.FromSeconds(1))
+                  .Timeout(TimeSpan.FromSeconds(10))
                   .Open();
 
-            while (true)
-            {
-            }
+            var deployResponse = await client.NewDeployCommand().AddResourceFile(DemoProcessPath).Send();
+
+            signal.WaitOne();
         }
     }
 }
