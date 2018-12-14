@@ -41,6 +41,8 @@ namespace Zeebe.Client
         {
             typedRequestHandler.Add(typeof(TopologyRequest), request => new TopologyResponse());
 
+            typedRequestHandler.Add(typeof(PublishMessageRequest), request => new PublishMessageResponse());
+
             typedRequestHandler.Add(typeof(ActivateJobsRequest), request => new ActivateJobsResponse());
             typedRequestHandler.Add(typeof(CompleteJobRequest), request => new CompleteJobResponse());
             typedRequestHandler.Add(typeof(FailJobRequest), request => new FailJobResponse());
@@ -60,6 +62,11 @@ namespace Zeebe.Client
         public override Task<TopologyResponse> Topology(TopologyRequest request, ServerCallContext context)
         {
             return Task.FromResult((TopologyResponse)HandleRequest(request, context));
+        }
+
+        public override Task<PublishMessageResponse> PublishMessage(PublishMessageRequest request, ServerCallContext context)
+        {
+            return Task.FromResult((PublishMessageResponse)HandleRequest(request, context));
         }
 
         public override async Task ActivateJobs(ActivateJobsRequest request, IServerStreamWriter<ActivateJobsResponse> responseStream, ServerCallContext context)

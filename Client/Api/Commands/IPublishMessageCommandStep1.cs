@@ -12,8 +12,9 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using Google.Protobuf.WellKnownTypes;
+
 using System;
+using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
 {
@@ -36,10 +37,10 @@ namespace Zeebe.Client.Api.Commands
          * @param correlationKey the correlation-key of the message
          * @return the builder for this command
          */
-        IPublishMessageCommandStep3 CorrelationKey(String correlationKey);
+        IPublishMessageCommandStep3 CorrelationKey(string correlationKey);
     }
 
-    public interface IPublishMessageCommandStep3 : IFinalCommandStep<Empty>
+    public interface IPublishMessageCommandStep3 : IFinalCommandStep<IPublishMessageResponse>
     {
         /**
          * Set the id of the message. The message is rejected if another message is already published
@@ -49,7 +50,7 @@ namespace Zeebe.Client.Api.Commands
          * @return the builder for this command. Call {@link #send()} to complete the command and send
          *     it to the broker.
          */
-        IPublishMessageCommandStep3 MessageId(String messageId);
+        IPublishMessageCommandStep3 MessageId(string messageId);
 
         /**
          * Set the time-to-live of the message. The message can only be correlated within the given
@@ -64,7 +65,7 @@ namespace Zeebe.Client.Api.Commands
          * @return the builder for this command. Call {@link #send()} to complete the command and send
          *     it to the broker.
          */
-        IPublishMessageCommandStep3 TimeToLive(long timeToLive);
+        IPublishMessageCommandStep3 TimeToLive(TimeSpan timeToLive);
 
         /**
          * Set the payload of the message.
@@ -73,6 +74,6 @@ namespace Zeebe.Client.Api.Commands
          * @return the builder for this command. Call {@link #send()} to complete the command and send
          *     it to the broker.
          */
-        IPublishMessageCommandStep3 Payload(String payload);
+        IPublishMessageCommandStep3 Payload(string payload);
     }
 }

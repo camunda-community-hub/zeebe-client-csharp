@@ -68,6 +68,7 @@
     <Compile Include="Api\Responses\ICompleteJobResponse.cs" />
     <Compile Include="Api\Responses\IDeployResponse.cs" />
     <Compile Include="Api\Responses\IFailJobResponse.cs" />
+    <Compile Include="Api\Responses\IPublishMessageResponse.cs" />
     <Compile Include="Api\Responses\IUpdatePayloadResponse.cs" />
     <Compile Include="Api\Responses\IUpdateRetriesResponse.cs" />
     <Compile Include="Api\Responses\IWorkflowInstanceResponse.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Impl\Commands\UpdatePayloadCommand.cs" />
     <Compile Include="Impl\Commands\UpdateRetriesCommand.cs" />
     <Compile Include="Impl\Responses\CompleteJobResponse.cs" />
+    <Compile Include="Impl\Responses\PublishMessageResponse.cs" />
     <Compile Include="Impl\Responses\UpdatePayloadResponse.cs" />
     <Compile Include="Impl\Responses\UpdateRetriesResponse.cs" />
     <Compile Include="Impl\Responses\WorkflowInstanceResponse.cs" />

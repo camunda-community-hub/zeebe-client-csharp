@@ -66,7 +66,10 @@ namespace ClientExample
                 .Payload("{\"a\":\"newPayload\"}")
                 .Send();
 
-            await client.NewUpdateRetriesCommand(45).Retries(2).Send();
+            await client.NewPublishMessageCommand().MessageName("Payment Details updated").CorrelationKey("p-1").Send();
+
+//            await client.NewUpdateRetriesCommand(45).Retries(2).Send();
+
 
 
             signal.WaitOne();

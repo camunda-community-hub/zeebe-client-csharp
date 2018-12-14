@@ -12,10 +12,14 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
+using System;
 using GatewayProtocol;
 using Google.Protobuf.WellKnownTypes;
 using System.Threading.Tasks;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Responses;
+using Zeebe.Client.Impl.Responses;
 using static GatewayProtocol.Gateway;
 
 namespace Zeebe.Client.Impl.Commands
@@ -55,16 +59,17 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public IPublishMessageCommandStep3 TimeToLive(long timeToLive)
+        public IPublishMessageCommandStep3 TimeToLive(TimeSpan timeToLive)
         {
-            request.TimeToLive = timeToLive;
+            request.TimeToLive = (long) timeToLive.TotalMilliseconds;
             return this;
         }
 
-        public Task<Empty> Send()
+        public async Task<IPublishMessageResponse> Send()
         {
-            gatewayClient.PublishMessage(request);
-            return null;
+            var asyncReply = gatewayClient.PublishMessageAsync(request);
+            await asyncReply.ResponseAsync;
+            return new Responses.PublishMessageResponse();
         }
     }
 }
