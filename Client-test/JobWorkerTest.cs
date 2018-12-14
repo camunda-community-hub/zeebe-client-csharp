@@ -24,6 +24,7 @@ namespace Zeebe.Client
     [TestFixture]
     public class JobWorkerTest : BaseZeebeTest
     {
+        
         [Test]
         public void ShouldSendRequestReceiveResponseAsExpected()
         {
@@ -72,7 +73,56 @@ namespace Zeebe.Client
             AssertJob(receivedJobs[1], 2);
             AssertJob(receivedJobs[2], 3);
         }
+        
+        [Test]
+        public void ShouldSendRequestWithTimeSpanTimeout()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 10_000L,
+                Amount = 1,
+                Type = "foo",
+                Worker = "jobWorker"
+            };
 
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
+
+            // when
+            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
+            var receivedJobs = new List<IJob>();
+            using (var jobWorker = ZeebeClient.NewWorker()
+                .JobType("foo")
+                .Handler((jobClient, job) =>
+                {
+                    receivedJobs.Add(job);
+                    if (receivedJobs.Count == 3)
+                    {
+                        signal.Set();
+                    }
+                })
+                .Limit(1)
+                .Name("jobWorker")
+                .Timeout(TimeSpan.FromSeconds(10))
+                .PollInterval(TimeSpan.FromMilliseconds(100))
+                .Open())
+            {
+
+                Assert.True(jobWorker.IsOpen());
+                signal.WaitOne();
+            }
+
+            // then
+            var actualRequest = TestService.Requests[0];
+            Assert.AreEqual(expectedRequest, actualRequest);
+
+            Assert.AreEqual(receivedJobs.Count, 3);
+
+            AssertJob(receivedJobs[0], 1);
+            AssertJob(receivedJobs[1], 2);
+            AssertJob(receivedJobs[2], 3);
+        }
+        
         private static ActivateJobsResponse CreateExpectedResponse()
         {
             return new ActivateJobsResponse
@@ -125,7 +175,7 @@ namespace Zeebe.Client
             Assert.AreEqual(3, firstJob.Retries);
 
             Assert.AreEqual("{\"foo\":" + expectedKey + "}", firstJob.Payload);
-            var expectedPayload = new Dictionary<String, int> { { "foo", expectedKey } };
+            var expectedPayload = new Dictionary<string, int> { { "foo", expectedKey } };
             CollectionAssert.AreEquivalent(expectedPayload, firstJob.PayloadAsDictionary);
 
             Assert.AreEqual("process", firstJob.Headers.BpmnProcessId);

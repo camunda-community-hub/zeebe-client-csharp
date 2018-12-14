@@ -26,7 +26,7 @@ namespace Zeebe.Client.Impl.Subscription
         private readonly IJobClient jobClient;
 
         private JobHandler handler;
-        private int pollInterval;
+        private TimeSpan pollInterval;
 
         public JobWorkerBuilder(Gateway.GatewayClient client, IJobClient jobClient)
         {
@@ -54,7 +54,7 @@ namespace Zeebe.Client.Impl.Subscription
 
         public IJobWorkerBuilderStep3 Timeout(TimeSpan timeout)
         {
-            request.Timeout = timeout.Milliseconds;
+            request.Timeout = (long) timeout.TotalMilliseconds;
             return this;
         }
 
@@ -72,7 +72,7 @@ namespace Zeebe.Client.Impl.Subscription
 
         public IJobWorkerBuilderStep3 PollInterval(TimeSpan pollInterval)
         {
-            this.pollInterval = pollInterval.Milliseconds;
+            this.pollInterval = pollInterval;
             return this;
         }
 

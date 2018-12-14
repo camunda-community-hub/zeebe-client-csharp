@@ -30,14 +30,14 @@ namespace Zeebe.Client.Impl.Subscription
 
         private readonly ActivateJobsRequest activeRequest;
         private readonly Gateway.GatewayClient client;
-        private readonly int pollInterval;
+        private readonly TimeSpan pollInterval;
         private readonly CancellationTokenSource source;
         private readonly JobHandler jobHandler;
         private readonly IJobClient jobClient;
 
         private bool isRunning;
 
-        internal JobWorker(Gateway.GatewayClient client, ActivateJobsRequest request, int pollInterval,
+        internal JobWorker(Gateway.GatewayClient client, ActivateJobsRequest request, TimeSpan pollInterval,
             IJobClient jobClient, JobHandler jobHandler)
         {
             source = new CancellationTokenSource();
