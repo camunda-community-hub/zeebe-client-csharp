@@ -56,13 +56,18 @@ namespace ClientExample
             var deployResponse = await client.NewDeployCommand().AddResourceFile(DemoProcessPath).Send();
 
             var workflowKey = deployResponse.Workflows[0].WorkflowKey;
-            await client
+            var workflowInstanceResponse = await client
                 .NewCreateWorkflowInstanceCommand()
                 .WorkflowKey(workflowKey)
-                .Payload("{\"a\":\"123\"}")
+                .Payload("{\"foo\":\"123\"}")
                 .Send();
 
-            await client.NewUpdatePayloadCommand(1069).Payload("{\"foo\":\"newPayload\"}").Send();
+            await client.NewUpdatePayloadCommand(workflowInstanceResponse.WorkflowInstanceKey)
+                .Payload("{\"a\":\"newPayload\"}")
+                .Send();
+
+            await client.NewUpdateRetriesCommand(45).Retries(2).Send();
+
 
             signal.WaitOne();
         }

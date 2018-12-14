@@ -1,4 +1,3 @@
-
 using System.Threading.Tasks;
 using GatewayProtocol;
 using NUnit.Framework;
@@ -6,24 +5,28 @@ using NUnit.Framework;
 namespace Zeebe.Client
 {
     [TestFixture]
-    public class UpdatePayloadTest : BaseZeebeTest
+    public class UpdateRetriesTest : BaseZeebeTest
     {
         [Test]
         public async Task shouldSendRequestAsExpected()
         {
             // given
-            var expectedRequest = new UpdateWorkflowInstancePayloadRequest
+            var expectedRequest = new UpdateJobRetriesRequest
             {
-                ElementInstanceKey = 2123,
-                Payload = "{\"foo\":\"bar\"}"
+                JobKey = 1024,
+                Retries = 223
             };
 
             // when
-            await ZeebeClient.NewUpdatePayloadCommand(2123).Payload("{\"foo\":\"bar\"}").Send();
+            await ZeebeClient
+                .NewUpdateRetriesCommand(1024)
+                .Retries(223)
+                .Send();
 
             // then
             var request = TestService.Requests[0];
             Assert.AreEqual(expectedRequest, request);
         }
+
     }
 }

@@ -54,6 +54,11 @@ namespace Zeebe.Client
             return new FailJobCommand(gatewayClient, jobKey);
         }
 
+        public IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey)
+        {
+            return new UpdateRetriesCommand(gatewayClient, jobKey);
+        }
+
         ////////////////////////////////////////////////////////////////////////
         ///////////////////////////// Workflows ////////////////////////////////
         ////////////////////////////////////////////////////////////////////////

@@ -66,6 +66,26 @@ namespace Zeebe.Client
          */
         IJobWorkerBuilderStep1 NewWorker();
 
+     /**
+ * Command to update the retries of a job.
+ *
+ * <pre>
+ * long jobKey = ..;
+ *
+ * zeebeClient
+ *  .newUpdateRetriesCommand(jobKey)
+ *  .retries(3)
+ *  .send();
+ * </pre>
+ *
+ * <p>If the given retries are greater than zero then this job will be picked up again by a job
+ * subscription and a related incident will be marked as resolved.
+ *
+ * @param jobKey the key of the job to update
+ * @return a builder for the command
+ */
+     IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey);
+
         /**
          * Command to deploy new workflows.
          *

@@ -24,7 +24,6 @@ namespace Zeebe.Client
     [TestFixture]
     public class JobWorkerTest : BaseZeebeTest
     {
-        
         [Test]
         public void ShouldSendRequestReceiveResponseAsExpected()
         {
@@ -73,7 +72,7 @@ namespace Zeebe.Client
             AssertJob(receivedJobs[1], 2);
             AssertJob(receivedJobs[2], 3);
         }
-        
+
         [Test]
         public void ShouldSendRequestWithTimeSpanTimeout()
         {
@@ -122,7 +121,7 @@ namespace Zeebe.Client
             AssertJob(receivedJobs[1], 2);
             AssertJob(receivedJobs[2], 3);
         }
-        
+
         private static ActivateJobsResponse CreateExpectedResponse()
         {
             return new ActivateJobsResponse

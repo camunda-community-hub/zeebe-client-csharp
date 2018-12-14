@@ -44,6 +44,7 @@ namespace Zeebe.Client
             typedRequestHandler.Add(typeof(ActivateJobsRequest), request => new ActivateJobsResponse());
             typedRequestHandler.Add(typeof(CompleteJobRequest), request => new CompleteJobResponse());
             typedRequestHandler.Add(typeof(FailJobRequest), request => new FailJobResponse());
+            typedRequestHandler.Add(typeof(UpdateJobRetriesRequest), request => new UpdateJobRetriesResponse());
 
             typedRequestHandler.Add(typeof(DeployWorkflowRequest), request => new DeployWorkflowResponse());
             typedRequestHandler.Add(typeof(CreateWorkflowInstanceRequest), request => new CreateWorkflowInstanceResponse());
@@ -74,6 +75,11 @@ namespace Zeebe.Client
         public override Task<FailJobResponse> FailJob(FailJobRequest request, ServerCallContext context)
         {
             return Task.FromResult((FailJobResponse)HandleRequest(request, context));
+        }
+
+        public override Task<UpdateJobRetriesResponse> UpdateJobRetries(UpdateJobRetriesRequest request, ServerCallContext context)
+        {
+            return Task.FromResult((UpdateJobRetriesResponse)HandleRequest(request, context));
         }
 
         public override Task<DeployWorkflowResponse> DeployWorkflow(DeployWorkflowRequest request, ServerCallContext context)
