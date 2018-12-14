@@ -1,5 +1,4 @@
-﻿using System.Resources;
-//
+﻿//
 //    Copyright (c) 2018 camunda services GmbH (info@camunda.com)
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using System.Reflection;
+using System.Resources;
 
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
@@ -28,8 +28,8 @@ using System.Reflection;
 [assembly: AssemblyCulture("")]
 
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
-// The form "{Major}.{Minor}.*" will automatically update the build and revision,
-// and "{Major}.{Minor}.{Build}.*" will update just the revision.
+// The form "{Major}.{Minor}./// " will automatically update the build and revision,
+// and "{Major}.{Minor}.{Build}./// " will update just the revision.
 
 [assembly: AssemblyVersion("0.2.0")]
 [assembly: NeutralResourcesLanguage("en")]

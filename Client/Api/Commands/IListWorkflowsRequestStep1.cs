@@ -2,7 +2,8 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
 {
-    public interface IListWorkflowsRequestStep1 : IFinalCommandStep<IWorkflowListResponse> {
+    public interface IListWorkflowsRequestStep1 : IFinalCommandStep<IWorkflowListResponse>
+    {
         /// <summary>
         /// Filter the workflows by the given BPMN process id.
         /// This is the static id of the process in the

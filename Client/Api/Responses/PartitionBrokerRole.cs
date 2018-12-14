@@ -14,6 +14,9 @@
 //    limitations under the License.
 namespace Zeebe.Client.Api.Responses
 {
+    /// <summary>
+    /// The RAFT role of the broker either LEADER or FOLLOWER.
+    /// </summary>
     public enum PartitionBrokerRole
     {
         LEADER,

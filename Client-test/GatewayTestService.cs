@@ -28,11 +28,11 @@ namespace Zeebe.Client
 
         private readonly List<IMessage> requests = new List<IMessage>();
 
-        /**
-         * Contains the request handler, which return the specific response, for each specific type of request.
-         *
-         * Per default the response for a specific type are an empty response.
-         */
+        /// <summary>
+        /// Contains the request handler, which return the specific response, for each specific type of request.
+        /// 
+        /// Per default the response for a specific type are an empty response.
+        /// </summary>
         private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new Dictionary<Type, RequestHandler>();
 
         public IList<IMessage> Requests => requests;
@@ -96,37 +96,37 @@ namespace Zeebe.Client
 
         public override Task<DeployWorkflowResponse> DeployWorkflow(DeployWorkflowRequest request, ServerCallContext context)
         {
-            return Task.FromResult((DeployWorkflowResponse) HandleRequest(request, context));
+            return Task.FromResult((DeployWorkflowResponse)HandleRequest(request, context));
         }
 
         public override Task<CreateWorkflowInstanceResponse> CreateWorkflowInstance(CreateWorkflowInstanceRequest request, ServerCallContext context)
         {
-            return Task.FromResult((CreateWorkflowInstanceResponse) HandleRequest(request, context));
+            return Task.FromResult((CreateWorkflowInstanceResponse)HandleRequest(request, context));
         }
 
         public override Task<CancelWorkflowInstanceResponse> CancelWorkflowInstance(CancelWorkflowInstanceRequest request, ServerCallContext context)
         {
-            return Task.FromResult((CancelWorkflowInstanceResponse) HandleRequest(request, context));
+            return Task.FromResult((CancelWorkflowInstanceResponse)HandleRequest(request, context));
         }
 
         public override Task<UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayload(UpdateWorkflowInstancePayloadRequest request, ServerCallContext context)
         {
-            return Task.FromResult((UpdateWorkflowInstancePayloadResponse) HandleRequest(request, context));
+            return Task.FromResult((UpdateWorkflowInstancePayloadResponse)HandleRequest(request, context));
         }
 
         public override Task<ResolveIncidentResponse> ResolveIncident(ResolveIncidentRequest request, ServerCallContext context)
         {
-            return Task.FromResult((ResolveIncidentResponse) HandleRequest(request, context));
+            return Task.FromResult((ResolveIncidentResponse)HandleRequest(request, context));
         }
 
         public override Task<ListWorkflowsResponse> ListWorkflows(ListWorkflowsRequest request, ServerCallContext context)
         {
-            return Task.FromResult((ListWorkflowsResponse) HandleRequest(request, context));
+            return Task.FromResult((ListWorkflowsResponse)HandleRequest(request, context));
         }
 
         public override Task<GetWorkflowResponse> GetWorkflow(GetWorkflowRequest request, ServerCallContext context)
         {
-            return Task.FromResult((GetWorkflowResponse) HandleRequest(request, context));
+            return Task.FromResult((GetWorkflowResponse)HandleRequest(request, context));
         }
 
         private IMessage HandleRequest(IMessage request, ServerCallContext context)

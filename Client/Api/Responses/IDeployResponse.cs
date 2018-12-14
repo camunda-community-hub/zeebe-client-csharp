@@ -4,11 +4,10 @@ namespace Zeebe.Client.Api.Responses
 {
     public interface IDeployResponse
     {
-        /** @return the unique key of the deployment */
+        /// <returns>the unique key of the deployment </returns>
         long Key { get; }
-        
-        
-        /** @return the workflows meta data, which are deployed */
+
+        /// <returns>the workflows meta data, which are deployed </returns>
         IList<IWorkflowMetadata> Workflows { get; }
     }
 }

@@ -16,13 +16,13 @@ namespace Zeebe.Client.Api.Responses
 {
     public interface IPartitionInfo
     {
-        /** @return the partition's id */
+        /// <returns>the partition's id </returns>
         int PartitionId { get; }
 
-        /** @return the current role of the broker for this partition (i.e. leader or follower) */
+        /// <returns>the current role of the broker for this partition (i.e. leader or follower) </returns>
         PartitionBrokerRole Role { get; }
 
-        /** @return <code>true</code> if the broker is the current leader of this partition */
+        /// <returns><code>true</code> if the broker is the current leader of this partition </returns>
         bool IsLeader { get; }
     }
 }

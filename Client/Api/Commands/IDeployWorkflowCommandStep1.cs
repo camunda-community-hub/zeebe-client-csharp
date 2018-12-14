@@ -12,8 +12,6 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using GatewayProtocol;
-using System;
 using System.IO;
 using System.Text;
 using Zeebe.Client.Api.Responses;
@@ -22,57 +20,53 @@ namespace Zeebe.Client.Api.Commands
 {
     public interface IDeployWorkflowCommandStep1
     {
-        /**
-         * Add the given resource to the deployment.
-         *
-         * @param resourceBytes the workflow resource as byte array
-         * @param resourceName the name of the resource (e.g. "workflow.bpmn")
-         * @return the builder for this command. Call {@link #send()} to complete the command and send it
-         *     to the broker.
-         */
+        /// <summary>
+        /// Add the given resource to the deployment.
+        /// </summary>
+        /// <param name="resourceBytes">the workflow resource as byte array</param>
+        /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        ///     to the broker.</returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName);
 
-        /**
-         * Add the given resource to the deployment.
-         *
-         * @param resourceString the workflow resource as String
-         * @param charset the charset of the String
-         * @param resourceName the name of the resource (e.g. "workflow.bpmn")
-         * @return the builder for this command. Call {@link #send()} to complete the command and send it
-         *     to the broker.
-         */
+        /// <summary>
+        /// Add the given resource to the deployment.
+        /// </summary>
+        /// <param name="resourceString">the workflow resource as String</param>
+        /// <param name="charset">the charset of the String</param>
+        /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        ///     to the broker.</returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceString(
             string resourceString, Encoding encoding, string resourceName);
 
-        /**
-         * Add the given resource to the deployment.
-         *
-         * @param resourceString the workflow resource as UTF-8-encoded String
-         * @param resourceName the name of the resource (e.g. "workflow.bpmn")
-         * @return the builder for this command. Call {@link #send()} to complete the command and send it
-         *     to the broker.
-         */
+        /// <summary>
+        /// Add the given resource to the deployment.
+        /// </summary>
+        /// <param name="resourceString">the workflow resource as UTF-8-encoded String</param> 
+        /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param> 
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        ///     to the broker.</returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceStringUtf8(
             string resourceString, string resourceName);
 
-        /**
-         * Add the given resource to the deployment.
-         *
-         * @param resourceStream the workflow resource as stream
-         * @param resourceName the name of the resource (e.g. "workflow.bpmn")
-         * @return the builder for this command. Call {@link #send()} to complete the command and send it
-         *     to the broker.
-         */
+        /// <summary>
+        /// Add the given resource to the deployment.
+        /// </summary>
+        /// <param name="resourceStream">the workflow resource as stream</param>
+        /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param> 
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        ///     to the broker.
+        /// </returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceStream(
             Stream resourceStream, string resourceName);
 
-        /**
-         * Add the given resource to the deployment.
-         *
-         * @param filename the absolute path of the workflow resource (e.g. "~/wf/workflow.bpmn")
-         * @return the builder for this command. Call {@link #send()} to complete the command and send it
-         *     to the broker.
-         */
+        /// <summary>
+        /// Add the given resource to the deployment.
+        /// </summary>
+        /// <param name="filename">the absolute path of the workflow resource (e.g. "~/wf/workflow.bpmn")</param>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        ///     to the broker.</returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceFile(string filename);
     }
 

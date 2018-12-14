@@ -14,9 +14,9 @@
 //    limitations under the License.
 namespace Zeebe.Client.Api.Responses
 {
-    /**
-     * Represents an response for an job complete command request.
-     */
+    /// <summary>
+    /// Represents an response for an job complete command request.
+    /// </summary>
     public interface ICompleteJobResponse
     {
     }

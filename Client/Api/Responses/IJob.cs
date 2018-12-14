@@ -19,39 +19,39 @@ namespace Zeebe.Client.Api.Responses
 {
     public interface IJob
     {
-        /** The unique key of the job */
+        /// <returns> The unique key of the job </returns>
         long Key { get; }
 
-        /** The type of the job */
+        /// <returns> The type of the job </returns>
         string Type { get; }
 
-        /**
-         * Broker-defined headers associated with this job. For example, if this job is created in
-         *     the context of workflow instance, the header provide context information on which activity
-         *     is executed, etc.
-         */
+        /// <summary>
+        /// Broker-defined headers associated with this job. For example, if this job is created in
+        ///     the context of workflow instance, the header provide context information on which activity
+        ///     is executed, etc.
+        /// </summary>
         IJobHeaders Headers { get; }
 
-        /** @return the assigned worker to complete the job */
+        /// <returns>the assigned worker to complete the job </returns>
         string Worker { get; }
 
-        /** @return remaining retries */
+        /// <returns>remaining retries </returns>
         int Retries { get; }
 
-        /**
-         * The time until when the job is exclusively assigned to this worker. If the deadline is
-         *     exceeded, it can happen that the job is handed to another worker and the work is performed
-         *     twice.
-         */
+        /// <returns>
+        /// The time until when the job is exclusively assigned to this worker. If the deadline is
+        ///     exceeded, it can happen that the job is handed to another worker and the work is performed
+        ///     twice.
+        /// </returns>
         DateTime Deadline { get; }
 
-        /** JSON-formatted payload */
+        /// <returns> JSON-formatted payload </returns>
         string Payload { get; }
 
-        /** De-serialized payload as map */
+        /// <returns> De-serialized payload as map </returns>
         IDictionary<string, object> PayloadAsDictionary { get; }
 
-        /** @return de-serialized payload as the given type */
+        /// <returns>de-serialized payload as the given type </returns>
         InstanceType PayloadAsType<InstanceType>();
     }
 }

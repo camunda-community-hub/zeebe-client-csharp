@@ -1,32 +1,30 @@
-using System.IO;
-
 namespace Zeebe.Client.Api.Responses
 {
     public interface IWorkflowResourceResponse
     {
-        /// <summary>
+        /// <returns>
         /// the BPMN XML resource of the workflow
-        /// </summary>
+        /// </returns>
         string BpmnXml { get; }
 
-        /// <summary>
+        /// <returns>
         /// the version of the deployed workflow
-        /// </summary>
+        /// </returns>
         int Version { get; }
 
-        /// <summary>
+        /// <returns>
         /// the bpmn process id
-        /// </summary>
+        /// </returns>
         string BpmnProcessId { get; }
 
-        /// <summary>
+        /// <returns>
         /// the resource name
-        /// </summary>
+        /// </returns>
         string ResourceName { get; }
 
-        /// <summary>
+        /// <returns>
         /// the unique workflow key
-        /// </summary>
+        /// </returns>
         long WorkflowKey { get; }
     }
 }

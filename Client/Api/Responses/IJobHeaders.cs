@@ -14,25 +14,25 @@
 //    limitations under the License.
 namespace Zeebe.Client.Api.Responses
 {
-    /** Context in case the job is part of a workflow instance */
+    /// <returns> Context in case the job is part of a workflow instance </summary>
     public interface IJobHeaders
     {
-        /** Key of the workflow instance */
+        /// <returns> Key of the workflow instance </summary>
         long WorkflowInstanceKey { get; }
 
-        /** BPMN process id of the workflow */
+        /// <returns> BPMN process id of the workflow </summary>
         string BpmnProcessId { get; }
 
-        /** Version of the workflow */
+        /// <returns> Version of the workflow </returns>
         int WorkflowDefinitionVersion { get; }
 
-        /** Key of the workflow */
+        /// <returns> Key of the workflow </returns>
         long WorkflowKey { get; }
 
-        /** Id of the workflow element */
+        /// <returns> Id of the workflow element </returns>
         string ElementId { get; }
 
-        /** Key of the element instance */
+        /// <returns> Key of the element instance </returns>
         long ElementInstanceKey { get; }
     }
 }

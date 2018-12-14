@@ -16,53 +16,54 @@ using Zeebe.Client.Api.Commands;
 
 namespace Zeebe.Client.Api.Clients
 {
-    /**
-     * A client with access to all job-related operation:
-     * <li>complete a job
-     * <li>mark a job as failed
-     * <li>update the retries of a job
-     */
+    /// <summary>
+    /// A client with access to all job-related operation:
+    /// <li>complete a job
+    /// <li> mark a job as failed
+    /// <li> update the retries of a job
+    /// </summary>
     public interface IJobClient
     {
 
-        /**
-         * Command to complete a job.
-         *
-         * <pre>
-         * long jobKey = ..;
-         *
-         * jobClient
-         *  .NewCompleteJobCommand(jobKey)
-         *  .Payload(json)
-         *  .Send();
-         * </pre>
-         *
-         * <p>If the job is linked to a workflow instance then this command will complete the related
-         * activity and continue the flow.
-         *
-         * @param jobKey the key which identifies the job
-         * @return a builder for the command
-         */
+        /// <summary>
+        /// Command to complete a job.
+        /// 
+        /// <pre>
+        /// long jobKey = ..;
+        /// 
+        /// jobClient
+        ///  .NewCompleteJobCommand(jobKey)
+        ///  .Payload(json)
+        ///  .Send();
+        /// </pre>
+        /// 
+        /// <p>If the job is linked to a workflow instance then this command will complete the related
+        /// activity and continue the flow.
+        /// </p>
+        /// 
+        /// <param name="jobKey>the key which identifies the job</param>
+        /// <returns>a builder for the command
+
         ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey);
 
-        /**
-         * Command to mark a job as failed.
-         *
-         * <pre>
-         * long jobKey = ..;
-         *
-         * jobClient
-         *  .NewFailCommand(jobKey)
-         *  .Retries(3)
-         *  .Send();
-         * </pre>
-         *
-         * <p>If the given retries are greater than zero then this job will be picked up again by a job
-         * worker. Otherwise, an incident is created for this job.
-         *
-         * @param jobKey the key which identifies the job
-         * @return a builder for the command
-         */
+        /// <summary>
+        /// Command to mark a job as failed.
+        /// 
+        /// <pre>
+        /// long jobKey = ..;
+        /// 
+        /// jobClient
+        ///  .NewFailCommand(jobKey)
+        ///  .Retries(3)
+        ///  .Send();
+        /// </pre>
+        /// 
+        /// <p>If the given retries are greater than zero then this job will be picked up again by a job
+        /// worker. Otherwise, an incident is created for this job.
+        /// </p>
+        /// <param name="jobKey">the key which identifies the job</param>
+        /// <returns>a builder for the command
+        /// </summary>
         IFailJobCommandStep1 NewFailCommand(long jobKey);
     }
 }

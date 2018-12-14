@@ -12,20 +12,18 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using System;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
 {
     public interface ICompleteJobCommandStep1 : IFinalCommandStep<ICompleteJobResponse>
     {
-        /**
-        * Set the payload to complete the job with.
-        *
-        * @param payload the payload (JSON) as String
-        * @return the builder for this command. Call {@link #send()} to complete the command and send it
-        *     to the broker.
-        */
+        /// <summary>
+        /// Set the payload to complete the job with.
+        /// </summary>
+        /// <param name="payload">the payload (JSON) as String</param>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        ///     to the broker.</returns>
         ICompleteJobCommandStep1 Payload(string payload);
     }
 }

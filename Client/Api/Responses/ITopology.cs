@@ -18,7 +18,7 @@ namespace Zeebe.Client.Api.Responses
 {
     public interface ITopology
     {
-        /** @return all (known) brokers of the cluster */
+        /// <returns>all (known) brokers of the cluster </returns>
         IList<IBrokerInfo> Brokers { get; }
     }
 }

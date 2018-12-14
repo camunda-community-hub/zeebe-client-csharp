@@ -16,21 +16,17 @@ using System;
 
 namespace Zeebe.Client.Api.Subscription
 {
-    /**
-     * Represents an job worker that performs jobs of a certain type. While a registration is
-     * open, the worker continuously receives jobs from the broker and hands them to a registered {@link
-     * JobHandler}.
-     */
+    /// <summary>
+    /// Represents an job worker that performs jobs of a certain type. While a registration is
+    /// open, the worker continuously receives jobs from the broker and hands them to a registered {@link
+    /// JobHandler}.
+    /// </summary>
     public interface IJobWorker : IDisposable
     {
-        /**
-         * @return true if this registration is currently active and work items are being received for it
-         */
+        /// <returns>true if this registration is currently active and work items are being received for it</returns>
         bool IsOpen();
 
-        /**
-         * @return true if this registration is not open and is not in the process of opening or closing
-         */
+        /// <returns>true if this registration is not open and is not in the process of opening or closing</returns>
         bool IsClosed();
     }
 }

@@ -20,60 +20,58 @@ namespace Zeebe.Client.Api.Commands
 {
     public interface IPublishMessageCommandStep1
     {
-        /**
-         * Set the name of the message.
-         *
-         * @param messageName the name of the message
-         * @return the builder for this command
-         */
+        /// <summary>
+        /// Set the name of the message.
+        /// </summary>
+        /// <param name="messageName"> the name of the message</param>
+        /// <returns>the builder for this command</returns>
         IPublishMessageCommandStep2 MessageName(string messageName);
     }
 
     public interface IPublishMessageCommandStep2
     {
-        /**
-         * Set the correlation-key of the message.
-         *
-         * @param correlationKey the correlation-key of the message
-         * @return the builder for this command
-         */
+        /// <summary>
+        /// Set the correlation-key of the message.
+        /// </summary>
+        /// 
+        /// <param name="correlationKey">the correlation-key of the message</param>
+        /// <returns>the builder for this command</returns>
         IPublishMessageCommandStep3 CorrelationKey(string correlationKey);
     }
 
     public interface IPublishMessageCommandStep3 : IFinalCommandStep<IPublishMessageResponse>
     {
-        /**
-         * Set the id of the message. The message is rejected if another message is already published
-         * with the same id, name and correlation-key.
-         *
-         * @param messageId the id of the message
-         * @return the builder for this command. Call {@link #send()} to complete the command and send
-         *     it to the broker.
-         */
+        /// <summary>
+        /// Set the id of the message. The message is rejected if another message is already published
+        /// with the same id, name and correlation-key.
+        /// </summary>
+        /// <param name="messageId">the id of the message</param>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
+        ///     it to the broker.</returns>
         IPublishMessageCommandStep3 MessageId(string messageId);
 
-        /**
-         * Set the time-to-live of the message. The message can only be correlated within the given
-         * time-to-live.
-         *
-         * <p>If the duration is zero or negative then the message can only be correlated to open
-         * subscriptions (e.g. to an entered message catch event).
-         *
-         * <p>If no duration is set then the default is used from the configuration.
-         *
-         * @param timeToLive the time-to-live of the message
-         * @return the builder for this command. Call {@link #send()} to complete the command and send
-         *     it to the broker.
-         */
+        /// <summary>
+        /// Set the time-to-live of the message. The message can only be correlated within the given
+        /// time-to-live.
+        /// 
+        /// <p>If the duration is zero or negative then the message can only be correlated to open
+        /// subscriptions (e.g. to an entered message catch event).
+        /// 
+        /// <p>If no duration is set then the default is used from the configuration.
+        /// </summary>
+        /// 
+        /// <param name="timeToLive">the time-to-live of the message</param>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
+        ///     it to the broker.</returns>
         IPublishMessageCommandStep3 TimeToLive(TimeSpan timeToLive);
 
-        /**
-         * Set the payload of the message.
-         *
-         * @param payload the payload (JSON) as String
-         * @return the builder for this command. Call {@link #send()} to complete the command and send
-         *     it to the broker.
-         */
+        /// <summary>
+        /// Set the payload of the message.
+        /// </summary>
+        /// 
+        /// <param name="payload">the payload (JSON) as String</param>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
+        ///     it to the broker.</returns>
         IPublishMessageCommandStep3 Payload(string payload);
     }
 }
