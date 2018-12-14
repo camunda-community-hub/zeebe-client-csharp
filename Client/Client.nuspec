@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>zb-client</id>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
     <title>Zeebe C# client</title>
     <authors>Christopher Zell</authors>
     <owners>Zelldon</owners>
@@ -18,8 +18,17 @@
         For more information about the zeebe project please visit http://zeebe.io
     </description>
     <releaseNotes>
-	Zeebe C# client was rewritten and now uses the GRPC protocol to communicate with the broker.
-        Contains the core functionallity like: complete, fail a job and to create an job worker in C#.
+        Catch up with Java and Go Zeebe client.
+        The Zeebe C# client supports now new features like:
+
+         * deploy workflow
+         * create workflow instance
+         * cancel workflow instance
+         * update payload
+         * update retries
+         * resolve incident
+         * list workflows
+         * get workflow resource
 
 	This release is based on the zeebe 0.14.0 release (https://github.com/zeebe-io/zeebe).
     </releaseNotes>
