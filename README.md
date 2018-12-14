@@ -9,6 +9,10 @@ for more information about the Zeebe project.
  * .net 4.7.1
  * latest zeebe release ([0.14.0](https://github.com/zeebe-io/zeebe/releases/tag/0.14.0))
 
+## How to use
+
+The Zeebe C# client is available via nuget (https://www.nuget.org/packages/zb-client/).
+
 ## Hot to build
 
 Simply run `msbuild Zeebe.sln` or `dotnet build Zeebe.sln`
