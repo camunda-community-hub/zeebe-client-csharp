@@ -44,11 +44,49 @@ To create a client use this:
 ### Complete an job
 
 ```csharp
-  client.NewCompleteJobCommand(JobKey).Payload("{\"foo\":23}").Send();
- ```
+client.NewCompleteJobCommand(JobKey).Payload("{\"foo\":23}").Send();
+```
 
 ### Fail an job
 
 ```csharp
-  client.NewFailCommand(job.Key).Retries(job.Retries - 1).ErrorMessage("This job failed.").Send();
+client.NewFailCommand(job.Key).Retries(job.Retries - 1).ErrorMessage("This job failed.").Send();
 ```
+
+### Deploy a resource
+
+```csharp
+var deployResponse = await client.NewDeployCommand().AddResourceFile(DemoProcessPath).Send();
+```
+
+### Create a workflow instance
+```csharp
+var workflowKey = deployResponse.Workflows[0].WorkflowKey;
+var workflowInstanceResponse = await client
+    .NewCreateWorkflowInstanceCommand()
+    .WorkflowKey(workflowKey)
+    .Payload("{\"foo\":\"123\"}")
+    .Send();
+```
+
+### Update payload of an element instance
+
+```csharp
+await client.NewUpdatePayloadCommand(workflowInstanceResponse.WorkflowInstanceKey)
+    .Payload("{\"a\":\"newPayload\"}")
+    .Send();
+```
+
+### Update retries of an job
+
+```csharp
+await client.NewUpdateRetriesCommand(45).Retries(2).Send();
+```
+
+### Resolve an existing incident
+
+```csharp
+await client.NewResolveIncidentCommand(17).Send();
+```
+
+
