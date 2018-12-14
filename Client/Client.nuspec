@@ -18,15 +18,16 @@
         For more information about the zeebe project please visit http://zeebe.io
     </description>
     <releaseNotes>
-        Catch up with Java and Go Zeebe client.
+	Catch up with the Zeebe Java and Go clients.
+
         The Zeebe C# client supports now new features like:
 
-         * deploy workflow
-         * create workflow instance
-         * cancel workflow instance
+         * deploy a workflow
+         * create a workflow instance
+         * cancel a workflow instance
          * update payload
          * update retries
-         * resolve incident
+         * resolve an incident
          * list workflows
          * get workflow resource
 

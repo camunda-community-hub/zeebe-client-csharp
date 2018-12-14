@@ -456,6 +456,27 @@ namespace GatewayProtocol {
           .AddMethod(__Method_ResolveIncident, serviceImpl.ResolveIncident).Build();
     }
 
+    /// <summary>Register service method implementations with a service binder. Useful when customizing the service binding logic.
+    /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+    /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, GatewayBase serviceImpl)
+    {
+      serviceBinder.AddMethod(__Method_Topology, serviceImpl.Topology);
+      serviceBinder.AddMethod(__Method_DeployWorkflow, serviceImpl.DeployWorkflow);
+      serviceBinder.AddMethod(__Method_PublishMessage, serviceImpl.PublishMessage);
+      serviceBinder.AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries);
+      serviceBinder.AddMethod(__Method_FailJob, serviceImpl.FailJob);
+      serviceBinder.AddMethod(__Method_CompleteJob, serviceImpl.CompleteJob);
+      serviceBinder.AddMethod(__Method_CreateWorkflowInstance, serviceImpl.CreateWorkflowInstance);
+      serviceBinder.AddMethod(__Method_CancelWorkflowInstance, serviceImpl.CancelWorkflowInstance);
+      serviceBinder.AddMethod(__Method_UpdateWorkflowInstancePayload, serviceImpl.UpdateWorkflowInstancePayload);
+      serviceBinder.AddMethod(__Method_ActivateJobs, serviceImpl.ActivateJobs);
+      serviceBinder.AddMethod(__Method_ListWorkflows, serviceImpl.ListWorkflows);
+      serviceBinder.AddMethod(__Method_GetWorkflow, serviceImpl.GetWorkflow);
+      serviceBinder.AddMethod(__Method_ResolveIncident, serviceImpl.ResolveIncident);
+    }
+
   }
 }
 #endregion
