@@ -132,6 +132,18 @@ namespace Zeebe.Client
      IUpdatePayloadCommandStep1 NewUpdatePayloadCommand(long elementInstanceKey);
 
 
+     /// <summary>
+     ///   Command to resolve an existing incident.
+     ///   <pre>
+     ///     zeebeClient
+     ///       .NewResolveIncidentCommand(incidentKey)
+     ///       .Send();
+     ///   </pre>
+     /// </summary>
+     /// <param name="incidentKey">incidentKey the key of the corresponding incident</param>
+     /// <returns>the builder for the command</returns>
+     IResolveIncidentCommandStep1 NewResolveIncidentCommand(long incidentKey);
+
         /**
          * Command to publish a message which can be correlated to a workflow instance.
          *

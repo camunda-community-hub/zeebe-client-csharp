@@ -78,6 +78,11 @@ namespace Zeebe.Client
             return new UpdatePayloadCommand(gatewayClient, elementInstanceKey);
         }
 
+        public IResolveIncidentCommandStep1 NewResolveIncidentCommand(long incidentKey)
+        {
+            return new ResolveIncidentCommand(gatewayClient, incidentKey);
+        }
+
         public IPublishMessageCommandStep1 NewPublishMessageCommand()
         {
             return new PublishMessageCommand(gatewayClient);

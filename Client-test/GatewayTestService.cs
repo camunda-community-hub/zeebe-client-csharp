@@ -51,6 +51,7 @@ namespace Zeebe.Client
             typedRequestHandler.Add(typeof(DeployWorkflowRequest), request => new DeployWorkflowResponse());
             typedRequestHandler.Add(typeof(CreateWorkflowInstanceRequest), request => new CreateWorkflowInstanceResponse());
             typedRequestHandler.Add(typeof(UpdateWorkflowInstancePayloadRequest), request => new UpdateWorkflowInstancePayloadResponse());
+            typedRequestHandler.Add(typeof(ResolveIncidentRequest), request => new ResolveIncidentResponse());
         }
 
         public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
@@ -102,6 +103,11 @@ namespace Zeebe.Client
         public override Task<UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayload(UpdateWorkflowInstancePayloadRequest request, ServerCallContext context)
         {
             return Task.FromResult((UpdateWorkflowInstancePayloadResponse) HandleRequest(request, context));
+        }
+
+        public override Task<ResolveIncidentResponse> ResolveIncident(ResolveIncidentRequest request, ServerCallContext context)
+        {
+            return Task.FromResult((ResolveIncidentResponse) HandleRequest(request, context));
         }
 
         private IMessage HandleRequest(IMessage request, ServerCallContext context)

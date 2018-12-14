@@ -68,9 +68,14 @@ namespace ClientExample
 
             await client.NewPublishMessageCommand().MessageName("Payment Details updated").CorrelationKey("p-1").Send();
 
+
+
+//          RESOLVE an incident
+//            await client.NewUpdatePayloadCommand(14)
+//                .Payload("{\"totalPrice\":101}")
+//                .Send();
 //            await client.NewUpdateRetriesCommand(45).Retries(2).Send();
-
-
+//            await client.NewResolveIncidentCommand(17).Send();
 
             signal.WaitOne();
         }
