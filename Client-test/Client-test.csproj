@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompleteJobTest.cs" />
+    <Compile Include="CreateWorkflowInstanceTest.cs" />
     <Compile Include="DeploymentTest.cs" />
     <Compile Include="FailJobTest.cs" />
     <Compile Include="JobWorkerTest.cs" />

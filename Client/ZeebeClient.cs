@@ -15,6 +15,7 @@
 using GatewayProtocol;
 using Grpc.Core;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.CommandsClient;
 using Zeebe.Client.Api.Subscription;
 using Zeebe.Client.Impl.Commands;
 using Zeebe.Client.Impl.Subscription;
@@ -33,7 +34,7 @@ namespace Zeebe.Client
             channelToGateway = new Channel(address, ChannelCredentials.Insecure);
             gatewayClient = new Gateway.GatewayClient(channelToGateway);
         }
-        
+
         ////////////////////////////////////////////////////////////////////////
         ///////////////////////////// JOBS /////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
@@ -56,10 +57,15 @@ namespace Zeebe.Client
         ////////////////////////////////////////////////////////////////////////
         ///////////////////////////// Workflows ////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
-        
+
         public IDeployWorkflowCommandStep1 NewDeployCommand()
         {
             return new DeployWorkflowCommand(gatewayClient);
+        }
+
+        public ICreateWorkflowInstanceCommandStep1 NewCreateWorkflowInstanceCommand()
+        {
+            return new CreateWorkflowInstanceCommand(gatewayClient);
         }
 
         public IPublishMessageCommandStep1 NewPublishMessageCommand()

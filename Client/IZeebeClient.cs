@@ -15,6 +15,7 @@
 using System;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.CommandsClient;
 using Zeebe.Client.Api.Subscription;
 
 namespace Zeebe.Client
@@ -79,7 +80,23 @@ namespace Zeebe.Client
          * @return a builder for the deploy command
          */
         IDeployWorkflowCommandStep1 NewDeployCommand();
-        
+
+        /**
+         * Command to create/start a new instance of a workflow.
+         *
+         * <pre>
+         * zeebeClient
+         *  .NewCreateInstanceCommand()
+         *  .BpmnProcessId("my-process")
+         *  .LatestVersion()
+         *  .Payload(json)
+         *  .Send();
+         * </pre>
+         *
+         * @return a builder for the command
+         */
+        ICreateWorkflowInstanceCommandStep1 NewCreateWorkflowInstanceCommand();
+
         /**
          * Command to publish a message which can be correlated to a workflow instance.
          *

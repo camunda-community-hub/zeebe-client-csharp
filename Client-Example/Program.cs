@@ -32,7 +32,7 @@ namespace ClientExample
 
             var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
             client.NewWorker()
-                  .JobType("collect-money")
+                  .JobType("foo")
                   .Handler((jobClient, job) =>
                   {
                       var jobKey = job.Key;
@@ -54,6 +54,13 @@ namespace ClientExample
                   .Open();
 
             var deployResponse = await client.NewDeployCommand().AddResourceFile(DemoProcessPath).Send();
+
+            var workflowKey = deployResponse.Workflows[0].WorkflowKey;
+            await client
+                .NewCreateWorkflowInstanceCommand()
+                .WorkflowKey(workflowKey)
+                .Payload("{\"a\":\"123\"}")
+                .Send();
 
             signal.WaitOne();
         }

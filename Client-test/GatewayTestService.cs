@@ -30,7 +30,7 @@ namespace Zeebe.Client
 
         /**
          * Contains the request handler, which return the specific response, for each specific type of request.
-         * 
+         *
          * Per default the response for a specific type are an empty response.
          */
         private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new Dictionary<Type, RequestHandler>();
@@ -40,12 +40,13 @@ namespace Zeebe.Client
         public GatewayTestService()
         {
             typedRequestHandler.Add(typeof(TopologyRequest), request => new TopologyResponse());
-            
+
             typedRequestHandler.Add(typeof(ActivateJobsRequest), request => new ActivateJobsResponse());
             typedRequestHandler.Add(typeof(CompleteJobRequest), request => new CompleteJobResponse());
             typedRequestHandler.Add(typeof(FailJobRequest), request => new FailJobResponse());
-            
+
             typedRequestHandler.Add(typeof(DeployWorkflowRequest), request => new DeployWorkflowResponse());
+            typedRequestHandler.Add(typeof(CreateWorkflowInstanceRequest), request => new CreateWorkflowInstanceResponse());
         }
 
         public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
@@ -77,6 +78,11 @@ namespace Zeebe.Client
         public override Task<DeployWorkflowResponse> DeployWorkflow(DeployWorkflowRequest request, ServerCallContext context)
         {
             return Task.FromResult((DeployWorkflowResponse) HandleRequest(request, context));
+        }
+
+        public override Task<CreateWorkflowInstanceResponse> CreateWorkflowInstance(CreateWorkflowInstanceRequest request, ServerCallContext context)
+        {
+            return Task.FromResult((CreateWorkflowInstanceResponse) HandleRequest(request, context));
         }
 
         private IMessage HandleRequest(IMessage request, ServerCallContext context)
