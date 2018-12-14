@@ -174,6 +174,27 @@ namespace Zeebe.Client
          */
         IPublishMessageCommandStep1 NewPublishMessageCommand();
 
+
+     /// <summary>
+     /// Request to get all deployed workflows.
+     ///
+     /// <pre>
+     /// IList&#60;Workflow&#62; workflows = await zeebeClient
+     ///  .NewWorkflowRequest()
+     ///  .Send()
+     ///  .getWorkflows();
+     ///
+     /// String bpmnProcessId = workflow.getBpmnProcessId();
+     /// </pre>
+     ///
+     /// The response does not contain the resources of the workflows. Use {@link #newResourceRequest()}
+     /// to get the resource of a workflow.
+     /// </summary>
+     /// @see #newResourceRequest()
+     /// @return a builder of the request
+     /// <returns>the builder for the command</returns>
+     IListWorkflowsRequestStep1 NewListWorkflowRequest();
+
         /**
          * Request the current cluster topology. Can be used to inspect which brokers are available at
          * which endpoint and which broker is the leader of which partition.

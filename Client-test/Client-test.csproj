@@ -80,6 +80,7 @@
     <Compile Include="DeploymentTest.cs" />
     <Compile Include="FailJobTest.cs" />
     <Compile Include="JobWorkerTest.cs" />
+    <Compile Include="ListWorkflowTest.cs" />
     <Compile Include="PublishMessageTest.cs" />
     <Compile Include="RequestTopologyTest.cs" />
     <Compile Include="GatewayTestService.cs" />

@@ -64,6 +64,7 @@
     <Compile Include="Api\Commands\ICreateWorkflowInstanceCommandStep1.cs" />
     <Compile Include="Api\Commands\IFailJobCommandStep1.cs" />
     <Compile Include="Api\Commands\ICompleteJobCommandStep1.cs" />
+    <Compile Include="Api\Commands\IListWorkflowsRequestStep1.cs" />
     <Compile Include="Api\Commands\IResolveIncidentCommandStep1.cs" />
     <Compile Include="Api\Commands\IUpdatePayloadCommandStep1.cs" />
     <Compile Include="Api\Commands\IUpdateRetriesCommandStep1.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Api\Responses\IUpdatePayloadResponse.cs" />
     <Compile Include="Api\Responses\IUpdateRetriesResponse.cs" />
     <Compile Include="Api\Responses\IWorkflowInstanceResponse.cs" />
+    <Compile Include="Api\Responses\IWorkflowListResponse.cs" />
     <Compile Include="Api\Responses\IWorkflowMetadata.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Api\Commands\IDeployWorkflowCommandStep1.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Impl\Commands\CreateWorkflowInstanceCommand.cs" />
     <Compile Include="Impl\Commands\DeployWorkflowCommand.cs" />
     <Compile Include="Impl\Commands\FailJobCommand.cs" />
+    <Compile Include="Impl\Commands\ListWorkflowRequest.cs" />
     <Compile Include="Impl\Commands\PublishMessageCommand.cs" />
     <Compile Include="Impl\Commands\ResolveIncidentCommand.cs" />
     <Compile Include="Impl\Commands\UpdatePayloadCommand.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Impl\Responses\WorkflowInstanceResponse.cs" />
     <Compile Include="Impl\Responses\DeployResponse.cs" />
     <Compile Include="Impl\Responses\FailJobResponse.cs" />
+    <Compile Include="Impl\Responses\WorkflowListResponse.cs" />
     <Compile Include="Impl\Responses\WorkflowMetadata.cs" />
     <Compile Include="ZeebeClient.cs" />
     <Compile Include="Impl\proto\Gateway.cs" />

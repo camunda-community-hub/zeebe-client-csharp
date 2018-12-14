@@ -68,8 +68,10 @@ namespace ClientExample
 
             await client.NewPublishMessageCommand().MessageName("Payment Details updated").CorrelationKey("p-1").Send();
 
+//          Cancel an instance
+           await client.NewCancelInstanceCommand(workflowInstanceResponse.WorkflowInstanceKey).Send();
 
-            await client.NewCancelInstanceCommand(1437).Send();
+            var workflowListResponse = await client.NewListWorkflowRequest().Send();
 
 //          RESOLVE an incident
 //            await client.NewUpdatePayloadCommand(14)
