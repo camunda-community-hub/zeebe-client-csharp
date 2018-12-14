@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompleteJobTest.cs" />
+    <Compile Include="DeploymentTest.cs" />
     <Compile Include="FailJobTest.cs" />
     <Compile Include="JobWorkerTest.cs" />
     <Compile Include="RequestTopologyTest.cs" />
@@ -101,6 +102,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\demo-process.bpmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.16.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.16.0\build\net45\Grpc.Core.targets')" />

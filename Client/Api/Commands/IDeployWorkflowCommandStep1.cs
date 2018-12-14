@@ -16,12 +16,12 @@ using GatewayProtocol;
 using System;
 using System.IO;
 using System.Text;
+using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
 {
     public interface IDeployWorkflowCommandStep1
     {
-
         /**
          * Add the given resource to the deployment.
          *
@@ -30,7 +30,7 @@ namespace Zeebe.Client.Api.Commands
          * @return the builder for this command. Call {@link #send()} to complete the command and send it
          *     to the broker.
          */
-        IDeployWorkflowCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, String resourceName);
+        IDeployWorkflowCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName);
 
         /**
          * Add the given resource to the deployment.
@@ -42,7 +42,7 @@ namespace Zeebe.Client.Api.Commands
          *     to the broker.
          */
         IDeployWorkflowCommandBuilderStep2 AddResourceString(
-            String resourceString, Encoding encoding, String resourceName);
+            string resourceString, Encoding encoding, string resourceName);
 
         /**
          * Add the given resource to the deployment.
@@ -53,7 +53,7 @@ namespace Zeebe.Client.Api.Commands
          *     to the broker.
          */
         IDeployWorkflowCommandBuilderStep2 AddResourceStringUtf8(
-            String resourceString, String resourceName);
+            string resourceString, string resourceName);
 
         /**
          * Add the given resource to the deployment.
@@ -64,7 +64,7 @@ namespace Zeebe.Client.Api.Commands
          *     to the broker.
          */
         IDeployWorkflowCommandBuilderStep2 AddResourceStream(
-            Stream resourceStream, String resourceName);
+            Stream resourceStream, string resourceName);
 
         /**
          * Add the given resource to the deployment.
@@ -73,10 +73,10 @@ namespace Zeebe.Client.Api.Commands
          * @return the builder for this command. Call {@link #send()} to complete the command and send it
          *     to the broker.
          */
-        IDeployWorkflowCommandBuilderStep2 AddResourceFile(String filename);
+        IDeployWorkflowCommandBuilderStep2 AddResourceFile(string filename);
     }
 
-    public interface IDeployWorkflowCommandBuilderStep2 : IDeployWorkflowCommandStep1, IFinalCommandStep<DeployWorkflowResponse>
+    public interface IDeployWorkflowCommandBuilderStep2 : IDeployWorkflowCommandStep1, IFinalCommandStep<IDeployResponse>
     {
         // the place for new optional parameters
     }

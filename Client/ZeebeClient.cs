@@ -25,20 +25,23 @@ namespace Zeebe.Client
     {
         private const string DEFAULT_ADDRESS = "localhost:26500";
 
-        private Channel channelToGateway;
+        private readonly Channel channelToGateway;
         private readonly Gateway.GatewayClient gatewayClient;
 
-        internal ZeebeClient(string address)
+        private ZeebeClient(string address)
         {
             channelToGateway = new Channel(address, ChannelCredentials.Insecure);
             gatewayClient = new Gateway.GatewayClient(channelToGateway);
         }
+        
+        ////////////////////////////////////////////////////////////////////////
+        ///////////////////////////// JOBS /////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
 
         public IJobWorkerBuilderStep1 NewWorker()
         {
             return new JobWorkerBuilder(gatewayClient, this);
         }
-
 
         public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
         {
@@ -50,19 +53,10 @@ namespace Zeebe.Client
             return new FailJobCommand(gatewayClient, jobKey);
         }
 
-        /**
-         * Command to deploy new workflows.
-         *
-         * <pre>
-         * workflowClient
-         *  .newDeployCommand()
-         *  .addResourceFile("~/wf/workflow1.bpmn")
-         *  .addResourceFile("~/wf/workflow2.bpmn")
-         *  .send();
-         * </pre>
-         *
-         * @return a builder for the command
-         */
+        ////////////////////////////////////////////////////////////////////////
+        ///////////////////////////// Workflows ////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        
         public IDeployWorkflowCommandStep1 NewDeployCommand()
         {
             return new DeployWorkflowCommand(gatewayClient);

@@ -20,6 +20,8 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Responses;
+using Zeebe.Client.Impl.Responses;
 
 namespace Zeebe.Client.Impl.Commands
 {
@@ -43,7 +45,9 @@ namespace Zeebe.Client.Impl.Commands
 
         public IDeployWorkflowCommandBuilderStep2 AddResourceFile(string filename)
         {
-            throw new NotImplementedException();
+            var text = File.ReadAllText(filename);
+            AddResourceStringUtf8(text, filename);
+            return this;
         }
 
         public IDeployWorkflowCommandBuilderStep2 AddResourceStream(Stream resourceStream, string resourceName)
@@ -64,11 +68,11 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<DeployWorkflowResponse> Send()
+        public async Task<IDeployResponse> Send()
         {
-            var response = gatewayClient.DeployWorkflowAsync(request);
-
-            return await response.ResponseAsync;
+            var asyncReply = gatewayClient.DeployWorkflowAsync(request);
+            var response = await asyncReply.ResponseAsync;
+            return new DeployResponse(response);
         }
 
         private void AddWorkflow(ByteString resource, string resourceName)
@@ -77,7 +81,7 @@ namespace Zeebe.Client.Impl.Commands
             {
                 Definition = resource,
                 Name = resourceName,
-                Type = WorkflowRequestObject.Types.ResourceType.Bpmn
+                Type = WorkflowRequestObject.Types.ResourceType.File
             };
 
             request.Workflows.Add(requestObject);

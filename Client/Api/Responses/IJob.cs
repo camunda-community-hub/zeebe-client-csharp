@@ -49,7 +49,7 @@ namespace Zeebe.Client.Api.Responses
         string Payload { get; }
 
         /** De-serialized payload as map */
-        IDictionary<String, Object> PayloadAsDictionary { get; }
+        IDictionary<string, object> PayloadAsDictionary { get; }
 
         /** @return de-serialized payload as the given type */
         InstanceType PayloadAsType<InstanceType>();

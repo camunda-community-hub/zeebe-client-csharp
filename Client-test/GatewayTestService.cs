@@ -40,9 +40,12 @@ namespace Zeebe.Client
         public GatewayTestService()
         {
             typedRequestHandler.Add(typeof(TopologyRequest), request => new TopologyResponse());
+            
             typedRequestHandler.Add(typeof(ActivateJobsRequest), request => new ActivateJobsResponse());
             typedRequestHandler.Add(typeof(CompleteJobRequest), request => new CompleteJobResponse());
             typedRequestHandler.Add(typeof(FailJobRequest), request => new FailJobResponse());
+            
+            typedRequestHandler.Add(typeof(DeployWorkflowRequest), request => new DeployWorkflowResponse());
         }
 
         public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
@@ -69,6 +72,11 @@ namespace Zeebe.Client
         public override Task<FailJobResponse> FailJob(FailJobRequest request, ServerCallContext context)
         {
             return Task.FromResult((FailJobResponse)HandleRequest(request, context));
+        }
+
+        public override Task<DeployWorkflowResponse> DeployWorkflow(DeployWorkflowRequest request, ServerCallContext context)
+        {
+            return Task.FromResult((DeployWorkflowResponse) HandleRequest(request, context));
         }
 
         private IMessage HandleRequest(IMessage request, ServerCallContext context)

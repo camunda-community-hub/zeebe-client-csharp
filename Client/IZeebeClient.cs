@@ -65,7 +65,21 @@ namespace Zeebe.Client
          */
         IJobWorkerBuilderStep1 NewWorker();
 
-
+        /**
+         * Command to deploy new workflows.
+         *
+         * <pre>
+         * zeebeClient
+         *  .NewDeployCommand()
+         *  .AddResourceFile("~/wf/workflow1.bpmn")
+         *  .AddResourceFile("~/wf/workflow2.bpmn")
+         *  .Send();
+         * </pre>
+         *
+         * @return a builder for the deploy command
+         */
+        IDeployWorkflowCommandStep1 NewDeployCommand();
+        
         /**
          * Command to publish a message which can be correlated to a workflow instance.
          *

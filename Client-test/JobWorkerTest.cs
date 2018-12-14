@@ -131,6 +131,8 @@ namespace Zeebe.Client
                 {
                     new ActivatedJob{
                         Key = 1,
+                        Worker = "jobWorker",
+                        Type = "foo",
                         Payload = "{\"foo\":1}",
                         Retries = 3,
                         Deadline = 123932,
@@ -143,6 +145,8 @@ namespace Zeebe.Client
                     },
                     new ActivatedJob{
                         Key = 2,
+                        Worker = "jobWorker",
+                        Type = "foo",
                         Payload = "{\"foo\":2}",
                         Retries = 3,
                         Deadline = 123932,
@@ -155,6 +159,8 @@ namespace Zeebe.Client
                     },
                     new ActivatedJob{
                         Key = 3,
+                        Worker = "jobWorker",
+                        Type = "foo",
                         Payload = "{\"foo\":3}",
                         Retries = 3,
                         Deadline = 123932,
@@ -169,20 +175,22 @@ namespace Zeebe.Client
             };
         }
 
-        private static void AssertJob(IJob firstJob, int expectedKey)
+        private static void AssertJob(IJob job, int expectedKey)
         {
-            Assert.AreEqual(expectedKey, firstJob.Key);
-            Assert.AreEqual(3, firstJob.Retries);
+            Assert.AreEqual(expectedKey, job.Key);
+            Assert.AreEqual(3, job.Retries);
+            Assert.AreEqual("foo", job.Type);
+            Assert.AreEqual("jobWorker", job.Worker);
 
-            Assert.AreEqual("{\"foo\":" + expectedKey + "}", firstJob.Payload);
+            Assert.AreEqual("{\"foo\":" + expectedKey + "}", job.Payload);
             var expectedPayload = new Dictionary<string, int> { { "foo", expectedKey } };
-            CollectionAssert.AreEquivalent(expectedPayload, firstJob.PayloadAsDictionary);
+            CollectionAssert.AreEquivalent(expectedPayload, job.PayloadAsDictionary);
 
-            Assert.AreEqual("process", firstJob.Headers.BpmnProcessId);
-            Assert.AreEqual("job" + expectedKey, firstJob.Headers.ElementId);
-            Assert.AreEqual(23, firstJob.Headers.ElementInstanceKey);
-            Assert.AreEqual(3, firstJob.Headers.WorkflowDefinitionVersion);
-            Assert.AreEqual(21, firstJob.Headers.WorkflowKey);
+            Assert.AreEqual("process", job.Headers.BpmnProcessId);
+            Assert.AreEqual("job" + expectedKey, job.Headers.ElementId);
+            Assert.AreEqual(23, job.Headers.ElementInstanceKey);
+            Assert.AreEqual(3, job.Headers.WorkflowDefinitionVersion);
+            Assert.AreEqual(21, job.Headers.WorkflowKey);
         }
     }
 }

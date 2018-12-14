@@ -28,7 +28,6 @@ namespace Zeebe.Client
         public GatewayTestService TestService => testService;
         public IZeebeClient ZeebeClient => client;
 
-
         [SetUp]
         public void Init()
         {
