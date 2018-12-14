@@ -62,6 +62,8 @@ namespace ClientExample
                 .Payload("{\"a\":\"123\"}")
                 .Send();
 
+            await client.NewUpdatePayloadCommand(1069).Payload("{\"foo\":\"newPayload\"}").Send();
+
             signal.WaitOne();
         }
     }

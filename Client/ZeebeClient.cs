@@ -68,6 +68,11 @@ namespace Zeebe.Client
             return new CreateWorkflowInstanceCommand(gatewayClient);
         }
 
+        public IUpdatePayloadCommandStep1 NewUpdatePayloadCommand(long elementInstanceKey)
+        {
+            return new UpdatePayloadCommand(gatewayClient, elementInstanceKey);
+        }
+
         public IPublishMessageCommandStep1 NewPublishMessageCommand()
         {
             return new PublishMessageCommand(gatewayClient);

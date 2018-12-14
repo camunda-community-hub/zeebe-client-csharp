@@ -97,6 +97,21 @@ namespace Zeebe.Client
          */
         ICreateWorkflowInstanceCommandStep1 NewCreateWorkflowInstanceCommand();
 
+
+     /// <summary>
+     /// Command to update the payload of a workflow instance.
+     ///  <pre>
+     ///   zeebeClient
+     ///    .NewUpdatePayloadCommand(elementInstanceKey)
+     ///    .Payload(json)
+     ///    .Send();
+     ///  </pre>
+     /// </summary>
+     /// <param name="elementInstanceKey">the key of the element instance to update the payload for</param>
+     /// <returns> a builder for the command</returns>
+     IUpdatePayloadCommandStep1 NewUpdatePayloadCommand(long elementInstanceKey);
+
+
         /**
          * Command to publish a message which can be correlated to a workflow instance.
          *

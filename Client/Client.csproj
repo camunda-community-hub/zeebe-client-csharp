@@ -63,9 +63,11 @@
     <Compile Include="Api\Commands\ICreateWorkflowInstanceCommandStep1.cs" />
     <Compile Include="Api\Commands\IFailJobCommandStep1.cs" />
     <Compile Include="Api\Commands\ICompleteJobCommandStep1.cs" />
+    <Compile Include="Api\Commands\IUpdatePayloadCommandStep1.cs" />
     <Compile Include="Api\Responses\ICompleteJobResponse.cs" />
     <Compile Include="Api\Responses\IDeployResponse.cs" />
     <Compile Include="Api\Responses\IFailJobResponse.cs" />
+    <Compile Include="Api\Responses\IUpdatePayloadResponse.cs" />
     <Compile Include="Api\Responses\IWorkflowInstanceResponse.cs" />
     <Compile Include="Api\Responses\IWorkflowMetadata.cs" />
     <Compile Include="AssemblyInfo.cs" />
@@ -77,7 +79,9 @@
     <Compile Include="Impl\Commands\DeployWorkflowCommand.cs" />
     <Compile Include="Impl\Commands\FailJobCommand.cs" />
     <Compile Include="Impl\Commands\PublishMessageCommand.cs" />
+    <Compile Include="Impl\Commands\UpdatePayloadCommand.cs" />
     <Compile Include="Impl\Responses\CompleteJobResponse.cs" />
+    <Compile Include="Impl\Responses\UpdatePayloadResponse.cs" />
     <Compile Include="Impl\Responses\WorkflowInstanceResponse.cs" />
     <Compile Include="Impl\Responses\DeployResponse.cs" />
     <Compile Include="Impl\Responses\FailJobResponse.cs" />

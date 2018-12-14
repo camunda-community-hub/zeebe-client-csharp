@@ -82,6 +82,7 @@
     <Compile Include="RequestTopologyTest.cs" />
     <Compile Include="GatewayTestService.cs" />
     <Compile Include="BaseZeebeTest.cs" />
+    <Compile Include="UpdatePayloadTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -26,6 +26,6 @@ namespace Zeebe.Client.Api.Commands
         * @return the builder for this command. Call {@link #send()} to complete the command and send it
         *     to the broker.
         */
-        ICompleteJobCommandStep1 Payload(String payload);
+        ICompleteJobCommandStep1 Payload(string payload);
     }
 }
