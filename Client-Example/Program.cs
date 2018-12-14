@@ -66,13 +66,19 @@ namespace ClientExample
                 .Payload("{\"a\":\"newPayload\"}")
                 .Send();
 
-            await client.NewPublishMessageCommand().MessageName("Payment Details updated").CorrelationKey("p-1").Send();
+            await client.NewPublishMessageCommand()
+                .MessageName("Payment Details updated")
+                .CorrelationKey("p-1")
+                .MessageId("csharpMessage")
+                .Send();
 
 //          Cancel an instance
            await client.NewCancelInstanceCommand(workflowInstanceResponse.WorkflowInstanceKey).Send();
 
             var workflowListResponse = await client.NewListWorkflowRequest().Send();
 
+            var workflowResourceResponse = await client.NewWorkflowResourceRequest().BpmnProcessId("ship-parcel").LatestVersion().Send();
+            Console.WriteLine(workflowResourceResponse.ToString());
 //          RESOLVE an incident
 //            await client.NewUpdatePayloadCommand(14)
 //                .Payload("{\"totalPrice\":101}")

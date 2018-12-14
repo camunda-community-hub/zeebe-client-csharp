@@ -88,6 +88,7 @@
     <Compile Include="ResolveIncidentTest.cs" />
     <Compile Include="UpdatePayloadTest.cs" />
     <Compile Include="UpdateRetriesTest.cs" />
+    <Compile Include="WorkflowResourceRequestTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

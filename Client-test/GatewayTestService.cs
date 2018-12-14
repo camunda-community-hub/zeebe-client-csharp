@@ -55,6 +55,7 @@ namespace Zeebe.Client
             typedRequestHandler.Add(typeof(ResolveIncidentRequest), request => new ResolveIncidentResponse());
 
             typedRequestHandler.Add(typeof(ListWorkflowsRequest), request => new ListWorkflowsResponse());
+            typedRequestHandler.Add(typeof(GetWorkflowRequest), request => new GetWorkflowResponse());
         }
 
         public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
@@ -121,6 +122,11 @@ namespace Zeebe.Client
         public override Task<ListWorkflowsResponse> ListWorkflows(ListWorkflowsRequest request, ServerCallContext context)
         {
             return Task.FromResult((ListWorkflowsResponse) HandleRequest(request, context));
+        }
+
+        public override Task<GetWorkflowResponse> GetWorkflow(GetWorkflowRequest request, ServerCallContext context)
+        {
+            return Task.FromResult((GetWorkflowResponse) HandleRequest(request, context));
         }
 
         private IMessage HandleRequest(IMessage request, ServerCallContext context)

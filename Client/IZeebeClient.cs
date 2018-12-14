@@ -195,6 +195,24 @@ namespace Zeebe.Client
      /// <returns>the builder for the command</returns>
      IListWorkflowsRequestStep1 NewListWorkflowRequest();
 
+
+     /// <summary>
+     /// Request to get the resource of a workflow (i.e. the XML representation).
+     ///
+     /// <pre>
+     /// WorkflowResource resource = workflowClient
+     ///  .newResourceRequest()
+     ///  .bpmnProcessId("my-process")
+     ///  .lastestVersion()
+     ///  .send()
+     ///  .join();
+     ///
+     /// String bpmnXml = resoure.getBpmnXml();
+     /// </pre>
+     /// </summary>
+     /// <returns>a builder of the request</returns>
+     IWorkflowResourceRequestStep1 NewWorkflowResourceRequest();
+
         /**
          * Request the current cluster topology. Can be used to inspect which brokers are available at
          * which endpoint and which broker is the leader of which partition.
