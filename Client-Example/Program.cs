@@ -14,7 +14,6 @@
 //    limitations under the License.
 
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,33 +27,13 @@ namespace ClientExample
 
         public static async Task Main(string[] args)
         {
+            // create zeebe client
             var client = ZeebeClient.NewZeebeClient("192.168.30.220:26500");
 
-            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
-            client.NewWorker()
-                  .JobType("foo")
-                  .Handler((jobClient, job) =>
-                  {
-                      var jobKey = job.Key;
-                      Console.WriteLine("Handle job: " + jobKey);
-
-                      if (jobKey % 2 == 0)
-                      {
-                          jobClient.NewCompleteJobCommand(jobKey).Payload("{\"foo\":2}").Send();
-                      }
-                      else
-                      {
-                          jobClient.NewFailCommand(jobKey).Retries(job.Retries - 1).ErrorMessage("Example fail").Send();
-                      }
-                  })
-                  .Limit(5)
-                  .Name("csharpWorker")
-                  .PollInterval(TimeSpan.FromSeconds(1))
-                  .Timeout(TimeSpan.FromSeconds(10))
-                  .Open();
-
+            // deploy
             var deployResponse = await client.NewDeployCommand().AddResourceFile(DemoProcessPath).Send();
 
+            // create workflow instance
             var workflowKey = deployResponse.Workflows[0].WorkflowKey;
             var workflowInstanceResponse = await client
                 .NewCreateWorkflowInstanceCommand()
@@ -62,31 +41,35 @@ namespace ClientExample
                 .Payload("{\"foo\":\"123\"}")
                 .Send();
 
-            await client.NewUpdatePayloadCommand(workflowInstanceResponse.WorkflowInstanceKey)
-                .Payload("{\"a\":\"newPayload\"}")
-                .Send();
+            // open job worker
+            using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
+            {
+                client.NewWorker()
+                      .JobType("foo")
+                      .Handler((jobClient, job) =>
+                      {
+                          // business logic
+                          var jobKey = job.Key;
+                          Console.WriteLine("Handle job: " + jobKey);
 
-            await client.NewPublishMessageCommand()
-                .MessageName("Payment Details updated")
-                .CorrelationKey("p-1")
-                .MessageId("csharpMessage")
-                .Send();
+                          if (jobKey % 2 == 0)
+                          {
+                              jobClient.NewCompleteJobCommand(jobKey).Payload("{\"foo\":2}").Send();
+                          }
+                          else
+                          {
+                              jobClient.NewFailCommand(jobKey).Retries(job.Retries - 1).ErrorMessage("Example fail").Send();
+                          }
+                      })
+                      .Limit(5)
+                      .Name("csharpWorker")
+                      .PollInterval(TimeSpan.FromSeconds(1))
+                      .Timeout(TimeSpan.FromSeconds(10))
+                      .Open();
 
-//          Cancel an instance
-           await client.NewCancelInstanceCommand(workflowInstanceResponse.WorkflowInstanceKey).Send();
-
-            var workflowListResponse = await client.NewListWorkflowRequest().Send();
-
-            var workflowResourceResponse = await client.NewWorkflowResourceRequest().BpmnProcessId("ship-parcel").LatestVersion().Send();
-            Console.WriteLine(workflowResourceResponse.ToString());
-//          RESOLVE an incident
-//            await client.NewUpdatePayloadCommand(14)
-//                .Payload("{\"totalPrice\":101}")
-//                .Send();
-//            await client.NewUpdateRetriesCommand(45).Retries(2).Send();
-//            await client.NewResolveIncidentCommand(17).Send();
-
-            signal.WaitOne();
+                // blocks main thread, so that worker can run
+                signal.WaitOne();
+            }
         }
     }
 }
