@@ -35,7 +35,7 @@ namespace ClientExample
 
             // create workflow instance
             var workflowKey = deployResponse.Workflows[0].WorkflowKey;
-            var workflowInstanceResponse = await client
+            await client
                 .NewCreateWorkflowInstanceCommand()
                 .WorkflowKey(workflowKey)
                 .Payload("{\"foo\":\"123\"}")
