@@ -1,4 +1,7 @@
-[![](https://img.shields.io/nuget/v/zb-client.svg)](https://www.nuget.org/packages/zb-client/) [![](https://img.shields.io/github/license/zeebe-io/zeebe-client-csharp.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Total alerts](https://img.shields.io/lgtm/alerts/g/zeebe-io/zb-csharp-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/zeebe-io/zb-csharp-client/alerts/) 
+[![Build Status](https://travis-ci.org/zeebe-io/zeebe-client-csharp.svg?branch=master)](https://travis-ci.org/zeebe-io/zeebe-client-csharp)
+[![](https://img.shields.io/nuget/v/zb-client.svg)](https://www.nuget.org/packages/zb-client/) 
+[![](https://img.shields.io/github/license/zeebe-io/zeebe-client-csharp.svg)](https://www.apache.org/licenses/LICENSE-2.0) 
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/zeebe-io/zb-csharp-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/zeebe-io/zb-csharp-client/alerts/) 
 
 
 
