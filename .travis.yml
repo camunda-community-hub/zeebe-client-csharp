@@ -1,0 +1,8 @@
+language: csharp
+solution: Zeebe.sln
+install:
+  - nuget restore Zeebe.sln
+  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+script:
+  - msbuild /p:Configuration=Release Zeebe.sln
+  - mono ./testrunner/NUnit.Runners.3.9.0/tools/nunit-console3.exe ./Client-test/bin/Release/client-test.dll
