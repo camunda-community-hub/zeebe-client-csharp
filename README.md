@@ -20,7 +20,7 @@ for more information about the Zeebe project.
 
 The Zeebe C# client is available via nuget (https://www.nuget.org/packages/zb-client/).
 
-## Hot to build
+## How to build
 
 Simply run `msbuild Zeebe.sln` or `dotnet build Zeebe.sln`
 
