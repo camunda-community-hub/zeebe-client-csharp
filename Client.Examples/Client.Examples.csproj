@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Resources\**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" version="3.6.1" />
+    <PackageReference Include="Grpc" version="1.17.0" />
+    <PackageReference Include="Grpc.Core" version="1.17.0" />
+    <PackageReference Include="Grpc.Tools" version="1.17.0" />
+    <PackageReference Include="Newtonsoft.Json" version="11.0.2"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Client\Client.csproj" />
+  </ItemGroup>
+
+</Project>

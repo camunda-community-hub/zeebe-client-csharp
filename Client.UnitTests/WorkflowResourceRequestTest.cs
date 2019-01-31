@@ -9,7 +9,7 @@ namespace Zeebe.Client
     [TestFixture]
     public class WorkflowResourceRequestTest : BaseZeebeTest
     {
-        private readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "resources/demo-process.bpmn");
+        private readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources","demo-process.bpmn");
 
         [Test]
         public async Task shouldSendRequestAsExpected()
