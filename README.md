@@ -13,7 +13,9 @@ for more information about the Zeebe project.
 
 ## Requirements
 
- * .net 4.7.1
+ * .net standard 2.0 or higher, which means
+   * .net core 2.1 or higher or
+   * .net framework 4.7.1 or higher
  * latest zeebe release ([0.14.0](https://github.com/zeebe-io/zeebe/releases/tag/0.14.0))
 
 ## How to use
