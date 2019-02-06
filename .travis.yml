@@ -1,7 +1,7 @@
 language: csharp
 solution: Zeebe.sln
 mono: none
-dotnet: 2.2.103
+dotnet: 2.1.502
 install:
   - dotnet restore Zeebe.sln
 script:
