@@ -3,40 +3,29 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>Client to communicate with a Zeebe broker.
 
 Uses GRPC as protocol for communication.
 For more information about the zeebe project please visit http://zeebe.io</Description>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/zeebe-io/zb-csharp-client</PackageProjectUrl>
-    <PackageTags>zeebe, zb, zb-csharp, zb-client</PackageTags>
+    <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>0.0.1.0</AssemblyVersion>
-    <FileVersion>0.0.1.0</FileVersion>
-    <PackageReleaseNotes>Catch up with the Zeebe Java and Go clients.
-
-The Zeebe C# client supports now new features like:
-
-* deploy a workflow
-* create a workflow instance
-* cancel a workflow instance
-* update payload
-* update retries
-* resolve an incident
-* list workflows
-* get workflow resource
+    <AssemblyVersion>0.4.0</AssemblyVersion>
+    <FileVersion>0.4.0</FileVersion>
+    <PackageReleaseNotes>Migrate to .NET Standard 2.0
 
 This release is based on the zeebe 0.14.0 release (https://github.com/zeebe-io/zeebe).</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>zb-client</PackageId>
-    <Product>Zeebe C# client</Product>    
-
-
-
+    <Product>Zeebe C# client</Product>
+    <RepositoryUrl>https://github.com/zeebe-io/zb-csharp-client</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>

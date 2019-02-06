@@ -1,12 +1,13 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{C0AC4BD3-E0E9-4F2E-96EA-D1BC0EDCFCC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.UnitTests", "Client.UnitTests\Client.UnitTests.csproj", "{1FD8CCE3-CF60-4611-AFB7-E4254ACD8F9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.UnitTests", "Client.UnitTests\Client.UnitTests.csproj", "{1FD8CCE3-CF60-4611-AFB7-E4254ACD8F9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Examples", "Client.Examples\Client.Examples.csproj", "{06578991-00CD-4EF7-A12B-63E915A0CECC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.Examples", "Client.Examples\Client.Examples.csproj", "{06578991-00CD-4EF7-A12B-63E915A0CECC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,7 +40,6 @@ Global
 		{06578991-00CD-4EF7-A12B-63E915A0CECC}.Release|x64.ActiveCfg = Release|Any CPU
 		{06578991-00CD-4EF7-A12B-63E915A0CECC}.Release|x64.Build.0 = Release|Any CPU
 		{06578991-00CD-4EF7-A12B-63E915A0CECC}.Release|x86.ActiveCfg = Release|Any CPU
-		{06578991-00CD-4EF7-A12B-63E915A0CECC}.Release|x86.Build.0 = Release|Any CPU	
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
