@@ -18,17 +18,23 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Zeebe.Client;
+using Zeebe.Client.Api.Clients;
+using Zeebe.Client.Api.Responses;
 
-namespace ClientExample
+namespace Client.Examples
 {
-    internal class MainClass
+    internal class Program
     {
-        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "resources/demo-process.bpmn");
+        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
+        private static readonly string ZeebeUrl = "127.0.0.1:26500";
+        private static readonly string WorkflowInstancePayload = "{\"a\":\"123\"}";
+        private static readonly string JobType = "foo";
+        private static readonly string WorkerName = Environment.MachineName;
 
         public static async Task Main(string[] args)
         {
             // create zeebe client
-            var client = ZeebeClient.NewZeebeClient("192.168.30.220:26500");
+            var client = ZeebeClient.NewZeebeClient(ZeebeUrl);
 
             // deploy
             var deployResponse = await client.NewDeployCommand().AddResourceFile(DemoProcessPath).Send();
@@ -38,37 +44,39 @@ namespace ClientExample
             await client
                 .NewCreateWorkflowInstanceCommand()
                 .WorkflowKey(workflowKey)
-                .Payload("{\"foo\":\"123\"}")
-                .Send();
+                .Payload(WorkflowInstancePayload)
+                .Send();            
 
             // open job worker
             using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
             {
                 client.NewWorker()
-                      .JobType("foo")
-                      .Handler((jobClient, job) =>
-                      {
-                          // business logic
-                          var jobKey = job.Key;
-                          Console.WriteLine("Handle job: " + jobKey);
-
-                          if (jobKey % 2 == 0)
-                          {
-                              jobClient.NewCompleteJobCommand(jobKey).Payload("{\"foo\":2}").Send();
-                          }
-                          else
-                          {
-                              jobClient.NewFailCommand(jobKey).Retries(job.Retries - 1).ErrorMessage("Example fail").Send();
-                          }
-                      })
+                      .JobType(JobType)
+                      .Handler(HandleJob)
                       .Limit(5)
-                      .Name("csharpWorker")
+                      .Name(WorkerName)
                       .PollInterval(TimeSpan.FromSeconds(1))
                       .Timeout(TimeSpan.FromSeconds(10))
                       .Open();
 
                 // blocks main thread, so that worker can run
                 signal.WaitOne();
+            }
+        }
+
+        private static void HandleJob(IJobClient jobClient, IJob job)
+        {
+            // business logic
+            var jobKey = job.Key;
+            Console.WriteLine("Handling job: " + jobKey);
+
+            if (jobKey % 2 == 0)
+            {
+                jobClient.NewCompleteJobCommand(jobKey).Payload("{\"foo\":2}").Send();
+            }
+            else
+            {
+                jobClient.NewFailCommand(jobKey).Retries(job.Retries - 1).ErrorMessage("Example fail").Send();
             }
         }
     }
