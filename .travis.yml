@@ -1,8 +1,9 @@
 language: csharp
 solution: Zeebe.sln
+mono: none
+dotnet: 2.2.103
 install:
-  - nuget restore Zeebe.sln
-  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+  - dotnet restore Zeebe.sln
 script:
-  - msbuild /p:Configuration=Release Zeebe.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./Client.UnitTests/bin/Release/netcoreapp2.1/Client.UnitTests.dll
+  - dotnet build --configuration Release --no-restore
+  - dotnet test --configuration Release --no-restore --no-build
