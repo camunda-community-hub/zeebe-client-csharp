@@ -12,10 +12,13 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" version="3.6.1" />
-    <PackageReference Include="Grpc" version="1.17.0" />
-    <PackageReference Include="Grpc.Core" version="1.17.0" />
-    <PackageReference Include="Grpc.Tools" version="1.17.0" />
-    <PackageReference Include="Newtonsoft.Json" version="11.0.2"/>
+    <PackageReference Include="Grpc" version="1.18.0" />
+    <PackageReference Include="Grpc.Core" version="1.18.0" />
+    <PackageReference Include="Grpc.Tools" version="1.18.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" version="12.0.1" />
   </ItemGroup>
 
   <ItemGroup>
