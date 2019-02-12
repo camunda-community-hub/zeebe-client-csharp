@@ -12,67 +12,46 @@ namespace GatewayProtocol {
   {
     static readonly string __ServiceName = "gateway_protocol.Gateway";
 
-    static readonly grpc::Marshaller<global::GatewayProtocol.TopologyRequest> __Marshaller_gateway_protocol_TopologyRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.TopologyRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.TopologyResponse> __Marshaller_gateway_protocol_TopologyResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.TopologyResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.DeployWorkflowRequest> __Marshaller_gateway_protocol_DeployWorkflowRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployWorkflowRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.DeployWorkflowResponse> __Marshaller_gateway_protocol_DeployWorkflowResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployWorkflowResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageRequest> __Marshaller_gateway_protocol_PublishMessageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.PublishMessageRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageResponse> __Marshaller_gateway_protocol_PublishMessageResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.PublishMessageResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobRetriesRequest> __Marshaller_gateway_protocol_UpdateJobRetriesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateJobRetriesRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobRetriesResponse> __Marshaller_gateway_protocol_UpdateJobRetriesResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateJobRetriesResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.FailJobRequest> __Marshaller_gateway_protocol_FailJobRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.FailJobRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.FailJobResponse> __Marshaller_gateway_protocol_FailJobResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.FailJobResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsRequest> __Marshaller_gateway_protocol_ActivateJobsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ActivateJobsRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsResponse> __Marshaller_gateway_protocol_ActivateJobsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ActivateJobsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.CancelWorkflowInstanceRequest> __Marshaller_gateway_protocol_CancelWorkflowInstanceRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CancelWorkflowInstanceRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.CancelWorkflowInstanceResponse> __Marshaller_gateway_protocol_CancelWorkflowInstanceResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CancelWorkflowInstanceResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.CompleteJobRequest> __Marshaller_gateway_protocol_CompleteJobRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CompleteJobRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.CompleteJobResponse> __Marshaller_gateway_protocol_CompleteJobResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CompleteJobResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.CreateWorkflowInstanceRequest> __Marshaller_gateway_protocol_CreateWorkflowInstanceRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateWorkflowInstanceRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.CreateWorkflowInstanceResponse> __Marshaller_gateway_protocol_CreateWorkflowInstanceResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateWorkflowInstanceResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CancelWorkflowInstanceRequest> __Marshaller_gateway_protocol_CancelWorkflowInstanceRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CancelWorkflowInstanceRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CancelWorkflowInstanceResponse> __Marshaller_gateway_protocol_CancelWorkflowInstanceResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CancelWorkflowInstanceResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest> __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsRequest> __Marshaller_gateway_protocol_ActivateJobsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ActivateJobsRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsResponse> __Marshaller_gateway_protocol_ActivateJobsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ActivateJobsResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.ListWorkflowsRequest> __Marshaller_gateway_protocol_ListWorkflowsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ListWorkflowsRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.ListWorkflowsResponse> __Marshaller_gateway_protocol_ListWorkflowsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ListWorkflowsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.DeployWorkflowRequest> __Marshaller_gateway_protocol_DeployWorkflowRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployWorkflowRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.DeployWorkflowResponse> __Marshaller_gateway_protocol_DeployWorkflowResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployWorkflowResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.FailJobRequest> __Marshaller_gateway_protocol_FailJobRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.FailJobRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.FailJobResponse> __Marshaller_gateway_protocol_FailJobResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.FailJobResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.GetWorkflowRequest> __Marshaller_gateway_protocol_GetWorkflowRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.GetWorkflowRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.GetWorkflowResponse> __Marshaller_gateway_protocol_GetWorkflowResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.GetWorkflowResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.ListWorkflowsRequest> __Marshaller_gateway_protocol_ListWorkflowsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ListWorkflowsRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.ListWorkflowsResponse> __Marshaller_gateway_protocol_ListWorkflowsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ListWorkflowsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageRequest> __Marshaller_gateway_protocol_PublishMessageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.PublishMessageRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageResponse> __Marshaller_gateway_protocol_PublishMessageResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.PublishMessageResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.ResolveIncidentRequest> __Marshaller_gateway_protocol_ResolveIncidentRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ResolveIncidentRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.ResolveIncidentResponse> __Marshaller_gateway_protocol_ResolveIncidentResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ResolveIncidentResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.TopologyRequest> __Marshaller_gateway_protocol_TopologyRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.TopologyRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.TopologyResponse> __Marshaller_gateway_protocol_TopologyResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.TopologyResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobRetriesRequest> __Marshaller_gateway_protocol_UpdateJobRetriesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateJobRetriesRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobRetriesResponse> __Marshaller_gateway_protocol_UpdateJobRetriesResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateJobRetriesResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest> __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse> __Method_Topology = new grpc::Method<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse>(
+    static readonly grpc::Method<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse> __Method_ActivateJobs = new grpc::Method<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "ActivateJobs",
+        __Marshaller_gateway_protocol_ActivateJobsRequest,
+        __Marshaller_gateway_protocol_ActivateJobsResponse);
+
+    static readonly grpc::Method<global::GatewayProtocol.CancelWorkflowInstanceRequest, global::GatewayProtocol.CancelWorkflowInstanceResponse> __Method_CancelWorkflowInstance = new grpc::Method<global::GatewayProtocol.CancelWorkflowInstanceRequest, global::GatewayProtocol.CancelWorkflowInstanceResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "Topology",
-        __Marshaller_gateway_protocol_TopologyRequest,
-        __Marshaller_gateway_protocol_TopologyResponse);
-
-    static readonly grpc::Method<global::GatewayProtocol.DeployWorkflowRequest, global::GatewayProtocol.DeployWorkflowResponse> __Method_DeployWorkflow = new grpc::Method<global::GatewayProtocol.DeployWorkflowRequest, global::GatewayProtocol.DeployWorkflowResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "DeployWorkflow",
-        __Marshaller_gateway_protocol_DeployWorkflowRequest,
-        __Marshaller_gateway_protocol_DeployWorkflowResponse);
-
-    static readonly grpc::Method<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse> __Method_PublishMessage = new grpc::Method<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "PublishMessage",
-        __Marshaller_gateway_protocol_PublishMessageRequest,
-        __Marshaller_gateway_protocol_PublishMessageResponse);
-
-    static readonly grpc::Method<global::GatewayProtocol.UpdateJobRetriesRequest, global::GatewayProtocol.UpdateJobRetriesResponse> __Method_UpdateJobRetries = new grpc::Method<global::GatewayProtocol.UpdateJobRetriesRequest, global::GatewayProtocol.UpdateJobRetriesResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "UpdateJobRetries",
-        __Marshaller_gateway_protocol_UpdateJobRetriesRequest,
-        __Marshaller_gateway_protocol_UpdateJobRetriesResponse);
-
-    static readonly grpc::Method<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse> __Method_FailJob = new grpc::Method<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "FailJob",
-        __Marshaller_gateway_protocol_FailJobRequest,
-        __Marshaller_gateway_protocol_FailJobResponse);
+        "CancelWorkflowInstance",
+        __Marshaller_gateway_protocol_CancelWorkflowInstanceRequest,
+        __Marshaller_gateway_protocol_CancelWorkflowInstanceResponse);
 
     static readonly grpc::Method<global::GatewayProtocol.CompleteJobRequest, global::GatewayProtocol.CompleteJobResponse> __Method_CompleteJob = new grpc::Method<global::GatewayProtocol.CompleteJobRequest, global::GatewayProtocol.CompleteJobResponse>(
         grpc::MethodType.Unary,
@@ -88,33 +67,19 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_CreateWorkflowInstanceRequest,
         __Marshaller_gateway_protocol_CreateWorkflowInstanceResponse);
 
-    static readonly grpc::Method<global::GatewayProtocol.CancelWorkflowInstanceRequest, global::GatewayProtocol.CancelWorkflowInstanceResponse> __Method_CancelWorkflowInstance = new grpc::Method<global::GatewayProtocol.CancelWorkflowInstanceRequest, global::GatewayProtocol.CancelWorkflowInstanceResponse>(
+    static readonly grpc::Method<global::GatewayProtocol.DeployWorkflowRequest, global::GatewayProtocol.DeployWorkflowResponse> __Method_DeployWorkflow = new grpc::Method<global::GatewayProtocol.DeployWorkflowRequest, global::GatewayProtocol.DeployWorkflowResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "CancelWorkflowInstance",
-        __Marshaller_gateway_protocol_CancelWorkflowInstanceRequest,
-        __Marshaller_gateway_protocol_CancelWorkflowInstanceResponse);
+        "DeployWorkflow",
+        __Marshaller_gateway_protocol_DeployWorkflowRequest,
+        __Marshaller_gateway_protocol_DeployWorkflowResponse);
 
-    static readonly grpc::Method<global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest, global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> __Method_UpdateWorkflowInstancePayload = new grpc::Method<global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest, global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse>(
+    static readonly grpc::Method<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse> __Method_FailJob = new grpc::Method<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "UpdateWorkflowInstancePayload",
-        __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadRequest,
-        __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadResponse);
-
-    static readonly grpc::Method<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse> __Method_ActivateJobs = new grpc::Method<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "ActivateJobs",
-        __Marshaller_gateway_protocol_ActivateJobsRequest,
-        __Marshaller_gateway_protocol_ActivateJobsResponse);
-
-    static readonly grpc::Method<global::GatewayProtocol.ListWorkflowsRequest, global::GatewayProtocol.ListWorkflowsResponse> __Method_ListWorkflows = new grpc::Method<global::GatewayProtocol.ListWorkflowsRequest, global::GatewayProtocol.ListWorkflowsResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "ListWorkflows",
-        __Marshaller_gateway_protocol_ListWorkflowsRequest,
-        __Marshaller_gateway_protocol_ListWorkflowsResponse);
+        "FailJob",
+        __Marshaller_gateway_protocol_FailJobRequest,
+        __Marshaller_gateway_protocol_FailJobResponse);
 
     static readonly grpc::Method<global::GatewayProtocol.GetWorkflowRequest, global::GatewayProtocol.GetWorkflowResponse> __Method_GetWorkflow = new grpc::Method<global::GatewayProtocol.GetWorkflowRequest, global::GatewayProtocol.GetWorkflowResponse>(
         grpc::MethodType.Unary,
@@ -123,12 +88,47 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_GetWorkflowRequest,
         __Marshaller_gateway_protocol_GetWorkflowResponse);
 
+    static readonly grpc::Method<global::GatewayProtocol.ListWorkflowsRequest, global::GatewayProtocol.ListWorkflowsResponse> __Method_ListWorkflows = new grpc::Method<global::GatewayProtocol.ListWorkflowsRequest, global::GatewayProtocol.ListWorkflowsResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ListWorkflows",
+        __Marshaller_gateway_protocol_ListWorkflowsRequest,
+        __Marshaller_gateway_protocol_ListWorkflowsResponse);
+
+    static readonly grpc::Method<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse> __Method_PublishMessage = new grpc::Method<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "PublishMessage",
+        __Marshaller_gateway_protocol_PublishMessageRequest,
+        __Marshaller_gateway_protocol_PublishMessageResponse);
+
     static readonly grpc::Method<global::GatewayProtocol.ResolveIncidentRequest, global::GatewayProtocol.ResolveIncidentResponse> __Method_ResolveIncident = new grpc::Method<global::GatewayProtocol.ResolveIncidentRequest, global::GatewayProtocol.ResolveIncidentResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "ResolveIncident",
         __Marshaller_gateway_protocol_ResolveIncidentRequest,
         __Marshaller_gateway_protocol_ResolveIncidentResponse);
+
+    static readonly grpc::Method<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse> __Method_Topology = new grpc::Method<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Topology",
+        __Marshaller_gateway_protocol_TopologyRequest,
+        __Marshaller_gateway_protocol_TopologyResponse);
+
+    static readonly grpc::Method<global::GatewayProtocol.UpdateJobRetriesRequest, global::GatewayProtocol.UpdateJobRetriesResponse> __Method_UpdateJobRetries = new grpc::Method<global::GatewayProtocol.UpdateJobRetriesRequest, global::GatewayProtocol.UpdateJobRetriesResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpdateJobRetries",
+        __Marshaller_gateway_protocol_UpdateJobRetriesRequest,
+        __Marshaller_gateway_protocol_UpdateJobRetriesResponse);
+
+    static readonly grpc::Method<global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest, global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> __Method_UpdateWorkflowInstancePayload = new grpc::Method<global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest, global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpdateWorkflowInstancePayload",
+        __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadRequest,
+        __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -139,67 +139,256 @@ namespace GatewayProtocol {
     /// <summary>Base class for server-side implementations of Gateway</summary>
     public abstract partial class GatewayBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.TopologyResponse> Topology(global::GatewayProtocol.TopologyRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.DeployWorkflowResponse> DeployWorkflow(global::GatewayProtocol.DeployWorkflowRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.PublishMessageResponse> PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.FailJobResponse> FailJob(global::GatewayProtocol.FailJobRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CompleteJobResponse> CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateWorkflowInstanceResponse> CreateWorkflowInstance(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CancelWorkflowInstanceResponse> CancelWorkflowInstance(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayload(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
+      /// <summary>
+      ///
+      ///Iterates through all known partitions in a round-robin and activates up to the requested amount
+      ///of jobs and streams them back to the client as they are activated.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- type is blank (empty string, null)
+      ///- worker is blank (empty string, null)
+      ///- timeout less than 1
+      ///- amount is less than 1
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
       public virtual global::System.Threading.Tasks.Task ActivateJobs(global::GatewayProtocol.ActivateJobsRequest request, grpc::IServerStreamWriter<global::GatewayProtocol.ActivateJobsResponse> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ListWorkflowsResponse> ListWorkflows(global::GatewayProtocol.ListWorkflowsRequest request, grpc::ServerCallContext context)
+      /// <summary>
+      ///
+      ///Cancels a running workflow instance
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow instance exists with the given key
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CancelWorkflowInstanceResponse> CancelWorkflowInstance(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      ///
+      ///Completes a job with the given payload, which allows completing the associated service task.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given job key. Note that since jobs are removed once completed,
+      ///it could be that this job did exist at some point.
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job was marked as failed. In that case, the related incident must be resolved before
+      ///the job can be activated again and completed.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CompleteJobResponse> CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Creates and starts an instance of the specified workflow. The workflow definition to use to
+      ///create the instance can be specified either using its unique key (as returned by
+      ///DeployWorkflow), or using the BPMN process ID and a version. Pass -1 as the version to use the
+      ///latest deployed version. Note that only workflows with none start events can be started through
+      ///this command.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow with the given key exists (if workflowKey was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the workflow definition does not contain a none start event; only workflows with none
+      ///start event can be started manually.
+      ///
+      ///INVALID_ARGUMENT:
+      ///- the given payload is not a valid JSON document; all payloads are expected to be
+      ///valid JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateWorkflowInstanceResponse> CreateWorkflowInstance(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Deploys one or more workflows to Zeebe. Note that this is an atomic call,
+      ///i.e. either all workflows are deployed, or none of them are.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- no resources given.
+      ///- if at least one resource is invalid. A resource is considered invalid if:
+      ///- it is not a BPMN or YAML file (currently detected through the file extension)
+      ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
+      ///- the workflow is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.DeployWorkflowResponse> DeployWorkflow(global::GatewayProtocol.DeployWorkflowRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Marks the job as failed; if the retries argument is positive, then the job will be immediately
+      ///activatable again, and a worker could try again to process it. If it is zero or negative however,
+      ///an incident will be raised, tagged with the given errorMessage, and the job will not be
+      ///activatable until the incident is resolved.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job was found with the given key
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job was not activated
+      ///- the job is already in a failed state, i.e. ran out of retries
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.FailJobResponse> FailJob(global::GatewayProtocol.FailJobRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Fetches the workflow definition either by workflow key, or BPMN process ID and version.
+      ///At least one of workflowKey or bpmnProcessId must be specified.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow with the given key exists (if workflowKey was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.GetWorkflowResponse> GetWorkflow(global::GatewayProtocol.GetWorkflowRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      ///
+      ///Lists all workflows matching the request criteria currently deployed in the cluster.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflows have been deployed yet (if no bpmnProcessId was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given)
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ListWorkflowsResponse> ListWorkflows(global::GatewayProtocol.ListWorkflowsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Publishes a single message. Messages are published to specific partitions computed from their
+      ///correlation keys.
+      ///
+      ///Errors:
+      ///ALREADY_EXISTS:
+      ///- a message with the same ID was previously published (and is still alive)
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.PublishMessageResponse> PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Resolves a given incident. This simply marks the incident as resolved; most likely a call to
+      ///UpdateJobRetries or UpdateWorkflowInstancePayload will be necessary to actually resolve the
+      ///problem, following by this call.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no incident with the given key exists
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ResolveIncidentResponse> ResolveIncident(global::GatewayProtocol.ResolveIncidentRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Obtains the current topology of the cluster the gateway is part of.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.TopologyResponse> Topology(global::GatewayProtocol.TopologyRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Updates the number of retries a job has left. This is mostly useful for jobs that have run out of
+      ///retries, should the underlying problem be solved.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given key
+      ///
+      ///INVALID_ARGUMENT:
+      ///- retries is not greater than 0
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Updates all the variables in the workflow instance scope from the given JSON document.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no element with the given elementInstanceKey exists
+      ///INVALID_ARGUMENT:
+      ///- the given payload is not a valid JSON document; all payloads are expected to be
+      ///valid JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayload(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -229,205 +418,977 @@ namespace GatewayProtocol {
       {
       }
 
-      public virtual global::GatewayProtocol.TopologyResponse Topology(global::GatewayProtocol.TopologyRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return Topology(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::GatewayProtocol.TopologyResponse Topology(global::GatewayProtocol.TopologyRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_Topology, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.TopologyResponse> TopologyAsync(global::GatewayProtocol.TopologyRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return TopologyAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.TopologyResponse> TopologyAsync(global::GatewayProtocol.TopologyRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_Topology, null, options, request);
-      }
-      public virtual global::GatewayProtocol.DeployWorkflowResponse DeployWorkflow(global::GatewayProtocol.DeployWorkflowRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return DeployWorkflow(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::GatewayProtocol.DeployWorkflowResponse DeployWorkflow(global::GatewayProtocol.DeployWorkflowRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_DeployWorkflow, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeployWorkflowResponse> DeployWorkflowAsync(global::GatewayProtocol.DeployWorkflowRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return DeployWorkflowAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeployWorkflowResponse> DeployWorkflowAsync(global::GatewayProtocol.DeployWorkflowRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_DeployWorkflow, null, options, request);
-      }
-      public virtual global::GatewayProtocol.PublishMessageResponse PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return PublishMessage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::GatewayProtocol.PublishMessageResponse PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_PublishMessage, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.PublishMessageResponse> PublishMessageAsync(global::GatewayProtocol.PublishMessageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return PublishMessageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.PublishMessageResponse> PublishMessageAsync(global::GatewayProtocol.PublishMessageRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_PublishMessage, null, options, request);
-      }
-      public virtual global::GatewayProtocol.UpdateJobRetriesResponse UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return UpdateJobRetries(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::GatewayProtocol.UpdateJobRetriesResponse UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_UpdateJobRetries, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetriesAsync(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return UpdateJobRetriesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetriesAsync(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UpdateJobRetries, null, options, request);
-      }
-      public virtual global::GatewayProtocol.FailJobResponse FailJob(global::GatewayProtocol.FailJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return FailJob(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::GatewayProtocol.FailJobResponse FailJob(global::GatewayProtocol.FailJobRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_FailJob, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.FailJobResponse> FailJobAsync(global::GatewayProtocol.FailJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return FailJobAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.FailJobResponse> FailJobAsync(global::GatewayProtocol.FailJobRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_FailJob, null, options, request);
-      }
-      public virtual global::GatewayProtocol.CompleteJobResponse CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return CompleteJob(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::GatewayProtocol.CompleteJobResponse CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_CompleteJob, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CompleteJobResponse> CompleteJobAsync(global::GatewayProtocol.CompleteJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return CompleteJobAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CompleteJobResponse> CompleteJobAsync(global::GatewayProtocol.CompleteJobRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_CompleteJob, null, options, request);
-      }
-      public virtual global::GatewayProtocol.CreateWorkflowInstanceResponse CreateWorkflowInstance(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return CreateWorkflowInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::GatewayProtocol.CreateWorkflowInstanceResponse CreateWorkflowInstance(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_CreateWorkflowInstance, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateWorkflowInstanceResponse> CreateWorkflowInstanceAsync(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return CreateWorkflowInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateWorkflowInstanceResponse> CreateWorkflowInstanceAsync(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_CreateWorkflowInstance, null, options, request);
-      }
-      public virtual global::GatewayProtocol.CancelWorkflowInstanceResponse CancelWorkflowInstance(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return CancelWorkflowInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::GatewayProtocol.CancelWorkflowInstanceResponse CancelWorkflowInstance(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_CancelWorkflowInstance, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CancelWorkflowInstanceResponse> CancelWorkflowInstanceAsync(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return CancelWorkflowInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CancelWorkflowInstanceResponse> CancelWorkflowInstanceAsync(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_CancelWorkflowInstance, null, options, request);
-      }
-      public virtual global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse UpdateWorkflowInstancePayload(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return UpdateWorkflowInstancePayload(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse UpdateWorkflowInstancePayload(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_UpdateWorkflowInstancePayload, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayloadAsync(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return UpdateWorkflowInstancePayloadAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayloadAsync(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UpdateWorkflowInstancePayload, null, options, request);
-      }
+      /// <summary>
+      ///
+      ///Iterates through all known partitions in a round-robin and activates up to the requested amount
+      ///of jobs and streams them back to the client as they are activated.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- type is blank (empty string, null)
+      ///- worker is blank (empty string, null)
+      ///- timeout less than 1
+      ///- amount is less than 1
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncServerStreamingCall<global::GatewayProtocol.ActivateJobsResponse> ActivateJobs(global::GatewayProtocol.ActivateJobsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ActivateJobs(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      ///
+      ///Iterates through all known partitions in a round-robin and activates up to the requested amount
+      ///of jobs and streams them back to the client as they are activated.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- type is blank (empty string, null)
+      ///- worker is blank (empty string, null)
+      ///- timeout less than 1
+      ///- amount is less than 1
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncServerStreamingCall<global::GatewayProtocol.ActivateJobsResponse> ActivateJobs(global::GatewayProtocol.ActivateJobsRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_ActivateJobs, null, options, request);
       }
-      public virtual global::GatewayProtocol.ListWorkflowsResponse ListWorkflows(global::GatewayProtocol.ListWorkflowsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      /// <summary>
+      ///
+      ///Cancels a running workflow instance
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow instance exists with the given key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.CancelWorkflowInstanceResponse CancelWorkflowInstance(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return ListWorkflows(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return CancelWorkflowInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::GatewayProtocol.ListWorkflowsResponse ListWorkflows(global::GatewayProtocol.ListWorkflowsRequest request, grpc::CallOptions options)
+      /// <summary>
+      ///
+      ///Cancels a running workflow instance
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow instance exists with the given key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.CancelWorkflowInstanceResponse CancelWorkflowInstance(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_ListWorkflows, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_CancelWorkflowInstance, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ListWorkflowsResponse> ListWorkflowsAsync(global::GatewayProtocol.ListWorkflowsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      /// <summary>
+      ///
+      ///Cancels a running workflow instance
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow instance exists with the given key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CancelWorkflowInstanceResponse> CancelWorkflowInstanceAsync(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return ListWorkflowsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return CancelWorkflowInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ListWorkflowsResponse> ListWorkflowsAsync(global::GatewayProtocol.ListWorkflowsRequest request, grpc::CallOptions options)
+      /// <summary>
+      ///
+      ///Cancels a running workflow instance
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow instance exists with the given key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CancelWorkflowInstanceResponse> CancelWorkflowInstanceAsync(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_ListWorkflows, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_CancelWorkflowInstance, null, options, request);
       }
+      /// <summary>
+      ///
+      ///Completes a job with the given payload, which allows completing the associated service task.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given job key. Note that since jobs are removed once completed,
+      ///it could be that this job did exist at some point.
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job was marked as failed. In that case, the related incident must be resolved before
+      ///the job can be activated again and completed.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.CompleteJobResponse CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CompleteJob(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Completes a job with the given payload, which allows completing the associated service task.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given job key. Note that since jobs are removed once completed,
+      ///it could be that this job did exist at some point.
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job was marked as failed. In that case, the related incident must be resolved before
+      ///the job can be activated again and completed.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.CompleteJobResponse CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CompleteJob, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Completes a job with the given payload, which allows completing the associated service task.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given job key. Note that since jobs are removed once completed,
+      ///it could be that this job did exist at some point.
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job was marked as failed. In that case, the related incident must be resolved before
+      ///the job can be activated again and completed.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CompleteJobResponse> CompleteJobAsync(global::GatewayProtocol.CompleteJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CompleteJobAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Completes a job with the given payload, which allows completing the associated service task.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given job key. Note that since jobs are removed once completed,
+      ///it could be that this job did exist at some point.
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job was marked as failed. In that case, the related incident must be resolved before
+      ///the job can be activated again and completed.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CompleteJobResponse> CompleteJobAsync(global::GatewayProtocol.CompleteJobRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CompleteJob, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Creates and starts an instance of the specified workflow. The workflow definition to use to
+      ///create the instance can be specified either using its unique key (as returned by
+      ///DeployWorkflow), or using the BPMN process ID and a version. Pass -1 as the version to use the
+      ///latest deployed version. Note that only workflows with none start events can be started through
+      ///this command.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow with the given key exists (if workflowKey was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the workflow definition does not contain a none start event; only workflows with none
+      ///start event can be started manually.
+      ///
+      ///INVALID_ARGUMENT:
+      ///- the given payload is not a valid JSON document; all payloads are expected to be
+      ///valid JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.CreateWorkflowInstanceResponse CreateWorkflowInstance(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CreateWorkflowInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Creates and starts an instance of the specified workflow. The workflow definition to use to
+      ///create the instance can be specified either using its unique key (as returned by
+      ///DeployWorkflow), or using the BPMN process ID and a version. Pass -1 as the version to use the
+      ///latest deployed version. Note that only workflows with none start events can be started through
+      ///this command.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow with the given key exists (if workflowKey was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the workflow definition does not contain a none start event; only workflows with none
+      ///start event can be started manually.
+      ///
+      ///INVALID_ARGUMENT:
+      ///- the given payload is not a valid JSON document; all payloads are expected to be
+      ///valid JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.CreateWorkflowInstanceResponse CreateWorkflowInstance(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CreateWorkflowInstance, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Creates and starts an instance of the specified workflow. The workflow definition to use to
+      ///create the instance can be specified either using its unique key (as returned by
+      ///DeployWorkflow), or using the BPMN process ID and a version. Pass -1 as the version to use the
+      ///latest deployed version. Note that only workflows with none start events can be started through
+      ///this command.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow with the given key exists (if workflowKey was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the workflow definition does not contain a none start event; only workflows with none
+      ///start event can be started manually.
+      ///
+      ///INVALID_ARGUMENT:
+      ///- the given payload is not a valid JSON document; all payloads are expected to be
+      ///valid JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateWorkflowInstanceResponse> CreateWorkflowInstanceAsync(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CreateWorkflowInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Creates and starts an instance of the specified workflow. The workflow definition to use to
+      ///create the instance can be specified either using its unique key (as returned by
+      ///DeployWorkflow), or using the BPMN process ID and a version. Pass -1 as the version to use the
+      ///latest deployed version. Note that only workflows with none start events can be started through
+      ///this command.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow with the given key exists (if workflowKey was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the workflow definition does not contain a none start event; only workflows with none
+      ///start event can be started manually.
+      ///
+      ///INVALID_ARGUMENT:
+      ///- the given payload is not a valid JSON document; all payloads are expected to be
+      ///valid JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateWorkflowInstanceResponse> CreateWorkflowInstanceAsync(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CreateWorkflowInstance, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Deploys one or more workflows to Zeebe. Note that this is an atomic call,
+      ///i.e. either all workflows are deployed, or none of them are.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- no resources given.
+      ///- if at least one resource is invalid. A resource is considered invalid if:
+      ///- it is not a BPMN or YAML file (currently detected through the file extension)
+      ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
+      ///- the workflow is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.DeployWorkflowResponse DeployWorkflow(global::GatewayProtocol.DeployWorkflowRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeployWorkflow(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Deploys one or more workflows to Zeebe. Note that this is an atomic call,
+      ///i.e. either all workflows are deployed, or none of them are.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- no resources given.
+      ///- if at least one resource is invalid. A resource is considered invalid if:
+      ///- it is not a BPMN or YAML file (currently detected through the file extension)
+      ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
+      ///- the workflow is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.DeployWorkflowResponse DeployWorkflow(global::GatewayProtocol.DeployWorkflowRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeployWorkflow, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Deploys one or more workflows to Zeebe. Note that this is an atomic call,
+      ///i.e. either all workflows are deployed, or none of them are.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- no resources given.
+      ///- if at least one resource is invalid. A resource is considered invalid if:
+      ///- it is not a BPMN or YAML file (currently detected through the file extension)
+      ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
+      ///- the workflow is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeployWorkflowResponse> DeployWorkflowAsync(global::GatewayProtocol.DeployWorkflowRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeployWorkflowAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Deploys one or more workflows to Zeebe. Note that this is an atomic call,
+      ///i.e. either all workflows are deployed, or none of them are.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- no resources given.
+      ///- if at least one resource is invalid. A resource is considered invalid if:
+      ///- it is not a BPMN or YAML file (currently detected through the file extension)
+      ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
+      ///- the workflow is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeployWorkflowResponse> DeployWorkflowAsync(global::GatewayProtocol.DeployWorkflowRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeployWorkflow, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Marks the job as failed; if the retries argument is positive, then the job will be immediately
+      ///activatable again, and a worker could try again to process it. If it is zero or negative however,
+      ///an incident will be raised, tagged with the given errorMessage, and the job will not be
+      ///activatable until the incident is resolved.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job was found with the given key
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job was not activated
+      ///- the job is already in a failed state, i.e. ran out of retries
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.FailJobResponse FailJob(global::GatewayProtocol.FailJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return FailJob(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Marks the job as failed; if the retries argument is positive, then the job will be immediately
+      ///activatable again, and a worker could try again to process it. If it is zero or negative however,
+      ///an incident will be raised, tagged with the given errorMessage, and the job will not be
+      ///activatable until the incident is resolved.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job was found with the given key
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job was not activated
+      ///- the job is already in a failed state, i.e. ran out of retries
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.FailJobResponse FailJob(global::GatewayProtocol.FailJobRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_FailJob, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Marks the job as failed; if the retries argument is positive, then the job will be immediately
+      ///activatable again, and a worker could try again to process it. If it is zero or negative however,
+      ///an incident will be raised, tagged with the given errorMessage, and the job will not be
+      ///activatable until the incident is resolved.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job was found with the given key
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job was not activated
+      ///- the job is already in a failed state, i.e. ran out of retries
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.FailJobResponse> FailJobAsync(global::GatewayProtocol.FailJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return FailJobAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Marks the job as failed; if the retries argument is positive, then the job will be immediately
+      ///activatable again, and a worker could try again to process it. If it is zero or negative however,
+      ///an incident will be raised, tagged with the given errorMessage, and the job will not be
+      ///activatable until the incident is resolved.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job was found with the given key
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job was not activated
+      ///- the job is already in a failed state, i.e. ran out of retries
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.FailJobResponse> FailJobAsync(global::GatewayProtocol.FailJobRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_FailJob, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Fetches the workflow definition either by workflow key, or BPMN process ID and version.
+      ///At least one of workflowKey or bpmnProcessId must be specified.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow with the given key exists (if workflowKey was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::GatewayProtocol.GetWorkflowResponse GetWorkflow(global::GatewayProtocol.GetWorkflowRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetWorkflow(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      ///
+      ///Fetches the workflow definition either by workflow key, or BPMN process ID and version.
+      ///At least one of workflowKey or bpmnProcessId must be specified.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow with the given key exists (if workflowKey was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::GatewayProtocol.GetWorkflowResponse GetWorkflow(global::GatewayProtocol.GetWorkflowRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetWorkflow, null, options, request);
       }
+      /// <summary>
+      ///
+      ///Fetches the workflow definition either by workflow key, or BPMN process ID and version.
+      ///At least one of workflowKey or bpmnProcessId must be specified.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow with the given key exists (if workflowKey was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.GetWorkflowResponse> GetWorkflowAsync(global::GatewayProtocol.GetWorkflowRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetWorkflowAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      ///
+      ///Fetches the workflow definition either by workflow key, or BPMN process ID and version.
+      ///At least one of workflowKey or bpmnProcessId must be specified.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflow with the given key exists (if workflowKey was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.GetWorkflowResponse> GetWorkflowAsync(global::GatewayProtocol.GetWorkflowRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetWorkflow, null, options, request);
       }
+      /// <summary>
+      ///
+      ///Lists all workflows matching the request criteria currently deployed in the cluster.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflows have been deployed yet (if no bpmnProcessId was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.ListWorkflowsResponse ListWorkflows(global::GatewayProtocol.ListWorkflowsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListWorkflows(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Lists all workflows matching the request criteria currently deployed in the cluster.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflows have been deployed yet (if no bpmnProcessId was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.ListWorkflowsResponse ListWorkflows(global::GatewayProtocol.ListWorkflowsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ListWorkflows, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Lists all workflows matching the request criteria currently deployed in the cluster.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflows have been deployed yet (if no bpmnProcessId was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ListWorkflowsResponse> ListWorkflowsAsync(global::GatewayProtocol.ListWorkflowsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ListWorkflowsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Lists all workflows matching the request criteria currently deployed in the cluster.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no workflows have been deployed yet (if no bpmnProcessId was given)
+      ///- no workflow with the given process ID exists (if bpmnProcessId was given)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ListWorkflowsResponse> ListWorkflowsAsync(global::GatewayProtocol.ListWorkflowsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ListWorkflows, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Publishes a single message. Messages are published to specific partitions computed from their
+      ///correlation keys.
+      ///
+      ///Errors:
+      ///ALREADY_EXISTS:
+      ///- a message with the same ID was previously published (and is still alive)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.PublishMessageResponse PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return PublishMessage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Publishes a single message. Messages are published to specific partitions computed from their
+      ///correlation keys.
+      ///
+      ///Errors:
+      ///ALREADY_EXISTS:
+      ///- a message with the same ID was previously published (and is still alive)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.PublishMessageResponse PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_PublishMessage, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Publishes a single message. Messages are published to specific partitions computed from their
+      ///correlation keys.
+      ///
+      ///Errors:
+      ///ALREADY_EXISTS:
+      ///- a message with the same ID was previously published (and is still alive)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.PublishMessageResponse> PublishMessageAsync(global::GatewayProtocol.PublishMessageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return PublishMessageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Publishes a single message. Messages are published to specific partitions computed from their
+      ///correlation keys.
+      ///
+      ///Errors:
+      ///ALREADY_EXISTS:
+      ///- a message with the same ID was previously published (and is still alive)
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.PublishMessageResponse> PublishMessageAsync(global::GatewayProtocol.PublishMessageRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_PublishMessage, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Resolves a given incident. This simply marks the incident as resolved; most likely a call to
+      ///UpdateJobRetries or UpdateWorkflowInstancePayload will be necessary to actually resolve the
+      ///problem, following by this call.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no incident with the given key exists
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::GatewayProtocol.ResolveIncidentResponse ResolveIncident(global::GatewayProtocol.ResolveIncidentRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ResolveIncident(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      ///
+      ///Resolves a given incident. This simply marks the incident as resolved; most likely a call to
+      ///UpdateJobRetries or UpdateWorkflowInstancePayload will be necessary to actually resolve the
+      ///problem, following by this call.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no incident with the given key exists
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::GatewayProtocol.ResolveIncidentResponse ResolveIncident(global::GatewayProtocol.ResolveIncidentRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_ResolveIncident, null, options, request);
       }
+      /// <summary>
+      ///
+      ///Resolves a given incident. This simply marks the incident as resolved; most likely a call to
+      ///UpdateJobRetries or UpdateWorkflowInstancePayload will be necessary to actually resolve the
+      ///problem, following by this call.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no incident with the given key exists
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ResolveIncidentResponse> ResolveIncidentAsync(global::GatewayProtocol.ResolveIncidentRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ResolveIncidentAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      ///
+      ///Resolves a given incident. This simply marks the incident as resolved; most likely a call to
+      ///UpdateJobRetries or UpdateWorkflowInstancePayload will be necessary to actually resolve the
+      ///problem, following by this call.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no incident with the given key exists
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ResolveIncidentResponse> ResolveIncidentAsync(global::GatewayProtocol.ResolveIncidentRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_ResolveIncident, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Obtains the current topology of the cluster the gateway is part of.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.TopologyResponse Topology(global::GatewayProtocol.TopologyRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Topology(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Obtains the current topology of the cluster the gateway is part of.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.TopologyResponse Topology(global::GatewayProtocol.TopologyRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Topology, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Obtains the current topology of the cluster the gateway is part of.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.TopologyResponse> TopologyAsync(global::GatewayProtocol.TopologyRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TopologyAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Obtains the current topology of the cluster the gateway is part of.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.TopologyResponse> TopologyAsync(global::GatewayProtocol.TopologyRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Topology, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Updates the number of retries a job has left. This is mostly useful for jobs that have run out of
+      ///retries, should the underlying problem be solved.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given key
+      ///
+      ///INVALID_ARGUMENT:
+      ///- retries is not greater than 0
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.UpdateJobRetriesResponse UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateJobRetries(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Updates the number of retries a job has left. This is mostly useful for jobs that have run out of
+      ///retries, should the underlying problem be solved.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given key
+      ///
+      ///INVALID_ARGUMENT:
+      ///- retries is not greater than 0
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.UpdateJobRetriesResponse UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpdateJobRetries, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Updates the number of retries a job has left. This is mostly useful for jobs that have run out of
+      ///retries, should the underlying problem be solved.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given key
+      ///
+      ///INVALID_ARGUMENT:
+      ///- retries is not greater than 0
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetriesAsync(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateJobRetriesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Updates the number of retries a job has left. This is mostly useful for jobs that have run out of
+      ///retries, should the underlying problem be solved.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given key
+      ///
+      ///INVALID_ARGUMENT:
+      ///- retries is not greater than 0
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetriesAsync(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpdateJobRetries, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Updates all the variables in the workflow instance scope from the given JSON document.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no element with the given elementInstanceKey exists
+      ///INVALID_ARGUMENT:
+      ///- the given payload is not a valid JSON document; all payloads are expected to be
+      ///valid JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse UpdateWorkflowInstancePayload(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateWorkflowInstancePayload(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Updates all the variables in the workflow instance scope from the given JSON document.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no element with the given elementInstanceKey exists
+      ///INVALID_ARGUMENT:
+      ///- the given payload is not a valid JSON document; all payloads are expected to be
+      ///valid JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse UpdateWorkflowInstancePayload(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpdateWorkflowInstancePayload, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Updates all the variables in the workflow instance scope from the given JSON document.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no element with the given elementInstanceKey exists
+      ///INVALID_ARGUMENT:
+      ///- the given payload is not a valid JSON document; all payloads are expected to be
+      ///valid JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayloadAsync(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateWorkflowInstancePayloadAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Updates all the variables in the workflow instance scope from the given JSON document.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no element with the given elementInstanceKey exists
+      ///INVALID_ARGUMENT:
+      ///- the given payload is not a valid JSON document; all payloads are expected to be
+      ///valid JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayloadAsync(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpdateWorkflowInstancePayload, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override GatewayClient NewInstance(ClientBaseConfiguration configuration)
@@ -441,19 +1402,19 @@ namespace GatewayProtocol {
     public static grpc::ServerServiceDefinition BindService(GatewayBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_Topology, serviceImpl.Topology)
-          .AddMethod(__Method_DeployWorkflow, serviceImpl.DeployWorkflow)
-          .AddMethod(__Method_PublishMessage, serviceImpl.PublishMessage)
-          .AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries)
-          .AddMethod(__Method_FailJob, serviceImpl.FailJob)
+          .AddMethod(__Method_ActivateJobs, serviceImpl.ActivateJobs)
+          .AddMethod(__Method_CancelWorkflowInstance, serviceImpl.CancelWorkflowInstance)
           .AddMethod(__Method_CompleteJob, serviceImpl.CompleteJob)
           .AddMethod(__Method_CreateWorkflowInstance, serviceImpl.CreateWorkflowInstance)
-          .AddMethod(__Method_CancelWorkflowInstance, serviceImpl.CancelWorkflowInstance)
-          .AddMethod(__Method_UpdateWorkflowInstancePayload, serviceImpl.UpdateWorkflowInstancePayload)
-          .AddMethod(__Method_ActivateJobs, serviceImpl.ActivateJobs)
-          .AddMethod(__Method_ListWorkflows, serviceImpl.ListWorkflows)
+          .AddMethod(__Method_DeployWorkflow, serviceImpl.DeployWorkflow)
+          .AddMethod(__Method_FailJob, serviceImpl.FailJob)
           .AddMethod(__Method_GetWorkflow, serviceImpl.GetWorkflow)
-          .AddMethod(__Method_ResolveIncident, serviceImpl.ResolveIncident).Build();
+          .AddMethod(__Method_ListWorkflows, serviceImpl.ListWorkflows)
+          .AddMethod(__Method_PublishMessage, serviceImpl.PublishMessage)
+          .AddMethod(__Method_ResolveIncident, serviceImpl.ResolveIncident)
+          .AddMethod(__Method_Topology, serviceImpl.Topology)
+          .AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries)
+          .AddMethod(__Method_UpdateWorkflowInstancePayload, serviceImpl.UpdateWorkflowInstancePayload).Build();
     }
 
     /// <summary>Register service method implementations with a service binder. Useful when customizing the service binding logic.
@@ -462,19 +1423,19 @@ namespace GatewayProtocol {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, GatewayBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Topology, serviceImpl.Topology);
-      serviceBinder.AddMethod(__Method_DeployWorkflow, serviceImpl.DeployWorkflow);
-      serviceBinder.AddMethod(__Method_PublishMessage, serviceImpl.PublishMessage);
-      serviceBinder.AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries);
-      serviceBinder.AddMethod(__Method_FailJob, serviceImpl.FailJob);
+      serviceBinder.AddMethod(__Method_ActivateJobs, serviceImpl.ActivateJobs);
+      serviceBinder.AddMethod(__Method_CancelWorkflowInstance, serviceImpl.CancelWorkflowInstance);
       serviceBinder.AddMethod(__Method_CompleteJob, serviceImpl.CompleteJob);
       serviceBinder.AddMethod(__Method_CreateWorkflowInstance, serviceImpl.CreateWorkflowInstance);
-      serviceBinder.AddMethod(__Method_CancelWorkflowInstance, serviceImpl.CancelWorkflowInstance);
-      serviceBinder.AddMethod(__Method_UpdateWorkflowInstancePayload, serviceImpl.UpdateWorkflowInstancePayload);
-      serviceBinder.AddMethod(__Method_ActivateJobs, serviceImpl.ActivateJobs);
-      serviceBinder.AddMethod(__Method_ListWorkflows, serviceImpl.ListWorkflows);
+      serviceBinder.AddMethod(__Method_DeployWorkflow, serviceImpl.DeployWorkflow);
+      serviceBinder.AddMethod(__Method_FailJob, serviceImpl.FailJob);
       serviceBinder.AddMethod(__Method_GetWorkflow, serviceImpl.GetWorkflow);
+      serviceBinder.AddMethod(__Method_ListWorkflows, serviceImpl.ListWorkflows);
+      serviceBinder.AddMethod(__Method_PublishMessage, serviceImpl.PublishMessage);
       serviceBinder.AddMethod(__Method_ResolveIncident, serviceImpl.ResolveIncident);
+      serviceBinder.AddMethod(__Method_Topology, serviceImpl.Topology);
+      serviceBinder.AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries);
+      serviceBinder.AddMethod(__Method_UpdateWorkflowInstancePayload, serviceImpl.UpdateWorkflowInstancePayload);
     }
 
   }

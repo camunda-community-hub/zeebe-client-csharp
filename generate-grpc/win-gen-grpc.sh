@@ -2,7 +2,7 @@
 
 os=windows_x64
 grpcVersion=1.17.0
-zeebeVersion='0.14.0'
+zeebeVersion='0.15.0'
 protoFile=gateway.proto
 gwProtoPath=./
 genPath=Client/Impl/proto

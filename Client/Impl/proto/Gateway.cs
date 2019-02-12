@@ -24,4261 +24,139 @@ namespace GatewayProtocol {
     static GatewayReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg1nYXRld2F5LnByb3RvEhBnYXRld2F5X3Byb3RvY29sIhEKD1RvcG9sb2d5",
-            "UmVxdWVzdCKQAQoJUGFydGl0aW9uEhMKC3BhcnRpdGlvbklkGAEgASgFEj0K",
-            "BHJvbGUYAyABKA4yLy5nYXRld2F5X3Byb3RvY29sLlBhcnRpdGlvbi5QYXJ0",
-            "aXRpb25Ccm9rZXJSb2xlIi8KE1BhcnRpdGlvbkJyb2tlclJvbGUSCgoGTEVB",
-            "REVSEAASDAoIRk9MTE9XRVIQASJpCgpCcm9rZXJJbmZvEg4KBm5vZGVJZBgB",
-            "IAEoBRIMCgRob3N0GAIgASgJEgwKBHBvcnQYAyABKAUSLwoKcGFydGl0aW9u",
-            "cxgEIAMoCzIbLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9uIooBChBUb3Bv",
-            "bG9neVJlc3BvbnNlEi0KB2Jyb2tlcnMYASADKAsyHC5nYXRld2F5X3Byb3Rv",
-            "Y29sLkJyb2tlckluZm8SEwoLY2x1c3RlclNpemUYAiABKAUSFwoPcGFydGl0",
-            "aW9uc0NvdW50GAMgASgFEhkKEXJlcGxpY2F0aW9uRmFjdG9yGAQgASgFIqsB",
-            "ChVXb3JrZmxvd1JlcXVlc3RPYmplY3QSDAoEbmFtZRgBIAEoCRJCCgR0eXBl",
-            "GAIgASgOMjQuZ2F0ZXdheV9wcm90b2NvbC5Xb3JrZmxvd1JlcXVlc3RPYmpl",
-            "Y3QuUmVzb3VyY2VUeXBlEhIKCmRlZmluaXRpb24YAyABKAwiLAoMUmVzb3Vy",
-            "Y2VUeXBlEggKBEZJTEUQABIICgRCUE1OEAESCAoEWUFNTBACIlMKFURlcGxv",
-            "eVdvcmtmbG93UmVxdWVzdBI6Cgl3b3JrZmxvd3MYASADKAsyJy5nYXRld2F5",
-            "X3Byb3RvY29sLldvcmtmbG93UmVxdWVzdE9iamVjdCJlChBXb3JrZmxvd01l",
-            "dGFkYXRhEhUKDWJwbW5Qcm9jZXNzSWQYASABKAkSDwoHdmVyc2lvbhgCIAEo",
-            "BRITCgt3b3JrZmxvd0tleRgDIAEoAxIUCgxyZXNvdXJjZU5hbWUYBCABKAki",
-            "XAoWRGVwbG95V29ya2Zsb3dSZXNwb25zZRILCgNrZXkYASABKAMSNQoJd29y",
-            "a2Zsb3dzGAIgAygLMiIuZ2F0ZXdheV9wcm90b2NvbC5Xb3JrZmxvd01ldGFk",
-            "YXRhInUKFVB1Ymxpc2hNZXNzYWdlUmVxdWVzdBIMCgRuYW1lGAEgASgJEhYK",
-            "DmNvcnJlbGF0aW9uS2V5GAIgASgJEhIKCnRpbWVUb0xpdmUYAyABKAMSEQoJ",
-            "bWVzc2FnZUlkGAQgASgJEg8KB3BheWxvYWQYBSABKAkiGAoWUHVibGlzaE1l",
-            "c3NhZ2VSZXNwb25zZSI6ChdVcGRhdGVKb2JSZXRyaWVzUmVxdWVzdBIOCgZq",
-            "b2JLZXkYASABKAMSDwoHcmV0cmllcxgCIAEoBSIaChhVcGRhdGVKb2JSZXRy",
-            "aWVzUmVzcG9uc2UiRwoORmFpbEpvYlJlcXVlc3QSDgoGam9iS2V5GAEgASgD",
-            "Eg8KB3JldHJpZXMYAiABKAUSFAoMZXJyb3JNZXNzYWdlGAMgASgJIhEKD0Zh",
-            "aWxKb2JSZXNwb25zZSI1ChJDb21wbGV0ZUpvYlJlcXVlc3QSDgoGam9iS2V5",
-            "GAEgASgDEg8KB3BheWxvYWQYAiABKAkiFQoTQ29tcGxldGVKb2JSZXNwb25z",
-            "ZSJtCh1DcmVhdGVXb3JrZmxvd0luc3RhbmNlUmVxdWVzdBITCgt3b3JrZmxv",
-            "d0tleRgBIAEoAxIVCg1icG1uUHJvY2Vzc0lkGAIgASgJEg8KB3ZlcnNpb24Y",
-            "AyABKAUSDwoHcGF5bG9hZBgEIAEoCSJ6Ch5DcmVhdGVXb3JrZmxvd0luc3Rh",
-            "bmNlUmVzcG9uc2USEwoLd29ya2Zsb3dLZXkYASABKAMSFQoNYnBtblByb2Nl",
-            "c3NJZBgCIAEoCRIPCgd2ZXJzaW9uGAMgASgFEhsKE3dvcmtmbG93SW5zdGFu",
-            "Y2VLZXkYBSABKAMiPAodQ2FuY2VsV29ya2Zsb3dJbnN0YW5jZVJlcXVlc3QS",
-            "GwoTd29ya2Zsb3dJbnN0YW5jZUtleRgBIAEoAyIgCh5DYW5jZWxXb3JrZmxv",
-            "d0luc3RhbmNlUmVzcG9uc2UiUwokVXBkYXRlV29ya2Zsb3dJbnN0YW5jZVBh",
-            "eWxvYWRSZXF1ZXN0EhoKEmVsZW1lbnRJbnN0YW5jZUtleRgBIAEoAxIPCgdw",
-            "YXlsb2FkGAIgASgJIicKJVVwZGF0ZVdvcmtmbG93SW5zdGFuY2VQYXlsb2Fk",
-            "UmVzcG9uc2UiLQoUTGlzdFdvcmtmbG93c1JlcXVlc3QSFQoNYnBtblByb2Nl",
-            "c3NJZBgBIAEoCSJOChVMaXN0V29ya2Zsb3dzUmVzcG9uc2USNQoJd29ya2Zs",
-            "b3dzGAEgAygLMiIuZ2F0ZXdheV9wcm90b2NvbC5Xb3JrZmxvd01ldGFkYXRh",
-            "IlEKEkdldFdvcmtmbG93UmVxdWVzdBITCgt3b3JrZmxvd0tleRgBIAEoAxIP",
-            "Cgd2ZXJzaW9uGAIgASgFEhUKDWJwbW5Qcm9jZXNzSWQYAyABKAkieQoTR2V0",
-            "V29ya2Zsb3dSZXNwb25zZRITCgt3b3JrZmxvd0tleRgBIAEoAxIPCgd2ZXJz",
-            "aW9uGAIgASgFEhUKDWJwbW5Qcm9jZXNzSWQYAyABKAkSFAoMcmVzb3VyY2VO",
-            "YW1lGAQgASgJEg8KB2JwbW5YbWwYBSABKAkiVAoTQWN0aXZhdGVKb2JzUmVx",
-            "dWVzdBIMCgR0eXBlGAEgASgJEg4KBndvcmtlchgCIAEoCRIPCgd0aW1lb3V0",
-            "GAMgASgDEg4KBmFtb3VudBgEIAEoBSKnAQoKSm9iSGVhZGVycxIbChN3b3Jr",
-            "Zmxvd0luc3RhbmNlS2V5GAEgASgDEhUKDWJwbW5Qcm9jZXNzSWQYAiABKAkS",
-            "IQoZd29ya2Zsb3dEZWZpbml0aW9uVmVyc2lvbhgDIAEoBRITCgt3b3JrZmxv",
-            "d0tleRgEIAEoAxIRCgllbGVtZW50SWQYBSABKAkSGgoSZWxlbWVudEluc3Rh",
-            "bmNlS2V5GAYgASgDIrYBCgxBY3RpdmF0ZWRKb2ISCwoDa2V5GAEgASgDEgwK",
-            "BHR5cGUYAiABKAkSMAoKam9iSGVhZGVycxgDIAEoCzIcLmdhdGV3YXlfcHJv",
-            "dG9jb2wuSm9iSGVhZGVycxIVCg1jdXN0b21IZWFkZXJzGAQgASgJEg4KBndv",
-            "cmtlchgFIAEoCRIPCgdyZXRyaWVzGAYgASgFEhAKCGRlYWRsaW5lGAcgASgD",
-            "Eg8KB3BheWxvYWQYCCABKAkiRAoUQWN0aXZhdGVKb2JzUmVzcG9uc2USLAoE",
-            "am9icxgBIAMoCzIeLmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVkSm9iIi0K",
-            "FlJlc29sdmVJbmNpZGVudFJlcXVlc3QSEwoLaW5jaWRlbnRLZXkYASABKAMi",
-            "GQoXUmVzb2x2ZUluY2lkZW50UmVzcG9uc2Uy6woKB0dhdGV3YXkSUwoIVG9w",
-            "b2xvZ3kSIS5nYXRld2F5X3Byb3RvY29sLlRvcG9sb2d5UmVxdWVzdBoiLmdh",
-            "dGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXNwb25zZSIAEmUKDkRlcGxveVdv",
-            "cmtmbG93EicuZ2F0ZXdheV9wcm90b2NvbC5EZXBsb3lXb3JrZmxvd1JlcXVl",
-            "c3QaKC5nYXRld2F5X3Byb3RvY29sLkRlcGxveVdvcmtmbG93UmVzcG9uc2Ui",
-            "ABJlCg5QdWJsaXNoTWVzc2FnZRInLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlz",
-            "aE1lc3NhZ2VSZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2NvbC5QdWJsaXNoTWVz",
-            "c2FnZVJlc3BvbnNlIgASawoQVXBkYXRlSm9iUmV0cmllcxIpLmdhdGV3YXlf",
-            "cHJvdG9jb2wuVXBkYXRlSm9iUmV0cmllc1JlcXVlc3QaKi5nYXRld2F5X3By",
-            "b3RvY29sLlVwZGF0ZUpvYlJldHJpZXNSZXNwb25zZSIAElAKB0ZhaWxKb2IS",
-            "IC5nYXRld2F5X3Byb3RvY29sLkZhaWxKb2JSZXF1ZXN0GiEuZ2F0ZXdheV9w",
-            "cm90b2NvbC5GYWlsSm9iUmVzcG9uc2UiABJcCgtDb21wbGV0ZUpvYhIkLmdh",
-            "dGV3YXlfcHJvdG9jb2wuQ29tcGxldGVKb2JSZXF1ZXN0GiUuZ2F0ZXdheV9w",
-            "cm90b2NvbC5Db21wbGV0ZUpvYlJlc3BvbnNlIgASfQoWQ3JlYXRlV29ya2Zs",
-            "b3dJbnN0YW5jZRIvLmdhdGV3YXlfcHJvdG9jb2wuQ3JlYXRlV29ya2Zsb3dJ",
-            "bnN0YW5jZVJlcXVlc3QaMC5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVdvcmtm",
-            "bG93SW5zdGFuY2VSZXNwb25zZSIAEn0KFkNhbmNlbFdvcmtmbG93SW5zdGFu",
-            "Y2USLy5nYXRld2F5X3Byb3RvY29sLkNhbmNlbFdvcmtmbG93SW5zdGFuY2VS",
-            "ZXF1ZXN0GjAuZ2F0ZXdheV9wcm90b2NvbC5DYW5jZWxXb3JrZmxvd0luc3Rh",
-            "bmNlUmVzcG9uc2UiABKSAQodVXBkYXRlV29ya2Zsb3dJbnN0YW5jZVBheWxv",
-            "YWQSNi5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZVdvcmtmbG93SW5zdGFuY2VQ",
-            "YXlsb2FkUmVxdWVzdBo3LmdhdGV3YXlfcHJvdG9jb2wuVXBkYXRlV29ya2Zs",
-            "b3dJbnN0YW5jZVBheWxvYWRSZXNwb25zZSIAEmEKDEFjdGl2YXRlSm9icxIl",
-            "LmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVxdWVzdBomLmdhdGV3",
-            "YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVzcG9uc2UiADABEmIKDUxpc3RX",
-            "b3JrZmxvd3MSJi5nYXRld2F5X3Byb3RvY29sLkxpc3RXb3JrZmxvd3NSZXF1",
-            "ZXN0GicuZ2F0ZXdheV9wcm90b2NvbC5MaXN0V29ya2Zsb3dzUmVzcG9uc2Ui",
-            "ABJcCgtHZXRXb3JrZmxvdxIkLmdhdGV3YXlfcHJvdG9jb2wuR2V0V29ya2Zs",
-            "b3dSZXF1ZXN0GiUuZ2F0ZXdheV9wcm90b2NvbC5HZXRXb3JrZmxvd1Jlc3Bv",
-            "bnNlIgASaAoPUmVzb2x2ZUluY2lkZW50EiguZ2F0ZXdheV9wcm90b2NvbC5S",
-            "ZXNvbHZlSW5jaWRlbnRSZXF1ZXN0GikuZ2F0ZXdheV9wcm90b2NvbC5SZXNv",
-            "bHZlSW5jaWRlbnRSZXNwb25zZSIAQiEKGWlvLnplZWJlLmdhdGV3YXkucHJv",
-            "dG9jb2xQAFoCcGJiBnByb3RvMw=="));
+            "Cg1nYXRld2F5LnByb3RvEhBnYXRld2F5X3Byb3RvY29sImsKE0FjdGl2YXRl",
+            "Sm9ic1JlcXVlc3QSDAoEdHlwZRgBIAEoCRIOCgZ3b3JrZXIYAiABKAkSDwoH",
+            "dGltZW91dBgDIAEoAxIOCgZhbW91bnQYBCABKAUSFQoNZmV0Y2hWYXJpYWJs",
+            "ZRgFIAMoCSJEChRBY3RpdmF0ZUpvYnNSZXNwb25zZRIsCgRqb2JzGAEgAygL",
+            "Mh4uZ2F0ZXdheV9wcm90b2NvbC5BY3RpdmF0ZWRKb2IitgEKDEFjdGl2YXRl",
+            "ZEpvYhILCgNrZXkYASABKAMSDAoEdHlwZRgCIAEoCRIwCgpqb2JIZWFkZXJz",
+            "GAMgASgLMhwuZ2F0ZXdheV9wcm90b2NvbC5Kb2JIZWFkZXJzEhUKDWN1c3Rv",
+            "bUhlYWRlcnMYBCABKAkSDgoGd29ya2VyGAUgASgJEg8KB3JldHJpZXMYBiAB",
+            "KAUSEAoIZGVhZGxpbmUYByABKAMSDwoHcGF5bG9hZBgIIAEoCSKnAQoKSm9i",
+            "SGVhZGVycxIbChN3b3JrZmxvd0luc3RhbmNlS2V5GAEgASgDEhUKDWJwbW5Q",
+            "cm9jZXNzSWQYAiABKAkSIQoZd29ya2Zsb3dEZWZpbml0aW9uVmVyc2lvbhgD",
+            "IAEoBRITCgt3b3JrZmxvd0tleRgEIAEoAxIRCgllbGVtZW50SWQYBSABKAkS",
+            "GgoSZWxlbWVudEluc3RhbmNlS2V5GAYgASgDIjwKHUNhbmNlbFdvcmtmbG93",
+            "SW5zdGFuY2VSZXF1ZXN0EhsKE3dvcmtmbG93SW5zdGFuY2VLZXkYASABKAMi",
+            "IAoeQ2FuY2VsV29ya2Zsb3dJbnN0YW5jZVJlc3BvbnNlIjUKEkNvbXBsZXRl",
+            "Sm9iUmVxdWVzdBIOCgZqb2JLZXkYASABKAMSDwoHcGF5bG9hZBgCIAEoCSIV",
+            "ChNDb21wbGV0ZUpvYlJlc3BvbnNlIm0KHUNyZWF0ZVdvcmtmbG93SW5zdGFu",
+            "Y2VSZXF1ZXN0EhMKC3dvcmtmbG93S2V5GAEgASgDEhUKDWJwbW5Qcm9jZXNz",
+            "SWQYAiABKAkSDwoHdmVyc2lvbhgDIAEoBRIPCgdwYXlsb2FkGAQgASgJInoK",
+            "HkNyZWF0ZVdvcmtmbG93SW5zdGFuY2VSZXNwb25zZRITCgt3b3JrZmxvd0tl",
+            "eRgBIAEoAxIVCg1icG1uUHJvY2Vzc0lkGAIgASgJEg8KB3ZlcnNpb24YAyAB",
+            "KAUSGwoTd29ya2Zsb3dJbnN0YW5jZUtleRgFIAEoAyJTChVEZXBsb3lXb3Jr",
+            "Zmxvd1JlcXVlc3QSOgoJd29ya2Zsb3dzGAEgAygLMicuZ2F0ZXdheV9wcm90",
+            "b2NvbC5Xb3JrZmxvd1JlcXVlc3RPYmplY3QiqwEKFVdvcmtmbG93UmVxdWVz",
+            "dE9iamVjdBIMCgRuYW1lGAEgASgJEkIKBHR5cGUYAiABKA4yNC5nYXRld2F5",
+            "X3Byb3RvY29sLldvcmtmbG93UmVxdWVzdE9iamVjdC5SZXNvdXJjZVR5cGUS",
+            "EgoKZGVmaW5pdGlvbhgDIAEoDCIsCgxSZXNvdXJjZVR5cGUSCAoERklMRRAA",
+            "EggKBEJQTU4QARIICgRZQU1MEAIiXAoWRGVwbG95V29ya2Zsb3dSZXNwb25z",
+            "ZRILCgNrZXkYASABKAMSNQoJd29ya2Zsb3dzGAIgAygLMiIuZ2F0ZXdheV9w",
+            "cm90b2NvbC5Xb3JrZmxvd01ldGFkYXRhImUKEFdvcmtmbG93TWV0YWRhdGES",
+            "FQoNYnBtblByb2Nlc3NJZBgBIAEoCRIPCgd2ZXJzaW9uGAIgASgFEhMKC3dv",
+            "cmtmbG93S2V5GAMgASgDEhQKDHJlc291cmNlTmFtZRgEIAEoCSJHCg5GYWls",
+            "Sm9iUmVxdWVzdBIOCgZqb2JLZXkYASABKAMSDwoHcmV0cmllcxgCIAEoBRIU",
+            "CgxlcnJvck1lc3NhZ2UYAyABKAkiEQoPRmFpbEpvYlJlc3BvbnNlIlEKEkdl",
+            "dFdvcmtmbG93UmVxdWVzdBITCgt3b3JrZmxvd0tleRgBIAEoAxIPCgd2ZXJz",
+            "aW9uGAIgASgFEhUKDWJwbW5Qcm9jZXNzSWQYAyABKAkieQoTR2V0V29ya2Zs",
+            "b3dSZXNwb25zZRITCgt3b3JrZmxvd0tleRgBIAEoAxIPCgd2ZXJzaW9uGAIg",
+            "ASgFEhUKDWJwbW5Qcm9jZXNzSWQYAyABKAkSFAoMcmVzb3VyY2VOYW1lGAQg",
+            "ASgJEg8KB2JwbW5YbWwYBSABKAkiLQoUTGlzdFdvcmtmbG93c1JlcXVlc3QS",
+            "FQoNYnBtblByb2Nlc3NJZBgBIAEoCSJOChVMaXN0V29ya2Zsb3dzUmVzcG9u",
+            "c2USNQoJd29ya2Zsb3dzGAEgAygLMiIuZ2F0ZXdheV9wcm90b2NvbC5Xb3Jr",
+            "Zmxvd01ldGFkYXRhInUKFVB1Ymxpc2hNZXNzYWdlUmVxdWVzdBIMCgRuYW1l",
+            "GAEgASgJEhYKDmNvcnJlbGF0aW9uS2V5GAIgASgJEhIKCnRpbWVUb0xpdmUY",
+            "AyABKAMSEQoJbWVzc2FnZUlkGAQgASgJEg8KB3BheWxvYWQYBSABKAkiGAoW",
+            "UHVibGlzaE1lc3NhZ2VSZXNwb25zZSItChZSZXNvbHZlSW5jaWRlbnRSZXF1",
+            "ZXN0EhMKC2luY2lkZW50S2V5GAEgASgDIhkKF1Jlc29sdmVJbmNpZGVudFJl",
+            "c3BvbnNlIhEKD1RvcG9sb2d5UmVxdWVzdCKKAQoQVG9wb2xvZ3lSZXNwb25z",
+            "ZRItCgdicm9rZXJzGAEgAygLMhwuZ2F0ZXdheV9wcm90b2NvbC5Ccm9rZXJJ",
+            "bmZvEhMKC2NsdXN0ZXJTaXplGAIgASgFEhcKD3BhcnRpdGlvbnNDb3VudBgD",
+            "IAEoBRIZChFyZXBsaWNhdGlvbkZhY3RvchgEIAEoBSJpCgpCcm9rZXJJbmZv",
+            "Eg4KBm5vZGVJZBgBIAEoBRIMCgRob3N0GAIgASgJEgwKBHBvcnQYAyABKAUS",
+            "LwoKcGFydGl0aW9ucxgEIAMoCzIbLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0",
+            "aW9uIpABCglQYXJ0aXRpb24SEwoLcGFydGl0aW9uSWQYASABKAUSPQoEcm9s",
+            "ZRgDIAEoDjIvLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9uLlBhcnRpdGlv",
+            "bkJyb2tlclJvbGUiLwoTUGFydGl0aW9uQnJva2VyUm9sZRIKCgZMRUFERVIQ",
+            "ABIMCghGT0xMT1dFUhABIjoKF1VwZGF0ZUpvYlJldHJpZXNSZXF1ZXN0Eg4K",
+            "BmpvYktleRgBIAEoAxIPCgdyZXRyaWVzGAIgASgFIhoKGFVwZGF0ZUpvYlJl",
+            "dHJpZXNSZXNwb25zZSJTCiRVcGRhdGVXb3JrZmxvd0luc3RhbmNlUGF5bG9h",
+            "ZFJlcXVlc3QSGgoSZWxlbWVudEluc3RhbmNlS2V5GAEgASgDEg8KB3BheWxv",
+            "YWQYAiABKAkiJwolVXBkYXRlV29ya2Zsb3dJbnN0YW5jZVBheWxvYWRSZXNw",
+            "b25zZTLrCgoHR2F0ZXdheRJhCgxBY3RpdmF0ZUpvYnMSJS5nYXRld2F5X3By",
+            "b3RvY29sLkFjdGl2YXRlSm9ic1JlcXVlc3QaJi5nYXRld2F5X3Byb3RvY29s",
+            "LkFjdGl2YXRlSm9ic1Jlc3BvbnNlIgAwARJ9ChZDYW5jZWxXb3JrZmxvd0lu",
+            "c3RhbmNlEi8uZ2F0ZXdheV9wcm90b2NvbC5DYW5jZWxXb3JrZmxvd0luc3Rh",
+            "bmNlUmVxdWVzdBowLmdhdGV3YXlfcHJvdG9jb2wuQ2FuY2VsV29ya2Zsb3dJ",
+            "bnN0YW5jZVJlc3BvbnNlIgASXAoLQ29tcGxldGVKb2ISJC5nYXRld2F5X3By",
+            "b3RvY29sLkNvbXBsZXRlSm9iUmVxdWVzdBolLmdhdGV3YXlfcHJvdG9jb2wu",
+            "Q29tcGxldGVKb2JSZXNwb25zZSIAEn0KFkNyZWF0ZVdvcmtmbG93SW5zdGFu",
+            "Y2USLy5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVdvcmtmbG93SW5zdGFuY2VS",
+            "ZXF1ZXN0GjAuZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVXb3JrZmxvd0luc3Rh",
+            "bmNlUmVzcG9uc2UiABJlCg5EZXBsb3lXb3JrZmxvdxInLmdhdGV3YXlfcHJv",
+            "dG9jb2wuRGVwbG95V29ya2Zsb3dSZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2Nv",
+            "bC5EZXBsb3lXb3JrZmxvd1Jlc3BvbnNlIgASUAoHRmFpbEpvYhIgLmdhdGV3",
+            "YXlfcHJvdG9jb2wuRmFpbEpvYlJlcXVlc3QaIS5nYXRld2F5X3Byb3RvY29s",
+            "LkZhaWxKb2JSZXNwb25zZSIAElwKC0dldFdvcmtmbG93EiQuZ2F0ZXdheV9w",
+            "cm90b2NvbC5HZXRXb3JrZmxvd1JlcXVlc3QaJS5nYXRld2F5X3Byb3RvY29s",
+            "LkdldFdvcmtmbG93UmVzcG9uc2UiABJiCg1MaXN0V29ya2Zsb3dzEiYuZ2F0",
+            "ZXdheV9wcm90b2NvbC5MaXN0V29ya2Zsb3dzUmVxdWVzdBonLmdhdGV3YXlf",
+            "cHJvdG9jb2wuTGlzdFdvcmtmbG93c1Jlc3BvbnNlIgASZQoOUHVibGlzaE1l",
+            "c3NhZ2USJy5nYXRld2F5X3Byb3RvY29sLlB1Ymxpc2hNZXNzYWdlUmVxdWVz",
+            "dBooLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlzaE1lc3NhZ2VSZXNwb25zZSIA",
+            "EmgKD1Jlc29sdmVJbmNpZGVudBIoLmdhdGV3YXlfcHJvdG9jb2wuUmVzb2x2",
+            "ZUluY2lkZW50UmVxdWVzdBopLmdhdGV3YXlfcHJvdG9jb2wuUmVzb2x2ZUlu",
+            "Y2lkZW50UmVzcG9uc2UiABJTCghUb3BvbG9neRIhLmdhdGV3YXlfcHJvdG9j",
+            "b2wuVG9wb2xvZ3lSZXF1ZXN0GiIuZ2F0ZXdheV9wcm90b2NvbC5Ub3BvbG9n",
+            "eVJlc3BvbnNlIgASawoQVXBkYXRlSm9iUmV0cmllcxIpLmdhdGV3YXlfcHJv",
+            "dG9jb2wuVXBkYXRlSm9iUmV0cmllc1JlcXVlc3QaKi5nYXRld2F5X3Byb3Rv",
+            "Y29sLlVwZGF0ZUpvYlJldHJpZXNSZXNwb25zZSIAEpIBCh1VcGRhdGVXb3Jr",
+            "Zmxvd0luc3RhbmNlUGF5bG9hZBI2LmdhdGV3YXlfcHJvdG9jb2wuVXBkYXRl",
+            "V29ya2Zsb3dJbnN0YW5jZVBheWxvYWRSZXF1ZXN0GjcuZ2F0ZXdheV9wcm90",
+            "b2NvbC5VcGRhdGVXb3JrZmxvd0luc3RhbmNlUGF5bG9hZFJlc3BvbnNlIgBC",
+            "IQoZaW8uemVlYmUuZ2F0ZXdheS5wcm90b2NvbFAAWgJwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyRequest), global::GatewayProtocol.TopologyRequest.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.Partition), global::GatewayProtocol.Partition.Parser, new[]{ "PartitionId", "Role" }, null, new[]{ typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerRole) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BrokerInfo), global::GatewayProtocol.BrokerInfo.Parser, new[]{ "NodeId", "Host", "Port", "Partitions" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyResponse), global::GatewayProtocol.TopologyResponse.Parser, new[]{ "Brokers", "ClusterSize", "PartitionsCount", "ReplicationFactor" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowRequestObject), global::GatewayProtocol.WorkflowRequestObject.Parser, new[]{ "Name", "Type", "Definition" }, null, new[]{ typeof(global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowRequest), global::GatewayProtocol.DeployWorkflowRequest.Parser, new[]{ "Workflows" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowMetadata), global::GatewayProtocol.WorkflowMetadata.Parser, new[]{ "BpmnProcessId", "Version", "WorkflowKey", "ResourceName" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowResponse), global::GatewayProtocol.DeployWorkflowResponse.Parser, new[]{ "Key", "Workflows" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageRequest), global::GatewayProtocol.PublishMessageRequest.Parser, new[]{ "Name", "CorrelationKey", "TimeToLive", "MessageId", "Payload" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageResponse), global::GatewayProtocol.PublishMessageResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesRequest), global::GatewayProtocol.UpdateJobRetriesRequest.Parser, new[]{ "JobKey", "Retries" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesResponse), global::GatewayProtocol.UpdateJobRetriesResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobRequest), global::GatewayProtocol.FailJobRequest.Parser, new[]{ "JobKey", "Retries", "ErrorMessage" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobResponse), global::GatewayProtocol.FailJobResponse.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsRequest), global::GatewayProtocol.ActivateJobsRequest.Parser, new[]{ "Type", "Worker", "Timeout", "Amount", "FetchVariable" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsResponse), global::GatewayProtocol.ActivateJobsResponse.Parser, new[]{ "Jobs" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivatedJob), global::GatewayProtocol.ActivatedJob.Parser, new[]{ "Key", "Type", "JobHeaders", "CustomHeaders", "Worker", "Retries", "Deadline", "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.JobHeaders), global::GatewayProtocol.JobHeaders.Parser, new[]{ "WorkflowInstanceKey", "BpmnProcessId", "WorkflowDefinitionVersion", "WorkflowKey", "ElementId", "ElementInstanceKey" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceRequest), global::GatewayProtocol.CancelWorkflowInstanceRequest.Parser, new[]{ "WorkflowInstanceKey" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceResponse), global::GatewayProtocol.CancelWorkflowInstanceResponse.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobRequest), global::GatewayProtocol.CompleteJobRequest.Parser, new[]{ "JobKey", "Payload" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobResponse), global::GatewayProtocol.CompleteJobResponse.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceRequest), global::GatewayProtocol.CreateWorkflowInstanceRequest.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "Payload" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceResponse), global::GatewayProtocol.CreateWorkflowInstanceResponse.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "WorkflowInstanceKey" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceRequest), global::GatewayProtocol.CancelWorkflowInstanceRequest.Parser, new[]{ "WorkflowInstanceKey" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceResponse), global::GatewayProtocol.CancelWorkflowInstanceResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest), global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest.Parser, new[]{ "ElementInstanceKey", "Payload" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse), global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ListWorkflowsRequest), global::GatewayProtocol.ListWorkflowsRequest.Parser, new[]{ "BpmnProcessId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ListWorkflowsResponse), global::GatewayProtocol.ListWorkflowsResponse.Parser, new[]{ "Workflows" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowRequest), global::GatewayProtocol.DeployWorkflowRequest.Parser, new[]{ "Workflows" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowRequestObject), global::GatewayProtocol.WorkflowRequestObject.Parser, new[]{ "Name", "Type", "Definition" }, null, new[]{ typeof(global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) }, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowResponse), global::GatewayProtocol.DeployWorkflowResponse.Parser, new[]{ "Key", "Workflows" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowMetadata), global::GatewayProtocol.WorkflowMetadata.Parser, new[]{ "BpmnProcessId", "Version", "WorkflowKey", "ResourceName" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobRequest), global::GatewayProtocol.FailJobRequest.Parser, new[]{ "JobKey", "Retries", "ErrorMessage" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobResponse), global::GatewayProtocol.FailJobResponse.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.GetWorkflowRequest), global::GatewayProtocol.GetWorkflowRequest.Parser, new[]{ "WorkflowKey", "Version", "BpmnProcessId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.GetWorkflowResponse), global::GatewayProtocol.GetWorkflowResponse.Parser, new[]{ "WorkflowKey", "Version", "BpmnProcessId", "ResourceName", "BpmnXml" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsRequest), global::GatewayProtocol.ActivateJobsRequest.Parser, new[]{ "Type", "Worker", "Timeout", "Amount" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.JobHeaders), global::GatewayProtocol.JobHeaders.Parser, new[]{ "WorkflowInstanceKey", "BpmnProcessId", "WorkflowDefinitionVersion", "WorkflowKey", "ElementId", "ElementInstanceKey" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivatedJob), global::GatewayProtocol.ActivatedJob.Parser, new[]{ "Key", "Type", "JobHeaders", "CustomHeaders", "Worker", "Retries", "Deadline", "Payload" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsResponse), global::GatewayProtocol.ActivateJobsResponse.Parser, new[]{ "Jobs" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ListWorkflowsRequest), global::GatewayProtocol.ListWorkflowsRequest.Parser, new[]{ "BpmnProcessId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ListWorkflowsResponse), global::GatewayProtocol.ListWorkflowsResponse.Parser, new[]{ "Workflows" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageRequest), global::GatewayProtocol.PublishMessageRequest.Parser, new[]{ "Name", "CorrelationKey", "TimeToLive", "MessageId", "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageResponse), global::GatewayProtocol.PublishMessageResponse.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentRequest), global::GatewayProtocol.ResolveIncidentRequest.Parser, new[]{ "IncidentKey" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentResponse), global::GatewayProtocol.ResolveIncidentResponse.Parser, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentResponse), global::GatewayProtocol.ResolveIncidentResponse.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyRequest), global::GatewayProtocol.TopologyRequest.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyResponse), global::GatewayProtocol.TopologyResponse.Parser, new[]{ "Brokers", "ClusterSize", "PartitionsCount", "ReplicationFactor" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BrokerInfo), global::GatewayProtocol.BrokerInfo.Parser, new[]{ "NodeId", "Host", "Port", "Partitions" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.Partition), global::GatewayProtocol.Partition.Parser, new[]{ "PartitionId", "Role" }, null, new[]{ typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerRole) }, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesRequest), global::GatewayProtocol.UpdateJobRetriesRequest.Parser, new[]{ "JobKey", "Retries" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesResponse), global::GatewayProtocol.UpdateJobRetriesResponse.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest), global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest.Parser, new[]{ "ElementInstanceKey", "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse), global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse.Parser, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class TopologyRequest : pb::IMessage<TopologyRequest> {
-    private static readonly pb::MessageParser<TopologyRequest> _parser = new pb::MessageParser<TopologyRequest>(() => new TopologyRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<TopologyRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TopologyRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TopologyRequest(TopologyRequest other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TopologyRequest Clone() {
-      return new TopologyRequest(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as TopologyRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(TopologyRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(TopologyRequest other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class Partition : pb::IMessage<Partition> {
-    private static readonly pb::MessageParser<Partition> _parser = new pb::MessageParser<Partition>(() => new Partition());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Partition> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Partition() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Partition(Partition other) : this() {
-      partitionId_ = other.partitionId_;
-      role_ = other.role_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Partition Clone() {
-      return new Partition(this);
-    }
-
-    /// <summary>Field number for the "partitionId" field.</summary>
-    public const int PartitionIdFieldNumber = 1;
-    private int partitionId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int PartitionId {
-      get { return partitionId_; }
-      set {
-        partitionId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "role" field.</summary>
-    public const int RoleFieldNumber = 3;
-    private global::GatewayProtocol.Partition.Types.PartitionBrokerRole role_ = 0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::GatewayProtocol.Partition.Types.PartitionBrokerRole Role {
-      get { return role_; }
-      set {
-        role_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as Partition);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Partition other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (PartitionId != other.PartitionId) return false;
-      if (Role != other.Role) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (PartitionId != 0) hash ^= PartitionId.GetHashCode();
-      if (Role != 0) hash ^= Role.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (PartitionId != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(PartitionId);
-      }
-      if (Role != 0) {
-        output.WriteRawTag(24);
-        output.WriteEnum((int) Role);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (PartitionId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PartitionId);
-      }
-      if (Role != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Role);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Partition other) {
-      if (other == null) {
-        return;
-      }
-      if (other.PartitionId != 0) {
-        PartitionId = other.PartitionId;
-      }
-      if (other.Role != 0) {
-        Role = other.Role;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            PartitionId = input.ReadInt32();
-            break;
-          }
-          case 24: {
-            role_ = (global::GatewayProtocol.Partition.Types.PartitionBrokerRole) input.ReadEnum();
-            break;
-          }
-        }
-      }
-    }
-
-    #region Nested types
-    /// <summary>Container for nested types declared in the Partition message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static partial class Types {
-      public enum PartitionBrokerRole {
-        [pbr::OriginalName("LEADER")] Leader = 0,
-        [pbr::OriginalName("FOLLOWER")] Follower = 1,
-      }
-
-    }
-    #endregion
-
-  }
-
-  public sealed partial class BrokerInfo : pb::IMessage<BrokerInfo> {
-    private static readonly pb::MessageParser<BrokerInfo> _parser = new pb::MessageParser<BrokerInfo>(() => new BrokerInfo());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<BrokerInfo> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[2]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BrokerInfo() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BrokerInfo(BrokerInfo other) : this() {
-      nodeId_ = other.nodeId_;
-      host_ = other.host_;
-      port_ = other.port_;
-      partitions_ = other.partitions_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BrokerInfo Clone() {
-      return new BrokerInfo(this);
-    }
-
-    /// <summary>Field number for the "nodeId" field.</summary>
-    public const int NodeIdFieldNumber = 1;
-    private int nodeId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int NodeId {
-      get { return nodeId_; }
-      set {
-        nodeId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "host" field.</summary>
-    public const int HostFieldNumber = 2;
-    private string host_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Host {
-      get { return host_; }
-      set {
-        host_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "port" field.</summary>
-    public const int PortFieldNumber = 3;
-    private int port_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Port {
-      get { return port_; }
-      set {
-        port_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "partitions" field.</summary>
-    public const int PartitionsFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::GatewayProtocol.Partition> _repeated_partitions_codec
-        = pb::FieldCodec.ForMessage(34, global::GatewayProtocol.Partition.Parser);
-    private readonly pbc::RepeatedField<global::GatewayProtocol.Partition> partitions_ = new pbc::RepeatedField<global::GatewayProtocol.Partition>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GatewayProtocol.Partition> Partitions {
-      get { return partitions_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as BrokerInfo);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(BrokerInfo other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (NodeId != other.NodeId) return false;
-      if (Host != other.Host) return false;
-      if (Port != other.Port) return false;
-      if(!partitions_.Equals(other.partitions_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (NodeId != 0) hash ^= NodeId.GetHashCode();
-      if (Host.Length != 0) hash ^= Host.GetHashCode();
-      if (Port != 0) hash ^= Port.GetHashCode();
-      hash ^= partitions_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (NodeId != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(NodeId);
-      }
-      if (Host.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Host);
-      }
-      if (Port != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(Port);
-      }
-      partitions_.WriteTo(output, _repeated_partitions_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (NodeId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NodeId);
-      }
-      if (Host.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Host);
-      }
-      if (Port != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Port);
-      }
-      size += partitions_.CalculateSize(_repeated_partitions_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(BrokerInfo other) {
-      if (other == null) {
-        return;
-      }
-      if (other.NodeId != 0) {
-        NodeId = other.NodeId;
-      }
-      if (other.Host.Length != 0) {
-        Host = other.Host;
-      }
-      if (other.Port != 0) {
-        Port = other.Port;
-      }
-      partitions_.Add(other.partitions_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            NodeId = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            Host = input.ReadString();
-            break;
-          }
-          case 24: {
-            Port = input.ReadInt32();
-            break;
-          }
-          case 34: {
-            partitions_.AddEntriesFrom(input, _repeated_partitions_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class TopologyResponse : pb::IMessage<TopologyResponse> {
-    private static readonly pb::MessageParser<TopologyResponse> _parser = new pb::MessageParser<TopologyResponse>(() => new TopologyResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<TopologyResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[3]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TopologyResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TopologyResponse(TopologyResponse other) : this() {
-      brokers_ = other.brokers_.Clone();
-      clusterSize_ = other.clusterSize_;
-      partitionsCount_ = other.partitionsCount_;
-      replicationFactor_ = other.replicationFactor_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TopologyResponse Clone() {
-      return new TopologyResponse(this);
-    }
-
-    /// <summary>Field number for the "brokers" field.</summary>
-    public const int BrokersFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::GatewayProtocol.BrokerInfo> _repeated_brokers_codec
-        = pb::FieldCodec.ForMessage(10, global::GatewayProtocol.BrokerInfo.Parser);
-    private readonly pbc::RepeatedField<global::GatewayProtocol.BrokerInfo> brokers_ = new pbc::RepeatedField<global::GatewayProtocol.BrokerInfo>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GatewayProtocol.BrokerInfo> Brokers {
-      get { return brokers_; }
-    }
-
-    /// <summary>Field number for the "clusterSize" field.</summary>
-    public const int ClusterSizeFieldNumber = 2;
-    private int clusterSize_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int ClusterSize {
-      get { return clusterSize_; }
-      set {
-        clusterSize_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "partitionsCount" field.</summary>
-    public const int PartitionsCountFieldNumber = 3;
-    private int partitionsCount_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int PartitionsCount {
-      get { return partitionsCount_; }
-      set {
-        partitionsCount_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "replicationFactor" field.</summary>
-    public const int ReplicationFactorFieldNumber = 4;
-    private int replicationFactor_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int ReplicationFactor {
-      get { return replicationFactor_; }
-      set {
-        replicationFactor_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as TopologyResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(TopologyResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!brokers_.Equals(other.brokers_)) return false;
-      if (ClusterSize != other.ClusterSize) return false;
-      if (PartitionsCount != other.PartitionsCount) return false;
-      if (ReplicationFactor != other.ReplicationFactor) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= brokers_.GetHashCode();
-      if (ClusterSize != 0) hash ^= ClusterSize.GetHashCode();
-      if (PartitionsCount != 0) hash ^= PartitionsCount.GetHashCode();
-      if (ReplicationFactor != 0) hash ^= ReplicationFactor.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      brokers_.WriteTo(output, _repeated_brokers_codec);
-      if (ClusterSize != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(ClusterSize);
-      }
-      if (PartitionsCount != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(PartitionsCount);
-      }
-      if (ReplicationFactor != 0) {
-        output.WriteRawTag(32);
-        output.WriteInt32(ReplicationFactor);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += brokers_.CalculateSize(_repeated_brokers_codec);
-      if (ClusterSize != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ClusterSize);
-      }
-      if (PartitionsCount != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PartitionsCount);
-      }
-      if (ReplicationFactor != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReplicationFactor);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(TopologyResponse other) {
-      if (other == null) {
-        return;
-      }
-      brokers_.Add(other.brokers_);
-      if (other.ClusterSize != 0) {
-        ClusterSize = other.ClusterSize;
-      }
-      if (other.PartitionsCount != 0) {
-        PartitionsCount = other.PartitionsCount;
-      }
-      if (other.ReplicationFactor != 0) {
-        ReplicationFactor = other.ReplicationFactor;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            brokers_.AddEntriesFrom(input, _repeated_brokers_codec);
-            break;
-          }
-          case 16: {
-            ClusterSize = input.ReadInt32();
-            break;
-          }
-          case 24: {
-            PartitionsCount = input.ReadInt32();
-            break;
-          }
-          case 32: {
-            ReplicationFactor = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class WorkflowRequestObject : pb::IMessage<WorkflowRequestObject> {
-    private static readonly pb::MessageParser<WorkflowRequestObject> _parser = new pb::MessageParser<WorkflowRequestObject>(() => new WorkflowRequestObject());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<WorkflowRequestObject> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowRequestObject() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowRequestObject(WorkflowRequestObject other) : this() {
-      name_ = other.name_;
-      type_ = other.type_;
-      definition_ = other.definition_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowRequestObject Clone() {
-      return new WorkflowRequestObject(this);
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "type" field.</summary>
-    public const int TypeFieldNumber = 2;
-    private global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType type_ = 0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType Type {
-      get { return type_; }
-      set {
-        type_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "definition" field.</summary>
-    public const int DefinitionFieldNumber = 3;
-    private pb::ByteString definition_ = pb::ByteString.Empty;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Definition {
-      get { return definition_; }
-      set {
-        definition_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as WorkflowRequestObject);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(WorkflowRequestObject other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Name != other.Name) return false;
-      if (Type != other.Type) return false;
-      if (Definition != other.Definition) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Type != 0) hash ^= Type.GetHashCode();
-      if (Definition.Length != 0) hash ^= Definition.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Name.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Name);
-      }
-      if (Type != 0) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) Type);
-      }
-      if (Definition.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Definition);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (Type != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
-      }
-      if (Definition.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Definition);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(WorkflowRequestObject other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      if (other.Type != 0) {
-        Type = other.Type;
-      }
-      if (other.Definition.Length != 0) {
-        Definition = other.Definition;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Name = input.ReadString();
-            break;
-          }
-          case 16: {
-            type_ = (global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) input.ReadEnum();
-            break;
-          }
-          case 26: {
-            Definition = input.ReadBytes();
-            break;
-          }
-        }
-      }
-    }
-
-    #region Nested types
-    /// <summary>Container for nested types declared in the WorkflowRequestObject message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static partial class Types {
-      public enum ResourceType {
-        /// <summary>
-        /// FILE type means the gateway will try to detect the resource type using the file extension of the name
-        /// </summary>
-        [pbr::OriginalName("FILE")] File = 0,
-        [pbr::OriginalName("BPMN")] Bpmn = 1,
-        [pbr::OriginalName("YAML")] Yaml = 2,
-      }
-
-    }
-    #endregion
-
-  }
-
-  public sealed partial class DeployWorkflowRequest : pb::IMessage<DeployWorkflowRequest> {
-    private static readonly pb::MessageParser<DeployWorkflowRequest> _parser = new pb::MessageParser<DeployWorkflowRequest>(() => new DeployWorkflowRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DeployWorkflowRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowRequest(DeployWorkflowRequest other) : this() {
-      workflows_ = other.workflows_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowRequest Clone() {
-      return new DeployWorkflowRequest(this);
-    }
-
-    /// <summary>Field number for the "workflows" field.</summary>
-    public const int WorkflowsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::GatewayProtocol.WorkflowRequestObject> _repeated_workflows_codec
-        = pb::FieldCodec.ForMessage(10, global::GatewayProtocol.WorkflowRequestObject.Parser);
-    private readonly pbc::RepeatedField<global::GatewayProtocol.WorkflowRequestObject> workflows_ = new pbc::RepeatedField<global::GatewayProtocol.WorkflowRequestObject>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GatewayProtocol.WorkflowRequestObject> Workflows {
-      get { return workflows_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as DeployWorkflowRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DeployWorkflowRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!workflows_.Equals(other.workflows_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= workflows_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      workflows_.WriteTo(output, _repeated_workflows_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += workflows_.CalculateSize(_repeated_workflows_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DeployWorkflowRequest other) {
-      if (other == null) {
-        return;
-      }
-      workflows_.Add(other.workflows_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            workflows_.AddEntriesFrom(input, _repeated_workflows_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class WorkflowMetadata : pb::IMessage<WorkflowMetadata> {
-    private static readonly pb::MessageParser<WorkflowMetadata> _parser = new pb::MessageParser<WorkflowMetadata>(() => new WorkflowMetadata());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<WorkflowMetadata> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[6]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowMetadata() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowMetadata(WorkflowMetadata other) : this() {
-      bpmnProcessId_ = other.bpmnProcessId_;
-      version_ = other.version_;
-      workflowKey_ = other.workflowKey_;
-      resourceName_ = other.resourceName_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowMetadata Clone() {
-      return new WorkflowMetadata(this);
-    }
-
-    /// <summary>Field number for the "bpmnProcessId" field.</summary>
-    public const int BpmnProcessIdFieldNumber = 1;
-    private string bpmnProcessId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string BpmnProcessId {
-      get { return bpmnProcessId_; }
-      set {
-        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "version" field.</summary>
-    public const int VersionFieldNumber = 2;
-    private int version_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Version {
-      get { return version_; }
-      set {
-        version_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 3;
-    private long workflowKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
-      set {
-        workflowKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "resourceName" field.</summary>
-    public const int ResourceNameFieldNumber = 4;
-    private string resourceName_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string ResourceName {
-      get { return resourceName_; }
-      set {
-        resourceName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as WorkflowMetadata);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(WorkflowMetadata other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (BpmnProcessId != other.BpmnProcessId) return false;
-      if (Version != other.Version) return false;
-      if (WorkflowKey != other.WorkflowKey) return false;
-      if (ResourceName != other.ResourceName) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
-      if (Version != 0) hash ^= Version.GetHashCode();
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
-      if (ResourceName.Length != 0) hash ^= ResourceName.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (BpmnProcessId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(BpmnProcessId);
-      }
-      if (Version != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(Version);
-      }
-      if (WorkflowKey != 0L) {
-        output.WriteRawTag(24);
-        output.WriteInt64(WorkflowKey);
-      }
-      if (ResourceName.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(ResourceName);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (BpmnProcessId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
-      }
-      if (Version != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
-      }
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
-      }
-      if (ResourceName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ResourceName);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(WorkflowMetadata other) {
-      if (other == null) {
-        return;
-      }
-      if (other.BpmnProcessId.Length != 0) {
-        BpmnProcessId = other.BpmnProcessId;
-      }
-      if (other.Version != 0) {
-        Version = other.Version;
-      }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
-      }
-      if (other.ResourceName.Length != 0) {
-        ResourceName = other.ResourceName;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            BpmnProcessId = input.ReadString();
-            break;
-          }
-          case 16: {
-            Version = input.ReadInt32();
-            break;
-          }
-          case 24: {
-            WorkflowKey = input.ReadInt64();
-            break;
-          }
-          case 34: {
-            ResourceName = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class DeployWorkflowResponse : pb::IMessage<DeployWorkflowResponse> {
-    private static readonly pb::MessageParser<DeployWorkflowResponse> _parser = new pb::MessageParser<DeployWorkflowResponse>(() => new DeployWorkflowResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DeployWorkflowResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[7]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowResponse(DeployWorkflowResponse other) : this() {
-      key_ = other.key_;
-      workflows_ = other.workflows_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowResponse Clone() {
-      return new DeployWorkflowResponse(this);
-    }
-
-    /// <summary>Field number for the "key" field.</summary>
-    public const int KeyFieldNumber = 1;
-    private long key_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long Key {
-      get { return key_; }
-      set {
-        key_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "workflows" field.</summary>
-    public const int WorkflowsFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::GatewayProtocol.WorkflowMetadata> _repeated_workflows_codec
-        = pb::FieldCodec.ForMessage(18, global::GatewayProtocol.WorkflowMetadata.Parser);
-    private readonly pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata> workflows_ = new pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata> Workflows {
-      get { return workflows_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as DeployWorkflowResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DeployWorkflowResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Key != other.Key) return false;
-      if(!workflows_.Equals(other.workflows_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Key != 0L) hash ^= Key.GetHashCode();
-      hash ^= workflows_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Key != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(Key);
-      }
-      workflows_.WriteTo(output, _repeated_workflows_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Key != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Key);
-      }
-      size += workflows_.CalculateSize(_repeated_workflows_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DeployWorkflowResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Key != 0L) {
-        Key = other.Key;
-      }
-      workflows_.Add(other.workflows_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Key = input.ReadInt64();
-            break;
-          }
-          case 18: {
-            workflows_.AddEntriesFrom(input, _repeated_workflows_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class PublishMessageRequest : pb::IMessage<PublishMessageRequest> {
-    private static readonly pb::MessageParser<PublishMessageRequest> _parser = new pb::MessageParser<PublishMessageRequest>(() => new PublishMessageRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<PublishMessageRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PublishMessageRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PublishMessageRequest(PublishMessageRequest other) : this() {
-      name_ = other.name_;
-      correlationKey_ = other.correlationKey_;
-      timeToLive_ = other.timeToLive_;
-      messageId_ = other.messageId_;
-      payload_ = other.payload_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PublishMessageRequest Clone() {
-      return new PublishMessageRequest(this);
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "correlationKey" field.</summary>
-    public const int CorrelationKeyFieldNumber = 2;
-    private string correlationKey_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string CorrelationKey {
-      get { return correlationKey_; }
-      set {
-        correlationKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "timeToLive" field.</summary>
-    public const int TimeToLiveFieldNumber = 3;
-    private long timeToLive_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long TimeToLive {
-      get { return timeToLive_; }
-      set {
-        timeToLive_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "messageId" field.</summary>
-    public const int MessageIdFieldNumber = 4;
-    private string messageId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string MessageId {
-      get { return messageId_; }
-      set {
-        messageId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "payload" field.</summary>
-    public const int PayloadFieldNumber = 5;
-    private string payload_ = "";
-    /// <summary>
-    /// payload has to be a valid json object as string 
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Payload {
-      get { return payload_; }
-      set {
-        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as PublishMessageRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(PublishMessageRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Name != other.Name) return false;
-      if (CorrelationKey != other.CorrelationKey) return false;
-      if (TimeToLive != other.TimeToLive) return false;
-      if (MessageId != other.MessageId) return false;
-      if (Payload != other.Payload) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (CorrelationKey.Length != 0) hash ^= CorrelationKey.GetHashCode();
-      if (TimeToLive != 0L) hash ^= TimeToLive.GetHashCode();
-      if (MessageId.Length != 0) hash ^= MessageId.GetHashCode();
-      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Name.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Name);
-      }
-      if (CorrelationKey.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(CorrelationKey);
-      }
-      if (TimeToLive != 0L) {
-        output.WriteRawTag(24);
-        output.WriteInt64(TimeToLive);
-      }
-      if (MessageId.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(MessageId);
-      }
-      if (Payload.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(Payload);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (CorrelationKey.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(CorrelationKey);
-      }
-      if (TimeToLive != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TimeToLive);
-      }
-      if (MessageId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageId);
-      }
-      if (Payload.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Payload);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(PublishMessageRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      if (other.CorrelationKey.Length != 0) {
-        CorrelationKey = other.CorrelationKey;
-      }
-      if (other.TimeToLive != 0L) {
-        TimeToLive = other.TimeToLive;
-      }
-      if (other.MessageId.Length != 0) {
-        MessageId = other.MessageId;
-      }
-      if (other.Payload.Length != 0) {
-        Payload = other.Payload;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Name = input.ReadString();
-            break;
-          }
-          case 18: {
-            CorrelationKey = input.ReadString();
-            break;
-          }
-          case 24: {
-            TimeToLive = input.ReadInt64();
-            break;
-          }
-          case 34: {
-            MessageId = input.ReadString();
-            break;
-          }
-          case 42: {
-            Payload = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class PublishMessageResponse : pb::IMessage<PublishMessageResponse> {
-    private static readonly pb::MessageParser<PublishMessageResponse> _parser = new pb::MessageParser<PublishMessageResponse>(() => new PublishMessageResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<PublishMessageResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[9]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PublishMessageResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PublishMessageResponse(PublishMessageResponse other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PublishMessageResponse Clone() {
-      return new PublishMessageResponse(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as PublishMessageResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(PublishMessageResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(PublishMessageResponse other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class UpdateJobRetriesRequest : pb::IMessage<UpdateJobRetriesRequest> {
-    private static readonly pb::MessageParser<UpdateJobRetriesRequest> _parser = new pb::MessageParser<UpdateJobRetriesRequest>(() => new UpdateJobRetriesRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<UpdateJobRetriesRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[10]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateJobRetriesRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateJobRetriesRequest(UpdateJobRetriesRequest other) : this() {
-      jobKey_ = other.jobKey_;
-      retries_ = other.retries_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateJobRetriesRequest Clone() {
-      return new UpdateJobRetriesRequest(this);
-    }
-
-    /// <summary>Field number for the "jobKey" field.</summary>
-    public const int JobKeyFieldNumber = 1;
-    private long jobKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long JobKey {
-      get { return jobKey_; }
-      set {
-        jobKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "retries" field.</summary>
-    public const int RetriesFieldNumber = 2;
-    private int retries_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Retries {
-      get { return retries_; }
-      set {
-        retries_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as UpdateJobRetriesRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(UpdateJobRetriesRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (JobKey != other.JobKey) return false;
-      if (Retries != other.Retries) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (JobKey != 0L) hash ^= JobKey.GetHashCode();
-      if (Retries != 0) hash ^= Retries.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (JobKey != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(JobKey);
-      }
-      if (Retries != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(Retries);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (JobKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(JobKey);
-      }
-      if (Retries != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Retries);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(UpdateJobRetriesRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.JobKey != 0L) {
-        JobKey = other.JobKey;
-      }
-      if (other.Retries != 0) {
-        Retries = other.Retries;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            JobKey = input.ReadInt64();
-            break;
-          }
-          case 16: {
-            Retries = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class UpdateJobRetriesResponse : pb::IMessage<UpdateJobRetriesResponse> {
-    private static readonly pb::MessageParser<UpdateJobRetriesResponse> _parser = new pb::MessageParser<UpdateJobRetriesResponse>(() => new UpdateJobRetriesResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<UpdateJobRetriesResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[11]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateJobRetriesResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateJobRetriesResponse(UpdateJobRetriesResponse other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateJobRetriesResponse Clone() {
-      return new UpdateJobRetriesResponse(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as UpdateJobRetriesResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(UpdateJobRetriesResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(UpdateJobRetriesResponse other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class FailJobRequest : pb::IMessage<FailJobRequest> {
-    private static readonly pb::MessageParser<FailJobRequest> _parser = new pb::MessageParser<FailJobRequest>(() => new FailJobRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<FailJobRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[12]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FailJobRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FailJobRequest(FailJobRequest other) : this() {
-      jobKey_ = other.jobKey_;
-      retries_ = other.retries_;
-      errorMessage_ = other.errorMessage_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FailJobRequest Clone() {
-      return new FailJobRequest(this);
-    }
-
-    /// <summary>Field number for the "jobKey" field.</summary>
-    public const int JobKeyFieldNumber = 1;
-    private long jobKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long JobKey {
-      get { return jobKey_; }
-      set {
-        jobKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "retries" field.</summary>
-    public const int RetriesFieldNumber = 2;
-    private int retries_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Retries {
-      get { return retries_; }
-      set {
-        retries_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "errorMessage" field.</summary>
-    public const int ErrorMessageFieldNumber = 3;
-    private string errorMessage_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string ErrorMessage {
-      get { return errorMessage_; }
-      set {
-        errorMessage_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as FailJobRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(FailJobRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (JobKey != other.JobKey) return false;
-      if (Retries != other.Retries) return false;
-      if (ErrorMessage != other.ErrorMessage) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (JobKey != 0L) hash ^= JobKey.GetHashCode();
-      if (Retries != 0) hash ^= Retries.GetHashCode();
-      if (ErrorMessage.Length != 0) hash ^= ErrorMessage.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (JobKey != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(JobKey);
-      }
-      if (Retries != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(Retries);
-      }
-      if (ErrorMessage.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(ErrorMessage);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (JobKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(JobKey);
-      }
-      if (Retries != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Retries);
-      }
-      if (ErrorMessage.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorMessage);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(FailJobRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.JobKey != 0L) {
-        JobKey = other.JobKey;
-      }
-      if (other.Retries != 0) {
-        Retries = other.Retries;
-      }
-      if (other.ErrorMessage.Length != 0) {
-        ErrorMessage = other.ErrorMessage;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            JobKey = input.ReadInt64();
-            break;
-          }
-          case 16: {
-            Retries = input.ReadInt32();
-            break;
-          }
-          case 26: {
-            ErrorMessage = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class FailJobResponse : pb::IMessage<FailJobResponse> {
-    private static readonly pb::MessageParser<FailJobResponse> _parser = new pb::MessageParser<FailJobResponse>(() => new FailJobResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<FailJobResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[13]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FailJobResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FailJobResponse(FailJobResponse other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FailJobResponse Clone() {
-      return new FailJobResponse(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as FailJobResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(FailJobResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(FailJobResponse other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class CompleteJobRequest : pb::IMessage<CompleteJobRequest> {
-    private static readonly pb::MessageParser<CompleteJobRequest> _parser = new pb::MessageParser<CompleteJobRequest>(() => new CompleteJobRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CompleteJobRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[14]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CompleteJobRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CompleteJobRequest(CompleteJobRequest other) : this() {
-      jobKey_ = other.jobKey_;
-      payload_ = other.payload_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CompleteJobRequest Clone() {
-      return new CompleteJobRequest(this);
-    }
-
-    /// <summary>Field number for the "jobKey" field.</summary>
-    public const int JobKeyFieldNumber = 1;
-    private long jobKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long JobKey {
-      get { return jobKey_; }
-      set {
-        jobKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "payload" field.</summary>
-    public const int PayloadFieldNumber = 2;
-    private string payload_ = "";
-    /// <summary>
-    /// payload has to be a valid json object as string 
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Payload {
-      get { return payload_; }
-      set {
-        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CompleteJobRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CompleteJobRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (JobKey != other.JobKey) return false;
-      if (Payload != other.Payload) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (JobKey != 0L) hash ^= JobKey.GetHashCode();
-      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (JobKey != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(JobKey);
-      }
-      if (Payload.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Payload);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (JobKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(JobKey);
-      }
-      if (Payload.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Payload);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CompleteJobRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.JobKey != 0L) {
-        JobKey = other.JobKey;
-      }
-      if (other.Payload.Length != 0) {
-        Payload = other.Payload;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            JobKey = input.ReadInt64();
-            break;
-          }
-          case 18: {
-            Payload = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class CompleteJobResponse : pb::IMessage<CompleteJobResponse> {
-    private static readonly pb::MessageParser<CompleteJobResponse> _parser = new pb::MessageParser<CompleteJobResponse>(() => new CompleteJobResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CompleteJobResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[15]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CompleteJobResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CompleteJobResponse(CompleteJobResponse other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CompleteJobResponse Clone() {
-      return new CompleteJobResponse(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CompleteJobResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CompleteJobResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CompleteJobResponse other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class CreateWorkflowInstanceRequest : pb::IMessage<CreateWorkflowInstanceRequest> {
-    private static readonly pb::MessageParser<CreateWorkflowInstanceRequest> _parser = new pb::MessageParser<CreateWorkflowInstanceRequest>(() => new CreateWorkflowInstanceRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CreateWorkflowInstanceRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[16]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceRequest(CreateWorkflowInstanceRequest other) : this() {
-      workflowKey_ = other.workflowKey_;
-      bpmnProcessId_ = other.bpmnProcessId_;
-      version_ = other.version_;
-      payload_ = other.payload_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceRequest Clone() {
-      return new CreateWorkflowInstanceRequest(this);
-    }
-
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 1;
-    private long workflowKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
-      set {
-        workflowKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "bpmnProcessId" field.</summary>
-    public const int BpmnProcessIdFieldNumber = 2;
-    private string bpmnProcessId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string BpmnProcessId {
-      get { return bpmnProcessId_; }
-      set {
-        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "version" field.</summary>
-    public const int VersionFieldNumber = 3;
-    private int version_;
-    /// <summary>
-    /// if bpmnProcessId is set version = -1 indicates to use the latest version 
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Version {
-      get { return version_; }
-      set {
-        version_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "payload" field.</summary>
-    public const int PayloadFieldNumber = 4;
-    private string payload_ = "";
-    /// <summary>
-    /// payload has to be a valid json object as string 
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Payload {
-      get { return payload_; }
-      set {
-        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CreateWorkflowInstanceRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CreateWorkflowInstanceRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (WorkflowKey != other.WorkflowKey) return false;
-      if (BpmnProcessId != other.BpmnProcessId) return false;
-      if (Version != other.Version) return false;
-      if (Payload != other.Payload) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
-      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
-      if (Version != 0) hash ^= Version.GetHashCode();
-      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (WorkflowKey != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(WorkflowKey);
-      }
-      if (BpmnProcessId.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(BpmnProcessId);
-      }
-      if (Version != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(Version);
-      }
-      if (Payload.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Payload);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
-      }
-      if (BpmnProcessId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
-      }
-      if (Version != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
-      }
-      if (Payload.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Payload);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CreateWorkflowInstanceRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
-      }
-      if (other.BpmnProcessId.Length != 0) {
-        BpmnProcessId = other.BpmnProcessId;
-      }
-      if (other.Version != 0) {
-        Version = other.Version;
-      }
-      if (other.Payload.Length != 0) {
-        Payload = other.Payload;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            WorkflowKey = input.ReadInt64();
-            break;
-          }
-          case 18: {
-            BpmnProcessId = input.ReadString();
-            break;
-          }
-          case 24: {
-            Version = input.ReadInt32();
-            break;
-          }
-          case 34: {
-            Payload = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class CreateWorkflowInstanceResponse : pb::IMessage<CreateWorkflowInstanceResponse> {
-    private static readonly pb::MessageParser<CreateWorkflowInstanceResponse> _parser = new pb::MessageParser<CreateWorkflowInstanceResponse>(() => new CreateWorkflowInstanceResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CreateWorkflowInstanceResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[17]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceResponse(CreateWorkflowInstanceResponse other) : this() {
-      workflowKey_ = other.workflowKey_;
-      bpmnProcessId_ = other.bpmnProcessId_;
-      version_ = other.version_;
-      workflowInstanceKey_ = other.workflowInstanceKey_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceResponse Clone() {
-      return new CreateWorkflowInstanceResponse(this);
-    }
-
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 1;
-    private long workflowKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
-      set {
-        workflowKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "bpmnProcessId" field.</summary>
-    public const int BpmnProcessIdFieldNumber = 2;
-    private string bpmnProcessId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string BpmnProcessId {
-      get { return bpmnProcessId_; }
-      set {
-        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "version" field.</summary>
-    public const int VersionFieldNumber = 3;
-    private int version_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Version {
-      get { return version_; }
-      set {
-        version_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
-    public const int WorkflowInstanceKeyFieldNumber = 5;
-    private long workflowInstanceKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowInstanceKey {
-      get { return workflowInstanceKey_; }
-      set {
-        workflowInstanceKey_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CreateWorkflowInstanceResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CreateWorkflowInstanceResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (WorkflowKey != other.WorkflowKey) return false;
-      if (BpmnProcessId != other.BpmnProcessId) return false;
-      if (Version != other.Version) return false;
-      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
-      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
-      if (Version != 0) hash ^= Version.GetHashCode();
-      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (WorkflowKey != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(WorkflowKey);
-      }
-      if (BpmnProcessId.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(BpmnProcessId);
-      }
-      if (Version != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(Version);
-      }
-      if (WorkflowInstanceKey != 0L) {
-        output.WriteRawTag(40);
-        output.WriteInt64(WorkflowInstanceKey);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
-      }
-      if (BpmnProcessId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
-      }
-      if (Version != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
-      }
-      if (WorkflowInstanceKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CreateWorkflowInstanceResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
-      }
-      if (other.BpmnProcessId.Length != 0) {
-        BpmnProcessId = other.BpmnProcessId;
-      }
-      if (other.Version != 0) {
-        Version = other.Version;
-      }
-      if (other.WorkflowInstanceKey != 0L) {
-        WorkflowInstanceKey = other.WorkflowInstanceKey;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            WorkflowKey = input.ReadInt64();
-            break;
-          }
-          case 18: {
-            BpmnProcessId = input.ReadString();
-            break;
-          }
-          case 24: {
-            Version = input.ReadInt32();
-            break;
-          }
-          case 40: {
-            WorkflowInstanceKey = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class CancelWorkflowInstanceRequest : pb::IMessage<CancelWorkflowInstanceRequest> {
-    private static readonly pb::MessageParser<CancelWorkflowInstanceRequest> _parser = new pb::MessageParser<CancelWorkflowInstanceRequest>(() => new CancelWorkflowInstanceRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CancelWorkflowInstanceRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[18]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceRequest(CancelWorkflowInstanceRequest other) : this() {
-      workflowInstanceKey_ = other.workflowInstanceKey_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceRequest Clone() {
-      return new CancelWorkflowInstanceRequest(this);
-    }
-
-    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
-    public const int WorkflowInstanceKeyFieldNumber = 1;
-    private long workflowInstanceKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowInstanceKey {
-      get { return workflowInstanceKey_; }
-      set {
-        workflowInstanceKey_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CancelWorkflowInstanceRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CancelWorkflowInstanceRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (WorkflowInstanceKey != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(WorkflowInstanceKey);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (WorkflowInstanceKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CancelWorkflowInstanceRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.WorkflowInstanceKey != 0L) {
-        WorkflowInstanceKey = other.WorkflowInstanceKey;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            WorkflowInstanceKey = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class CancelWorkflowInstanceResponse : pb::IMessage<CancelWorkflowInstanceResponse> {
-    private static readonly pb::MessageParser<CancelWorkflowInstanceResponse> _parser = new pb::MessageParser<CancelWorkflowInstanceResponse>(() => new CancelWorkflowInstanceResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CancelWorkflowInstanceResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[19]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceResponse(CancelWorkflowInstanceResponse other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceResponse Clone() {
-      return new CancelWorkflowInstanceResponse(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CancelWorkflowInstanceResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CancelWorkflowInstanceResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CancelWorkflowInstanceResponse other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class UpdateWorkflowInstancePayloadRequest : pb::IMessage<UpdateWorkflowInstancePayloadRequest> {
-    private static readonly pb::MessageParser<UpdateWorkflowInstancePayloadRequest> _parser = new pb::MessageParser<UpdateWorkflowInstancePayloadRequest>(() => new UpdateWorkflowInstancePayloadRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<UpdateWorkflowInstancePayloadRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[20]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadRequest(UpdateWorkflowInstancePayloadRequest other) : this() {
-      elementInstanceKey_ = other.elementInstanceKey_;
-      payload_ = other.payload_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadRequest Clone() {
-      return new UpdateWorkflowInstancePayloadRequest(this);
-    }
-
-    /// <summary>Field number for the "elementInstanceKey" field.</summary>
-    public const int ElementInstanceKeyFieldNumber = 1;
-    private long elementInstanceKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long ElementInstanceKey {
-      get { return elementInstanceKey_; }
-      set {
-        elementInstanceKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "payload" field.</summary>
-    public const int PayloadFieldNumber = 2;
-    private string payload_ = "";
-    /// <summary>
-    /// payload has to be a valid json object as string 
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Payload {
-      get { return payload_; }
-      set {
-        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as UpdateWorkflowInstancePayloadRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(UpdateWorkflowInstancePayloadRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (ElementInstanceKey != other.ElementInstanceKey) return false;
-      if (Payload != other.Payload) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (ElementInstanceKey != 0L) hash ^= ElementInstanceKey.GetHashCode();
-      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (ElementInstanceKey != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(ElementInstanceKey);
-      }
-      if (Payload.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Payload);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (ElementInstanceKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ElementInstanceKey);
-      }
-      if (Payload.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Payload);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(UpdateWorkflowInstancePayloadRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.ElementInstanceKey != 0L) {
-        ElementInstanceKey = other.ElementInstanceKey;
-      }
-      if (other.Payload.Length != 0) {
-        Payload = other.Payload;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            ElementInstanceKey = input.ReadInt64();
-            break;
-          }
-          case 18: {
-            Payload = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class UpdateWorkflowInstancePayloadResponse : pb::IMessage<UpdateWorkflowInstancePayloadResponse> {
-    private static readonly pb::MessageParser<UpdateWorkflowInstancePayloadResponse> _parser = new pb::MessageParser<UpdateWorkflowInstancePayloadResponse>(() => new UpdateWorkflowInstancePayloadResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<UpdateWorkflowInstancePayloadResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[21]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadResponse(UpdateWorkflowInstancePayloadResponse other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadResponse Clone() {
-      return new UpdateWorkflowInstancePayloadResponse(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as UpdateWorkflowInstancePayloadResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(UpdateWorkflowInstancePayloadResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(UpdateWorkflowInstancePayloadResponse other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class ListWorkflowsRequest : pb::IMessage<ListWorkflowsRequest> {
-    private static readonly pb::MessageParser<ListWorkflowsRequest> _parser = new pb::MessageParser<ListWorkflowsRequest>(() => new ListWorkflowsRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ListWorkflowsRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[22]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListWorkflowsRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListWorkflowsRequest(ListWorkflowsRequest other) : this() {
-      bpmnProcessId_ = other.bpmnProcessId_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListWorkflowsRequest Clone() {
-      return new ListWorkflowsRequest(this);
-    }
-
-    /// <summary>Field number for the "bpmnProcessId" field.</summary>
-    public const int BpmnProcessIdFieldNumber = 1;
-    private string bpmnProcessId_ = "";
-    /// <summary>
-    /// optional filter by BPMN process id, if empty all workflows are returned 
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string BpmnProcessId {
-      get { return bpmnProcessId_; }
-      set {
-        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as ListWorkflowsRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ListWorkflowsRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (BpmnProcessId != other.BpmnProcessId) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (BpmnProcessId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(BpmnProcessId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (BpmnProcessId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ListWorkflowsRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.BpmnProcessId.Length != 0) {
-        BpmnProcessId = other.BpmnProcessId;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            BpmnProcessId = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class ListWorkflowsResponse : pb::IMessage<ListWorkflowsResponse> {
-    private static readonly pb::MessageParser<ListWorkflowsResponse> _parser = new pb::MessageParser<ListWorkflowsResponse>(() => new ListWorkflowsResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ListWorkflowsResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[23]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListWorkflowsResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListWorkflowsResponse(ListWorkflowsResponse other) : this() {
-      workflows_ = other.workflows_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListWorkflowsResponse Clone() {
-      return new ListWorkflowsResponse(this);
-    }
-
-    /// <summary>Field number for the "workflows" field.</summary>
-    public const int WorkflowsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::GatewayProtocol.WorkflowMetadata> _repeated_workflows_codec
-        = pb::FieldCodec.ForMessage(10, global::GatewayProtocol.WorkflowMetadata.Parser);
-    private readonly pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata> workflows_ = new pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata> Workflows {
-      get { return workflows_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as ListWorkflowsResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ListWorkflowsResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!workflows_.Equals(other.workflows_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= workflows_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      workflows_.WriteTo(output, _repeated_workflows_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += workflows_.CalculateSize(_repeated_workflows_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ListWorkflowsResponse other) {
-      if (other == null) {
-        return;
-      }
-      workflows_.Add(other.workflows_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            workflows_.AddEntriesFrom(input, _repeated_workflows_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  /// <summary>
-  /// either workflow key or bpmn process id and version has to be specified
-  /// </summary>
-  public sealed partial class GetWorkflowRequest : pb::IMessage<GetWorkflowRequest> {
-    private static readonly pb::MessageParser<GetWorkflowRequest> _parser = new pb::MessageParser<GetWorkflowRequest>(() => new GetWorkflowRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<GetWorkflowRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[24]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetWorkflowRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetWorkflowRequest(GetWorkflowRequest other) : this() {
-      workflowKey_ = other.workflowKey_;
-      version_ = other.version_;
-      bpmnProcessId_ = other.bpmnProcessId_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetWorkflowRequest Clone() {
-      return new GetWorkflowRequest(this);
-    }
-
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 1;
-    private long workflowKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
-      set {
-        workflowKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "version" field.</summary>
-    public const int VersionFieldNumber = 2;
-    private int version_;
-    /// <summary>
-    /// if bpmnProcessId is set version = -1 indicates to use the latest version 
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Version {
-      get { return version_; }
-      set {
-        version_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "bpmnProcessId" field.</summary>
-    public const int BpmnProcessIdFieldNumber = 3;
-    private string bpmnProcessId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string BpmnProcessId {
-      get { return bpmnProcessId_; }
-      set {
-        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as GetWorkflowRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(GetWorkflowRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (WorkflowKey != other.WorkflowKey) return false;
-      if (Version != other.Version) return false;
-      if (BpmnProcessId != other.BpmnProcessId) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
-      if (Version != 0) hash ^= Version.GetHashCode();
-      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (WorkflowKey != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(WorkflowKey);
-      }
-      if (Version != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(Version);
-      }
-      if (BpmnProcessId.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(BpmnProcessId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
-      }
-      if (Version != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
-      }
-      if (BpmnProcessId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(GetWorkflowRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
-      }
-      if (other.Version != 0) {
-        Version = other.Version;
-      }
-      if (other.BpmnProcessId.Length != 0) {
-        BpmnProcessId = other.BpmnProcessId;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            WorkflowKey = input.ReadInt64();
-            break;
-          }
-          case 16: {
-            Version = input.ReadInt32();
-            break;
-          }
-          case 26: {
-            BpmnProcessId = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class GetWorkflowResponse : pb::IMessage<GetWorkflowResponse> {
-    private static readonly pb::MessageParser<GetWorkflowResponse> _parser = new pb::MessageParser<GetWorkflowResponse>(() => new GetWorkflowResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<GetWorkflowResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[25]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetWorkflowResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetWorkflowResponse(GetWorkflowResponse other) : this() {
-      workflowKey_ = other.workflowKey_;
-      version_ = other.version_;
-      bpmnProcessId_ = other.bpmnProcessId_;
-      resourceName_ = other.resourceName_;
-      bpmnXml_ = other.bpmnXml_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetWorkflowResponse Clone() {
-      return new GetWorkflowResponse(this);
-    }
-
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 1;
-    private long workflowKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
-      set {
-        workflowKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "version" field.</summary>
-    public const int VersionFieldNumber = 2;
-    private int version_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Version {
-      get { return version_; }
-      set {
-        version_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "bpmnProcessId" field.</summary>
-    public const int BpmnProcessIdFieldNumber = 3;
-    private string bpmnProcessId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string BpmnProcessId {
-      get { return bpmnProcessId_; }
-      set {
-        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "resourceName" field.</summary>
-    public const int ResourceNameFieldNumber = 4;
-    private string resourceName_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string ResourceName {
-      get { return resourceName_; }
-      set {
-        resourceName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "bpmnXml" field.</summary>
-    public const int BpmnXmlFieldNumber = 5;
-    private string bpmnXml_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string BpmnXml {
-      get { return bpmnXml_; }
-      set {
-        bpmnXml_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as GetWorkflowResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(GetWorkflowResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (WorkflowKey != other.WorkflowKey) return false;
-      if (Version != other.Version) return false;
-      if (BpmnProcessId != other.BpmnProcessId) return false;
-      if (ResourceName != other.ResourceName) return false;
-      if (BpmnXml != other.BpmnXml) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
-      if (Version != 0) hash ^= Version.GetHashCode();
-      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
-      if (ResourceName.Length != 0) hash ^= ResourceName.GetHashCode();
-      if (BpmnXml.Length != 0) hash ^= BpmnXml.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (WorkflowKey != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(WorkflowKey);
-      }
-      if (Version != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(Version);
-      }
-      if (BpmnProcessId.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(BpmnProcessId);
-      }
-      if (ResourceName.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(ResourceName);
-      }
-      if (BpmnXml.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(BpmnXml);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
-      }
-      if (Version != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
-      }
-      if (BpmnProcessId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
-      }
-      if (ResourceName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ResourceName);
-      }
-      if (BpmnXml.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnXml);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(GetWorkflowResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
-      }
-      if (other.Version != 0) {
-        Version = other.Version;
-      }
-      if (other.BpmnProcessId.Length != 0) {
-        BpmnProcessId = other.BpmnProcessId;
-      }
-      if (other.ResourceName.Length != 0) {
-        ResourceName = other.ResourceName;
-      }
-      if (other.BpmnXml.Length != 0) {
-        BpmnXml = other.BpmnXml;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            WorkflowKey = input.ReadInt64();
-            break;
-          }
-          case 16: {
-            Version = input.ReadInt32();
-            break;
-          }
-          case 26: {
-            BpmnProcessId = input.ReadString();
-            break;
-          }
-          case 34: {
-            ResourceName = input.ReadString();
-            break;
-          }
-          case 42: {
-            BpmnXml = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
   public sealed partial class ActivateJobsRequest : pb::IMessage<ActivateJobsRequest> {
     private static readonly pb::MessageParser<ActivateJobsRequest> _parser = new pb::MessageParser<ActivateJobsRequest>(() => new ActivateJobsRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -4287,7 +165,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[26]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4308,6 +186,7 @@ namespace GatewayProtocol {
       worker_ = other.worker_;
       timeout_ = other.timeout_;
       amount_ = other.amount_;
+      fetchVariable_ = other.fetchVariable_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4319,6 +198,10 @@ namespace GatewayProtocol {
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
     private string type_ = "";
+    /// <summary>
+    /// the job type, as defined in the BPMN process (e.g. &lt;zeebe:taskDefinition
+    /// type="payment-service" />)
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Type {
       get { return type_; }
@@ -4330,6 +213,9 @@ namespace GatewayProtocol {
     /// <summary>Field number for the "worker" field.</summary>
     public const int WorkerFieldNumber = 2;
     private string worker_ = "";
+    /// <summary>
+    /// the name of the worker activating the jobs, mostly used for logging purposes
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Worker {
       get { return worker_; }
@@ -4341,6 +227,10 @@ namespace GatewayProtocol {
     /// <summary>Field number for the "timeout" field.</summary>
     public const int TimeoutFieldNumber = 3;
     private long timeout_;
+    /// <summary>
+    /// a job returned after this call will not be activated by another call until the
+    /// timeout has been reached
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Timeout {
       get { return timeout_; }
@@ -4352,12 +242,29 @@ namespace GatewayProtocol {
     /// <summary>Field number for the "amount" field.</summary>
     public const int AmountFieldNumber = 4;
     private int amount_;
+    /// <summary>
+    /// the maximum number of jobs to fetch in a single call
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Amount {
       get { return amount_; }
       set {
         amount_ = value;
       }
+    }
+
+    /// <summary>Field number for the "fetchVariable" field.</summary>
+    public const int FetchVariableFieldNumber = 5;
+    private static readonly pb::FieldCodec<string> _repeated_fetchVariable_codec
+        = pb::FieldCodec.ForString(42);
+    private readonly pbc::RepeatedField<string> fetchVariable_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// a list of variables to fetch as the job payload; if empty, all visible variables at
+    /// the time of activation for the scope of the job will be returned as the job payload
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> FetchVariable {
+      get { return fetchVariable_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4377,6 +284,7 @@ namespace GatewayProtocol {
       if (Worker != other.Worker) return false;
       if (Timeout != other.Timeout) return false;
       if (Amount != other.Amount) return false;
+      if(!fetchVariable_.Equals(other.fetchVariable_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4387,6 +295,7 @@ namespace GatewayProtocol {
       if (Worker.Length != 0) hash ^= Worker.GetHashCode();
       if (Timeout != 0L) hash ^= Timeout.GetHashCode();
       if (Amount != 0) hash ^= Amount.GetHashCode();
+      hash ^= fetchVariable_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4416,6 +325,7 @@ namespace GatewayProtocol {
         output.WriteRawTag(32);
         output.WriteInt32(Amount);
       }
+      fetchVariable_.WriteTo(output, _repeated_fetchVariable_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4436,6 +346,7 @@ namespace GatewayProtocol {
       if (Amount != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Amount);
       }
+      size += fetchVariable_.CalculateSize(_repeated_fetchVariable_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4459,6 +370,7 @@ namespace GatewayProtocol {
       if (other.Amount != 0) {
         Amount = other.Amount;
       }
+      fetchVariable_.Add(other.fetchVariable_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4486,21 +398,25 @@ namespace GatewayProtocol {
             Amount = input.ReadInt32();
             break;
           }
+          case 42: {
+            fetchVariable_.AddEntriesFrom(input, _repeated_fetchVariable_codec);
+            break;
+          }
         }
       }
     }
 
   }
 
-  public sealed partial class JobHeaders : pb::IMessage<JobHeaders> {
-    private static readonly pb::MessageParser<JobHeaders> _parser = new pb::MessageParser<JobHeaders>(() => new JobHeaders());
+  public sealed partial class ActivateJobsResponse : pb::IMessage<ActivateJobsResponse> {
+    private static readonly pb::MessageParser<ActivateJobsResponse> _parser = new pb::MessageParser<ActivateJobsResponse>(() => new ActivateJobsResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<JobHeaders> Parser { get { return _parser; } }
+    public static pb::MessageParser<ActivateJobsResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[27]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4509,125 +425,57 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public JobHeaders() {
+    public ActivateJobsResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public JobHeaders(JobHeaders other) : this() {
-      workflowInstanceKey_ = other.workflowInstanceKey_;
-      bpmnProcessId_ = other.bpmnProcessId_;
-      workflowDefinitionVersion_ = other.workflowDefinitionVersion_;
-      workflowKey_ = other.workflowKey_;
-      elementId_ = other.elementId_;
-      elementInstanceKey_ = other.elementInstanceKey_;
+    public ActivateJobsResponse(ActivateJobsResponse other) : this() {
+      jobs_ = other.jobs_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public JobHeaders Clone() {
-      return new JobHeaders(this);
+    public ActivateJobsResponse Clone() {
+      return new ActivateJobsResponse(this);
     }
 
-    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
-    public const int WorkflowInstanceKeyFieldNumber = 1;
-    private long workflowInstanceKey_;
+    /// <summary>Field number for the "jobs" field.</summary>
+    public const int JobsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::GatewayProtocol.ActivatedJob> _repeated_jobs_codec
+        = pb::FieldCodec.ForMessage(10, global::GatewayProtocol.ActivatedJob.Parser);
+    private readonly pbc::RepeatedField<global::GatewayProtocol.ActivatedJob> jobs_ = new pbc::RepeatedField<global::GatewayProtocol.ActivatedJob>();
+    /// <summary>
+    /// list of activated jobs
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowInstanceKey {
-      get { return workflowInstanceKey_; }
-      set {
-        workflowInstanceKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "bpmnProcessId" field.</summary>
-    public const int BpmnProcessIdFieldNumber = 2;
-    private string bpmnProcessId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string BpmnProcessId {
-      get { return bpmnProcessId_; }
-      set {
-        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "workflowDefinitionVersion" field.</summary>
-    public const int WorkflowDefinitionVersionFieldNumber = 3;
-    private int workflowDefinitionVersion_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int WorkflowDefinitionVersion {
-      get { return workflowDefinitionVersion_; }
-      set {
-        workflowDefinitionVersion_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 4;
-    private long workflowKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
-      set {
-        workflowKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "elementId" field.</summary>
-    public const int ElementIdFieldNumber = 5;
-    private string elementId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string ElementId {
-      get { return elementId_; }
-      set {
-        elementId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "elementInstanceKey" field.</summary>
-    public const int ElementInstanceKeyFieldNumber = 6;
-    private long elementInstanceKey_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long ElementInstanceKey {
-      get { return elementInstanceKey_; }
-      set {
-        elementInstanceKey_ = value;
-      }
+    public pbc::RepeatedField<global::GatewayProtocol.ActivatedJob> Jobs {
+      get { return jobs_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as JobHeaders);
+      return Equals(other as ActivateJobsResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(JobHeaders other) {
+    public bool Equals(ActivateJobsResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
-      if (BpmnProcessId != other.BpmnProcessId) return false;
-      if (WorkflowDefinitionVersion != other.WorkflowDefinitionVersion) return false;
-      if (WorkflowKey != other.WorkflowKey) return false;
-      if (ElementId != other.ElementId) return false;
-      if (ElementInstanceKey != other.ElementInstanceKey) return false;
+      if(!jobs_.Equals(other.jobs_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
-      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
-      if (WorkflowDefinitionVersion != 0) hash ^= WorkflowDefinitionVersion.GetHashCode();
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
-      if (ElementId.Length != 0) hash ^= ElementId.GetHashCode();
-      if (ElementInstanceKey != 0L) hash ^= ElementInstanceKey.GetHashCode();
+      hash ^= jobs_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4641,30 +489,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (WorkflowInstanceKey != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(WorkflowInstanceKey);
-      }
-      if (BpmnProcessId.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(BpmnProcessId);
-      }
-      if (WorkflowDefinitionVersion != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(WorkflowDefinitionVersion);
-      }
-      if (WorkflowKey != 0L) {
-        output.WriteRawTag(32);
-        output.WriteInt64(WorkflowKey);
-      }
-      if (ElementId.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(ElementId);
-      }
-      if (ElementInstanceKey != 0L) {
-        output.WriteRawTag(48);
-        output.WriteInt64(ElementInstanceKey);
-      }
+      jobs_.WriteTo(output, _repeated_jobs_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4673,24 +498,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (WorkflowInstanceKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
-      }
-      if (BpmnProcessId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
-      }
-      if (WorkflowDefinitionVersion != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(WorkflowDefinitionVersion);
-      }
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
-      }
-      if (ElementId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ElementId);
-      }
-      if (ElementInstanceKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ElementInstanceKey);
-      }
+      size += jobs_.CalculateSize(_repeated_jobs_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4698,28 +506,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(JobHeaders other) {
+    public void MergeFrom(ActivateJobsResponse other) {
       if (other == null) {
         return;
       }
-      if (other.WorkflowInstanceKey != 0L) {
-        WorkflowInstanceKey = other.WorkflowInstanceKey;
-      }
-      if (other.BpmnProcessId.Length != 0) {
-        BpmnProcessId = other.BpmnProcessId;
-      }
-      if (other.WorkflowDefinitionVersion != 0) {
-        WorkflowDefinitionVersion = other.WorkflowDefinitionVersion;
-      }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
-      }
-      if (other.ElementId.Length != 0) {
-        ElementId = other.ElementId;
-      }
-      if (other.ElementInstanceKey != 0L) {
-        ElementInstanceKey = other.ElementInstanceKey;
-      }
+      jobs_.Add(other.jobs_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4731,28 +522,8 @@ namespace GatewayProtocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            WorkflowInstanceKey = input.ReadInt64();
-            break;
-          }
-          case 18: {
-            BpmnProcessId = input.ReadString();
-            break;
-          }
-          case 24: {
-            WorkflowDefinitionVersion = input.ReadInt32();
-            break;
-          }
-          case 32: {
-            WorkflowKey = input.ReadInt64();
-            break;
-          }
-          case 42: {
-            ElementId = input.ReadString();
-            break;
-          }
-          case 48: {
-            ElementInstanceKey = input.ReadInt64();
+          case 10: {
+            jobs_.AddEntriesFrom(input, _repeated_jobs_codec);
             break;
           }
         }
@@ -4769,7 +540,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[28]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4805,6 +576,9 @@ namespace GatewayProtocol {
     /// <summary>Field number for the "key" field.</summary>
     public const int KeyFieldNumber = 1;
     private long key_;
+    /// <summary>
+    /// the key, a unique identifier for the job
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Key {
       get { return key_; }
@@ -4816,6 +590,9 @@ namespace GatewayProtocol {
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 2;
     private string type_ = "";
+    /// <summary>
+    /// the type of the job (should match what was requested)
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Type {
       get { return type_; }
@@ -4827,6 +604,9 @@ namespace GatewayProtocol {
     /// <summary>Field number for the "jobHeaders" field.</summary>
     public const int JobHeadersFieldNumber = 3;
     private global::GatewayProtocol.JobHeaders jobHeaders_;
+    /// <summary>
+    /// a set of headers tying the job to a workflow instance/task instance
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::GatewayProtocol.JobHeaders JobHeaders {
       get { return jobHeaders_; }
@@ -4839,7 +619,8 @@ namespace GatewayProtocol {
     public const int CustomHeadersFieldNumber = 4;
     private string customHeaders_ = "";
     /// <summary>
-    /// json object as string
+    /// a set of custom headers defined during modelling; returned as a serialized
+    /// JSON document
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string CustomHeaders {
@@ -4852,6 +633,9 @@ namespace GatewayProtocol {
     /// <summary>Field number for the "worker" field.</summary>
     public const int WorkerFieldNumber = 5;
     private string worker_ = "";
+    /// <summary>
+    /// the name of the worker which activated this job
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Worker {
       get { return worker_; }
@@ -4863,6 +647,9 @@ namespace GatewayProtocol {
     /// <summary>Field number for the "retries" field.</summary>
     public const int RetriesFieldNumber = 6;
     private int retries_;
+    /// <summary>
+    /// the amount of retries left to this job (should always be positive)
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Retries {
       get { return retries_; }
@@ -4875,7 +662,7 @@ namespace GatewayProtocol {
     public const int DeadlineFieldNumber = 7;
     private long deadline_;
     /// <summary>
-    /// epoch milliseconds
+    /// when the job can be activated again, sent as a UNIX epoch timestamp
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Deadline {
@@ -4889,7 +676,8 @@ namespace GatewayProtocol {
     public const int PayloadFieldNumber = 8;
     private string payload_ = "";
     /// <summary>
-    /// json object as string 
+    /// JSON document, computed at activation time, consisting of all visible variables to
+    /// the task scope
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Payload {
@@ -5101,15 +889,15 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class ActivateJobsResponse : pb::IMessage<ActivateJobsResponse> {
-    private static readonly pb::MessageParser<ActivateJobsResponse> _parser = new pb::MessageParser<ActivateJobsResponse>(() => new ActivateJobsResponse());
+  public sealed partial class JobHeaders : pb::IMessage<JobHeaders> {
+    private static readonly pb::MessageParser<JobHeaders> _parser = new pb::MessageParser<JobHeaders>(() => new JobHeaders());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ActivateJobsResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<JobHeaders> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[29]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5118,54 +906,144 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ActivateJobsResponse() {
+    public JobHeaders() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ActivateJobsResponse(ActivateJobsResponse other) : this() {
-      jobs_ = other.jobs_.Clone();
+    public JobHeaders(JobHeaders other) : this() {
+      workflowInstanceKey_ = other.workflowInstanceKey_;
+      bpmnProcessId_ = other.bpmnProcessId_;
+      workflowDefinitionVersion_ = other.workflowDefinitionVersion_;
+      workflowKey_ = other.workflowKey_;
+      elementId_ = other.elementId_;
+      elementInstanceKey_ = other.elementInstanceKey_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ActivateJobsResponse Clone() {
-      return new ActivateJobsResponse(this);
+    public JobHeaders Clone() {
+      return new JobHeaders(this);
     }
 
-    /// <summary>Field number for the "jobs" field.</summary>
-    public const int JobsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::GatewayProtocol.ActivatedJob> _repeated_jobs_codec
-        = pb::FieldCodec.ForMessage(10, global::GatewayProtocol.ActivatedJob.Parser);
-    private readonly pbc::RepeatedField<global::GatewayProtocol.ActivatedJob> jobs_ = new pbc::RepeatedField<global::GatewayProtocol.ActivatedJob>();
+    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
+    public const int WorkflowInstanceKeyFieldNumber = 1;
+    private long workflowInstanceKey_;
+    /// <summary>
+    /// the job's workflow instance key
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GatewayProtocol.ActivatedJob> Jobs {
-      get { return jobs_; }
+    public long WorkflowInstanceKey {
+      get { return workflowInstanceKey_; }
+      set {
+        workflowInstanceKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bpmnProcessId" field.</summary>
+    public const int BpmnProcessIdFieldNumber = 2;
+    private string bpmnProcessId_ = "";
+    /// <summary>
+    /// the bpmn process ID of the job workflow definition
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BpmnProcessId {
+      get { return bpmnProcessId_; }
+      set {
+        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "workflowDefinitionVersion" field.</summary>
+    public const int WorkflowDefinitionVersionFieldNumber = 3;
+    private int workflowDefinitionVersion_;
+    /// <summary>
+    /// the version of the job workflow definition
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int WorkflowDefinitionVersion {
+      get { return workflowDefinitionVersion_; }
+      set {
+        workflowDefinitionVersion_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "workflowKey" field.</summary>
+    public const int WorkflowKeyFieldNumber = 4;
+    private long workflowKey_;
+    /// <summary>
+    /// the key of the job workflow definition
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WorkflowKey {
+      get { return workflowKey_; }
+      set {
+        workflowKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "elementId" field.</summary>
+    public const int ElementIdFieldNumber = 5;
+    private string elementId_ = "";
+    /// <summary>
+    /// the associated task element ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ElementId {
+      get { return elementId_; }
+      set {
+        elementId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "elementInstanceKey" field.</summary>
+    public const int ElementInstanceKeyFieldNumber = 6;
+    private long elementInstanceKey_;
+    /// <summary>
+    /// the unique key identifying the associated task, unique within the scope of the
+    /// workflow instance
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ElementInstanceKey {
+      get { return elementInstanceKey_; }
+      set {
+        elementInstanceKey_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as ActivateJobsResponse);
+      return Equals(other as JobHeaders);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ActivateJobsResponse other) {
+    public bool Equals(JobHeaders other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!jobs_.Equals(other.jobs_)) return false;
+      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
+      if (BpmnProcessId != other.BpmnProcessId) return false;
+      if (WorkflowDefinitionVersion != other.WorkflowDefinitionVersion) return false;
+      if (WorkflowKey != other.WorkflowKey) return false;
+      if (ElementId != other.ElementId) return false;
+      if (ElementInstanceKey != other.ElementInstanceKey) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= jobs_.GetHashCode();
+      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
+      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
+      if (WorkflowDefinitionVersion != 0) hash ^= WorkflowDefinitionVersion.GetHashCode();
+      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (ElementId.Length != 0) hash ^= ElementId.GetHashCode();
+      if (ElementInstanceKey != 0L) hash ^= ElementInstanceKey.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5179,7 +1057,30 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      jobs_.WriteTo(output, _repeated_jobs_codec);
+      if (WorkflowInstanceKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(WorkflowInstanceKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(BpmnProcessId);
+      }
+      if (WorkflowDefinitionVersion != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(WorkflowDefinitionVersion);
+      }
+      if (WorkflowKey != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(WorkflowKey);
+      }
+      if (ElementId.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(ElementId);
+      }
+      if (ElementInstanceKey != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(ElementInstanceKey);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5188,7 +1089,24 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += jobs_.CalculateSize(_repeated_jobs_codec);
+      if (WorkflowInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
+      }
+      if (WorkflowDefinitionVersion != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(WorkflowDefinitionVersion);
+      }
+      if (WorkflowKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      }
+      if (ElementId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ElementId);
+      }
+      if (ElementInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ElementInstanceKey);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -5196,11 +1114,1127 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ActivateJobsResponse other) {
+    public void MergeFrom(JobHeaders other) {
       if (other == null) {
         return;
       }
-      jobs_.Add(other.jobs_);
+      if (other.WorkflowInstanceKey != 0L) {
+        WorkflowInstanceKey = other.WorkflowInstanceKey;
+      }
+      if (other.BpmnProcessId.Length != 0) {
+        BpmnProcessId = other.BpmnProcessId;
+      }
+      if (other.WorkflowDefinitionVersion != 0) {
+        WorkflowDefinitionVersion = other.WorkflowDefinitionVersion;
+      }
+      if (other.WorkflowKey != 0L) {
+        WorkflowKey = other.WorkflowKey;
+      }
+      if (other.ElementId.Length != 0) {
+        ElementId = other.ElementId;
+      }
+      if (other.ElementInstanceKey != 0L) {
+        ElementInstanceKey = other.ElementInstanceKey;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            WorkflowInstanceKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 24: {
+            WorkflowDefinitionVersion = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            WorkflowKey = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            ElementId = input.ReadString();
+            break;
+          }
+          case 48: {
+            ElementInstanceKey = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CancelWorkflowInstanceRequest : pb::IMessage<CancelWorkflowInstanceRequest> {
+    private static readonly pb::MessageParser<CancelWorkflowInstanceRequest> _parser = new pb::MessageParser<CancelWorkflowInstanceRequest>(() => new CancelWorkflowInstanceRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CancelWorkflowInstanceRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CancelWorkflowInstanceRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CancelWorkflowInstanceRequest(CancelWorkflowInstanceRequest other) : this() {
+      workflowInstanceKey_ = other.workflowInstanceKey_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CancelWorkflowInstanceRequest Clone() {
+      return new CancelWorkflowInstanceRequest(this);
+    }
+
+    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
+    public const int WorkflowInstanceKeyFieldNumber = 1;
+    private long workflowInstanceKey_;
+    /// <summary>
+    /// the workflow instance key (as, for example, obtained from
+    /// CreateWorkflowInstanceResponse)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WorkflowInstanceKey {
+      get { return workflowInstanceKey_; }
+      set {
+        workflowInstanceKey_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CancelWorkflowInstanceRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CancelWorkflowInstanceRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (WorkflowInstanceKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(WorkflowInstanceKey);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (WorkflowInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CancelWorkflowInstanceRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.WorkflowInstanceKey != 0L) {
+        WorkflowInstanceKey = other.WorkflowInstanceKey;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            WorkflowInstanceKey = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CancelWorkflowInstanceResponse : pb::IMessage<CancelWorkflowInstanceResponse> {
+    private static readonly pb::MessageParser<CancelWorkflowInstanceResponse> _parser = new pb::MessageParser<CancelWorkflowInstanceResponse>(() => new CancelWorkflowInstanceResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CancelWorkflowInstanceResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CancelWorkflowInstanceResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CancelWorkflowInstanceResponse(CancelWorkflowInstanceResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CancelWorkflowInstanceResponse Clone() {
+      return new CancelWorkflowInstanceResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CancelWorkflowInstanceResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CancelWorkflowInstanceResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CancelWorkflowInstanceResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CompleteJobRequest : pb::IMessage<CompleteJobRequest> {
+    private static readonly pb::MessageParser<CompleteJobRequest> _parser = new pb::MessageParser<CompleteJobRequest>(() => new CompleteJobRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CompleteJobRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CompleteJobRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CompleteJobRequest(CompleteJobRequest other) : this() {
+      jobKey_ = other.jobKey_;
+      payload_ = other.payload_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CompleteJobRequest Clone() {
+      return new CompleteJobRequest(this);
+    }
+
+    /// <summary>Field number for the "jobKey" field.</summary>
+    public const int JobKeyFieldNumber = 1;
+    private long jobKey_;
+    /// <summary>
+    /// the unique job identifier, as obtained from ActivateJobsResponse
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long JobKey {
+      get { return jobKey_; }
+      set {
+        jobKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "payload" field.</summary>
+    public const int PayloadFieldNumber = 2;
+    private string payload_ = "";
+    /// <summary>
+    /// a JSON document representing the variables in the current task scope
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Payload {
+      get { return payload_; }
+      set {
+        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CompleteJobRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CompleteJobRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (JobKey != other.JobKey) return false;
+      if (Payload != other.Payload) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (JobKey != 0L) hash ^= JobKey.GetHashCode();
+      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (JobKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(JobKey);
+      }
+      if (Payload.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Payload);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (JobKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(JobKey);
+      }
+      if (Payload.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Payload);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CompleteJobRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.JobKey != 0L) {
+        JobKey = other.JobKey;
+      }
+      if (other.Payload.Length != 0) {
+        Payload = other.Payload;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            JobKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            Payload = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CompleteJobResponse : pb::IMessage<CompleteJobResponse> {
+    private static readonly pb::MessageParser<CompleteJobResponse> _parser = new pb::MessageParser<CompleteJobResponse>(() => new CompleteJobResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CompleteJobResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CompleteJobResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CompleteJobResponse(CompleteJobResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CompleteJobResponse Clone() {
+      return new CompleteJobResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CompleteJobResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CompleteJobResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CompleteJobResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CreateWorkflowInstanceRequest : pb::IMessage<CreateWorkflowInstanceRequest> {
+    private static readonly pb::MessageParser<CreateWorkflowInstanceRequest> _parser = new pb::MessageParser<CreateWorkflowInstanceRequest>(() => new CreateWorkflowInstanceRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CreateWorkflowInstanceRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceRequest(CreateWorkflowInstanceRequest other) : this() {
+      workflowKey_ = other.workflowKey_;
+      bpmnProcessId_ = other.bpmnProcessId_;
+      version_ = other.version_;
+      payload_ = other.payload_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceRequest Clone() {
+      return new CreateWorkflowInstanceRequest(this);
+    }
+
+    /// <summary>Field number for the "workflowKey" field.</summary>
+    public const int WorkflowKeyFieldNumber = 1;
+    private long workflowKey_;
+    /// <summary>
+    /// the unique key identifying the workflow definition (e.g. returned from a workflow
+    /// in the DeployWorkflowResponse message)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WorkflowKey {
+      get { return workflowKey_; }
+      set {
+        workflowKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bpmnProcessId" field.</summary>
+    public const int BpmnProcessIdFieldNumber = 2;
+    private string bpmnProcessId_ = "";
+    /// <summary>
+    /// the BPMN process ID of the workflow definition
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BpmnProcessId {
+      get { return bpmnProcessId_; }
+      set {
+        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 3;
+    private int version_;
+    /// <summary>
+    /// the version of the process; set to -1 to use the latest version
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Version {
+      get { return version_; }
+      set {
+        version_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "payload" field.</summary>
+    public const int PayloadFieldNumber = 4;
+    private string payload_ = "";
+    /// <summary>
+    /// JSON document that will instantiate the variables for the root variable scope of the
+    /// workflow instance; it must be a JSON object, as variables will be mapped in a
+    /// key-value fashion. e.g. { "a": 1, "b": 2 } will create two variables, named "a" and
+    /// "b" respectively, with their associated values. [{ "a": 1, "b": 2 }] would not be a
+    /// valid payload, as the root of the JSON document is an array and not an object.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Payload {
+      get { return payload_; }
+      set {
+        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CreateWorkflowInstanceRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CreateWorkflowInstanceRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (WorkflowKey != other.WorkflowKey) return false;
+      if (BpmnProcessId != other.BpmnProcessId) return false;
+      if (Version != other.Version) return false;
+      if (Payload != other.Payload) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
+      if (Version != 0) hash ^= Version.GetHashCode();
+      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (WorkflowKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(WorkflowKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(BpmnProcessId);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Version);
+      }
+      if (Payload.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Payload);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (WorkflowKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
+      }
+      if (Version != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
+      }
+      if (Payload.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Payload);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CreateWorkflowInstanceRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.WorkflowKey != 0L) {
+        WorkflowKey = other.WorkflowKey;
+      }
+      if (other.BpmnProcessId.Length != 0) {
+        BpmnProcessId = other.BpmnProcessId;
+      }
+      if (other.Version != 0) {
+        Version = other.Version;
+      }
+      if (other.Payload.Length != 0) {
+        Payload = other.Payload;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            WorkflowKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 24: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            Payload = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CreateWorkflowInstanceResponse : pb::IMessage<CreateWorkflowInstanceResponse> {
+    private static readonly pb::MessageParser<CreateWorkflowInstanceResponse> _parser = new pb::MessageParser<CreateWorkflowInstanceResponse>(() => new CreateWorkflowInstanceResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CreateWorkflowInstanceResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceResponse(CreateWorkflowInstanceResponse other) : this() {
+      workflowKey_ = other.workflowKey_;
+      bpmnProcessId_ = other.bpmnProcessId_;
+      version_ = other.version_;
+      workflowInstanceKey_ = other.workflowInstanceKey_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceResponse Clone() {
+      return new CreateWorkflowInstanceResponse(this);
+    }
+
+    /// <summary>Field number for the "workflowKey" field.</summary>
+    public const int WorkflowKeyFieldNumber = 1;
+    private long workflowKey_;
+    /// <summary>
+    /// the key of the workflow definition which was used to create the workflow instance
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WorkflowKey {
+      get { return workflowKey_; }
+      set {
+        workflowKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bpmnProcessId" field.</summary>
+    public const int BpmnProcessIdFieldNumber = 2;
+    private string bpmnProcessId_ = "";
+    /// <summary>
+    /// the BPMN process ID of the workflow definition which was used to create the workflow
+    /// instance
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BpmnProcessId {
+      get { return bpmnProcessId_; }
+      set {
+        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 3;
+    private int version_;
+    /// <summary>
+    /// the version of the workflow definition which was used to create the workflow instance
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Version {
+      get { return version_; }
+      set {
+        version_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
+    public const int WorkflowInstanceKeyFieldNumber = 5;
+    private long workflowInstanceKey_;
+    /// <summary>
+    /// the unique identifier of the created workflow instance; to be used wherever a request
+    /// needs a workflow instance key (e.g. CancelWorkflowInstanceRequest)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WorkflowInstanceKey {
+      get { return workflowInstanceKey_; }
+      set {
+        workflowInstanceKey_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CreateWorkflowInstanceResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CreateWorkflowInstanceResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (WorkflowKey != other.WorkflowKey) return false;
+      if (BpmnProcessId != other.BpmnProcessId) return false;
+      if (Version != other.Version) return false;
+      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
+      if (Version != 0) hash ^= Version.GetHashCode();
+      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (WorkflowKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(WorkflowKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(BpmnProcessId);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Version);
+      }
+      if (WorkflowInstanceKey != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(WorkflowInstanceKey);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (WorkflowKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
+      }
+      if (Version != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
+      }
+      if (WorkflowInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CreateWorkflowInstanceResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.WorkflowKey != 0L) {
+        WorkflowKey = other.WorkflowKey;
+      }
+      if (other.BpmnProcessId.Length != 0) {
+        BpmnProcessId = other.BpmnProcessId;
+      }
+      if (other.Version != 0) {
+        Version = other.Version;
+      }
+      if (other.WorkflowInstanceKey != 0L) {
+        WorkflowInstanceKey = other.WorkflowInstanceKey;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            WorkflowKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 24: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            WorkflowInstanceKey = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class DeployWorkflowRequest : pb::IMessage<DeployWorkflowRequest> {
+    private static readonly pb::MessageParser<DeployWorkflowRequest> _parser = new pb::MessageParser<DeployWorkflowRequest>(() => new DeployWorkflowRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<DeployWorkflowRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeployWorkflowRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeployWorkflowRequest(DeployWorkflowRequest other) : this() {
+      workflows_ = other.workflows_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeployWorkflowRequest Clone() {
+      return new DeployWorkflowRequest(this);
+    }
+
+    /// <summary>Field number for the "workflows" field.</summary>
+    public const int WorkflowsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::GatewayProtocol.WorkflowRequestObject> _repeated_workflows_codec
+        = pb::FieldCodec.ForMessage(10, global::GatewayProtocol.WorkflowRequestObject.Parser);
+    private readonly pbc::RepeatedField<global::GatewayProtocol.WorkflowRequestObject> workflows_ = new pbc::RepeatedField<global::GatewayProtocol.WorkflowRequestObject>();
+    /// <summary>
+    /// List of workflow resources to deploy
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GatewayProtocol.WorkflowRequestObject> Workflows {
+      get { return workflows_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as DeployWorkflowRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(DeployWorkflowRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!workflows_.Equals(other.workflows_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= workflows_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      workflows_.WriteTo(output, _repeated_workflows_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += workflows_.CalculateSize(_repeated_workflows_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(DeployWorkflowRequest other) {
+      if (other == null) {
+        return;
+      }
+      workflows_.Add(other.workflows_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -5213,9 +2247,1974 @@ namespace GatewayProtocol {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            jobs_.AddEntriesFrom(input, _repeated_jobs_codec);
+            workflows_.AddEntriesFrom(input, _repeated_workflows_codec);
             break;
           }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class WorkflowRequestObject : pb::IMessage<WorkflowRequestObject> {
+    private static readonly pb::MessageParser<WorkflowRequestObject> _parser = new pb::MessageParser<WorkflowRequestObject>(() => new WorkflowRequestObject());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<WorkflowRequestObject> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WorkflowRequestObject() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WorkflowRequestObject(WorkflowRequestObject other) : this() {
+      name_ = other.name_;
+      type_ = other.type_;
+      definition_ = other.definition_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WorkflowRequestObject Clone() {
+      return new WorkflowRequestObject(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    /// <summary>
+    /// the resource basename, e.g. myProcess.bpmn
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 2;
+    private global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType type_ = 0;
+    /// <summary>
+    /// the resource type; if set to BPMN or YAML then the file extension
+    /// is ignored
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "definition" field.</summary>
+    public const int DefinitionFieldNumber = 3;
+    private pb::ByteString definition_ = pb::ByteString.Empty;
+    /// <summary>
+    /// the process definition as a UTF8-encoded string
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Definition {
+      get { return definition_; }
+      set {
+        definition_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as WorkflowRequestObject);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(WorkflowRequestObject other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if (Type != other.Type) return false;
+      if (Definition != other.Definition) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Definition.Length != 0) hash ^= Definition.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (Type != 0) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) Type);
+      }
+      if (Definition.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Definition);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      }
+      if (Definition.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Definition);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(WorkflowRequestObject other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      if (other.Definition.Length != 0) {
+        Definition = other.Definition;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 16: {
+            type_ = (global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) input.ReadEnum();
+            break;
+          }
+          case 26: {
+            Definition = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the WorkflowRequestObject message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public enum ResourceType {
+        /// <summary>
+        /// FILE type means the gateway will try to detect the resource type
+        /// using the file extension of the name field
+        /// </summary>
+        [pbr::OriginalName("FILE")] File = 0,
+        /// <summary>
+        /// extension 'bpmn'
+        /// </summary>
+        [pbr::OriginalName("BPMN")] Bpmn = 1,
+        /// <summary>
+        /// extension 'yaml'
+        /// </summary>
+        [pbr::OriginalName("YAML")] Yaml = 2,
+      }
+
+    }
+    #endregion
+
+  }
+
+  public sealed partial class DeployWorkflowResponse : pb::IMessage<DeployWorkflowResponse> {
+    private static readonly pb::MessageParser<DeployWorkflowResponse> _parser = new pb::MessageParser<DeployWorkflowResponse>(() => new DeployWorkflowResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<DeployWorkflowResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeployWorkflowResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeployWorkflowResponse(DeployWorkflowResponse other) : this() {
+      key_ = other.key_;
+      workflows_ = other.workflows_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeployWorkflowResponse Clone() {
+      return new DeployWorkflowResponse(this);
+    }
+
+    /// <summary>Field number for the "key" field.</summary>
+    public const int KeyFieldNumber = 1;
+    private long key_;
+    /// <summary>
+    /// the unique key identifying the deployment
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Key {
+      get { return key_; }
+      set {
+        key_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "workflows" field.</summary>
+    public const int WorkflowsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::GatewayProtocol.WorkflowMetadata> _repeated_workflows_codec
+        = pb::FieldCodec.ForMessage(18, global::GatewayProtocol.WorkflowMetadata.Parser);
+    private readonly pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata> workflows_ = new pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata>();
+    /// <summary>
+    /// a list of deployed workflows
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata> Workflows {
+      get { return workflows_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as DeployWorkflowResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(DeployWorkflowResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Key != other.Key) return false;
+      if(!workflows_.Equals(other.workflows_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Key != 0L) hash ^= Key.GetHashCode();
+      hash ^= workflows_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Key != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Key);
+      }
+      workflows_.WriteTo(output, _repeated_workflows_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Key != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Key);
+      }
+      size += workflows_.CalculateSize(_repeated_workflows_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(DeployWorkflowResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Key != 0L) {
+        Key = other.Key;
+      }
+      workflows_.Add(other.workflows_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Key = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            workflows_.AddEntriesFrom(input, _repeated_workflows_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class WorkflowMetadata : pb::IMessage<WorkflowMetadata> {
+    private static readonly pb::MessageParser<WorkflowMetadata> _parser = new pb::MessageParser<WorkflowMetadata>(() => new WorkflowMetadata());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<WorkflowMetadata> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WorkflowMetadata() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WorkflowMetadata(WorkflowMetadata other) : this() {
+      bpmnProcessId_ = other.bpmnProcessId_;
+      version_ = other.version_;
+      workflowKey_ = other.workflowKey_;
+      resourceName_ = other.resourceName_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WorkflowMetadata Clone() {
+      return new WorkflowMetadata(this);
+    }
+
+    /// <summary>Field number for the "bpmnProcessId" field.</summary>
+    public const int BpmnProcessIdFieldNumber = 1;
+    private string bpmnProcessId_ = "";
+    /// <summary>
+    /// the bpmn process ID, as parsed during deployment; together with the version forms a
+    /// unique identifier for a specific workflow definition
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BpmnProcessId {
+      get { return bpmnProcessId_; }
+      set {
+        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 2;
+    private int version_;
+    /// <summary>
+    /// the assigned process version
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Version {
+      get { return version_; }
+      set {
+        version_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "workflowKey" field.</summary>
+    public const int WorkflowKeyFieldNumber = 3;
+    private long workflowKey_;
+    /// <summary>
+    /// the assigned key, which acts as a unique identifier for this workflow
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WorkflowKey {
+      get { return workflowKey_; }
+      set {
+        workflowKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "resourceName" field.</summary>
+    public const int ResourceNameFieldNumber = 4;
+    private string resourceName_ = "";
+    /// <summary>
+    /// the resource name (see: WorkflowRequestObject.name) from which this workflow was
+    /// parsed
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ResourceName {
+      get { return resourceName_; }
+      set {
+        resourceName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as WorkflowMetadata);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(WorkflowMetadata other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (BpmnProcessId != other.BpmnProcessId) return false;
+      if (Version != other.Version) return false;
+      if (WorkflowKey != other.WorkflowKey) return false;
+      if (ResourceName != other.ResourceName) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
+      if (Version != 0) hash ^= Version.GetHashCode();
+      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (ResourceName.Length != 0) hash ^= ResourceName.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(BpmnProcessId);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Version);
+      }
+      if (WorkflowKey != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(WorkflowKey);
+      }
+      if (ResourceName.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(ResourceName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (BpmnProcessId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
+      }
+      if (Version != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
+      }
+      if (WorkflowKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      }
+      if (ResourceName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ResourceName);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(WorkflowMetadata other) {
+      if (other == null) {
+        return;
+      }
+      if (other.BpmnProcessId.Length != 0) {
+        BpmnProcessId = other.BpmnProcessId;
+      }
+      if (other.Version != 0) {
+        Version = other.Version;
+      }
+      if (other.WorkflowKey != 0L) {
+        WorkflowKey = other.WorkflowKey;
+      }
+      if (other.ResourceName.Length != 0) {
+        ResourceName = other.ResourceName;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 16: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            WorkflowKey = input.ReadInt64();
+            break;
+          }
+          case 34: {
+            ResourceName = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class FailJobRequest : pb::IMessage<FailJobRequest> {
+    private static readonly pb::MessageParser<FailJobRequest> _parser = new pb::MessageParser<FailJobRequest>(() => new FailJobRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<FailJobRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[14]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public FailJobRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public FailJobRequest(FailJobRequest other) : this() {
+      jobKey_ = other.jobKey_;
+      retries_ = other.retries_;
+      errorMessage_ = other.errorMessage_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public FailJobRequest Clone() {
+      return new FailJobRequest(this);
+    }
+
+    /// <summary>Field number for the "jobKey" field.</summary>
+    public const int JobKeyFieldNumber = 1;
+    private long jobKey_;
+    /// <summary>
+    /// the unique job identifier, as obtained when activating the job
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long JobKey {
+      get { return jobKey_; }
+      set {
+        jobKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "retries" field.</summary>
+    public const int RetriesFieldNumber = 2;
+    private int retries_;
+    /// <summary>
+    /// the amount of retries the job should have left
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Retries {
+      get { return retries_; }
+      set {
+        retries_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "errorMessage" field.</summary>
+    public const int ErrorMessageFieldNumber = 3;
+    private string errorMessage_ = "";
+    /// <summary>
+    /// an optional message describing why the job failed
+    /// this is particularly useful if a job runs out of retries and an incident is raised,
+    /// as it this message can help explain why an incident was raised
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ErrorMessage {
+      get { return errorMessage_; }
+      set {
+        errorMessage_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as FailJobRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(FailJobRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (JobKey != other.JobKey) return false;
+      if (Retries != other.Retries) return false;
+      if (ErrorMessage != other.ErrorMessage) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (JobKey != 0L) hash ^= JobKey.GetHashCode();
+      if (Retries != 0) hash ^= Retries.GetHashCode();
+      if (ErrorMessage.Length != 0) hash ^= ErrorMessage.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (JobKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(JobKey);
+      }
+      if (Retries != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Retries);
+      }
+      if (ErrorMessage.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ErrorMessage);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (JobKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(JobKey);
+      }
+      if (Retries != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Retries);
+      }
+      if (ErrorMessage.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorMessage);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(FailJobRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.JobKey != 0L) {
+        JobKey = other.JobKey;
+      }
+      if (other.Retries != 0) {
+        Retries = other.Retries;
+      }
+      if (other.ErrorMessage.Length != 0) {
+        ErrorMessage = other.ErrorMessage;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            JobKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Retries = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            ErrorMessage = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class FailJobResponse : pb::IMessage<FailJobResponse> {
+    private static readonly pb::MessageParser<FailJobResponse> _parser = new pb::MessageParser<FailJobResponse>(() => new FailJobResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<FailJobResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[15]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public FailJobResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public FailJobResponse(FailJobResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public FailJobResponse Clone() {
+      return new FailJobResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as FailJobResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(FailJobResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(FailJobResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class GetWorkflowRequest : pb::IMessage<GetWorkflowRequest> {
+    private static readonly pb::MessageParser<GetWorkflowRequest> _parser = new pb::MessageParser<GetWorkflowRequest>(() => new GetWorkflowRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GetWorkflowRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[16]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetWorkflowRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetWorkflowRequest(GetWorkflowRequest other) : this() {
+      workflowKey_ = other.workflowKey_;
+      version_ = other.version_;
+      bpmnProcessId_ = other.bpmnProcessId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetWorkflowRequest Clone() {
+      return new GetWorkflowRequest(this);
+    }
+
+    /// <summary>Field number for the "workflowKey" field.</summary>
+    public const int WorkflowKeyFieldNumber = 1;
+    private long workflowKey_;
+    /// <summary>
+    /// the unique key identifying the workflow definition (e.g. returned from a workflow in
+    /// the DeployWorkflowResponse message)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WorkflowKey {
+      get { return workflowKey_; }
+      set {
+        workflowKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 2;
+    private int version_;
+    /// <summary>
+    /// the version of the process; set to -1 to use the latest version
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Version {
+      get { return version_; }
+      set {
+        version_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bpmnProcessId" field.</summary>
+    public const int BpmnProcessIdFieldNumber = 3;
+    private string bpmnProcessId_ = "";
+    /// <summary>
+    /// the BPMN process ID of the workflow definition
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BpmnProcessId {
+      get { return bpmnProcessId_; }
+      set {
+        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as GetWorkflowRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(GetWorkflowRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (WorkflowKey != other.WorkflowKey) return false;
+      if (Version != other.Version) return false;
+      if (BpmnProcessId != other.BpmnProcessId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (Version != 0) hash ^= Version.GetHashCode();
+      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (WorkflowKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(WorkflowKey);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Version);
+      }
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(BpmnProcessId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (WorkflowKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      }
+      if (Version != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
+      }
+      if (BpmnProcessId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(GetWorkflowRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.WorkflowKey != 0L) {
+        WorkflowKey = other.WorkflowKey;
+      }
+      if (other.Version != 0) {
+        Version = other.Version;
+      }
+      if (other.BpmnProcessId.Length != 0) {
+        BpmnProcessId = other.BpmnProcessId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            WorkflowKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class GetWorkflowResponse : pb::IMessage<GetWorkflowResponse> {
+    private static readonly pb::MessageParser<GetWorkflowResponse> _parser = new pb::MessageParser<GetWorkflowResponse>(() => new GetWorkflowResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GetWorkflowResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[17]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetWorkflowResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetWorkflowResponse(GetWorkflowResponse other) : this() {
+      workflowKey_ = other.workflowKey_;
+      version_ = other.version_;
+      bpmnProcessId_ = other.bpmnProcessId_;
+      resourceName_ = other.resourceName_;
+      bpmnXml_ = other.bpmnXml_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public GetWorkflowResponse Clone() {
+      return new GetWorkflowResponse(this);
+    }
+
+    /// <summary>Field number for the "workflowKey" field.</summary>
+    public const int WorkflowKeyFieldNumber = 1;
+    private long workflowKey_;
+    /// <summary>
+    /// the unique key identifying the workflow definition (e.g. returned from a workflow in
+    /// the DeployWorkflowResponse message)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WorkflowKey {
+      get { return workflowKey_; }
+      set {
+        workflowKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 2;
+    private int version_;
+    /// <summary>
+    /// the version of the process
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Version {
+      get { return version_; }
+      set {
+        version_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bpmnProcessId" field.</summary>
+    public const int BpmnProcessIdFieldNumber = 3;
+    private string bpmnProcessId_ = "";
+    /// <summary>
+    /// the BPMN process ID of the workflow definition
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BpmnProcessId {
+      get { return bpmnProcessId_; }
+      set {
+        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "resourceName" field.</summary>
+    public const int ResourceNameFieldNumber = 4;
+    private string resourceName_ = "";
+    /// <summary>
+    /// the name of the resource used to deployed the workflow
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ResourceName {
+      get { return resourceName_; }
+      set {
+        resourceName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "bpmnXml" field.</summary>
+    public const int BpmnXmlFieldNumber = 5;
+    private string bpmnXml_ = "";
+    /// <summary>
+    /// a BPMN XML representation of the workflow
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BpmnXml {
+      get { return bpmnXml_; }
+      set {
+        bpmnXml_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as GetWorkflowResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(GetWorkflowResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (WorkflowKey != other.WorkflowKey) return false;
+      if (Version != other.Version) return false;
+      if (BpmnProcessId != other.BpmnProcessId) return false;
+      if (ResourceName != other.ResourceName) return false;
+      if (BpmnXml != other.BpmnXml) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (Version != 0) hash ^= Version.GetHashCode();
+      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
+      if (ResourceName.Length != 0) hash ^= ResourceName.GetHashCode();
+      if (BpmnXml.Length != 0) hash ^= BpmnXml.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (WorkflowKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(WorkflowKey);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Version);
+      }
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(BpmnProcessId);
+      }
+      if (ResourceName.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(ResourceName);
+      }
+      if (BpmnXml.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(BpmnXml);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (WorkflowKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      }
+      if (Version != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
+      }
+      if (BpmnProcessId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
+      }
+      if (ResourceName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ResourceName);
+      }
+      if (BpmnXml.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnXml);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(GetWorkflowResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.WorkflowKey != 0L) {
+        WorkflowKey = other.WorkflowKey;
+      }
+      if (other.Version != 0) {
+        Version = other.Version;
+      }
+      if (other.BpmnProcessId.Length != 0) {
+        BpmnProcessId = other.BpmnProcessId;
+      }
+      if (other.ResourceName.Length != 0) {
+        ResourceName = other.ResourceName;
+      }
+      if (other.BpmnXml.Length != 0) {
+        BpmnXml = other.BpmnXml;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            WorkflowKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 34: {
+            ResourceName = input.ReadString();
+            break;
+          }
+          case 42: {
+            BpmnXml = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ListWorkflowsRequest : pb::IMessage<ListWorkflowsRequest> {
+    private static readonly pb::MessageParser<ListWorkflowsRequest> _parser = new pb::MessageParser<ListWorkflowsRequest>(() => new ListWorkflowsRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ListWorkflowsRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[18]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ListWorkflowsRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ListWorkflowsRequest(ListWorkflowsRequest other) : this() {
+      bpmnProcessId_ = other.bpmnProcessId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ListWorkflowsRequest Clone() {
+      return new ListWorkflowsRequest(this);
+    }
+
+    /// <summary>Field number for the "bpmnProcessId" field.</summary>
+    public const int BpmnProcessIdFieldNumber = 1;
+    private string bpmnProcessId_ = "";
+    /// <summary>
+    /// optional filter: if specified, only the workflows with this given process ID will be
+    /// returned
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BpmnProcessId {
+      get { return bpmnProcessId_; }
+      set {
+        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ListWorkflowsRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ListWorkflowsRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (BpmnProcessId != other.BpmnProcessId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(BpmnProcessId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (BpmnProcessId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ListWorkflowsRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.BpmnProcessId.Length != 0) {
+        BpmnProcessId = other.BpmnProcessId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ListWorkflowsResponse : pb::IMessage<ListWorkflowsResponse> {
+    private static readonly pb::MessageParser<ListWorkflowsResponse> _parser = new pb::MessageParser<ListWorkflowsResponse>(() => new ListWorkflowsResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ListWorkflowsResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[19]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ListWorkflowsResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ListWorkflowsResponse(ListWorkflowsResponse other) : this() {
+      workflows_ = other.workflows_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ListWorkflowsResponse Clone() {
+      return new ListWorkflowsResponse(this);
+    }
+
+    /// <summary>Field number for the "workflows" field.</summary>
+    public const int WorkflowsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::GatewayProtocol.WorkflowMetadata> _repeated_workflows_codec
+        = pb::FieldCodec.ForMessage(10, global::GatewayProtocol.WorkflowMetadata.Parser);
+    private readonly pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata> workflows_ = new pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata>();
+    /// <summary>
+    /// a list of deployed workflows matching the request criteria (if any)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata> Workflows {
+      get { return workflows_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ListWorkflowsResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ListWorkflowsResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!workflows_.Equals(other.workflows_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= workflows_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      workflows_.WriteTo(output, _repeated_workflows_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += workflows_.CalculateSize(_repeated_workflows_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ListWorkflowsResponse other) {
+      if (other == null) {
+        return;
+      }
+      workflows_.Add(other.workflows_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            workflows_.AddEntriesFrom(input, _repeated_workflows_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class PublishMessageRequest : pb::IMessage<PublishMessageRequest> {
+    private static readonly pb::MessageParser<PublishMessageRequest> _parser = new pb::MessageParser<PublishMessageRequest>(() => new PublishMessageRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<PublishMessageRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[20]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PublishMessageRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PublishMessageRequest(PublishMessageRequest other) : this() {
+      name_ = other.name_;
+      correlationKey_ = other.correlationKey_;
+      timeToLive_ = other.timeToLive_;
+      messageId_ = other.messageId_;
+      payload_ = other.payload_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PublishMessageRequest Clone() {
+      return new PublishMessageRequest(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    /// <summary>
+    /// the name of the message
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "correlationKey" field.</summary>
+    public const int CorrelationKeyFieldNumber = 2;
+    private string correlationKey_ = "";
+    /// <summary>
+    /// the correlation key of the message
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CorrelationKey {
+      get { return correlationKey_; }
+      set {
+        correlationKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "timeToLive" field.</summary>
+    public const int TimeToLiveFieldNumber = 3;
+    private long timeToLive_;
+    /// <summary>
+    /// how long the message should be buffered on the broker, in milliseconds
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long TimeToLive {
+      get { return timeToLive_; }
+      set {
+        timeToLive_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "messageId" field.</summary>
+    public const int MessageIdFieldNumber = 4;
+    private string messageId_ = "";
+    /// <summary>
+    /// the unique ID of the message; can be omitted. only useful to ensure only one message
+    /// with the given ID will ever be published (during its lifetime)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string MessageId {
+      get { return messageId_; }
+      set {
+        messageId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "payload" field.</summary>
+    public const int PayloadFieldNumber = 5;
+    private string payload_ = "";
+    /// <summary>
+    /// the message payload as a JSON document; see CreateWorkflowInstanceRequest for the
+    /// rules about payloads
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Payload {
+      get { return payload_; }
+      set {
+        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as PublishMessageRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(PublishMessageRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if (CorrelationKey != other.CorrelationKey) return false;
+      if (TimeToLive != other.TimeToLive) return false;
+      if (MessageId != other.MessageId) return false;
+      if (Payload != other.Payload) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (CorrelationKey.Length != 0) hash ^= CorrelationKey.GetHashCode();
+      if (TimeToLive != 0L) hash ^= TimeToLive.GetHashCode();
+      if (MessageId.Length != 0) hash ^= MessageId.GetHashCode();
+      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (CorrelationKey.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(CorrelationKey);
+      }
+      if (TimeToLive != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(TimeToLive);
+      }
+      if (MessageId.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(MessageId);
+      }
+      if (Payload.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Payload);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (CorrelationKey.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CorrelationKey);
+      }
+      if (TimeToLive != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TimeToLive);
+      }
+      if (MessageId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageId);
+      }
+      if (Payload.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Payload);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(PublishMessageRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.CorrelationKey.Length != 0) {
+        CorrelationKey = other.CorrelationKey;
+      }
+      if (other.TimeToLive != 0L) {
+        TimeToLive = other.TimeToLive;
+      }
+      if (other.MessageId.Length != 0) {
+        MessageId = other.MessageId;
+      }
+      if (other.Payload.Length != 0) {
+        Payload = other.Payload;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            CorrelationKey = input.ReadString();
+            break;
+          }
+          case 24: {
+            TimeToLive = input.ReadInt64();
+            break;
+          }
+          case 34: {
+            MessageId = input.ReadString();
+            break;
+          }
+          case 42: {
+            Payload = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class PublishMessageResponse : pb::IMessage<PublishMessageResponse> {
+    private static readonly pb::MessageParser<PublishMessageResponse> _parser = new pb::MessageParser<PublishMessageResponse>(() => new PublishMessageResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<PublishMessageResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[21]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PublishMessageResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PublishMessageResponse(PublishMessageResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PublishMessageResponse Clone() {
+      return new PublishMessageResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as PublishMessageResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(PublishMessageResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(PublishMessageResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
         }
       }
     }
@@ -5230,7 +4229,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[30]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5259,6 +4258,9 @@ namespace GatewayProtocol {
     /// <summary>Field number for the "incidentKey" field.</summary>
     public const int IncidentKeyFieldNumber = 1;
     private long incidentKey_;
+    /// <summary>
+    /// the unique ID of the incident to resolve
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long IncidentKey {
       get { return incidentKey_; }
@@ -5359,7 +4361,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[31]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5432,6 +4434,1250 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(ResolveIncidentResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class TopologyRequest : pb::IMessage<TopologyRequest> {
+    private static readonly pb::MessageParser<TopologyRequest> _parser = new pb::MessageParser<TopologyRequest>(() => new TopologyRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<TopologyRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[24]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TopologyRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TopologyRequest(TopologyRequest other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TopologyRequest Clone() {
+      return new TopologyRequest(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as TopologyRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(TopologyRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(TopologyRequest other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class TopologyResponse : pb::IMessage<TopologyResponse> {
+    private static readonly pb::MessageParser<TopologyResponse> _parser = new pb::MessageParser<TopologyResponse>(() => new TopologyResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<TopologyResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[25]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TopologyResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TopologyResponse(TopologyResponse other) : this() {
+      brokers_ = other.brokers_.Clone();
+      clusterSize_ = other.clusterSize_;
+      partitionsCount_ = other.partitionsCount_;
+      replicationFactor_ = other.replicationFactor_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TopologyResponse Clone() {
+      return new TopologyResponse(this);
+    }
+
+    /// <summary>Field number for the "brokers" field.</summary>
+    public const int BrokersFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::GatewayProtocol.BrokerInfo> _repeated_brokers_codec
+        = pb::FieldCodec.ForMessage(10, global::GatewayProtocol.BrokerInfo.Parser);
+    private readonly pbc::RepeatedField<global::GatewayProtocol.BrokerInfo> brokers_ = new pbc::RepeatedField<global::GatewayProtocol.BrokerInfo>();
+    /// <summary>
+    /// list of brokers part of this cluster
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GatewayProtocol.BrokerInfo> Brokers {
+      get { return brokers_; }
+    }
+
+    /// <summary>Field number for the "clusterSize" field.</summary>
+    public const int ClusterSizeFieldNumber = 2;
+    private int clusterSize_;
+    /// <summary>
+    /// how many nodes are in the cluster
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ClusterSize {
+      get { return clusterSize_; }
+      set {
+        clusterSize_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "partitionsCount" field.</summary>
+    public const int PartitionsCountFieldNumber = 3;
+    private int partitionsCount_;
+    /// <summary>
+    /// how many partitions are spread across the cluster
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PartitionsCount {
+      get { return partitionsCount_; }
+      set {
+        partitionsCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "replicationFactor" field.</summary>
+    public const int ReplicationFactorFieldNumber = 4;
+    private int replicationFactor_;
+    /// <summary>
+    /// configured replication factor for this cluster
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ReplicationFactor {
+      get { return replicationFactor_; }
+      set {
+        replicationFactor_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as TopologyResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(TopologyResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!brokers_.Equals(other.brokers_)) return false;
+      if (ClusterSize != other.ClusterSize) return false;
+      if (PartitionsCount != other.PartitionsCount) return false;
+      if (ReplicationFactor != other.ReplicationFactor) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= brokers_.GetHashCode();
+      if (ClusterSize != 0) hash ^= ClusterSize.GetHashCode();
+      if (PartitionsCount != 0) hash ^= PartitionsCount.GetHashCode();
+      if (ReplicationFactor != 0) hash ^= ReplicationFactor.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      brokers_.WriteTo(output, _repeated_brokers_codec);
+      if (ClusterSize != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(ClusterSize);
+      }
+      if (PartitionsCount != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(PartitionsCount);
+      }
+      if (ReplicationFactor != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(ReplicationFactor);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += brokers_.CalculateSize(_repeated_brokers_codec);
+      if (ClusterSize != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ClusterSize);
+      }
+      if (PartitionsCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PartitionsCount);
+      }
+      if (ReplicationFactor != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReplicationFactor);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(TopologyResponse other) {
+      if (other == null) {
+        return;
+      }
+      brokers_.Add(other.brokers_);
+      if (other.ClusterSize != 0) {
+        ClusterSize = other.ClusterSize;
+      }
+      if (other.PartitionsCount != 0) {
+        PartitionsCount = other.PartitionsCount;
+      }
+      if (other.ReplicationFactor != 0) {
+        ReplicationFactor = other.ReplicationFactor;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            brokers_.AddEntriesFrom(input, _repeated_brokers_codec);
+            break;
+          }
+          case 16: {
+            ClusterSize = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            PartitionsCount = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            ReplicationFactor = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class BrokerInfo : pb::IMessage<BrokerInfo> {
+    private static readonly pb::MessageParser<BrokerInfo> _parser = new pb::MessageParser<BrokerInfo>(() => new BrokerInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BrokerInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[26]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BrokerInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BrokerInfo(BrokerInfo other) : this() {
+      nodeId_ = other.nodeId_;
+      host_ = other.host_;
+      port_ = other.port_;
+      partitions_ = other.partitions_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BrokerInfo Clone() {
+      return new BrokerInfo(this);
+    }
+
+    /// <summary>Field number for the "nodeId" field.</summary>
+    public const int NodeIdFieldNumber = 1;
+    private int nodeId_;
+    /// <summary>
+    /// unique (within a cluster) node ID for the broker
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NodeId {
+      get { return nodeId_; }
+      set {
+        nodeId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "host" field.</summary>
+    public const int HostFieldNumber = 2;
+    private string host_ = "";
+    /// <summary>
+    /// hostname of the broker
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Host {
+      get { return host_; }
+      set {
+        host_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "port" field.</summary>
+    public const int PortFieldNumber = 3;
+    private int port_;
+    /// <summary>
+    /// port for the broker
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Port {
+      get { return port_; }
+      set {
+        port_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "partitions" field.</summary>
+    public const int PartitionsFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::GatewayProtocol.Partition> _repeated_partitions_codec
+        = pb::FieldCodec.ForMessage(34, global::GatewayProtocol.Partition.Parser);
+    private readonly pbc::RepeatedField<global::GatewayProtocol.Partition> partitions_ = new pbc::RepeatedField<global::GatewayProtocol.Partition>();
+    /// <summary>
+    /// list of partitions managed or replicated on this broker
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GatewayProtocol.Partition> Partitions {
+      get { return partitions_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BrokerInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BrokerInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (NodeId != other.NodeId) return false;
+      if (Host != other.Host) return false;
+      if (Port != other.Port) return false;
+      if(!partitions_.Equals(other.partitions_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (NodeId != 0) hash ^= NodeId.GetHashCode();
+      if (Host.Length != 0) hash ^= Host.GetHashCode();
+      if (Port != 0) hash ^= Port.GetHashCode();
+      hash ^= partitions_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (NodeId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(NodeId);
+      }
+      if (Host.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Host);
+      }
+      if (Port != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Port);
+      }
+      partitions_.WriteTo(output, _repeated_partitions_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (NodeId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NodeId);
+      }
+      if (Host.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Host);
+      }
+      if (Port != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Port);
+      }
+      size += partitions_.CalculateSize(_repeated_partitions_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BrokerInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.NodeId != 0) {
+        NodeId = other.NodeId;
+      }
+      if (other.Host.Length != 0) {
+        Host = other.Host;
+      }
+      if (other.Port != 0) {
+        Port = other.Port;
+      }
+      partitions_.Add(other.partitions_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            NodeId = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Host = input.ReadString();
+            break;
+          }
+          case 24: {
+            Port = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            partitions_.AddEntriesFrom(input, _repeated_partitions_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class Partition : pb::IMessage<Partition> {
+    private static readonly pb::MessageParser<Partition> _parser = new pb::MessageParser<Partition>(() => new Partition());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Partition> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[27]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Partition() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Partition(Partition other) : this() {
+      partitionId_ = other.partitionId_;
+      role_ = other.role_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Partition Clone() {
+      return new Partition(this);
+    }
+
+    /// <summary>Field number for the "partitionId" field.</summary>
+    public const int PartitionIdFieldNumber = 1;
+    private int partitionId_;
+    /// <summary>
+    /// the unique ID of this partition
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PartitionId {
+      get { return partitionId_; }
+      set {
+        partitionId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "role" field.</summary>
+    public const int RoleFieldNumber = 3;
+    private global::GatewayProtocol.Partition.Types.PartitionBrokerRole role_ = 0;
+    /// <summary>
+    /// the role of the broker for this partition
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::GatewayProtocol.Partition.Types.PartitionBrokerRole Role {
+      get { return role_; }
+      set {
+        role_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Partition);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Partition other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (PartitionId != other.PartitionId) return false;
+      if (Role != other.Role) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (PartitionId != 0) hash ^= PartitionId.GetHashCode();
+      if (Role != 0) hash ^= Role.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (PartitionId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(PartitionId);
+      }
+      if (Role != 0) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Role);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (PartitionId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PartitionId);
+      }
+      if (Role != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Role);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Partition other) {
+      if (other == null) {
+        return;
+      }
+      if (other.PartitionId != 0) {
+        PartitionId = other.PartitionId;
+      }
+      if (other.Role != 0) {
+        Role = other.Role;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            PartitionId = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            role_ = (global::GatewayProtocol.Partition.Types.PartitionBrokerRole) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the Partition message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      /// <summary>
+      /// Describes the Raft role of the broker for a given partition
+      /// </summary>
+      public enum PartitionBrokerRole {
+        [pbr::OriginalName("LEADER")] Leader = 0,
+        [pbr::OriginalName("FOLLOWER")] Follower = 1,
+      }
+
+    }
+    #endregion
+
+  }
+
+  public sealed partial class UpdateJobRetriesRequest : pb::IMessage<UpdateJobRetriesRequest> {
+    private static readonly pb::MessageParser<UpdateJobRetriesRequest> _parser = new pb::MessageParser<UpdateJobRetriesRequest>(() => new UpdateJobRetriesRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UpdateJobRetriesRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[28]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateJobRetriesRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateJobRetriesRequest(UpdateJobRetriesRequest other) : this() {
+      jobKey_ = other.jobKey_;
+      retries_ = other.retries_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateJobRetriesRequest Clone() {
+      return new UpdateJobRetriesRequest(this);
+    }
+
+    /// <summary>Field number for the "jobKey" field.</summary>
+    public const int JobKeyFieldNumber = 1;
+    private long jobKey_;
+    /// <summary>
+    /// the unique job identifier, as obtained through ActivateJobs
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long JobKey {
+      get { return jobKey_; }
+      set {
+        jobKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "retries" field.</summary>
+    public const int RetriesFieldNumber = 2;
+    private int retries_;
+    /// <summary>
+    /// the new amount of retries for the job; must be positive
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Retries {
+      get { return retries_; }
+      set {
+        retries_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateJobRetriesRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UpdateJobRetriesRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (JobKey != other.JobKey) return false;
+      if (Retries != other.Retries) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (JobKey != 0L) hash ^= JobKey.GetHashCode();
+      if (Retries != 0) hash ^= Retries.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (JobKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(JobKey);
+      }
+      if (Retries != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Retries);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (JobKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(JobKey);
+      }
+      if (Retries != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Retries);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UpdateJobRetriesRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.JobKey != 0L) {
+        JobKey = other.JobKey;
+      }
+      if (other.Retries != 0) {
+        Retries = other.Retries;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            JobKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Retries = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class UpdateJobRetriesResponse : pb::IMessage<UpdateJobRetriesResponse> {
+    private static readonly pb::MessageParser<UpdateJobRetriesResponse> _parser = new pb::MessageParser<UpdateJobRetriesResponse>(() => new UpdateJobRetriesResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UpdateJobRetriesResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[29]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateJobRetriesResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateJobRetriesResponse(UpdateJobRetriesResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateJobRetriesResponse Clone() {
+      return new UpdateJobRetriesResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateJobRetriesResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UpdateJobRetriesResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UpdateJobRetriesResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class UpdateWorkflowInstancePayloadRequest : pb::IMessage<UpdateWorkflowInstancePayloadRequest> {
+    private static readonly pb::MessageParser<UpdateWorkflowInstancePayloadRequest> _parser = new pb::MessageParser<UpdateWorkflowInstancePayloadRequest>(() => new UpdateWorkflowInstancePayloadRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UpdateWorkflowInstancePayloadRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[30]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateWorkflowInstancePayloadRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateWorkflowInstancePayloadRequest(UpdateWorkflowInstancePayloadRequest other) : this() {
+      elementInstanceKey_ = other.elementInstanceKey_;
+      payload_ = other.payload_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateWorkflowInstancePayloadRequest Clone() {
+      return new UpdateWorkflowInstancePayloadRequest(this);
+    }
+
+    /// <summary>Field number for the "elementInstanceKey" field.</summary>
+    public const int ElementInstanceKeyFieldNumber = 1;
+    private long elementInstanceKey_;
+    /// <summary>
+    /// the unique identifier of a particular element; can be the workflow instance key (as
+    /// obtained during instance creation), or a given element, such as a service task (see
+    /// elementInstanceKey on the JobHeaders message)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ElementInstanceKey {
+      get { return elementInstanceKey_; }
+      set {
+        elementInstanceKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "payload" field.</summary>
+    public const int PayloadFieldNumber = 2;
+    private string payload_ = "";
+    /// <summary>
+    /// the new payload as a JSON document; see CreateWorkflowInstanceRequest for the rules
+    /// about payloads
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Payload {
+      get { return payload_; }
+      set {
+        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateWorkflowInstancePayloadRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UpdateWorkflowInstancePayloadRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ElementInstanceKey != other.ElementInstanceKey) return false;
+      if (Payload != other.Payload) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ElementInstanceKey != 0L) hash ^= ElementInstanceKey.GetHashCode();
+      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ElementInstanceKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ElementInstanceKey);
+      }
+      if (Payload.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Payload);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ElementInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ElementInstanceKey);
+      }
+      if (Payload.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Payload);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UpdateWorkflowInstancePayloadRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ElementInstanceKey != 0L) {
+        ElementInstanceKey = other.ElementInstanceKey;
+      }
+      if (other.Payload.Length != 0) {
+        Payload = other.Payload;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ElementInstanceKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            Payload = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class UpdateWorkflowInstancePayloadResponse : pb::IMessage<UpdateWorkflowInstancePayloadResponse> {
+    private static readonly pb::MessageParser<UpdateWorkflowInstancePayloadResponse> _parser = new pb::MessageParser<UpdateWorkflowInstancePayloadResponse>(() => new UpdateWorkflowInstancePayloadResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UpdateWorkflowInstancePayloadResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[31]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateWorkflowInstancePayloadResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateWorkflowInstancePayloadResponse(UpdateWorkflowInstancePayloadResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateWorkflowInstancePayloadResponse Clone() {
+      return new UpdateWorkflowInstancePayloadResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateWorkflowInstancePayloadResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UpdateWorkflowInstancePayloadResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UpdateWorkflowInstancePayloadResponse other) {
       if (other == null) {
         return;
       }
