@@ -122,7 +122,7 @@ namespace Zeebe.Client
             AssertJob(receivedJobs[2], 3);
         }
 
-        private static ActivateJobsResponse CreateExpectedResponse()
+        public static ActivateJobsResponse CreateExpectedResponse()
         {
             return new ActivateJobsResponse
             {
@@ -174,7 +174,7 @@ namespace Zeebe.Client
             };
         }
 
-        private static void AssertJob(IJob job, int expectedKey)
+        public static void AssertJob(IJob job, int expectedKey)
         {
             Assert.AreEqual(expectedKey, job.Key);
             Assert.AreEqual(3, job.Retries);

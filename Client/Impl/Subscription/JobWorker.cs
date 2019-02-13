@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Subscription;
-using ActivatedJob = Zeebe.Client.Impl.Responses.ActivatedJob;
+using Zeebe.Client.Impl.Commands;
 
 namespace Zeebe.Client.Impl.Subscription
 {
@@ -29,6 +29,7 @@ namespace Zeebe.Client.Impl.Subscription
         private readonly ConcurrentQueue<IJob> workItems = new ConcurrentQueue<IJob>();
 
         private readonly ActivateJobsRequest activeRequest;
+        private readonly JobActivator activator;
         private readonly Gateway.GatewayClient client;
         private readonly TimeSpan pollInterval;
         private readonly CancellationTokenSource source;
@@ -40,9 +41,10 @@ namespace Zeebe.Client.Impl.Subscription
         internal JobWorker(Gateway.GatewayClient client, ActivateJobsRequest request, TimeSpan pollInterval,
             IJobClient jobClient, JobHandler jobHandler)
         {
-            source = new CancellationTokenSource();
+            this.source = new CancellationTokenSource();
             this.client = client;
-            activeRequest = request;
+            this.activator = new JobActivator(client);
+            this.activeRequest = request;
             this.pollInterval = pollInterval;
             this.jobClient = jobClient;
             this.jobHandler = jobHandler;
@@ -108,17 +110,11 @@ namespace Zeebe.Client.Impl.Subscription
 
         private async Task PollJobs(CancellationToken cancellationToken)
         {
-            using (var stream = client.ActivateJobs(activeRequest))
+            var response = await activator.SendActivateRequest(activeRequest);
+
+            foreach (var job in response.Jobs)
             {
-                var responseStream = stream.ResponseStream;
-                while (await responseStream.MoveNext(cancellationToken))
-                {
-                    var response = responseStream.Current;
-                    foreach (var job in response.Jobs)
-                    {
-                        workItems.Enqueue(new ActivatedJob(job));
-                    }
-                }
+                workItems.Enqueue(job);
             }
         }
 

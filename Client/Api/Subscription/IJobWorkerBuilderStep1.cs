@@ -87,7 +87,7 @@ namespace Zeebe.Client.Api.Subscription
         /// 
         /// <p>If no time is set then the default is used from the configuration.
         /// 
-        /// <param name="timeout the time as duration (e.g. "Duration.ofMinutes(5)")
+        /// <param name="timeout">the time as time span (e.g. "TimeSpan.FromMinutes(10)")</param> 
         /// <returns>the builder for this worker
         /// </summary>
         IJobWorkerBuilderStep3 Timeout(TimeSpan timeout);

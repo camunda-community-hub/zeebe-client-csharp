@@ -67,6 +67,28 @@ namespace Zeebe.Client
         IJobWorkerBuilderStep1 NewWorker();
 
         /// <summary>
+        /// Command to activate multiple jobs of a given type.
+        ///
+        /// <pre>
+        /// zeebeClient
+        ///  .NewActivateJobsCommand()
+        ///  .JobType("payment")
+        ///  .Limit(10)
+        ///  .WorkerName("paymentWorker")
+        ///  .Timeout(TimeSpan.FromMinutes(10))
+        ///  .Send();
+        /// </pre>
+        ///
+        /// <p>The command will try to activate maximal {@code amount} jobs of given {@code jobType}. If
+        /// less then {@code amount} jobs of the {@code jobType} are available for activation the returned
+        /// list will have fewer elements.
+        /// </summary>
+        /// <returns>
+        /// a builder for the command
+        /// </returns>
+        IActivateJobsCommandStep1 NewActivateJobsCommand();
+
+        /// <summary>
         /// Command to update the retries of a job.
         /// 
         /// <pre>
@@ -222,5 +244,6 @@ namespace Zeebe.Client
         /// 
         /// <returns>the request where you must call #send()</returns>
         ITopologyRequestStep1 TopologyRequest();
+
     }
 }

@@ -44,6 +44,11 @@ namespace Zeebe.Client
             return new JobWorkerBuilder(gatewayClient, this);
         }
 
+        public IActivateJobsCommandStep1 NewActivateJobsCommand()
+        {
+            return new ActivateJobsCommand(gatewayClient);
+        }
+
         public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
         {
             return new CompleteJobCommand(gatewayClient, jobKey);
