@@ -122,6 +122,109 @@ namespace Zeebe.Client
             AssertJob(receivedJobs[2], 3);
         }
 
+
+        [Test]
+        public void ShouldSendRequestWithFetchVariables()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 10_000L,
+                Amount = 1,
+                Type = "foo",
+                Worker = "jobWorker",
+                FetchVariable = { "foo", "bar", "test" }
+            };
+
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
+
+            // when
+            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
+            var receivedJobs = new List<IJob>();
+            using (var jobWorker = ZeebeClient.NewWorker()
+                .JobType("foo")
+                .Handler((jobClient, job) =>
+                {
+                    receivedJobs.Add(job);
+                    if (receivedJobs.Count == 3)
+                    {
+                        signal.Set();
+                    }
+                })
+                .Limit(1)
+                .Name("jobWorker")
+                .Timeout(TimeSpan.FromSeconds(10))
+                .FetchVariables("foo", "bar", "test")
+                .PollInterval(TimeSpan.FromMilliseconds(100))
+                .Open())
+            {
+
+                Assert.True(jobWorker.IsOpen());
+                signal.WaitOne();
+            }
+
+            // then
+            var actualRequest = TestService.Requests[0];
+            Assert.AreEqual(expectedRequest, actualRequest);
+
+            Assert.AreEqual(receivedJobs.Count, 3);
+
+            AssertJob(receivedJobs[0], 1);
+            AssertJob(receivedJobs[1], 2);
+            AssertJob(receivedJobs[2], 3);
+        }
+
+        [Test]
+        public void ShouldSendRequestWithFetchVariablesList()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 10_000L,
+                Amount = 1,
+                Type = "foo",
+                Worker = "jobWorker",
+                FetchVariable = { "foo", "bar", "test" }
+            };
+            IList<string> variableNames = new List<string> { "foo", "bar", "test" };
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
+
+            // when
+            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
+            var receivedJobs = new List<IJob>();
+            using (var jobWorker = ZeebeClient.NewWorker()
+                .JobType("foo")
+                .Handler((jobClient, job) =>
+                {
+                    receivedJobs.Add(job);
+                    if (receivedJobs.Count == 3)
+                    {
+                        signal.Set();
+                    }
+                })
+                .Limit(1)
+                .Name("jobWorker")
+                .Timeout(TimeSpan.FromSeconds(10))
+                .FetchVariables(variableNames)
+                .PollInterval(TimeSpan.FromMilliseconds(100))
+                .Open())
+            {
+
+                Assert.True(jobWorker.IsOpen());
+                signal.WaitOne();
+            }
+
+            // then
+            var actualRequest = TestService.Requests[0];
+            Assert.AreEqual(expectedRequest, actualRequest);
+
+            Assert.AreEqual(receivedJobs.Count, 3);
+
+            AssertJob(receivedJobs[0], 1);
+            AssertJob(receivedJobs[1], 2);
+            AssertJob(receivedJobs[2], 3);
+        }
+
         public static ActivateJobsResponse CreateExpectedResponse()
         {
             return new ActivateJobsResponse

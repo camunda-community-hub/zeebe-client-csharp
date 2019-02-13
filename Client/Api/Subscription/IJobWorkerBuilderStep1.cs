@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using System;
+using System.Collections.Generic;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Responses;
 
@@ -131,6 +132,30 @@ namespace Zeebe.Client.Api.Subscription
         /// <param name="numberOfJobs">the number of assigned jobs</param>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 Limit(int numberOfJobs);
+
+        /// <summary>
+        /// Set a list of variable names which should be fetch on job activation.
+        ///
+        /// <p>The jobs which are activated by this command will only contain variables from this list in
+        /// their payload.
+        ///
+        /// <p>This can be used to limit the number of variables in the payload of the activated jobs.
+        /// </summary>
+        /// <param name="fetchVariables">list of variables names to fetch on activation</param>
+        /// <returns>the builder for this worker</returns>
+        IJobWorkerBuilderStep3 FetchVariables(IList<string> fetchVariables);
+
+        /// <summary>
+        /// Set a list of variable names which should be fetch on job activation.
+        ///
+        /// <p>The jobs which are activated by this command will only contain variables from this list in
+        /// their payload.
+        ///
+        /// <p>This can be used to limit the number of variables in the payload of the activated jobs.
+        /// </summary>
+        /// <param name="fetchVariables">list of variables names to fetch on activation</param>
+        /// <returns>the builder for this worker</returns>
+        IJobWorkerBuilderStep3 FetchVariables(params string[] fetchVariables);
 
         /// <summary>
         /// Set the maximal interval between polling for new jobs.

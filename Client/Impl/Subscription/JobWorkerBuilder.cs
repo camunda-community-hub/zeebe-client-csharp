@@ -14,6 +14,7 @@
 //    limitations under the License.
 using GatewayProtocol;
 using System;
+using System.Collections.Generic;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Subscription;
 
@@ -54,7 +55,7 @@ namespace Zeebe.Client.Impl.Subscription
 
         public IJobWorkerBuilderStep3 Timeout(TimeSpan timeout)
         {
-            request.Timeout = (long) timeout.TotalMilliseconds;
+            request.Timeout = (long)timeout.TotalMilliseconds;
             return this;
         }
 
@@ -67,6 +68,18 @@ namespace Zeebe.Client.Impl.Subscription
         public IJobWorkerBuilderStep3 Limit(int numberOfJobs)
         {
             request.Amount = numberOfJobs;
+            return this;
+        }
+
+        public IJobWorkerBuilderStep3 FetchVariables(IList<string> fetchVariables)
+        {
+            request.FetchVariable.AddRange(fetchVariables);
+            return this;
+        }
+
+        public IJobWorkerBuilderStep3 FetchVariables(params string[] fetchVariables)
+        {
+            request.FetchVariable.AddRange(fetchVariables);
             return this;
         }
 
