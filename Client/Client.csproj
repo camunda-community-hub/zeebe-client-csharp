@@ -1,23 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    
-    <Version>0.4.0</Version>
+
+    <Version>0.5.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
-    <Description>Client to communicate with a Zeebe broker.
+    <Description>
+      Client to communicate with a Zeebe broker.
 
-Uses GRPC as protocol for communication.
-For more information about the zeebe project please visit http://zeebe.io</Description>
+      Uses GRPC as protocol for communication.
+      For more information about the zeebe project please visit http://zeebe.io
+    </Description>
     <PackageProjectUrl>https://github.com/zeebe-io/zb-csharp-client</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>0.4.0</AssemblyVersion>
-    <FileVersion>0.4.0</FileVersion>
-    <PackageReleaseNotes>Migrate to .NET Standard 2.0
+    <AssemblyVersion>0.5.0</AssemblyVersion>
+    <FileVersion>0.5.0</FileVersion>
+    <PackageReleaseNotes>
+      Update to the latest zeebe release (0.15.0):
 
-This release is based on the zeebe 0.14.0 release (https://github.com/zeebe-io/zeebe).</PackageReleaseNotes>
+      * add direct job activation API
+      * add fetching variables for job workers and job activiation
+
+      This release is based on the zeebe 0.15.0 release (https://github.com/zeebe-io/zeebe).
+    </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>zb-client</PackageId>
