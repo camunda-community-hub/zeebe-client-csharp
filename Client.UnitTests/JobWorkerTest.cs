@@ -286,7 +286,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 123L,
-                Amount = 3,
+                Amount = 1,
                 Type = "foo",
                 Worker = "jobWorker"
             };
@@ -301,8 +301,6 @@ namespace Zeebe.Client
             TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
 
             // when
-            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
-            var receivedJobs = new List<IJob>();
             using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler((jobClient, job) =>
@@ -311,19 +309,17 @@ namespace Zeebe.Client
                     {
                         throw new Exception("Fail");
                     }
-                    else
-                    {
-                        signal.Set();
-                    }
                 })
-                .Limit(3)
+                .Limit(1)
                 .Name("jobWorker")
                 .Timeout(123L)
                 .PollInterval(TimeSpan.FromMilliseconds(100))
                 .Open())
             {
                 Assert.True(jobWorker.IsOpen());
-                signal.WaitOne();
+                while (TestService.Requests.Count < 2)
+                {
+                }
             }
 
             // then
