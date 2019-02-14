@@ -31,7 +31,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 123L,
-                Amount = 1,
+                Amount = 3,
                 Type = "foo",
                 Worker = "jobWorker"
             };
@@ -51,7 +51,7 @@ namespace Zeebe.Client
                         signal.Set();
                     }
                 })
-                .Limit(1)
+                .Limit(3)
                 .Name("jobWorker")
                 .Timeout(123L)
                 .PollInterval(TimeSpan.FromMilliseconds(100))
@@ -71,6 +71,61 @@ namespace Zeebe.Client
             AssertJob(receivedJobs[0], 1);
             AssertJob(receivedJobs[1], 2);
             AssertJob(receivedJobs[2], 3);
+        }
+
+        [Test]
+        public void ShouldSendRequestsWithDifferentAmounts()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 123L,
+                Amount = 4,
+                Type = "foo",
+                Worker = "jobWorker"
+            };
+
+            var expectedSecondRequest = new ActivateJobsRequest
+            {
+                Timeout = 123L,
+                Amount = 2, // first response contains 3 jobs and one is handled (blocking) so 2 jobs remain in queue
+                            // so we can try to activate 2 new jobs
+                Type = "foo",
+                Worker = "jobWorker"
+            };
+
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
+
+            // when
+            var receivedJobs = new List<IJob>();
+            using (var jobWorker = ZeebeClient.NewWorker()
+                .JobType("foo")
+                .Handler((jobClient, job) =>
+                {
+                    // block job handling
+                    using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
+                    {
+                        signal.WaitOne();
+                    }
+                })
+                .Limit(4)
+                .Name("jobWorker")
+                .Timeout(123L)
+                .PollInterval(TimeSpan.FromMilliseconds(100))
+                .Open())
+            {
+                Assert.True(jobWorker.IsOpen());
+                while (TestService.Requests.Count < 2)
+                {
+                }
+            }
+
+            // then
+            var actualRequest = TestService.Requests[0];
+            Assert.AreEqual(expectedRequest, actualRequest);
+
+            var actualSecondRequest = TestService.Requests[1];
+            Assert.AreEqual(expectedSecondRequest, actualSecondRequest);
         }
 
         [Test]
@@ -121,7 +176,6 @@ namespace Zeebe.Client
             AssertJob(receivedJobs[1], 2);
             AssertJob(receivedJobs[2], 3);
         }
-
 
         [Test]
         public void ShouldSendRequestWithFetchVariables()
@@ -223,6 +277,61 @@ namespace Zeebe.Client
             AssertJob(receivedJobs[0], 1);
             AssertJob(receivedJobs[1], 2);
             AssertJob(receivedJobs[2], 3);
+        }
+
+        [Test]
+        public void ShouldSendFailCommandOnExceptionInJobHandler()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 123L,
+                Amount = 3,
+                Type = "foo",
+                Worker = "jobWorker"
+            };
+
+            var expectedFailRequest = new FailJobRequest
+            {
+                JobKey = 1,
+                ErrorMessage = "Job worker 'jobWorker' tried to handle job of type 'foo', but exception occured 'Fail'",
+                Retries = 2
+            };
+
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
+
+            // when
+            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
+            var receivedJobs = new List<IJob>();
+            using (var jobWorker = ZeebeClient.NewWorker()
+                .JobType("foo")
+                .Handler((jobClient, job) =>
+                {
+                    if (job.Key == 1)
+                    {
+                        throw new Exception("Fail");
+                    }
+                    else
+                    {
+                        signal.Set();
+                    }
+                })
+                .Limit(3)
+                .Name("jobWorker")
+                .Timeout(123L)
+                .PollInterval(TimeSpan.FromMilliseconds(100))
+                .Open())
+            {
+                Assert.True(jobWorker.IsOpen());
+                signal.WaitOne();
+            }
+
+            // then
+            var actualRequest = TestService.Requests[0];
+            Assert.AreEqual(expectedRequest, actualRequest);
+
+            var actualFailRequest = TestService.Requests[1];
+            Assert.AreEqual(expectedFailRequest, actualFailRequest);
         }
 
         public static ActivateJobsResponse CreateExpectedResponse()

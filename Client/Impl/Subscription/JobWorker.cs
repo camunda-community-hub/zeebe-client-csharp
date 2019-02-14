@@ -12,6 +12,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using GatewayProtocol;
 using System;
 using System.Collections.Concurrent;
@@ -26,17 +27,21 @@ namespace Zeebe.Client.Impl.Subscription
 {
     public class JobWorker : IJobWorker
     {
+        private const string JobFailMessage = "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
+
+        private readonly int limit;
         private readonly ConcurrentQueue<IJob> workItems = new ConcurrentQueue<IJob>();
 
         private readonly ActivateJobsRequest activeRequest;
         private readonly JobActivator activator;
-        private readonly Gateway.GatewayClient client;
-        private readonly TimeSpan pollInterval;
-        private readonly CancellationTokenSource source;
         private readonly JobHandler jobHandler;
         private readonly IJobClient jobClient;
 
-        private bool isRunning;
+        private readonly Gateway.GatewayClient client;
+        private readonly TimeSpan pollInterval;
+        private readonly CancellationTokenSource source;
+
+        private volatile bool isRunning;
 
         internal JobWorker(Gateway.GatewayClient client, ActivateJobsRequest request, TimeSpan pollInterval,
             IJobClient jobClient, JobHandler jobHandler)
@@ -45,11 +50,11 @@ namespace Zeebe.Client.Impl.Subscription
             this.client = client;
             this.activator = new JobActivator(client);
             this.activeRequest = request;
+            this.limit = request.Amount;
             this.pollInterval = pollInterval;
             this.jobClient = jobClient;
             this.jobHandler = jobHandler;
         }
-
 
         internal void Open()
         {
@@ -61,19 +66,19 @@ namespace Zeebe.Client.Impl.Subscription
             taskFactory.StartNew(async () =>
                 await Poll(cancellationToken)
                     .ContinueWith(t => Console.WriteLine(t.Exception.ToString()),
-                        TaskContinuationOptions.OnlyOnFaulted)
+                        TaskContinuationOptions.OnlyOnFaulted), cancellationToken
             ).ContinueWith(
                     t => Console.WriteLine(t.Exception.ToString()),
                     TaskContinuationOptions.OnlyOnFaulted);
 
-            taskFactory.StartNew(() => HandleActivatedJobs())
+            taskFactory.StartNew(() => HandleActivatedJobs(cancellationToken), cancellationToken)
                 .ContinueWith(t => Console.WriteLine(t.Exception.ToString()),
                     TaskContinuationOptions.OnlyOnFaulted);
         }
 
-        private void HandleActivatedJobs()
+        private void HandleActivatedJobs(CancellationToken cancellationToken)
         {
-            while (isRunning)
+            while (!cancellationToken.IsCancellationRequested)
             {
                 if (!workItems.IsEmpty)
                 {
@@ -87,8 +92,7 @@ namespace Zeebe.Client.Impl.Subscription
                         }
                         catch (Exception exception)
                         {
-                            Console.WriteLine("Fail to handle job with values '{0}', job handler throws exception {1}", activatedJob, exception);
-                            // TODO fail job
+                            FailActivatedJob(activatedJob, exception);
                         }
                     }
                 }
@@ -99,18 +103,38 @@ namespace Zeebe.Client.Impl.Subscription
             }
         }
 
+        private void FailActivatedJob(IJob activatedJob, Exception exception)
+        {
+            string errorMessage = String.Format(JobFailMessage,
+                activatedJob.Worker,
+                activatedJob.Type,
+                exception.Message);
+
+            jobClient.NewFailCommand(activatedJob.Key)
+                .Retries(activatedJob.Retries - 1)
+                .ErrorMessage(errorMessage)
+                .Send();
+            Console.WriteLine(errorMessage);
+        }
+
         private async Task Poll(CancellationToken cancellationToken)
         {
-            while (isRunning)
+            while (!cancellationToken.IsCancellationRequested)
             {
-                await PollJobs(cancellationToken);
+                if (workItems.Count < limit)
+                {
+                    await PollJobs(cancellationToken);
+                }
                 Thread.Sleep(pollInterval);
             }
         }
 
         private async Task PollJobs(CancellationToken cancellationToken)
         {
-            var response = await activator.SendActivateRequest(activeRequest);
+            var jobCount = limit - workItems.Count;
+            activeRequest.Amount = jobCount;
+
+            var response = await activator.SendActivateRequest(activeRequest, cancellationToken);
 
             foreach (var job in response.Jobs)
             {
