@@ -16,7 +16,7 @@ for more information about the Zeebe project.
  * .net standard 2.0 or higher, which means
    * .net core 2.1 or higher or
    * .net framework 4.7.1 or higher
- * latest zeebe release ([0.14.0](https://github.com/zeebe-io/zeebe/releases/tag/0.14.0))
+ * latest zeebe release ([0.15.0](https://github.com/zeebe-io/zeebe/releases/tag/0.15.0))
 
 ## How to use
 
@@ -30,6 +30,7 @@ Simply run `msbuild Zeebe.sln` or `dotnet build Zeebe.sln`
 
 * Request topology
 * JobWorker
+* Activate Jobs
 * Complete Job
 * Fail Job
 * Publish Message
@@ -69,6 +70,18 @@ To create a client use this:
       .PollInterval(TimeSpan.FromSeconds(5))
       .Timeout(10_000L)
       .Open();
+```
+
+### Activate Jobs
+
+```csharp
+  zeebeClient.NewActivateJobsCommand()
+             .JobType("foo")
+             .Limit(3)
+             .Timeout(TimeSpan.FromSeconds(10))
+             .WorkerName("jobWorker")
+             .FetchVariables("foo", "bar")
+             .Send();
 ```
 
 ### Complete an job
