@@ -45,7 +45,7 @@ namespace Client.Examples
                 .NewCreateWorkflowInstanceCommand()
                 .WorkflowKey(workflowKey)
                 .Payload(WorkflowInstancePayload)
-                .Send();            
+                .Send();
 
             // open job worker
             using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
@@ -68,7 +68,7 @@ namespace Client.Examples
         {
             // business logic
             var jobKey = job.Key;
-            Console.WriteLine("Handling job: " + jobKey);
+            Console.WriteLine("Handling job: " + job);
 
             if (jobKey % 2 == 0)
             {
