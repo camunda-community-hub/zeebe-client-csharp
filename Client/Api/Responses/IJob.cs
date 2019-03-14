@@ -46,12 +46,12 @@ namespace Zeebe.Client.Api.Responses
         DateTime Deadline { get; }
 
         /// <returns> JSON-formatted payload </returns>
-        string Payload { get; }
+        string Variables { get; }
 
         /// <returns> De-serialized payload as map </returns>
-        IDictionary<string, object> PayloadAsDictionary { get; }
+        IDictionary<string, object> VariablesAsDictionary { get; }
 
         /// <returns>de-serialized payload as the given type </returns>
-        InstanceType PayloadAsType<InstanceType>();
+        InstanceType VariablesAsType<InstanceType>();
     }
 }

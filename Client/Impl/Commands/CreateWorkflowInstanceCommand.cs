@@ -1,8 +1,5 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
 using GatewayProtocol;
-using Grpc.Core;
+using System.Threading.Tasks;
 using Zeebe.Client.Api.CommandsClient;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Impl.Responses;
@@ -46,9 +43,9 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public ICreateWorkflowInstanceCommandStep3 Payload(string payload)
+        public ICreateWorkflowInstanceCommandStep3 Variables(string variables)
         {
-            request.Payload = payload;
+            request.Variables = variables;
             return this;
         }
 

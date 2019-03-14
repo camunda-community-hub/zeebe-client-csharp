@@ -40,82 +40,81 @@ namespace GatewayProtocol {
             "SW5zdGFuY2VSZXF1ZXN0EhsKE3dvcmtmbG93SW5zdGFuY2VLZXkYASABKAMi",
             "IAoeQ2FuY2VsV29ya2Zsb3dJbnN0YW5jZVJlc3BvbnNlIjUKEkNvbXBsZXRl",
             "Sm9iUmVxdWVzdBIOCgZqb2JLZXkYASABKAMSDwoHcGF5bG9hZBgCIAEoCSIV",
-            "ChNDb21wbGV0ZUpvYlJlc3BvbnNlIm0KHUNyZWF0ZVdvcmtmbG93SW5zdGFu",
+            "ChNDb21wbGV0ZUpvYlJlc3BvbnNlIm8KHUNyZWF0ZVdvcmtmbG93SW5zdGFu",
             "Y2VSZXF1ZXN0EhMKC3dvcmtmbG93S2V5GAEgASgDEhUKDWJwbW5Qcm9jZXNz",
-            "SWQYAiABKAkSDwoHdmVyc2lvbhgDIAEoBRIPCgdwYXlsb2FkGAQgASgJInoK",
-            "HkNyZWF0ZVdvcmtmbG93SW5zdGFuY2VSZXNwb25zZRITCgt3b3JrZmxvd0tl",
-            "eRgBIAEoAxIVCg1icG1uUHJvY2Vzc0lkGAIgASgJEg8KB3ZlcnNpb24YAyAB",
-            "KAUSGwoTd29ya2Zsb3dJbnN0YW5jZUtleRgFIAEoAyJTChVEZXBsb3lXb3Jr",
-            "Zmxvd1JlcXVlc3QSOgoJd29ya2Zsb3dzGAEgAygLMicuZ2F0ZXdheV9wcm90",
-            "b2NvbC5Xb3JrZmxvd1JlcXVlc3RPYmplY3QiqwEKFVdvcmtmbG93UmVxdWVz",
-            "dE9iamVjdBIMCgRuYW1lGAEgASgJEkIKBHR5cGUYAiABKA4yNC5nYXRld2F5",
-            "X3Byb3RvY29sLldvcmtmbG93UmVxdWVzdE9iamVjdC5SZXNvdXJjZVR5cGUS",
-            "EgoKZGVmaW5pdGlvbhgDIAEoDCIsCgxSZXNvdXJjZVR5cGUSCAoERklMRRAA",
-            "EggKBEJQTU4QARIICgRZQU1MEAIiXAoWRGVwbG95V29ya2Zsb3dSZXNwb25z",
-            "ZRILCgNrZXkYASABKAMSNQoJd29ya2Zsb3dzGAIgAygLMiIuZ2F0ZXdheV9w",
-            "cm90b2NvbC5Xb3JrZmxvd01ldGFkYXRhImUKEFdvcmtmbG93TWV0YWRhdGES",
-            "FQoNYnBtblByb2Nlc3NJZBgBIAEoCRIPCgd2ZXJzaW9uGAIgASgFEhMKC3dv",
-            "cmtmbG93S2V5GAMgASgDEhQKDHJlc291cmNlTmFtZRgEIAEoCSJHCg5GYWls",
-            "Sm9iUmVxdWVzdBIOCgZqb2JLZXkYASABKAMSDwoHcmV0cmllcxgCIAEoBRIU",
-            "CgxlcnJvck1lc3NhZ2UYAyABKAkiEQoPRmFpbEpvYlJlc3BvbnNlIlEKEkdl",
-            "dFdvcmtmbG93UmVxdWVzdBITCgt3b3JrZmxvd0tleRgBIAEoAxIPCgd2ZXJz",
-            "aW9uGAIgASgFEhUKDWJwbW5Qcm9jZXNzSWQYAyABKAkieQoTR2V0V29ya2Zs",
-            "b3dSZXNwb25zZRITCgt3b3JrZmxvd0tleRgBIAEoAxIPCgd2ZXJzaW9uGAIg",
-            "ASgFEhUKDWJwbW5Qcm9jZXNzSWQYAyABKAkSFAoMcmVzb3VyY2VOYW1lGAQg",
-            "ASgJEg8KB2JwbW5YbWwYBSABKAkiLQoUTGlzdFdvcmtmbG93c1JlcXVlc3QS",
-            "FQoNYnBtblByb2Nlc3NJZBgBIAEoCSJOChVMaXN0V29ya2Zsb3dzUmVzcG9u",
-            "c2USNQoJd29ya2Zsb3dzGAEgAygLMiIuZ2F0ZXdheV9wcm90b2NvbC5Xb3Jr",
-            "Zmxvd01ldGFkYXRhInUKFVB1Ymxpc2hNZXNzYWdlUmVxdWVzdBIMCgRuYW1l",
-            "GAEgASgJEhYKDmNvcnJlbGF0aW9uS2V5GAIgASgJEhIKCnRpbWVUb0xpdmUY",
-            "AyABKAMSEQoJbWVzc2FnZUlkGAQgASgJEg8KB3BheWxvYWQYBSABKAkiGAoW",
-            "UHVibGlzaE1lc3NhZ2VSZXNwb25zZSItChZSZXNvbHZlSW5jaWRlbnRSZXF1",
-            "ZXN0EhMKC2luY2lkZW50S2V5GAEgASgDIhkKF1Jlc29sdmVJbmNpZGVudFJl",
-            "c3BvbnNlIhEKD1RvcG9sb2d5UmVxdWVzdCKKAQoQVG9wb2xvZ3lSZXNwb25z",
-            "ZRItCgdicm9rZXJzGAEgAygLMhwuZ2F0ZXdheV9wcm90b2NvbC5Ccm9rZXJJ",
-            "bmZvEhMKC2NsdXN0ZXJTaXplGAIgASgFEhcKD3BhcnRpdGlvbnNDb3VudBgD",
-            "IAEoBRIZChFyZXBsaWNhdGlvbkZhY3RvchgEIAEoBSJpCgpCcm9rZXJJbmZv",
-            "Eg4KBm5vZGVJZBgBIAEoBRIMCgRob3N0GAIgASgJEgwKBHBvcnQYAyABKAUS",
-            "LwoKcGFydGl0aW9ucxgEIAMoCzIbLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0",
-            "aW9uIpABCglQYXJ0aXRpb24SEwoLcGFydGl0aW9uSWQYASABKAUSPQoEcm9s",
-            "ZRgDIAEoDjIvLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9uLlBhcnRpdGlv",
-            "bkJyb2tlclJvbGUiLwoTUGFydGl0aW9uQnJva2VyUm9sZRIKCgZMRUFERVIQ",
-            "ABIMCghGT0xMT1dFUhABIjoKF1VwZGF0ZUpvYlJldHJpZXNSZXF1ZXN0Eg4K",
-            "BmpvYktleRgBIAEoAxIPCgdyZXRyaWVzGAIgASgFIhoKGFVwZGF0ZUpvYlJl",
-            "dHJpZXNSZXNwb25zZSJTCiRVcGRhdGVXb3JrZmxvd0luc3RhbmNlUGF5bG9h",
-            "ZFJlcXVlc3QSGgoSZWxlbWVudEluc3RhbmNlS2V5GAEgASgDEg8KB3BheWxv",
-            "YWQYAiABKAkiJwolVXBkYXRlV29ya2Zsb3dJbnN0YW5jZVBheWxvYWRSZXNw",
-            "b25zZTLrCgoHR2F0ZXdheRJhCgxBY3RpdmF0ZUpvYnMSJS5nYXRld2F5X3By",
-            "b3RvY29sLkFjdGl2YXRlSm9ic1JlcXVlc3QaJi5nYXRld2F5X3Byb3RvY29s",
-            "LkFjdGl2YXRlSm9ic1Jlc3BvbnNlIgAwARJ9ChZDYW5jZWxXb3JrZmxvd0lu",
-            "c3RhbmNlEi8uZ2F0ZXdheV9wcm90b2NvbC5DYW5jZWxXb3JrZmxvd0luc3Rh",
-            "bmNlUmVxdWVzdBowLmdhdGV3YXlfcHJvdG9jb2wuQ2FuY2VsV29ya2Zsb3dJ",
-            "bnN0YW5jZVJlc3BvbnNlIgASXAoLQ29tcGxldGVKb2ISJC5nYXRld2F5X3By",
-            "b3RvY29sLkNvbXBsZXRlSm9iUmVxdWVzdBolLmdhdGV3YXlfcHJvdG9jb2wu",
-            "Q29tcGxldGVKb2JSZXNwb25zZSIAEn0KFkNyZWF0ZVdvcmtmbG93SW5zdGFu",
-            "Y2USLy5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVdvcmtmbG93SW5zdGFuY2VS",
-            "ZXF1ZXN0GjAuZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVXb3JrZmxvd0luc3Rh",
-            "bmNlUmVzcG9uc2UiABJlCg5EZXBsb3lXb3JrZmxvdxInLmdhdGV3YXlfcHJv",
-            "dG9jb2wuRGVwbG95V29ya2Zsb3dSZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2Nv",
-            "bC5EZXBsb3lXb3JrZmxvd1Jlc3BvbnNlIgASUAoHRmFpbEpvYhIgLmdhdGV3",
-            "YXlfcHJvdG9jb2wuRmFpbEpvYlJlcXVlc3QaIS5nYXRld2F5X3Byb3RvY29s",
-            "LkZhaWxKb2JSZXNwb25zZSIAElwKC0dldFdvcmtmbG93EiQuZ2F0ZXdheV9w",
-            "cm90b2NvbC5HZXRXb3JrZmxvd1JlcXVlc3QaJS5nYXRld2F5X3Byb3RvY29s",
-            "LkdldFdvcmtmbG93UmVzcG9uc2UiABJiCg1MaXN0V29ya2Zsb3dzEiYuZ2F0",
-            "ZXdheV9wcm90b2NvbC5MaXN0V29ya2Zsb3dzUmVxdWVzdBonLmdhdGV3YXlf",
-            "cHJvdG9jb2wuTGlzdFdvcmtmbG93c1Jlc3BvbnNlIgASZQoOUHVibGlzaE1l",
-            "c3NhZ2USJy5nYXRld2F5X3Byb3RvY29sLlB1Ymxpc2hNZXNzYWdlUmVxdWVz",
-            "dBooLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlzaE1lc3NhZ2VSZXNwb25zZSIA",
-            "EmgKD1Jlc29sdmVJbmNpZGVudBIoLmdhdGV3YXlfcHJvdG9jb2wuUmVzb2x2",
-            "ZUluY2lkZW50UmVxdWVzdBopLmdhdGV3YXlfcHJvdG9jb2wuUmVzb2x2ZUlu",
-            "Y2lkZW50UmVzcG9uc2UiABJTCghUb3BvbG9neRIhLmdhdGV3YXlfcHJvdG9j",
-            "b2wuVG9wb2xvZ3lSZXF1ZXN0GiIuZ2F0ZXdheV9wcm90b2NvbC5Ub3BvbG9n",
-            "eVJlc3BvbnNlIgASawoQVXBkYXRlSm9iUmV0cmllcxIpLmdhdGV3YXlfcHJv",
-            "dG9jb2wuVXBkYXRlSm9iUmV0cmllc1JlcXVlc3QaKi5nYXRld2F5X3Byb3Rv",
-            "Y29sLlVwZGF0ZUpvYlJldHJpZXNSZXNwb25zZSIAEpIBCh1VcGRhdGVXb3Jr",
-            "Zmxvd0luc3RhbmNlUGF5bG9hZBI2LmdhdGV3YXlfcHJvdG9jb2wuVXBkYXRl",
-            "V29ya2Zsb3dJbnN0YW5jZVBheWxvYWRSZXF1ZXN0GjcuZ2F0ZXdheV9wcm90",
-            "b2NvbC5VcGRhdGVXb3JrZmxvd0luc3RhbmNlUGF5bG9hZFJlc3BvbnNlIgBC",
-            "IQoZaW8uemVlYmUuZ2F0ZXdheS5wcm90b2NvbFAAWgJwYmIGcHJvdG8z"));
+            "SWQYAiABKAkSDwoHdmVyc2lvbhgDIAEoBRIRCgl2YXJpYWJsZXMYBCABKAki",
+            "egoeQ3JlYXRlV29ya2Zsb3dJbnN0YW5jZVJlc3BvbnNlEhMKC3dvcmtmbG93",
+            "S2V5GAEgASgDEhUKDWJwbW5Qcm9jZXNzSWQYAiABKAkSDwoHdmVyc2lvbhgD",
+            "IAEoBRIbChN3b3JrZmxvd0luc3RhbmNlS2V5GAUgASgDIlMKFURlcGxveVdv",
+            "cmtmbG93UmVxdWVzdBI6Cgl3b3JrZmxvd3MYASADKAsyJy5nYXRld2F5X3By",
+            "b3RvY29sLldvcmtmbG93UmVxdWVzdE9iamVjdCKrAQoVV29ya2Zsb3dSZXF1",
+            "ZXN0T2JqZWN0EgwKBG5hbWUYASABKAkSQgoEdHlwZRgCIAEoDjI0LmdhdGV3",
+            "YXlfcHJvdG9jb2wuV29ya2Zsb3dSZXF1ZXN0T2JqZWN0LlJlc291cmNlVHlw",
+            "ZRISCgpkZWZpbml0aW9uGAMgASgMIiwKDFJlc291cmNlVHlwZRIICgRGSUxF",
+            "EAASCAoEQlBNThABEggKBFlBTUwQAiJcChZEZXBsb3lXb3JrZmxvd1Jlc3Bv",
+            "bnNlEgsKA2tleRgBIAEoAxI1Cgl3b3JrZmxvd3MYAiADKAsyIi5nYXRld2F5",
+            "X3Byb3RvY29sLldvcmtmbG93TWV0YWRhdGEiZQoQV29ya2Zsb3dNZXRhZGF0",
+            "YRIVCg1icG1uUHJvY2Vzc0lkGAEgASgJEg8KB3ZlcnNpb24YAiABKAUSEwoL",
+            "d29ya2Zsb3dLZXkYAyABKAMSFAoMcmVzb3VyY2VOYW1lGAQgASgJIkcKDkZh",
+            "aWxKb2JSZXF1ZXN0Eg4KBmpvYktleRgBIAEoAxIPCgdyZXRyaWVzGAIgASgF",
+            "EhQKDGVycm9yTWVzc2FnZRgDIAEoCSIRCg9GYWlsSm9iUmVzcG9uc2UiUQoS",
+            "R2V0V29ya2Zsb3dSZXF1ZXN0EhMKC3dvcmtmbG93S2V5GAEgASgDEg8KB3Zl",
+            "cnNpb24YAiABKAUSFQoNYnBtblByb2Nlc3NJZBgDIAEoCSJ5ChNHZXRXb3Jr",
+            "Zmxvd1Jlc3BvbnNlEhMKC3dvcmtmbG93S2V5GAEgASgDEg8KB3ZlcnNpb24Y",
+            "AiABKAUSFQoNYnBtblByb2Nlc3NJZBgDIAEoCRIUCgxyZXNvdXJjZU5hbWUY",
+            "BCABKAkSDwoHYnBtblhtbBgFIAEoCSItChRMaXN0V29ya2Zsb3dzUmVxdWVz",
+            "dBIVCg1icG1uUHJvY2Vzc0lkGAEgASgJIk4KFUxpc3RXb3JrZmxvd3NSZXNw",
+            "b25zZRI1Cgl3b3JrZmxvd3MYASADKAsyIi5nYXRld2F5X3Byb3RvY29sLldv",
+            "cmtmbG93TWV0YWRhdGEidQoVUHVibGlzaE1lc3NhZ2VSZXF1ZXN0EgwKBG5h",
+            "bWUYASABKAkSFgoOY29ycmVsYXRpb25LZXkYAiABKAkSEgoKdGltZVRvTGl2",
+            "ZRgDIAEoAxIRCgltZXNzYWdlSWQYBCABKAkSDwoHcGF5bG9hZBgFIAEoCSIY",
+            "ChZQdWJsaXNoTWVzc2FnZVJlc3BvbnNlIi0KFlJlc29sdmVJbmNpZGVudFJl",
+            "cXVlc3QSEwoLaW5jaWRlbnRLZXkYASABKAMiGQoXUmVzb2x2ZUluY2lkZW50",
+            "UmVzcG9uc2UiEQoPVG9wb2xvZ3lSZXF1ZXN0IooBChBUb3BvbG9neVJlc3Bv",
+            "bnNlEi0KB2Jyb2tlcnMYASADKAsyHC5nYXRld2F5X3Byb3RvY29sLkJyb2tl",
+            "ckluZm8SEwoLY2x1c3RlclNpemUYAiABKAUSFwoPcGFydGl0aW9uc0NvdW50",
+            "GAMgASgFEhkKEXJlcGxpY2F0aW9uRmFjdG9yGAQgASgFImkKCkJyb2tlcklu",
+            "Zm8SDgoGbm9kZUlkGAEgASgFEgwKBGhvc3QYAiABKAkSDAoEcG9ydBgDIAEo",
+            "BRIvCgpwYXJ0aXRpb25zGAQgAygLMhsuZ2F0ZXdheV9wcm90b2NvbC5QYXJ0",
+            "aXRpb24ikAEKCVBhcnRpdGlvbhITCgtwYXJ0aXRpb25JZBgBIAEoBRI9CgRy",
+            "b2xlGAMgASgOMi8uZ2F0ZXdheV9wcm90b2NvbC5QYXJ0aXRpb24uUGFydGl0",
+            "aW9uQnJva2VyUm9sZSIvChNQYXJ0aXRpb25Ccm9rZXJSb2xlEgoKBkxFQURF",
+            "UhAAEgwKCEZPTExPV0VSEAEiOgoXVXBkYXRlSm9iUmV0cmllc1JlcXVlc3QS",
+            "DgoGam9iS2V5GAEgASgDEg8KB3JldHJpZXMYAiABKAUiGgoYVXBkYXRlSm9i",
+            "UmV0cmllc1Jlc3BvbnNlIlMKE1NldFZhcmlhYmxlc1JlcXVlc3QSGgoSZWxl",
+            "bWVudEluc3RhbmNlS2V5GAEgASgDEhEKCXZhcmlhYmxlcxgCIAEoCRINCgVs",
+            "b2NhbBgDIAEoCCIWChRTZXRWYXJpYWJsZXNSZXNwb25zZTK3CgoHR2F0ZXdh",
+            "eRJhCgxBY3RpdmF0ZUpvYnMSJS5nYXRld2F5X3Byb3RvY29sLkFjdGl2YXRl",
+            "Sm9ic1JlcXVlc3QaJi5nYXRld2F5X3Byb3RvY29sLkFjdGl2YXRlSm9ic1Jl",
+            "c3BvbnNlIgAwARJ9ChZDYW5jZWxXb3JrZmxvd0luc3RhbmNlEi8uZ2F0ZXdh",
+            "eV9wcm90b2NvbC5DYW5jZWxXb3JrZmxvd0luc3RhbmNlUmVxdWVzdBowLmdh",
+            "dGV3YXlfcHJvdG9jb2wuQ2FuY2VsV29ya2Zsb3dJbnN0YW5jZVJlc3BvbnNl",
+            "IgASXAoLQ29tcGxldGVKb2ISJC5nYXRld2F5X3Byb3RvY29sLkNvbXBsZXRl",
+            "Sm9iUmVxdWVzdBolLmdhdGV3YXlfcHJvdG9jb2wuQ29tcGxldGVKb2JSZXNw",
+            "b25zZSIAEn0KFkNyZWF0ZVdvcmtmbG93SW5zdGFuY2USLy5nYXRld2F5X3By",
+            "b3RvY29sLkNyZWF0ZVdvcmtmbG93SW5zdGFuY2VSZXF1ZXN0GjAuZ2F0ZXdh",
+            "eV9wcm90b2NvbC5DcmVhdGVXb3JrZmxvd0luc3RhbmNlUmVzcG9uc2UiABJl",
+            "Cg5EZXBsb3lXb3JrZmxvdxInLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95V29y",
+            "a2Zsb3dSZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2NvbC5EZXBsb3lXb3JrZmxv",
+            "d1Jlc3BvbnNlIgASUAoHRmFpbEpvYhIgLmdhdGV3YXlfcHJvdG9jb2wuRmFp",
+            "bEpvYlJlcXVlc3QaIS5nYXRld2F5X3Byb3RvY29sLkZhaWxKb2JSZXNwb25z",
+            "ZSIAElwKC0dldFdvcmtmbG93EiQuZ2F0ZXdheV9wcm90b2NvbC5HZXRXb3Jr",
+            "Zmxvd1JlcXVlc3QaJS5nYXRld2F5X3Byb3RvY29sLkdldFdvcmtmbG93UmVz",
+            "cG9uc2UiABJiCg1MaXN0V29ya2Zsb3dzEiYuZ2F0ZXdheV9wcm90b2NvbC5M",
+            "aXN0V29ya2Zsb3dzUmVxdWVzdBonLmdhdGV3YXlfcHJvdG9jb2wuTGlzdFdv",
+            "cmtmbG93c1Jlc3BvbnNlIgASZQoOUHVibGlzaE1lc3NhZ2USJy5nYXRld2F5",
+            "X3Byb3RvY29sLlB1Ymxpc2hNZXNzYWdlUmVxdWVzdBooLmdhdGV3YXlfcHJv",
+            "dG9jb2wuUHVibGlzaE1lc3NhZ2VSZXNwb25zZSIAEmgKD1Jlc29sdmVJbmNp",
+            "ZGVudBIoLmdhdGV3YXlfcHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVxdWVz",
+            "dBopLmdhdGV3YXlfcHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVzcG9uc2Ui",
+            "ABJfCgxTZXRWYXJpYWJsZXMSJS5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlh",
+            "Ymxlc1JlcXVlc3QaJi5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1Jl",
+            "c3BvbnNlIgASUwoIVG9wb2xvZ3kSIS5nYXRld2F5X3Byb3RvY29sLlRvcG9s",
+            "b2d5UmVxdWVzdBoiLmdhdGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXNwb25z",
+            "ZSIAEmsKEFVwZGF0ZUpvYlJldHJpZXMSKS5nYXRld2F5X3Byb3RvY29sLlVw",
+            "ZGF0ZUpvYlJldHJpZXNSZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRh",
+            "dGVKb2JSZXRyaWVzUmVzcG9uc2UiAEIhChlpby56ZWViZS5nYXRld2F5LnBy",
+            "b3RvY29sUABaAnBiYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -127,7 +126,7 @@ namespace GatewayProtocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceResponse), global::GatewayProtocol.CancelWorkflowInstanceResponse.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobRequest), global::GatewayProtocol.CompleteJobRequest.Parser, new[]{ "JobKey", "Payload" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobResponse), global::GatewayProtocol.CompleteJobResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceRequest), global::GatewayProtocol.CreateWorkflowInstanceRequest.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceRequest), global::GatewayProtocol.CreateWorkflowInstanceRequest.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "Variables" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceResponse), global::GatewayProtocol.CreateWorkflowInstanceResponse.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "WorkflowInstanceKey" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowRequest), global::GatewayProtocol.DeployWorkflowRequest.Parser, new[]{ "Workflows" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowRequestObject), global::GatewayProtocol.WorkflowRequestObject.Parser, new[]{ "Name", "Type", "Definition" }, null, new[]{ typeof(global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) }, null),
@@ -149,8 +148,8 @@ namespace GatewayProtocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.Partition), global::GatewayProtocol.Partition.Parser, new[]{ "PartitionId", "Role" }, null, new[]{ typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerRole) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesRequest), global::GatewayProtocol.UpdateJobRetriesRequest.Parser, new[]{ "JobKey", "Retries" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesResponse), global::GatewayProtocol.UpdateJobRetriesResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest), global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest.Parser, new[]{ "ElementInstanceKey", "Payload" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse), global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse.Parser, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesRequest), global::GatewayProtocol.SetVariablesRequest.Parser, new[]{ "ElementInstanceKey", "Variables", "Local" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesResponse), global::GatewayProtocol.SetVariablesResponse.Parser, null, null, null, null)
           }));
     }
     #endregion
@@ -1703,7 +1702,7 @@ namespace GatewayProtocol {
       workflowKey_ = other.workflowKey_;
       bpmnProcessId_ = other.bpmnProcessId_;
       version_ = other.version_;
-      payload_ = other.payload_;
+      variables_ = other.variables_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1755,21 +1754,21 @@ namespace GatewayProtocol {
       }
     }
 
-    /// <summary>Field number for the "payload" field.</summary>
-    public const int PayloadFieldNumber = 4;
-    private string payload_ = "";
+    /// <summary>Field number for the "variables" field.</summary>
+    public const int VariablesFieldNumber = 4;
+    private string variables_ = "";
     /// <summary>
     /// JSON document that will instantiate the variables for the root variable scope of the
     /// workflow instance; it must be a JSON object, as variables will be mapped in a
     /// key-value fashion. e.g. { "a": 1, "b": 2 } will create two variables, named "a" and
     /// "b" respectively, with their associated values. [{ "a": 1, "b": 2 }] would not be a
-    /// valid payload, as the root of the JSON document is an array and not an object.
+    /// valid argument, as the root of the JSON document is an array and not an object.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Payload {
-      get { return payload_; }
+    public string Variables {
+      get { return variables_; }
       set {
-        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        variables_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1789,7 +1788,7 @@ namespace GatewayProtocol {
       if (WorkflowKey != other.WorkflowKey) return false;
       if (BpmnProcessId != other.BpmnProcessId) return false;
       if (Version != other.Version) return false;
-      if (Payload != other.Payload) return false;
+      if (Variables != other.Variables) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1799,7 +1798,7 @@ namespace GatewayProtocol {
       if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
       if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
       if (Version != 0) hash ^= Version.GetHashCode();
-      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
+      if (Variables.Length != 0) hash ^= Variables.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1825,9 +1824,9 @@ namespace GatewayProtocol {
         output.WriteRawTag(24);
         output.WriteInt32(Version);
       }
-      if (Payload.Length != 0) {
+      if (Variables.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteString(Payload);
+        output.WriteString(Variables);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1846,8 +1845,8 @@ namespace GatewayProtocol {
       if (Version != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
       }
-      if (Payload.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Payload);
+      if (Variables.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Variables);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1869,8 +1868,8 @@ namespace GatewayProtocol {
       if (other.Version != 0) {
         Version = other.Version;
       }
-      if (other.Payload.Length != 0) {
-        Payload = other.Payload;
+      if (other.Variables.Length != 0) {
+        Variables = other.Variables;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1896,7 +1895,7 @@ namespace GatewayProtocol {
             break;
           }
           case 34: {
-            Payload = input.ReadString();
+            Variables = input.ReadString();
             break;
           }
         }
@@ -3961,8 +3960,8 @@ namespace GatewayProtocol {
     public const int PayloadFieldNumber = 5;
     private string payload_ = "";
     /// <summary>
-    /// the message payload as a JSON document; see CreateWorkflowInstanceRequest for the
-    /// rules about payloads
+    /// the message payload as a JSON document; to be valid, the root of the document must be an
+    /// object, e.g. { "a": "foo" }. [ "foo" ] would not be valid.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Payload {
@@ -5431,11 +5430,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class UpdateWorkflowInstancePayloadRequest : pb::IMessage<UpdateWorkflowInstancePayloadRequest> {
-    private static readonly pb::MessageParser<UpdateWorkflowInstancePayloadRequest> _parser = new pb::MessageParser<UpdateWorkflowInstancePayloadRequest>(() => new UpdateWorkflowInstancePayloadRequest());
+  public sealed partial class SetVariablesRequest : pb::IMessage<SetVariablesRequest> {
+    private static readonly pb::MessageParser<SetVariablesRequest> _parser = new pb::MessageParser<SetVariablesRequest>(() => new SetVariablesRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<UpdateWorkflowInstancePayloadRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<SetVariablesRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -5448,22 +5447,23 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadRequest() {
+    public SetVariablesRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadRequest(UpdateWorkflowInstancePayloadRequest other) : this() {
+    public SetVariablesRequest(SetVariablesRequest other) : this() {
       elementInstanceKey_ = other.elementInstanceKey_;
-      payload_ = other.payload_;
+      variables_ = other.variables_;
+      local_ = other.local_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadRequest Clone() {
-      return new UpdateWorkflowInstancePayloadRequest(this);
+    public SetVariablesRequest Clone() {
+      return new SetVariablesRequest(this);
     }
 
     /// <summary>Field number for the "elementInstanceKey" field.</summary>
@@ -5482,28 +5482,48 @@ namespace GatewayProtocol {
       }
     }
 
-    /// <summary>Field number for the "payload" field.</summary>
-    public const int PayloadFieldNumber = 2;
-    private string payload_ = "";
+    /// <summary>Field number for the "variables" field.</summary>
+    public const int VariablesFieldNumber = 2;
+    private string variables_ = "";
     /// <summary>
-    /// the new payload as a JSON document; see CreateWorkflowInstanceRequest for the rules
-    /// about payloads
+    /// a JSON serialized document describing variables as key value pairs; the root of the document
+    /// must be an object
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Payload {
-      get { return payload_; }
+    public string Variables {
+      get { return variables_; }
       set {
-        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        variables_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "local" field.</summary>
+    public const int LocalFieldNumber = 3;
+    private bool local_;
+    /// <summary>
+    /// if true, the variables will be merged strictly into the local scope (as indicated by
+    /// elementInstanceKey); this means the variables is not propagated to upper scopes.
+    /// for example, let's say we have two scopes, '1' and '2', with each having effective variables as:
+    /// 1 => `{ "foo" : 2 }`, and 2 => `{ "bar" : 1 }`. if we send an update request with
+    /// elementInstanceKey = 2, variables `{ "foo" : 5 }`, and local is true, then scope 1 will
+    /// be unchanged, and scope 2 will now be `{ "bar" : 1, "foo" 5 }`. if local was false, however,
+    /// then scope 1 would be `{ "foo": 5 }`, and scope 2 would be `{ "bar" : 1 }`.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Local {
+      get { return local_; }
+      set {
+        local_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as UpdateWorkflowInstancePayloadRequest);
+      return Equals(other as SetVariablesRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(UpdateWorkflowInstancePayloadRequest other) {
+    public bool Equals(SetVariablesRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -5511,7 +5531,8 @@ namespace GatewayProtocol {
         return true;
       }
       if (ElementInstanceKey != other.ElementInstanceKey) return false;
-      if (Payload != other.Payload) return false;
+      if (Variables != other.Variables) return false;
+      if (Local != other.Local) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5519,7 +5540,8 @@ namespace GatewayProtocol {
     public override int GetHashCode() {
       int hash = 1;
       if (ElementInstanceKey != 0L) hash ^= ElementInstanceKey.GetHashCode();
-      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
+      if (Variables.Length != 0) hash ^= Variables.GetHashCode();
+      if (Local != false) hash ^= Local.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5537,9 +5559,13 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt64(ElementInstanceKey);
       }
-      if (Payload.Length != 0) {
+      if (Variables.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Payload);
+        output.WriteString(Variables);
+      }
+      if (Local != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(Local);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -5552,8 +5578,11 @@ namespace GatewayProtocol {
       if (ElementInstanceKey != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(ElementInstanceKey);
       }
-      if (Payload.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Payload);
+      if (Variables.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Variables);
+      }
+      if (Local != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -5562,15 +5591,18 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(UpdateWorkflowInstancePayloadRequest other) {
+    public void MergeFrom(SetVariablesRequest other) {
       if (other == null) {
         return;
       }
       if (other.ElementInstanceKey != 0L) {
         ElementInstanceKey = other.ElementInstanceKey;
       }
-      if (other.Payload.Length != 0) {
-        Payload = other.Payload;
+      if (other.Variables.Length != 0) {
+        Variables = other.Variables;
+      }
+      if (other.Local != false) {
+        Local = other.Local;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -5588,7 +5620,11 @@ namespace GatewayProtocol {
             break;
           }
           case 18: {
-            Payload = input.ReadString();
+            Variables = input.ReadString();
+            break;
+          }
+          case 24: {
+            Local = input.ReadBool();
             break;
           }
         }
@@ -5597,11 +5633,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class UpdateWorkflowInstancePayloadResponse : pb::IMessage<UpdateWorkflowInstancePayloadResponse> {
-    private static readonly pb::MessageParser<UpdateWorkflowInstancePayloadResponse> _parser = new pb::MessageParser<UpdateWorkflowInstancePayloadResponse>(() => new UpdateWorkflowInstancePayloadResponse());
+  public sealed partial class SetVariablesResponse : pb::IMessage<SetVariablesResponse> {
+    private static readonly pb::MessageParser<SetVariablesResponse> _parser = new pb::MessageParser<SetVariablesResponse>(() => new SetVariablesResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<UpdateWorkflowInstancePayloadResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<SetVariablesResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -5614,29 +5650,29 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadResponse() {
+    public SetVariablesResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadResponse(UpdateWorkflowInstancePayloadResponse other) : this() {
+    public SetVariablesResponse(SetVariablesResponse other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UpdateWorkflowInstancePayloadResponse Clone() {
-      return new UpdateWorkflowInstancePayloadResponse(this);
+    public SetVariablesResponse Clone() {
+      return new SetVariablesResponse(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as UpdateWorkflowInstancePayloadResponse);
+      return Equals(other as SetVariablesResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(UpdateWorkflowInstancePayloadResponse other) {
+    public bool Equals(SetVariablesResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -5677,7 +5713,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(UpdateWorkflowInstancePayloadResponse other) {
+    public void MergeFrom(SetVariablesResponse other) {
       if (other == null) {
         return;
       }

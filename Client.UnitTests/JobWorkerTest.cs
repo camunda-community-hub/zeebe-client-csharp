@@ -389,9 +389,9 @@ namespace Zeebe.Client
             Assert.AreEqual("foo", job.Type);
             Assert.AreEqual("jobWorker", job.Worker);
 
-            Assert.AreEqual("{\"foo\":" + expectedKey + "}", job.Payload);
-            var expectedPayload = new Dictionary<string, int> { { "foo", expectedKey } };
-            CollectionAssert.AreEquivalent(expectedPayload, job.PayloadAsDictionary);
+            Assert.AreEqual("{\"foo\":" + expectedKey + "}", job.Variables);
+            var expectedVariables = new Dictionary<string, int> { { "foo", expectedKey } };
+            CollectionAssert.AreEquivalent(expectedVariables, job.VariablesAsDictionary);
 
             Assert.AreEqual("process", job.Headers.BpmnProcessId);
             Assert.AreEqual("job" + expectedKey, job.Headers.ElementId);

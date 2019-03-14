@@ -87,10 +87,9 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set a list of variable names which should be fetch on job activation.
         ///
-        /// <p>The jobs which are activated by this command will only contain variables from this list in
-        /// their payload.
+        /// <p>The jobs which are activated by this command will only contain variables from this list.
         ///
-        /// <p>This can be used to limit the number of variables in the payload of the activated jobs.
+        /// <p>This can be used to limit the number of variables of the activated jobs.
         /// </summary>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
@@ -100,10 +99,9 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set a list of variable names which should be fetch on job activation.
         ///
-        /// <p>The jobs which are activated by this command will only contain variables from this list in
-        /// their payload.
+        /// <p>The jobs which are activated by this command will only contain variables from this list.
         ///
-        /// <p>This can be used to limit the number of variables in the payload of the activated jobs.
+        /// <p>This can be used to limit the number of variables of the activated jobs.
         /// </summary>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
         /// <returns>

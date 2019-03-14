@@ -1,36 +1,41 @@
-using System.Threading.Tasks;
 using GatewayProtocol;
+using System.Threading.Tasks;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
-using Zeebe.Client.Impl.Responses;
 
 namespace Zeebe.Client.Impl.Commands
 {
-    public class UpdatePayloadCommand : IUpdatePayloadCommandStep1, IUpdatePayloadCommandStep2
+    public class SetVariablesCommand : ISetVariablesCommandStep1, ISetVariablesCommandStep2
     {
-        private readonly UpdateWorkflowInstancePayloadRequest request;
+        private readonly SetVariablesRequest request;
         private readonly Gateway.GatewayClient client;
 
-        public UpdatePayloadCommand(Gateway.GatewayClient client, long elementInstanceKey)
+        public SetVariablesCommand(Gateway.GatewayClient client, long elementInstanceKey)
         {
-            request = new UpdateWorkflowInstancePayloadRequest
+            request = new SetVariablesRequest
             {
                 ElementInstanceKey = elementInstanceKey
             };
             this.client = client;
         }
-
-        public IUpdatePayloadCommandStep2 Payload(string payload)
+        public ISetVariablesCommandStep2 Variables(string variables)
         {
-            request.Payload = payload;
+            request.Variables = variables;
             return this;
         }
 
-        public async Task<IUpdatePayloadResponse> Send()
+
+        public ISetVariablesCommandStep2 Local()
         {
-            var asyncReply = client.UpdateWorkflowInstancePayloadAsync(request);
+            request.Local = true;
+            return this;
+        }
+
+        public async Task<ISetVariablesResponse> Send()
+        {
+            var asyncReply = client.SetVariablesAsync(request);
             await asyncReply.ResponseAsync;
-            return new UpdatePayloadResponse();
+            return new Responses.SetVariablesResponse();
         }
     }
 }

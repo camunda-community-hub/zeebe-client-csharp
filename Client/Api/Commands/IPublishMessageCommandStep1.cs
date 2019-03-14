@@ -66,12 +66,12 @@ namespace Zeebe.Client.Api.Commands
         IPublishMessageCommandStep3 TimeToLive(TimeSpan timeToLive);
 
         /// <summary>
-        /// Set the payload of the message.
+        /// Set the variables of the message.
         /// </summary>
         /// 
-        /// <param name="payload">the payload (JSON) as String</param>
+        /// <param name="variables">the variables (JSON) as String</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
         ///     it to the broker.</returns>
-        IPublishMessageCommandStep3 Payload(string payload);
+        IPublishMessageCommandStep3 Variables(string variables);
     }
 }

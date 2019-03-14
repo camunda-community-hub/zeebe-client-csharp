@@ -1,25 +1,45 @@
 
-using System.Threading.Tasks;
 using GatewayProtocol;
 using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace Zeebe.Client
 {
     [TestFixture]
-    public class UpdatePayloadTest : BaseZeebeTest
+    public class SetVariablesTest : BaseZeebeTest
     {
         [Test]
-        public async Task shouldSendRequestAsExpected()
+        public async Task ShouldSendRequestAsExpected()
         {
             // given
-            var expectedRequest = new UpdateWorkflowInstancePayloadRequest
+            var expectedRequest = new SetVariablesRequest
             {
                 ElementInstanceKey = 2123,
-                Payload = "{\"foo\":\"bar\"}"
+                Variables = "{\"foo\":\"bar\"}"
             };
 
             // when
-            await ZeebeClient.NewUpdatePayloadCommand(2123).Payload("{\"foo\":\"bar\"}").Send();
+            await ZeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}").Send();
+
+            // then
+            var request = TestService.Requests[0];
+            Assert.AreEqual(expectedRequest, request);
+        }
+
+
+        [Test]
+        public async Task ShouldSendRequestWithLocalSemanticsAsExpected()
+        {
+            // given
+            var expectedRequest = new SetVariablesRequest
+            {
+                ElementInstanceKey = 2123,
+                Variables = "{\"foo\":\"bar\"}",
+                Local = true
+            };
+
+            // when
+            await ZeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}").Local().Send();
 
             // then
             var request = TestService.Requests[0];

@@ -48,11 +48,11 @@ namespace Zeebe.Client.Api.CommandsClient
     public interface ICreateWorkflowInstanceCommandStep3 : IFinalCommandStep<IWorkflowInstanceResponse>
     {
         /// <summary>
-        /// Set the initial payload of the workflow instance.
+        /// Set the initial variables of the workflow instance.
         /// </summary>
-        /// <param name="payload">the payload (JSON) as String</param>
+        /// <param name="payload">the variables (JSON) as String</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
         ///     it to the broker.</returns>
-        ICreateWorkflowInstanceCommandStep3 Payload(string payload);
+        ICreateWorkflowInstanceCommandStep3 Variables(string payload);
     }
 }

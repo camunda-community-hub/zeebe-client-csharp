@@ -1,6 +1,6 @@
-using System.Threading.Tasks;
 using GatewayProtocol;
 using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace Zeebe.Client
 {
@@ -69,19 +69,19 @@ namespace Zeebe.Client
         }
 
         [Test]
-        public async Task shouldSendRequestWithPayloadAsExpected()
+        public async Task shouldSendRequestWithVariablesAsExpected()
         {
             // given
             var expectedRequest = new CreateWorkflowInstanceRequest
             {
                 WorkflowKey = 1,
-                Payload = "{\"foo\":1}"
+                Variables = "{\"foo\":1}"
             };
 
             // when
             await ZeebeClient.NewCreateWorkflowInstanceCommand()
                 .WorkflowKey(1)
-                .Payload("{\"foo\":1}")
+                .Variables("{\"foo\":1}")
                 .Send();
 
             // then
@@ -90,21 +90,21 @@ namespace Zeebe.Client
         }
 
         [Test]
-        public async Task shouldSendRequestWithPayloadAndProcessIdAsExpected()
+        public async Task shouldSendRequestWithVariablesAndProcessIdAsExpected()
         {
             // given
             var expectedRequest = new CreateWorkflowInstanceRequest
             {
                 BpmnProcessId = "process",
                 Version = -1,
-                Payload = "{\"foo\":1}"
+                Variables = "{\"foo\":1}"
             };
 
             // when
             await ZeebeClient.NewCreateWorkflowInstanceCommand()
                 .BpmnProcessId("process")
                 .LatestVersion()
-                .Payload("{\"foo\":1}")
+                .Variables("{\"foo\":1}")
                 .Send();
 
             // then

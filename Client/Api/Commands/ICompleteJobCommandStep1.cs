@@ -19,11 +19,11 @@ namespace Zeebe.Client.Api.Commands
     public interface ICompleteJobCommandStep1 : IFinalCommandStep<ICompleteJobResponse>
     {
         /// <summary>
-        /// Set the payload to complete the job with.
+        /// Set the variables to complete the job with.
         /// </summary>
-        /// <param name="payload">the payload (JSON) as String</param>
+        /// <param name="variables">the variables (JSON) as String</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
         ///     to the broker.</returns>
-        ICompleteJobCommandStep1 Payload(string payload);
+        ICompleteJobCommandStep1 Variables(string variables);
     }
 }

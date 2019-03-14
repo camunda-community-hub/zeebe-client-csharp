@@ -32,12 +32,12 @@ namespace GatewayProtocol {
     static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageResponse> __Marshaller_gateway_protocol_PublishMessageResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.PublishMessageResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.ResolveIncidentRequest> __Marshaller_gateway_protocol_ResolveIncidentRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ResolveIncidentRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.ResolveIncidentResponse> __Marshaller_gateway_protocol_ResolveIncidentResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ResolveIncidentResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.SetVariablesRequest> __Marshaller_gateway_protocol_SetVariablesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.SetVariablesRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.SetVariablesResponse> __Marshaller_gateway_protocol_SetVariablesResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.SetVariablesResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.TopologyRequest> __Marshaller_gateway_protocol_TopologyRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.TopologyRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.TopologyResponse> __Marshaller_gateway_protocol_TopologyResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.TopologyResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobRetriesRequest> __Marshaller_gateway_protocol_UpdateJobRetriesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateJobRetriesRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobRetriesResponse> __Marshaller_gateway_protocol_UpdateJobRetriesResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateJobRetriesResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest> __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse> __Method_ActivateJobs = new grpc::Method<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse>(
         grpc::MethodType.ServerStreaming,
@@ -109,6 +109,13 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_ResolveIncidentRequest,
         __Marshaller_gateway_protocol_ResolveIncidentResponse);
 
+    static readonly grpc::Method<global::GatewayProtocol.SetVariablesRequest, global::GatewayProtocol.SetVariablesResponse> __Method_SetVariables = new grpc::Method<global::GatewayProtocol.SetVariablesRequest, global::GatewayProtocol.SetVariablesResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SetVariables",
+        __Marshaller_gateway_protocol_SetVariablesRequest,
+        __Marshaller_gateway_protocol_SetVariablesResponse);
+
     static readonly grpc::Method<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse> __Method_Topology = new grpc::Method<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -122,13 +129,6 @@ namespace GatewayProtocol {
         "UpdateJobRetries",
         __Marshaller_gateway_protocol_UpdateJobRetriesRequest,
         __Marshaller_gateway_protocol_UpdateJobRetriesResponse);
-
-    static readonly grpc::Method<global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest, global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> __Method_UpdateWorkflowInstancePayload = new grpc::Method<global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest, global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "UpdateWorkflowInstancePayload",
-        __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadRequest,
-        __Marshaller_gateway_protocol_UpdateWorkflowInstancePayloadResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -216,8 +216,8 @@ namespace GatewayProtocol {
       ///start event can be started manually.
       ///
       ///INVALID_ARGUMENT:
-      ///- the given payload is not a valid JSON document; all payloads are expected to be
-      ///valid JSON documents where the root node is an object.
+      ///- the given variables argument is not a valid JSON document; it is expected to be a valid
+      ///JSON document where the root node is an object.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -327,7 +327,7 @@ namespace GatewayProtocol {
       /// <summary>
       ///
       ///Resolves a given incident. This simply marks the incident as resolved; most likely a call to
-      ///UpdateJobRetries or UpdateWorkflowInstancePayload will be necessary to actually resolve the
+      ///UpdateJobRetries or SetVariables will be necessary to actually resolve the
       ///problem, following by this call.
       ///
       ///Errors:
@@ -338,6 +338,26 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ResolveIncidentResponse> ResolveIncident(global::GatewayProtocol.ResolveIncidentRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Updates all the variables of a particular scope (e.g. workflow instance, flow element instance)
+      ///from the given JSON document.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no element with the given elementInstanceKey exists
+      ///INVALID_ARGUMENT:
+      ///- the given variables document is not a valid JSON document; valid documents are expected to
+      ///be JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.SetVariablesResponse> SetVariables(global::GatewayProtocol.SetVariablesRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -370,25 +390,6 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      /// <summary>
-      ///
-      ///Updates all the variables in the workflow instance scope from the given JSON document.
-      ///
-      ///Errors:
-      ///NOT_FOUND:
-      ///- no element with the given elementInstanceKey exists
-      ///INVALID_ARGUMENT:
-      ///- the given payload is not a valid JSON document; all payloads are expected to be
-      ///valid JSON documents where the root node is an object.
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayload(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -625,8 +626,8 @@ namespace GatewayProtocol {
       ///start event can be started manually.
       ///
       ///INVALID_ARGUMENT:
-      ///- the given payload is not a valid JSON document; all payloads are expected to be
-      ///valid JSON documents where the root node is an object.
+      ///- the given variables argument is not a valid JSON document; it is expected to be a valid
+      ///JSON document where the root node is an object.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -656,8 +657,8 @@ namespace GatewayProtocol {
       ///start event can be started manually.
       ///
       ///INVALID_ARGUMENT:
-      ///- the given payload is not a valid JSON document; all payloads are expected to be
-      ///valid JSON documents where the root node is an object.
+      ///- the given variables argument is not a valid JSON document; it is expected to be a valid
+      ///JSON document where the root node is an object.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -685,8 +686,8 @@ namespace GatewayProtocol {
       ///start event can be started manually.
       ///
       ///INVALID_ARGUMENT:
-      ///- the given payload is not a valid JSON document; all payloads are expected to be
-      ///valid JSON documents where the root node is an object.
+      ///- the given variables argument is not a valid JSON document; it is expected to be a valid
+      ///JSON document where the root node is an object.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -716,8 +717,8 @@ namespace GatewayProtocol {
       ///start event can be started manually.
       ///
       ///INVALID_ARGUMENT:
-      ///- the given payload is not a valid JSON document; all payloads are expected to be
-      ///valid JSON documents where the root node is an object.
+      ///- the given variables argument is not a valid JSON document; it is expected to be a valid
+      ///JSON document where the root node is an object.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -1117,7 +1118,7 @@ namespace GatewayProtocol {
       /// <summary>
       ///
       ///Resolves a given incident. This simply marks the incident as resolved; most likely a call to
-      ///UpdateJobRetries or UpdateWorkflowInstancePayload will be necessary to actually resolve the
+      ///UpdateJobRetries or SetVariables will be necessary to actually resolve the
       ///problem, following by this call.
       ///
       ///Errors:
@@ -1136,7 +1137,7 @@ namespace GatewayProtocol {
       /// <summary>
       ///
       ///Resolves a given incident. This simply marks the incident as resolved; most likely a call to
-      ///UpdateJobRetries or UpdateWorkflowInstancePayload will be necessary to actually resolve the
+      ///UpdateJobRetries or SetVariables will be necessary to actually resolve the
       ///problem, following by this call.
       ///
       ///Errors:
@@ -1153,7 +1154,7 @@ namespace GatewayProtocol {
       /// <summary>
       ///
       ///Resolves a given incident. This simply marks the incident as resolved; most likely a call to
-      ///UpdateJobRetries or UpdateWorkflowInstancePayload will be necessary to actually resolve the
+      ///UpdateJobRetries or SetVariables will be necessary to actually resolve the
       ///problem, following by this call.
       ///
       ///Errors:
@@ -1172,7 +1173,7 @@ namespace GatewayProtocol {
       /// <summary>
       ///
       ///Resolves a given incident. This simply marks the incident as resolved; most likely a call to
-      ///UpdateJobRetries or UpdateWorkflowInstancePayload will be necessary to actually resolve the
+      ///UpdateJobRetries or SetVariables will be necessary to actually resolve the
       ///problem, following by this call.
       ///
       ///Errors:
@@ -1185,6 +1186,86 @@ namespace GatewayProtocol {
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ResolveIncidentResponse> ResolveIncidentAsync(global::GatewayProtocol.ResolveIncidentRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_ResolveIncident, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Updates all the variables of a particular scope (e.g. workflow instance, flow element instance)
+      ///from the given JSON document.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no element with the given elementInstanceKey exists
+      ///INVALID_ARGUMENT:
+      ///- the given variables document is not a valid JSON document; valid documents are expected to
+      ///be JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.SetVariablesResponse SetVariables(global::GatewayProtocol.SetVariablesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SetVariables(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Updates all the variables of a particular scope (e.g. workflow instance, flow element instance)
+      ///from the given JSON document.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no element with the given elementInstanceKey exists
+      ///INVALID_ARGUMENT:
+      ///- the given variables document is not a valid JSON document; valid documents are expected to
+      ///be JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.SetVariablesResponse SetVariables(global::GatewayProtocol.SetVariablesRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_SetVariables, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Updates all the variables of a particular scope (e.g. workflow instance, flow element instance)
+      ///from the given JSON document.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no element with the given elementInstanceKey exists
+      ///INVALID_ARGUMENT:
+      ///- the given variables document is not a valid JSON document; valid documents are expected to
+      ///be JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.SetVariablesResponse> SetVariablesAsync(global::GatewayProtocol.SetVariablesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SetVariablesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Updates all the variables of a particular scope (e.g. workflow instance, flow element instance)
+      ///from the given JSON document.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no element with the given elementInstanceKey exists
+      ///INVALID_ARGUMENT:
+      ///- the given variables document is not a valid JSON document; valid documents are expected to
+      ///be JSON documents where the root node is an object.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.SetVariablesResponse> SetVariablesAsync(global::GatewayProtocol.SetVariablesRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SetVariables, null, options, request);
       }
       /// <summary>
       ///
@@ -1314,82 +1395,6 @@ namespace GatewayProtocol {
       {
         return CallInvoker.AsyncUnaryCall(__Method_UpdateJobRetries, null, options, request);
       }
-      /// <summary>
-      ///
-      ///Updates all the variables in the workflow instance scope from the given JSON document.
-      ///
-      ///Errors:
-      ///NOT_FOUND:
-      ///- no element with the given elementInstanceKey exists
-      ///INVALID_ARGUMENT:
-      ///- the given payload is not a valid JSON document; all payloads are expected to be
-      ///valid JSON documents where the root node is an object.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The response received from the server.</returns>
-      public virtual global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse UpdateWorkflowInstancePayload(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return UpdateWorkflowInstancePayload(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      ///
-      ///Updates all the variables in the workflow instance scope from the given JSON document.
-      ///
-      ///Errors:
-      ///NOT_FOUND:
-      ///- no element with the given elementInstanceKey exists
-      ///INVALID_ARGUMENT:
-      ///- the given payload is not a valid JSON document; all payloads are expected to be
-      ///valid JSON documents where the root node is an object.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The response received from the server.</returns>
-      public virtual global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse UpdateWorkflowInstancePayload(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_UpdateWorkflowInstancePayload, null, options, request);
-      }
-      /// <summary>
-      ///
-      ///Updates all the variables in the workflow instance scope from the given JSON document.
-      ///
-      ///Errors:
-      ///NOT_FOUND:
-      ///- no element with the given elementInstanceKey exists
-      ///INVALID_ARGUMENT:
-      ///- the given payload is not a valid JSON document; all payloads are expected to be
-      ///valid JSON documents where the root node is an object.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayloadAsync(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return UpdateWorkflowInstancePayloadAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      ///
-      ///Updates all the variables in the workflow instance scope from the given JSON document.
-      ///
-      ///Errors:
-      ///NOT_FOUND:
-      ///- no element with the given elementInstanceKey exists
-      ///INVALID_ARGUMENT:
-      ///- the given payload is not a valid JSON document; all payloads are expected to be
-      ///valid JSON documents where the root node is an object.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateWorkflowInstancePayloadResponse> UpdateWorkflowInstancePayloadAsync(global::GatewayProtocol.UpdateWorkflowInstancePayloadRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_UpdateWorkflowInstancePayload, null, options, request);
-      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override GatewayClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -1412,9 +1417,9 @@ namespace GatewayProtocol {
           .AddMethod(__Method_ListWorkflows, serviceImpl.ListWorkflows)
           .AddMethod(__Method_PublishMessage, serviceImpl.PublishMessage)
           .AddMethod(__Method_ResolveIncident, serviceImpl.ResolveIncident)
+          .AddMethod(__Method_SetVariables, serviceImpl.SetVariables)
           .AddMethod(__Method_Topology, serviceImpl.Topology)
-          .AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries)
-          .AddMethod(__Method_UpdateWorkflowInstancePayload, serviceImpl.UpdateWorkflowInstancePayload).Build();
+          .AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries).Build();
     }
 
     /// <summary>Register service method implementations with a service binder. Useful when customizing the service binding logic.
@@ -1433,9 +1438,9 @@ namespace GatewayProtocol {
       serviceBinder.AddMethod(__Method_ListWorkflows, serviceImpl.ListWorkflows);
       serviceBinder.AddMethod(__Method_PublishMessage, serviceImpl.PublishMessage);
       serviceBinder.AddMethod(__Method_ResolveIncident, serviceImpl.ResolveIncident);
+      serviceBinder.AddMethod(__Method_SetVariables, serviceImpl.SetVariables);
       serviceBinder.AddMethod(__Method_Topology, serviceImpl.Topology);
       serviceBinder.AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries);
-      serviceBinder.AddMethod(__Method_UpdateWorkflowInstancePayload, serviceImpl.UpdateWorkflowInstancePayload);
     }
 
   }

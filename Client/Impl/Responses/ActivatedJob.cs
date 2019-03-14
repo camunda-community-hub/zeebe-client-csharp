@@ -36,8 +36,8 @@ namespace Zeebe.Client.Impl.Responses
             Worker = activatedJob.Worker;
             Retries = activatedJob.Retries;
             Deadline = FromUTCTimestamp(activatedJob.Deadline);
-            Payload = activatedJob.Payload;
-            PayloadAsDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(Payload);
+            Variables = activatedJob.Payload;
+            VariablesAsDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(Variables);
         }
 
         public long Key { get; }
@@ -52,18 +52,18 @@ namespace Zeebe.Client.Impl.Responses
 
         public DateTime Deadline { get; }
 
-        public string Payload { get; }
+        public string Variables { get; }
 
-        public IDictionary<string, object> PayloadAsDictionary { get; }
+        public IDictionary<string, object> VariablesAsDictionary { get; }
 
-        public InstanceType PayloadAsType<InstanceType>()
+        public InstanceType VariablesAsType<InstanceType>()
         {
-            return JsonConvert.DeserializeObject<InstanceType>(Payload);
+            return JsonConvert.DeserializeObject<InstanceType>(Variables);
         }
 
         public override string ToString()
         {
-            return $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(Headers)}: {Headers}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Payload)}: {Payload}";
+            return $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(Headers)}: {Headers}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}";
         }
     }
 }

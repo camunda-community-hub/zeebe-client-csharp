@@ -53,7 +53,7 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public IPublishMessageCommandStep3 Payload(string payload)
+        public IPublishMessageCommandStep3 Variables(string payload)
         {
             request.Payload = payload;
             return this;

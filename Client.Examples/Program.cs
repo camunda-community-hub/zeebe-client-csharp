@@ -27,7 +27,7 @@ namespace Client.Examples
     {
         private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
         private static readonly string ZeebeUrl = "127.0.0.1:26500";
-        private static readonly string WorkflowInstancePayload = "{\"a\":\"123\"}";
+        private static readonly string WorkflowInstanceVariables = "{\"a\":\"123\"}";
         private static readonly string JobType = "foo";
         private static readonly string WorkerName = Environment.MachineName;
 
@@ -44,7 +44,7 @@ namespace Client.Examples
             await client
                 .NewCreateWorkflowInstanceCommand()
                 .WorkflowKey(workflowKey)
-                .Payload(WorkflowInstancePayload)
+                .Variables(WorkflowInstanceVariables)
                 .Send();
 
             // open job worker
@@ -72,7 +72,7 @@ namespace Client.Examples
 
             if (jobKey % 2 == 0)
             {
-                jobClient.NewCompleteJobCommand(jobKey).Payload("{\"foo\":2}").Send();
+                jobClient.NewCompleteJobCommand(jobKey).Variables("{\"foo\":2}").Send();
             }
             else
             {

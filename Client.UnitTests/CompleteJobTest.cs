@@ -34,7 +34,7 @@ namespace Zeebe.Client
             };
 
             // when
-            await ZeebeClient.NewCompleteJobCommand(JobKey).Payload(Payload).Send();
+            await ZeebeClient.NewCompleteJobCommand(JobKey).Variables(Payload).Send();
 
             // then
             var actualRequest = TestService.Requests[0];

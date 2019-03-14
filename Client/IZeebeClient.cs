@@ -50,12 +50,12 @@ namespace Zeebe.Client
         /// <pre>
         /// var handler = (client, job) =>
         ///   {
-        ///     String json = job.Payload;
-        ///     // modify payload
+        ///     String json = job.Variables;
+        ///     // modify variables
         /// 
         ///     client
         ///      .CompleteCommand(job.Key)
-        ///      .Payload(json)
+        ///      .Variables(json)
         ///      .Send();
         ///   };
         /// </pre>
@@ -130,7 +130,7 @@ namespace Zeebe.Client
         ///  .NewCreateInstanceCommand()
         ///  .BpmnProcessId("my-process")
         ///  .LatestVersion()
-        ///  .Payload(json)
+        ///  .Variables(json)
         ///  .Send();
         /// </pre>
         /// 
@@ -153,17 +153,17 @@ namespace Zeebe.Client
         ICancelWorkflowInstanceCommandStep1 NewCancelInstanceCommand(long workflowInstanceKey);
 
         /// <summary>
-        /// Command to update the payload of a workflow instance.
+        /// Command to update the variables of a workflow instance.
         ///  <pre>
         ///   zeebeClient
-        ///    .NewUpdatePayloadCommand(elementInstanceKey)
-        ///    .Payload(json)
+        ///    .NewSetVariablesCommand(elementInstanceKey)
+        ///    .Variables(json)
         ///    .Send();
         ///  </pre>
         /// </summary>
-        /// <param name="elementInstanceKey">the key of the element instance to update the payload for</param>
+        /// <param name="elementInstanceKey">the key of the element instance to set the variables for</param>
         /// <returns> a builder for the command</returns>
-        IUpdatePayloadCommandStep1 NewUpdatePayloadCommand(long elementInstanceKey);
+        ISetVariablesCommandStep1 NewSetVariablesCommand(long elementInstanceKey);
 
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace Zeebe.Client
         ///  .NewPublishMessageCommand()
         ///  .MessageName("order canceled")
         ///  .CorrelationKey(orderId)
-        ///  .Payload(json)
+        ///  .Variables(json)
         ///  .Send();
         /// </pre>
         /// 
