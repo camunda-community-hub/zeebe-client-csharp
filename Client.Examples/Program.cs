@@ -36,16 +36,22 @@ namespace Client.Examples
             // create zeebe client
             var client = ZeebeClient.NewZeebeClient(ZeebeUrl);
 
+
+            await client.NewPublishMessageCommand().MessageName("csharp").CorrelationKey("wow").Variables("{\"realValue\":2}").Send();
+
             // deploy
             var deployResponse = await client.NewDeployCommand().AddResourceFile(DemoProcessPath).Send();
 
             // create workflow instance
             var workflowKey = deployResponse.Workflows[0].WorkflowKey;
-            await client
+            var workflowInstance = await client
                 .NewCreateWorkflowInstanceCommand()
                 .WorkflowKey(workflowKey)
                 .Variables(WorkflowInstanceVariables)
                 .Send();
+
+
+            await client.NewSetVariablesCommand(workflowInstance.WorkflowInstanceKey).Variables("{\"wow\":\"this\"}").Local().Send();
 
             // open job worker
             using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
