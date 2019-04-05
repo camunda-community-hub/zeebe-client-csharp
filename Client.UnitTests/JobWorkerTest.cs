@@ -31,7 +31,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 123L,
-                Amount = 3,
+                MaxJobsToActivate = 3,
                 Type = "foo",
                 Worker = "jobWorker"
             };
@@ -51,7 +51,7 @@ namespace Zeebe.Client
                         signal.Set();
                     }
                 })
-                .Limit(3)
+                .MaxJobsActive(3)
                 .Name("jobWorker")
                 .Timeout(123L)
                 .PollInterval(TimeSpan.FromMilliseconds(100))
@@ -80,7 +80,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 123L,
-                Amount = 4,
+                MaxJobsToActivate = 4,
                 Type = "foo",
                 Worker = "jobWorker"
             };
@@ -88,7 +88,7 @@ namespace Zeebe.Client
             var expectedSecondRequest = new ActivateJobsRequest
             {
                 Timeout = 123L,
-                Amount = 2, // first response contains 3 jobs and one is handled (blocking) so 2 jobs remain in queue
+                MaxJobsToActivate = 2, // first response contains 3 jobs and one is handled (blocking) so 2 jobs remain in queue
                             // so we can try to activate 2 new jobs
                 Type = "foo",
                 Worker = "jobWorker"
@@ -108,7 +108,7 @@ namespace Zeebe.Client
                         signal.WaitOne();
                     }
                 })
-                .Limit(4)
+                .MaxJobsActive(4)
                 .Name("jobWorker")
                 .Timeout(123L)
                 .PollInterval(TimeSpan.FromMilliseconds(100))
@@ -135,7 +135,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 10_000L,
-                Amount = 1,
+                MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker"
             };
@@ -155,7 +155,7 @@ namespace Zeebe.Client
                         signal.Set();
                     }
                 })
-                .Limit(1)
+                .MaxJobsActive(1)
                 .Name("jobWorker")
                 .Timeout(TimeSpan.FromSeconds(10))
                 .PollInterval(TimeSpan.FromMilliseconds(100))
@@ -184,7 +184,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 10_000L,
-                Amount = 1,
+                MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker",
                 FetchVariable = { "foo", "bar", "test" }
@@ -205,7 +205,7 @@ namespace Zeebe.Client
                         signal.Set();
                     }
                 })
-                .Limit(1)
+                .MaxJobsActive(1)
                 .Name("jobWorker")
                 .Timeout(TimeSpan.FromSeconds(10))
                 .FetchVariables("foo", "bar", "test")
@@ -235,7 +235,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 10_000L,
-                Amount = 1,
+                MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker",
                 FetchVariable = { "foo", "bar", "test" }
@@ -256,7 +256,7 @@ namespace Zeebe.Client
                         signal.Set();
                     }
                 })
-                .Limit(1)
+                .MaxJobsActive(1)
                 .Name("jobWorker")
                 .Timeout(TimeSpan.FromSeconds(10))
                 .FetchVariables(variableNames)
@@ -286,7 +286,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 123L,
-                Amount = 1,
+                MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker"
             };
@@ -310,7 +310,7 @@ namespace Zeebe.Client
                         throw new Exception("Fail");
                     }
                 })
-                .Limit(1)
+                .MaxJobsActive(1)
                 .Name("jobWorker")
                 .Timeout(123L)
                 .PollInterval(TimeSpan.FromMilliseconds(100))
@@ -340,7 +340,7 @@ namespace Zeebe.Client
                         Key = 1,
                         Worker = "jobWorker",
                         Type = "foo",
-                        Payload = "{\"foo\":1}",
+                        Variables = "{\"foo\":1}",
                         Retries = 3,
                         Deadline = 123932,
                         JobHeaders = new JobHeaders{
@@ -354,7 +354,7 @@ namespace Zeebe.Client
                         Key = 2,
                         Worker = "jobWorker",
                         Type = "foo",
-                        Payload = "{\"foo\":2}",
+                        Variables = "{\"foo\":2}",
                         Retries = 3,
                         Deadline = 123932,
                         JobHeaders = new JobHeaders{
@@ -368,7 +368,7 @@ namespace Zeebe.Client
                         Key = 3,
                         Worker = "jobWorker",
                         Type = "foo",
-                        Payload = "{\"foo\":3}",
+                        Variables = "{\"foo\":3}",
                         Retries = 3,
                         Deadline = 123932,
                         JobHeaders = new JobHeaders{

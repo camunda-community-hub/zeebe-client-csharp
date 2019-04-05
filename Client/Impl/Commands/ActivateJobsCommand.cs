@@ -25,9 +25,9 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public IActivateJobsCommandStep3 Limit(int amount)
+        public IActivateJobsCommandStep3 MaxJobsToActivate(int maxJobsToActivate)
         {
-            request.Amount = amount;
+            request.MaxJobsToActivate = maxJobsToActivate;
             return this;
         }
 

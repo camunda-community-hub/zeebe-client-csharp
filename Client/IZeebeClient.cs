@@ -21,19 +21,19 @@ using Zeebe.Client.Api.Subscription;
 namespace Zeebe.Client
 {
 
-    /// <summary> 
-    /// The client to communicate with a Zeebe broker/cluster. 
+    /// <summary>
+    /// The client to communicate with a Zeebe broker/cluster.
     /// </summary>
     public interface IZeebeClient : IJobClient, IDisposable
     {
 
         /// <summary>
         /// Registers a new job worker for jobs of a given type.
-        /// 
+        ///
         /// <p>After registration, the broker activates available jobs and assigns them to this worker. It
         /// then publishes them to the client. The given worker is called for every received job, works on
         /// them and eventually completes them.
-        /// 
+        ///
         /// <pre>
         /// using(IJobWorker worker = zeebeClient
         ///  .NewWorker()
@@ -44,25 +44,25 @@ namespace Zeebe.Client
         ///  ...
         ///  }
         /// </pre>
-        /// 
+        ///
         /// Example JobHandler implementation:
-        /// 
+        ///
         /// <pre>
         /// var handler = (client, job) =>
         ///   {
         ///     String json = job.Variables;
         ///     // modify variables
-        /// 
+        ///
         ///     client
         ///      .CompleteCommand(job.Key)
         ///      .Variables(json)
         ///      .Send();
         ///   };
         /// </pre>
-        /// 
+        ///
         /// The handler must be thread-safe.
         /// </summary>
-        /// 
+        ///
         /// <returns>a builder for the worker registration</returns>
         IJobWorkerBuilderStep1 NewWorker();
 
@@ -73,15 +73,16 @@ namespace Zeebe.Client
         /// zeebeClient
         ///  .NewActivateJobsCommand()
         ///  .JobType("payment")
-        ///  .Limit(10)
+        ///  .maxJobsToActivate(10)
         ///  .WorkerName("paymentWorker")
         ///  .Timeout(TimeSpan.FromMinutes(10))
         ///  .Send();
         /// </pre>
         ///
-        /// <p>The command will try to activate maximal {@code amount} jobs of given {@code jobType}. If
-        /// less then {@code amount} jobs of the {@code jobType} are available for activation the returned
-        /// list will have fewer elements.
+        ///  <p>The command will try to use {@code maxJobsToActivate} for given {@code jobType}. If less
+        /// then the requested {@code maxJobsToActivate} jobs of the {@code jobType} are available for
+        /// activation the returned list will have fewer elements.
+        ///
         /// </summary>
         /// <returns>
         /// a builder for the command
@@ -90,16 +91,16 @@ namespace Zeebe.Client
 
         /// <summary>
         /// Command to update the retries of a job.
-        /// 
+        ///
         /// <pre>
         /// long jobKey = ..;
-        /// 
+        ///
         /// zeebeClient
         ///  .NewUpdateRetriesCommand(jobKey)
         ///  .Retries(3)
         ///  .Send();
         /// </pre>
-        /// 
+        ///
         /// <p>If the given retries are greater than zero then this job will be picked up again by a job
         /// subscription and a related incident will be marked as resolved.
         /// </summary>
@@ -109,7 +110,7 @@ namespace Zeebe.Client
 
         /// <summary>
         /// Command to deploy new workflows.
-        /// 
+        ///
         /// <pre>
         /// zeebeClient
         ///  .NewDeployCommand()
@@ -118,13 +119,13 @@ namespace Zeebe.Client
         ///  .Send();
         /// </pre>
         /// </summary>
-        /// 
+        ///
         /// <returns>a builder for the deploy command</returns>
         IDeployWorkflowCommandStep1 NewDeployCommand();
 
         /// <summary>
         /// Command to create/start a new instance of a workflow.
-        /// 
+        ///
         /// <pre>
         /// zeebeClient
         ///  .NewCreateInstanceCommand()
@@ -133,7 +134,7 @@ namespace Zeebe.Client
         ///  .Variables(json)
         ///  .Send();
         /// </pre>
-        /// 
+        ///
         /// </summary>
         /// <returns>a builder for the command</returns>
         ICreateWorkflowInstanceCommandStep1 NewCreateWorkflowInstanceCommand();
@@ -180,7 +181,7 @@ namespace Zeebe.Client
 
         /// <summary>
         /// Command to publish a message which can be correlated to a workflow instance.
-        /// 
+        ///
         /// <pre>
         /// zeebeClient
         ///  .NewPublishMessageCommand()
@@ -189,9 +190,9 @@ namespace Zeebe.Client
         ///  .Variables(json)
         ///  .Send();
         /// </pre>
-        /// 
+        ///
         /// </summary>
-        /// 
+        ///
         /// <returns>a builder for the command</returns>
         IPublishMessageCommandStep1 NewPublishMessageCommand();
 
@@ -234,14 +235,14 @@ namespace Zeebe.Client
         /// <summary>
         /// Request the current cluster topology. Can be used to inspect which brokers are available at
         /// which endpoint and which broker is the leader of which partition.
-        /// 
+        ///
         /// <pre>
         /// ITopology response = await ZeebeClient.TopologyRequest().Send();
         /// IList<IBrokerInfo> brokers = response.Brokers;
         /// </pre>
-        /// 
+        ///
         /// </summary>
-        /// 
+        ///
         /// <returns>the request where you must call #send()</returns>
         ITopologyRequestStep1 TopologyRequest();
 

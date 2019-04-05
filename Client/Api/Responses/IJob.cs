@@ -45,13 +45,13 @@ namespace Zeebe.Client.Api.Responses
         /// </returns>
         DateTime Deadline { get; }
 
-        /// <returns> JSON-formatted payload </returns>
+        /// <returns> JSON-formatted variables </returns>
         string Variables { get; }
 
-        /// <returns> De-serialized payload as map </returns>
+        /// <returns> De-serialized variables as map </returns>
         IDictionary<string, object> VariablesAsDictionary { get; }
 
-        /// <returns>de-serialized payload as the given type </returns>
+        /// <returns>de-serialized variables as the given type </returns>
         InstanceType VariablesAsType<InstanceType>();
     }
 }

@@ -59,7 +59,7 @@ namespace Client.Examples
                 client.NewWorker()
                       .JobType(JobType)
                       .Handler(HandleJob)
-                      .Limit(5)
+                      .MaxJobsActive(5)
                       .Name(WorkerName)
                       .PollInterval(TimeSpan.FromSeconds(1))
                       .Timeout(TimeSpan.FromSeconds(10))

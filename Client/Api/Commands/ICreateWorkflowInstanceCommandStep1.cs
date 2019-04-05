@@ -50,9 +50,9 @@ namespace Zeebe.Client.Api.CommandsClient
         /// <summary>
         /// Set the initial variables of the workflow instance.
         /// </summary>
-        /// <param name="payload">the variables (JSON) as String</param>
+        /// <param name="variables">the variables (JSON) as String</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
         ///     it to the broker.</returns>
-        ICreateWorkflowInstanceCommandStep3 Variables(string payload);
+        ICreateWorkflowInstanceCommandStep3 Variables(string variables);
     }
 }

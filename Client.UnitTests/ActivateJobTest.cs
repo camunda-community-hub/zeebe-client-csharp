@@ -17,7 +17,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 10_000L,
-                Amount = 1,
+                MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker",
             };
@@ -27,7 +27,7 @@ namespace Zeebe.Client
             // when
             var response = await ZeebeClient.NewActivateJobsCommand()
                 .JobType("foo")
-                .Limit(1)
+                .MaxJobsToActivate(1)
                 .Timeout(TimeSpan.FromSeconds(10))
                 .WorkerName("jobWorker")
                 .Send();
@@ -51,7 +51,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 10_000L,
-                Amount = 1,
+                MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker",
                 FetchVariable = { "foo", "bar", "test" }
@@ -62,7 +62,7 @@ namespace Zeebe.Client
             // when
             var response = await ZeebeClient.NewActivateJobsCommand()
                 .JobType("foo")
-                .Limit(1)
+                .MaxJobsToActivate(1)
                 .Timeout(TimeSpan.FromSeconds(10))
                 .WorkerName("jobWorker")
                 .FetchVariables("foo", "bar", "test")
@@ -87,7 +87,7 @@ namespace Zeebe.Client
             var expectedRequest = new ActivateJobsRequest
             {
                 Timeout = 10_000L,
-                Amount = 1,
+                MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker",
                 FetchVariable = { "foo", "bar", "test" }
@@ -98,7 +98,7 @@ namespace Zeebe.Client
             // when
             var response = await ZeebeClient.NewActivateJobsCommand()
                 .JobType("foo")
-                .Limit(1)
+                .MaxJobsToActivate(1)
                 .Timeout(TimeSpan.FromSeconds(10))
                 .WorkerName("jobWorker")
                 .FetchVariables(variableNames)

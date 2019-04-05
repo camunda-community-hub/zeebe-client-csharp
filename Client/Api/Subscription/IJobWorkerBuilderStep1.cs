@@ -41,22 +41,22 @@ namespace Zeebe.Client.Api.Subscription
         /// <summary>
         /// Set the handler to process the jobs. At the end of the processing, the handler should
         /// complete the job or mark it as failed;
-        /// 
+        ///
         /// <p>Example JobHandler implementation:
-        /// 
+        ///
         /// <pre>
         /// var handler = (client, job) =>
         ///   {
-        ///     String json = job.Payload;
-        ///     // modify payload
-        /// 
+        ///     String json = job.Variables;
+        ///     // modify variables
+        ///
         ///     client
         ///      .CompleteCommand(job.Key)
-        ///      .Payload(json)
+        ///      .Variables(json)
         ///      .Send();
         ///   };
         /// </pre>
-        /// 
+        ///
         /// The handler must be thread-safe.
         /// </summary>
         /// <param name="handler">the handle to process the jobs</param>
@@ -68,11 +68,11 @@ namespace Zeebe.Client.Api.Subscription
     {
         /// <summary>
         /// Set the time for how long a job is exclusively assigned for this worker.
-        /// 
+        ///
         /// <p>In this time, the job can not be assigned by other workers to ensure that only one worker
         /// work on the job. When the time is over then the job can be assigned again by this or other
         /// worker if it's not completed yet.
-        /// 
+        ///
         /// <p>If no timeout is set, then the default is used from the configuration.
         /// </summary>
         /// <param name="timeout">the time in milliseconds</param>
@@ -81,23 +81,23 @@ namespace Zeebe.Client.Api.Subscription
 
         /// <summary>
         /// Set the time for how long a job is exclusively assigned for this worker.
-        /// 
+        ///
         /// <p>In this time, the job can not be assigned by other workers to ensure that only one worker
         /// work on the job. When the time is over then the job can be assigned again by this or other
         /// worker if it's not completed yet.
-        /// 
+        ///
         /// <p>If no time is set then the default is used from the configuration.
-        /// 
-        /// <param name="timeout">the time as time span (e.g. "TimeSpan.FromMinutes(10)")</param> 
+        ///
+        /// <param name="timeout">the time as time span (e.g. "TimeSpan.FromMinutes(10)")</param>
         /// <returns>the builder for this worker
         /// </summary>
         IJobWorkerBuilderStep3 Timeout(TimeSpan timeout);
 
         /// <summary>
         /// Set the name of the worker owner.
-        /// 
+        ///
         /// <p>This name is used to identify the worker to which a job is exclusively assigned to.
-        /// 
+        ///
         /// <p>
         /// If no name is set then the default is used from the configuration.
         /// </p>
@@ -107,20 +107,16 @@ namespace Zeebe.Client.Api.Subscription
         IJobWorkerBuilderStep3 Name(string workerName);
 
         /// <summary>
-        /// Set the maximum number of jobs which will be exclusively assigned to this worker at the same
+        /// Set the maximum number of jobs which will be exclusively activated for this worker at the same
         /// time.
-        /// 
-        /// <p>This is used to control the backpressure of the worker. When the number of assigned jobs
-        /// is reached then the broker will stop assigning new jobs to the worker in order to to not
-        /// overwhelm the client and give other workers the chance to work on the jobs. The broker will
-        /// assign new jobs again when jobs are completed (or marked as failed) which were assigned to
-        /// the worker.
-        /// 
-        /// <p>If no limit is set then the default is used from the {@link
-        /// ZeebeClientConfiguration}.
-        /// 
+        ///
+        ///<p>This is used to control the back pressure of the worker. When the maximum is reached then
+        /// the worker will stop activating new jobs in order to not overwhelm the client and give other
+        /// workers the chance to work on the jobs. The worker will try to activate new jobs again when
+        /// jobs are completed (or marked as failed).
+        ///
         /// <p>Considerations:
-        /// 
+        ///
         /// <ul>
         ///   <li>A greater value can avoid situations in which the client waits idle for the broker to
         ///       provide more jobs. This can improve the worker's throughput.
@@ -129,17 +125,16 @@ namespace Zeebe.Client.Api.Subscription
         ///       that the following must hold to ensure fluent job handling: <code>
         ///       time spent in buffer + time job handler needs until job completion < job timeout</code>
         /// </summary>
-        /// <param name="numberOfJobs">the number of assigned jobs</param>
+        /// <param name="maxJobsActive">the maximum jobs active by this worker</param>
         /// <returns>the builder for this worker</returns>
-        IJobWorkerBuilderStep3 Limit(int numberOfJobs);
+        IJobWorkerBuilderStep3 MaxJobsActive(int maxJobsActive);
 
         /// <summary>
         /// Set a list of variable names which should be fetch on job activation.
         ///
-        /// <p>The jobs which are activated by this command will only contain variables from this list in
-        /// their payload.
+        /// <p>The jobs which are activated by this command will only contain variables from this list.
         ///
-        /// <p>This can be used to limit the number of variables in the payload of the activated jobs.
+        /// <p>This can be used to limit the number of variables of the activated jobs.
         /// </summary>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
         /// <returns>the builder for this worker</returns>
@@ -148,10 +143,9 @@ namespace Zeebe.Client.Api.Subscription
         /// <summary>
         /// Set a list of variable names which should be fetch on job activation.
         ///
-        /// <p>The jobs which are activated by this command will only contain variables from this list in
-        /// their payload.
+        /// <p>The jobs which are activated by this command will only contain variables from this list.
         ///
-        /// <p>This can be used to limit the number of variables in the payload of the activated jobs.
+        /// <p>This can be used to limit the number of variables of the activated jobs.
         /// </summary>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
         /// <returns>the builder for this worker</returns>
@@ -159,14 +153,14 @@ namespace Zeebe.Client.Api.Subscription
 
         /// <summary>
         /// Set the maximal interval between polling for new jobs.
-        /// 
+        ///
         /// <p>A job worker will automatically try to always activate new jobs after completing jobs. If
         /// no jobs can be activated after completing the worker will periodically poll for new jobs.
-        /// 
+        ///
         /// <p>If no poll interval is set then the default is used from the {@link
         /// ZeebeClientConfiguration}
         /// </summary>
-        /// <param name="pollInterval">the maximal interval to check for new jobs</param> 
+        /// <param name="pollInterval">the maximal interval to check for new jobs</param>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 PollInterval(TimeSpan pollInterval);
 

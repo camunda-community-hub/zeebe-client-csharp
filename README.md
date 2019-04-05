@@ -36,7 +36,7 @@ Simply run `msbuild Zeebe.sln` or `dotnet build Zeebe.sln`
 * Publish Message
 * Deploy an resource
 * Create a workflow instance
-* Update an element instance payload 
+* Set variables on an element instance
 * Update retries of an job
 * Resolve an existing incident
 * Cancel an existing workflow instance
@@ -65,7 +65,7 @@ To create a client use this:
       {
         // business logic
       })
-      .Limit(5)
+      .MaxJobsActive(5)
       .Name("zb-worker")
       .PollInterval(TimeSpan.FromSeconds(5))
       .Timeout(10_000L)
@@ -77,7 +77,7 @@ To create a client use this:
 ```csharp
   zeebeClient.NewActivateJobsCommand()
              .JobType("foo")
-             .Limit(3)
+             .MaxJobsToActivate(3)
              .Timeout(TimeSpan.FromSeconds(10))
              .WorkerName("jobWorker")
              .FetchVariables("foo", "bar")
@@ -87,7 +87,7 @@ To create a client use this:
 ### Complete an job
 
 ```csharp
-client.NewCompleteJobCommand(JobKey).Payload("{\"foo\":23}").Send();
+client.NewCompleteJobCommand(JobKey).Variables("{\"foo\":23}").Send();
 ```
 
 ### Fail an job
@@ -108,15 +108,15 @@ var workflowKey = deployResponse.Workflows[0].WorkflowKey;
 var workflowInstanceResponse = await client
     .NewCreateWorkflowInstanceCommand()
     .WorkflowKey(workflowKey)
-    .Payload("{\"foo\":\"123\"}")
+    .Variables("{\"foo\":\"123\"}")
     .Send();
 ```
 
-### Update payload of an element instance
+### Set variables on an element instance
 
 ```csharp
-await client.NewUpdatePayloadCommand(workflowInstanceResponse.WorkflowInstanceKey)
-    .Payload("{\"a\":\"newPayload\"}")
+await client.NewSetVariablesCommand(workflowInstanceResponse.WorkflowInstanceKey)
+    .Variables("{\"a\":\"newValue\"}")
     .Send();
 ```
 

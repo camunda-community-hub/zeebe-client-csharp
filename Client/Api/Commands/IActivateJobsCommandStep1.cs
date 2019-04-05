@@ -31,12 +31,12 @@ namespace Zeebe.Client.Api.Commands
     public interface IActivateJobsCommandStep2
     {
         /// <summary>
-        /// Set the maximal amount of jobs to activate. If less jobs are avaiable for activation the
+        /// Set the maximum of jobs to activate. If less jobs are available for activation the
         /// command will return a list with fewer jobs.
         /// </summary>
-        /// <param name="amount">the maximal number of jobs to activate</param>
+        /// <param name="maxJobsToActivate">the maximal number of jobs to activate</param>
         /// <returns>the builder for this command</returns>
-        IActivateJobsCommandStep3 Limit(int amount);
+        IActivateJobsCommandStep3 MaxJobsToActivate(int maxJobsToActivate);
     }
 
     public interface IActivateJobsCommandStep3 : IFinalCommandStep<IActivateJobsResponse>
@@ -50,7 +50,7 @@ namespace Zeebe.Client.Api.Commands
         ///
         /// <p>If no timeout is set, then the default is used from the configuration.
         /// </summary>
-        /// 
+        ///
         /// <param name="timeout">the time in milliseconds</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
         ///     it to the broker.</returns>
@@ -105,7 +105,7 @@ namespace Zeebe.Client.Api.Commands
         /// </summary>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
         /// <returns>
-        /// the builder for this command. Call {@link #send()} to complete the command and send 
+        /// the builder for this command. Call {@link #send()} to complete the command and send
         /// it to the broker.
         /// </returns>
         IActivateJobsCommandStep3 FetchVariables(params string[] fetchVariables);

@@ -65,9 +65,9 @@ namespace Zeebe.Client.Impl.Subscription
             return this;
         }
 
-        public IJobWorkerBuilderStep3 Limit(int numberOfJobs)
+        public IJobWorkerBuilderStep3 MaxJobsActive(int maxJobsActive)
         {
-            request.Amount = numberOfJobs;
+            request.MaxJobsToActivate = maxJobsActive;
             return this;
         }
 

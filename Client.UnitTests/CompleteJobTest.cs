@@ -25,16 +25,16 @@ namespace Zeebe.Client
         public async Task ShouldSendRequestAsExpected()
         {
             // given
-            const string Payload = "{\"foo\":23}";
+            const string Variables = "{\"foo\":23}";
             const int JobKey = 255;
             var expectedRequest = new CompleteJobRequest
             {
                 JobKey = JobKey,
-                Payload = Payload
+                Variables = Variables
             };
 
             // when
-            await ZeebeClient.NewCompleteJobCommand(JobKey).Variables(Payload).Send();
+            await ZeebeClient.NewCompleteJobCommand(JobKey).Variables(Variables).Send();
 
             // then
             var actualRequest = TestService.Requests[0];

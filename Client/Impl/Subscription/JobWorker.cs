@@ -29,7 +29,7 @@ namespace Zeebe.Client.Impl.Subscription
     {
         private const string JobFailMessage = "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
 
-        private readonly int limit;
+        private readonly int maxJobsActive;
         private readonly ConcurrentQueue<IJob> workItems = new ConcurrentQueue<IJob>();
 
         private readonly ActivateJobsRequest activeRequest;
@@ -50,7 +50,7 @@ namespace Zeebe.Client.Impl.Subscription
             this.client = client;
             this.activator = new JobActivator(client);
             this.activeRequest = request;
-            this.limit = request.Amount;
+            this.maxJobsActive = request.MaxJobsToActivate;
             this.pollInterval = pollInterval;
             this.jobClient = jobClient;
             this.jobHandler = jobHandler;
@@ -121,7 +121,7 @@ namespace Zeebe.Client.Impl.Subscription
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                if (workItems.Count < limit)
+                if (workItems.Count < maxJobsActive)
                 {
                     await PollJobs(cancellationToken);
                 }
@@ -131,8 +131,8 @@ namespace Zeebe.Client.Impl.Subscription
 
         private async Task PollJobs(CancellationToken cancellationToken)
         {
-            var jobCount = limit - workItems.Count;
-            activeRequest.Amount = jobCount;
+            var jobCount = maxJobsActive - workItems.Count;
+            activeRequest.MaxJobsToActivate = jobCount;
 
             var response = await activator.SendActivateRequest(activeRequest, cancellationToken);
 

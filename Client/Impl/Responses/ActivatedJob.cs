@@ -36,7 +36,7 @@ namespace Zeebe.Client.Impl.Responses
             Worker = activatedJob.Worker;
             Retries = activatedJob.Retries;
             Deadline = FromUTCTimestamp(activatedJob.Deadline);
-            Variables = activatedJob.Payload;
+            Variables = activatedJob.Variables;
             VariablesAsDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(Variables);
         }
 

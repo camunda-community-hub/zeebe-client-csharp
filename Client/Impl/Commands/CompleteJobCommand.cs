@@ -36,7 +36,7 @@ namespace Zeebe.Client.Impl.Commands
 
         public ICompleteJobCommandStep1 Variables(string variables)
         {
-            request.Payload = variables;
+            request.Variables = variables;
             return this;
         }
 
