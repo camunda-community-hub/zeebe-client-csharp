@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 
-    <Version>0.6.0</Version>
+    <Version>0.7.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -15,15 +15,15 @@
     <PackageProjectUrl>https://github.com/zeebe-io/zb-csharp-client</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>0.6.0</AssemblyVersion>
-    <FileVersion>0.6.0</FileVersion>
+    <AssemblyVersion>0.7.0</AssemblyVersion>
+    <FileVersion>0.7.0</FileVersion>
     <PackageReleaseNotes>
-      Update to the latest zeebe release (0.16.2):
+      Update to the latest zeebe release (0.17.0):
 
-      * rename UpdatePayloadCommand to SetVariablesCommand
-      * rename all payload occurences to variables
+      * rename limit/amount to maxJobsActive for JobWorker and maxJobToActivate for the ActivateCommand
+      * rename remaining payload occurences to variables
 
-      This release is based on the zeebe 0.16.2 release (https://github.com/zeebe-io/zeebe).
+      This release is based on the zeebe 0.17.0 release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -33,6 +33,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
+    <PackageVersion>0.7.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
