@@ -141,15 +141,15 @@ namespace GatewayProtocol {
     {
       /// <summary>
       ///
-      ///Iterates through all known partitions in a round-robin and activates up to the requested amount
-      ///of jobs and streams them back to the client as they are activated.
+      ///Iterates through all known partitions round-robin and activates up to the requested
+      ///maximum and streams them back to the client as they are activated.
       ///
       ///Errors:
       ///INVALID_ARGUMENT:
       ///- type is blank (empty string, null)
       ///- worker is blank (empty string, null)
       ///- timeout less than 1
-      ///- amount is less than 1
+      ///- maxJobsToActivate is less than 1
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="responseStream">Used for sending responses back to the client.</param>
@@ -178,7 +178,7 @@ namespace GatewayProtocol {
 
       /// <summary>
       ///
-      ///Completes a job with the given payload, which allows completing the associated service task.
+      ///Completes a job with the given variables, which allows completing the associated service task.
       ///
       ///Errors:
       ///NOT_FOUND:
@@ -421,15 +421,15 @@ namespace GatewayProtocol {
 
       /// <summary>
       ///
-      ///Iterates through all known partitions in a round-robin and activates up to the requested amount
-      ///of jobs and streams them back to the client as they are activated.
+      ///Iterates through all known partitions round-robin and activates up to the requested
+      ///maximum and streams them back to the client as they are activated.
       ///
       ///Errors:
       ///INVALID_ARGUMENT:
       ///- type is blank (empty string, null)
       ///- worker is blank (empty string, null)
       ///- timeout less than 1
-      ///- amount is less than 1
+      ///- maxJobsToActivate is less than 1
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -442,15 +442,15 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Iterates through all known partitions in a round-robin and activates up to the requested amount
-      ///of jobs and streams them back to the client as they are activated.
+      ///Iterates through all known partitions round-robin and activates up to the requested
+      ///maximum and streams them back to the client as they are activated.
       ///
       ///Errors:
       ///INVALID_ARGUMENT:
       ///- type is blank (empty string, null)
       ///- worker is blank (empty string, null)
       ///- timeout less than 1
-      ///- amount is less than 1
+      ///- maxJobsToActivate is less than 1
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -525,7 +525,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Completes a job with the given payload, which allows completing the associated service task.
+      ///Completes a job with the given variables, which allows completing the associated service task.
       ///
       ///Errors:
       ///NOT_FOUND:
@@ -547,7 +547,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Completes a job with the given payload, which allows completing the associated service task.
+      ///Completes a job with the given variables, which allows completing the associated service task.
       ///
       ///Errors:
       ///NOT_FOUND:
@@ -567,7 +567,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Completes a job with the given payload, which allows completing the associated service task.
+      ///Completes a job with the given variables, which allows completing the associated service task.
       ///
       ///Errors:
       ///NOT_FOUND:
@@ -589,7 +589,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Completes a job with the given payload, which allows completing the associated service task.
+      ///Completes a job with the given variables, which allows completing the associated service task.
       ///
       ///Errors:
       ///NOT_FOUND:
@@ -1422,25 +1422,25 @@ namespace GatewayProtocol {
           .AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries).Build();
     }
 
-    /// <summary>Register service method implementations with a service binder. Useful when customizing the service binding logic.
+    /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
     /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
     /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, GatewayBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_ActivateJobs, serviceImpl.ActivateJobs);
-      serviceBinder.AddMethod(__Method_CancelWorkflowInstance, serviceImpl.CancelWorkflowInstance);
-      serviceBinder.AddMethod(__Method_CompleteJob, serviceImpl.CompleteJob);
-      serviceBinder.AddMethod(__Method_CreateWorkflowInstance, serviceImpl.CreateWorkflowInstance);
-      serviceBinder.AddMethod(__Method_DeployWorkflow, serviceImpl.DeployWorkflow);
-      serviceBinder.AddMethod(__Method_FailJob, serviceImpl.FailJob);
-      serviceBinder.AddMethod(__Method_GetWorkflow, serviceImpl.GetWorkflow);
-      serviceBinder.AddMethod(__Method_ListWorkflows, serviceImpl.ListWorkflows);
-      serviceBinder.AddMethod(__Method_PublishMessage, serviceImpl.PublishMessage);
-      serviceBinder.AddMethod(__Method_ResolveIncident, serviceImpl.ResolveIncident);
-      serviceBinder.AddMethod(__Method_SetVariables, serviceImpl.SetVariables);
-      serviceBinder.AddMethod(__Method_Topology, serviceImpl.Topology);
-      serviceBinder.AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries);
+      serviceBinder.AddMethod(__Method_ActivateJobs, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse>(serviceImpl.ActivateJobs));
+      serviceBinder.AddMethod(__Method_CancelWorkflowInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CancelWorkflowInstanceRequest, global::GatewayProtocol.CancelWorkflowInstanceResponse>(serviceImpl.CancelWorkflowInstance));
+      serviceBinder.AddMethod(__Method_CompleteJob, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CompleteJobRequest, global::GatewayProtocol.CompleteJobResponse>(serviceImpl.CompleteJob));
+      serviceBinder.AddMethod(__Method_CreateWorkflowInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CreateWorkflowInstanceRequest, global::GatewayProtocol.CreateWorkflowInstanceResponse>(serviceImpl.CreateWorkflowInstance));
+      serviceBinder.AddMethod(__Method_DeployWorkflow, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.DeployWorkflowRequest, global::GatewayProtocol.DeployWorkflowResponse>(serviceImpl.DeployWorkflow));
+      serviceBinder.AddMethod(__Method_FailJob, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse>(serviceImpl.FailJob));
+      serviceBinder.AddMethod(__Method_GetWorkflow, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.GetWorkflowRequest, global::GatewayProtocol.GetWorkflowResponse>(serviceImpl.GetWorkflow));
+      serviceBinder.AddMethod(__Method_ListWorkflows, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.ListWorkflowsRequest, global::GatewayProtocol.ListWorkflowsResponse>(serviceImpl.ListWorkflows));
+      serviceBinder.AddMethod(__Method_PublishMessage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse>(serviceImpl.PublishMessage));
+      serviceBinder.AddMethod(__Method_ResolveIncident, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.ResolveIncidentRequest, global::GatewayProtocol.ResolveIncidentResponse>(serviceImpl.ResolveIncident));
+      serviceBinder.AddMethod(__Method_SetVariables, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.SetVariablesRequest, global::GatewayProtocol.SetVariablesResponse>(serviceImpl.SetVariables));
+      serviceBinder.AddMethod(__Method_Topology, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse>(serviceImpl.Topology));
+      serviceBinder.AddMethod(__Method_UpdateJobRetries, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.UpdateJobRetriesRequest, global::GatewayProtocol.UpdateJobRetriesResponse>(serviceImpl.UpdateJobRetries));
     }
 
   }
