@@ -98,16 +98,6 @@ namespace Zeebe.Client
             return new PublishMessageCommand(gatewayClient);
         }
 
-        public IListWorkflowsRequestStep1 NewListWorkflowRequest()
-        {
-            return new ListWorkflowRequest(gatewayClient);
-        }
-
-        public IWorkflowResourceRequestStep1 NewWorkflowResourceRequest()
-        {
-            return new WorkflowResourceRequest(gatewayClient);
-        }
-
         public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient);
 
         public void Dispose() => channelToGateway.ShutdownAsync();

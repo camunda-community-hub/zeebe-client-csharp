@@ -30,7 +30,7 @@ namespace Zeebe.Client
 
         /// <summary>
         /// Contains the request handler, which return the specific response, for each specific type of request.
-        /// 
+        ///
         /// Per default the response for a specific type are an empty response.
         /// </summary>
         private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new Dictionary<Type, RequestHandler>();
@@ -53,9 +53,6 @@ namespace Zeebe.Client
             typedRequestHandler.Add(typeof(CancelWorkflowInstanceRequest), request => new CancelWorkflowInstanceResponse());
             typedRequestHandler.Add(typeof(SetVariablesRequest), request => new SetVariablesResponse());
             typedRequestHandler.Add(typeof(ResolveIncidentRequest), request => new ResolveIncidentResponse());
-
-            typedRequestHandler.Add(typeof(ListWorkflowsRequest), request => new ListWorkflowsResponse());
-            typedRequestHandler.Add(typeof(GetWorkflowRequest), request => new GetWorkflowResponse());
         }
 
         public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
@@ -117,16 +114,6 @@ namespace Zeebe.Client
         public override Task<ResolveIncidentResponse> ResolveIncident(ResolveIncidentRequest request, ServerCallContext context)
         {
             return Task.FromResult((ResolveIncidentResponse)HandleRequest(request, context));
-        }
-
-        public override Task<ListWorkflowsResponse> ListWorkflows(ListWorkflowsRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((ListWorkflowsResponse)HandleRequest(request, context));
-        }
-
-        public override Task<GetWorkflowResponse> GetWorkflow(GetWorkflowRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((GetWorkflowResponse)HandleRequest(request, context));
         }
 
         private IMessage HandleRequest(IMessage request, ServerCallContext context)
