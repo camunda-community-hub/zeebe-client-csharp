@@ -802,7 +802,7 @@ namespace GatewayProtocol {
       }
       if (other.jobHeaders_ != null) {
         if (jobHeaders_ == null) {
-          jobHeaders_ = new global::GatewayProtocol.JobHeaders();
+          JobHeaders = new global::GatewayProtocol.JobHeaders();
         }
         JobHeaders.MergeFrom(other.JobHeaders);
       }
@@ -842,9 +842,9 @@ namespace GatewayProtocol {
           }
           case 26: {
             if (jobHeaders_ == null) {
-              jobHeaders_ = new global::GatewayProtocol.JobHeaders();
+              JobHeaders = new global::GatewayProtocol.JobHeaders();
             }
-            input.ReadMessage(jobHeaders_);
+            input.ReadMessage(JobHeaders);
             break;
           }
           case 34: {
@@ -2422,7 +2422,7 @@ namespace GatewayProtocol {
             break;
           }
           case 16: {
-            type_ = (global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) input.ReadEnum();
+            Type = (global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) input.ReadEnum();
             break;
           }
           case 26: {
@@ -4418,7 +4418,7 @@ namespace GatewayProtocol {
             break;
           }
           case 24: {
-            role_ = (global::GatewayProtocol.Partition.Types.PartitionBrokerRole) input.ReadEnum();
+            Role = (global::GatewayProtocol.Partition.Types.PartitionBrokerRole) input.ReadEnum();
             break;
           }
         }

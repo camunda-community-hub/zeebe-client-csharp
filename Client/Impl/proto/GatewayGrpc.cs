@@ -119,6 +119,7 @@ namespace GatewayProtocol {
     }
 
     /// <summary>Base class for server-side implementations of Gateway</summary>
+    [grpc::BindServiceMethod(typeof(Gateway), "BindService")]
     public abstract partial class GatewayBase
     {
       /// <summary>
