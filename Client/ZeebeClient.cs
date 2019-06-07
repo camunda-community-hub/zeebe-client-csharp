@@ -16,6 +16,7 @@ using GatewayProtocol;
 using Grpc.Core;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.CommandsClient;
+using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Subscription;
 using Zeebe.Client.Impl.Commands;
 using Zeebe.Client.Impl.Subscription;
@@ -52,6 +53,11 @@ namespace Zeebe.Client
         public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
         {
             return new CompleteJobCommand(gatewayClient, jobKey);
+        }
+
+        public ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob)
+        {
+            return new CompleteJobCommand(gatewayClient, activatedJob.Key);
         }
 
         public IFailJobCommandStep1 NewFailCommand(long jobKey)

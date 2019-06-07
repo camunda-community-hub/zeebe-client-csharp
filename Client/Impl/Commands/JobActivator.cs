@@ -27,11 +27,9 @@ namespace Zeebe.Client.Impl.Commands
                     var response = responseStream.Current;
                     return new Responses.ActivateJobsResponses(response);
                 }
-                else
-                {
-                    // empty response
-                    return new Responses.ActivateJobsResponses();
-                }
+
+                // empty response
+                return new Responses.ActivateJobsResponses();
             }
         }
 
@@ -41,10 +39,8 @@ namespace Zeebe.Client.Impl.Commands
             {
                 return await stream.MoveNext(cancellationToken.Value);
             }
-            else
-            {
-                return await stream.MoveNext();
-            }
+
+            return await stream.MoveNext();
         }
     }
 }

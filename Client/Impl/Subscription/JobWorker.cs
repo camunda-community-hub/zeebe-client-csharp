@@ -19,6 +19,7 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using Zeebe.Client.Api.Clients;
+using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Subscription;
 using Zeebe.Client.Impl.Commands;
@@ -35,26 +36,26 @@ namespace Zeebe.Client.Impl.Subscription
         private readonly ActivateJobsRequest activeRequest;
         private readonly JobActivator activator;
         private readonly JobHandler jobHandler;
-        private readonly IJobClient jobClient;
-
-        private readonly Gateway.GatewayClient client;
+        private readonly JobClientWrapper jobClient;
+        private readonly bool autoCompletion;
         private readonly TimeSpan pollInterval;
         private readonly CancellationTokenSource source;
 
         private volatile bool isRunning;
 
-        internal JobWorker(Gateway.GatewayClient client, ActivateJobsRequest request, TimeSpan pollInterval,
-            IJobClient jobClient, JobHandler jobHandler)
+
+        internal JobWorker(JobWorkerBuilder builder)
         {
-            this.source = new CancellationTokenSource();
-            this.client = client;
-            this.activator = new JobActivator(client);
-            this.activeRequest = request;
-            this.maxJobsActive = request.MaxJobsToActivate;
-            this.pollInterval = pollInterval;
-            this.jobClient = jobClient;
-            this.jobHandler = jobHandler;
+            source = new CancellationTokenSource();
+            activator = new JobActivator(builder.Client);
+            activeRequest = builder.Request;
+            maxJobsActive = activeRequest.MaxJobsToActivate;
+            pollInterval = builder.PollInterval();
+            jobClient = new JobClientWrapper(builder.JobClient);
+            jobHandler = builder.Handler();
+            autoCompletion = builder.AutoCompletionEnabled();
         }
+
 
         internal void Open()
         {
@@ -89,10 +90,18 @@ namespace Zeebe.Client.Impl.Subscription
                         try
                         {
                             jobHandler(jobClient, activatedJob);
+                            if (jobClient.ClientWasUsed && autoCompletion)
+                            {
+                                jobClient.NewCompleteJobCommand(activatedJob);
+                            }
                         }
                         catch (Exception exception)
                         {
                             FailActivatedJob(activatedJob, exception);
+                        }
+                        finally
+                        {
+                            jobClient.Reset();
                         }
                     }
                 }
@@ -156,6 +165,42 @@ namespace Zeebe.Client.Impl.Subscription
         public bool IsClosed()
         {
             return !isRunning;
+        }
+
+        private class JobClientWrapper : IJobClient
+        {
+            private IJobClient Client { get; }
+
+            public bool ClientWasUsed { get; private set; }
+
+
+            public JobClientWrapper(IJobClient client)
+            {
+                Client = client;
+                ClientWasUsed = false;
+            }
+
+            public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
+            {
+                ClientWasUsed = true;
+                return Client.NewCompleteJobCommand(jobKey);
+            }
+
+            public IFailJobCommandStep1 NewFailCommand(long jobKey)
+            {
+                ClientWasUsed = true;
+                return Client.NewFailCommand(jobKey);
+            }
+
+            public void Reset()
+            {
+                ClientWasUsed = false;
+            }
+
+            public ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob)
+            {
+                return Client.NewCompleteJobCommand(activatedJob);
+            }
         }
     }
 }

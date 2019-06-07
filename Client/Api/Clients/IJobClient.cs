@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Clients
 {
@@ -37,7 +38,7 @@ namespace Zeebe.Client.Api.Clients
         ///  .Send();
         /// </pre>
         ///
-        /// <p>If the job is linked to a workflow instance then this command will complete the related
+        /// <p>The job is linked to a workflow instance, which means this command will complete the related
         /// activity and continue the flow.
         /// </p>
         ///
@@ -45,6 +46,26 @@ namespace Zeebe.Client.Api.Clients
         /// <returns>a builder for the command
 
         ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey);
+
+        /// <summary>
+        /// Command to complete a job.
+        ///
+        /// <pre>
+        /// IJob activatedJob = ..;
+        ///
+        /// jobClient
+        ///  .NewCompleteJobCommand(activatedJob)
+        ///  .Variables(json)
+        ///  .Send();
+        /// </pre>
+        ///
+        /// <p>The job is linked to a workflow instance, which means this command will complete the related
+        /// activity and continue the flow.
+        /// </p>
+        ///
+        /// <param name="activatedJob>the job, which should be completed</param>
+        /// <returns>a builder for the command
+        ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob);
 
         /// <summary>
         /// Command to mark a job as failed.
@@ -65,5 +86,6 @@ namespace Zeebe.Client.Api.Clients
         /// <returns>a builder for the command
         /// </summary>
         IFailJobCommandStep1 NewFailCommand(long jobKey);
+
     }
 }

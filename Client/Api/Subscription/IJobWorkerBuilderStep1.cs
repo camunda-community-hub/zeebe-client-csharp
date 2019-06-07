@@ -164,6 +164,18 @@ namespace Zeebe.Client.Api.Subscription
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 PollInterval(TimeSpan pollInterval);
 
+
+        /// <summary>
+        /// Enables job worker auto completion.
+        ///
+        /// <p>
+        /// This means if the user does not complete or fails the activated job by himself
+        /// then the worker will do it.
+        ///
+        /// </summary>
+        /// <returns>the builder for this worker</returns>
+        IJobWorkerBuilderStep3 AutoCompletion();
+
         /// <summary>
         /// Open the worker and start to work on available tasks.
         /// </summary>

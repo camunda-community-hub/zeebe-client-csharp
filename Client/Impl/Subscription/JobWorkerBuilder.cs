@@ -16,28 +16,30 @@ using GatewayProtocol;
 using System;
 using System.Collections.Generic;
 using Zeebe.Client.Api.Clients;
+using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Subscription;
 
 namespace Zeebe.Client.Impl.Subscription
 {
     public class JobWorkerBuilder : IJobWorkerBuilderStep1, IJobWorkerBuilderStep2, IJobWorkerBuilderStep3
     {
-        private readonly Gateway.GatewayClient gatewayClient;
-        private readonly ActivateJobsRequest request = new ActivateJobsRequest();
-        private readonly IJobClient jobClient;
-
-        private JobHandler handler;
         private TimeSpan pollInterval;
+        private JobHandler handler;
+        private bool autoCompletion;
+
+        internal Gateway.GatewayClient Client { get; }
+        internal ActivateJobsRequest Request { get; } = new ActivateJobsRequest();
+        internal IJobClient JobClient { get; }
 
         public JobWorkerBuilder(Gateway.GatewayClient client, IJobClient jobClient)
         {
-            gatewayClient = client;
-            this.jobClient = jobClient;
+            Client = client;
+            JobClient = jobClient;
         }
 
         public IJobWorkerBuilderStep2 JobType(string type)
         {
-            request.Type = type;
+            Request.Type = type;
             return this;
         }
 
@@ -47,39 +49,44 @@ namespace Zeebe.Client.Impl.Subscription
             return this;
         }
 
+        internal JobHandler Handler()
+        {
+            return handler;
+        }
+
         public IJobWorkerBuilderStep3 Timeout(long timeout)
         {
-            request.Timeout = timeout;
+            Request.Timeout = timeout;
             return this;
         }
 
         public IJobWorkerBuilderStep3 Timeout(TimeSpan timeout)
         {
-            request.Timeout = (long)timeout.TotalMilliseconds;
+            Request.Timeout = (long)timeout.TotalMilliseconds;
             return this;
         }
 
         public IJobWorkerBuilderStep3 Name(string workerName)
         {
-            request.Worker = workerName;
+            Request.Worker = workerName;
             return this;
         }
 
         public IJobWorkerBuilderStep3 MaxJobsActive(int maxJobsActive)
         {
-            request.MaxJobsToActivate = maxJobsActive;
+            Request.MaxJobsToActivate = maxJobsActive;
             return this;
         }
 
         public IJobWorkerBuilderStep3 FetchVariables(IList<string> fetchVariables)
         {
-            request.FetchVariable.AddRange(fetchVariables);
+            Request.FetchVariable.AddRange(fetchVariables);
             return this;
         }
 
         public IJobWorkerBuilderStep3 FetchVariables(params string[] fetchVariables)
         {
-            request.FetchVariable.AddRange(fetchVariables);
+            Request.FetchVariable.AddRange(fetchVariables);
             return this;
         }
 
@@ -89,13 +96,31 @@ namespace Zeebe.Client.Impl.Subscription
             return this;
         }
 
+        internal TimeSpan PollInterval()
+        {
+            return pollInterval;
+        }
+
+
+        public IJobWorkerBuilderStep3 AutoCompletion()
+        {
+            autoCompletion = true;
+            return this;
+        }
+
+        internal bool AutoCompletionEnabled()
+        {
+            return autoCompletion;
+        }
+
         public IJobWorker Open()
         {
-            JobWorker worker = new JobWorker(gatewayClient, request, pollInterval, jobClient, handler);
+            var worker = new JobWorker(this);
 
             worker.Open();
 
             return worker;
         }
+
     }
 }
