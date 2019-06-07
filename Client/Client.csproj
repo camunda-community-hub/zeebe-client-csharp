@@ -37,14 +37,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" version="3.7.0" />
-    <PackageReference Include="Grpc" version="1.19.0" />
-    <PackageReference Include="Grpc.Core" version="1.19.0" />
-    <PackageReference Include="Grpc.Tools" version="1.19.0">
+    <PackageReference Include="Google.Protobuf" version="3.8.0" />
+    <PackageReference Include="Grpc" version="1.21.0" />
+    <PackageReference Include="Grpc.Core" version="1.21.0" />
+    <PackageReference Include="Grpc.Tools" version="1.21.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" version="12.0.2" />
   </ItemGroup>
 
 </Project>
