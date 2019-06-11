@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using NLog;
+using NUnit.Framework.Constraints;
 using NUnit.Framework.Internal;
 using Zeebe.Client.Api.Responses;
 using Logger = NLog.Logger;
@@ -377,17 +378,12 @@ namespace Zeebe.Client
             var actualRequest = TestService.Requests[0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
-            var actualCompleteRequest = TestService.Requests[1];
-            expectedCompleteRequest.JobKey = 1;
-            Assert.AreEqual(expectedCompleteRequest, actualCompleteRequest);
+            var completeJobRequests = TestService.Requests.OfType<CompleteJobRequest>().Select(j => j.JobKey).ToList();
+            Assert.AreEqual(3, completeJobRequests.Count);
 
-            actualCompleteRequest = TestService.Requests[2];
-            expectedCompleteRequest.JobKey = 2;
-            Assert.AreEqual(expectedCompleteRequest, actualCompleteRequest);
-
-            actualCompleteRequest = TestService.Requests[3];
-            expectedCompleteRequest.JobKey = 3;
-            Assert.AreEqual(expectedCompleteRequest, actualCompleteRequest);
+            Assert.Contains(1, completeJobRequests);
+            Assert.Contains(2, completeJobRequests);
+            Assert.Contains(3, completeJobRequests);
         }
 
         public static ActivateJobsResponse CreateExpectedResponse()
