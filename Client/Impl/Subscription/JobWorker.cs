@@ -18,6 +18,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
+using NLog;
 using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
@@ -28,6 +29,7 @@ namespace Zeebe.Client.Impl.Subscription
 {
     public class JobWorker : IJobWorker
     {
+        private static Logger Logger = LogManager.GetCurrentClassLogger();
         private const string JobFailMessage = "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
 
         private readonly int maxJobsActive;
@@ -75,6 +77,7 @@ namespace Zeebe.Client.Impl.Subscription
             taskFactory.StartNew(() => HandleActivatedJobs(cancellationToken), cancellationToken)
                 .ContinueWith(t => Console.WriteLine(t.Exception.ToString()),
                     TaskContinuationOptions.OnlyOnFaulted);
+            Logger.Debug("Job worker '{0}' for job types '{1}' has been opened.", activeRequest.Worker, activeRequest.Type);
         }
 
         private void HandleActivatedJobs(CancellationToken cancellationToken)
@@ -92,6 +95,7 @@ namespace Zeebe.Client.Impl.Subscription
                             jobHandler(jobClient, activatedJob);
                             if (jobClient.ClientWasUsed && autoCompletion)
                             {
+                                Logger.Debug("Job worker '{0}' will auto complete job with key {1}", activeRequest.Worker, activatedJob.Key);
                                 jobClient.NewCompleteJobCommand(activatedJob);
                             }
                         }
@@ -114,7 +118,7 @@ namespace Zeebe.Client.Impl.Subscription
 
         private void FailActivatedJob(IJob activatedJob, Exception exception)
         {
-            string errorMessage = String.Format(JobFailMessage,
+            var errorMessage = string.Format(JobFailMessage,
                 activatedJob.Worker,
                 activatedJob.Type,
                 exception.Message);
@@ -123,7 +127,7 @@ namespace Zeebe.Client.Impl.Subscription
                 .Retries(activatedJob.Retries - 1)
                 .ErrorMessage(errorMessage)
                 .Send();
-            Console.WriteLine(errorMessage);
+            Logger.Error(exception, errorMessage);
         }
 
         private async Task Poll(CancellationToken cancellationToken)
