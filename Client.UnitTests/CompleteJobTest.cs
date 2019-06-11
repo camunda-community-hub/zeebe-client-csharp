@@ -41,5 +41,32 @@ namespace Zeebe.Client
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
+
+
+        [Test]
+        public async Task ShouldUseActivatedJobToComplete()
+        {
+            // given
+            const string Variables = "{\"foo\":23}";
+            const int JobKey = 255;
+
+            var grpcActivatedJob = new ActivatedJob();
+            grpcActivatedJob.Key = JobKey;
+            grpcActivatedJob.JobHeaders = new JobHeaders();
+            var activatedJob = new Impl.Responses.ActivatedJob(grpcActivatedJob);
+            var expectedRequest = new CompleteJobRequest
+            {
+                JobKey = JobKey,
+                Variables = Variables
+            };
+
+            // when
+            await ZeebeClient.NewCompleteJobCommand(activatedJob).Variables(Variables).Send();
+
+            // then
+            var actualRequest = TestService.Requests[0];
+
+            Assert.AreEqual(expectedRequest, actualRequest);
+        }
     }
 }
