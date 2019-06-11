@@ -17,4 +17,11 @@
   <ItemGroup>
     <ProjectReference Include="..\Client\Client.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="NLog.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
