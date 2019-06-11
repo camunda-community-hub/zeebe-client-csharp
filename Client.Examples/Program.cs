@@ -30,6 +30,7 @@ namespace Client.Examples
         private static readonly string WorkflowInstanceVariables = "{\"a\":\"123\"}";
         private static readonly string JobType = "foo";
         private static readonly string WorkerName = Environment.MachineName;
+        private static readonly long WORK_COUNT = 100L;
 
         public static async Task Main(string[] args)
         {
@@ -44,14 +45,23 @@ namespace Client.Examples
 
             // create workflow instance
             var workflowKey = deployResponse.Workflows[0].WorkflowKey;
+
             var workflowInstance = await client
                 .NewCreateWorkflowInstanceCommand()
                 .WorkflowKey(workflowKey)
                 .Variables(WorkflowInstanceVariables)
                 .Send();
 
-
             await client.NewSetVariablesCommand(workflowInstance.WorkflowInstanceKey).Variables("{\"wow\":\"this\"}").Local().Send();
+
+            for (var i = 0; i < WORK_COUNT; i++)
+            {
+                await client
+                    .NewCreateWorkflowInstanceCommand()
+                    .WorkflowKey(workflowKey)
+                    .Variables(WorkflowInstanceVariables)
+                    .Send();
+            }
 
             // open job worker
             using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
@@ -61,6 +71,7 @@ namespace Client.Examples
                       .Handler(HandleJob)
                       .MaxJobsActive(5)
                       .Name(WorkerName)
+                      .AutoCompletion()
                       .PollInterval(TimeSpan.FromSeconds(1))
                       .Timeout(TimeSpan.FromSeconds(10))
                       .Open();
@@ -76,13 +87,17 @@ namespace Client.Examples
             var jobKey = job.Key;
             Console.WriteLine("Handling job: " + job);
 
-            if (jobKey % 2 == 0)
+            if (jobKey % 3 == 0)
             {
                 jobClient.NewCompleteJobCommand(jobKey).Variables("{\"foo\":2}").Send();
             }
-            else
+            else if (jobKey % 2 == 0)
             {
                 jobClient.NewFailCommand(jobKey).Retries(job.Retries - 1).ErrorMessage("Example fail").Send();
+            }
+            else
+            {
+                // auto completion
             }
         }
     }
