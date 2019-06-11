@@ -18,6 +18,7 @@ using Grpc.Core;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using NLog;
 
 namespace Zeebe.Client
 {
@@ -25,6 +26,7 @@ namespace Zeebe.Client
 
     public class GatewayTestService : Gateway.GatewayBase
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         private readonly List<IMessage> requests = new List<IMessage>();
 
@@ -118,6 +120,7 @@ namespace Zeebe.Client
 
         private IMessage HandleRequest(IMessage request, ServerCallContext context)
         {
+            Logger.Debug("Received request '{0}'", request);
             requests.Add(request);
 
             var handler = typedRequestHandler[request.GetType()];

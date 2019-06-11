@@ -29,7 +29,7 @@ namespace Zeebe.Client.Impl.Subscription
 {
     public class JobWorker : IJobWorker
     {
-        private static Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private const string JobFailMessage = "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
 
         private readonly int maxJobsActive;
@@ -68,16 +68,17 @@ namespace Zeebe.Client.Impl.Subscription
 
             taskFactory.StartNew(async () =>
                 await Poll(cancellationToken)
-                    .ContinueWith(t => Console.WriteLine(t.Exception.ToString()),
+                    .ContinueWith(t => Logger.Error(t.Exception),
                         TaskContinuationOptions.OnlyOnFaulted), cancellationToken
             ).ContinueWith(
-                    t => Console.WriteLine(t.Exception.ToString()),
+                    t => Logger.Error(t.Exception),
                     TaskContinuationOptions.OnlyOnFaulted);
 
             taskFactory.StartNew(() => HandleActivatedJobs(cancellationToken), cancellationToken)
-                .ContinueWith(t => Console.WriteLine(t.Exception.ToString()),
+                .ContinueWith(t => Logger.Error(t.Exception),
                     TaskContinuationOptions.OnlyOnFaulted);
-            Logger.Debug("Job worker '{0}' for job types '{1}' has been opened.", activeRequest.Worker, activeRequest.Type);
+
+            Logger.Debug("Job worker ({0}) for job type '{1}' has been opened.", activeRequest.Worker, activeRequest.Type);
         }
 
         private void HandleActivatedJobs(CancellationToken cancellationToken)
@@ -93,10 +94,10 @@ namespace Zeebe.Client.Impl.Subscription
                         try
                         {
                             jobHandler(jobClient, activatedJob);
-                            if (jobClient.ClientWasUsed && autoCompletion)
+                            if (!jobClient.ClientWasUsed && autoCompletion)
                             {
-                                Logger.Debug("Job worker '{0}' will auto complete job with key {1}", activeRequest.Worker, activatedJob.Key);
-                                jobClient.NewCompleteJobCommand(activatedJob);
+                                Logger.Debug("Job worker ({0}) will auto complete job with key '{1}'", activeRequest.Worker, activatedJob.Key);
+                                jobClient.NewCompleteJobCommand(activatedJob).Send();
                             }
                         }
                         catch (Exception exception)
@@ -149,6 +150,7 @@ namespace Zeebe.Client.Impl.Subscription
 
             var response = await activator.SendActivateRequest(activeRequest, cancellationToken);
 
+            Logger.Debug("Job worker ({0}) activated '{1}' of '{2}' successfully.", activeRequest.Worker, response.Jobs.Count, jobCount);
             foreach (var job in response.Jobs)
             {
                 workItems.Enqueue(job);
@@ -203,6 +205,7 @@ namespace Zeebe.Client.Impl.Subscription
 
             public ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob)
             {
+                ClientWasUsed = true;
                 return Client.NewCompleteJobCommand(activatedJob);
             }
         }

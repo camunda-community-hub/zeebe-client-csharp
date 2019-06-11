@@ -16,14 +16,20 @@ using GatewayProtocol;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
+using NLog;
+using NUnit.Framework.Internal;
 using Zeebe.Client.Api.Responses;
+using Logger = NLog.Logger;
 
 namespace Zeebe.Client
 {
     [TestFixture]
     public class JobWorkerTest : BaseZeebeTest
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         [Test]
         public void ShouldSendRequestReceiveResponseAsExpected()
         {
@@ -328,6 +334,60 @@ namespace Zeebe.Client
 
             var actualFailRequest = TestService.Requests[1];
             Assert.AreEqual(expectedFailRequest, actualFailRequest);
+        }
+
+
+        [Test]
+        public void ShouldUseAutoCompleteWithWorker()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 5_000L,
+                MaxJobsToActivate = 3,
+                Type = "foo",
+                Worker = "jobWorker"
+            };
+
+            var expectedCompleteRequest = new CompleteJobRequest();
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest),
+                request => CreateExpectedResponse());
+
+            // when
+            using (var jobWorker = ZeebeClient.NewWorker()
+                .JobType("foo")
+                .Handler((jobClient, job) =>
+                {
+                    Logger.Info("Handler has seen job '{0}'", job);
+                })
+                .AutoCompletion()
+                .MaxJobsActive(3)
+                .Name("jobWorker")
+                .Timeout(5_000L)
+                .PollInterval(TimeSpan.FromSeconds(5))
+                .Open())
+            {
+                Assert.True(jobWorker.IsOpen());
+                while (TestService.Requests.Count < 4)
+                {
+                }
+            }
+
+            // then
+            var actualRequest = TestService.Requests[0];
+            Assert.AreEqual(expectedRequest, actualRequest);
+
+            var actualCompleteRequest = TestService.Requests[1];
+            expectedCompleteRequest.JobKey = 1;
+            Assert.AreEqual(expectedCompleteRequest, actualCompleteRequest);
+
+            actualCompleteRequest = TestService.Requests[2];
+            expectedCompleteRequest.JobKey = 2;
+            Assert.AreEqual(expectedCompleteRequest, actualCompleteRequest);
+
+            actualCompleteRequest = TestService.Requests[3];
+            expectedCompleteRequest.JobKey = 3;
+            Assert.AreEqual(expectedCompleteRequest, actualCompleteRequest);
         }
 
         public static ActivateJobsResponse CreateExpectedResponse()
