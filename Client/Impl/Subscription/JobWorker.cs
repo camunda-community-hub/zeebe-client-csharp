@@ -43,6 +43,9 @@ namespace Zeebe.Client.Impl.Subscription
         private readonly TimeSpan pollInterval;
         private readonly CancellationTokenSource source;
 
+        private readonly EventWaitHandle handleSignal = new EventWaitHandle(false, EventResetMode.AutoReset);
+        private readonly EventWaitHandle pollSignal = new EventWaitHandle(false, EventResetMode.AutoReset);
+
         private volatile bool isRunning;
 
 
@@ -109,10 +112,14 @@ namespace Zeebe.Client.Impl.Subscription
                             jobClient.Reset();
                         }
                     }
+                    else
+                    {
+                        pollSignal.Set();
+                    }
                 }
                 else
                 {
-                    Thread.Sleep(pollInterval);
+                    handleSignal.WaitOne();
                 }
             }
         }
@@ -139,7 +146,7 @@ namespace Zeebe.Client.Impl.Subscription
                 {
                     await PollJobs(cancellationToken);
                 }
-                Thread.Sleep(pollInterval);
+                pollSignal.WaitOne(pollInterval);
             }
         }
 
@@ -155,6 +162,8 @@ namespace Zeebe.Client.Impl.Subscription
             {
                 workItems.Enqueue(job);
             }
+
+            handleSignal.Set();
         }
 
         public void Dispose()
