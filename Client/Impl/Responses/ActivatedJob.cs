@@ -44,7 +44,7 @@ namespace Zeebe.Client.Impl.Responses
             Variables = activatedJob.Variables;
             VariablesAsDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(Variables);
             CustomHeaders = activatedJob.CustomHeaders;
-            CustomHeadersAsDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(CustomHeaders);
+            CustomHeadersAsDictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(CustomHeaders);
         }
 
         public long Key { get; }
@@ -80,7 +80,7 @@ namespace Zeebe.Client.Impl.Responses
 
         public string CustomHeaders { get; }
 
-        public IDictionary<string, object> CustomHeadersAsDictionary { get; }
+        public IDictionary<string, string> CustomHeadersAsDictionary { get; }
 
         public override string ToString()
         {

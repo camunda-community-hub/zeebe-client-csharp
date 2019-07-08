@@ -69,6 +69,6 @@ namespace Zeebe.Client.Api.Responses
         string CustomHeaders { get; }
 
         /// <returns> De-serialized Custom Headers as map </returns>
-        IDictionary<string, object> CustomHeadersAsDictionary { get; }
+        IDictionary<string, string> CustomHeadersAsDictionary { get; }
     }
 }

@@ -395,7 +395,7 @@ namespace Zeebe.Client
                         Worker = "jobWorker",
                         Type = "foo",
                         Variables = "{\"foo\":1}",
-                        CustomHeaders = "{\"customFoo\":1}",
+                        CustomHeaders = "{\"customFoo\":\"1\"}",
                         Retries = 3,
                         Deadline = 123932,
                         BpmnProcessId = "process",
@@ -410,7 +410,7 @@ namespace Zeebe.Client
                         Worker = "jobWorker",
                         Type = "foo",
                         Variables = "{\"foo\":2}",
-                        CustomHeaders = "{\"customFoo\":2}",
+                        CustomHeaders = "{\"customFoo\":\"2\"}",
                         Retries = 3,
                         Deadline = 123932,
                         BpmnProcessId = "process",
@@ -425,7 +425,7 @@ namespace Zeebe.Client
                         Worker = "jobWorker",
                         Type = "foo",
                         Variables = "{\"foo\":3}",
-                        CustomHeaders = "{\"customFoo\":3}",
+                        CustomHeaders = "{\"customFoo\":\"3\"}",
                         Retries = 3,
                         Deadline = 123932,
                         BpmnProcessId = "process",
@@ -450,8 +450,8 @@ namespace Zeebe.Client
             var expectedVariables = new Dictionary<string, int> { { "foo", expectedKey } };
             CollectionAssert.AreEquivalent(expectedVariables, job.VariablesAsDictionary);
 
-            Assert.AreEqual("{\"customFoo\":" + expectedKey + "}", job.CustomHeaders);
-            var expectedCustomHeaders = new Dictionary<string, int> { { "customFoo", expectedKey } };
+            Assert.AreEqual("{\"customFoo\":\"" + expectedKey + "\"}", job.CustomHeaders);
+            var expectedCustomHeaders = new Dictionary<string, string> { { "customFoo", expectedKey.ToString() } };
             CollectionAssert.AreEquivalent(expectedCustomHeaders, job.CustomHeadersAsDictionary);
 
             Assert.AreEqual("process", job.BpmnProcessId);
