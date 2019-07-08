@@ -43,6 +43,8 @@ namespace Zeebe.Client.Impl.Responses
             Deadline = FromUTCTimestamp(activatedJob.Deadline);
             Variables = activatedJob.Variables;
             VariablesAsDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(Variables);
+            CustomHeaders = activatedJob.CustomHeaders;
+            CustomHeadersAsDictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(CustomHeaders);
         }
 
         public long Key { get; }
@@ -76,9 +78,13 @@ namespace Zeebe.Client.Impl.Responses
             return JsonConvert.DeserializeObject<InstanceType>(Variables);
         }
 
+        public string CustomHeaders { get; }
+
+        public IDictionary<string, string> CustomHeadersAsDictionary { get; }
+
         public override string ToString()
         {
-            return $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(WorkflowInstanceKey)}: {WorkflowInstanceKey}, {nameof(BpmnProcessId)}: {BpmnProcessId}, {nameof(WorkflowDefinitionVersion)}: {WorkflowDefinitionVersion}, {nameof(WorkflowKey)}: {WorkflowKey}, {nameof(ElementId)}: {ElementId}, {nameof(ElementInstanceKey)}: {ElementInstanceKey}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}, {nameof(VariablesAsDictionary)}: {VariablesAsDictionary}";
+            return $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(WorkflowInstanceKey)}: {WorkflowInstanceKey}, {nameof(BpmnProcessId)}: {BpmnProcessId}, {nameof(WorkflowDefinitionVersion)}: {WorkflowDefinitionVersion}, {nameof(WorkflowKey)}: {WorkflowKey}, {nameof(ElementId)}: {ElementId}, {nameof(ElementInstanceKey)}: {ElementInstanceKey}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}, {nameof(VariablesAsDictionary)}: {VariablesAsDictionary}, {nameof(CustomHeaders)}: {CustomHeaders}, {nameof(CustomHeadersAsDictionary)}: {CustomHeadersAsDictionary}";
         }
     }
 }

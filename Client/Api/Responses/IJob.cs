@@ -64,5 +64,11 @@ namespace Zeebe.Client.Api.Responses
 
         /// <returns>de-serialized variables as the given type </returns>
         InstanceType VariablesAsType<InstanceType>();
+
+        /// <returns> JSON-formatted Custom Headers </returns>
+        string CustomHeaders { get; }
+
+        /// <returns> De-serialized Custom Headers as map </returns>
+        IDictionary<string, string> CustomHeadersAsDictionary { get; }
     }
 }
