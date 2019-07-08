@@ -15,7 +15,7 @@
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Api.Clients
+namespace Zeebe.Client.Api.Worker
 {
     /// <summary>
     /// A client with access to all job-related operation:

@@ -14,7 +14,7 @@
 //    limitations under the License.
 using System;
 
-namespace Zeebe.Client.Api.Subscription
+namespace Zeebe.Client.Api.Worker
 {
     /// <summary>
     /// Represents an job worker that performs jobs of a certain type. While a registration is

@@ -13,10 +13,8 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using System;
-using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Commands;
-using Zeebe.Client.Api.CommandsClient;
-using Zeebe.Client.Api.Subscription;
+using Zeebe.Client.Api.Worker;
 
 namespace Zeebe.Client
 {

@@ -14,10 +14,9 @@
 //    limitations under the License.
 using System;
 using System.Collections.Generic;
-using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Api.Subscription
+namespace Zeebe.Client.Api.Worker
 {
     public interface IJobWorkerBuilderStep1
     {

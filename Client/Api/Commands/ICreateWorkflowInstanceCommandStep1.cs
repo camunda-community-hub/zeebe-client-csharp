@@ -1,7 +1,7 @@
 ﻿using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Api.CommandsClient
+namespace Zeebe.Client.Api.Commands
 {
     public interface ICreateWorkflowInstanceCommandStep1
     {

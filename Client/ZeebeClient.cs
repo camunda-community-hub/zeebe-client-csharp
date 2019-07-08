@@ -15,17 +15,16 @@
 using GatewayProtocol;
 using Grpc.Core;
 using Zeebe.Client.Api.Commands;
-using Zeebe.Client.Api.CommandsClient;
 using Zeebe.Client.Api.Responses;
-using Zeebe.Client.Api.Subscription;
+using Zeebe.Client.Api.Worker;
 using Zeebe.Client.Impl.Commands;
-using Zeebe.Client.Impl.Subscription;
+using Zeebe.Client.Impl.Worker;
 
 namespace Zeebe.Client
 {
     public class ZeebeClient : IZeebeClient
     {
-        private const string DEFAULT_ADDRESS = "localhost:26500";
+        private const string DefaultAddress = "localhost:26500";
 
         private readonly Channel channelToGateway;
         private readonly Gateway.GatewayClient gatewayClient;
@@ -106,11 +105,11 @@ namespace Zeebe.Client
 
         public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient);
 
-        public void Dispose() => channelToGateway.ShutdownAsync();
+        public async void Dispose() => await channelToGateway.ShutdownAsync();
 
         public static IZeebeClient NewZeebeClient()
         {
-            return new ZeebeClient(DEFAULT_ADDRESS);
+            return new ZeebeClient(DefaultAddress);
         }
 
         public static IZeebeClient NewZeebeClient(string address)

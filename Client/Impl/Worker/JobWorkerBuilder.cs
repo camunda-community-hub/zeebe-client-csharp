@@ -15,11 +15,9 @@
 using GatewayProtocol;
 using System;
 using System.Collections.Generic;
-using Zeebe.Client.Api.Clients;
-using Zeebe.Client.Api.Responses;
-using Zeebe.Client.Api.Subscription;
+using Zeebe.Client.Api.Worker;
 
-namespace Zeebe.Client.Impl.Subscription
+namespace Zeebe.Client.Impl.Worker
 {
     public class JobWorkerBuilder : IJobWorkerBuilderStep1, IJobWorkerBuilderStep2, IJobWorkerBuilderStep3
     {

@@ -18,7 +18,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Zeebe.Client;
-using Zeebe.Client.Api.Clients;
+using Zeebe.Client.Api.Worker;
 using Zeebe.Client.Api.Responses;
 
 namespace Client.Examples

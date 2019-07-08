@@ -35,6 +35,7 @@
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
     <PackageVersion>0.8.0</PackageVersion>
+    <RootNamespace>Zeebe.Client</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -19,13 +19,12 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using NLog;
-using Zeebe.Client.Api.Clients;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
-using Zeebe.Client.Api.Subscription;
+using Zeebe.Client.Api.Worker;
 using Zeebe.Client.Impl.Commands;
 
-namespace Zeebe.Client.Impl.Subscription
+namespace Zeebe.Client.Impl.Worker
 {
     public class JobWorker : IJobWorker
     {
