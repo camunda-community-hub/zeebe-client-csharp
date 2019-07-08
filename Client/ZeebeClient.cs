@@ -27,7 +27,7 @@ namespace Zeebe.Client
         private const string DefaultAddress = "localhost:26500";
 
         private readonly Channel channelToGateway;
-        private readonly Gateway.GatewayClient gatewayClient;
+        private Gateway.GatewayClient gatewayClient;
 
         private ZeebeClient(string address)
         {
@@ -105,7 +105,11 @@ namespace Zeebe.Client
 
         public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient);
 
-        public async void Dispose() => await channelToGateway.ShutdownAsync();
+        public void Dispose()
+        {
+            gatewayClient = new ClosedGatewayClient();
+            channelToGateway.ShutdownAsync().Wait();
+        }
 
         public static IZeebeClient NewZeebeClient()
         {

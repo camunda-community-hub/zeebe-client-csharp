@@ -349,8 +349,6 @@ namespace Zeebe.Client
                 Type = "foo",
                 Worker = "jobWorker"
             };
-
-            var expectedCompleteRequest = new CompleteJobRequest();
             TestService.AddRequestHandler(typeof(ActivateJobsRequest),
                 request => CreateExpectedResponse());
 
