@@ -12,30 +12,30 @@
       Uses GRPC as protocol for communication.
       For more information about the zeebe project please visit http://zeebe.io
     </Description>
-    <PackageProjectUrl>https://github.com/zeebe-io/zb-csharp-client</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/zeebe-io/zeebe-csharp-client</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
     <AssemblyVersion>0.7.0</AssemblyVersion>
     <FileVersion>0.7.0</FileVersion>
     <PackageReleaseNotes>
-      Update to the latest Zeebe release (0.18.0):
+      Update to the latest Zeebe release (0.19.0):
 
-      * use NLog for logging purposes
-      * add auto completition option for job workers
-      * remove ListWorkflows and GetWorkflow API (removed in Zeebe 0.18.0)
+      * reorganize namespaces (BREAKING CHANGE)
+      * flatten job headers (BREAKING CHANGE)
 
-      This release is based on the Zeebe 0.18.0 release (https://github.com/zeebe-io/zeebe).
+      This release is based on the Zeebe 0.19.0 release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>zb-client</PackageId>
     <Product>Zeebe C# client</Product>
-    <RepositoryUrl>https://github.com/zeebe-io/zb-csharp-client</RepositoryUrl>
+    <RepositoryUrl>https://github.com/zeebe-io/zeebe-csharp-client</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
-    <PackageVersion>0.8.0</PackageVersion>
+    <PackageVersion>0.9.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
+    <Title>0.9.0</Title>
   </PropertyGroup>
 
   <ItemGroup>
