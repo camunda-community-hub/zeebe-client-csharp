@@ -40,10 +40,25 @@ Simply run `msbuild Zeebe.sln` or `dotnet build Zeebe.sln`
 * Update retries of an job
 * Resolve an existing incident
 * Cancel an existing workflow instance
-* List all workflows
-* Request a workflow resource
 
 ## Examples
+
+There exist an example project under `Client.Examples/`, which contains some of the examples below.
+You can run the example with the following command:
+
+```bash
+  dotnet run --project Client.Examples/Client.Examples.csproj 
+```
+
+Make sure that you have an broker runing before you execute the examples.
+Easiest way to run an broker is to use docker, see the following command:
+
+```
+  docker run -p 26500:26500 camunda/zeebe:latest
+```
+
+### Client
+
 To create a client use this:
 
 ```csharp
