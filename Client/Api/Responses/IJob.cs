@@ -25,12 +25,23 @@ namespace Zeebe.Client.Api.Responses
         /// <returns> The type of the job </returns>
         string Type { get; }
 
-        /// <summary>
-        /// Broker-defined headers associated with this job. For example, if this job is created in
-        ///     the context of workflow instance, the header provide context information on which activity
-        ///     is executed, etc.
-        /// </summary>
-        IJobHeaders Headers { get; }
+        /// <returns> Key of the workflow instance </summary>
+        long WorkflowInstanceKey { get; }
+
+        /// <returns> BPMN process id of the workflow </summary>
+        string BpmnProcessId { get; }
+
+        /// <returns> Version of the workflow </returns>
+        int WorkflowDefinitionVersion { get; }
+
+        /// <returns> Key of the workflow </returns>
+        long WorkflowKey { get; }
+
+        /// <returns> Id of the workflow element </returns>
+        string ElementId { get; }
+
+        /// <returns> Key of the element instance </returns>
+        long ElementInstanceKey { get; }
 
         /// <returns>the assigned worker to complete the job </returns>
         string Worker { get; }

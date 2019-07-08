@@ -52,7 +52,6 @@ namespace Zeebe.Client
 
             var grpcActivatedJob = new ActivatedJob();
             grpcActivatedJob.Key = JobKey;
-            grpcActivatedJob.JobHeaders = new JobHeaders();
             var activatedJob = new Impl.Responses.ActivatedJob(grpcActivatedJob);
             var expectedRequest = new CompleteJobRequest
             {

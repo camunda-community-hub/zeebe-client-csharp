@@ -399,12 +399,12 @@ namespace Zeebe.Client
                         Variables = "{\"foo\":1}",
                         Retries = 3,
                         Deadline = 123932,
-                        JobHeaders = new JobHeaders{
-                            BpmnProcessId = "process",
-                            ElementId = "job1",
-                            ElementInstanceKey = 23,
-                            WorkflowDefinitionVersion = 3,
-                            WorkflowKey = 21}
+                        BpmnProcessId = "process",
+                        ElementId = "job1",
+                        ElementInstanceKey = 23,
+                        WorkflowInstanceKey = 29,
+                        WorkflowDefinitionVersion = 3,
+                        WorkflowKey = 21
                     },
                     new ActivatedJob{
                         Key = 2,
@@ -413,12 +413,12 @@ namespace Zeebe.Client
                         Variables = "{\"foo\":2}",
                         Retries = 3,
                         Deadline = 123932,
-                        JobHeaders = new JobHeaders{
-                            BpmnProcessId = "process",
-                            ElementId = "job2",
-                            ElementInstanceKey = 23,
-                            WorkflowDefinitionVersion = 3,
-                            WorkflowKey = 21}
+                        BpmnProcessId = "process",
+                        ElementId = "job2",
+                        ElementInstanceKey = 23,
+                        WorkflowInstanceKey = 29,
+                        WorkflowDefinitionVersion = 3,
+                        WorkflowKey = 21
                     },
                     new ActivatedJob{
                         Key = 3,
@@ -427,12 +427,12 @@ namespace Zeebe.Client
                         Variables = "{\"foo\":3}",
                         Retries = 3,
                         Deadline = 123932,
-                        JobHeaders = new JobHeaders{
-                            BpmnProcessId = "process",
-                            ElementId = "job3",
-                            ElementInstanceKey = 23,
-                            WorkflowDefinitionVersion = 3,
-                            WorkflowKey = 21}
+                        BpmnProcessId = "process",
+                        ElementId = "job3",
+                        ElementInstanceKey = 23,
+                        WorkflowInstanceKey = 29,
+                        WorkflowDefinitionVersion = 3,
+                        WorkflowKey = 21
                     }
                 }
             };
@@ -449,11 +449,12 @@ namespace Zeebe.Client
             var expectedVariables = new Dictionary<string, int> { { "foo", expectedKey } };
             CollectionAssert.AreEquivalent(expectedVariables, job.VariablesAsDictionary);
 
-            Assert.AreEqual("process", job.Headers.BpmnProcessId);
-            Assert.AreEqual("job" + expectedKey, job.Headers.ElementId);
-            Assert.AreEqual(23, job.Headers.ElementInstanceKey);
-            Assert.AreEqual(3, job.Headers.WorkflowDefinitionVersion);
-            Assert.AreEqual(21, job.Headers.WorkflowKey);
+            Assert.AreEqual("process", job.BpmnProcessId);
+            Assert.AreEqual("job" + expectedKey, job.ElementId);
+            Assert.AreEqual(23, job.ElementInstanceKey);
+            Assert.AreEqual(29, job.WorkflowInstanceKey);
+            Assert.AreEqual(3, job.WorkflowDefinitionVersion);
+            Assert.AreEqual(21, job.WorkflowKey);
         }
     }
 }

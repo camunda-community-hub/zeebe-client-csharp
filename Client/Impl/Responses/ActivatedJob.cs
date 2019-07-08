@@ -32,7 +32,12 @@ namespace Zeebe.Client.Impl.Responses
         {
             Key = activatedJob.Key;
             Type = activatedJob.Type;
-            Headers = new JobHeaders(activatedJob.JobHeaders);
+            WorkflowInstanceKey = activatedJob.WorkflowInstanceKey;
+            BpmnProcessId = activatedJob.BpmnProcessId;
+            WorkflowDefinitionVersion = activatedJob.WorkflowDefinitionVersion;
+            WorkflowKey = activatedJob.WorkflowKey;
+            ElementId = activatedJob.ElementId;
+            ElementInstanceKey = activatedJob.ElementInstanceKey;
             Worker = activatedJob.Worker;
             Retries = activatedJob.Retries;
             Deadline = FromUTCTimestamp(activatedJob.Deadline);
@@ -44,7 +49,17 @@ namespace Zeebe.Client.Impl.Responses
 
         public string Type { get; }
 
-        public IJobHeaders Headers { get; }
+        public long WorkflowInstanceKey { get; }
+
+        public string BpmnProcessId { get; }
+
+        public int WorkflowDefinitionVersion { get; }
+
+        public long WorkflowKey { get; }
+
+        public string ElementId { get; }
+
+        public long ElementInstanceKey { get; }
 
         public string Worker { get; }
 
@@ -63,7 +78,7 @@ namespace Zeebe.Client.Impl.Responses
 
         public override string ToString()
         {
-            return $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(Headers)}: {Headers}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}";
+            return $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(WorkflowInstanceKey)}: {WorkflowInstanceKey}, {nameof(BpmnProcessId)}: {BpmnProcessId}, {nameof(WorkflowDefinitionVersion)}: {WorkflowDefinitionVersion}, {nameof(WorkflowKey)}: {WorkflowKey}, {nameof(ElementId)}: {ElementId}, {nameof(ElementInstanceKey)}: {ElementInstanceKey}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}, {nameof(VariablesAsDictionary)}: {VariablesAsDictionary}";
         }
     }
 }
