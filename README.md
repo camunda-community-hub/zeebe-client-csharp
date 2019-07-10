@@ -16,7 +16,7 @@ for more information about the Zeebe project.
  * .net standard 2.0 or higher, which means
    * .net core 2.1 or higher or
    * .net framework 4.7.1 or higher
- * latest [Zeebe release](https://github.com/zeebe-io/zeebe/releases/))
+ * latest [Zeebe release](https://github.com/zeebe-io/zeebe/releases/)
 
 ## How to use
 
@@ -151,17 +151,4 @@ await client.NewResolveIncidentCommand(17).Send();
 ```csharp
 await client.NewCancelInstanceCommand(workflowInstanceResponse.WorkflowInstanceKey).Send();
 ```
-
-### List all workflows
-
-```csharp
-var workflowListResponse = await client.NewListWorkflowRequest().Send();
-```
-
-### Request workflow resource
-
-```csharp
-var workflowResourceResponse = await client.NewWorkflowResourceRequest().BpmnProcessId("ship-parcel").LatestVersion().Send();
-```
-
 
