@@ -52,12 +52,6 @@ namespace Zeebe.Client.Impl.Worker
             return handler;
         }
 
-        public IJobWorkerBuilderStep3 Timeout(long timeout)
-        {
-            Request.Timeout = timeout;
-            return this;
-        }
-
         public IJobWorkerBuilderStep3 Timeout(TimeSpan timeout)
         {
             Request.Timeout = (long)timeout.TotalMilliseconds;
@@ -99,6 +93,11 @@ namespace Zeebe.Client.Impl.Worker
             return pollInterval;
         }
 
+        public IJobWorkerBuilderStep3 PollingTimeout(TimeSpan pollingTimeout)
+        {
+            Request.RequestTimeout = (long) pollingTimeout.TotalMilliseconds;
+            return this;
+        }
 
         public IJobWorkerBuilderStep3 AutoCompletion()
         {

@@ -37,10 +37,11 @@ namespace Zeebe.Client
             // given
             var expectedRequest = new ActivateJobsRequest
             {
-                Timeout = 123L,
+                Timeout = 123_000L,
                 MaxJobsToActivate = 3,
                 Type = "foo",
-                Worker = "jobWorker"
+                Worker = "jobWorker",
+                RequestTimeout = 5_000L
             };
 
             TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
@@ -60,8 +61,9 @@ namespace Zeebe.Client
                 })
                 .MaxJobsActive(3)
                 .Name("jobWorker")
-                .Timeout(123L)
+                .Timeout(TimeSpan.FromSeconds(123L))
                 .PollInterval(TimeSpan.FromMilliseconds(100))
+                .PollingTimeout(TimeSpan.FromSeconds(5L))
                 .Open())
             {
 
@@ -86,19 +88,21 @@ namespace Zeebe.Client
             // given
             var expectedRequest = new ActivateJobsRequest
             {
-                Timeout = 123L,
+                Timeout = 123_000L,
                 MaxJobsToActivate = 4,
                 Type = "foo",
-                Worker = "jobWorker"
+                Worker = "jobWorker",
+                RequestTimeout = 5_000L
             };
 
             var expectedSecondRequest = new ActivateJobsRequest
             {
-                Timeout = 123L,
+                Timeout = 123_000L,
                 MaxJobsToActivate = 2, // first response contains 3 jobs and one is handled (blocking) so 2 jobs remain in queue
                             // so we can try to activate 2 new jobs
                 Type = "foo",
-                Worker = "jobWorker"
+                Worker = "jobWorker",
+                RequestTimeout = 5_000L
             };
 
             TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
@@ -117,8 +121,9 @@ namespace Zeebe.Client
                 })
                 .MaxJobsActive(4)
                 .Name("jobWorker")
-                .Timeout(123L)
+                .Timeout(TimeSpan.FromSeconds(123L))
                 .PollInterval(TimeSpan.FromMilliseconds(100))
+                .PollingTimeout(TimeSpan.FromMilliseconds(5_000L))
                 .Open())
             {
                 Assert.True(jobWorker.IsOpen());
@@ -136,7 +141,7 @@ namespace Zeebe.Client
         }
 
         [Test]
-        public void ShouldSendRequestWithTimeSpanTimeout()
+        public void ShouldSendRequestWithTimeSpanTimeoutAsMilliseconds()
         {
             // given
             var expectedRequest = new ActivateJobsRequest
@@ -144,7 +149,8 @@ namespace Zeebe.Client
                 Timeout = 10_000L,
                 MaxJobsToActivate = 1,
                 Type = "foo",
-                Worker = "jobWorker"
+                Worker = "jobWorker",
+                RequestTimeout = 5_000L
             };
 
             TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
@@ -164,11 +170,11 @@ namespace Zeebe.Client
                 })
                 .MaxJobsActive(1)
                 .Name("jobWorker")
-                .Timeout(TimeSpan.FromSeconds(10))
+                .Timeout(TimeSpan.FromMilliseconds(10_000L))
                 .PollInterval(TimeSpan.FromMilliseconds(100))
+                .PollingTimeout(TimeSpan.FromMilliseconds(5_000L))
                 .Open())
             {
-
                 Assert.True(jobWorker.IsOpen());
                 signal.WaitOne();
             }
@@ -292,7 +298,7 @@ namespace Zeebe.Client
             // given
             var expectedRequest = new ActivateJobsRequest
             {
-                Timeout = 123L,
+                Timeout = 123_000L,
                 MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker"
@@ -319,7 +325,7 @@ namespace Zeebe.Client
                 })
                 .MaxJobsActive(1)
                 .Name("jobWorker")
-                .Timeout(123L)
+                .Timeout(TimeSpan.FromSeconds(123L))
                 .PollInterval(TimeSpan.FromMilliseconds(100))
                 .Open())
             {
@@ -347,7 +353,8 @@ namespace Zeebe.Client
                 Timeout = 5_000L,
                 MaxJobsToActivate = 3,
                 Type = "foo",
-                Worker = "jobWorker"
+                Worker = "jobWorker",
+                RequestTimeout = 5_000L
             };
             TestService.AddRequestHandler(typeof(ActivateJobsRequest),
                 request => CreateExpectedResponse());
@@ -362,8 +369,9 @@ namespace Zeebe.Client
                 .AutoCompletion()
                 .MaxJobsActive(3)
                 .Name("jobWorker")
-                .Timeout(5_000L)
+                .Timeout(TimeSpan.FromMilliseconds(5_000L))
                 .PollInterval(TimeSpan.FromSeconds(5))
+                .PollingTimeout(TimeSpan.FromMilliseconds(5_000L))
                 .Open())
             {
                 Assert.True(jobWorker.IsOpen());

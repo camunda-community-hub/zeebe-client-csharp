@@ -72,21 +72,6 @@ namespace Zeebe.Client.Api.Worker
         /// work on the job. When the time is over then the job can be assigned again by this or other
         /// worker if it's not completed yet.
         ///
-        /// <p>If no timeout is set, then the default is used from the configuration.
-        /// </summary>
-        /// <param name="timeout">the time in milliseconds</param>
-        /// <returns>the builder for this worker</returns>
-        IJobWorkerBuilderStep3 Timeout(long timeout);
-
-        /// <summary>
-        /// Set the time for how long a job is exclusively assigned for this worker.
-        ///
-        /// <p>In this time, the job can not be assigned by other workers to ensure that only one worker
-        /// work on the job. When the time is over then the job can be assigned again by this or other
-        /// worker if it's not completed yet.
-        ///
-        /// <p>If no time is set then the default is used from the configuration.
-        ///
         /// <param name="timeout">the time as time span (e.g. "TimeSpan.FromMinutes(10)")</param>
         /// <returns>the builder for this worker
         /// </summary>
@@ -97,9 +82,6 @@ namespace Zeebe.Client.Api.Worker
         ///
         /// <p>This name is used to identify the worker to which a job is exclusively assigned to.
         ///
-        /// <p>
-        /// If no name is set then the default is used from the configuration.
-        /// </p>
         /// </summary>
         /// <param name="workerName">the name of the worker (e.g. "payment-service")</param>
         /// <returns>the builder for this worker</returns>
@@ -156,13 +138,21 @@ namespace Zeebe.Client.Api.Worker
         /// <p>A job worker will automatically try to always activate new jobs after completing jobs. If
         /// no jobs can be activated after completing the worker will periodically poll for new jobs.
         ///
-        /// <p>If no poll interval is set then the default is used from the {@link
-        /// ZeebeClientConfiguration}
         /// </summary>
         /// <param name="pollInterval">the maximal interval to check for new jobs</param>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 PollInterval(TimeSpan pollInterval);
 
+        /// <summary>
+        /// Set the polling timeout for the job activation.
+        ///
+        /// <p>The activate jobs request will be completed when at least one job is activated or after the given requestTimeout.
+        ///
+        /// </summary>
+        /// <param name="pollingTimeout">the polling timeout (e.g. "TimeSpan.FromMinutes(10)")
+        /// </param>
+        /// <returns>the builder for this worker</returns>
+        IJobWorkerBuilderStep3 PollingTimeout(TimeSpan pollingTimeout);
 
         /// <summary>
         /// Enables job worker auto completion.

@@ -20,6 +20,7 @@ namespace Zeebe.Client
                 MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker",
+                RequestTimeout = 5_000L
             };
 
             TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
@@ -30,6 +31,7 @@ namespace Zeebe.Client
                 .MaxJobsToActivate(1)
                 .Timeout(TimeSpan.FromSeconds(10))
                 .WorkerName("jobWorker")
+                .PollingTimeout(TimeSpan.FromSeconds(5))
                 .Send();
 
             // then
@@ -54,7 +56,8 @@ namespace Zeebe.Client
                 MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker",
-                FetchVariable = { "foo", "bar", "test" }
+                FetchVariable = { "foo", "bar", "test" },
+                RequestTimeout = 1_000L
             };
 
             TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
@@ -66,6 +69,7 @@ namespace Zeebe.Client
                 .Timeout(TimeSpan.FromSeconds(10))
                 .WorkerName("jobWorker")
                 .FetchVariables("foo", "bar", "test")
+                .PollingTimeout(TimeSpan.FromMilliseconds(1_000L))
                 .Send();
 
             // then
@@ -90,7 +94,8 @@ namespace Zeebe.Client
                 MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker",
-                FetchVariable = { "foo", "bar", "test" }
+                FetchVariable = { "foo", "bar", "test" },
+                RequestTimeout = 5_000L
             };
             IList<string> variableNames = new List<string> { "foo", "bar", "test" };
             TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
@@ -102,6 +107,7 @@ namespace Zeebe.Client
                 .Timeout(TimeSpan.FromSeconds(10))
                 .WorkerName("jobWorker")
                 .FetchVariables(variableNames)
+                .PollingTimeout(TimeSpan.FromSeconds(5))
                 .Send();
 
             // then

@@ -33,7 +33,7 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the correlation-key of the message.
         /// </summary>
-        /// 
+        ///
         /// <param name="correlationKey">the correlation-key of the message</param>
         /// <returns>the builder for this command</returns>
         IPublishMessageCommandStep3 CorrelationKey(string correlationKey);
@@ -53,13 +53,12 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the time-to-live of the message. The message can only be correlated within the given
         /// time-to-live.
-        /// 
+        ///
         /// <p>If the duration is zero or negative then the message can only be correlated to open
         /// subscriptions (e.g. to an entered message catch event).
-        /// 
-        /// <p>If no duration is set then the default is used from the configuration.
+        ///
         /// </summary>
-        /// 
+        ///
         /// <param name="timeToLive">the time-to-live of the message</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
         ///     it to the broker.</returns>
@@ -68,7 +67,7 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the variables of the message.
         /// </summary>
-        /// 
+        ///
         /// <param name="variables">the variables (JSON) as String</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
         ///     it to the broker.</returns>

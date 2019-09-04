@@ -48,22 +48,6 @@ namespace Zeebe.Client.Api.Commands
         /// subscription work on the job. When the time is over then the job can be assigned again by
         /// this or other subscription if it's not completed yet.
         ///
-        /// <p>If no timeout is set, then the default is used from the configuration.
-        /// </summary>
-        ///
-        /// <param name="timeout">the time in milliseconds</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
-        ///     it to the broker.</returns>
-        IActivateJobsCommandStep3 Timeout(long timeout);
-
-        /// <summary>
-        /// Set the time for how long a job is exclusively assigned for this subscription.
-        ///
-        /// <p>In this time, the job can not be assigned by other subscriptions to ensure that only one
-        /// subscription work on the job. When the time is over then the job can be assigned again by
-        /// this or other subscription if it's not completed yet.
-        ///
-        /// <p>If no time is set then the default is used from the configuration.
         /// </summary>
         /// <param name="timeout">the time as time span (e.g. "TimeSpan.FromMinutes(10)")</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
@@ -77,7 +61,6 @@ namespace Zeebe.Client.Api.Commands
         /// monitoring and auditing. Commands on activated jobs do not check the worker name, i.e.
         /// complete or fail job.
         ///
-        /// <p>If no name is set then the default is used from the configuration.
         /// </summary>
         /// <param name="workerName">the name of the worker (e.g. "payment-service")</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
@@ -95,6 +78,18 @@ namespace Zeebe.Client.Api.Commands
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
         ///     it to the broker.</returns>
         IActivateJobsCommandStep3 FetchVariables(IList<string> fetchVariables);
+
+        /// <summary>
+        /// Set the polling timeout.
+        ///
+        /// <p>The activate jobs request will be completed when at least one job is activated or after the given pollingTimeout.
+        ///
+        /// </summary>
+        /// <param name="pollingTimeout">the polling timeout (e.g. "TimeSpan.FromMinutes(10)")
+        /// </param>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
+        ///     it to the broker.</returns>
+        IActivateJobsCommandStep3 PollingTimeout(TimeSpan pollingTimeout);
 
         /// <summary>
         /// Set a list of variable names which should be fetch on job activation.

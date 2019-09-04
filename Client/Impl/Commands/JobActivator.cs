@@ -1,4 +1,5 @@
-﻿using GatewayProtocol;
+﻿using System;
+using GatewayProtocol;
 using Grpc.Core;
 using System.Collections.Generic;
 using System.Threading;
@@ -19,7 +20,9 @@ namespace Zeebe.Client.Impl.Commands
 
         public async Task<IActivateJobsResponse> SendActivateRequest(ActivateJobsRequest request, CancellationToken? cancelationToken = null)
         {
-            using (var stream = client.ActivateJobs(request))
+            // we need a higher request deadline then the long polling request timeout
+            var requestTimeout = request.RequestTimeout <= 0 ? 10 : (request.RequestTimeout / 1000) + 10;
+            using (var stream = client.ActivateJobs(request, deadline: DateTime.UtcNow.AddSeconds(requestTimeout)))
             {
                 var responseStream = stream.ResponseStream;
                 if (await MoveNext(responseStream, cancelationToken))

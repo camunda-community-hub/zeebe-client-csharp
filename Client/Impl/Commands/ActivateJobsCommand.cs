@@ -43,15 +43,15 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public IActivateJobsCommandStep3 Timeout(long timeout)
-        {
-            request.Timeout = timeout;
-            return this;
-        }
-
         public IActivateJobsCommandStep3 Timeout(TimeSpan timeout)
         {
             request.Timeout = (long)timeout.TotalMilliseconds;
+            return this;
+        }
+
+        public IActivateJobsCommandStep3 PollingTimeout(TimeSpan pollingTimeout)
+        {
+            request.RequestTimeout = (long) pollingTimeout.TotalMilliseconds;
             return this;
         }
 
