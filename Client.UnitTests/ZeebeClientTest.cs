@@ -10,7 +10,10 @@ namespace Zeebe.Client
         public void ShouldThrowExceptionAfterDispose()
         {
             // given
-            var zeebeClient = ZeebeClient.NewZeebeClient();
+            var zeebeClient = ZeebeClient.Builder()
+                    .UseGatewayAddress("localhost:26500")
+                    .UsePlainText()
+                    .Build();
 
             // when
             zeebeClient.Dispose();

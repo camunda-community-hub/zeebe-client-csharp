@@ -35,7 +35,7 @@ namespace Client.Examples
         public static async Task Main(string[] args)
         {
             // create zeebe client
-            var client = ZeebeClient.NewZeebeClient(ZeebeUrl);
+            var client = ZeebeClient.Builder().UseGatewayAddress(ZeebeUrl).UsePlainText().Build();
 
 
             await client.NewPublishMessageCommand().MessageName("csharp").CorrelationKey("wow").Variables("{\"realValue\":2}").Send();

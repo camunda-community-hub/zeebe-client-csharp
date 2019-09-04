@@ -41,7 +41,7 @@ namespace Zeebe.Client
             server.Services.Add(serviceDefinition);
             server.Start();
 
-            client = Client.ZeebeClient.NewZeebeClient("localhost:26500");
+            client = Client.ZeebeClient.Builder().UseGatewayAddress("localhost:26500").UsePlainText().Build();
         }
 
         [TearDown]
