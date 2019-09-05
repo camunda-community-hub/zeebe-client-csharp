@@ -1,8 +1,8 @@
-
-In the following you see an example of how to use the Zeebe C# client with CamundaCloud.
+## Camunda Cloud Example
+In the following you see an example of how to use the Zeebe C# client with the CamundaCloud.
 
 The `CamundaCloudTokenProvider` will request an access token from the CamundCloud and store it 
-under `~/.zeebe/cloud.token`, such that it is possible to reuse the token.
+under `~/.zeebe/cloud.token`, such that it is possible to reuse the token. To build the provider you need informations from the CamundaCloud, like `clientId`, `clientSecret`, `audience` etc.
 
 ```csharp
 using System.Threading.Tasks;
