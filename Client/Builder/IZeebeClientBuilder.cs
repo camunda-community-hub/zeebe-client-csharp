@@ -31,6 +31,12 @@ namespace Zeebe.Client.Builder
 
     public interface IZeebeSecureClientBuilder : IZeebeClientFinalBuildStep
     {
+        /// <summary>
+        /// Client should use the given access token to authenticate with.
+        /// </summary>
+        /// <param name="accessToken">the access token which is used for authentication</param>
+        /// <returns>the final client builder step</returns>
+        IZeebeClientFinalBuildStep UseAccessToken(string accessToken);
     }
 
     public interface IZeebeClientFinalBuildStep

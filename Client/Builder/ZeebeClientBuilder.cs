@@ -1,4 +1,6 @@
 using System.IO;
+using Google.Apis.Auth.OAuth2;
+using Grpc.Auth;
 using Grpc.Core;
 
 namespace Zeebe.Client.Builder
@@ -43,18 +45,25 @@ namespace Zeebe.Client.Builder
         {
             private string Address { get; }
 
-            private string CertificatePath { get; }
+            private ChannelCredentials Credentials { get; set; }
 
 
             public ZeebeSecureClientBuilder(string address, string certificatePath)
             {
                 Address = address;
-                CertificatePath = certificatePath;
+                Credentials = new SslCredentials(File.ReadAllText(certificatePath));
+            }
+
+            public IZeebeClientFinalBuildStep UseAccessToken(string accessToken)
+            {
+
+                Credentials = ChannelCredentials.Create(Credentials, GoogleGrpcCredentials.FromAccessToken(accessToken));
+                return this;
             }
 
             public IZeebeClient Build()
             {
-                return new ZeebeClient(Address, new SslCredentials(File.ReadAllText(CertificatePath)));
+                return new ZeebeClient(Address, Credentials);
             }
         }
 }
