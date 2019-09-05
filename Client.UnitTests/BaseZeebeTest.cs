@@ -16,6 +16,7 @@
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
+using Grpc.Core.Logging;
 using NUnit.Framework;
 
 namespace Zeebe.Client
@@ -33,6 +34,7 @@ namespace Zeebe.Client
         [SetUp]
         public void Init()
         {
+            GrpcEnvironment.SetLogger(new ConsoleLogger());
             server = new Server();
             server.Ports.Add(new ServerPort("localhost", 26500, ServerCredentials.Insecure));
 

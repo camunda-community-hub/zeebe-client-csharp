@@ -15,10 +15,10 @@ namespace Zeebe.Client.Builder
     public interface IZeebeClientTransportBuilder
     {
         /// <summary>
-        /// Should create an client with transport encryption, the given root certificate is used
-        /// to encrypt the communication.
+        /// To create a client which uses client-side SSL. The given path
+        /// points to a file, which contains root certificates (PEM encoded).
         /// </summary>
-        /// <param name="rootCertificatePath">the path to the root certificate</param>
+        /// <param name="rootCertificatePath">the path to the root certificates</param>
         /// <returns>the builder to create a secure client</returns>
         IZeebeSecureClientBuilder UseTransportEncryption(string rootCertificatePath);
 
