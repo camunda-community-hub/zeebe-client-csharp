@@ -8,6 +8,7 @@ using Grpc.Core;
 using Grpc.Core.Logging;
 using NLog;
 using NUnit.Framework;
+using Zeebe.Client.Builder;
 
 namespace Zeebe.Client
 {
@@ -157,6 +158,91 @@ namespace Zeebe.Client
             catch (Exception e)
             {
                 // expected
+            }
+        }
+
+        [Test]
+        public async Task ShouldUseAccessToken()
+        {
+            // given
+            GrpcEnvironment.SetLogger(new ConsoleLogger());
+
+            var keyCertificatePairs = new List<KeyCertificatePair>();
+            var serverCert = File.ReadAllText(ServerCertPath);
+            keyCertificatePairs.Add(new KeyCertificatePair(serverCert,File.ReadAllText(ServerKeyPath)));
+            var channelCredentials = new SslServerCredentials(keyCertificatePairs);
+
+            var server = new Server();
+            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
+
+            var testService = new GatewayTestService();
+            var serviceDefinition = Gateway.BindService(testService);
+            server.Services.Add(serviceDefinition);
+            server.Start();
+
+
+            // client
+            var zeebeClient = ZeebeClient.Builder()
+                .UseGatewayAddress("0.0.0.0:26505")
+                .UseTransportEncryption(ClientCertPath)
+                .UseAccessToken("token")
+                .Build();
+
+            // when
+            await zeebeClient.TopologyRequest().Send();
+            await zeebeClient.TopologyRequest().Send();
+            var topology = await zeebeClient.TopologyRequest().Send();
+
+            // then
+            Assert.NotNull(topology);
+        }
+
+        [Test]
+        public async Task ShouldUseAccessTokenSupplier()
+        {
+            // given
+            GrpcEnvironment.SetLogger(new ConsoleLogger());
+
+            var keyCertificatePairs = new List<KeyCertificatePair>();
+            var serverCert = File.ReadAllText(ServerCertPath);
+            keyCertificatePairs.Add(new KeyCertificatePair(serverCert,File.ReadAllText(ServerKeyPath)));
+            var channelCredentials = new SslServerCredentials(keyCertificatePairs);
+
+            var server = new Server();
+            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
+
+            var testService = new GatewayTestService();
+            var serviceDefinition = Gateway.BindService(testService);
+            server.Services.Add(serviceDefinition);
+            server.Start();
+
+
+            // client
+            var accessTokenSupplier = new SimpleAccessTokenSupplier();
+            var zeebeClient = ZeebeClient.Builder()
+                .UseGatewayAddress("0.0.0.0:26505")
+                .UseTransportEncryption(ClientCertPath)
+                .UseAccessTokenSupplier(accessTokenSupplier)
+                .Build();
+
+            // when
+            await zeebeClient.TopologyRequest().Send();
+            await zeebeClient.TopologyRequest().Send();
+            var topology = await zeebeClient.TopologyRequest().Send();
+
+            // then
+            Assert.NotNull(topology);
+            Assert.AreEqual(3, accessTokenSupplier.Count);
+        }
+
+        private class SimpleAccessTokenSupplier : IAccessTokenSupplier
+        {
+            public int Count { get; private set; }
+            public Task<string> GetAccessTokenForRequestAsync(string authUri = null,
+                CancellationToken cancellationToken = new CancellationToken())
+            {
+                Count++;
+                return Task.FromResult("token");
             }
         }
     }
