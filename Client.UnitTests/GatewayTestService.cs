@@ -12,12 +12,13 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using GatewayProtocol;
-using Google.Protobuf;
-using Grpc.Core;
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GatewayProtocol;
+using Google.Protobuf;
+using Grpc.Core;
 using NLog;
 
 namespace Zeebe.Client

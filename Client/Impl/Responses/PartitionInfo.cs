@@ -28,5 +28,12 @@ namespace Zeebe.Client.Impl.Responses
             IsLeader = partition.Role == GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader;
             Role = partition.Role == GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader ? PartitionBrokerRole.LEADER : PartitionBrokerRole.FOLLOWER;
         }
+
+        public override string ToString()
+        {
+            return $"  {nameof(PartitionId)}: {PartitionId}," +
+                   $"\n  {nameof(IsLeader)}: {IsLeader}," +
+                   $"\n  {nameof(Role)}: {Role}";
+        }
     }
 }

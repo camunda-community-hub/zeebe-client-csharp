@@ -12,6 +12,8 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
+using System;
 using GatewayProtocol;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +30,9 @@ namespace Zeebe.Client.Impl.Responses
             Brokers = response.Brokers.Select(broker => new BrokerInfo(broker)).Cast<IBrokerInfo>().ToList();
         }
 
+        public override string ToString()
+        {
+            return "Brokers:\n" + string.Join(",\n", Brokers);
+        }
     }
 }

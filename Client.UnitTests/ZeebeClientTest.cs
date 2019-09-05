@@ -71,15 +71,14 @@ namespace Zeebe.Client
                     .Build();
 
             // when
-            await zeebeClient
+            var publishMessageResponse = await zeebeClient
                 .NewPublishMessageCommand()
                 .MessageName("messageName")
                 .CorrelationKey("p-1")
                 .Send();
 
             // then
-            while (testService.Requests.Count == 0) ;
-            Assert.AreEqual(1, testService.Requests.Count);
+            Assert.NotNull(publishMessageResponse);
         }
 
         [Test]
@@ -109,15 +108,14 @@ namespace Zeebe.Client
                 .Build();
 
             // when
-            await zeebeClient
+            var publishMessageResponse = await zeebeClient
                 .NewPublishMessageCommand()
                 .MessageName("messageName")
                 .CorrelationKey("p-1")
                 .Send();
 
             // then
-            while (testService.Requests.Count == 0) ;
-            Assert.AreEqual(1, testService.Requests.Count);
+            Assert.NotNull(publishMessageResponse);
         }
 
         [Test]

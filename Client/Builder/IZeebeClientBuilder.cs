@@ -1,3 +1,5 @@
+using Google.Apis.Auth.OAuth2;
+
 namespace Zeebe.Client.Builder
 {
     public interface IZeebeClientBuilder
@@ -23,6 +25,12 @@ namespace Zeebe.Client.Builder
         IZeebeSecureClientBuilder UseTransportEncryption(string rootCertificatePath);
 
         /// <summary>
+        /// To create a client which uses client-side SSL.
+        /// </summary>
+        /// <returns>the builder to create a secure client</returns>
+        IZeebeSecureClientBuilder UseTransportEncryption();
+
+        /// <summary>
         /// To create an client without any transport encryption.
         /// </summary>
         /// <returns>the final client builder to create the client</returns>
@@ -37,6 +45,20 @@ namespace Zeebe.Client.Builder
         /// <param name="accessToken">the access token which is used for authentication</param>
         /// <returns>the final client builder step</returns>
         IZeebeClientFinalBuildStep UseAccessToken(string accessToken);
+
+
+        /// <summary>
+        /// Client should use an access token to authenticate with and the given
+        /// supplier should be used to receive the token.
+        /// </summary>
+        /// <param name="supplier">the access token supplier which is called to supplied the access token</param>
+        /// <returns>the final client builder step</returns>
+        IZeebeClientFinalBuildStep UseAccessTokenSupplier(IAccessTokenSupplier supplier);
+    }
+
+    public interface IAccessTokenSupplier : ITokenAccess
+    {
+
     }
 
     public interface IZeebeClientFinalBuildStep

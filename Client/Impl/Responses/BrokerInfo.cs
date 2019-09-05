@@ -40,5 +40,15 @@ namespace Zeebe.Client.Impl.Responses
                 .Cast<IPartitionInfo>()
                 .ToList();
         }
+
+
+        public override string ToString()
+        {
+            return $"\n {nameof(Address)}: {Address}," +
+                   $"\n {nameof(Host)}: {Host}," +
+                   $"\n {nameof(NodeId)}: {NodeId}," +
+                   $"\n {nameof(Port)}: {Port}," +
+                   "\n Partitions:\n" + string.Join(", ", Partitions);
+        }
     }
 }
