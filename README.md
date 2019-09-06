@@ -22,6 +22,11 @@ for more information about the Zeebe project.
 
 The Zeebe C# client is available via nuget (https://www.nuget.org/packages/zb-client/).
 
+## Camunda Cloud
+
+The Zeebe C# Client is Camunda Cloud ready.
+To get an example how to use the Zeebe C# Client with the Cloud take a look at (Client.Examples/CloudExample.cs.md)[Client.Examples/CloudExample.cs.md].
+
 ## How to build
 
 Simply run `msbuild Zeebe.sln` or `dotnet build Zeebe.sln`
