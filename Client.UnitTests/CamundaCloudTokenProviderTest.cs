@@ -200,5 +200,28 @@ namespace Zeebe.Client
             Assert.AreEqual("REQUESTED_TOKEN", token);
             Assert.AreEqual(1, MessageHandlerStub.RequestCount);
         }
+
+
+        [Test]
+        public async Task ShouldUseCachedFileAndAfterwardsInMemory()
+        {
+            // given
+            Token = "STORED_TOKEN";
+            await TokenProvider.GetAccessTokenForRequestAsync();
+            // re-init the TokenProvider
+            Init();
+
+            // when
+            await TokenProvider.GetAccessTokenForRequestAsync();
+            var files = Directory.GetFiles(TokenStoragePath);
+            var tokenFile = files[0];
+            File.WriteAllText(tokenFile, "FILE_TOKEN");
+            var token = await TokenProvider.GetAccessTokenForRequestAsync();
+
+            // then
+            Assert.AreEqual("STORED_TOKEN", token);
+            Assert.AreEqual(0, MessageHandlerStub.RequestCount);
+        }
+
     }
 }

@@ -63,7 +63,7 @@ namespace Zeebe.Client.Builder
                 // read token
                 var content = File.ReadAllText(tokenFileName);
                 var accessToken = JsonConvert.DeserializeObject<AccessToken>(content);
-
+                CurrentAccessToken = accessToken;
                 return GetValidToken(accessToken);
             }
 
