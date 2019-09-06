@@ -17,7 +17,9 @@ namespace Zeebe.Client.Builder
         private const string JsonContent =
             "{{\"client_id\":\"{0}\",\"client_secret\":\"{1}\",\"audience\":\"{2}\",\"grant_type\":\"client_credentials\"}}";
 
-        private static readonly string ZeebeRootPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
+        private static readonly string ZeebeRootPath =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
+
         private const string ZeebeCloudTokenFileName = "cloud.token";
 
         public HttpMessageHandler HttpMessageHandler { get; set; }
@@ -42,14 +44,14 @@ namespace Zeebe.Client.Builder
             TokenStoragePath = ZeebeRootPath;
         }
 
-        public async Task<string> GetAccessTokenForRequestAsync(string authUri = null,
+        public Task<string> GetAccessTokenForRequestAsync(string authUri = null,
             CancellationToken cancellationToken = new CancellationToken())
         {
             // check in memory
             if (CurrentAccessToken != null)
             {
                 Logger.Trace("Use in memory access token.");
-                return await GetValidToken(CurrentAccessToken);
+                return GetValidToken(CurrentAccessToken);
             }
 
             // check if token file exists
@@ -62,25 +64,25 @@ namespace Zeebe.Client.Builder
                 var content = File.ReadAllText(tokenFileName);
                 var accessToken = JsonConvert.DeserializeObject<AccessToken>(content);
 
-                return await GetValidToken(accessToken);
+                return GetValidToken(accessToken);
             }
 
             // request token
-            return await RequestAccessTokenAsync();
+            return RequestAccessTokenAsync();
         }
 
-        private async Task<string> GetValidToken(AccessToken currentAccessToken)
+        private Task<string> GetValidToken(AccessToken currentAccessToken)
         {
             var now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             var dueDate = currentAccessToken.DueDate;
             if (now < dueDate)
             {
                 // still valid
-                return currentAccessToken.Token;
+                return Task.FromResult(currentAccessToken.Token);
             }
 
             Logger.Debug("Access token is no longer valid (now: {0} > dueTime: {1}), request new one.", now, dueDate);
-            return await RequestAccessTokenAsync();
+            return RequestAccessTokenAsync();
         }
 
 
@@ -111,10 +113,10 @@ namespace Zeebe.Client.Builder
             }
 
             var tokenFileName = TokenFileName;
+            var json = string.Format(JsonContent, clientId, clientSecret, audience);
             using (var httpClient = new HttpClient(HttpMessageHandler))
+            using (var content = new StringContent(json, Encoding.UTF8, "application/json"))
             {
-                var json = string.Format(JsonContent, clientId, clientSecret, audience);
-                HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 var httpResponseMessage = await httpClient.PostAsync(authServer, content);
 
                 var result = await httpResponseMessage.Content.ReadAsStringAsync();
@@ -167,7 +169,6 @@ namespace Zeebe.Client.Builder
         {
             return new CamundaCloudTokenProviderBuilderStep2(url);
         }
-
     }
 
     public class CamundaCloudTokenProviderBuilderStep2
@@ -201,7 +202,6 @@ namespace Zeebe.Client.Builder
         {
             return new CamundaCloudTokenProviderBuilderStep4(AuthServer, ClientId, clientSecret);
         }
-
     }
 
     public class CamundaCloudTokenProviderBuilderStep4
@@ -230,7 +230,8 @@ namespace Zeebe.Client.Builder
         private string ClientId { get; }
         private string ClientSecret { get; }
 
-        internal CamundaCloudTokenProviderBuilderFinalStep(string authServer, string clientId, string clientSecret, string audience)
+        internal CamundaCloudTokenProviderBuilderFinalStep(string authServer, string clientId, string clientSecret,
+            string audience)
         {
             AuthServer = authServer;
             ClientId = clientId;
