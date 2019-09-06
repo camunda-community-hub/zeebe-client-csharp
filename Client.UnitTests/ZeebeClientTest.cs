@@ -155,9 +155,10 @@ namespace Zeebe.Client
                     .Send();
                 Assert.Fail();
             }
-            catch (Exception e)
+            catch (RpcException rpcException)
             {
                 // expected
+                Assert.AreEqual(rpcException.Status.StatusCode, StatusCode.Unavailable);
             }
         }
 
