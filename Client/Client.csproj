@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 
-    <Version>0.12.0</Version>
+    <Version>0.12.1</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -15,24 +15,13 @@
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-csharp-client</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>0.12.0</AssemblyVersion>
-    <FileVersion>0.12.0</FileVersion>
+    <AssemblyVersion>0.12.1</AssemblyVersion>
+    <FileVersion>0.12.1</FileVersion>
     <PackageReleaseNotes>
 
-      * migrated to latest Zeebe release (0.21.0-alpha2)
-      * update dependencies
-      * transport encryption is now supported
-      * added possibility to authenticate via access token (for example OAUTH)
-      * long polling is configurable on the job worker builder
+      Bug fix:
 
-      Example to enable transport encryption:
-
-            var client =
-                ZeebeClient.Builder()
-                    .UseGatewayAddress(ZeebeUrl)
-                    .UseTransportEncryption("~/ca.cert")
-                    .Build();
-
+      * update in memory state after cloud token is read from file
 
       This release is based on the Zeebe 0.21.0-alpha2 release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
@@ -44,9 +33,9 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
-    <PackageVersion>0.12.0</PackageVersion>
+    <PackageVersion>0.12.1</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>0.12.0</Title>
+    <Title>0.12.1</Title>
   </PropertyGroup>
 
   <ItemGroup>
