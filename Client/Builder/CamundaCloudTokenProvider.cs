@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NLog;
 
@@ -12,18 +13,17 @@ namespace Zeebe.Client.Builder
     public class CamundaCloudTokenProvider : IAccessTokenSupplier
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        // Request token similar to this:
-        //        curl --request POST \
-        //        --url https://login.cloud.[ultrawombat.com | camunda.io]/oauth/token \
-        //        --header 'content-type: application/json' \
-        //        --data '{"client_id":"${clientId}","client_secret":"${clientSecret}","audience":"${audience}","grant_type":"client_credentials"}'
 
         private const string JsonContent =
             "{{\"client_id\":\"{0}\",\"client_secret\":\"{1}\",\"audience\":\"{2}\",\"grant_type\":\"client_credentials\"}}";
 
         private static readonly string ZeebeRootPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
-        private static readonly string ZeebeCloudTokenPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe",
-            "cloud.token");
+        private const string ZeebeCloudTokenFileName = "cloud.token";
+
+        public HttpMessageHandler HttpMessageHandler { get; set; }
+        public string TokenStoragePath { get; set; }
+        private string TokenFileName => TokenStoragePath + Path.DirectorySeparatorChar + ZeebeCloudTokenFileName;
+        private AccessToken CurrentAccessToken { get; set; }
 
         private readonly string authServer;
         private readonly string clientId;
@@ -36,52 +36,126 @@ namespace Zeebe.Client.Builder
             this.clientId = clientId;
             this.clientSecret = clientSecret;
             this.audience = audience;
+
+            // default client handler
+            HttpMessageHandler = new HttpClientHandler();
+            TokenStoragePath = ZeebeRootPath;
         }
 
         public async Task<string> GetAccessTokenForRequestAsync(string authUri = null,
             CancellationToken cancellationToken = new CancellationToken())
         {
-            // check if file exists
-            var existToken = File.Exists(ZeebeCloudTokenPath);
-            if (existToken)
+            // check in memory
+            if (CurrentAccessToken != null)
             {
-                Logger.Info("Read cached access token from {0}", ZeebeCloudTokenPath);
-                // read token
-                return File.ReadAllText(ZeebeCloudTokenPath);
+                Logger.Debug("Use in memory access token");
+                return await GetValidToken(CurrentAccessToken);
             }
 
-            // get token
-            return await RequestAccessTokenAsync(ZeebeCloudTokenPath);
+            // check if token file exists
+            var tokenFileName = TokenFileName;
+            var existToken = File.Exists(tokenFileName);
+            if (existToken)
+            {
+                Logger.Debug("Read cached access token from {0}", tokenFileName);
+                // read token
+                var content = File.ReadAllText(tokenFileName);
+                var accessToken = JsonConvert.DeserializeObject<AccessToken>(content);
+
+                return await GetValidToken(accessToken);
+            }
+
+            // request token
+            return await RequestAccessTokenAsync();
         }
 
-        private async Task<string> RequestAccessTokenAsync(string zeebeCloudTokenPath)
+        private async Task<string> GetValidToken(AccessToken currentAccessToken)
         {
-            var directoryInfo = Directory.CreateDirectory(ZeebeRootPath);
+            if (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() < currentAccessToken.DueDate)
+            {
+                // still valid
+                return currentAccessToken.Token;
+            }
+
+            Logger.Debug("Access token is no longer valid, request new one");
+
+            return await RequestAccessTokenAsync();
+        }
+
+
+        // Requesting the token is similar to this:
+        //        curl --request POST \
+        //        --url https://login.cloud.[ultrawombat.com | camunda.io]/oauth/token \
+        //        --header 'content-type: application/json' \
+        //        --data '{"client_id":"${clientId}","client_secret":"${clientSecret}","audience":"${audience}","grant_type":"client_credentials"}'
+
+        // Code expects the following result:
+        //
+        //        {
+        //            "access_token":"MTQ0NjJkZmQ5OTM2NDE1ZTZjNGZmZjI3",
+        //            "token_type":"bearer",
+        //            "expires_in":3600,
+        //            "refresh_token":"IwOGYzYTlmM2YxOTQ5MGE3YmNmMDFkNTVk",
+        //            "scope":"create"
+        //        }
+        //
+        // Defined here https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/
+
+        private async Task<string> RequestAccessTokenAsync()
+        {
+            var directoryInfo = Directory.CreateDirectory(TokenStoragePath);
             if (!directoryInfo.Exists)
             {
                 throw new IOException("Expected to create '~/.zeebe/' directory, but failed to do so.");
             }
 
-            using (var httpClient = new HttpClient())
+            var tokenFileName = TokenFileName;
+            using (var httpClient = new HttpClient(HttpMessageHandler))
             {
                 var json = string.Format(JsonContent, clientId, clientSecret, audience);
                 HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 var httpResponseMessage = await httpClient.PostAsync(authServer, content);
 
                 var result = await httpResponseMessage.Content.ReadAsStringAsync();
-                var jsonResult = JObject.Parse(result);
-                var accessToken = (string) jsonResult["access_token"];
+                var token = ToAccessToken(result);
+                Logger.Info("Received access token {0}, will backup at {1}.", token, tokenFileName);
+                File.WriteAllText(tokenFileName, JsonConvert.SerializeObject(token));
+                CurrentAccessToken = token;
 
-                Logger.Info("Received access token {0}, will backup at {1}.", accessToken, zeebeCloudTokenPath);
-                File.WriteAllText(zeebeCloudTokenPath, accessToken);
-
-                return accessToken;
+                return token.Token;
             }
         }
 
         public static CamundaCloudTokenProviderBuilder Builder()
         {
             return new CamundaCloudTokenProviderBuilder();
+        }
+
+        private static AccessToken ToAccessToken(string result)
+        {
+            var jsonResult = JObject.Parse(result);
+            var accessToken = (string) jsonResult["access_token"];
+
+            var dueDate = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + (long) jsonResult["expires_in"];
+            var token = new AccessToken(accessToken, dueDate);
+            return token;
+        }
+
+        public class AccessToken
+        {
+            public string Token { get; set; }
+            public long DueDate { get; set; }
+
+            public AccessToken(string token, long dueDate)
+            {
+                Token = token;
+                DueDate = dueDate;
+            }
+
+            public override string ToString()
+            {
+                return $"{nameof(Token)}: {Token}, {nameof(DueDate)}: {DueDate}";
+            }
         }
     }
 
@@ -128,10 +202,8 @@ namespace Zeebe.Client.Builder
 
     }
 
-
     public class CamundaCloudTokenProviderBuilderStep4
     {
-        private string Audience { get; set; }
         private string AuthServer { get; }
         private string ClientId { get; }
         private string ClientSecret { get; }
@@ -143,10 +215,25 @@ namespace Zeebe.Client.Builder
             ClientSecret = clientSecret;
         }
 
-        public CamundaCloudTokenProviderBuilderStep4 UseAudience(string audience)
+        public CamundaCloudTokenProviderBuilderFinalStep UseAudience(string audience)
         {
+            return new CamundaCloudTokenProviderBuilderFinalStep(AuthServer, ClientId, ClientSecret, audience);
+        }
+    }
+
+    public class CamundaCloudTokenProviderBuilderFinalStep
+    {
+        private string Audience { get; set; }
+        private string AuthServer { get; }
+        private string ClientId { get; }
+        private string ClientSecret { get; }
+
+        internal CamundaCloudTokenProviderBuilderFinalStep(string authServer, string clientId, string clientSecret, string audience)
+        {
+            AuthServer = authServer;
+            ClientId = clientId;
+            ClientSecret = clientSecret;
             Audience = audience;
-            return this;
         }
 
         public CamundaCloudTokenProvider Build()
