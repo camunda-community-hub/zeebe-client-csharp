@@ -48,7 +48,7 @@ namespace Zeebe.Client.Builder
             // check in memory
             if (CurrentAccessToken != null)
             {
-                Logger.Debug("Use in memory access token");
+                Logger.Trace("Use in memory access token.");
                 return await GetValidToken(CurrentAccessToken);
             }
 
@@ -57,7 +57,7 @@ namespace Zeebe.Client.Builder
             var existToken = File.Exists(tokenFileName);
             if (existToken)
             {
-                Logger.Debug("Read cached access token from {0}", tokenFileName);
+                Logger.Trace("Read cached access token from {0}", tokenFileName);
                 // read token
                 var content = File.ReadAllText(tokenFileName);
                 var accessToken = JsonConvert.DeserializeObject<AccessToken>(content);
@@ -71,14 +71,15 @@ namespace Zeebe.Client.Builder
 
         private async Task<string> GetValidToken(AccessToken currentAccessToken)
         {
-            if (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() < currentAccessToken.DueDate)
+            var now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            var dueDate = currentAccessToken.DueDate;
+            if (now < dueDate)
             {
                 // still valid
                 return currentAccessToken.Token;
             }
 
-            Logger.Debug("Access token is no longer valid, request new one");
-
+            Logger.Debug("Access token is no longer valid (now: {0} > dueTime: {1}), request new one.", now, dueDate);
             return await RequestAccessTokenAsync();
         }
 
@@ -118,7 +119,7 @@ namespace Zeebe.Client.Builder
 
                 var result = await httpResponseMessage.Content.ReadAsStringAsync();
                 var token = ToAccessToken(result);
-                Logger.Info("Received access token {0}, will backup at {1}.", token, tokenFileName);
+                Logger.Debug("Received access token {0}, will backup at {1}.", token, tokenFileName);
                 File.WriteAllText(tokenFileName, JsonConvert.SerializeObject(token));
                 CurrentAccessToken = token;
 
