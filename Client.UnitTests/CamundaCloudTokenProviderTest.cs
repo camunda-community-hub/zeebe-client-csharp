@@ -4,6 +4,8 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using NLog;
 using NUnit.Framework;
 using Zeebe.Client.Builder;
 
@@ -24,9 +26,9 @@ namespace Zeebe.Client
             TokenProvider = CamundaCloudTokenProvider
                 .Builder()
                 .UseAuthServer("https://local.de")
-                .UseClientId("id")
-                .UseClientSecret("secret")
-                .UseAudience("audience")
+                .UseClientId("ID")
+                .UseClientSecret("SECRET")
+                .UseAudience("AUDIENCE")
                 .Build();
 
             MessageHandlerStub = new HttpMessageHandlerStub();
@@ -50,6 +52,13 @@ namespace Zeebe.Client
             protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
                 CancellationToken cancellationToken)
             {
+                Assert.AreEqual(request.RequestUri, "https://local.de");
+                var content = await request.Content.ReadAsStringAsync();
+                var jsonObject = JObject.Parse(content);
+                Assert.AreEqual((string) jsonObject["client_id"], "ID");
+                Assert.AreEqual((string) jsonObject["client_secret"], "SECRET");
+                Assert.AreEqual((string) jsonObject["audience"], "AUDIENCE");
+
                 RequestCount++;
                 var responseMessage = new HttpResponseMessage(HttpStatusCode.OK)
                 {
@@ -61,7 +70,6 @@ namespace Zeebe.Client
                     ""scope"":""create""}")
                 };
 
-                await Task.Yield();
                 return responseMessage;
             }
         }
