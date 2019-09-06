@@ -137,7 +137,8 @@ namespace Zeebe.Client.Builder
             var jsonResult = JObject.Parse(result);
             var accessToken = (string) jsonResult["access_token"];
 
-            var dueDate = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + (long) jsonResult["expires_in"];
+            var expiresInMilliSeconds = (long) jsonResult["expires_in"] * 1_000L;
+            var dueDate = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + expiresInMilliSeconds;
             var token = new AccessToken(accessToken, dueDate);
             return token;
         }

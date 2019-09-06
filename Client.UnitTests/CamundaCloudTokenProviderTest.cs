@@ -47,7 +47,7 @@ namespace Zeebe.Client
         {
             public int RequestCount { get; set; }
 
-            protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
+            protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
                 CancellationToken cancellationToken)
             {
                 RequestCount++;
@@ -61,7 +61,8 @@ namespace Zeebe.Client
                     ""scope"":""create""}")
                 };
 
-                return Task.FromResult(responseMessage);
+                await Task.Yield();
+                return responseMessage;
             }
         }
 
@@ -111,6 +112,29 @@ namespace Zeebe.Client
             // then
             Assert.AreEqual("REQUESTED_TOKEN", token);
             Assert.AreEqual(1, MessageHandlerStub.RequestCount);
+        }
+
+        [Test]
+        public async Task ShouldExpireInOneSecond()
+        {
+            // given
+            ExpiresIn = 1;
+            var firstToken = await TokenProvider.GetAccessTokenForRequestAsync();
+            var files = Directory.GetFiles(TokenStoragePath);
+            var tokenFile = files[0];
+            File.WriteAllText(tokenFile, "FILE_TOKEN");
+
+            // when
+            Token = "NEW_TOKEN";
+            var secondToken = await TokenProvider.GetAccessTokenForRequestAsync();
+            Thread.Sleep(1_000);
+            var thirdToken = await TokenProvider.GetAccessTokenForRequestAsync();
+
+            // then
+            Assert.AreEqual("REQUESTED_TOKEN", firstToken);
+            Assert.AreEqual(secondToken, firstToken);
+            Assert.AreEqual("NEW_TOKEN", thirdToken);
+            Assert.AreEqual(2, MessageHandlerStub.RequestCount);
         }
 
         [Test]
