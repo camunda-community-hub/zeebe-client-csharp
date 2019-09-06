@@ -18,6 +18,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
+using Grpc.Core;
 using NLog;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
@@ -143,7 +144,14 @@ namespace Zeebe.Client.Impl.Worker
             {
                 if (workItems.Count < maxJobsActive)
                 {
-                    await PollJobs(cancellationToken);
+                    try
+                    {
+                        await PollJobs(cancellationToken);
+                    }
+                    catch (RpcException rpcException)
+                    {
+                        Logger.Error(rpcException,"Unexpected RpcException on polling new jobs.");
+                    }
                 }
                 pollSignal.WaitOne(pollInterval);
             }
