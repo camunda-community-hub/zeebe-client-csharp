@@ -26,7 +26,7 @@ namespace Client.Examples
     internal class Program
     {
         private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
-        private static readonly string ZeebeUrl = "127.0.0.1:26500";
+        private static readonly string ZeebeUrl = "0.0.0.0:32771";
         private static readonly string WorkflowInstanceVariables = "{\"a\":\"123\"}";
         private static readonly string JobType = "foo";
         private static readonly string WorkerName = Environment.MachineName;
@@ -38,6 +38,8 @@ namespace Client.Examples
             var client = ZeebeClient.Builder().UseGatewayAddress(ZeebeUrl).UsePlainText().Build();
 
 
+            var topology = await client.TopologyRequest().Send();
+            Console.WriteLine(topology);
             await client.NewPublishMessageCommand().MessageName("csharp").CorrelationKey("wow").Variables("{\"realValue\":2}").Send();
 
             // deploy

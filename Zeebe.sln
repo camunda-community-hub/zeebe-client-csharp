@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.UnitTests", "Client.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.Examples", "Client.Examples\Client.Examples.csproj", "{06578991-00CD-4EF7-A12B-63E915A0CECC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.IntegrationTests", "Client.IntegrationTests\Client.IntegrationTests.csproj", "{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -40,6 +42,14 @@ Global
 		{06578991-00CD-4EF7-A12B-63E915A0CECC}.Release|x64.ActiveCfg = Release|Any CPU
 		{06578991-00CD-4EF7-A12B-63E915A0CECC}.Release|x64.Build.0 = Release|Any CPU
 		{06578991-00CD-4EF7-A12B-63E915A0CECC}.Release|x86.ActiveCfg = Release|Any CPU
+		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Debug|x64.Build.0 = Debug|Any CPU
+		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Debug|x86.Build.0 = Debug|Any CPU
+		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Release|x64.ActiveCfg = Release|Any CPU
+		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Release|x64.Build.0 = Release|Any CPU
+		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Release|x86.ActiveCfg = Release|Any CPU
+		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
