@@ -1,7 +1,7 @@
-﻿using GatewayProtocol;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
@@ -51,7 +51,7 @@ namespace Zeebe.Client.Impl.Commands
 
         public IActivateJobsCommandStep3 PollingTimeout(TimeSpan pollingTimeout)
         {
-            request.RequestTimeout = (long) pollingTimeout.TotalMilliseconds;
+            request.RequestTimeout = (long)pollingTimeout.TotalMilliseconds;
             return this;
         }
 

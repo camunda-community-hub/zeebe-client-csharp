@@ -18,6 +18,5 @@ namespace Zeebe.Client.Impl.Responses
                 .Cast<IWorkflowMetadata>()
                 .ToList();
         }
-        
     }
 }

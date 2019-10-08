@@ -13,12 +13,11 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
-using GatewayProtocol;
-using Google.Protobuf;
-using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using GatewayProtocol;
+using Google.Protobuf;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Impl.Responses;
@@ -86,6 +85,5 @@ namespace Zeebe.Client.Impl.Commands
 
             request.Workflows.Add(requestObject);
         }
-
     }
 }

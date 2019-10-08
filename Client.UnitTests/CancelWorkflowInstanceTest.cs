@@ -1,6 +1,6 @@
+using System.Threading.Tasks;
 using GatewayProtocol;
 using NUnit.Framework;
-using System.Threading.Tasks;
 
 namespace Zeebe.Client
 {
@@ -8,7 +8,7 @@ namespace Zeebe.Client
     public class CancelWorkflowInstanceTest : BaseZeebeTest
     {
         [Test]
-        public async Task shouldSendRequestAsExpected()
+        public async Task ShouldSendRequestAsExpected()
         {
             // given
             var expected = new CancelWorkflowInstanceRequest
@@ -23,6 +23,5 @@ namespace Zeebe.Client
             var request = TestService.Requests[0];
             Assert.AreEqual(expected, request);
         }
-
     }
 }

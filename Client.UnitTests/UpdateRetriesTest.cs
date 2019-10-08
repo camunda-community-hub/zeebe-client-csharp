@@ -8,7 +8,7 @@ namespace Zeebe.Client
     public class UpdateRetriesTest : BaseZeebeTest
     {
         [Test]
-        public async Task shouldSendRequestAsExpected()
+        public async Task ShouldSendRequestAsExpected()
         {
             // given
             var expectedRequest = new UpdateJobRetriesRequest
@@ -27,6 +27,5 @@ namespace Zeebe.Client
             var request = TestService.Requests[0];
             Assert.AreEqual(expectedRequest, request);
         }
-
     }
 }

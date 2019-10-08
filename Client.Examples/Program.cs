@@ -18,8 +18,8 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Zeebe.Client;
-using Zeebe.Client.Api.Worker;
 using Zeebe.Client.Api.Responses;
+using Zeebe.Client.Api.Worker;
 
 namespace Client.Examples
 {
@@ -30,13 +30,12 @@ namespace Client.Examples
         private static readonly string WorkflowInstanceVariables = "{\"a\":\"123\"}";
         private static readonly string JobType = "foo";
         private static readonly string WorkerName = Environment.MachineName;
-        private static readonly long WORK_COUNT = 100L;
+        private static readonly long WorkCount = 100L;
 
         public static async Task Main(string[] args)
         {
             // create zeebe client
             var client = ZeebeClient.Builder().UseGatewayAddress(ZeebeUrl).UsePlainText().Build();
-
 
             var topology = await client.TopologyRequest().Send();
             Console.WriteLine(topology);
@@ -56,7 +55,7 @@ namespace Client.Examples
 
             await client.NewSetVariablesCommand(workflowInstance.WorkflowInstanceKey).Variables("{\"wow\":\"this\"}").Local().Send();
 
-            for (var i = 0; i < WORK_COUNT; i++)
+            for (var i = 0; i < WorkCount; i++)
             {
                 await client
                     .NewCreateWorkflowInstanceCommand()

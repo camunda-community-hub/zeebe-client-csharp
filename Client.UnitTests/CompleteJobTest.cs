@@ -12,9 +12,10 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
+using System.Threading.Tasks;
 using GatewayProtocol;
 using NUnit.Framework;
-using System.Threading.Tasks;
 
 namespace Zeebe.Client
 {
@@ -41,7 +42,6 @@ namespace Zeebe.Client
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
-
 
         [Test]
         public async Task ShouldUseActivatedJobToComplete()

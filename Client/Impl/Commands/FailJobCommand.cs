@@ -12,17 +12,18 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using GatewayProtocol;
+
 using System.Threading.Tasks;
+using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
+using FailJobResponse = Zeebe.Client.Impl.Responses.FailJobResponse;
 
 namespace Zeebe.Client.Impl.Commands
 {
     public class FailJobCommand : IFailJobCommandStep1, IFailJobCommandStep2
     {
-
         private readonly FailJobRequest request;
         private readonly GatewayClient gatewayClient;
 
@@ -51,7 +52,7 @@ namespace Zeebe.Client.Impl.Commands
         {
             var asyncReply = gatewayClient.FailJobAsync(request);
             await asyncReply.ResponseAsync;
-            return new Responses.FailJobResponse();
+            return new FailJobResponse();
         }
     }
 }

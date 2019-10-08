@@ -17,7 +17,8 @@ namespace Zeebe.Client.Api.Commands
         IUpdateRetriesCommandStep2 Retries(int retries);
     }
 
-    public interface IUpdateRetriesCommandStep2 : IFinalCommandStep<IUpdateRetriesResponse> {
+    public interface IUpdateRetriesCommandStep2 : IFinalCommandStep<IUpdateRetriesResponse>
+    {
     // the place for new optional parameters
     }
 }

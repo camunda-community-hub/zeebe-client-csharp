@@ -1,10 +1,10 @@
 ﻿using System;
-using GatewayProtocol;
-using Grpc.Core;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using GatewayProtocol;
+using Grpc.Core;
 using Zeebe.Client.Api.Responses;
+using Zeebe.Client.Impl.Responses;
 using static GatewayProtocol.Gateway;
 
 namespace Zeebe.Client.Impl.Commands
@@ -28,11 +28,11 @@ namespace Zeebe.Client.Impl.Commands
                 if (await MoveNext(responseStream, cancelationToken))
                 {
                     var response = responseStream.Current;
-                    return new Responses.ActivateJobsResponses(response);
+                    return new ActivateJobsResponses(response);
                 }
 
                 // empty response
-                return new Responses.ActivateJobsResponses();
+                return new ActivateJobsResponses();
             }
         }
 

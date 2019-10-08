@@ -12,17 +12,15 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using GatewayProtocol;
-using NUnit.Framework;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using GatewayProtocol;
 using NLog;
-using NUnit.Framework.Constraints;
-using NUnit.Framework.Internal;
+using NUnit.Framework;
 using Zeebe.Client.Api.Responses;
-using Logger = NLog.Logger;
 
 namespace Zeebe.Client
 {
@@ -66,7 +64,6 @@ namespace Zeebe.Client
                 .PollingTimeout(TimeSpan.FromSeconds(5L))
                 .Open())
             {
-
                 Assert.True(jobWorker.IsOpen());
                 signal.WaitOne();
             }
@@ -225,7 +222,6 @@ namespace Zeebe.Client
                 .PollInterval(TimeSpan.FromMilliseconds(100))
                 .Open())
             {
-
                 Assert.True(jobWorker.IsOpen());
                 signal.WaitOne();
             }
@@ -276,7 +272,6 @@ namespace Zeebe.Client
                 .PollInterval(TimeSpan.FromMilliseconds(100))
                 .Open())
             {
-
                 Assert.True(jobWorker.IsOpen());
                 signal.WaitOne();
             }
@@ -343,7 +338,6 @@ namespace Zeebe.Client
             Assert.AreEqual(expectedFailRequest, actualFailRequest);
         }
 
-
         [Test]
         public void ShouldUseAutoCompleteWithWorker()
         {
@@ -398,7 +392,8 @@ namespace Zeebe.Client
             {
                 Jobs =
                 {
-                    new ActivatedJob{
+                    new ActivatedJob
+                    {
                         Key = 1,
                         Worker = "jobWorker",
                         Type = "foo",
@@ -413,7 +408,8 @@ namespace Zeebe.Client
                         WorkflowDefinitionVersion = 3,
                         WorkflowKey = 21
                     },
-                    new ActivatedJob{
+                    new ActivatedJob
+                    {
                         Key = 2,
                         Worker = "jobWorker",
                         Type = "foo",
@@ -428,7 +424,8 @@ namespace Zeebe.Client
                         WorkflowDefinitionVersion = 3,
                         WorkflowKey = 21
                     },
-                    new ActivatedJob{
+                    new ActivatedJob
+                    {
                         Key = 3,
                         Worker = "jobWorker",
                         Type = "foo",
@@ -442,8 +439,8 @@ namespace Zeebe.Client
                         WorkflowInstanceKey = 29,
                         WorkflowDefinitionVersion = 3,
                         WorkflowKey = 21
-                    }
-                }
+                    },
+                },
             };
         }
 

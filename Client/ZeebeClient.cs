@@ -29,7 +29,9 @@ namespace Zeebe.Client
         private readonly Channel _channelToGateway;
         private Gateway.GatewayClient _gatewayClient;
 
-        internal ZeebeClient(string address): this(address, ChannelCredentials.Insecure){
+        internal ZeebeClient(string address)
+            : this(address, ChannelCredentials.Insecure)
+        {
         }
 
         internal ZeebeClient(string address, ChannelCredentials credentials)

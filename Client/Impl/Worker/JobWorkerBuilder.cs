@@ -12,9 +12,10 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using GatewayProtocol;
+
 using System;
 using System.Collections.Generic;
+using GatewayProtocol;
 using Zeebe.Client.Api.Worker;
 
 namespace Zeebe.Client.Impl.Worker
@@ -95,7 +96,7 @@ namespace Zeebe.Client.Impl.Worker
 
         public IJobWorkerBuilderStep3 PollingTimeout(TimeSpan pollingTimeout)
         {
-            Request.RequestTimeout = (long) pollingTimeout.TotalMilliseconds;
+            Request.RequestTimeout = (long)pollingTimeout.TotalMilliseconds;
             return this;
         }
 
@@ -118,6 +119,5 @@ namespace Zeebe.Client.Impl.Worker
 
             return worker;
         }
-
     }
 }

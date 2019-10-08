@@ -12,9 +12,10 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
+using System.Threading.Tasks;
 using GatewayProtocol;
 using NUnit.Framework;
-using System.Threading.Tasks;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client
@@ -36,7 +37,6 @@ namespace Zeebe.Client
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
-
 
         [Test]
         public async Task ShouldReceiveResponseAsExpected()
@@ -60,7 +60,6 @@ namespace Zeebe.Client
             Assert.AreEqual(0, firstPartition.PartitionId);
             Assert.AreEqual(PartitionBrokerRole.LEADER, firstPartition.Role);
 
-
             IBrokerInfo secondBroker = response.Brokers[1];
             Assert.AreEqual("host1:26501", secondBroker.Address);
             Assert.AreEqual(1, secondBroker.NodeId);
@@ -69,7 +68,6 @@ namespace Zeebe.Client
             Assert.AreEqual(0, firstPartition.PartitionId);
             Assert.AreEqual(PartitionBrokerRole.FOLLOWER, firstPartition.Role);
 
-
             IBrokerInfo thirdBroker = response.Brokers[2];
             Assert.AreEqual("host2:26501", thirdBroker.Address);
             Assert.AreEqual(2, thirdBroker.NodeId);
@@ -77,13 +75,11 @@ namespace Zeebe.Client
             firstPartition = thirdBroker.Partitions[0];
             Assert.AreEqual(0, firstPartition.PartitionId);
             Assert.AreEqual(PartitionBrokerRole.FOLLOWER, firstPartition.Role);
-
         }
 
-
-        private GatewayProtocol.BrokerInfo CreateBrokerInfo(int nodeId, string host, int port, int partitionId, bool leader)
+        private BrokerInfo CreateBrokerInfo(int nodeId, string host, int port, int partitionId, bool leader)
         {
-            var brokerInfo = new GatewayProtocol.BrokerInfo
+            var brokerInfo = new BrokerInfo
             {
                 Host = host + nodeId,
                 NodeId = nodeId,

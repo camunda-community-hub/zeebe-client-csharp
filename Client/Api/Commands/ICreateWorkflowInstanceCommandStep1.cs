@@ -22,7 +22,6 @@ namespace Zeebe.Client.Api.Commands
         ICreateWorkflowInstanceCommandStep3 WorkflowKey(long workflowKey);
     }
 
-
     public interface ICreateWorkflowInstanceCommandStep2
     {
         /// <summary>
@@ -43,7 +42,6 @@ namespace Zeebe.Client.Api.Commands
         /// <returns>the builder for this command</returns>
         ICreateWorkflowInstanceCommandStep3 LatestVersion();
     }
-
 
     public interface ICreateWorkflowInstanceCommandStep3 : IFinalCommandStep<IWorkflowInstanceResponse>
     {

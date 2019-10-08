@@ -1,7 +1,8 @@
-using GatewayProtocol;
 using System.Threading.Tasks;
+using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
+using SetVariablesResponse = Zeebe.Client.Impl.Responses.SetVariablesResponse;
 
 namespace Zeebe.Client.Impl.Commands
 {
@@ -18,12 +19,12 @@ namespace Zeebe.Client.Impl.Commands
             };
             this.client = client;
         }
+
         public ISetVariablesCommandStep2 Variables(string variables)
         {
             request.Variables = variables;
             return this;
         }
-
 
         public ISetVariablesCommandStep2 Local()
         {
@@ -35,7 +36,7 @@ namespace Zeebe.Client.Impl.Commands
         {
             var asyncReply = client.SetVariablesAsync(request);
             await asyncReply.ResponseAsync;
-            return new Responses.SetVariablesResponse();
+            return new SetVariablesResponse();
         }
     }
 }

@@ -14,13 +14,12 @@
 //    limitations under the License.
 
 using System;
-using GatewayProtocol;
-using Google.Protobuf.WellKnownTypes;
 using System.Threading.Tasks;
+using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
-using Zeebe.Client.Impl.Responses;
 using static GatewayProtocol.Gateway;
+using PublishMessageResponse = Zeebe.Client.Impl.Responses.PublishMessageResponse;
 
 namespace Zeebe.Client.Impl.Commands
 {
@@ -61,7 +60,7 @@ namespace Zeebe.Client.Impl.Commands
 
         public IPublishMessageCommandStep3 TimeToLive(TimeSpan timeToLive)
         {
-            request.TimeToLive = (long) timeToLive.TotalMilliseconds;
+            request.TimeToLive = (long)timeToLive.TotalMilliseconds;
             return this;
         }
 
@@ -69,7 +68,7 @@ namespace Zeebe.Client.Impl.Commands
         {
             var asyncReply = gatewayClient.PublishMessageAsync(request);
             await asyncReply.ResponseAsync;
-            return new Responses.PublishMessageResponse();
+            return new PublishMessageResponse();
         }
     }
 }

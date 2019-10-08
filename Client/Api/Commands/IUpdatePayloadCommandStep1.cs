@@ -7,7 +7,7 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the new variables of the element instance.
         /// </summary>
-        /// 
+        ///
         /// <param name="variables">the variables (JSON) as String</param>
         /// <returns>the builder for this command. Call {@link #Send()} to complete the command and send it
         ///     to the broker.</returns>
@@ -17,10 +17,10 @@ namespace Zeebe.Client.Api.Commands
     public interface ISetVariablesCommandStep2 : IFinalCommandStep<ISetVariablesResponse>
     {
         /// <summary>
-        /// The variables will be merged strictly into the local scope (as indicated by the given elementInstanceKey); 
+        /// The variables will be merged strictly into the local scope (as indicated by the given elementInstanceKey);
         /// this means the variables is not propagated to upper scopes.
         /// </summary>
-        /// 
+        ///
         /// <p>For example, let's say we have two scopes, '1' and '2', with each having effective
         /// variables as:
         ///

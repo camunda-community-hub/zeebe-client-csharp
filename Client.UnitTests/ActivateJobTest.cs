@@ -1,8 +1,8 @@
-﻿using GatewayProtocol;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GatewayProtocol;
+using NUnit.Framework;
 using static Zeebe.Client.JobWorkerTest;
 
 namespace Zeebe.Client

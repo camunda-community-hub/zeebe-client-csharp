@@ -54,7 +54,6 @@ namespace Zeebe.Client.Builder
 
             private ChannelCredentials Credentials { get; set; }
 
-
             public ZeebeSecureClientBuilder(string address, string certificatePath)
             {
                 Address = address;
@@ -69,7 +68,6 @@ namespace Zeebe.Client.Builder
 
             public IZeebeClientFinalBuildStep UseAccessToken(string accessToken)
             {
-
                 Credentials = ChannelCredentials.Create(Credentials, GoogleGrpcCredentials.FromAccessToken(accessToken));
                 return this;
             }

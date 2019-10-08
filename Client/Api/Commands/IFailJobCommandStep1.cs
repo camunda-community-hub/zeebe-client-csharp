@@ -20,12 +20,12 @@ namespace Zeebe.Client.Api.Commands
     {
         /// <summary>
         /// Set the remaining retries of this job.
-        /// 
+        ///
         /// <p>If the retries are greater than zero then this job will be picked up again by a job
         /// worker. Otherwise, an incident is created for this job.
         /// </p>
         /// </summary>
-        /// 
+        ///
         /// <param name="remainingRetries">the remaining retries of this job (e.g. "jobEvent.getRetries() - 1")</param>
         /// <returns>the builder for this command. Call {@link #Send()} to complete the command and send it
         ///     to the broker.
@@ -35,15 +35,14 @@ namespace Zeebe.Client.Api.Commands
 
     public interface IFailJobCommandStep2 : IFinalCommandStep<IFailJobResponse>
     {
-
         /// <summary>
         /// Set the error message of this failing job.
-        /// 
+        ///
         /// <p>If the retries are zero then this error message will be used for the incident creation.
-        /// 
+        ///
         /// </summary>
-        /// 
-        /// <param name="errorMsg">the error msg for this failing job</param> 
+        ///
+        /// <param name="errorMsg">the error msg for this failing job</param>
         /// <returns>the builder for this command. Call {@link #Send()} to complete the command and send it
         ///     to the broker.
         ///     </returns>

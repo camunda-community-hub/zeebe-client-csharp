@@ -13,11 +13,11 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
-using GatewayProtocol;
 using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
+using GatewayProtocol;
 using Grpc.Core;
 using NLog;
 using Zeebe.Client.Api.Commands;
@@ -30,7 +30,9 @@ namespace Zeebe.Client.Impl.Worker
     public class JobWorker : IJobWorker
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        private const string JobFailMessage = "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
+
+        private const string JobFailMessage =
+            "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
 
         private readonly int maxJobsActive;
         private readonly ConcurrentQueue<IJob> workItems = new ConcurrentQueue<IJob>();
@@ -48,7 +50,6 @@ namespace Zeebe.Client.Impl.Worker
 
         private volatile bool isRunning;
 
-
         internal JobWorker(JobWorkerBuilder builder)
         {
             source = new CancellationTokenSource();
@@ -61,7 +62,6 @@ namespace Zeebe.Client.Impl.Worker
             autoCompletion = builder.AutoCompletionEnabled();
         }
 
-
         internal void Open()
         {
             isRunning = true;
@@ -69,19 +69,23 @@ namespace Zeebe.Client.Impl.Worker
 
             var taskFactory = new TaskFactory();
 
-            taskFactory.StartNew(async () =>
-                await Poll(cancellationToken)
-                    .ContinueWith(t => Logger.Error(t.Exception),
-                        TaskContinuationOptions.OnlyOnFaulted), cancellationToken
-            ).ContinueWith(
+            taskFactory.StartNew(
+                    async () =>
+                        await Poll(cancellationToken)
+                            .ContinueWith(
+                                t => Logger.Error(t.Exception),
+                                TaskContinuationOptions.OnlyOnFaulted), cancellationToken)
+                .ContinueWith(
                     t => Logger.Error(t.Exception),
                     TaskContinuationOptions.OnlyOnFaulted);
 
             taskFactory.StartNew(() => HandleActivatedJobs(cancellationToken), cancellationToken)
-                .ContinueWith(t => Logger.Error(t.Exception),
+                .ContinueWith(
+                    t => Logger.Error(t.Exception),
                     TaskContinuationOptions.OnlyOnFaulted);
 
-            Logger.Debug("Job worker ({0}) for job type '{1}' has been opened.", activeRequest.Worker, activeRequest.Type);
+            Logger.Debug("Job worker ({0}) for job type '{1}' has been opened.", activeRequest.Worker,
+                activeRequest.Type);
         }
 
         private void HandleActivatedJobs(CancellationToken cancellationToken)
@@ -99,7 +103,8 @@ namespace Zeebe.Client.Impl.Worker
                             jobHandler(jobClient, activatedJob);
                             if (!jobClient.ClientWasUsed && autoCompletion)
                             {
-                                Logger.Debug("Job worker ({0}) will auto complete job with key '{1}'", activeRequest.Worker, activatedJob.Key);
+                                Logger.Debug("Job worker ({0}) will auto complete job with key '{1}'",
+                                    activeRequest.Worker, activatedJob.Key);
                                 jobClient.NewCompleteJobCommand(activatedJob).Send();
                             }
                         }
@@ -150,9 +155,10 @@ namespace Zeebe.Client.Impl.Worker
                     }
                     catch (RpcException rpcException)
                     {
-                        Logger.Error(rpcException,"Unexpected RpcException on polling new jobs.");
+                        Logger.Error(rpcException, "Unexpected RpcException on polling new jobs.");
                     }
                 }
+
                 pollSignal.WaitOne(pollInterval);
             }
         }
@@ -164,7 +170,8 @@ namespace Zeebe.Client.Impl.Worker
 
             var response = await activator.SendActivateRequest(activeRequest, cancellationToken);
 
-            Logger.Debug("Job worker ({0}) activated '{1}' of '{2}' successfully.", activeRequest.Worker, response.Jobs.Count, jobCount);
+            Logger.Debug("Job worker ({0}) activated '{1}' of '{2}' successfully.", activeRequest.Worker,
+                response.Jobs.Count, jobCount);
             foreach (var job in response.Jobs)
             {
                 workItems.Enqueue(job);
@@ -194,7 +201,6 @@ namespace Zeebe.Client.Impl.Worker
             private IJobClient Client { get; }
 
             public bool ClientWasUsed { get; private set; }
-
 
             public JobClientWrapper(IJobClient client)
             {

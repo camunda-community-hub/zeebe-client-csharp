@@ -9,7 +9,7 @@ namespace Zeebe.Client
     public class PublishMessageTest : BaseZeebeTest
     {
         [Test]
-        public async Task shouldSendRequestAsExpected()
+        public async Task ShouldSendRequestAsExpected()
         {
             // given
             var expectedRequest = new PublishMessageRequest
@@ -31,7 +31,7 @@ namespace Zeebe.Client
         }
 
         [Test]
-        public async Task shouldSendRequestWithTTLAsExpected()
+        public async Task ShouldSendRequestWithTtlAsExpected()
         {
             // given
             var expectedRequest = new PublishMessageRequest
@@ -55,7 +55,7 @@ namespace Zeebe.Client
         }
 
         [Test]
-        public async Task shouldSendRequestWithIdAsExpected()
+        public async Task ShouldSendRequestWithIdAsExpected()
         {
             // given
             var expectedRequest = new PublishMessageRequest
@@ -79,6 +79,5 @@ namespace Zeebe.Client
             var request = TestService.Requests[0];
             Assert.AreEqual(expectedRequest, request);
         }
-
     }
 }

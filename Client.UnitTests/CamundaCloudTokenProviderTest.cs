@@ -55,9 +55,9 @@ namespace Zeebe.Client
                 Assert.AreEqual(request.RequestUri, "https://local.de");
                 var content = await request.Content.ReadAsStringAsync();
                 var jsonObject = JObject.Parse(content);
-                Assert.AreEqual((string) jsonObject["client_id"], "ID");
-                Assert.AreEqual((string) jsonObject["client_secret"], "SECRET");
-                Assert.AreEqual((string) jsonObject["audience"], "AUDIENCE");
+                Assert.AreEqual((string)jsonObject["client_id"], "ID");
+                Assert.AreEqual((string)jsonObject["client_secret"], "SECRET");
+                Assert.AreEqual((string)jsonObject["audience"], "AUDIENCE");
 
                 RequestCount++;
                 var responseMessage = new HttpResponseMessage(HttpStatusCode.OK)
@@ -65,9 +65,9 @@ namespace Zeebe.Client
                     Content = new StringContent(@"{
                     ""access_token"":""" + Token + @""",
                     ""token_type"":""bearer"",
-                    ""expires_in"": " + ExpiresIn +  @",
+                    ""expires_in"": " + ExpiresIn + @",
                     ""refresh_token"":""IwOGYzYTlmM2YxOTQ5MGE3YmNmMDFkNTVk"",
-                    ""scope"":""create""}")
+                    ""scope"":""create""}"),
                 };
 
                 return responseMessage;
@@ -201,7 +201,6 @@ namespace Zeebe.Client
             Assert.AreEqual(1, MessageHandlerStub.RequestCount);
         }
 
-
         [Test]
         public async Task ShouldUseCachedFileAndAfterwardsInMemory()
         {
@@ -222,6 +221,5 @@ namespace Zeebe.Client
             Assert.AreEqual("STORED_TOKEN", token);
             Assert.AreEqual(0, MessageHandlerStub.RequestCount);
         }
-
     }
 }

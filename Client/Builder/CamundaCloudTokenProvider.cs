@@ -44,8 +44,9 @@ namespace Zeebe.Client.Builder
             TokenStoragePath = ZeebeRootPath;
         }
 
-        public Task<string> GetAccessTokenForRequestAsync(string authUri = null,
-            CancellationToken cancellationToken = new CancellationToken())
+        public Task<string> GetAccessTokenForRequestAsync(
+            string authUri = null,
+            CancellationToken cancellationToken = default(CancellationToken))
         {
             // check in memory
             if (CurrentAccessToken != null)
@@ -84,7 +85,6 @@ namespace Zeebe.Client.Builder
             Logger.Debug("Access token is no longer valid (now: {0} > dueTime: {1}), request new one.", now, dueDate);
             return RequestAccessTokenAsync();
         }
-
 
         // Requesting the token is similar to this:
         //        curl --request POST \
@@ -137,9 +137,9 @@ namespace Zeebe.Client.Builder
         private static AccessToken ToAccessToken(string result)
         {
             var jsonResult = JObject.Parse(result);
-            var accessToken = (string) jsonResult["access_token"];
+            var accessToken = (string)jsonResult["access_token"];
 
-            var expiresInMilliSeconds = (long) jsonResult["expires_in"] * 1_000L;
+            var expiresInMilliSeconds = (long)jsonResult["expires_in"] * 1_000L;
             var dueDate = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + expiresInMilliSeconds;
             var token = new AccessToken(accessToken, dueDate);
             return token;
@@ -185,7 +185,6 @@ namespace Zeebe.Client.Builder
             return new CamundaCloudTokenProviderBuilderStep3(AuthServer, clientId);
         }
     }
-
 
     public class CamundaCloudTokenProviderBuilderStep3
     {

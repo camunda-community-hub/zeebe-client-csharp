@@ -15,12 +15,11 @@ namespace Zeebe.Client
     [TestFixture]
     public class ZeebeClientTest
     {
+        private static readonly string ServerCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
+        private static readonly string ClientCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ca.cert.pem");
+        private static readonly string ServerKeyPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "private.key.pem");
 
-        private static readonly string ServerCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources","chain.cert.pem");
-        private static readonly string ClientCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources","ca.cert.pem");
-        private static readonly string ServerKeyPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources","private.key.pem");
-
-        private static readonly string WrongCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources","server.crt");
+        private static readonly string WrongCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "server.crt");
 
         [Test]
         public void ShouldThrowExceptionAfterDispose()
@@ -40,7 +39,7 @@ namespace Zeebe.Client
 
             Assert.AreEqual(1, aggregateException.InnerExceptions.Count);
 
-            var  catchedExceptions = aggregateException.InnerExceptions[0];
+            var catchedExceptions = aggregateException.InnerExceptions[0];
             Assert.IsTrue(catchedExceptions.Message.Contains("ZeebeClient was already disposed."));
             Assert.IsInstanceOf(typeof(ObjectDisposedException), catchedExceptions);
         }
@@ -53,7 +52,7 @@ namespace Zeebe.Client
 
             var keyCertificatePairs = new List<KeyCertificatePair>();
             var serverCert = File.ReadAllText(ServerCertPath);
-            keyCertificatePairs.Add(new KeyCertificatePair(serverCert,File.ReadAllText(ServerKeyPath)));
+            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
@@ -63,7 +62,6 @@ namespace Zeebe.Client
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
-
 
             // client
             var zeebeClient = ZeebeClient.Builder()
@@ -90,7 +88,7 @@ namespace Zeebe.Client
 
             var keyCertificatePairs = new List<KeyCertificatePair>();
             var serverCert = File.ReadAllText(ServerCertPath);
-            keyCertificatePairs.Add(new KeyCertificatePair(serverCert,File.ReadAllText(ServerKeyPath)));
+            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
@@ -100,7 +98,6 @@ namespace Zeebe.Client
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
-
 
             // client
             var zeebeClient = ZeebeClient.Builder()
@@ -127,7 +124,7 @@ namespace Zeebe.Client
 
             var keyCertificatePairs = new List<KeyCertificatePair>();
             var serverCert = File.ReadAllText(ServerCertPath);
-            keyCertificatePairs.Add(new KeyCertificatePair(serverCert,File.ReadAllText(ServerKeyPath)));
+            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
@@ -137,7 +134,6 @@ namespace Zeebe.Client
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
-
 
             // client
             var zeebeClient = ZeebeClient.Builder()
@@ -170,7 +166,7 @@ namespace Zeebe.Client
 
             var keyCertificatePairs = new List<KeyCertificatePair>();
             var serverCert = File.ReadAllText(ServerCertPath);
-            keyCertificatePairs.Add(new KeyCertificatePair(serverCert,File.ReadAllText(ServerKeyPath)));
+            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
@@ -180,7 +176,6 @@ namespace Zeebe.Client
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
-
 
             // client
             var zeebeClient = ZeebeClient.Builder()
@@ -206,7 +201,7 @@ namespace Zeebe.Client
 
             var keyCertificatePairs = new List<KeyCertificatePair>();
             var serverCert = File.ReadAllText(ServerCertPath);
-            keyCertificatePairs.Add(new KeyCertificatePair(serverCert,File.ReadAllText(ServerKeyPath)));
+            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
@@ -216,7 +211,6 @@ namespace Zeebe.Client
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
-
 
             // client
             var accessTokenSupplier = new SimpleAccessTokenSupplier();
@@ -239,8 +233,10 @@ namespace Zeebe.Client
         private class SimpleAccessTokenSupplier : IAccessTokenSupplier
         {
             public int Count { get; private set; }
-            public Task<string> GetAccessTokenForRequestAsync(string authUri = null,
-                CancellationToken cancellationToken = new CancellationToken())
+
+            public Task<string> GetAccessTokenForRequestAsync(
+                string authUri = null,
+                CancellationToken cancellationToken = default(CancellationToken))
             {
                 Count++;
                 return Task.FromResult("token");

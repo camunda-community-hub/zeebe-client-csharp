@@ -43,8 +43,8 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Add the given resource to the deployment.
         /// </summary>
-        /// <param name="resourceString">the workflow resource as UTF-8-encoded String</param> 
-        /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param> 
+        /// <param name="resourceString">the workflow resource as UTF-8-encoded String</param>
+        /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
         ///     to the broker.</returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceStringUtf8(
@@ -54,7 +54,7 @@ namespace Zeebe.Client.Api.Commands
         /// Add the given resource to the deployment.
         /// </summary>
         /// <param name="resourceStream">the workflow resource as stream</param>
-        /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param> 
+        /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param>
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
         ///     to the broker.
         /// </returns>

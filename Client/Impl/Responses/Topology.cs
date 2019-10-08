@@ -13,10 +13,9 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
-using System;
-using GatewayProtocol;
 using System.Collections.Generic;
 using System.Linq;
+using GatewayProtocol;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Impl.Responses

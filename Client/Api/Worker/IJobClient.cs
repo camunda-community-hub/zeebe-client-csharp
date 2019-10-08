@@ -25,7 +25,6 @@ namespace Zeebe.Client.Api.Worker
     /// </summary>
     public interface IJobClient
     {
-
         /// <summary>
         /// Command to complete a job.
         ///
@@ -86,6 +85,5 @@ namespace Zeebe.Client.Api.Worker
         /// <returns>a builder for the command
         /// </summary>
         IFailJobCommandStep1 NewFailCommand(long jobKey);
-
     }
 }

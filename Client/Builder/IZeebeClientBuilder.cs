@@ -46,7 +46,6 @@ namespace Zeebe.Client.Builder
         /// <returns>the final client builder step</returns>
         IZeebeClientFinalBuildStep UseAccessToken(string accessToken);
 
-
         /// <summary>
         /// Client should use an access token to authenticate with and the given
         /// supplier should be used to receive the token.
@@ -58,7 +57,6 @@ namespace Zeebe.Client.Builder
 
     public interface IAccessTokenSupplier : ITokenAccess
     {
-
     }
 
     public interface IZeebeClientFinalBuildStep

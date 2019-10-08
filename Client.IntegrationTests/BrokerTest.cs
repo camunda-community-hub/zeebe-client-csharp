@@ -88,7 +88,7 @@ namespace Client.IntegrationTests
                     var topology = await client.TopologyRequest().Send();
                     ready = topology.Brokers[0].Partitions.Count == 1;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     // retry
                 }

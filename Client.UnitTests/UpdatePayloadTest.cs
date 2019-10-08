@@ -1,7 +1,6 @@
-
+using System.Threading.Tasks;
 using GatewayProtocol;
 using NUnit.Framework;
-using System.Threading.Tasks;
 
 namespace Zeebe.Client
 {
@@ -25,7 +24,6 @@ namespace Zeebe.Client
             var request = TestService.Requests[0];
             Assert.AreEqual(expectedRequest, request);
         }
-
 
         [Test]
         public async Task ShouldSendRequestWithLocalSemanticsAsExpected()

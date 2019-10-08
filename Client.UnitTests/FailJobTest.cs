@@ -1,10 +1,9 @@
-﻿using GatewayProtocol;
+﻿using System.Threading.Tasks;
+using GatewayProtocol;
 using NUnit.Framework;
-using System.Threading.Tasks;
 
 namespace Zeebe.Client
 {
-
     [TestFixture]
     public class FailJobTest : BaseZeebeTest
     {

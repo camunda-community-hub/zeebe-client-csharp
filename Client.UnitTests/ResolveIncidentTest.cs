@@ -7,9 +7,8 @@ namespace Zeebe.Client
     [TestFixture]
     public class ResolveIncidentTest : BaseZeebeTest
     {
-
         [Test]
-        public async Task shouldSendRequestAsExpected()
+        public async Task ShouldSendRequestAsExpected()
         {
             // given
             var expected = new ResolveIncidentRequest
@@ -24,6 +23,5 @@ namespace Zeebe.Client
             var request = TestService.Requests[0];
             Assert.AreEqual(expected, request);
         }
-
     }
 }

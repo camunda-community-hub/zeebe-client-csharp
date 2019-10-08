@@ -1,6 +1,6 @@
+using System.Threading.Tasks;
 using GatewayProtocol;
 using NUnit.Framework;
-using System.Threading.Tasks;
 
 namespace Zeebe.Client
 {
@@ -8,7 +8,7 @@ namespace Zeebe.Client
     public class CreateWorkflowInstanceTest : BaseZeebeTest
     {
         [Test]
-        public async Task shouldSendRequestAsExpected()
+        public async Task ShouldSendRequestAsExpected()
         {
             // given
             var expectedRequest = new CreateWorkflowInstanceRequest
@@ -29,7 +29,7 @@ namespace Zeebe.Client
         }
 
         [Test]
-        public async Task shouldSendRequestWithVersionAsExpected()
+        public async Task ShouldSendRequestWithVersionAsExpected()
         {
             // given
             var expectedRequest = new CreateWorkflowInstanceRequest
@@ -50,7 +50,7 @@ namespace Zeebe.Client
         }
 
         [Test]
-        public async Task shouldSendRequestWithWorkflowKeyAsExpected()
+        public async Task ShouldSendRequestWithWorkflowKeyAsExpected()
         {
             // given
             var expectedRequest = new CreateWorkflowInstanceRequest
@@ -69,7 +69,7 @@ namespace Zeebe.Client
         }
 
         [Test]
-        public async Task shouldSendRequestWithVariablesAsExpected()
+        public async Task ShouldSendRequestWithVariablesAsExpected()
         {
             // given
             var expectedRequest = new CreateWorkflowInstanceRequest
@@ -90,7 +90,7 @@ namespace Zeebe.Client
         }
 
         [Test]
-        public async Task shouldSendRequestWithVariablesAndProcessIdAsExpected()
+        public async Task ShouldSendRequestWithVariablesAndProcessIdAsExpected()
         {
             // given
             var expectedRequest = new CreateWorkflowInstanceRequest
@@ -112,9 +112,8 @@ namespace Zeebe.Client
             Assert.AreEqual(expectedRequest, request);
         }
 
-
         [Test]
-        public async Task shouldReceiveResponseAsExpected()
+        public async Task ShouldReceiveResponseAsExpected()
         {
             // given
             var expectedResponse = new CreateWorkflowInstanceResponse

@@ -18,13 +18,11 @@ using Zeebe.Client.Api.Worker;
 
 namespace Zeebe.Client
 {
-
     /// <summary>
     /// The client to communicate with a Zeebe broker/cluster.
     /// </summary>
     public interface IZeebeClient : IJobClient, IDisposable
     {
-
         /// <summary>
         /// Registers a new job worker for jobs of a given type.
         ///
@@ -137,7 +135,6 @@ namespace Zeebe.Client
         /// <returns>a builder for the command</returns>
         ICreateWorkflowInstanceCommandStep1 NewCreateWorkflowInstanceCommand();
 
-
         /// <summary>
         /// Command to cancel a workflow instance.
         ///
@@ -163,7 +160,6 @@ namespace Zeebe.Client
         /// <param name="elementInstanceKey">the key of the element instance to set the variables for</param>
         /// <returns> a builder for the command</returns>
         ISetVariablesCommandStep1 NewSetVariablesCommand(long elementInstanceKey);
-
 
         /// <summary>
         ///   Command to resolve an existing incident.
@@ -207,6 +203,5 @@ namespace Zeebe.Client
         ///
         /// <returns>the request where you must call #send()</returns>
         ITopologyRequestStep1 TopologyRequest();
-
     }
 }

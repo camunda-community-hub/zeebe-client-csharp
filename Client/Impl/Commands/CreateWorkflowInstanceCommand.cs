@@ -1,5 +1,5 @@
-using GatewayProtocol;
 using System.Threading.Tasks;
+using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Impl.Responses;

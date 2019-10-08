@@ -41,7 +41,6 @@ namespace Zeebe.Client.Impl.Responses
                 .ToList();
         }
 
-
         public override string ToString()
         {
             return $"\n {nameof(Address)}: {Address}," +
