@@ -26,7 +26,7 @@ namespace Client.Examples
     internal class Program
     {
         private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
-        private static readonly string ZeebeUrl = "0.0.0.0:32771";
+        private static readonly string ZeebeUrl = "0.0.0.0:26500";
         private static readonly string WorkflowInstanceVariables = "{\"a\":\"123\"}";
         private static readonly string JobType = "foo";
         private static readonly string WorkerName = Environment.MachineName;

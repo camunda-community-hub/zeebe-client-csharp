@@ -6,21 +6,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using NLog;
+using Zeebe.Client.Logging;
 
 namespace Zeebe.Client.Builder
 {
     public class CamundaCloudTokenProvider : IAccessTokenSupplier
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-
         private const string JsonContent =
             "{{\"client_id\":\"{0}\",\"client_secret\":\"{1}\",\"audience\":\"{2}\",\"grant_type\":\"client_credentials\"}}";
 
+        private const string ZeebeCloudTokenFileName = "cloud.token";
+
+        private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+
         private static readonly string ZeebeRootPath =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
-
-        private const string ZeebeCloudTokenFileName = "cloud.token";
 
         public HttpMessageHandler HttpMessageHandler { get; set; }
         public string TokenStoragePath { get; set; }
@@ -60,7 +60,7 @@ namespace Zeebe.Client.Builder
             var existToken = File.Exists(tokenFileName);
             if (existToken)
             {
-                Logger.Trace("Read cached access token from {0}", tokenFileName);
+                Logger.TraceFormat("Read cached access token from {tokenFileName}", tokenFileName);
                 // read token
                 var content = File.ReadAllText(tokenFileName);
                 var accessToken = JsonConvert.DeserializeObject<AccessToken>(content);
@@ -82,7 +82,7 @@ namespace Zeebe.Client.Builder
                 return Task.FromResult(currentAccessToken.Token);
             }
 
-            Logger.Debug("Access token is no longer valid (now: {0} > dueTime: {1}), request new one.", now, dueDate);
+            Logger.DebugFormat("Access token is no longer valid (now: {now} > dueTime: {dueTime}), request new one.", now, dueDate);
             return RequestAccessTokenAsync();
         }
 
@@ -121,7 +121,7 @@ namespace Zeebe.Client.Builder
 
                 var result = await httpResponseMessage.Content.ReadAsStringAsync();
                 var token = ToAccessToken(result);
-                Logger.Debug("Received access token {0}, will backup at {1}.", token, tokenFileName);
+                Logger.DebugFormat("Received access token {token}, will backup at {path}.", token, tokenFileName);
                 File.WriteAllText(tokenFileName, JsonConvert.SerializeObject(token));
                 CurrentAccessToken = token;
 
