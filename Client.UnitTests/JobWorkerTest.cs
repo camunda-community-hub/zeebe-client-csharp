@@ -452,12 +452,7 @@ namespace Zeebe.Client
             Assert.AreEqual("jobWorker", job.Worker);
 
             Assert.AreEqual("{\"foo\":" + expectedKey + "}", job.Variables);
-            var expectedVariables = new Dictionary<string, int> { { "foo", expectedKey } };
-            CollectionAssert.AreEquivalent(expectedVariables, job.VariablesAsDictionary);
-
             Assert.AreEqual("{\"customFoo\":\"" + expectedKey + "\"}", job.CustomHeaders);
-            var expectedCustomHeaders = new Dictionary<string, string> { { "customFoo", expectedKey.ToString() } };
-            CollectionAssert.AreEquivalent(expectedCustomHeaders, job.CustomHeadersAsDictionary);
 
             Assert.AreEqual("process", job.BpmnProcessId);
             Assert.AreEqual("job" + expectedKey, job.ElementId);
