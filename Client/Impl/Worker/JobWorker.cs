@@ -19,18 +19,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
+using Microsoft.Extensions.Logging;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Worker;
 using Zeebe.Client.Impl.Commands;
-using Zeebe.Client.Logging;
 
 namespace Zeebe.Client.Impl.Worker
 {
     public class JobWorker : IJobWorker
     {
-        private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
-
         private const string JobFailMessage =
             "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
 
@@ -47,7 +45,7 @@ namespace Zeebe.Client.Impl.Worker
 
         private readonly EventWaitHandle handleSignal = new EventWaitHandle(false, EventResetMode.AutoReset);
         private readonly EventWaitHandle pollSignal = new EventWaitHandle(false, EventResetMode.AutoReset);
-
+        private readonly ILogger<JobWorker> logger;
         private volatile bool isRunning;
 
         internal JobWorker(JobWorkerBuilder builder)
@@ -60,6 +58,7 @@ namespace Zeebe.Client.Impl.Worker
             jobClient = new JobClientWrapper(builder.JobClient);
             jobHandler = builder.Handler();
             autoCompletion = builder.AutoCompletionEnabled();
+            logger = builder.LoggerFactory?.CreateLogger<JobWorker>();
         }
 
         internal void Open()
@@ -73,18 +72,18 @@ namespace Zeebe.Client.Impl.Worker
                     async () =>
                         await Poll(cancellationToken)
                             .ContinueWith(
-                                t => Logger.ErrorException("Job polling failed.", t.Exception),
+                                t => logger?.LogError(t.Exception, "Job polling failed."),
                                 TaskContinuationOptions.OnlyOnFaulted), cancellationToken)
                 .ContinueWith(
-                    t => Logger.ErrorException("Job polling failed.", t.Exception),
+                    t => logger?.LogError(t.Exception, "Job polling failed."),
                     TaskContinuationOptions.OnlyOnFaulted);
 
             taskFactory.StartNew(() => HandleActivatedJobs(cancellationToken), cancellationToken)
                 .ContinueWith(
-                    t => Logger.ErrorException("Job handling failed.", t.Exception),
+                    t => logger?.LogError(t.Exception, "Job handling failed."),
                     TaskContinuationOptions.OnlyOnFaulted);
 
-            Logger.DebugFormat(
+            logger?.LogDebug(
                 "Job worker ({worker}) for job type {type} has been opened.",
                 activeRequest.Worker,
                 activeRequest.Type);
@@ -105,11 +104,14 @@ namespace Zeebe.Client.Impl.Worker
                             jobHandler(jobClient, activatedJob);
                             if (!jobClient.ClientWasUsed && autoCompletion)
                             {
-                                Logger.DebugFormat(
+                                logger?.LogDebug(
                                     "Job worker ({worker}) will auto complete job with key '{key}'",
                                     activeRequest.Worker,
                                     activatedJob.Key);
-                                jobClient.NewCompleteJobCommand(activatedJob).Send();
+                                jobClient.NewCompleteJobCommand(activatedJob)
+                                    .Send()
+                                    .GetAwaiter()
+                                    .GetResult();
                             }
                         }
                         catch (Exception exception)
@@ -143,8 +145,10 @@ namespace Zeebe.Client.Impl.Worker
             jobClient.NewFailCommand(activatedJob.Key)
                 .Retries(activatedJob.Retries - 1)
                 .ErrorMessage(errorMessage)
-                .Send();
-            Logger.Error(exception, errorMessage);
+                .Send()
+                .GetAwaiter()
+                .GetResult();
+            logger?.LogError(exception, errorMessage);
         }
 
         private async Task Poll(CancellationToken cancellationToken)
@@ -159,7 +163,7 @@ namespace Zeebe.Client.Impl.Worker
                     }
                     catch (RpcException rpcException)
                     {
-                        Logger.Error(rpcException, "Unexpected RpcException on polling new jobs.");
+                        logger?.LogError(rpcException, "Unexpected RpcException on polling new jobs.");
                     }
                 }
 
@@ -174,7 +178,7 @@ namespace Zeebe.Client.Impl.Worker
 
             var response = await activator.SendActivateRequest(activeRequest, cancellationToken);
 
-            Logger.DebugFormat(
+            logger?.LogDebug(
                 "Job worker ({worker}) activated {activatedCount} of {requestCount} successfully.",
                 activeRequest.Worker,
                 response.Jobs.Count,

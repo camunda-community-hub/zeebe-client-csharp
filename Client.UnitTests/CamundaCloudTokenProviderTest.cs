@@ -23,8 +23,7 @@ namespace Zeebe.Client
         [SetUp]
         public void Init()
         {
-            TokenProvider = CamundaCloudTokenProvider
-                .Builder()
+            TokenProvider = new CamundaCloudTokenProviderBuilder()
                 .UseAuthServer("https://local.de")
                 .UseClientId("ID")
                 .UseClientSecret("SECRET")
