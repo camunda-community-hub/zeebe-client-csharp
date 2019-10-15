@@ -16,6 +16,8 @@
 using System;
 using System.Collections.Generic;
 using GatewayProtocol;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Zeebe.Client.Api.Worker;
 
 namespace Zeebe.Client.Impl.Worker
@@ -26,12 +28,14 @@ namespace Zeebe.Client.Impl.Worker
         private JobHandler handler;
         private bool autoCompletion;
 
+        internal ILoggerFactory LoggerFactory { get; }
         internal Gateway.GatewayClient Client { get; }
         internal ActivateJobsRequest Request { get; } = new ActivateJobsRequest();
         internal IJobClient JobClient { get; }
 
-        public JobWorkerBuilder(Gateway.GatewayClient client, IJobClient jobClient)
+        public JobWorkerBuilder(Gateway.GatewayClient client, IJobClient jobClient, ILoggerFactory loggerFactory = null)
         {
+            LoggerFactory = loggerFactory ?? new NullLoggerFactory();
             Client = client;
             JobClient = jobClient;
         }

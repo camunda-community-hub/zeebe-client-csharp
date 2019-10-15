@@ -18,7 +18,6 @@ using GatewayProtocol;
 using Grpc.Core;
 using Grpc.Core.Logging;
 using NUnit.Framework;
-using Zeebe.Client.Logging;
 
 namespace Zeebe.Client
 {

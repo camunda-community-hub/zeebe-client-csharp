@@ -4,9 +4,10 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Zeebe.Client.Logging;
 
 namespace Zeebe.Client.Builder
 {
@@ -17,8 +18,6 @@ namespace Zeebe.Client.Builder
 
         private const string ZeebeCloudTokenFileName = "cloud.token";
 
-        private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
-
         private static readonly string ZeebeRootPath =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
 
@@ -27,13 +26,16 @@ namespace Zeebe.Client.Builder
         private string TokenFileName => TokenStoragePath + Path.DirectorySeparatorChar + ZeebeCloudTokenFileName;
         private AccessToken CurrentAccessToken { get; set; }
 
+        private readonly ILogger<CamundaCloudTokenProvider> logger;
         private readonly string authServer;
         private readonly string clientId;
         private readonly string clientSecret;
         private readonly string audience;
 
-        internal CamundaCloudTokenProvider(string authServer, string clientId, string clientSecret, string audience)
+        internal CamundaCloudTokenProvider(string authServer, string clientId, string clientSecret, string audience,
+            ILogger<CamundaCloudTokenProvider> logger = null)
         {
+            this.logger = logger ?? new NullLogger<CamundaCloudTokenProvider>();
             this.authServer = authServer;
             this.clientId = clientId;
             this.clientSecret = clientSecret;
@@ -51,7 +53,7 @@ namespace Zeebe.Client.Builder
             // check in memory
             if (CurrentAccessToken != null)
             {
-                Logger.Trace("Use in memory access token.");
+                logger.LogTrace("Use in memory access token.");
                 return GetValidToken(CurrentAccessToken);
             }
 
@@ -60,7 +62,7 @@ namespace Zeebe.Client.Builder
             var existToken = File.Exists(tokenFileName);
             if (existToken)
             {
-                Logger.TraceFormat("Read cached access token from {tokenFileName}", tokenFileName);
+                logger.LogTrace("Read cached access token from {tokenFileName}", tokenFileName);
                 // read token
                 var content = File.ReadAllText(tokenFileName);
                 var accessToken = JsonConvert.DeserializeObject<AccessToken>(content);
@@ -82,7 +84,7 @@ namespace Zeebe.Client.Builder
                 return Task.FromResult(currentAccessToken.Token);
             }
 
-            Logger.DebugFormat("Access token is no longer valid (now: {now} > dueTime: {dueTime}), request new one.", now, dueDate);
+            logger.LogTrace("Access token is no longer valid (now: {now} > dueTime: {dueTime}), request new one.", now, dueDate);
             return RequestAccessTokenAsync();
         }
 
@@ -121,17 +123,12 @@ namespace Zeebe.Client.Builder
 
                 var result = await httpResponseMessage.Content.ReadAsStringAsync();
                 var token = ToAccessToken(result);
-                Logger.DebugFormat("Received access token {token}, will backup at {path}.", token, tokenFileName);
+                logger.LogDebug("Received access token {token}, will backup at {path}.", token, tokenFileName);
                 File.WriteAllText(tokenFileName, JsonConvert.SerializeObject(token));
                 CurrentAccessToken = token;
 
                 return token.Token;
             }
-        }
-
-        public static CamundaCloudTokenProviderBuilder Builder()
-        {
-            return new CamundaCloudTokenProviderBuilder();
         }
 
         private static AccessToken ToAccessToken(string result)
@@ -160,87 +157,6 @@ namespace Zeebe.Client.Builder
             {
                 return $"{nameof(Token)}: {Token}, {nameof(DueDate)}: {DueDate}";
             }
-        }
-    }
-
-    public class CamundaCloudTokenProviderBuilder
-    {
-        public CamundaCloudTokenProviderBuilderStep2 UseAuthServer(string url)
-        {
-            return new CamundaCloudTokenProviderBuilderStep2(url);
-        }
-    }
-
-    public class CamundaCloudTokenProviderBuilderStep2
-    {
-        private string AuthServer { get; }
-
-        internal CamundaCloudTokenProviderBuilderStep2(string authServer)
-        {
-            AuthServer = authServer;
-        }
-
-        public CamundaCloudTokenProviderBuilderStep3 UseClientId(string clientId)
-        {
-            return new CamundaCloudTokenProviderBuilderStep3(AuthServer, clientId);
-        }
-    }
-
-    public class CamundaCloudTokenProviderBuilderStep3
-    {
-        private string AuthServer { get; }
-        private string ClientId { get; }
-
-        internal CamundaCloudTokenProviderBuilderStep3(string authServer, string clientId)
-        {
-            AuthServer = authServer;
-            ClientId = clientId;
-        }
-
-        public CamundaCloudTokenProviderBuilderStep4 UseClientSecret(string clientSecret)
-        {
-            return new CamundaCloudTokenProviderBuilderStep4(AuthServer, ClientId, clientSecret);
-        }
-    }
-
-    public class CamundaCloudTokenProviderBuilderStep4
-    {
-        private string AuthServer { get; }
-        private string ClientId { get; }
-        private string ClientSecret { get; }
-
-        internal CamundaCloudTokenProviderBuilderStep4(string authServer, string clientId, string clientSecret)
-        {
-            AuthServer = authServer;
-            ClientId = clientId;
-            ClientSecret = clientSecret;
-        }
-
-        public CamundaCloudTokenProviderBuilderFinalStep UseAudience(string audience)
-        {
-            return new CamundaCloudTokenProviderBuilderFinalStep(AuthServer, ClientId, ClientSecret, audience);
-        }
-    }
-
-    public class CamundaCloudTokenProviderBuilderFinalStep
-    {
-        private string Audience { get; set; }
-        private string AuthServer { get; }
-        private string ClientId { get; }
-        private string ClientSecret { get; }
-
-        internal CamundaCloudTokenProviderBuilderFinalStep(string authServer, string clientId, string clientSecret,
-            string audience)
-        {
-            AuthServer = authServer;
-            ClientId = clientId;
-            ClientSecret = clientSecret;
-            Audience = audience;
-        }
-
-        public CamundaCloudTokenProvider Build()
-        {
-            return new CamundaCloudTokenProvider(AuthServer, ClientId, ClientSecret, Audience);
         }
     }
 }

@@ -13,6 +13,8 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 using System;
 using System.IO;
 using System.Threading;
@@ -34,15 +36,34 @@ namespace Client.Examples
 
         public static async Task Main(string[] args)
         {
-            // create zeebe client
-            var client = ZeebeClient.Builder().UseGatewayAddress(ZeebeUrl).UsePlainText().Build();
+            var loggerFactory = LoggerFactory.Create(loggingBuilder =>
+            {
+                // configure Logging with NLog
+                loggingBuilder.ClearProviders();
+                loggingBuilder.SetMinimumLevel(LogLevel.Trace);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "NLog.Config");
+                loggingBuilder.AddNLog(path);
+            });
 
-            var topology = await client.TopologyRequest().Send();
+            // create zeebe client
+            var client = ZeebeClient.Builder(loggerFactory)
+                .UseGatewayAddress(ZeebeUrl)
+                .UsePlainText()
+                .Build();
+
+            var topology = await client.TopologyRequest()
+                .Send();
             Console.WriteLine(topology);
-            await client.NewPublishMessageCommand().MessageName("csharp").CorrelationKey("wow").Variables("{\"realValue\":2}").Send();
+            await client.NewPublishMessageCommand()
+                .MessageName("csharp")
+                .CorrelationKey("wow")
+                .Variables("{\"realValue\":2}")
+                .Send();
 
             // deploy
-            var deployResponse = await client.NewDeployCommand().AddResourceFile(DemoProcessPath).Send();
+            var deployResponse = await client.NewDeployCommand()
+                .AddResourceFile(DemoProcessPath)
+                .Send();
 
             // create workflow instance
             var workflowKey = deployResponse.Workflows[0].WorkflowKey;
@@ -90,11 +111,20 @@ namespace Client.Examples
 
             if (jobKey % 3 == 0)
             {
-                jobClient.NewCompleteJobCommand(jobKey).Variables("{\"foo\":2}").Send();
+                jobClient.NewCompleteJobCommand(jobKey)
+                    .Variables("{\"foo\":2}")
+                    .Send()
+                    .GetAwaiter()
+                    .GetResult();
             }
             else if (jobKey % 2 == 0)
             {
-                jobClient.NewFailCommand(jobKey).Retries(job.Retries - 1).ErrorMessage("Example fail").Send();
+                jobClient.NewFailCommand(jobKey)
+                    .Retries(job.Retries - 1)
+                    .ErrorMessage("Example fail")
+                    .Send()
+                    .GetAwaiter()
+                    .GetResult();
             }
             else
             {

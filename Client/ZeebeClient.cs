@@ -15,6 +15,8 @@
 
 using GatewayProtocol;
 using Grpc.Core;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Worker;
@@ -27,15 +29,16 @@ namespace Zeebe.Client
     public class ZeebeClient : IZeebeClient
     {
         private readonly Channel _channelToGateway;
+        private readonly ILoggerFactory loggerFactory;
         private Gateway.GatewayClient _gatewayClient;
 
-        internal ZeebeClient(string address)
-            : this(address, ChannelCredentials.Insecure)
-        {
-        }
+        internal ZeebeClient(string address, ILoggerFactory loggerFactory = null)
+            : this(address, ChannelCredentials.Insecure, loggerFactory)
+        { }
 
-        internal ZeebeClient(string address, ChannelCredentials credentials)
+        internal ZeebeClient(string address, ChannelCredentials credentials, ILoggerFactory loggerFactory = null)
         {
+            this.loggerFactory = loggerFactory ?? new NullLoggerFactory();
             _channelToGateway = new Channel(address, credentials);
             _gatewayClient = new Gateway.GatewayClient(_channelToGateway);
         }
@@ -46,7 +49,7 @@ namespace Zeebe.Client
 
         public IJobWorkerBuilderStep1 NewWorker()
         {
-            return new JobWorkerBuilder(_gatewayClient, this);
+            return new JobWorkerBuilder(_gatewayClient, this, loggerFactory);
         }
 
         public IActivateJobsCommandStep1 NewActivateJobsCommand()
@@ -121,9 +124,9 @@ namespace Zeebe.Client
         /// a ZeebeClient.
         /// </summary>
         /// <returns>an builder to construct an ZeebeClient</returns>
-        public static IZeebeClientBuilder Builder()
+        public static IZeebeClientBuilder Builder(ILoggerFactory loggerFactory = null)
         {
-            return new ZeebeClientBuilder();
+            return new ZeebeClientBuilder(loggerFactory);
         }
     }
 }
