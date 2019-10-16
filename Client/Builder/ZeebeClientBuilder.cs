@@ -15,7 +15,7 @@ namespace Zeebe.Client.Builder
 
         public ZeebeClientBuilder(ILoggerFactory loggerFactory = null)
         {
-            this.loggerFactory = loggerFactory ?? new NullLoggerFactory();
+            this.loggerFactory = loggerFactory;
         }
 
         private string GatewayAddress { get; set; }
@@ -51,7 +51,7 @@ namespace Zeebe.Client.Builder
         public ZeebePlainClientBuilder(string address, ILoggerFactory loggerFactory = null)
         {
             Address = address;
-            this.loggerFactory = loggerFactory ?? new NullLoggerFactory();
+            this.loggerFactory = loggerFactory;
         }
 
         public IZeebeClient Build()
@@ -71,14 +71,14 @@ namespace Zeebe.Client.Builder
         public ZeebeSecureClientBuilder(string address, string certificatePath, ILoggerFactory loggerFactory = null)
         {
             Address = address;
-            this.loggerFactory = loggerFactory ?? new NullLoggerFactory();
+            this.loggerFactory = loggerFactory;
             Credentials = new SslCredentials(File.ReadAllText(certificatePath));
         }
 
         public ZeebeSecureClientBuilder(string address, ILoggerFactory loggerFactory = null)
         {
             Address = address;
-            this.loggerFactory = loggerFactory ?? new NullLoggerFactory();
+            this.loggerFactory = loggerFactory;
             Credentials = new SslCredentials();
         }
 

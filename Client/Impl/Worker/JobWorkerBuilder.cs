@@ -35,7 +35,7 @@ namespace Zeebe.Client.Impl.Worker
 
         public JobWorkerBuilder(Gateway.GatewayClient client, IJobClient jobClient, ILoggerFactory loggerFactory = null)
         {
-            LoggerFactory = loggerFactory ?? new NullLoggerFactory();
+            LoggerFactory = loggerFactory;
             Client = client;
             JobClient = jobClient;
         }

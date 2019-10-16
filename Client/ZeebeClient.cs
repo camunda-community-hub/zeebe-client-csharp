@@ -38,7 +38,7 @@ namespace Zeebe.Client
 
         internal ZeebeClient(string address, ChannelCredentials credentials, ILoggerFactory loggerFactory = null)
         {
-            this.loggerFactory = loggerFactory ?? new NullLoggerFactory();
+            this.loggerFactory = loggerFactory;
             _channelToGateway = new Channel(address, credentials);
             _gatewayClient = new Gateway.GatewayClient(_channelToGateway);
         }

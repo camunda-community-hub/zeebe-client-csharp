@@ -35,7 +35,7 @@ namespace Zeebe.Client.Builder
         internal CamundaCloudTokenProvider(string authServer, string clientId, string clientSecret, string audience,
             ILogger<CamundaCloudTokenProvider> logger = null)
         {
-            this.logger = logger ?? new NullLogger<CamundaCloudTokenProvider>();
+            this.logger = logger;
             this.authServer = authServer;
             this.clientId = clientId;
             this.clientSecret = clientSecret;
@@ -53,7 +53,7 @@ namespace Zeebe.Client.Builder
             // check in memory
             if (CurrentAccessToken != null)
             {
-                logger.LogTrace("Use in memory access token.");
+                logger?.LogTrace("Use in memory access token.");
                 return GetValidToken(CurrentAccessToken);
             }
 
@@ -62,7 +62,7 @@ namespace Zeebe.Client.Builder
             var existToken = File.Exists(tokenFileName);
             if (existToken)
             {
-                logger.LogTrace("Read cached access token from {tokenFileName}", tokenFileName);
+                logger?.LogTrace("Read cached access token from {tokenFileName}", tokenFileName);
                 // read token
                 var content = File.ReadAllText(tokenFileName);
                 var accessToken = JsonConvert.DeserializeObject<AccessToken>(content);
@@ -84,7 +84,7 @@ namespace Zeebe.Client.Builder
                 return Task.FromResult(currentAccessToken.Token);
             }
 
-            logger.LogTrace("Access token is no longer valid (now: {now} > dueTime: {dueTime}), request new one.", now, dueDate);
+            logger?.LogTrace("Access token is no longer valid (now: {now} > dueTime: {dueTime}), request new one.", now, dueDate);
             return RequestAccessTokenAsync();
         }
 
@@ -123,7 +123,7 @@ namespace Zeebe.Client.Builder
 
                 var result = await httpResponseMessage.Content.ReadAsStringAsync();
                 var token = ToAccessToken(result);
-                logger.LogDebug("Received access token {token}, will backup at {path}.", token, tokenFileName);
+                logger?.LogDebug("Received access token {token}, will backup at {path}.", token, tokenFileName);
                 File.WriteAllText(tokenFileName, JsonConvert.SerializeObject(token));
                 CurrentAccessToken = token;
 

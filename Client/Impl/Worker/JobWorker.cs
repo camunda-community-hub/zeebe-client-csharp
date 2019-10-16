@@ -83,7 +83,7 @@ namespace Zeebe.Client.Impl.Worker
                     t => logger?.LogError(t.Exception, "Job handling failed."),
                     TaskContinuationOptions.OnlyOnFaulted);
 
-            logger.LogDebug(
+            logger?.LogDebug(
                 "Job worker ({worker}) for job type {type} has been opened.",
                 activeRequest.Worker,
                 activeRequest.Type);
@@ -108,7 +108,10 @@ namespace Zeebe.Client.Impl.Worker
                                     "Job worker ({worker}) will auto complete job with key '{key}'",
                                     activeRequest.Worker,
                                     activatedJob.Key);
-                                jobClient.NewCompleteJobCommand(activatedJob).Send();
+                                jobClient.NewCompleteJobCommand(activatedJob)
+                                    .Send()
+                                    .GetAwaiter()
+                                    .GetResult();
                             }
                         }
                         catch (Exception exception)
@@ -142,7 +145,9 @@ namespace Zeebe.Client.Impl.Worker
             jobClient.NewFailCommand(activatedJob.Key)
                 .Retries(activatedJob.Retries - 1)
                 .ErrorMessage(errorMessage)
-                .Send();
+                .Send()
+                .GetAwaiter()
+                .GetResult();
             logger?.LogError(exception, errorMessage);
         }
 
