@@ -9,7 +9,7 @@ namespace Zeebe.Client.Builder
 
         public CamundaCloudTokenProviderBuilder(ILoggerFactory loggerFactory = null)
         {
-            this.loggerFactory = loggerFactory ?? new NullLoggerFactory();
+            this.loggerFactory = loggerFactory;
         }
 
         public CamundaCloudTokenProviderBuilderStep2 UseAuthServer(string url)

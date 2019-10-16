@@ -87,7 +87,7 @@ namespace Client.DepenencyInjectionExamples
                 // open job worker
                 using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
                 {
-                    var job = client.NewWorker()
+                    client.NewWorker()
                           .JobType(JobType)
                           .Handler(HandleJob)
                           .MaxJobsActive(5)
