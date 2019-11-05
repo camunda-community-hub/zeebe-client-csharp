@@ -41,12 +41,13 @@ namespace Client.Examples
                 // configure Logging with NLog
                 loggingBuilder.ClearProviders();
                 loggingBuilder.SetMinimumLevel(LogLevel.Trace);
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "NLog.Config");
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "NLog.config");
                 loggingBuilder.AddNLog(path);
             });
 
             // create zeebe client
-            var client = ZeebeClient.Builder(loggerFactory)
+            var client = ZeebeClient.Builder()
+                .UseLoggerFactory(loggerFactory)
                 .UseGatewayAddress(ZeebeUrl)
                 .UsePlainText()
                 .Build();

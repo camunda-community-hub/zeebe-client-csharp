@@ -1,24 +1,28 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.Extensions.Logging;
 using Zeebe.Client.Builder;
 
 namespace Zeebe.Client
 {
-
     public static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// Adds the Zeebee builders to the ServicesCollection
+        /// Adds the Zeebe builders to the IServiceCollection
         /// </summary>
-        /// <param name="services"></param>
-        /// <returns></returns>
+        /// <param name="services">the collection where the zeebe services are appended</param>
+        /// <returns>the service collection</returns>
         public static IServiceCollection AddZeebeBuilders(this IServiceCollection services)
         {
-            services.AddTransient<IZeebeClientBuilder, ZeebeClientBuilder>();
-            services.AddTransient<IZeebeClientTransportBuilder, ZeebeClientBuilder>();
-            services.AddTransient<CamundaCloudTokenProviderBuilder>();
+            services.AddTransient(serviceProvider =>
+            {
+                var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
+                return ZeebeClient.Builder().UseLoggerFactory(loggerFactory);
+            });
+            services.AddTransient(serviceProvider =>
+            {
+                var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
+                return CamundaCloudTokenProvider.Builder().UseLoggerFactory(loggerFactory);
+            });
             return services;
         }
     }

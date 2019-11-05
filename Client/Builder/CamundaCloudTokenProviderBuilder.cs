@@ -5,11 +5,12 @@ namespace Zeebe.Client.Builder
 {
     public class CamundaCloudTokenProviderBuilder
     {
-        private readonly ILoggerFactory loggerFactory;
+        private ILoggerFactory loggerFactory;
 
-        public CamundaCloudTokenProviderBuilder(ILoggerFactory loggerFactory = null)
+        public CamundaCloudTokenProviderBuilder UseLoggerFactory(ILoggerFactory loggerFactory)
         {
             this.loggerFactory = loggerFactory;
+            return this;
         }
 
         public CamundaCloudTokenProviderBuilderStep2 UseAuthServer(string url)

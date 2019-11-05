@@ -1,8 +1,7 @@
 ﻿## Dependency Injection Example
 In the following you see an example of how to use the Zeebe C# client with dependency injection.
 
-
-```
+```csharp
 using System;
 using System.IO;
 using System.Threading;
@@ -98,27 +97,23 @@ namespace Client.DependencyInjectionExamples
             var services = new ServiceCollection();
 
             // https://github.com/NLog/NLog/wiki/Getting-started-with-.NET-Core-2---Console-application
-            services.AddLogging(loggingBuilder =>
-            {
-                // configure Logging with NLog
-                loggingBuilder.ClearProviders();
-                loggingBuilder.SetMinimumLevel(LogLevel.Trace);
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "NLog.Config");
-                loggingBuilder.AddNLog(path);
-            });
-
-            services.AddZeebeBuilders();
-
-            services.AddScoped<IZeebeClient>(sp =>
-            {
-                var builder = sp.GetRequiredService<IZeebeClientBuilder>();
-                return builder
-                    .UseGatewayAddress(ZeebeUrl)
-                    .UsePlainText()
-                    .Build();
-            });
-
-            serviceProvider = services.BuildServiceProvider();
+            serviceProvider = services.AddLogging(loggingBuilder =>
+                {
+                    // configure Logging with NLog
+                    loggingBuilder.ClearProviders();
+                    loggingBuilder.SetMinimumLevel(LogLevel.Trace);
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "NLog.config");
+                    loggingBuilder.AddNLog(path);
+                })
+                .AddZeebeBuilders()
+                .AddScoped(sp =>
+                {
+                    var builder = sp.GetRequiredService<IZeebeClientBuilder>();
+                    return builder
+                        .UseGatewayAddress(ZeebeUrl)
+                        .UsePlainText()
+                        .Build();
+                }).BuildServiceProvider();
         }
 
         private static void HandleJob(IJobClient jobClient, IJob job)
@@ -151,3 +146,4 @@ namespace Client.DependencyInjectionExamples
         }
     }
 }
+```

@@ -32,6 +32,11 @@ namespace Zeebe.Client.Builder
         private readonly string clientSecret;
         private readonly string audience;
 
+        public static CamundaCloudTokenProviderBuilder Builder()
+        {
+            return new CamundaCloudTokenProviderBuilder();
+        }
+
         internal CamundaCloudTokenProvider(string authServer, string clientId, string clientSecret, string audience,
             ILogger<CamundaCloudTokenProvider> logger = null)
         {

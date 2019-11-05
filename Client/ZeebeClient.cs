@@ -124,9 +124,9 @@ namespace Zeebe.Client
         /// a ZeebeClient.
         /// </summary>
         /// <returns>an builder to construct an ZeebeClient</returns>
-        public static IZeebeClientBuilder Builder(ILoggerFactory loggerFactory = null)
+        public static IZeebeClientBuilder Builder()
         {
-            return new ZeebeClientBuilder(loggerFactory);
+            return new ZeebeClientBuilder();
         }
     }
 }

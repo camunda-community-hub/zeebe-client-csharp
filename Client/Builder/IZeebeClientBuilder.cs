@@ -1,9 +1,20 @@
 using Google.Apis.Auth.OAuth2;
+using Microsoft.Extensions.Logging;
 
 namespace Zeebe.Client.Builder
 {
     public interface IZeebeClientBuilder
     {
+        /// <summary>
+        /// The logger factory which the client should use to log messages.
+        /// This is optional and if not set the client will not log any messages.
+        /// </summary>
+        /// <param name="loggerFactory">the factory which is used to create an logger</param>
+        /// <returns>
+        ///   the builder, to configure the zeebe client
+        /// </returns>
+        IZeebeClientBuilder UseLoggerFactory(ILoggerFactory loggerFactory);
+
         /// <summary>
         /// The address which the client should connect to.
         /// </summary>

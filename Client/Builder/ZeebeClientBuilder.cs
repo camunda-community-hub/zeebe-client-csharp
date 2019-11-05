@@ -11,14 +11,14 @@ namespace Zeebe.Client.Builder
 {
     public class ZeebeClientBuilder : IZeebeClientBuilder, IZeebeClientTransportBuilder
     {
-        private readonly ILoggerFactory loggerFactory;
-
-        public ZeebeClientBuilder(ILoggerFactory loggerFactory = null)
-        {
-            this.loggerFactory = loggerFactory;
-        }
-
+        private ILoggerFactory LoggerFactory { get; set; }
         private string GatewayAddress { get; set; }
+
+        public IZeebeClientBuilder UseLoggerFactory(ILoggerFactory loggerFactory)
+        {
+            LoggerFactory = loggerFactory;
+            return this;
+        }
 
         public IZeebeClientTransportBuilder UseGatewayAddress(string gatewayAddress)
         {
@@ -28,17 +28,17 @@ namespace Zeebe.Client.Builder
 
         public IZeebeSecureClientBuilder UseTransportEncryption(string rootCertificatePath)
         {
-            return new ZeebeSecureClientBuilder(GatewayAddress, rootCertificatePath, loggerFactory);
+            return new ZeebeSecureClientBuilder(GatewayAddress, rootCertificatePath, LoggerFactory);
         }
 
         public IZeebeSecureClientBuilder UseTransportEncryption()
         {
-            return new ZeebeSecureClientBuilder(GatewayAddress, loggerFactory);
+            return new ZeebeSecureClientBuilder(GatewayAddress, LoggerFactory);
         }
 
         public IZeebeClientFinalBuildStep UsePlainText()
         {
-            return new ZeebePlainClientBuilder(GatewayAddress, loggerFactory);
+            return new ZeebePlainClientBuilder(GatewayAddress, LoggerFactory);
         }
     }
 
