@@ -33,7 +33,10 @@ namespace Zeebe.Client.Impl.Worker
         internal ActivateJobsRequest Request { get; } = new ActivateJobsRequest();
         internal IJobClient JobClient { get; }
 
-        public JobWorkerBuilder(Gateway.GatewayClient client, IJobClient jobClient, ILoggerFactory loggerFactory = null)
+        public JobWorkerBuilder(
+            Gateway.GatewayClient client,
+            IJobClient jobClient,
+            ILoggerFactory loggerFactory = null)
         {
             LoggerFactory = loggerFactory;
             Client = client;
