@@ -1,4 +1,3 @@
-using Google.Apis.Auth.OAuth2;
 using Microsoft.Extensions.Logging;
 
 namespace Zeebe.Client.Builder
@@ -64,10 +63,6 @@ namespace Zeebe.Client.Builder
         /// <param name="supplier">the access token supplier which is called to supplied the access token</param>
         /// <returns>the final client builder step</returns>
         IZeebeClientFinalBuildStep UseAccessTokenSupplier(IAccessTokenSupplier supplier);
-    }
-
-    public interface IAccessTokenSupplier : ITokenAccess
-    {
     }
 
     public interface IZeebeClientFinalBuildStep

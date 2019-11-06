@@ -26,11 +26,12 @@ using Zeebe.Client.Impl.Worker;
 
 namespace Zeebe.Client
 {
+    /// <inheritdoc />
     public class ZeebeClient : IZeebeClient
     {
-        private readonly Channel _channelToGateway;
+        private readonly Channel channelToGateway;
         private readonly ILoggerFactory loggerFactory;
-        private Gateway.GatewayClient _gatewayClient;
+        private Gateway.GatewayClient gatewayClient;
 
         internal ZeebeClient(string address, ILoggerFactory loggerFactory = null)
             : this(address, ChannelCredentials.Insecure, loggerFactory)
@@ -39,8 +40,8 @@ namespace Zeebe.Client
         internal ZeebeClient(string address, ChannelCredentials credentials, ILoggerFactory loggerFactory = null)
         {
             this.loggerFactory = loggerFactory;
-            _channelToGateway = new Channel(address, credentials);
-            _gatewayClient = new Gateway.GatewayClient(_channelToGateway);
+            channelToGateway = new Channel(address, credentials);
+            gatewayClient = new Gateway.GatewayClient(channelToGateway);
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -49,32 +50,32 @@ namespace Zeebe.Client
 
         public IJobWorkerBuilderStep1 NewWorker()
         {
-            return new JobWorkerBuilder(_gatewayClient, this, loggerFactory);
+            return new JobWorkerBuilder(gatewayClient, this, loggerFactory);
         }
 
         public IActivateJobsCommandStep1 NewActivateJobsCommand()
         {
-            return new ActivateJobsCommand(_gatewayClient);
+            return new ActivateJobsCommand(gatewayClient);
         }
 
         public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
         {
-            return new CompleteJobCommand(_gatewayClient, jobKey);
+            return new CompleteJobCommand(gatewayClient, jobKey);
         }
 
         public ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob)
         {
-            return new CompleteJobCommand(_gatewayClient, activatedJob.Key);
+            return new CompleteJobCommand(gatewayClient, activatedJob.Key);
         }
 
         public IFailJobCommandStep1 NewFailCommand(long jobKey)
         {
-            return new FailJobCommand(_gatewayClient, jobKey);
+            return new FailJobCommand(gatewayClient, jobKey);
         }
 
         public IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey)
         {
-            return new UpdateRetriesCommand(_gatewayClient, jobKey);
+            return new UpdateRetriesCommand(gatewayClient, jobKey);
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -83,40 +84,40 @@ namespace Zeebe.Client
 
         public IDeployWorkflowCommandStep1 NewDeployCommand()
         {
-            return new DeployWorkflowCommand(_gatewayClient);
+            return new DeployWorkflowCommand(gatewayClient);
         }
 
         public ICreateWorkflowInstanceCommandStep1 NewCreateWorkflowInstanceCommand()
         {
-            return new CreateWorkflowInstanceCommand(_gatewayClient);
+            return new CreateWorkflowInstanceCommand(gatewayClient);
         }
 
         public ICancelWorkflowInstanceCommandStep1 NewCancelInstanceCommand(long workflowInstanceKey)
         {
-            return new CancelWorkflowInstanceCommand(_gatewayClient, workflowInstanceKey);
+            return new CancelWorkflowInstanceCommand(gatewayClient, workflowInstanceKey);
         }
 
         public ISetVariablesCommandStep1 NewSetVariablesCommand(long elementInstanceKey)
         {
-            return new SetVariablesCommand(_gatewayClient, elementInstanceKey);
+            return new SetVariablesCommand(gatewayClient, elementInstanceKey);
         }
 
         public IResolveIncidentCommandStep1 NewResolveIncidentCommand(long incidentKey)
         {
-            return new ResolveIncidentCommand(_gatewayClient, incidentKey);
+            return new ResolveIncidentCommand(gatewayClient, incidentKey);
         }
 
         public IPublishMessageCommandStep1 NewPublishMessageCommand()
         {
-            return new PublishMessageCommand(_gatewayClient);
+            return new PublishMessageCommand(gatewayClient);
         }
 
-        public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(_gatewayClient);
+        public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient);
 
         public void Dispose()
         {
-            _gatewayClient = new ClosedGatewayClient();
-            _channelToGateway.ShutdownAsync().Wait();
+            gatewayClient = new ClosedGatewayClient();
+            channelToGateway.ShutdownAsync().Wait();
         }
 
         /// <summary>
