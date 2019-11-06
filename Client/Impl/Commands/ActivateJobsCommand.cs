@@ -61,9 +61,9 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<IActivateJobsResponse> Send()
+        public async Task<IActivateJobsResponse> Send(TimeSpan? timeout = null)
         {
-            return await activator.SendActivateRequest(request);
+            return await activator.SendActivateRequest(request, timeout?.FromUtcNow());
         }
     }
 }

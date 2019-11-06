@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
@@ -26,9 +27,9 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<IUpdateRetriesResponse> Send()
+        public async Task<IUpdateRetriesResponse> Send(TimeSpan? timeout = null)
         {
-            var asyncReply = client.UpdateJobRetriesAsync(request);
+            var asyncReply = client.UpdateJobRetriesAsync(request, deadline: timeout?.FromUtcNow());
             await asyncReply.ResponseAsync;
             return new UpdateRetriesResponse();
         }

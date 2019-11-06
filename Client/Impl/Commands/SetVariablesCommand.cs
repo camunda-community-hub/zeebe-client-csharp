@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
@@ -32,9 +33,9 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<ISetVariablesResponse> Send()
+        public async Task<ISetVariablesResponse> Send(TimeSpan? timeout = null)
         {
-            var asyncReply = client.SetVariablesAsync(request);
+            var asyncReply = client.SetVariablesAsync(request, deadline: timeout?.FromUtcNow());
             await asyncReply.ResponseAsync;
             return new SetVariablesResponse();
         }

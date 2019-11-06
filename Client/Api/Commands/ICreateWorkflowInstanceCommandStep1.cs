@@ -1,4 +1,4 @@
-﻿using Zeebe.Client.Api.Commands;
+﻿using System.Collections.Generic;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
@@ -52,5 +52,30 @@ namespace Zeebe.Client.Api.Commands
         /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
         ///     it to the broker.</returns>
         ICreateWorkflowInstanceCommandStep3 Variables(string variables);
+
+        /// <summary>
+        /// When this method is called, the response to the command will be received after the workflow
+        /// is completed. The response consists of a set of variables.
+        /// </summary>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it to the broker</returns>
+        ICreateWorkflowInstanceWithResultCommandStep1 WithResult();
+    }
+
+    public interface ICreateWorkflowInstanceWithResultCommandStep1
+        : IFinalCommandStep<IWorkflowInstanceResult>
+    {
+        /// <summary>
+        /// Set a list of variables names which should be fetched in the response.
+        /// </summary>
+        /// <param name="fetchVariables">set of names of variables to be included in the response</param>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it to the broker</returns>
+        ICreateWorkflowInstanceWithResultCommandStep1 FetchVariables(IList<string> fetchVariables);
+
+        /// <summary>
+        /// Set a list of variables names which should be fetched in the response.
+        /// </summary>
+        /// <param name="fetchVariables">set of names of variables to be included in the response</param>
+        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it to the broker</returns>
+        ICreateWorkflowInstanceWithResultCommandStep1 FetchVariables(params string[] fetchVariables);
     }
 }

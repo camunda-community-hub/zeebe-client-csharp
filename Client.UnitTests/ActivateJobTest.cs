@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GatewayProtocol;
+using Grpc.Core;
 using NUnit.Framework;
 using static Zeebe.Client.JobWorkerTest;
 
@@ -44,6 +45,26 @@ namespace Zeebe.Client
             AssertJob(receivedJobs[0], 1);
             AssertJob(receivedJobs[1], 2);
             AssertJob(receivedJobs[2], 3);
+        }
+
+        [Test]
+        public void ShouldTimeoutRequest()
+        {
+            // given
+
+            // when
+            var task = ZeebeClient.NewActivateJobsCommand()
+                .JobType("foo")
+                .MaxJobsToActivate(1)
+                .Timeout(TimeSpan.FromSeconds(10))
+                .WorkerName("jobWorker")
+                .PollingTimeout(TimeSpan.FromSeconds(5))
+                .Send(TimeSpan.Zero);
+            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+            var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+
+            // then
+            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
         }
 
         [Test]

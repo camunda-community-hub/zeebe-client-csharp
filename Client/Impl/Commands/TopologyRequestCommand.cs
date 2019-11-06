@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using System;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
@@ -31,9 +32,9 @@ namespace Zeebe.Client.Impl.Commands
             gatewayClient = client;
         }
 
-        public async Task<ITopology> Send()
+        public async Task<ITopology> Send(TimeSpan? timeout = null)
         {
-            var asyncReply = gatewayClient.TopologyAsync(request);
+            var asyncReply = gatewayClient.TopologyAsync(request, deadline: timeout?.FromUtcNow());
             var response = await asyncReply.ResponseAsync;
 
             return new Topology(response);

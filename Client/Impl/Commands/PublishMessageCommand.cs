@@ -64,9 +64,9 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<IPublishMessageResponse> Send()
+        public async Task<IPublishMessageResponse> Send(TimeSpan? timeout = null)
         {
-            var asyncReply = gatewayClient.PublishMessageAsync(request);
+            var asyncReply = gatewayClient.PublishMessageAsync(request, deadline: timeout?.FromUtcNow());
             await asyncReply.ResponseAsync;
             return new PublishMessageResponse();
         }

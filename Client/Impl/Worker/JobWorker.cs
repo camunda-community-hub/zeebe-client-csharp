@@ -176,7 +176,7 @@ namespace Zeebe.Client.Impl.Worker
             var jobCount = maxJobsActive - workItems.Count;
             activeRequest.MaxJobsToActivate = jobCount;
 
-            var response = await activator.SendActivateRequest(activeRequest, cancellationToken);
+            var response = await activator.SendActivateRequest(activeRequest, null, cancellationToken);
 
             logger?.LogDebug(
                 "Job worker ({worker}) activated {activatedCount} of {requestCount} successfully.",

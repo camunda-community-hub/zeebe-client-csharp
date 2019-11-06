@@ -18,11 +18,10 @@ namespace Zeebe.Client.Impl.Commands
             this.client = client;
         }
 
-        public async Task<IActivateJobsResponse> SendActivateRequest(ActivateJobsRequest request, CancellationToken? cancelationToken = null)
+        public async Task<IActivateJobsResponse> SendActivateRequest(ActivateJobsRequest request, DateTime? requestTimeout = null, CancellationToken? cancelationToken = null)
         {
-            // we need a higher request deadline then the long polling request timeout
-            var requestTimeout = request.RequestTimeout <= 0 ? 10 : (request.RequestTimeout / 1000) + 10;
-            using (var stream = client.ActivateJobs(request, deadline: DateTime.UtcNow.AddSeconds(requestTimeout)))
+            DateTime activateRequestTimeout = requestTimeout ?? CalculateRequestTimeout(request);
+            using (var stream = client.ActivateJobs(request, deadline: activateRequestTimeout))
             {
                 var responseStream = stream.ResponseStream;
                 if (await MoveNext(responseStream, cancelationToken))
@@ -34,6 +33,15 @@ namespace Zeebe.Client.Impl.Commands
                 // empty response
                 return new ActivateJobsResponses();
             }
+        }
+
+        private static DateTime CalculateRequestTimeout(ActivateJobsRequest request)
+        {
+            // we need a higher request deadline then the long polling request timeout
+            var longPollingTimeout = request.RequestTimeout;
+            return longPollingTimeout <= 0
+                ? TimeSpan.FromSeconds(10).FromUtcNow()
+                : TimeSpan.FromSeconds((longPollingTimeout / 1000f) + 10).FromUtcNow();
         }
 
         private async Task<bool> MoveNext(IAsyncStreamReader<ActivateJobsResponse> stream, CancellationToken? cancellationToken = null)

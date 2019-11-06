@@ -13,9 +13,13 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using System;
 using System.Threading.Tasks;
 using GatewayProtocol;
+using Grpc.Core;
 using NUnit.Framework;
+using Zeebe.Client.Api.Responses;
+using Zeebe.Client.Impl.Commands;
 
 namespace Zeebe.Client
 {
@@ -26,16 +30,16 @@ namespace Zeebe.Client
         public async Task ShouldSendRequestAsExpected()
         {
             // given
-            const string Variables = "{\"foo\":23}";
-            const int JobKey = 255;
+            const string variables = "{\"foo\":23}";
+            const int jobKey = 255;
             var expectedRequest = new CompleteJobRequest
             {
-                JobKey = JobKey,
-                Variables = Variables
+                JobKey = jobKey,
+                Variables = variables
             };
 
             // when
-            await ZeebeClient.NewCompleteJobCommand(JobKey).Variables(Variables).Send();
+            await ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables).Send();
 
             // then
             var actualRequest = TestService.Requests[0];
@@ -44,23 +48,39 @@ namespace Zeebe.Client
         }
 
         [Test]
+        public void ShouldTimeoutRequest()
+        {
+            // given
+            const string variables = "{\"foo\":23}";
+            const int jobKey = 255;
+
+            // when
+            var task = ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables).Send(TimeSpan.Zero);
+            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+            var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+
+            // then
+            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+        }
+
+        [Test]
         public async Task ShouldUseActivatedJobToComplete()
         {
             // given
-            const string Variables = "{\"foo\":23}";
-            const int JobKey = 255;
+            const string variables = "{\"foo\":23}";
+            const int jobKey = 255;
 
             var grpcActivatedJob = new ActivatedJob();
-            grpcActivatedJob.Key = JobKey;
+            grpcActivatedJob.Key = jobKey;
             var activatedJob = new Impl.Responses.ActivatedJob(grpcActivatedJob);
             var expectedRequest = new CompleteJobRequest
             {
-                JobKey = JobKey,
-                Variables = Variables
+                JobKey = jobKey,
+                Variables = variables
             };
 
             // when
-            await ZeebeClient.NewCompleteJobCommand(activatedJob).Variables(Variables).Send();
+            await ZeebeClient.NewCompleteJobCommand(activatedJob).Variables(variables).Send();
 
             // then
             var actualRequest = TestService.Requests[0];

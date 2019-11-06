@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using System;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
@@ -48,9 +49,9 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<IFailJobResponse> Send()
+        public async Task<IFailJobResponse> Send(TimeSpan? timeout = null)
         {
-            var asyncReply = gatewayClient.FailJobAsync(request);
+            var asyncReply = gatewayClient.FailJobAsync(request, deadline: timeout?.FromUtcNow());
             await asyncReply.ResponseAsync;
             return new FailJobResponse();
         }
