@@ -13,12 +13,12 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
-using Microsoft.Extensions.Logging;
-using NLog.Extensions.Logging;
 using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 using Zeebe.Client;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Worker;
