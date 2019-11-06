@@ -1,111 +1,87 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+// ReSharper disable All
 
 namespace Zeebe.Client.Builder
 {
-    public class CamundaCloudTokenProviderBuilder
+    public class CamundaCloudTokenProviderBuilder :
+        ICamundaCloudTokenProviderBuilder,
+            ICamundaCloudTokenProviderBuilderStep2,
+            ICamundaCloudTokenProviderBuilderStep3,
+            ICamundaCloudTokenProviderBuilderStep4,
+            ICamundaCloudTokenProviderBuilderFinalStep
     {
         private ILoggerFactory loggerFactory;
+        private string audience;
+        private string authServer;
+        private string clientId;
+        private string clientSecret;
 
-        public CamundaCloudTokenProviderBuilder UseLoggerFactory(ILoggerFactory loggerFactory)
+        /// <inheritdoc/>
+        public ICamundaCloudTokenProviderBuilder UseLoggerFactory(ILoggerFactory loggerFactory)
         {
             this.loggerFactory = loggerFactory;
             return this;
         }
 
-        public CamundaCloudTokenProviderBuilderStep2 UseAuthServer(string url)
+        /// <inheritdoc/>
+        public ICamundaCloudTokenProviderBuilderStep2 UseAuthServer(string url)
         {
-            return new CamundaCloudTokenProviderBuilderStep2(loggerFactory, url);
-        }
-    }
+            if (url == null)
+            {
+                throw new ArgumentNullException(nameof(url));
+            }
 
-    public class CamundaCloudTokenProviderBuilderStep2
-    {
-        private readonly ILoggerFactory loggerFactory;
-
-        private string AuthServer { get; }
-
-        internal CamundaCloudTokenProviderBuilderStep2(ILoggerFactory loggerFactory, string authServer)
-        {
-            this.loggerFactory = loggerFactory;
-            AuthServer = authServer;
+            authServer = url;
+            return this;
         }
 
-        public CamundaCloudTokenProviderBuilderStep3 UseClientId(string clientId)
+        /// <inheritdoc/>
+        public ICamundaCloudTokenProviderBuilderStep3 UseClientId(string clientId)
         {
-            return new CamundaCloudTokenProviderBuilderStep3(loggerFactory, AuthServer, clientId);
-        }
-    }
+            if (clientId == null)
+            {
+                throw new ArgumentNullException(nameof(clientId));
+            }
 
-    public class CamundaCloudTokenProviderBuilderStep3
-    {
-        private readonly ILoggerFactory loggerFactory;
-
-        private string AuthServer { get; }
-        private string ClientId { get; }
-
-        internal CamundaCloudTokenProviderBuilderStep3(ILoggerFactory loggerFactory, string authServer, string clientId)
-        {
-            this.loggerFactory = loggerFactory;
-            AuthServer = authServer;
-            ClientId = clientId;
+            this.clientId = clientId;
+            return this;
         }
 
-        public CamundaCloudTokenProviderBuilderStep4 UseClientSecret(string clientSecret)
+        /// <inheritdoc/>
+        public ICamundaCloudTokenProviderBuilderStep4 UseClientSecret(string clientSecret)
         {
-            return new CamundaCloudTokenProviderBuilderStep4(loggerFactory, AuthServer, ClientId, clientSecret);
-        }
-    }
+            if (clientSecret == null)
+            {
+                throw new ArgumentNullException(nameof(clientSecret));
+            }
 
-    public class CamundaCloudTokenProviderBuilderStep4
-    {
-        private readonly ILoggerFactory loggerFactory;
-
-        private string AuthServer { get; }
-        private string ClientId { get; }
-        private string ClientSecret { get; }
-
-        internal CamundaCloudTokenProviderBuilderStep4(ILoggerFactory loggerFactory, string authServer, string clientId, string clientSecret)
-        {
-            this.loggerFactory = loggerFactory;
-            AuthServer = authServer;
-            ClientId = clientId;
-            ClientSecret = clientSecret;
+            this.clientSecret = clientSecret;
+            return this;
         }
 
-        public CamundaCloudTokenProviderBuilderStep4(ILoggerFactory loggerFactory)
+        /// <inheritdoc/>
+        public ICamundaCloudTokenProviderBuilderFinalStep UseAudience(string audience)
         {
-            this.loggerFactory = loggerFactory;
+            if (audience == null)
+            {
+                throw new ArgumentNullException(nameof(audience));
+            }
+
+            this.audience = audience;
+            return this;
         }
 
-        public CamundaCloudTokenProviderBuilderFinalStep UseAudience(string audience)
-        {
-            return new CamundaCloudTokenProviderBuilderFinalStep(loggerFactory, AuthServer, ClientId, ClientSecret, audience);
-        }
-    }
-
-    public class CamundaCloudTokenProviderBuilderFinalStep
-    {
-        private readonly ILoggerFactory loggerFactory;
-
-        private string Audience { get; set; }
-        private string AuthServer { get; }
-        private string ClientId { get; }
-        private string ClientSecret { get; }
-
-        internal CamundaCloudTokenProviderBuilderFinalStep(ILoggerFactory loggerFactory, string authServer, string clientId, string clientSecret,
-            string audience)
-        {
-            this.loggerFactory = loggerFactory;
-            AuthServer = authServer;
-            ClientId = clientId;
-            ClientSecret = clientSecret;
-            Audience = audience;
-        }
-
+        /// <inheritdoc/>
         public CamundaCloudTokenProvider Build()
         {
-            return new CamundaCloudTokenProvider(AuthServer, ClientId, ClientSecret, Audience, loggerFactory.CreateLogger<CamundaCloudTokenProvider>());
+            return new CamundaCloudTokenProvider(
+                authServer,
+                clientId,
+                clientSecret,
+                audience,
+                loggerFactory?.CreateLogger<CamundaCloudTokenProvider>());
         }
     }
 }

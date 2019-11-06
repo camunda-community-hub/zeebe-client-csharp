@@ -21,23 +21,17 @@ namespace Zeebe.Client.Builder
         private static readonly string ZeebeRootPath =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
 
-        public HttpMessageHandler HttpMessageHandler { get; set; }
-        public string TokenStoragePath { get; set; }
-        private string TokenFileName => TokenStoragePath + Path.DirectorySeparatorChar + ZeebeCloudTokenFileName;
-        private AccessToken CurrentAccessToken { get; set; }
-
         private readonly ILogger<CamundaCloudTokenProvider> logger;
         private readonly string authServer;
         private readonly string clientId;
         private readonly string clientSecret;
         private readonly string audience;
 
-        public static CamundaCloudTokenProviderBuilder Builder()
-        {
-            return new CamundaCloudTokenProviderBuilder();
-        }
-
-        internal CamundaCloudTokenProvider(string authServer, string clientId, string clientSecret, string audience,
+        internal CamundaCloudTokenProvider(
+            string authServer,
+            string clientId,
+            string clientSecret,
+            string audience,
             ILogger<CamundaCloudTokenProvider> logger = null)
         {
             this.logger = logger;
@@ -50,6 +44,16 @@ namespace Zeebe.Client.Builder
             HttpMessageHandler = new HttpClientHandler();
             TokenStoragePath = ZeebeRootPath;
         }
+
+        public static CamundaCloudTokenProviderBuilder Builder()
+        {
+            return new CamundaCloudTokenProviderBuilder();
+        }
+
+        public HttpMessageHandler HttpMessageHandler { get; set; }
+        public string TokenStoragePath { get; set; }
+        private string TokenFileName => TokenStoragePath + Path.DirectorySeparatorChar + ZeebeCloudTokenFileName;
+        private AccessToken CurrentAccessToken { get; set; }
 
         public Task<string> GetAccessTokenForRequestAsync(
             string authUri = null,
