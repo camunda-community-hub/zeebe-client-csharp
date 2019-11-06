@@ -45,64 +45,74 @@ namespace GatewayProtocol {
             "EhEKCXZhcmlhYmxlcxgEIAEoCSJ6Ch5DcmVhdGVXb3JrZmxvd0luc3RhbmNl",
             "UmVzcG9uc2USEwoLd29ya2Zsb3dLZXkYASABKAMSFQoNYnBtblByb2Nlc3NJ",
             "ZBgCIAEoCRIPCgd2ZXJzaW9uGAMgASgFEhsKE3dvcmtmbG93SW5zdGFuY2VL",
-            "ZXkYBCABKAMiUwoVRGVwbG95V29ya2Zsb3dSZXF1ZXN0EjoKCXdvcmtmbG93",
-            "cxgBIAMoCzInLmdhdGV3YXlfcHJvdG9jb2wuV29ya2Zsb3dSZXF1ZXN0T2Jq",
-            "ZWN0IqsBChVXb3JrZmxvd1JlcXVlc3RPYmplY3QSDAoEbmFtZRgBIAEoCRJC",
-            "CgR0eXBlGAIgASgOMjQuZ2F0ZXdheV9wcm90b2NvbC5Xb3JrZmxvd1JlcXVl",
-            "c3RPYmplY3QuUmVzb3VyY2VUeXBlEhIKCmRlZmluaXRpb24YAyABKAwiLAoM",
-            "UmVzb3VyY2VUeXBlEggKBEZJTEUQABIICgRCUE1OEAESCAoEWUFNTBACIlwK",
-            "FkRlcGxveVdvcmtmbG93UmVzcG9uc2USCwoDa2V5GAEgASgDEjUKCXdvcmtm",
-            "bG93cxgCIAMoCzIiLmdhdGV3YXlfcHJvdG9jb2wuV29ya2Zsb3dNZXRhZGF0",
-            "YSJlChBXb3JrZmxvd01ldGFkYXRhEhUKDWJwbW5Qcm9jZXNzSWQYASABKAkS",
-            "DwoHdmVyc2lvbhgCIAEoBRITCgt3b3JrZmxvd0tleRgDIAEoAxIUCgxyZXNv",
-            "dXJjZU5hbWUYBCABKAkiRwoORmFpbEpvYlJlcXVlc3QSDgoGam9iS2V5GAEg",
-            "ASgDEg8KB3JldHJpZXMYAiABKAUSFAoMZXJyb3JNZXNzYWdlGAMgASgJIhEK",
-            "D0ZhaWxKb2JSZXNwb25zZSJ3ChVQdWJsaXNoTWVzc2FnZVJlcXVlc3QSDAoE",
-            "bmFtZRgBIAEoCRIWCg5jb3JyZWxhdGlvbktleRgCIAEoCRISCgp0aW1lVG9M",
-            "aXZlGAMgASgDEhEKCW1lc3NhZ2VJZBgEIAEoCRIRCgl2YXJpYWJsZXMYBSAB",
-            "KAkiGAoWUHVibGlzaE1lc3NhZ2VSZXNwb25zZSItChZSZXNvbHZlSW5jaWRl",
-            "bnRSZXF1ZXN0EhMKC2luY2lkZW50S2V5GAEgASgDIhkKF1Jlc29sdmVJbmNp",
-            "ZGVudFJlc3BvbnNlIhEKD1RvcG9sb2d5UmVxdWVzdCKKAQoQVG9wb2xvZ3lS",
-            "ZXNwb25zZRItCgdicm9rZXJzGAEgAygLMhwuZ2F0ZXdheV9wcm90b2NvbC5C",
-            "cm9rZXJJbmZvEhMKC2NsdXN0ZXJTaXplGAIgASgFEhcKD3BhcnRpdGlvbnND",
-            "b3VudBgDIAEoBRIZChFyZXBsaWNhdGlvbkZhY3RvchgEIAEoBSJpCgpCcm9r",
-            "ZXJJbmZvEg4KBm5vZGVJZBgBIAEoBRIMCgRob3N0GAIgASgJEgwKBHBvcnQY",
-            "AyABKAUSLwoKcGFydGl0aW9ucxgEIAMoCzIbLmdhdGV3YXlfcHJvdG9jb2wu",
-            "UGFydGl0aW9uIpABCglQYXJ0aXRpb24SEwoLcGFydGl0aW9uSWQYASABKAUS",
-            "PQoEcm9sZRgCIAEoDjIvLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9uLlBh",
-            "cnRpdGlvbkJyb2tlclJvbGUiLwoTUGFydGl0aW9uQnJva2VyUm9sZRIKCgZM",
-            "RUFERVIQABIMCghGT0xMT1dFUhABIjoKF1VwZGF0ZUpvYlJldHJpZXNSZXF1",
-            "ZXN0Eg4KBmpvYktleRgBIAEoAxIPCgdyZXRyaWVzGAIgASgFIhoKGFVwZGF0",
-            "ZUpvYlJldHJpZXNSZXNwb25zZSJTChNTZXRWYXJpYWJsZXNSZXF1ZXN0EhoK",
-            "EmVsZW1lbnRJbnN0YW5jZUtleRgBIAEoAxIRCgl2YXJpYWJsZXMYAiABKAkS",
-            "DQoFbG9jYWwYAyABKAgiFgoUU2V0VmFyaWFibGVzUmVzcG9uc2Uy9QgKB0dh",
-            "dGV3YXkSYQoMQWN0aXZhdGVKb2JzEiUuZ2F0ZXdheV9wcm90b2NvbC5BY3Rp",
-            "dmF0ZUpvYnNSZXF1ZXN0GiYuZ2F0ZXdheV9wcm90b2NvbC5BY3RpdmF0ZUpv",
-            "YnNSZXNwb25zZSIAMAESfQoWQ2FuY2VsV29ya2Zsb3dJbnN0YW5jZRIvLmdh",
-            "dGV3YXlfcHJvdG9jb2wuQ2FuY2VsV29ya2Zsb3dJbnN0YW5jZVJlcXVlc3Qa",
-            "MC5nYXRld2F5X3Byb3RvY29sLkNhbmNlbFdvcmtmbG93SW5zdGFuY2VSZXNw",
-            "b25zZSIAElwKC0NvbXBsZXRlSm9iEiQuZ2F0ZXdheV9wcm90b2NvbC5Db21w",
-            "bGV0ZUpvYlJlcXVlc3QaJS5nYXRld2F5X3Byb3RvY29sLkNvbXBsZXRlSm9i",
-            "UmVzcG9uc2UiABJ9ChZDcmVhdGVXb3JrZmxvd0luc3RhbmNlEi8uZ2F0ZXdh",
-            "eV9wcm90b2NvbC5DcmVhdGVXb3JrZmxvd0luc3RhbmNlUmVxdWVzdBowLmdh",
-            "dGV3YXlfcHJvdG9jb2wuQ3JlYXRlV29ya2Zsb3dJbnN0YW5jZVJlc3BvbnNl",
-            "IgASZQoORGVwbG95V29ya2Zsb3cSJy5nYXRld2F5X3Byb3RvY29sLkRlcGxv",
-            "eVdvcmtmbG93UmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95V29y",
-            "a2Zsb3dSZXNwb25zZSIAElAKB0ZhaWxKb2ISIC5nYXRld2F5X3Byb3RvY29s",
-            "LkZhaWxKb2JSZXF1ZXN0GiEuZ2F0ZXdheV9wcm90b2NvbC5GYWlsSm9iUmVz",
-            "cG9uc2UiABJlCg5QdWJsaXNoTWVzc2FnZRInLmdhdGV3YXlfcHJvdG9jb2wu",
-            "UHVibGlzaE1lc3NhZ2VSZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2NvbC5QdWJs",
-            "aXNoTWVzc2FnZVJlc3BvbnNlIgASaAoPUmVzb2x2ZUluY2lkZW50EiguZ2F0",
-            "ZXdheV9wcm90b2NvbC5SZXNvbHZlSW5jaWRlbnRSZXF1ZXN0GikuZ2F0ZXdh",
-            "eV9wcm90b2NvbC5SZXNvbHZlSW5jaWRlbnRSZXNwb25zZSIAEl8KDFNldFZh",
-            "cmlhYmxlcxIlLmdhdGV3YXlfcHJvdG9jb2wuU2V0VmFyaWFibGVzUmVxdWVz",
-            "dBomLmdhdGV3YXlfcHJvdG9jb2wuU2V0VmFyaWFibGVzUmVzcG9uc2UiABJT",
-            "CghUb3BvbG9neRIhLmdhdGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXF1ZXN0",
-            "GiIuZ2F0ZXdheV9wcm90b2NvbC5Ub3BvbG9neVJlc3BvbnNlIgASawoQVXBk",
-            "YXRlSm9iUmV0cmllcxIpLmdhdGV3YXlfcHJvdG9jb2wuVXBkYXRlSm9iUmV0",
-            "cmllc1JlcXVlc3QaKi5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJldHJp",
-            "ZXNSZXNwb25zZSIAQiEKGWlvLnplZWJlLmdhdGV3YXkucHJvdG9jb2xQAFoC",
-            "cGJiBnByb3RvMw=="));
+            "ZXkYBCABKAMimwEKJ0NyZWF0ZVdvcmtmbG93SW5zdGFuY2VXaXRoUmVzdWx0",
+            "UmVxdWVzdBJACgdyZXF1ZXN0GAEgASgLMi8uZ2F0ZXdheV9wcm90b2NvbC5D",
+            "cmVhdGVXb3JrZmxvd0luc3RhbmNlUmVxdWVzdBIWCg5yZXF1ZXN0VGltZW91",
+            "dBgCIAEoAxIWCg5mZXRjaFZhcmlhYmxlcxgDIAMoCSKXAQooQ3JlYXRlV29y",
+            "a2Zsb3dJbnN0YW5jZVdpdGhSZXN1bHRSZXNwb25zZRITCgt3b3JrZmxvd0tl",
+            "eRgBIAEoAxIVCg1icG1uUHJvY2Vzc0lkGAIgASgJEg8KB3ZlcnNpb24YAyAB",
+            "KAUSGwoTd29ya2Zsb3dJbnN0YW5jZUtleRgEIAEoAxIRCgl2YXJpYWJsZXMY",
+            "BSABKAkiUwoVRGVwbG95V29ya2Zsb3dSZXF1ZXN0EjoKCXdvcmtmbG93cxgB",
+            "IAMoCzInLmdhdGV3YXlfcHJvdG9jb2wuV29ya2Zsb3dSZXF1ZXN0T2JqZWN0",
+            "IqsBChVXb3JrZmxvd1JlcXVlc3RPYmplY3QSDAoEbmFtZRgBIAEoCRJCCgR0",
+            "eXBlGAIgASgOMjQuZ2F0ZXdheV9wcm90b2NvbC5Xb3JrZmxvd1JlcXVlc3RP",
+            "YmplY3QuUmVzb3VyY2VUeXBlEhIKCmRlZmluaXRpb24YAyABKAwiLAoMUmVz",
+            "b3VyY2VUeXBlEggKBEZJTEUQABIICgRCUE1OEAESCAoEWUFNTBACIlwKFkRl",
+            "cGxveVdvcmtmbG93UmVzcG9uc2USCwoDa2V5GAEgASgDEjUKCXdvcmtmbG93",
+            "cxgCIAMoCzIiLmdhdGV3YXlfcHJvdG9jb2wuV29ya2Zsb3dNZXRhZGF0YSJl",
+            "ChBXb3JrZmxvd01ldGFkYXRhEhUKDWJwbW5Qcm9jZXNzSWQYASABKAkSDwoH",
+            "dmVyc2lvbhgCIAEoBRITCgt3b3JrZmxvd0tleRgDIAEoAxIUCgxyZXNvdXJj",
+            "ZU5hbWUYBCABKAkiRwoORmFpbEpvYlJlcXVlc3QSDgoGam9iS2V5GAEgASgD",
+            "Eg8KB3JldHJpZXMYAiABKAUSFAoMZXJyb3JNZXNzYWdlGAMgASgJIhEKD0Zh",
+            "aWxKb2JSZXNwb25zZSJ3ChVQdWJsaXNoTWVzc2FnZVJlcXVlc3QSDAoEbmFt",
+            "ZRgBIAEoCRIWCg5jb3JyZWxhdGlvbktleRgCIAEoCRISCgp0aW1lVG9MaXZl",
+            "GAMgASgDEhEKCW1lc3NhZ2VJZBgEIAEoCRIRCgl2YXJpYWJsZXMYBSABKAki",
+            "GAoWUHVibGlzaE1lc3NhZ2VSZXNwb25zZSItChZSZXNvbHZlSW5jaWRlbnRS",
+            "ZXF1ZXN0EhMKC2luY2lkZW50S2V5GAEgASgDIhkKF1Jlc29sdmVJbmNpZGVu",
+            "dFJlc3BvbnNlIhEKD1RvcG9sb2d5UmVxdWVzdCKKAQoQVG9wb2xvZ3lSZXNw",
+            "b25zZRItCgdicm9rZXJzGAEgAygLMhwuZ2F0ZXdheV9wcm90b2NvbC5Ccm9r",
+            "ZXJJbmZvEhMKC2NsdXN0ZXJTaXplGAIgASgFEhcKD3BhcnRpdGlvbnNDb3Vu",
+            "dBgDIAEoBRIZChFyZXBsaWNhdGlvbkZhY3RvchgEIAEoBSJpCgpCcm9rZXJJ",
+            "bmZvEg4KBm5vZGVJZBgBIAEoBRIMCgRob3N0GAIgASgJEgwKBHBvcnQYAyAB",
+            "KAUSLwoKcGFydGl0aW9ucxgEIAMoCzIbLmdhdGV3YXlfcHJvdG9jb2wuUGFy",
+            "dGl0aW9uIpABCglQYXJ0aXRpb24SEwoLcGFydGl0aW9uSWQYASABKAUSPQoE",
+            "cm9sZRgCIAEoDjIvLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9uLlBhcnRp",
+            "dGlvbkJyb2tlclJvbGUiLwoTUGFydGl0aW9uQnJva2VyUm9sZRIKCgZMRUFE",
+            "RVIQABIMCghGT0xMT1dFUhABIjoKF1VwZGF0ZUpvYlJldHJpZXNSZXF1ZXN0",
+            "Eg4KBmpvYktleRgBIAEoAxIPCgdyZXRyaWVzGAIgASgFIhoKGFVwZGF0ZUpv",
+            "YlJldHJpZXNSZXNwb25zZSJTChNTZXRWYXJpYWJsZXNSZXF1ZXN0EhoKEmVs",
+            "ZW1lbnRJbnN0YW5jZUtleRgBIAEoAxIRCgl2YXJpYWJsZXMYAiABKAkSDQoF",
+            "bG9jYWwYAyABKAgiFgoUU2V0VmFyaWFibGVzUmVzcG9uc2UykwoKB0dhdGV3",
+            "YXkSYQoMQWN0aXZhdGVKb2JzEiUuZ2F0ZXdheV9wcm90b2NvbC5BY3RpdmF0",
+            "ZUpvYnNSZXF1ZXN0GiYuZ2F0ZXdheV9wcm90b2NvbC5BY3RpdmF0ZUpvYnNS",
+            "ZXNwb25zZSIAMAESfQoWQ2FuY2VsV29ya2Zsb3dJbnN0YW5jZRIvLmdhdGV3",
+            "YXlfcHJvdG9jb2wuQ2FuY2VsV29ya2Zsb3dJbnN0YW5jZVJlcXVlc3QaMC5n",
+            "YXRld2F5X3Byb3RvY29sLkNhbmNlbFdvcmtmbG93SW5zdGFuY2VSZXNwb25z",
+            "ZSIAElwKC0NvbXBsZXRlSm9iEiQuZ2F0ZXdheV9wcm90b2NvbC5Db21wbGV0",
+            "ZUpvYlJlcXVlc3QaJS5nYXRld2F5X3Byb3RvY29sLkNvbXBsZXRlSm9iUmVz",
+            "cG9uc2UiABJ9ChZDcmVhdGVXb3JrZmxvd0luc3RhbmNlEi8uZ2F0ZXdheV9w",
+            "cm90b2NvbC5DcmVhdGVXb3JrZmxvd0luc3RhbmNlUmVxdWVzdBowLmdhdGV3",
+            "YXlfcHJvdG9jb2wuQ3JlYXRlV29ya2Zsb3dJbnN0YW5jZVJlc3BvbnNlIgAS",
+            "mwEKIENyZWF0ZVdvcmtmbG93SW5zdGFuY2VXaXRoUmVzdWx0EjkuZ2F0ZXdh",
+            "eV9wcm90b2NvbC5DcmVhdGVXb3JrZmxvd0luc3RhbmNlV2l0aFJlc3VsdFJl",
+            "cXVlc3QaOi5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVdvcmtmbG93SW5zdGFu",
+            "Y2VXaXRoUmVzdWx0UmVzcG9uc2UiABJlCg5EZXBsb3lXb3JrZmxvdxInLmdh",
+            "dGV3YXlfcHJvdG9jb2wuRGVwbG95V29ya2Zsb3dSZXF1ZXN0GiguZ2F0ZXdh",
+            "eV9wcm90b2NvbC5EZXBsb3lXb3JrZmxvd1Jlc3BvbnNlIgASUAoHRmFpbEpv",
+            "YhIgLmdhdGV3YXlfcHJvdG9jb2wuRmFpbEpvYlJlcXVlc3QaIS5nYXRld2F5",
+            "X3Byb3RvY29sLkZhaWxKb2JSZXNwb25zZSIAEmUKDlB1Ymxpc2hNZXNzYWdl",
+            "EicuZ2F0ZXdheV9wcm90b2NvbC5QdWJsaXNoTWVzc2FnZVJlcXVlc3QaKC5n",
+            "YXRld2F5X3Byb3RvY29sLlB1Ymxpc2hNZXNzYWdlUmVzcG9uc2UiABJoCg9S",
+            "ZXNvbHZlSW5jaWRlbnQSKC5nYXRld2F5X3Byb3RvY29sLlJlc29sdmVJbmNp",
+            "ZGVudFJlcXVlc3QaKS5nYXRld2F5X3Byb3RvY29sLlJlc29sdmVJbmNpZGVu",
+            "dFJlc3BvbnNlIgASXwoMU2V0VmFyaWFibGVzEiUuZ2F0ZXdheV9wcm90b2Nv",
+            "bC5TZXRWYXJpYWJsZXNSZXF1ZXN0GiYuZ2F0ZXdheV9wcm90b2NvbC5TZXRW",
+            "YXJpYWJsZXNSZXNwb25zZSIAElMKCFRvcG9sb2d5EiEuZ2F0ZXdheV9wcm90",
+            "b2NvbC5Ub3BvbG9neVJlcXVlc3QaIi5nYXRld2F5X3Byb3RvY29sLlRvcG9s",
+            "b2d5UmVzcG9uc2UiABJrChBVcGRhdGVKb2JSZXRyaWVzEikuZ2F0ZXdheV9w",
+            "cm90b2NvbC5VcGRhdGVKb2JSZXRyaWVzUmVxdWVzdBoqLmdhdGV3YXlfcHJv",
+            "dG9jb2wuVXBkYXRlSm9iUmV0cmllc1Jlc3BvbnNlIgBCIQoZaW8uemVlYmUu",
+            "Z2F0ZXdheS5wcm90b2NvbFAAWgJwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -115,6 +125,8 @@ namespace GatewayProtocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobResponse), global::GatewayProtocol.CompleteJobResponse.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceRequest), global::GatewayProtocol.CreateWorkflowInstanceRequest.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "Variables" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceResponse), global::GatewayProtocol.CreateWorkflowInstanceResponse.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "WorkflowInstanceKey" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest), global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest.Parser, new[]{ "Request", "RequestTimeout", "FetchVariables" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse), global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "WorkflowInstanceKey", "Variables" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowRequest), global::GatewayProtocol.DeployWorkflowRequest.Parser, new[]{ "Workflows" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowRequestObject), global::GatewayProtocol.WorkflowRequestObject.Parser, new[]{ "Name", "Type", "Definition" }, null, new[]{ typeof(global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowResponse), global::GatewayProtocol.DeployWorkflowResponse.Parser, new[]{ "Key", "Workflows" }, null, null, null),
@@ -2009,6 +2021,457 @@ namespace GatewayProtocol {
 
   }
 
+  public sealed partial class CreateWorkflowInstanceWithResultRequest : pb::IMessage<CreateWorkflowInstanceWithResultRequest> {
+    private static readonly pb::MessageParser<CreateWorkflowInstanceWithResultRequest> _parser = new pb::MessageParser<CreateWorkflowInstanceWithResultRequest>(() => new CreateWorkflowInstanceWithResultRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CreateWorkflowInstanceWithResultRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceWithResultRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceWithResultRequest(CreateWorkflowInstanceWithResultRequest other) : this() {
+      request_ = other.request_ != null ? other.request_.Clone() : null;
+      requestTimeout_ = other.requestTimeout_;
+      fetchVariables_ = other.fetchVariables_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceWithResultRequest Clone() {
+      return new CreateWorkflowInstanceWithResultRequest(this);
+    }
+
+    /// <summary>Field number for the "request" field.</summary>
+    public const int RequestFieldNumber = 1;
+    private global::GatewayProtocol.CreateWorkflowInstanceRequest request_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::GatewayProtocol.CreateWorkflowInstanceRequest Request {
+      get { return request_; }
+      set {
+        request_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "requestTimeout" field.</summary>
+    public const int RequestTimeoutFieldNumber = 2;
+    private long requestTimeout_;
+    /// <summary>
+    /// timeout in milliseconds. the request will be closed if the workflow is not completed
+    /// before the requestTimeout.
+    /// if requestTimeout = 0, uses the generic requestTimeout configured in the gateway.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long RequestTimeout {
+      get { return requestTimeout_; }
+      set {
+        requestTimeout_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "fetchVariables" field.</summary>
+    public const int FetchVariablesFieldNumber = 3;
+    private static readonly pb::FieldCodec<string> _repeated_fetchVariables_codec
+        = pb::FieldCodec.ForString(26);
+    private readonly pbc::RepeatedField<string> fetchVariables_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// list of names of variables to be included in `CreateWorkflowInstanceWithResultResponse.variables`
+    /// if empty, all visible variables in the root scope will be returned.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> FetchVariables {
+      get { return fetchVariables_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CreateWorkflowInstanceWithResultRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CreateWorkflowInstanceWithResultRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Request, other.Request)) return false;
+      if (RequestTimeout != other.RequestTimeout) return false;
+      if(!fetchVariables_.Equals(other.fetchVariables_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (request_ != null) hash ^= Request.GetHashCode();
+      if (RequestTimeout != 0L) hash ^= RequestTimeout.GetHashCode();
+      hash ^= fetchVariables_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (request_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Request);
+      }
+      if (RequestTimeout != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(RequestTimeout);
+      }
+      fetchVariables_.WriteTo(output, _repeated_fetchVariables_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (request_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Request);
+      }
+      if (RequestTimeout != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(RequestTimeout);
+      }
+      size += fetchVariables_.CalculateSize(_repeated_fetchVariables_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CreateWorkflowInstanceWithResultRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.request_ != null) {
+        if (request_ == null) {
+          Request = new global::GatewayProtocol.CreateWorkflowInstanceRequest();
+        }
+        Request.MergeFrom(other.Request);
+      }
+      if (other.RequestTimeout != 0L) {
+        RequestTimeout = other.RequestTimeout;
+      }
+      fetchVariables_.Add(other.fetchVariables_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (request_ == null) {
+              Request = new global::GatewayProtocol.CreateWorkflowInstanceRequest();
+            }
+            input.ReadMessage(Request);
+            break;
+          }
+          case 16: {
+            RequestTimeout = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            fetchVariables_.AddEntriesFrom(input, _repeated_fetchVariables_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CreateWorkflowInstanceWithResultResponse : pb::IMessage<CreateWorkflowInstanceWithResultResponse> {
+    private static readonly pb::MessageParser<CreateWorkflowInstanceWithResultResponse> _parser = new pb::MessageParser<CreateWorkflowInstanceWithResultResponse>(() => new CreateWorkflowInstanceWithResultResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CreateWorkflowInstanceWithResultResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceWithResultResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceWithResultResponse(CreateWorkflowInstanceWithResultResponse other) : this() {
+      workflowKey_ = other.workflowKey_;
+      bpmnProcessId_ = other.bpmnProcessId_;
+      version_ = other.version_;
+      workflowInstanceKey_ = other.workflowInstanceKey_;
+      variables_ = other.variables_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateWorkflowInstanceWithResultResponse Clone() {
+      return new CreateWorkflowInstanceWithResultResponse(this);
+    }
+
+    /// <summary>Field number for the "workflowKey" field.</summary>
+    public const int WorkflowKeyFieldNumber = 1;
+    private long workflowKey_;
+    /// <summary>
+    /// the key of the workflow definition which was used to create the workflow instance
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WorkflowKey {
+      get { return workflowKey_; }
+      set {
+        workflowKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bpmnProcessId" field.</summary>
+    public const int BpmnProcessIdFieldNumber = 2;
+    private string bpmnProcessId_ = "";
+    /// <summary>
+    /// the BPMN process ID of the workflow definition which was used to create the workflow
+    /// instance
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BpmnProcessId {
+      get { return bpmnProcessId_; }
+      set {
+        bpmnProcessId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 3;
+    private int version_;
+    /// <summary>
+    /// the version of the workflow definition which was used to create the workflow instance
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Version {
+      get { return version_; }
+      set {
+        version_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
+    public const int WorkflowInstanceKeyFieldNumber = 4;
+    private long workflowInstanceKey_;
+    /// <summary>
+    /// the unique identifier of the created workflow instance; to be used wherever a request
+    /// needs a workflow instance key (e.g. CancelWorkflowInstanceRequest)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WorkflowInstanceKey {
+      get { return workflowInstanceKey_; }
+      set {
+        workflowInstanceKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "variables" field.</summary>
+    public const int VariablesFieldNumber = 5;
+    private string variables_ = "";
+    /// <summary>
+    /// JSON document
+    /// consists of visible variables in the root scope
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Variables {
+      get { return variables_; }
+      set {
+        variables_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CreateWorkflowInstanceWithResultResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CreateWorkflowInstanceWithResultResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (WorkflowKey != other.WorkflowKey) return false;
+      if (BpmnProcessId != other.BpmnProcessId) return false;
+      if (Version != other.Version) return false;
+      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
+      if (Variables != other.Variables) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
+      if (Version != 0) hash ^= Version.GetHashCode();
+      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
+      if (Variables.Length != 0) hash ^= Variables.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (WorkflowKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(WorkflowKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(BpmnProcessId);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Version);
+      }
+      if (WorkflowInstanceKey != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(WorkflowInstanceKey);
+      }
+      if (Variables.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Variables);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (WorkflowKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
+      }
+      if (Version != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
+      }
+      if (WorkflowInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
+      }
+      if (Variables.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Variables);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CreateWorkflowInstanceWithResultResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.WorkflowKey != 0L) {
+        WorkflowKey = other.WorkflowKey;
+      }
+      if (other.BpmnProcessId.Length != 0) {
+        BpmnProcessId = other.BpmnProcessId;
+      }
+      if (other.Version != 0) {
+        Version = other.Version;
+      }
+      if (other.WorkflowInstanceKey != 0L) {
+        WorkflowInstanceKey = other.WorkflowInstanceKey;
+      }
+      if (other.Variables.Length != 0) {
+        Variables = other.Variables;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            WorkflowKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 24: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            WorkflowInstanceKey = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            Variables = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class DeployWorkflowRequest : pb::IMessage<DeployWorkflowRequest> {
     private static readonly pb::MessageParser<DeployWorkflowRequest> _parser = new pb::MessageParser<DeployWorkflowRequest>(() => new DeployWorkflowRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -2017,7 +2480,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[9]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2141,7 +2604,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[10]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2359,7 +2822,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[11]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2514,7 +2977,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[12]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2741,7 +3204,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[13]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2937,7 +3400,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[14]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3038,7 +3501,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[15]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3296,7 +3759,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[16]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3397,7 +3860,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[17]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3529,7 +3992,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[18]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3630,7 +4093,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[19]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3731,7 +4194,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[20]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3948,7 +4411,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[21]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4165,7 +4628,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[22]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4343,7 +4806,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[23]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4506,7 +4969,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[24]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4607,7 +5070,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[25]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4810,7 +5273,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[26]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
