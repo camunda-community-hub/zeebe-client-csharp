@@ -104,5 +104,7 @@
     <Rule Id="SA1201" Action="None" /> <!-- Elements should appear in the correct order -->
     <Rule Id="SA1120" Action="None" /> <!-- Comments should contain text -->
     <Rule Id="SA1314" Action="None" /> <!-- Type parameter names should begin with T -->
+    <Rule Id="SA1003" Action="None" /> <!-- Operator '( )' should not followed by whitespace -->
+    <Rule Id="SA1009" Action="None" /> <!-- Closing paranthesis should not be followed by a space -->
   </Rules>
 </RuleSet>
