@@ -56,6 +56,7 @@ namespace Zeebe.Client
             typedRequestHandler.Add(typeof(CancelWorkflowInstanceRequest), request => new CancelWorkflowInstanceResponse());
             typedRequestHandler.Add(typeof(SetVariablesRequest), request => new SetVariablesResponse());
             typedRequestHandler.Add(typeof(ResolveIncidentRequest), request => new ResolveIncidentResponse());
+            typedRequestHandler.Add(typeof(CreateWorkflowInstanceWithResultRequest), request => new CreateWorkflowInstanceWithResultResponse());
         }
 
         public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
@@ -119,8 +120,18 @@ namespace Zeebe.Client
             return Task.FromResult((ResolveIncidentResponse)HandleRequest(request, context));
         }
 
+        public override Task<CreateWorkflowInstanceWithResultResponse> CreateWorkflowInstanceWithResult(CreateWorkflowInstanceWithResultRequest request, ServerCallContext context)
+        {
+            return Task.FromResult((CreateWorkflowInstanceWithResultResponse)HandleRequest(request, context));
+        }
+
         private IMessage HandleRequest(IMessage request, ServerCallContext context)
         {
+            if (DateTime.UtcNow >= context.Deadline)
+            {
+                throw new RpcException(new Status(StatusCode.DeadlineExceeded, "Deadline exceeded"));
+            }
+
             Logger.Debug("Received request '{0}'", request);
             requests.Add(request);
 

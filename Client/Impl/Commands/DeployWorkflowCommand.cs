@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,9 +68,9 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<IDeployResponse> Send()
+        public async Task<IDeployResponse> Send(TimeSpan? timeout = null)
         {
-            var asyncReply = gatewayClient.DeployWorkflowAsync(request);
+            var asyncReply = gatewayClient.DeployWorkflowAsync(request, deadline: timeout?.FromUtcNow());
             var response = await asyncReply.ResponseAsync;
             return new DeployResponse(response);
         }

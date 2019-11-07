@@ -352,13 +352,19 @@ namespace Zeebe.Client
             };
             TestService.AddRequestHandler(typeof(ActivateJobsRequest),
                 request => CreateExpectedResponse());
+            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
 
             // when
+            var count = 0;
             using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler((jobClient, job) =>
                 {
                     Logger.Info("Handler has seen job '{0}'", job);
+                    if (++count == 3)
+                    {
+                        signal.Set();
+                    }
                 })
                 .AutoCompletion()
                 .MaxJobsActive(3)
@@ -369,9 +375,7 @@ namespace Zeebe.Client
                 .Open())
             {
                 Assert.True(jobWorker.IsOpen());
-                while (TestService.Requests.Count < 4)
-                {
-                }
+                signal.WaitOne();
             }
 
             // then

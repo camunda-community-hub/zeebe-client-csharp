@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
@@ -6,7 +8,10 @@ using Zeebe.Client.Impl.Responses;
 
 namespace Zeebe.Client.Impl.Commands
 {
-    public class CreateWorkflowInstanceCommand : ICreateWorkflowInstanceCommandStep1, ICreateWorkflowInstanceCommandStep2, ICreateWorkflowInstanceCommandStep3
+    public class CreateWorkflowInstanceCommand
+        : ICreateWorkflowInstanceCommandStep1,
+            ICreateWorkflowInstanceCommandStep2,
+            ICreateWorkflowInstanceCommandStep3
     {
         private const int LatestVersionValue = -1;
 
@@ -49,9 +54,14 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<IWorkflowInstanceResponse> Send()
+        public ICreateWorkflowInstanceWithResultCommandStep1 WithResult()
         {
-            var asyncReply = client.CreateWorkflowInstanceAsync(request);
+            return new CreateWorkflowInstanceCommandWithResult(client, request);
+        }
+
+        public async Task<IWorkflowInstanceResponse> Send(TimeSpan? timeout = null)
+        {
+            var asyncReply = client.CreateWorkflowInstanceAsync(request, deadline: timeout?.FromUtcNow());
             var response = await asyncReply.ResponseAsync;
             return new WorkflowInstanceResponse(response);
         }

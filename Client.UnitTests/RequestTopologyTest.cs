@@ -13,8 +13,10 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using System;
 using System.Threading.Tasks;
 using GatewayProtocol;
+using Grpc.Core;
 using NUnit.Framework;
 using Zeebe.Client.Api.Responses;
 
@@ -36,6 +38,22 @@ namespace Zeebe.Client
             var actualRequest = TestService.Requests[0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
+        }
+
+        [Test]
+        public void ShouldTimeoutRequest()
+        {
+            // given
+
+            // when
+            var task = ZeebeClient
+                .TopologyRequest()
+                .Send(TimeSpan.Zero);
+            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+            var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+
+            // then
+            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
         }
 
         [Test]
