@@ -35,7 +35,7 @@ namespace Zeebe.Client
             await ZeebeClient.TopologyRequest().Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(TopologyRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }

@@ -36,7 +36,7 @@ namespace Zeebe.Client
             await ZeebeClient.NewDeployCommand().AddResourceFile(_demoProcessPath).Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -82,7 +82,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -111,7 +111,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -140,7 +140,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -168,7 +168,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -234,7 +234,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }

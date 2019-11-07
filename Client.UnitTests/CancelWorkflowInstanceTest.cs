@@ -22,7 +22,7 @@ namespace Zeebe.Client
             await ZeebeClient.NewCancelInstanceCommand(12113).Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(CancelWorkflowInstanceRequest)][0];
             Assert.AreEqual(expected, request);
         }
 

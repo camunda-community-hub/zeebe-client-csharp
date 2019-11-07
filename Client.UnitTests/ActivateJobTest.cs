@@ -36,7 +36,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
             var receivedJobs = response.Jobs;
@@ -94,7 +94,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
             var receivedJobs = response.Jobs;
@@ -132,7 +132,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
             var receivedJobs = response.Jobs;

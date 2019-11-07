@@ -14,7 +14,10 @@
 //    limitations under the License.
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Google.Protobuf;
@@ -28,8 +31,7 @@ namespace Zeebe.Client
     public class GatewayTestService : Gateway.GatewayBase
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-
-        private readonly List<IMessage> requests = new List<IMessage>();
+        private readonly IDictionary<Type, IList<IMessage>> requests = new ConcurrentDictionary<Type, IList<IMessage>>();
 
         /// <summary>
         /// Contains the request handler, which return the specific response, for each specific type of request.
@@ -38,7 +40,7 @@ namespace Zeebe.Client
         /// </summary>
         private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new Dictionary<Type, RequestHandler>();
 
-        public IList<IMessage> Requests => requests;
+        public IDictionary<Type, IList<IMessage>> Requests => requests;
 
         public GatewayTestService()
         {
@@ -57,6 +59,11 @@ namespace Zeebe.Client
             typedRequestHandler.Add(typeof(SetVariablesRequest), request => new SetVariablesResponse());
             typedRequestHandler.Add(typeof(ResolveIncidentRequest), request => new ResolveIncidentResponse());
             typedRequestHandler.Add(typeof(CreateWorkflowInstanceWithResultRequest), request => new CreateWorkflowInstanceWithResultResponse());
+
+            foreach (var pair in typedRequestHandler)
+            {
+                requests.Add(pair.Key, new List<IMessage>());
+            }
         }
 
         public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
@@ -127,13 +134,15 @@ namespace Zeebe.Client
 
         private IMessage HandleRequest(IMessage request, ServerCallContext context)
         {
-            if (DateTime.UtcNow >= context.Deadline)
+            if ((context.Deadline - DateTime.UtcNow).Milliseconds <= 1000)
             {
-                throw new RpcException(new Status(StatusCode.DeadlineExceeded, "Deadline exceeded"));
+                // when we have set a timeout in the test we want to GRPC to exceed the deadline
+                var contextDeadline = DateTime.UtcNow - context.Deadline;
+                Thread.Sleep(contextDeadline.Milliseconds + 1000);
             }
 
-            Logger.Debug("Received request '{0}'", request);
-            requests.Add(request);
+            Logger.Debug("Received request '{0}'", request.GetType());
+            requests[request.GetType()].Add(request);
 
             var handler = typedRequestHandler[request.GetType()];
             return handler.Invoke(request);

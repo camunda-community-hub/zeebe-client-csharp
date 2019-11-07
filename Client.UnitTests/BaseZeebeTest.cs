@@ -51,6 +51,9 @@ namespace Zeebe.Client
         {
             client.Dispose();
             server.ShutdownAsync().Wait();
+            testService = null;
+            server = null;
+            client = null;
         }
     }
 }
