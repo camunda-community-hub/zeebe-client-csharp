@@ -31,7 +31,7 @@
     <Product>Zeebe C# client</Product>
     <RepositoryUrl>https://github.com/zeebe-io/zeebe-csharp-client</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
     <PackageVersion>0.12.1</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
