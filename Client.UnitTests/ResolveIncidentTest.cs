@@ -22,7 +22,7 @@ namespace Zeebe.Client
             await ZeebeClient.NewResolveIncidentCommand(1201321).Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(ResolveIncidentRequest)][0];
             Assert.AreEqual(expected, request);
         }
 

@@ -32,7 +32,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -75,7 +75,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -98,7 +98,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -123,7 +123,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -150,7 +150,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -179,7 +179,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -208,7 +208,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 

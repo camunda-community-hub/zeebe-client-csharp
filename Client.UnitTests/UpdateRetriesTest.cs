@@ -26,7 +26,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(UpdateJobRetriesRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 

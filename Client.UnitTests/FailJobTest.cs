@@ -26,7 +26,7 @@ namespace Zeebe.Client
             await ZeebeClient.NewFailCommand(JobKey).Retries(2).ErrorMessage("This job failed!").Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(FailJobRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }

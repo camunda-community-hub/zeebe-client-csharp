@@ -69,7 +69,7 @@ namespace Zeebe.Client
             }
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
             Assert.AreEqual(receivedJobs.Count, 3);
@@ -124,16 +124,16 @@ namespace Zeebe.Client
                 .Open())
             {
                 Assert.True(jobWorker.IsOpen());
-                while (TestService.Requests.Count < 2)
+                while (TestService.Requests[typeof(ActivateJobsRequest)].Count < 2)
                 {
                 }
             }
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
-            var actualSecondRequest = TestService.Requests[1];
+            var actualSecondRequest = TestService.Requests[typeof(ActivateJobsRequest)][1];
             Assert.AreEqual(expectedSecondRequest, actualSecondRequest);
         }
 
@@ -177,7 +177,7 @@ namespace Zeebe.Client
             }
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
             Assert.AreEqual(receivedJobs.Count, 3);
@@ -227,7 +227,7 @@ namespace Zeebe.Client
             }
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
             Assert.AreEqual(receivedJobs.Count, 3);
@@ -277,7 +277,7 @@ namespace Zeebe.Client
             }
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
             Assert.AreEqual(receivedJobs.Count, 3);
@@ -325,16 +325,17 @@ namespace Zeebe.Client
                 .Open())
             {
                 Assert.True(jobWorker.IsOpen());
-                while (TestService.Requests.Count < 2)
+                while (TestService.Requests[typeof(ActivateJobsRequest)].Count < 1
+                       || TestService.Requests[typeof(FailJobRequest)].Count < 1)
                 {
                 }
             }
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
-            var actualFailRequest = TestService.Requests[1];
+            var actualFailRequest = TestService.Requests[typeof(FailJobRequest)][0];
             Assert.AreEqual(expectedFailRequest, actualFailRequest);
         }
 
@@ -350,21 +351,16 @@ namespace Zeebe.Client
                 Worker = "jobWorker",
                 RequestTimeout = 5_000L
             };
-            TestService.AddRequestHandler(typeof(ActivateJobsRequest),
+            TestService.AddRequestHandler(
+                typeof(ActivateJobsRequest),
                 request => CreateExpectedResponse());
-            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
 
             // when
-            var count = 0;
             using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler((jobClient, job) =>
                 {
                     Logger.Info("Handler has seen job '{0}'", job);
-                    if (++count == 3)
-                    {
-                        signal.Set();
-                    }
                 })
                 .AutoCompletion()
                 .MaxJobsActive(3)
@@ -375,14 +371,16 @@ namespace Zeebe.Client
                 .Open())
             {
                 Assert.True(jobWorker.IsOpen());
-                signal.WaitOne();
+                while (TestService.Requests[typeof(CompleteJobRequest)].Count < 3)
+                {
+                }
             }
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
             Assert.AreEqual(expectedRequest, actualRequest);
 
-            var completeJobRequests = TestService.Requests.OfType<CompleteJobRequest>().Select(j => j.JobKey).ToList();
+            var completeJobRequests = TestService.Requests[typeof(CompleteJobRequest)].OfType<CompleteJobRequest>().Select(j => j.JobKey).ToList();
             Assert.AreEqual(3, completeJobRequests.Count);
 
             Assert.Contains(1, completeJobRequests);

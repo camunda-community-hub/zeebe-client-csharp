@@ -18,8 +18,6 @@ using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
 using NUnit.Framework;
-using Zeebe.Client.Api.Responses;
-using Zeebe.Client.Impl.Commands;
 
 namespace Zeebe.Client
 {
@@ -42,7 +40,7 @@ namespace Zeebe.Client
             await ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables).Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(CompleteJobRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -60,7 +58,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException) aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+            Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -83,7 +81,7 @@ namespace Zeebe.Client
             await ZeebeClient.NewCompleteJobCommand(activatedJob).Variables(variables).Send();
 
             // then
-            var actualRequest = TestService.Requests[0];
+            var actualRequest = TestService.Requests[typeof(CompleteJobRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }

@@ -23,7 +23,7 @@ namespace Zeebe.Client
             await ZeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}").Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(SetVariablesRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -59,7 +59,7 @@ namespace Zeebe.Client
             await ZeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}").Local().Send();
 
             // then
-            var request = TestService.Requests[0];
+            var request = TestService.Requests[typeof(SetVariablesRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
     }
