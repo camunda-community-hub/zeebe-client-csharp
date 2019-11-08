@@ -30,7 +30,7 @@ namespace Client.Examples
         private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
         private static readonly string ZeebeUrl = "0.0.0.0:26500";
         private static readonly string WorkflowInstanceVariables = "{\"a\":\"123\"}";
-        private static readonly string JobType = "foo";
+        private static readonly string JobType = "payment-service";
         private static readonly string WorkerName = Environment.MachineName;
         private static readonly long WorkCount = 100L;
 
