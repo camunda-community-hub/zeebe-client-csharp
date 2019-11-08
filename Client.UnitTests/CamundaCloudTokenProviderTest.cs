@@ -42,6 +42,7 @@ namespace Zeebe.Client
         public void CleanUp()
         {
             Directory.Delete(TokenStoragePath, true);
+            TokenProvider.Dispose();
         }
 
         private class HttpMessageHandlerStub : HttpMessageHandler

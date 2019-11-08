@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Zeebe.Client.Builder
 {
-    public class CamundaCloudTokenProvider : IAccessTokenSupplier
+    public class CamundaCloudTokenProvider : IAccessTokenSupplier, IDisposable
     {
         private const string JsonContent =
             "{{\"client_id\":\"{0}\",\"client_secret\":\"{1}\",\"audience\":\"{2}\",\"grant_type\":\"client_credentials\"}}";
@@ -166,6 +166,11 @@ namespace Zeebe.Client.Builder
             {
                 return $"{nameof(Token)}: {Token}, {nameof(DueDate)}: {DueDate}";
             }
+        }
+
+        public void Dispose()
+        {
+            HttpMessageHandler.Dispose();
         }
     }
 }
