@@ -55,20 +55,41 @@ namespace Zeebe.Client.Impl.Worker
             activeRequest = builder.Request;
             maxJobsActive = activeRequest.MaxJobsToActivate;
             pollInterval = builder.PollInterval();
-            jobClient = new JobClientWrapper(builder.JobClient);
+            jobClient = JobClientWrapper.Wrap(builder.JobClient);
             jobHandler = builder.Handler();
             autoCompletion = builder.AutoCompletionEnabled();
             logger = builder.LoggerFactory?.CreateLogger<JobWorker>();
         }
 
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            source.Cancel();
+            isRunning = false;
+        }
+
+        /// <inheritdoc/>
+        public bool IsOpen()
+        {
+            return isRunning;
+        }
+
+        /// <inheritdoc/>
+        public bool IsClosed()
+        {
+            return !isRunning;
+        }
+
+        /// <summary>
+        /// Opens the configured JobWorker to activate jobs in the given poll interval
+        /// and handle with the given handler.
+        /// </summary>
         internal void Open()
         {
             isRunning = true;
             var cancellationToken = source.Token;
 
-            var taskFactory = new TaskFactory();
-
-            taskFactory.StartNew(
+            Task.Run(
                     async () =>
                         await Poll(cancellationToken)
                             .ContinueWith(
@@ -78,7 +99,7 @@ namespace Zeebe.Client.Impl.Worker
                     t => logger?.LogError(t.Exception, "Job polling failed."),
                     TaskContinuationOptions.OnlyOnFaulted);
 
-            taskFactory.StartNew(() => HandleActivatedJobs(cancellationToken), cancellationToken)
+            Task.Run(async () => await HandleActivatedJobs(cancellationToken), cancellationToken)
                 .ContinueWith(
                     t => logger?.LogError(t.Exception, "Job handling failed."),
                     TaskContinuationOptions.OnlyOnFaulted);
@@ -89,7 +110,7 @@ namespace Zeebe.Client.Impl.Worker
                 activeRequest.Type);
         }
 
-        private void HandleActivatedJobs(CancellationToken cancellationToken)
+        private async Task HandleActivatedJobs(CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
             {
@@ -99,29 +120,7 @@ namespace Zeebe.Client.Impl.Worker
 
                     if (success)
                     {
-                        try
-                        {
-                            jobHandler(jobClient, activatedJob);
-                            if (!jobClient.ClientWasUsed && autoCompletion)
-                            {
-                                logger?.LogDebug(
-                                    "Job worker ({worker}) will auto complete job with key '{key}'",
-                                    activeRequest.Worker,
-                                    activatedJob.Key);
-                                jobClient.NewCompleteJobCommand(activatedJob)
-                                    .Send()
-                                    .GetAwaiter()
-                                    .GetResult();
-                            }
-                        }
-                        catch (Exception exception)
-                        {
-                            FailActivatedJob(activatedJob, exception);
-                        }
-                        finally
-                        {
-                            jobClient.Reset();
-                        }
+                        await HandleActivatedJob(cancellationToken, activatedJob);
                     }
                     else
                     {
@@ -135,20 +134,57 @@ namespace Zeebe.Client.Impl.Worker
             }
         }
 
-        private void FailActivatedJob(IJob activatedJob, Exception exception)
+        private async Task HandleActivatedJob(CancellationToken cancellationToken, IJob activatedJob)
         {
-            var errorMessage = string.Format(JobFailMessage,
+            try
+            {
+                jobHandler(jobClient, activatedJob);
+                await TryToAutoCompleteJob(activatedJob);
+            }
+            catch (Exception exception)
+            {
+                await FailActivatedJob(activatedJob, cancellationToken, exception);
+            }
+            finally
+            {
+                jobClient.Reset();
+            }
+        }
+
+        private async Task TryToAutoCompleteJob(IJob activatedJob)
+        {
+            if (!jobClient.ClientWasUsed && autoCompletion)
+            {
+                logger?.LogDebug(
+                    "Job worker ({worker}) will auto complete job with key '{key}'",
+                    activeRequest.Worker,
+                    activatedJob.Key);
+                await jobClient.NewCompleteJobCommand(activatedJob)
+                    .Send();
+            }
+        }
+
+        private Task FailActivatedJob(IJob activatedJob, CancellationToken cancellationToken, Exception exception)
+        {
+            var errorMessage = string.Format(
+                JobFailMessage,
                 activatedJob.Worker,
                 activatedJob.Type,
                 exception.Message);
+            logger?.LogError(exception, errorMessage);
 
-            jobClient.NewFailCommand(activatedJob.Key)
+            return jobClient.NewFailCommand(activatedJob.Key)
                 .Retries(activatedJob.Retries - 1)
                 .ErrorMessage(errorMessage)
                 .Send()
-                .GetAwaiter()
-                .GetResult();
-            logger?.LogError(exception, errorMessage);
+                .ContinueWith(
+                    task =>
+                    {
+                        if (task.IsFaulted)
+                        {
+                            logger?.LogError("Problem on failing job occured.", task.Exception);
+                        }
+                    }, cancellationToken);
         }
 
         private async Task Poll(CancellationToken cancellationToken)
@@ -191,29 +227,18 @@ namespace Zeebe.Client.Impl.Worker
             handleSignal.Set();
         }
 
-        public void Dispose()
-        {
-            source.Cancel();
-            isRunning = false;
-        }
-
-        public bool IsOpen()
-        {
-            return isRunning;
-        }
-
-        public bool IsClosed()
-        {
-            return !isRunning;
-        }
-
         private class JobClientWrapper : IJobClient
         {
-            private IJobClient Client { get; }
+            public static JobClientWrapper Wrap(IJobClient client)
+            {
+                return new JobClientWrapper(client);
+            }
 
             public bool ClientWasUsed { get; private set; }
 
-            public JobClientWrapper(IJobClient client)
+            private IJobClient Client { get; }
+
+            private JobClientWrapper(IJobClient client)
             {
                 Client = client;
                 ClientWasUsed = false;
