@@ -17,7 +17,6 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using Zeebe.Client;
 using Zeebe.Client.Api.Responses;
@@ -36,18 +35,9 @@ namespace Client.Examples
 
         public static async Task Main(string[] args)
         {
-            var loggerFactory = LoggerFactory.Create(loggingBuilder =>
-            {
-                // configure Logging with NLog
-                loggingBuilder.ClearProviders();
-                loggingBuilder.SetMinimumLevel(LogLevel.Trace);
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "NLog.config");
-                loggingBuilder.AddNLog(path);
-            });
-
             // create zeebe client
             var client = ZeebeClient.Builder()
-                .UseLoggerFactory(loggerFactory)
+                .UseLoggerFactory(new NLogLoggerFactory())
                 .UseGatewayAddress(ZeebeUrl)
                 .UsePlainText()
                 .Build();
