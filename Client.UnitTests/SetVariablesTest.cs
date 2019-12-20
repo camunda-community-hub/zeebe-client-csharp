@@ -62,5 +62,22 @@ namespace Zeebe.Client
             var request = TestService.Requests[typeof(SetVariablesRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
+
+        [Test]
+        public async Task ShouldReceiveResponseAsExpected()
+        {
+            // given
+            var expectedResponse = new SetVariablesResponse
+            {
+                Key = 12
+            };
+            TestService.AddRequestHandler(typeof(SetVariablesRequest), request => expectedResponse);
+
+            // when
+            var response = await ZeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}").Local().Send();
+
+            // then
+            Assert.AreEqual(12, response.Key);
+        }
     }
 }

@@ -36,8 +36,8 @@ namespace Zeebe.Client.Impl.Commands
         public async Task<ISetVariablesResponse> Send(TimeSpan? timeout = null)
         {
             var asyncReply = client.SetVariablesAsync(request, deadline: timeout?.FromUtcNow());
-            await asyncReply.ResponseAsync;
-            return new SetVariablesResponse();
+            var response = await asyncReply.ResponseAsync;
+            return new SetVariablesResponse(response);
         }
     }
 }
