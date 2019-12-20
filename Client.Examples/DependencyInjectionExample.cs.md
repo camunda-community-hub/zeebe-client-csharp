@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
@@ -23,7 +24,7 @@ namespace Client.DependencyInjectionExamples
         private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
         private static readonly string ZeebeUrl = "0.0.0.0:26500";
         private static readonly string WorkflowInstanceVariables = "{\"a\":\"123\"}";
-        private static readonly string JobType = "foo";
+        private static readonly string JobType = "payment-service";
         private static readonly string WorkerName = Environment.MachineName;
         private static readonly long WorkCount = 100L;
 
@@ -99,11 +100,15 @@ namespace Client.DependencyInjectionExamples
             // https://github.com/NLog/NLog/wiki/Getting-started-with-.NET-Core-2---Console-application
             serviceProvider = services.AddLogging(loggingBuilder =>
                 {
+                    var config = new ConfigurationBuilder()
+                        .SetBasePath(System.IO.Directory.GetCurrentDirectory()) //From NuGet Package Microsoft.Extensions.Configuration.Json
+                        .Build();
+
                     // configure Logging with NLog
                     loggingBuilder.ClearProviders();
                     loggingBuilder.SetMinimumLevel(LogLevel.Trace);
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "NLog.config");
-                    loggingBuilder.AddNLog(path);
+                    loggingBuilder.AddNLog(config);
+
                 })
                 .AddZeebeBuilders()
                 .AddScoped(sp =>
