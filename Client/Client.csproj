@@ -28,7 +28,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>zb-client</PackageId>
     <Product>Zeebe C# client</Product>
-    <RepositoryUrl>https://github.com/zeebe-io/zeebe-csharp-client</RepositoryUrl>
+    <RepositoryUrl>https://github.com/zeebe-io/zeebe-client-csharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
