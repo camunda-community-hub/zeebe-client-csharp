@@ -26,6 +26,8 @@ namespace GatewayProtocol {
     static readonly grpc::Marshaller<global::GatewayProtocol.DeployWorkflowResponse> __Marshaller_gateway_protocol_DeployWorkflowResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployWorkflowResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.FailJobRequest> __Marshaller_gateway_protocol_FailJobRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.FailJobRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.FailJobResponse> __Marshaller_gateway_protocol_FailJobResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.FailJobResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.ThrowErrorRequest> __Marshaller_gateway_protocol_ThrowErrorRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ThrowErrorRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.ThrowErrorResponse> __Marshaller_gateway_protocol_ThrowErrorResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ThrowErrorResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageRequest> __Marshaller_gateway_protocol_PublishMessageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.PublishMessageRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageResponse> __Marshaller_gateway_protocol_PublishMessageResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.PublishMessageResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.ResolveIncidentRequest> __Marshaller_gateway_protocol_ResolveIncidentRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ResolveIncidentRequest.Parser.ParseFrom);
@@ -85,6 +87,13 @@ namespace GatewayProtocol {
         "FailJob",
         __Marshaller_gateway_protocol_FailJobRequest,
         __Marshaller_gateway_protocol_FailJobResponse);
+
+    static readonly grpc::Method<global::GatewayProtocol.ThrowErrorRequest, global::GatewayProtocol.ThrowErrorResponse> __Method_ThrowError = new grpc::Method<global::GatewayProtocol.ThrowErrorRequest, global::GatewayProtocol.ThrowErrorResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ThrowError",
+        __Marshaller_gateway_protocol_ThrowErrorRequest,
+        __Marshaller_gateway_protocol_ThrowErrorResponse);
 
     static readonly grpc::Method<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse> __Method_PublishMessage = new grpc::Method<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse>(
         grpc::MethodType.Unary,
@@ -271,6 +280,25 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.FailJobResponse> FailJob(global::GatewayProtocol.FailJobRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the workflow by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job was found with the given key
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job is not in an activated state
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ThrowErrorResponse> ThrowError(global::GatewayProtocol.ThrowErrorRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -921,6 +949,82 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
+      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the workflow by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job was found with the given key
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job is not in an activated state
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.ThrowErrorResponse ThrowError(global::GatewayProtocol.ThrowErrorRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ThrowError(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the workflow by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job was found with the given key
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job is not in an activated state
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::GatewayProtocol.ThrowErrorResponse ThrowError(global::GatewayProtocol.ThrowErrorRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ThrowError, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the workflow by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job was found with the given key
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job is not in an activated state
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ThrowErrorResponse> ThrowErrorAsync(global::GatewayProtocol.ThrowErrorRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ThrowErrorAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the workflow by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job was found with the given key
+      ///
+      ///FAILED_PRECONDITION:
+      ///- the job is not in an activated state
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ThrowErrorResponse> ThrowErrorAsync(global::GatewayProtocol.ThrowErrorRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ThrowError, null, options, request);
+      }
+      /// <summary>
+      ///
       ///Publishes a single message. Messages are published to specific partitions computed from their
       ///correlation keys.
       ///
@@ -1286,6 +1390,7 @@ namespace GatewayProtocol {
           .AddMethod(__Method_CreateWorkflowInstanceWithResult, serviceImpl.CreateWorkflowInstanceWithResult)
           .AddMethod(__Method_DeployWorkflow, serviceImpl.DeployWorkflow)
           .AddMethod(__Method_FailJob, serviceImpl.FailJob)
+          .AddMethod(__Method_ThrowError, serviceImpl.ThrowError)
           .AddMethod(__Method_PublishMessage, serviceImpl.PublishMessage)
           .AddMethod(__Method_ResolveIncident, serviceImpl.ResolveIncident)
           .AddMethod(__Method_SetVariables, serviceImpl.SetVariables)
@@ -1306,6 +1411,7 @@ namespace GatewayProtocol {
       serviceBinder.AddMethod(__Method_CreateWorkflowInstanceWithResult, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest, global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse>(serviceImpl.CreateWorkflowInstanceWithResult));
       serviceBinder.AddMethod(__Method_DeployWorkflow, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.DeployWorkflowRequest, global::GatewayProtocol.DeployWorkflowResponse>(serviceImpl.DeployWorkflow));
       serviceBinder.AddMethod(__Method_FailJob, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse>(serviceImpl.FailJob));
+      serviceBinder.AddMethod(__Method_ThrowError, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.ThrowErrorRequest, global::GatewayProtocol.ThrowErrorResponse>(serviceImpl.ThrowError));
       serviceBinder.AddMethod(__Method_PublishMessage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse>(serviceImpl.PublishMessage));
       serviceBinder.AddMethod(__Method_ResolveIncident, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.ResolveIncidentRequest, global::GatewayProtocol.ResolveIncidentResponse>(serviceImpl.ResolveIncident));
       serviceBinder.AddMethod(__Method_SetVariables, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.SetVariablesRequest, global::GatewayProtocol.SetVariablesResponse>(serviceImpl.SetVariables));
