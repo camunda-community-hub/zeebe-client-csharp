@@ -31,10 +31,12 @@ namespace Zeebe.Client.Api.Commands
     public interface IPublishMessageCommandStep2
     {
         /// <summary>
-        /// Set the correlation-key of the message.
-        /// </summary>
+        /// Set the value of the correlation key of the message.
         ///
-        /// <param name="correlationKey">the correlation-key of the message</param>
+        /// This value will be used together with the message name
+        /// to find matching message subscriptions.
+        /// </summary>
+        /// <param name="correlationKey">the correlation key value of the message</param>
         /// <returns>the builder for this command</returns>
         IPublishMessageCommandStep3 CorrelationKey(string correlationKey);
     }
