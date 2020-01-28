@@ -1,0 +1,42 @@
+//
+//    Copyright (c) 2018 camunda services GmbH (info@camunda.com)
+//
+//    Licensed under the Apache License, Version 2.0 (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//        http://www.apache.org/licenses/LICENSE-2.0
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+
+/**
+ \mainpage The Zeebe C# client documentation
+
+ The Zeebe C# client to communicate with a Zeebe gateway/cluster.
+
+ <para/>
+ The client is a C# wrapper implementation around the
+ [GRPC](https://github.com/grpc/grpc) generated client.
+ It makes it possible to communicate with Zeebe Gateway via the GRPC protocol,
+ see the [Zeebe documentation](https://docs.zeebe.io/) for more information about the Zeebe project.
+
+ <para>
+ The Client is available as a [Nuget package](https://www.nuget.org/packages/zb-client/).
+ </para>
+
+ \section API API documentation
+ <list type="bullet">
+  <item>Zeebe.Client.IZeebeClient</item>
+  <item>Zeebe.Client.Api.Commands</item>
+  <item>Zeebe.Client.Api.Responses</item>
+  <item>Zeebe.Client.Api.Worker</item>
+ </list>
+
+ \section Example Example
+ \include Client.Examples/Program.cs
+
+*/
