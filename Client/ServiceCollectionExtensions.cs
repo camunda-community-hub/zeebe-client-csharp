@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Zeebe.Client.Builder;
+using Zeebe.Client.Impl.Builder;
 
 namespace Zeebe.Client
 {

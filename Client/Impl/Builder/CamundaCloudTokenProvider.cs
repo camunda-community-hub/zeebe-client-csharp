@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Zeebe.Client.Api.Builder;
 
-namespace Zeebe.Client.Builder
+namespace Zeebe.Client.Impl.Builder
 {
     public class CamundaCloudTokenProvider : IAccessTokenSupplier, IDisposable
     {

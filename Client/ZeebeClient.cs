@@ -17,10 +17,11 @@ using GatewayProtocol;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Zeebe.Client.Api.Builder;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Worker;
-using Zeebe.Client.Builder;
+using Zeebe.Client.Impl.Builder;
 using Zeebe.Client.Impl.Commands;
 using Zeebe.Client.Impl.Worker;
 

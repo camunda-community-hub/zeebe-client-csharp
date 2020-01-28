@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NLog;
 using NUnit.Framework;
-using Zeebe.Client.Builder;
+using Zeebe.Client.Impl.Builder;
 
 namespace Zeebe.Client
 {

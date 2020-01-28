@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace Zeebe.Client.Builder
+namespace Zeebe.Client.Api.Builder
 {
     public interface IZeebeClientBuilder
     {

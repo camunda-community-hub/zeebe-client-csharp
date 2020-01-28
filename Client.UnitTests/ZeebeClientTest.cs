@@ -8,7 +8,7 @@ using Grpc.Core;
 using Grpc.Core.Logging;
 using NLog;
 using NUnit.Framework;
-using Zeebe.Client.Builder;
+using Zeebe.Client.Api.Builder;
 
 namespace Zeebe.Client
 {

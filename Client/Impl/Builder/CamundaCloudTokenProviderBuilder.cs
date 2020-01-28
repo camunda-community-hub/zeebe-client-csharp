@@ -1,9 +1,10 @@
 ﻿using System;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
+using Zeebe.Client.Api.Builder;
+
 // ReSharper disable All
 
-namespace Zeebe.Client.Builder
+namespace Zeebe.Client.Impl.Builder
 {
     public class CamundaCloudTokenProviderBuilder :
         ICamundaCloudTokenProviderBuilder,

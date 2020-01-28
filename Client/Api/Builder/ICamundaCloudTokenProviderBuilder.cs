@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
+using Zeebe.Client.Impl.Builder;
 
-namespace Zeebe.Client.Builder
+namespace Zeebe.Client.Api.Builder
 {
     public interface ICamundaCloudTokenProviderBuilder
     {

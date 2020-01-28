@@ -1,13 +1,10 @@
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using Google.Apis.Auth.OAuth2;
 using Grpc.Auth;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
+using Zeebe.Client.Api.Builder;
 
-namespace Zeebe.Client.Builder
+namespace Zeebe.Client.Impl.Builder
 {
     public class ZeebeClientBuilder : IZeebeClientBuilder, IZeebeClientTransportBuilder
     {
