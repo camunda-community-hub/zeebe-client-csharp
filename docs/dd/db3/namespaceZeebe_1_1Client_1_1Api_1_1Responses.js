@@ -11,6 +11,7 @@ var namespaceZeebe_1_1Client_1_1Api_1_1Responses =
     [ "IPublishMessageResponse", "d0/dab/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IPublishMessageResponse.html", null ],
     [ "IResolveIncidentResponse", "de/df8/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IResolveIncidentResponse.html", null ],
     [ "ISetVariablesResponse", "d7/d1a/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ISetVariablesResponse.html", "d7/d1a/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ISetVariablesResponse" ],
+    [ "IThrowErrorResponse", "d7/d26/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IThrowErrorResponse.html", null ],
     [ "ITopology", "df/d68/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ITopology.html", "df/d68/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ITopology" ],
     [ "IUpdateRetriesResponse", "d7/df3/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IUpdateRetriesResponse.html", null ],
     [ "IWorkflowInstanceResponse", "d2/d6e/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IWorkflowInstanceResponse.html", "d2/d6e/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IWorkflowInstanceResponse" ],
