@@ -30,10 +30,11 @@ namespace Zeebe.Client.Api.Commands
         ///
         /// <para>Use `await ...send();` to wait until the response is available.</para>
         ///
+        /// <example>
         /// <code>
         /// T response = await command.send();
         /// </code>
-        ///
+        /// </example>
         /// </summary>
         /// <param name="timeout">the time span after request should be timed out</param>
         /// <returns>a task tracking state of success/failure of the command.</returns>

@@ -22,7 +22,7 @@ namespace Zeebe.Client.Api.Responses
         /// <returns>the current role of the broker for this partition (i.e. leader or follower) </returns>
         PartitionBrokerRole Role { get; }
 
-        /// <returns><code>true</code> if the broker is the current leader of this partition </returns>
+        /// <returns><c>true</c> if the broker is the current leader of this partition </returns>
         bool IsLeader { get; }
     }
 }

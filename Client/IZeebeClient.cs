@@ -32,18 +32,17 @@ namespace Zeebe.Client
         /// then publishes them to the client. The given worker is called for every received job, works on
         /// them and eventually completes them.
         /// </para>
-        ///
+        /// <example>
         /// <code>
         /// using(IJobWorker worker = zeebeClient
-        ///  .NewWorker()
-        ///  .jobType("payment")
-        ///  .handler(paymentHandler)
-        ///  .open())
+        ///      .NewWorker()
+        ///      .jobType("payment")
+        ///      .handler(paymentHandler)
+        ///      .open())
         ///  {
         ///  ...
         ///  }
         /// </code>
-        ///
         /// Example JobHandler implementation:
         ///
         /// <code>
@@ -58,6 +57,7 @@ namespace Zeebe.Client
         ///      .Send();
         ///   };
         /// </code>
+        /// </example>
         ///
         /// The handler must be thread-safe.
         /// <returns>a builder for the worker registration</returns>
@@ -67,15 +67,17 @@ namespace Zeebe.Client
         /// Command to activate multiple jobs of a given type.
         /// </summary>
         ///
+        /// <example>
         /// <code>
         /// zeebeClient
-        ///  .NewActivateJobsCommand()
-        ///  .JobType("payment")
-        ///  .maxJobsToActivate(10)
-        ///  .WorkerName("paymentWorker")
-        ///  .Timeout(TimeSpan.FromMinutes(10))
-        ///  .Send();
+        ///      .NewActivateJobsCommand()
+        ///      .JobType("payment")
+        ///      .maxJobsToActivate(10)
+        ///      .WorkerName("paymentWorker")
+        ///      .Timeout(TimeSpan.FromMinutes(10))
+        ///      .Send();
         /// </code>
+        /// </example>
         ///
         /// <para>
         ///     The command will try to use <c>maxJobsToActivate</c>
@@ -93,7 +95,7 @@ namespace Zeebe.Client
         /// <summary>
         /// Command to update the retries of a job.
         /// </summary>
-        ///
+        /// <example>
         /// <code>
         /// long jobKey = ..;
         ///
@@ -102,6 +104,7 @@ namespace Zeebe.Client
         ///  .Retries(3)
         ///  .Send();
         /// </code>
+        /// </example>
         ///
         /// <para>
         /// If the given retries are greater than zero then this job will be picked up again by a job
@@ -119,6 +122,7 @@ namespace Zeebe.Client
         /// Command to deploy new workflows.
         /// </summary>
         ///
+        /// <example>
         /// <code>
         /// zeebeClient
         ///  .NewDeployCommand()
@@ -126,7 +130,7 @@ namespace Zeebe.Client
         ///  .AddResourceFile("~/wf/workflow2.bpmn")
         ///  .Send();
         /// </code>
-        ///
+        /// </example>
         /// <returns>
         ///     a builder for the deploy command
         /// </returns>
@@ -136,6 +140,7 @@ namespace Zeebe.Client
         /// Command to create/start a new instance of a workflow.
         /// </summary>
         ///
+        /// <example>
         /// <code>
         /// zeebeClient
         ///  .NewCreateInstanceCommand()
@@ -144,20 +149,20 @@ namespace Zeebe.Client
         ///  .Variables(json)
         ///  .Send();
         /// </code>
-        ///
+        /// </example>
         /// <returns>a builder for the command</returns>
         ICreateWorkflowInstanceCommandStep1 NewCreateWorkflowInstanceCommand();
 
         /// <summary>
         /// Command to cancel a workflow instance.
         /// </summary>
-        ///
+        /// <example>
         /// <code>
         /// zeebeClient
         ///  .NewCancelInstanceCommand(workflowInstanceKey)
         ///  .Send();
         /// </code>
-        ///
+        /// </example>
         /// <param name="workflowInstanceKey">
         ///     workflowInstanceKey the key which identifies the corresponding workflow instance
         /// </param>
@@ -169,13 +174,14 @@ namespace Zeebe.Client
         /// <summary>
         /// Command to update the variables of a workflow instance.
         /// </summary>
-        ///
+        /// <example>
         ///  <code>
         ///   zeebeClient
         ///    .NewSetVariablesCommand(elementInstanceKey)
         ///    .Variables(json)
         ///    .Send();
         ///  </code>
+        /// </example>
         /// <param name="elementInstanceKey">
         ///     the key of the element instance to set the variables for
         /// </param>
@@ -187,12 +193,13 @@ namespace Zeebe.Client
         /// <summary>
         ///   Command to resolve an existing incident.
         /// </summary>
-        ///
+        /// <example>
         /// <code>
         ///     zeebeClient
         ///         .NewResolveIncidentCommand(incidentKey)
         ///         .Send();
         /// </code>
+        /// </example>
         /// <param name="incidentKey">
         ///     incidentKey the key of the corresponding incident
         /// </param>
@@ -204,7 +211,7 @@ namespace Zeebe.Client
         /// <summary>
         /// Command to publish a message which can be correlated to a workflow instance.
         /// </summary>
-        ///
+        /// <example>
         /// <code>
         /// zeebeClient
         ///  .NewPublishMessageCommand()
@@ -213,7 +220,7 @@ namespace Zeebe.Client
         ///  .Variables(json)
         ///  .Send();
         /// </code>
-        ///
+        /// </example>
         /// <returns>
         ///     a builder for the command
         /// </returns>
@@ -223,12 +230,12 @@ namespace Zeebe.Client
         /// Request the current cluster topology. Can be used to inspect which brokers are available at
         /// which endpoint and which broker is the leader of which partition.
         /// </summary>
-        ///
+        /// <example>
         /// <code>
         /// ITopology response = await ZeebeClient.TopologyRequest().Send();
         /// IList{IBrokerInfo} brokers = response.Brokers;
         /// </code>
-        ///
+        /// </example>
         /// <returns>
         ///     the request where you must call <see cref="IFinalCommandStep{T}.Send"/>
         /// </returns>

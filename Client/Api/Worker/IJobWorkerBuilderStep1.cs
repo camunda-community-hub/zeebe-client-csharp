@@ -42,6 +42,7 @@ namespace Zeebe.Client.Api.Worker
         /// complete the job or mark it as failed.
         /// </summary>
         ///
+        /// <example>
         /// <para>
         /// Example JobHandler implementation:
         /// </para>
@@ -53,12 +54,12 @@ namespace Zeebe.Client.Api.Worker
         ///     // modify variables
         ///
         ///     client
-        ///      .CompleteCommand(job.Key)
-        ///      .Variables(json)
-        ///      .Send();
+        ///          .CompleteCommand(job.Key)
+        ///          .Variables(json)
+        ///          .Send();
         ///   };
         /// </code>
-        ///
+        /// </example>
         /// The handler must be thread-safe.
         /// <param name="handler">the handle to process the jobs</param>
         /// <returns>the builder for this worker</returns>
@@ -116,9 +117,11 @@ namespace Zeebe.Client.Api.Worker
         ///    <item>
         ///        The job's timeout starts to run down as soon as the broker pushes the job. Keep in mind
         ///        that the following must hold to ensure fluent job handling:
+        ///        <example>
         ///        <code>
         ///            time spent in buffer + time job handler needs until job completion &lt; job timeout
         ///        </code>
+        ///        </example>
         ///    </item>
         /// </list>
         /// <param name="maxJobsActive">the maximum jobs active by this worker</param>

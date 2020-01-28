@@ -30,14 +30,16 @@ namespace Zeebe.Client.Api.Worker
         /// <summary>
         /// Command to complete a job.
         /// </summary>
+        /// <example>
         /// <code>
         /// long jobKey = ..;
         ///
         /// jobClient
-        ///  .NewCompleteJobCommand(jobKey)
-        ///  .Variables(json)
-        ///  .Send();
+        ///      .NewCompleteJobCommand(jobKey)
+        ///      .Variables(json)
+        ///      .Send();
         /// </code>
+        /// </example>
         ///
         /// <para>
         ///     The job is linked to a workflow instance, which means this command will complete the related
@@ -53,14 +55,16 @@ namespace Zeebe.Client.Api.Worker
         /// Command to complete a job.
         /// </summary>
         ///
+        /// <example>
         /// <code>
         /// IJob activatedJob = ..;
         ///
         /// jobClient
-        ///  .NewCompleteJobCommand(activatedJob)
-        ///  .Variables(json)
-        ///  .Send();
+        ///      .NewCompleteJobCommand(activatedJob)
+        ///      .Variables(json)
+        ///      .Send();
         /// </code>
+        /// </example>
         ///
         /// <para>
         ///     The job is linked to a workflow instance, which means this command will complete the related
@@ -75,14 +79,16 @@ namespace Zeebe.Client.Api.Worker
         /// Command to mark a job as failed.
         /// </summary>
         ///
+        /// <example>
         /// <code>
         /// long jobKey = ..;
         ///
         /// jobClient
-        ///  .NewFailCommand(jobKey)
-        ///  .Retries(3)
-        ///  .Send();
+        ///      .NewFailCommand(jobKey)
+        ///      .Retries(3)
+        ///      .Send();
         /// </code>
+        /// </example>
         ///
         /// <para>
         ///     If the given retries are greater than zero then this job will be picked up again by a job

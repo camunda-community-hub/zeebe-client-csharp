@@ -21,6 +21,7 @@ namespace Zeebe.Client.Api.Commands
         /// this means the variables is not propagated to upper scopes.
         /// </summary>
         ///
+        /// <example>
         /// <para>
         ///     For example, let's say we have two scopes, '1' and '2', with each having effective
         ///     variables as:
@@ -45,6 +46,7 @@ namespace Zeebe.Client.Api.Commands
         /// If local was false, however, then scope 1 would be
         /// `{ "foo": 5 }`, and scope 2 would be `{ "bar" : 1 }`.
         /// </para>
+        /// </example>
         /// <returns>
         ///     the builder for this command.
         ///     Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
