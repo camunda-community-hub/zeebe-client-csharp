@@ -35,7 +35,6 @@
     <PackageVersion>0.14.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
     <Title>0.14.0</Title>
-    <DocumentationFile>bin\$(Configuration)\netstandard2.0\Client.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
