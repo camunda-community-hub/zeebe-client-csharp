@@ -19,7 +19,7 @@ using Zeebe.Client.Api.Worker;
 namespace Zeebe.Client
 {
     /// <summary>
-    /// The client to communicate with a Zeebe broker/cluster.
+    /// The client to communicate with a Zeebe gateway/cluster.
     /// </summary>
     public interface IZeebeClient : IJobClient, IDisposable
     {
