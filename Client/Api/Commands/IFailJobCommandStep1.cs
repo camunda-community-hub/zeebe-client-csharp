@@ -21,9 +21,9 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the remaining retries of this job.
         ///
-        /// <p>If the retries are greater than zero then this job will be picked up again by a job
+        /// <para>If the retries are greater than zero then this job will be picked up again by a job
         /// worker. Otherwise, an incident is created for this job.
-        /// </p>
+        /// </para>
         /// </summary>
         ///
         /// <param name="remainingRetries">the remaining retries of this job (e.g. "jobEvent.getRetries() - 1")</param>
@@ -38,7 +38,7 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the error message of this failing job.
         ///
-        /// <p>If the retries are zero then this error message will be used for the incident creation.
+        /// <para>If the retries are zero then this error message will be used for the incident creation.
         ///
         /// </summary>
         ///

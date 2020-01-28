@@ -25,12 +25,15 @@ namespace Zeebe.Client
     {
         /// <summary>
         /// Registers a new job worker for jobs of a given type.
+        /// </summary>
         ///
-        /// <p>After registration, the broker activates available jobs and assigns them to this worker. It
+        /// <para>
+        /// After registration, the broker activates available jobs and assigns them to this worker. It
         /// then publishes them to the client. The given worker is called for every received job, works on
         /// them and eventually completes them.
+        /// </para>
         ///
-        /// <pre>
+        /// <code>
         /// using(IJobWorker worker = zeebeClient
         ///  .NewWorker()
         ///  .jobType("payment")
@@ -39,11 +42,11 @@ namespace Zeebe.Client
         ///  {
         ///  ...
         ///  }
-        /// </pre>
+        /// </code>
         ///
         /// Example JobHandler implementation:
         ///
-        /// <pre>
+        /// <code>
         /// var handler = (client, job) =>
         ///   {
         ///     String json = job.Variables;
@@ -54,18 +57,17 @@ namespace Zeebe.Client
         ///      .Variables(json)
         ///      .Send();
         ///   };
-        /// </pre>
+        /// </code>
         ///
         /// The handler must be thread-safe.
-        /// </summary>
-        ///
         /// <returns>a builder for the worker registration</returns>
         IJobWorkerBuilderStep1 NewWorker();
 
         /// <summary>
         /// Command to activate multiple jobs of a given type.
+        /// </summary>
         ///
-        /// <pre>
+        /// <code>
         /// zeebeClient
         ///  .NewActivateJobsCommand()
         ///  .JobType("payment")
@@ -73,13 +75,16 @@ namespace Zeebe.Client
         ///  .WorkerName("paymentWorker")
         ///  .Timeout(TimeSpan.FromMinutes(10))
         ///  .Send();
-        /// </pre>
+        /// </code>
         ///
-        ///  <p>The command will try to use {@code maxJobsToActivate} for given {@code jobType}. If less
-        /// then the requested {@code maxJobsToActivate} jobs of the {@code jobType} are available for
-        /// activation the returned list will have fewer elements.
+        /// <para>
+        ///     The command will try to use <c>maxJobsToActivate</c>
+        ///     for given <c>jobType</c>. If less
+        ///     then the requested <c>maxJobsToActivate</c> jobs of the
+        ///     <c>jobType</c> are available for
+        ///     activation the returned list will have fewer elements.
+        /// </para>
         ///
-        /// </summary>
         /// <returns>
         /// a builder for the command
         /// </returns>
@@ -87,121 +92,146 @@ namespace Zeebe.Client
 
         /// <summary>
         /// Command to update the retries of a job.
+        /// </summary>
         ///
-        /// <pre>
+        /// <code>
         /// long jobKey = ..;
         ///
         /// zeebeClient
         ///  .NewUpdateRetriesCommand(jobKey)
         ///  .Retries(3)
         ///  .Send();
-        /// </pre>
+        /// </code>
         ///
-        /// <p>If the given retries are greater than zero then this job will be picked up again by a job
+        /// <para>
+        /// If the given retries are greater than zero then this job will be picked up again by a job
         /// subscription and a related incident will be marked as resolved.
-        /// </summary>
-        /// <param name="jobKey">the key of the job to update</param>
-        /// <returns>a builder for the command</returns>
+        /// </para>
+        /// <param name="jobKey">
+        ///     the key of the job to update
+        /// </param>
+        /// <returns>
+        ///     a builder for the command
+        /// </returns>
         IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey);
 
         /// <summary>
         /// Command to deploy new workflows.
+        /// </summary>
         ///
-        /// <pre>
+        /// <code>
         /// zeebeClient
         ///  .NewDeployCommand()
         ///  .AddResourceFile("~/wf/workflow1.bpmn")
         ///  .AddResourceFile("~/wf/workflow2.bpmn")
         ///  .Send();
-        /// </pre>
-        /// </summary>
+        /// </code>
         ///
-        /// <returns>a builder for the deploy command</returns>
+        /// <returns>
+        ///     a builder for the deploy command
+        /// </returns>
         IDeployWorkflowCommandStep1 NewDeployCommand();
 
         /// <summary>
         /// Command to create/start a new instance of a workflow.
+        /// </summary>
         ///
-        /// <pre>
+        /// <code>
         /// zeebeClient
         ///  .NewCreateInstanceCommand()
         ///  .BpmnProcessId("my-process")
         ///  .LatestVersion()
         ///  .Variables(json)
         ///  .Send();
-        /// </pre>
+        /// </code>
         ///
-        /// </summary>
         /// <returns>a builder for the command</returns>
         ICreateWorkflowInstanceCommandStep1 NewCreateWorkflowInstanceCommand();
 
         /// <summary>
         /// Command to cancel a workflow instance.
+        /// </summary>
         ///
-        /// <pre>
+        /// <code>
         /// zeebeClient
         ///  .NewCancelInstanceCommand(workflowInstanceKey)
         ///  .Send();
-        /// </pre>
-        /// </summary>
-        /// <param name="elementInstanceKey">workflowInstanceKey the key which identifies the corresponding workflow instance </param>
-        /// <returns> a builder for the command </returns>
+        /// </code>
+        ///
+        /// <param name="workflowInstanceKey">
+        ///     workflowInstanceKey the key which identifies the corresponding workflow instance
+        /// </param>
+        /// <returns>
+        /// a builder for the command
+        /// </returns>
         ICancelWorkflowInstanceCommandStep1 NewCancelInstanceCommand(long workflowInstanceKey);
 
         /// <summary>
         /// Command to update the variables of a workflow instance.
-        ///  <pre>
+        /// </summary>
+        ///
+        ///  <code>
         ///   zeebeClient
         ///    .NewSetVariablesCommand(elementInstanceKey)
         ///    .Variables(json)
         ///    .Send();
-        ///  </pre>
-        /// </summary>
-        /// <param name="elementInstanceKey">the key of the element instance to set the variables for</param>
-        /// <returns> a builder for the command</returns>
+        ///  </code>
+        /// <param name="elementInstanceKey">
+        ///     the key of the element instance to set the variables for
+        /// </param>
+        /// <returns>
+        ///     a builder for the command
+        /// </returns>
         ISetVariablesCommandStep1 NewSetVariablesCommand(long elementInstanceKey);
 
         /// <summary>
         ///   Command to resolve an existing incident.
-        ///   <pre>
-        ///     zeebeClient
-        ///       .NewResolveIncidentCommand(incidentKey)
-        ///       .Send();
-        ///   </pre>
         /// </summary>
-        /// <param name="incidentKey">incidentKey the key of the corresponding incident</param>
-        /// <returns>the builder for the command</returns>
+        ///
+        /// <code>
+        ///     zeebeClient
+        ///         .NewResolveIncidentCommand(incidentKey)
+        ///         .Send();
+        /// </code>
+        /// <param name="incidentKey">
+        ///     incidentKey the key of the corresponding incident
+        /// </param>
+        /// <returns>
+        ///     the builder for the command
+        /// </returns>
         IResolveIncidentCommandStep1 NewResolveIncidentCommand(long incidentKey);
 
         /// <summary>
         /// Command to publish a message which can be correlated to a workflow instance.
+        /// </summary>
         ///
-        /// <pre>
+        /// <code>
         /// zeebeClient
         ///  .NewPublishMessageCommand()
         ///  .MessageName("order canceled")
         ///  .CorrelationKey(orderId)
         ///  .Variables(json)
         ///  .Send();
-        /// </pre>
+        /// </code>
         ///
-        /// </summary>
-        ///
-        /// <returns>a builder for the command</returns>
+        /// <returns>
+        ///     a builder for the command
+        /// </returns>
         IPublishMessageCommandStep1 NewPublishMessageCommand();
 
         /// <summary>
         /// Request the current cluster topology. Can be used to inspect which brokers are available at
         /// which endpoint and which broker is the leader of which partition.
-        ///
-        /// <pre>
-        /// ITopology response = await ZeebeClient.TopologyRequest().Send();
-        /// IList<IBrokerInfo> brokers = response.Brokers;
-        /// </pre>
-        ///
         /// </summary>
         ///
-        /// <returns>the request where you must call #send()</returns>
+        /// <code>
+        /// ITopology response = await ZeebeClient.TopologyRequest().Send();
+        /// IList{IBrokerInfo} brokers = response.Brokers;
+        /// </code>
+        ///
+        /// <returns>
+        ///     the request where you must call <see cref="IFinalCommandStep{T}.Send"/>
+        /// </returns>
         ITopologyRequestStep1 TopologyRequest();
     }
 }

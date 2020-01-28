@@ -18,8 +18,8 @@ namespace Zeebe.Client.Api.Worker
 {
     /// <summary>
     /// Represents an job worker that performs jobs of a certain type. While a registration is
-    /// open, the worker continuously receives jobs from the broker and hands them to a registered {@link
-    /// JobHandler}.
+    /// open, the worker continuously receives jobs from the broker and hands them to a registered
+    /// <see cref="JobHandler"/>.
     /// </summary>
     public interface IJobWorker : IDisposable
     {

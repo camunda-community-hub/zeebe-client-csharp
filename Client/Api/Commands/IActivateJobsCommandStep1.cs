@@ -44,7 +44,7 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the time for how long a job is exclusively assigned for this subscription.
         ///
-        /// <p>In this time, the job can not be assigned by other subscriptions to ensure that only one
+        /// <para>In this time, the job can not be assigned by other subscriptions to ensure that only one
         /// subscription work on the job. When the time is over then the job can be assigned again by
         /// this or other subscription if it's not completed yet.
         ///
@@ -57,7 +57,7 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the name of the job worker.
         ///
-        /// <p>This name is used to identify the worker which activated the jobs. Its main purpose is for
+        /// <para>This name is used to identify the worker which activated the jobs. Its main purpose is for
         /// monitoring and auditing. Commands on activated jobs do not check the worker name, i.e.
         /// complete or fail job.
         ///
@@ -70,9 +70,9 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set a list of variable names which should be fetch on job activation.
         ///
-        /// <p>The jobs which are activated by this command will only contain variables from this list.
+        /// <para>The jobs which are activated by this command will only contain variables from this list.
         ///
-        /// <p>This can be used to limit the number of variables of the activated jobs.
+        /// <para>This can be used to limit the number of variables of the activated jobs.
         /// </summary>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
         /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
@@ -82,7 +82,7 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the polling timeout.
         ///
-        /// <p>The activate jobs request will be completed when at least one job is activated or after the given pollingTimeout.
+        /// <para>The activate jobs request will be completed when at least one job is activated or after the given pollingTimeout.
         ///
         /// </summary>
         /// <param name="pollingTimeout">the polling timeout (e.g. "TimeSpan.FromMinutes(10)")
@@ -94,9 +94,9 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set a list of variable names which should be fetch on job activation.
         ///
-        /// <p>The jobs which are activated by this command will only contain variables from this list.
+        /// <para>The jobs which are activated by this command will only contain variables from this list.
         ///
-        /// <p>This can be used to limit the number of variables of the activated jobs.
+        /// <para>This can be used to limit the number of variables of the activated jobs.
         /// </summary>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
         /// <returns>

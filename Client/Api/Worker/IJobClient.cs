@@ -19,73 +19,77 @@ namespace Zeebe.Client.Api.Worker
 {
     /// <summary>
     /// A client with access to all job-related operation:
-    /// <ul>
-    ///   <li>complete a job</li>
-    ///   <li> mark a job as failed</li>
-    ///   <li> update the retries of a job</li>
-    /// </ul>
+    /// <list type="bullet">
+    ///   <item>complete a job</item>
+    ///   <item> mark a job as failed</item>
+    ///   <item> update the retries of a job</item>
+    /// </list>
     /// </summary>
     public interface IJobClient
     {
         /// <summary>
         /// Command to complete a job.
-        ///
-        /// <pre>
+        /// </summary>
+        /// <code>
         /// long jobKey = ..;
         ///
         /// jobClient
         ///  .NewCompleteJobCommand(jobKey)
         ///  .Variables(json)
         ///  .Send();
-        /// </pre>
+        /// </code>
         ///
-        /// <p>The job is linked to a workflow instance, which means this command will complete the related
-        /// activity and continue the flow.
-        /// </p>
+        /// <para>
+        ///     The job is linked to a workflow instance, which means this command will complete the related
+        ///     activity and continue the flow.
+        /// </para>
         ///
-        /// <param name="jobKey>the key which identifies the job</param>
-        /// <returns>a builder for the command
+        /// <param name="jobKey">the key which identifies the job</param>
+        /// <returns>a builder for the command</returns>
 
         ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey);
 
         /// <summary>
         /// Command to complete a job.
+        /// </summary>
         ///
-        /// <pre>
+        /// <code>
         /// IJob activatedJob = ..;
         ///
         /// jobClient
         ///  .NewCompleteJobCommand(activatedJob)
         ///  .Variables(json)
         ///  .Send();
-        /// </pre>
+        /// </code>
         ///
-        /// <p>The job is linked to a workflow instance, which means this command will complete the related
-        /// activity and continue the flow.
-        /// </p>
+        /// <para>
+        ///     The job is linked to a workflow instance, which means this command will complete the related
+        ///     activity and continue the flow.
+        /// </para>
         ///
-        /// <param name="activatedJob>the job, which should be completed</param>
-        /// <returns>a builder for the command
+        /// <param name="activatedJob">the job, which should be completed</param>
+        /// <returns>a builder for the command</returns>
         ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob);
 
         /// <summary>
         /// Command to mark a job as failed.
+        /// </summary>
         ///
-        /// <pre>
+        /// <code>
         /// long jobKey = ..;
         ///
         /// jobClient
         ///  .NewFailCommand(jobKey)
         ///  .Retries(3)
         ///  .Send();
-        /// </pre>
+        /// </code>
         ///
-        /// <p>If the given retries are greater than zero then this job will be picked up again by a job
-        /// worker. Otherwise, an incident is created for this job.
-        /// </p>
+        /// <para>
+        ///     If the given retries are greater than zero then this job will be picked up again by a job
+        ///     worker. Otherwise, an incident is created for this job.
+        /// </para>
         /// <param name="jobKey">the key which identifies the job</param>
-        /// <returns>a builder for the command
-        /// </summary>
+        /// <returns>a builder for the command</returns>
         IFailJobCommandStep1 NewFailCommand(long jobKey);
     }
 }

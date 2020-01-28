@@ -34,10 +34,10 @@ namespace Zeebe.Client.Api.Commands
 
         /// <summary>
         /// Use the latest version of the workflow to create an instance of.
-        /// <p>
+        /// <para>
         /// If the latest version was deployed few moments before then it can happen that the new
         /// instance is created of the previous version.
-        /// </p>
+        /// </para>
         /// </summary>
         /// <returns>the builder for this command</returns>
         ICreateWorkflowInstanceCommandStep3 LatestVersion();

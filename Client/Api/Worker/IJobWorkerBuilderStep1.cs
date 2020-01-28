@@ -39,11 +39,14 @@ namespace Zeebe.Client.Api.Worker
     {
         /// <summary>
         /// Set the handler to process the jobs. At the end of the processing, the handler should
-        /// complete the job or mark it as failed;
+        /// complete the job or mark it as failed.
+        /// </summary>
         ///
-        /// <p>Example JobHandler implementation:
+        /// <para>
+        /// Example JobHandler implementation:
+        /// </para>
         ///
-        /// <pre>
+        /// <code>
         /// var handler = (client, job) =>
         ///   {
         ///     String json = job.Variables;
@@ -54,10 +57,9 @@ namespace Zeebe.Client.Api.Worker
         ///      .Variables(json)
         ///      .Send();
         ///   };
-        /// </pre>
+        /// </code>
         ///
         /// The handler must be thread-safe.
-        /// </summary>
         /// <param name="handler">the handle to process the jobs</param>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 Handler(JobHandler handler);
@@ -67,22 +69,25 @@ namespace Zeebe.Client.Api.Worker
     {
         /// <summary>
         /// Set the time for how long a job is exclusively assigned for this worker.
-        ///
-        /// <p>In this time, the job can not be assigned by other workers to ensure that only one worker
+        /// </summary>
+        /// <para>
+        /// In this time, the job can not be assigned by other workers to ensure that only one worker
         /// work on the job. When the time is over then the job can be assigned again by this or other
         /// worker if it's not completed yet.
+        /// </para>
         ///
         /// <param name="timeout">the time as time span (e.g. "TimeSpan.FromMinutes(10)")</param>
-        /// <returns>the builder for this worker
-        /// </summary>
+        /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 Timeout(TimeSpan timeout);
 
         /// <summary>
         /// Set the name of the worker owner.
-        ///
-        /// <p>This name is used to identify the worker to which a job is exclusively assigned to.
-        ///
         /// </summary>
+        ///
+        /// <para>
+        /// This name is used to identify the worker to which a job is exclusively assigned to.
+        /// </para>
+        ///
         /// <param name="workerName">the name of the worker (e.g. "payment-service")</param>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 Name(string workerName);
@@ -90,65 +95,83 @@ namespace Zeebe.Client.Api.Worker
         /// <summary>
         /// Set the maximum number of jobs which will be exclusively activated for this worker at the same
         /// time.
-        ///
-        ///<p>This is used to control the back pressure of the worker. When the maximum is reached then
-        /// the worker will stop activating new jobs in order to not overwhelm the client and give other
-        /// workers the chance to work on the jobs. The worker will try to activate new jobs again when
-        /// jobs are completed (or marked as failed).
-        ///
-        /// <p>Considerations:
-        ///
-        /// <ul>
-        ///   <li>A greater value can avoid situations in which the client waits idle for the broker to
-        ///       provide more jobs. This can improve the worker's throughput.
-        ///   <li>The memory used by the worker is linear with respect to this value.
-        ///   <li>The job's timeout starts to run down as soon as the broker pushes the job. Keep in mind
-        ///       that the following must hold to ensure fluent job handling: <code>
-        ///       time spent in buffer + time job handler needs until job completion < job timeout</code>
         /// </summary>
+        /// <para>
+        ///     This is used to control the back pressure of the worker. When the maximum is reached then
+        ///     the worker will stop activating new jobs in order to not overwhelm the client and give other
+        ///     workers the chance to work on the jobs. The worker will try to activate new jobs again when
+        ///     jobs are completed (or marked as failed).
+        /// </para>
+        ///
+        /// <para>Considerations:</para>
+        ///
+        /// <list type="number">
+        ///    <item>
+        ///        A greater value can avoid situations in which the client waits idle for the broker to
+        ///        provide more jobs. This can improve the worker's throughput.
+        ///    </item>
+        ///    <item>
+        ///        The memory used by the worker is linear with respect to this value.
+        ///    </item>
+        ///    <item>
+        ///        The job's timeout starts to run down as soon as the broker pushes the job. Keep in mind
+        ///        that the following must hold to ensure fluent job handling:
+        ///        <code>
+        ///            time spent in buffer + time job handler needs until job completion &lt; job timeout
+        ///        </code>
+        ///    </item>
+        /// </list>
         /// <param name="maxJobsActive">the maximum jobs active by this worker</param>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 MaxJobsActive(int maxJobsActive);
 
         /// <summary>
         /// Set a list of variable names which should be fetch on job activation.
-        ///
-        /// <p>The jobs which are activated by this command will only contain variables from this list.
-        ///
-        /// <p>This can be used to limit the number of variables of the activated jobs.
         /// </summary>
+        /// <para>
+        ///    The jobs which are activated by this command will only contain variables from this list.
+        /// </para>
+        ///
+        /// <para>
+        ///     This can be used to limit the number of variables of the activated jobs.
+        /// </para>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 FetchVariables(IList<string> fetchVariables);
 
         /// <summary>
         /// Set a list of variable names which should be fetch on job activation.
-        ///
-        /// <p>The jobs which are activated by this command will only contain variables from this list.
-        ///
-        /// <p>This can be used to limit the number of variables of the activated jobs.
         /// </summary>
+        /// <para>
+        ///     The jobs which are activated by this command will only contain variables from this list.
+        /// </para>
+        ///
+        /// <para>
+        ///     This can be used to limit the number of variables of the activated jobs.
+        /// </para>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 FetchVariables(params string[] fetchVariables);
 
         /// <summary>
         /// Set the maximal interval between polling for new jobs.
-        ///
-        /// <p>A job worker will automatically try to always activate new jobs after completing jobs. If
-        /// no jobs can be activated after completing the worker will periodically poll for new jobs.
-        ///
         /// </summary>
+        /// <para>
+        ///     A job worker will automatically try to always activate new jobs after completing jobs. If
+        ///     no jobs can be activated after completing the worker will periodically poll for new jobs.
+        /// </para>
+        ///
         /// <param name="pollInterval">the maximal interval to check for new jobs</param>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 PollInterval(TimeSpan pollInterval);
 
         /// <summary>
         /// Set the polling timeout for the job activation.
-        ///
-        /// <p>The activate jobs request will be completed when at least one job is activated or after the given requestTimeout.
-        ///
         /// </summary>
+        ///
+        /// <para>
+        ///     The activate jobs request will be completed when at least one job is activated or after the given requestTimeout.
+        /// </para>
         /// <param name="pollingTimeout">the polling timeout (e.g. "TimeSpan.FromMinutes(10)")
         /// </param>
         /// <returns>the builder for this worker</returns>
@@ -156,12 +179,12 @@ namespace Zeebe.Client.Api.Worker
 
         /// <summary>
         /// Enables job worker auto completion.
+        /// </summary>
         ///
-        /// <p>
+        /// <para>
         /// This means if the user does not complete or fails the activated job by himself
         /// then the worker will do it.
-        ///
-        /// </summary>
+        /// </para>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 AutoCompletion();
 

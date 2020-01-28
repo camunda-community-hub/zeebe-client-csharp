@@ -56,7 +56,7 @@ namespace Zeebe.Client.Api.Commands
         /// Set the time-to-live of the message. The message can only be correlated within the given
         /// time-to-live.
         ///
-        /// <p>If the duration is zero or negative then the message can only be correlated to open
+        /// <para>If the duration is zero or negative then the message can only be correlated to open
         /// subscriptions (e.g. to an entered message catch event).
         ///
         /// </summary>
