@@ -49,7 +49,7 @@ namespace Zeebe.Client.Api.Commands
         /// Set the initial variables of the workflow instance.
         /// </summary>
         /// <param name="variables">the variables (JSON) as String</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
         ///     it to the broker.</returns>
         ICreateWorkflowInstanceCommandStep3 Variables(string variables);
 
@@ -57,7 +57,7 @@ namespace Zeebe.Client.Api.Commands
         /// When this method is called, the response to the command will be received after the workflow
         /// is completed. The response consists of a set of variables.
         /// </summary>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it to the broker</returns>
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it to the broker</returns>
         ICreateWorkflowInstanceWithResultCommandStep1 WithResult();
     }
 
@@ -68,14 +68,14 @@ namespace Zeebe.Client.Api.Commands
         /// Set a list of variables names which should be fetched in the response.
         /// </summary>
         /// <param name="fetchVariables">set of names of variables to be included in the response</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it to the broker</returns>
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it to the broker</returns>
         ICreateWorkflowInstanceWithResultCommandStep1 FetchVariables(IList<string> fetchVariables);
 
         /// <summary>
         /// Set a list of variables names which should be fetched in the response.
         /// </summary>
         /// <param name="fetchVariables">set of names of variables to be included in the response</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it to the broker</returns>
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it to the broker</returns>
         ICreateWorkflowInstanceWithResultCommandStep1 FetchVariables(params string[] fetchVariables);
     }
 }

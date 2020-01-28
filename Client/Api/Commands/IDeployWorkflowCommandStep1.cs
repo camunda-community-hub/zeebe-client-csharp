@@ -25,7 +25,7 @@ namespace Zeebe.Client.Api.Commands
         /// </summary>
         /// <param name="resourceBytes">the workflow resource as byte array</param>
         /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName);
 
@@ -35,7 +35,7 @@ namespace Zeebe.Client.Api.Commands
         /// <param name="resourceString">the workflow resource as String</param>
         /// <param name="charset">the charset of the String</param>
         /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceString(
             string resourceString, Encoding encoding, string resourceName);
@@ -45,7 +45,7 @@ namespace Zeebe.Client.Api.Commands
         /// </summary>
         /// <param name="resourceString">the workflow resource as UTF-8-encoded String</param>
         /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceStringUtf8(
             string resourceString, string resourceName);
@@ -55,7 +55,7 @@ namespace Zeebe.Client.Api.Commands
         /// </summary>
         /// <param name="resourceStream">the workflow resource as stream</param>
         /// <param name="resourceName">the name of the resource (e.g. "workflow.bpmn")</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.
         /// </returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceStream(
@@ -65,7 +65,7 @@ namespace Zeebe.Client.Api.Commands
         /// Add the given resource to the deployment.
         /// </summary>
         /// <param name="filename">the absolute path of the workflow resource (e.g. "~/wf/workflow.bpmn")</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send it
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
         IDeployWorkflowCommandBuilderStep2 AddResourceFile(string filename);
     }

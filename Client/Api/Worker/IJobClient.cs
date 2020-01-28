@@ -19,9 +19,11 @@ namespace Zeebe.Client.Api.Worker
 {
     /// <summary>
     /// A client with access to all job-related operation:
-    /// <li>complete a job
-    /// <li> mark a job as failed
-    /// <li> update the retries of a job
+    /// <ul>
+    ///   <li>complete a job</li>
+    ///   <li> mark a job as failed</li>
+    ///   <li> update the retries of a job</li>
+    /// </ul>
     /// </summary>
     public interface IJobClient
     {

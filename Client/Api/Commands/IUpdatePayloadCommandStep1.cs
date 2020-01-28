@@ -9,7 +9,7 @@ namespace Zeebe.Client.Api.Commands
         /// </summary>
         ///
         /// <param name="variables">the variables (JSON) as String</param>
-        /// <returns>the builder for this command. Call {@link #Send()} to complete the command and send it
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
         ISetVariablesCommandStep2 Variables(string variables);
     }
@@ -36,7 +36,7 @@ namespace Zeebe.Client.Api.Commands
         /// <p>If local was false, however, then scope 1 would be `{ "foo": 5 }`, and scope 2 would be `{
         /// "bar" : 1 }`.
         ///
-        /// <returns> the builder for this command. Call {@link #send()} to complete the command and send
+        /// <returns> the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
         ///     it to the broker.
         ///     </returns>
         ISetVariablesCommandStep2 Local();

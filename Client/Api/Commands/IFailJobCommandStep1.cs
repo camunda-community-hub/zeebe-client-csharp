@@ -27,7 +27,7 @@ namespace Zeebe.Client.Api.Commands
         /// </summary>
         ///
         /// <param name="remainingRetries">the remaining retries of this job (e.g. "jobEvent.getRetries() - 1")</param>
-        /// <returns>the builder for this command. Call {@link #Send()} to complete the command and send it
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.
         ///     </returns>
         IFailJobCommandStep2 Retries(int remainingRetries);
@@ -43,7 +43,7 @@ namespace Zeebe.Client.Api.Commands
         /// </summary>
         ///
         /// <param name="errorMsg">the error msg for this failing job</param>
-        /// <returns>the builder for this command. Call {@link #Send()} to complete the command and send it
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.
         ///     </returns>
         IFailJobCommandStep2 ErrorMessage(string errorMsg);

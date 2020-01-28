@@ -50,7 +50,7 @@ namespace Zeebe.Client.Api.Commands
         ///
         /// </summary>
         /// <param name="timeout">the time as time span (e.g. "TimeSpan.FromMinutes(10)")</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
         ///     it to the broker.</returns>
         IActivateJobsCommandStep3 Timeout(TimeSpan timeout);
 
@@ -63,7 +63,7 @@ namespace Zeebe.Client.Api.Commands
         ///
         /// </summary>
         /// <param name="workerName">the name of the worker (e.g. "payment-service")</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
         ///     it to the broker.</returns>
         IActivateJobsCommandStep3 WorkerName(string workerName);
 
@@ -75,7 +75,7 @@ namespace Zeebe.Client.Api.Commands
         /// <p>This can be used to limit the number of variables of the activated jobs.
         /// </summary>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
         ///     it to the broker.</returns>
         IActivateJobsCommandStep3 FetchVariables(IList<string> fetchVariables);
 
@@ -87,7 +87,7 @@ namespace Zeebe.Client.Api.Commands
         /// </summary>
         /// <param name="pollingTimeout">the polling timeout (e.g. "TimeSpan.FromMinutes(10)")
         /// </param>
-        /// <returns>the builder for this command. Call {@link #send()} to complete the command and send
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
         ///     it to the broker.</returns>
         IActivateJobsCommandStep3 PollingTimeout(TimeSpan pollingTimeout);
 
@@ -100,7 +100,7 @@ namespace Zeebe.Client.Api.Commands
         /// </summary>
         /// <param name="fetchVariables">list of variables names to fetch on activation</param>
         /// <returns>
-        /// the builder for this command. Call {@link #send()} to complete the command and send
+        /// the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
         /// it to the broker.
         /// </returns>
         IActivateJobsCommandStep3 FetchVariables(params string[] fetchVariables);
