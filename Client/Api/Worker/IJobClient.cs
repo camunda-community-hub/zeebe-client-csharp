@@ -12,6 +12,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 
@@ -48,7 +49,6 @@ namespace Zeebe.Client.Api.Worker
         ///
         /// <param name="jobKey">the key which identifies the job</param>
         /// <returns>a builder for the command</returns>
-
         ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey);
 
         /// <summary>
@@ -97,5 +97,23 @@ namespace Zeebe.Client.Api.Worker
         /// <param name="jobKey">the key which identifies the job</param>
         /// <returns>a builder for the command</returns>
         IFailJobCommandStep1 NewFailCommand(long jobKey);
+
+        /// <summary>
+        /// Command to report a business error (i.e. non-technical) that occurs while processing a job.
+        /// </summary>
+        /// <example>
+        /// <code>
+        ///  long jobKey = ...;
+        ///  string code = ...;
+        ///  jobClient
+        ///     .NewThrowErrorCommand(jobKey)
+        ///     .ErrorCode(code)
+        ///     .ErrorMessage("Business error message")
+        ///     .Send();
+        /// </code>
+        /// </example>
+        /// <param name="jobKey">the key which identifies the job</param>
+        /// <returns>a builder for the command</returns>
+        IThrowErrorCommandStep1 NewThrowErrorCommand(long jobKey);
     }
 }

@@ -256,6 +256,12 @@ namespace Zeebe.Client.Impl.Worker
                 return Client.NewFailCommand(jobKey);
             }
 
+            public IThrowErrorCommandStep1 NewThrowErrorCommand(long jobKey)
+            {
+                ClientWasUsed = true;
+                return Client.NewThrowErrorCommand(jobKey);
+            }
+
             public void Reset()
             {
                 ClientWasUsed = false;

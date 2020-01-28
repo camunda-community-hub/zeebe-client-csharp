@@ -79,6 +79,11 @@ namespace Zeebe.Client
             return new UpdateRetriesCommand(gatewayClient, jobKey);
         }
 
+        public IThrowErrorCommandStep1 NewThrowErrorCommand(long jobKey)
+        {
+            return new ThrowErrorCommand(gatewayClient, jobKey);
+        }
+
         ////////////////////////////////////////////////////////////////////////
         ///////////////////////////// Workflows ////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
