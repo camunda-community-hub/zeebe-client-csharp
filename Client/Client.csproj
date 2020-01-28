@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 
-    <Version>0.14.0</Version>
+    <Version>0.15.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -15,14 +15,15 @@
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-csharp-client</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>0.14.0</AssemblyVersion>
-    <FileVersion>0.14.0</FileVersion>
+    <AssemblyVersion>0.15.0</AssemblyVersion>
+    <FileVersion>0.15.0</FileVersion>
     <PackageReleaseNotes>
-      * Upgraded Grpc dependencies to 2.26.0
-      * Downgraded Microsoft.Extensions.* dependencies, such that it is still possible to use the library with .netcore 2.1 applications
-      * Migrated to latest Zeebe release (0.22.0-alpha2) and added Key to ISetVariablesResponse
+      * Migrated to latest Zeebe release (0.22.1)
+      * Added support for ThrowErrorCommand
+      * Upgraded dependecies
+      * create new API documentation site available under https://zeebe-io.github.io/zeebe-client-csharp/
 
-      This release is based on the Zeebe 0.22.0-alpha2 release (https://github.com/zeebe-io/zeebe).
+      This release is based on the Zeebe 0.22.1 release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -31,10 +32,10 @@
     <RepositoryUrl>https://github.com/zeebe-io/zeebe-client-csharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageIconUrl>http://zeebe.io/img/zeebe-logo.svg</PackageIconUrl>
-    <PackageVersion>0.14.0</PackageVersion>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageVersion>0.15.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>0.14.0</Title>
+    <Title>0.15.0</Title>
   </PropertyGroup>
 
   <ItemGroup>
@@ -52,6 +53,14 @@
 
   <ItemGroup>
     <PackageReference Update="StyleCop.Analyzers" Version="1.1.118" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="..\docs\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
