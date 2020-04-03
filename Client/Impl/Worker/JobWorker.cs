@@ -199,7 +199,19 @@ namespace Zeebe.Client.Impl.Worker
                     }
                     catch (RpcException rpcException)
                     {
-                        logger?.LogError(rpcException, "Unexpected RpcException on polling new jobs.");
+                        LogLevel logLevel;
+                        switch (rpcException.StatusCode)
+                        {
+                            case StatusCode.DeadlineExceeded:
+                            case StatusCode.Cancelled:
+                                logLevel = LogLevel.Debug;
+                                break;
+                            default:
+                                logLevel = LogLevel.Error;
+                                break;
+                        }
+
+                        logger?.Log(logLevel, rpcException, "Unexpected RpcException on polling new jobs.");
                     }
                 }
 
