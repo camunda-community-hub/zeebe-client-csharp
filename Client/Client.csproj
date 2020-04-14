@@ -41,7 +41,7 @@
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" version="3.11.4" />
     <PackageReference Include="Grpc" version="2.28.1" />
-    <PackageReference Include="Grpc.Auth" Version="2.27.0" />
+    <PackageReference Include="Grpc.Auth" Version="2.28.1" />
     <PackageReference Include="Grpc.Core" version="2.28.1" />
     <PackageReference Include="Grpc.Tools" version="2.28.1">
       <PrivateAssets>all</PrivateAssets>
