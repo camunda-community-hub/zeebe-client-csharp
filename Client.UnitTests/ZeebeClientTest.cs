@@ -45,6 +45,22 @@ namespace Zeebe.Client
         }
 
         [Test]
+        public void ShouldNotThrowExceptionWhenDisposingMultipleTimes()
+        {
+            // given
+            var zeebeClient = ZeebeClient.Builder()
+                .UseGatewayAddress("localhost:26500")
+                .UsePlainText()
+                .Build();
+
+            // when
+            zeebeClient.Dispose();
+
+            // then
+            Assert.DoesNotThrow(() => zeebeClient.Dispose());
+        }
+
+        [Test]
         public async Task ShouldUseTransportEncryption()
         {
             // given
