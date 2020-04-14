@@ -122,20 +122,13 @@ namespace Zeebe.Client
 
         public void Dispose()
         {
-            try
+            if (gatewayClient is ClosedGatewayClient)
             {
-                if (gatewayClient is ClosedGatewayClient)
-                {
-                    return;
-                }
+                return;
+            }
 
-                gatewayClient = new ClosedGatewayClient();
-                channelToGateway.ShutdownAsync().Wait();
-            }
-            catch (System.Exception)
-            {
-                // ignore
-            }
+            gatewayClient = new ClosedGatewayClient();
+            channelToGateway.ShutdownAsync().Wait();
         }
 
         /// <summary>
