@@ -36,7 +36,7 @@ namespace Client.IntegrationTests
         {
             return new GenericContainerBuilder<Container>()
                 .Begin()
-                .WithImage("camunda/zeebe:0.22.1")
+                .WithImage("camunda/zeebe:0.23.0")
                 .WithExposedPorts(26500)
                 .Build();
         }

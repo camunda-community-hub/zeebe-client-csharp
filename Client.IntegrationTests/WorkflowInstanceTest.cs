@@ -8,9 +8,10 @@ using Zeebe.Client;
 
 namespace Client.IntegrationTests
 {
+    [TestFixture]
     public class WorkflowInstanceTest
     {
-        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
+        private static readonly string OneTaskProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "oneTaskProcess.bpmn");
         private static readonly string SimpleProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "simpleProcess.bpmn");
         private static readonly string WorkflowInstanceVariables = "{\"a\":123, \"b\":true}";
 
@@ -34,7 +35,7 @@ namespace Client.IntegrationTests
         {
             // given
             var deployResponse = await zeebeClient.NewDeployCommand()
-                .AddResourceFile(DemoProcessPath)
+                .AddResourceFile(OneTaskProcessPath)
                 .Send();
             var workflowKey = deployResponse.Workflows[0].WorkflowKey;
 
@@ -48,7 +49,7 @@ namespace Client.IntegrationTests
             // then
             Assert.AreEqual(workflowInstance.Version, 1);
             Assert.AreEqual(workflowKey, workflowInstance.WorkflowKey);
-            Assert.AreEqual("demoProcess", workflowInstance.BpmnProcessId);
+            Assert.AreEqual("oneTaskProcess", workflowInstance.BpmnProcessId);
             Assert.Greater(workflowInstance.WorkflowInstanceKey, 1);
         }
 

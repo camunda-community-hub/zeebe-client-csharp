@@ -37,7 +37,7 @@ namespace Zeebe.Client.Impl.Worker
 
         private readonly ActivateJobsRequest activeRequest;
         private readonly JobActivator activator;
-        private readonly JobHandler jobHandler;
+        private readonly AsyncJobHandler jobHandler;
         private readonly JobClientWrapper jobClient;
         private readonly bool autoCompletion;
         private readonly TimeSpan pollInterval;
@@ -138,7 +138,7 @@ namespace Zeebe.Client.Impl.Worker
         {
             try
             {
-                jobHandler(jobClient, activatedJob);
+                await jobHandler(jobClient, activatedJob);
                 await TryToAutoCompleteJob(activatedJob);
             }
             catch (Exception exception)

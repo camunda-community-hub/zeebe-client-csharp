@@ -80,6 +80,116 @@ namespace Zeebe.Client
         }
 
         [Test]
+        public void ShouldSendAsyncCompleteInHandler()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 123_000L,
+                MaxJobsToActivate = 3,
+                Type = "foo",
+                Worker = "jobWorker",
+                RequestTimeout = 5_000L
+            };
+
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
+
+            // when
+            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
+            var completedJobs = new List<IJob>();
+            using (var jobWorker = ZeebeClient.NewWorker()
+                .JobType("foo")
+                .Handler(async (jobClient, job) =>
+                {
+                    await jobClient.NewCompleteJobCommand(job).Send();
+                    completedJobs.Add(job);
+                    if (completedJobs.Count == 3)
+                    {
+                        signal.Set();
+                    }
+                })
+                .MaxJobsActive(3)
+                .Name("jobWorker")
+                .Timeout(TimeSpan.FromSeconds(123L))
+                .PollInterval(TimeSpan.FromMilliseconds(100))
+                .PollingTimeout(TimeSpan.FromSeconds(5L))
+                .Open())
+            {
+                Assert.True(jobWorker.IsOpen());
+                signal.WaitOne();
+            }
+
+            // then
+            var actualActivateRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
+            Assert.AreEqual(expectedRequest, actualActivateRequest);
+
+            var completeRequests = TestService.Requests[typeof(CompleteJobRequest)];
+            Assert.GreaterOrEqual(completeRequests.Count, 3);
+            Assert.GreaterOrEqual(completedJobs.Count, 3);
+            AssertJob(completedJobs[0], 1);
+            AssertJob(completedJobs[1], 2);
+            AssertJob(completedJobs[2], 3);
+        }
+
+        [Test]
+        public void ShouldSendCompleteInHandler()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 123_000L,
+                MaxJobsToActivate = 3,
+                Type = "foo",
+                Worker = "jobWorker",
+                RequestTimeout = 5_000L
+            };
+
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
+
+            // when
+            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
+            var completedJobs = new List<IJob>();
+            using (var jobWorker = ZeebeClient.NewWorker()
+                .JobType("foo")
+                .Handler((jobClient, job) =>
+                {
+                    jobClient.NewCompleteJobCommand(job).Send();
+                    completedJobs.Add(job);
+                    if (completedJobs.Count == 3)
+                    {
+                        signal.Set();
+                    }
+                })
+                .MaxJobsActive(3)
+                .Name("jobWorker")
+                .Timeout(TimeSpan.FromSeconds(123L))
+                .PollInterval(TimeSpan.FromMilliseconds(100))
+                .PollingTimeout(TimeSpan.FromSeconds(5L))
+                .Open())
+            {
+                Assert.True(jobWorker.IsOpen());
+                signal.WaitOne();
+            }
+
+            // then
+            var actualActivateRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
+            Assert.AreEqual(expectedRequest, actualActivateRequest);
+
+            var completeRequests = TestService.Requests[typeof(CompleteJobRequest)];
+            while (completeRequests.Count != 3)
+            {
+                // busy loop to await 3 requests
+                completeRequests = TestService.Requests[typeof(CompleteJobRequest)];
+            }
+
+            Assert.GreaterOrEqual(completeRequests.Count, 3);
+            Assert.GreaterOrEqual(completedJobs.Count, 3);
+            AssertJob(completedJobs[0], 1);
+            AssertJob(completedJobs[1], 2);
+            AssertJob(completedJobs[2], 3);
+        }
+
+        [Test]
         public void ShouldSendRequestsWithDifferentAmounts()
         {
             // given
@@ -337,6 +447,45 @@ namespace Zeebe.Client
 
             var actualFailRequest = TestService.Requests[typeof(FailJobRequest)][0];
             Assert.AreEqual(expectedFailRequest, actualFailRequest);
+        }
+
+        [Test]
+        public void ShouldCompleteAfterSendFailCommandOnExceptionInJobHandler()
+        {
+            // given
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
+
+            // when
+            using (var jobWorker = ZeebeClient.NewWorker()
+                .JobType("foo")
+                .Handler(async (jobClient, job) =>
+                {
+                    if (job.Key == 2)
+                    {
+                        throw new Exception("Fail");
+                    }
+
+                    await jobClient.NewCompleteJobCommand(job).Send();
+                })
+                .MaxJobsActive(3)
+                .Name("jobWorker")
+                .Timeout(TimeSpan.FromSeconds(123L))
+                .PollInterval(TimeSpan.FromMilliseconds(100))
+                .Open())
+            {
+                Assert.True(jobWorker.IsOpen());
+                while (TestService.Requests[typeof(ActivateJobsRequest)].Count < 1
+                       || TestService.Requests[typeof(FailJobRequest)].Count < 1
+                       || TestService.Requests[typeof(CompleteJobRequest)].Count < 2)
+                {
+                }
+            }
+
+            // then
+            var completeRequests = TestService.Requests[typeof(CompleteJobRequest)];
+
+            Assert.AreEqual(1, ((CompleteJobRequest)completeRequests[0]).JobKey);
+            Assert.AreEqual(3, ((CompleteJobRequest)completeRequests[1]).JobKey);
         }
 
         [Test]

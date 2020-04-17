@@ -6,9 +6,10 @@ using Zeebe.Client;
 
 namespace Client.IntegrationTests
 {
+    [TestFixture]
     public class WorkflowTest
     {
-        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
+        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "simpleProcess.bpmn");
 
         private readonly ZeebeIntegrationTestHelper testHelper = new ZeebeIntegrationTestHelper();
         private IZeebeClient zeebeClient;
@@ -43,7 +44,7 @@ namespace Client.IntegrationTests
 
             Assert.AreEqual(1, deployedWorkflows[0].Version);
             Assert.Greater(deployedWorkflows[0].WorkflowKey, 1);
-            Assert.AreEqual("demoProcess", deployedWorkflows[0].BpmnProcessId);
+            Assert.AreEqual("simpleProcess", deployedWorkflows[0].BpmnProcessId);
             Assert.AreEqual(DemoProcessPath, deployedWorkflows[0].ResourceName);
         }
     }

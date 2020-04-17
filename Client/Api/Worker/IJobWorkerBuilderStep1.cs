@@ -14,6 +14,7 @@
 //    limitations under the License.
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Worker
@@ -35,10 +36,18 @@ namespace Zeebe.Client.Api.Worker
     /// <param name="activatedJob">the job, which was activated by the worker</param>
     public delegate void JobHandler(IJobClient client, IJob activatedJob);
 
+    /// <summary>
+    /// The asynchronous job handler which contains the business logic.
+    /// </summary>
+    /// <param name="client">the job client to complete or fail the job</param>
+    /// <param name="activatedJob">the job, which was activated by the worker</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    public delegate Task AsyncJobHandler(IJobClient client, IJob activatedJob);
+
     public interface IJobWorkerBuilderStep2
     {
         /// <summary>
-        /// Set the handler to process the jobs. At the end of the processing, the handler should
+        /// Set the handler to process the jobs. At the end of the processing, the handler can
         /// complete the job or mark it as failed.
         /// </summary>
         ///
@@ -64,6 +73,34 @@ namespace Zeebe.Client.Api.Worker
         /// <param name="handler">the handle to process the jobs</param>
         /// <returns>the builder for this worker</returns>
         IJobWorkerBuilderStep3 Handler(JobHandler handler);
+
+        /// <summary>
+        /// Set an async handler to process the jobs asynchronously. At the end of the processing, the handler can
+        /// complete the job or mark it as failed.
+        /// </summary>
+        ///
+        /// <example>
+        /// <para>
+        /// Example JobHandler implementation:
+        /// </para>
+        ///
+        /// <code>
+        /// var handler = async (client, job) =>
+        ///   {
+        ///     String json = job.Variables;
+        ///     // modify variables
+        ///
+        ///     await client
+        ///          .CompleteCommand(job.Key)
+        ///          .Variables(json)
+        ///          .Send();
+        ///   };
+        /// </code>
+        /// </example>
+        /// The handler must be thread-safe.
+        /// <param name="handler">the handle to process the jobs</param>
+        /// <returns>the builder for this worker</returns>
+        IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler);
     }
 
     public interface IJobWorkerBuilderStep3
