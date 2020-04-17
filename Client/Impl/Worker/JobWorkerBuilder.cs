@@ -15,6 +15,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using GatewayProtocol;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -25,7 +26,7 @@ namespace Zeebe.Client.Impl.Worker
     public class JobWorkerBuilder : IJobWorkerBuilderStep1, IJobWorkerBuilderStep2, IJobWorkerBuilderStep3
     {
         private TimeSpan pollInterval;
-        private JobHandler handler;
+        private AsyncJobHandler handler;
         private bool autoCompletion;
 
         internal ILoggerFactory LoggerFactory { get; }
@@ -51,11 +52,17 @@ namespace Zeebe.Client.Impl.Worker
 
         public IJobWorkerBuilderStep3 Handler(JobHandler handler)
         {
+            this.handler = (c, j) => Task.Run(() => handler.Invoke(c, j));
+            return this;
+        }
+
+        public IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler)
+        {
             this.handler = handler;
             return this;
         }
 
-        internal JobHandler Handler()
+        internal AsyncJobHandler Handler()
         {
             return handler;
         }
