@@ -40,6 +40,8 @@ namespace Zeebe.Client
         /// </summary>
         private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new Dictionary<Type, RequestHandler>();
 
+        private ConsumeMetadata metadataConsumer;
+
         public IDictionary<Type, IList<IMessage>> Requests => requests;
 
         public GatewayTestService()
@@ -138,8 +140,16 @@ namespace Zeebe.Client
             return Task.FromResult((CreateWorkflowInstanceWithResultResponse)HandleRequest(request, context));
         }
 
+        public delegate void ConsumeMetadata(Metadata metadata);
+
+        public void ConsumeRequestHeaders(ConsumeMetadata consumer)
+        {
+            metadataConsumer = consumer;
+        }
+
         private IMessage HandleRequest(IMessage request, ServerCallContext context)
         {
+            metadataConsumer?.Invoke(context.RequestHeaders);
             if ((context.Deadline - DateTime.UtcNow).Milliseconds <= 1000)
             {
                 // when we have set a timeout in the test we want to GRPC to exceed the deadline
