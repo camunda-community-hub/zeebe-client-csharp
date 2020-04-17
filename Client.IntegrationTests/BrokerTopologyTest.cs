@@ -8,6 +8,7 @@ using Zeebe.Client.Api.Responses;
 
 namespace Client.IntegrationTests
 {
+    [TestFixture]
     public class BrokerTopologyTest
     {
         private readonly ZeebeIntegrationTestHelper testHelper = new ZeebeIntegrationTestHelper();

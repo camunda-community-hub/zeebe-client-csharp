@@ -24,10 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Resources\demo-process.bpmn">
+    <None Update="Resources\simpleProcess.bpmn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\simpleProcess.bpmn">
+    <None Update="Resources\oneTaskProcess.bpmn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
