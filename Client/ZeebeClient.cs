@@ -13,6 +13,8 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using System.Collections.Generic;
+using System.Reflection;
 using GatewayProtocol;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
@@ -41,7 +43,14 @@ namespace Zeebe.Client
         internal ZeebeClient(string address, ChannelCredentials credentials, ILoggerFactory loggerFactory = null)
         {
             this.loggerFactory = loggerFactory;
-            channelToGateway = new Channel(address, credentials);
+
+            var channelOptions = new List<ChannelOption>();
+            var userAgentString = "client: csharp, version: " + typeof(ZeebeClient).Assembly.GetName().Version;
+            var userAgentOption = new ChannelOption(ChannelOptions.PrimaryUserAgentString, userAgentString);
+            channelOptions.Add(userAgentOption);
+
+            channelToGateway =
+                new Channel(address, credentials, channelOptions);
             gatewayClient = new Gateway.GatewayClient(channelToGateway);
         }
 
