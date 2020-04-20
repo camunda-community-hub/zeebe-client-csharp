@@ -11,8 +11,27 @@ namespace Client.IntegrationTests
 {
     public class ZeebeIntegrationTestHelper
     {
+        private const string LatestVersion = "0.23.0";
+
         private Container container;
         private IZeebeClient client;
+
+        private readonly string version;
+
+        private ZeebeIntegrationTestHelper(string version)
+        {
+            this.version = version;
+        }
+
+        public static ZeebeIntegrationTestHelper latest()
+        {
+            return new ZeebeIntegrationTestHelper(LatestVersion);
+        }
+
+        public static ZeebeIntegrationTestHelper ofVersion(string version)
+        {
+            return new ZeebeIntegrationTestHelper(version);
+        }
 
         public async Task<IZeebeClient> SetupIntegrationTest()
         {
@@ -36,7 +55,7 @@ namespace Client.IntegrationTests
         {
             return new GenericContainerBuilder<Container>()
                 .Begin()
-                .WithImage("camunda/zeebe:0.23.0")
+                .WithImage("camunda/zeebe:" + version)
                 .WithExposedPorts(26500)
                 .Build();
         }

@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using GatewayProtocol;
@@ -22,16 +23,22 @@ namespace Zeebe.Client.Impl.Responses
 {
     public class Topology : ITopology
     {
+        private const string FallbackVersion = "lower then 0.23";
+
         public IList<IBrokerInfo> Brokers { get; }
+        public string GatewayVersion { get; }
 
         public Topology(TopologyResponse response)
         {
             Brokers = response.Brokers.Select(broker => new BrokerInfo(broker)).Cast<IBrokerInfo>().ToList();
+            GatewayVersion = string.IsNullOrEmpty(response.GatewayVersion) ? FallbackVersion : response.GatewayVersion;
         }
 
         public override string ToString()
         {
-            return "Brokers:\n" + string.Join(",\n", Brokers);
+            return
+                "GatewayVersion: " + GatewayVersion + "\n"
+                + "Brokers:\n" + string.Join(",\n", Brokers);
         }
     }
 }
