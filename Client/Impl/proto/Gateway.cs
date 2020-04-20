@@ -71,87 +71,88 @@ namespace GatewayProtocol {
             "dGltZVRvTGl2ZRgDIAEoAxIRCgltZXNzYWdlSWQYBCABKAkSEQoJdmFyaWFi",
             "bGVzGAUgASgJIhgKFlB1Ymxpc2hNZXNzYWdlUmVzcG9uc2UiLQoWUmVzb2x2",
             "ZUluY2lkZW50UmVxdWVzdBITCgtpbmNpZGVudEtleRgBIAEoAyIZChdSZXNv",
-            "bHZlSW5jaWRlbnRSZXNwb25zZSIRCg9Ub3BvbG9neVJlcXVlc3QiigEKEFRv",
+            "bHZlSW5jaWRlbnRSZXNwb25zZSIRCg9Ub3BvbG9neVJlcXVlc3QiogEKEFRv",
             "cG9sb2d5UmVzcG9uc2USLQoHYnJva2VycxgBIAMoCzIcLmdhdGV3YXlfcHJv",
             "dG9jb2wuQnJva2VySW5mbxITCgtjbHVzdGVyU2l6ZRgCIAEoBRIXCg9wYXJ0",
-            "aXRpb25zQ291bnQYAyABKAUSGQoRcmVwbGljYXRpb25GYWN0b3IYBCABKAUi",
-            "aQoKQnJva2VySW5mbxIOCgZub2RlSWQYASABKAUSDAoEaG9zdBgCIAEoCRIM",
-            "CgRwb3J0GAMgASgFEi8KCnBhcnRpdGlvbnMYBCADKAsyGy5nYXRld2F5X3By",
-            "b3RvY29sLlBhcnRpdGlvbiKQAQoJUGFydGl0aW9uEhMKC3BhcnRpdGlvbklk",
-            "GAEgASgFEj0KBHJvbGUYAiABKA4yLy5nYXRld2F5X3Byb3RvY29sLlBhcnRp",
-            "dGlvbi5QYXJ0aXRpb25Ccm9rZXJSb2xlIi8KE1BhcnRpdGlvbkJyb2tlclJv",
-            "bGUSCgoGTEVBREVSEAASDAoIRk9MTE9XRVIQASI6ChdVcGRhdGVKb2JSZXRy",
-            "aWVzUmVxdWVzdBIOCgZqb2JLZXkYASABKAMSDwoHcmV0cmllcxgCIAEoBSIa",
-            "ChhVcGRhdGVKb2JSZXRyaWVzUmVzcG9uc2UiUwoTU2V0VmFyaWFibGVzUmVx",
-            "dWVzdBIaChJlbGVtZW50SW5zdGFuY2VLZXkYASABKAMSEQoJdmFyaWFibGVz",
-            "GAIgASgJEg0KBWxvY2FsGAMgASgIIiMKFFNldFZhcmlhYmxlc1Jlc3BvbnNl",
-            "EgsKA2tleRgBIAEoAzLuCgoHR2F0ZXdheRJhCgxBY3RpdmF0ZUpvYnMSJS5n",
-            "YXRld2F5X3Byb3RvY29sLkFjdGl2YXRlSm9ic1JlcXVlc3QaJi5nYXRld2F5",
-            "X3Byb3RvY29sLkFjdGl2YXRlSm9ic1Jlc3BvbnNlIgAwARJ9ChZDYW5jZWxX",
-            "b3JrZmxvd0luc3RhbmNlEi8uZ2F0ZXdheV9wcm90b2NvbC5DYW5jZWxXb3Jr",
-            "Zmxvd0luc3RhbmNlUmVxdWVzdBowLmdhdGV3YXlfcHJvdG9jb2wuQ2FuY2Vs",
-            "V29ya2Zsb3dJbnN0YW5jZVJlc3BvbnNlIgASXAoLQ29tcGxldGVKb2ISJC5n",
-            "YXRld2F5X3Byb3RvY29sLkNvbXBsZXRlSm9iUmVxdWVzdBolLmdhdGV3YXlf",
-            "cHJvdG9jb2wuQ29tcGxldGVKb2JSZXNwb25zZSIAEn0KFkNyZWF0ZVdvcmtm",
-            "bG93SW5zdGFuY2USLy5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVdvcmtmbG93",
-            "SW5zdGFuY2VSZXF1ZXN0GjAuZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVXb3Jr",
-            "Zmxvd0luc3RhbmNlUmVzcG9uc2UiABKbAQogQ3JlYXRlV29ya2Zsb3dJbnN0",
-            "YW5jZVdpdGhSZXN1bHQSOS5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVdvcmtm",
-            "bG93SW5zdGFuY2VXaXRoUmVzdWx0UmVxdWVzdBo6LmdhdGV3YXlfcHJvdG9j",
-            "b2wuQ3JlYXRlV29ya2Zsb3dJbnN0YW5jZVdpdGhSZXN1bHRSZXNwb25zZSIA",
-            "EmUKDkRlcGxveVdvcmtmbG93EicuZ2F0ZXdheV9wcm90b2NvbC5EZXBsb3lX",
-            "b3JrZmxvd1JlcXVlc3QaKC5nYXRld2F5X3Byb3RvY29sLkRlcGxveVdvcmtm",
-            "bG93UmVzcG9uc2UiABJQCgdGYWlsSm9iEiAuZ2F0ZXdheV9wcm90b2NvbC5G",
-            "YWlsSm9iUmVxdWVzdBohLmdhdGV3YXlfcHJvdG9jb2wuRmFpbEpvYlJlc3Bv",
-            "bnNlIgASWQoKVGhyb3dFcnJvchIjLmdhdGV3YXlfcHJvdG9jb2wuVGhyb3dF",
-            "cnJvclJlcXVlc3QaJC5nYXRld2F5X3Byb3RvY29sLlRocm93RXJyb3JSZXNw",
-            "b25zZSIAEmUKDlB1Ymxpc2hNZXNzYWdlEicuZ2F0ZXdheV9wcm90b2NvbC5Q",
-            "dWJsaXNoTWVzc2FnZVJlcXVlc3QaKC5nYXRld2F5X3Byb3RvY29sLlB1Ymxp",
-            "c2hNZXNzYWdlUmVzcG9uc2UiABJoCg9SZXNvbHZlSW5jaWRlbnQSKC5nYXRl",
-            "d2F5X3Byb3RvY29sLlJlc29sdmVJbmNpZGVudFJlcXVlc3QaKS5nYXRld2F5",
-            "X3Byb3RvY29sLlJlc29sdmVJbmNpZGVudFJlc3BvbnNlIgASXwoMU2V0VmFy",
-            "aWFibGVzEiUuZ2F0ZXdheV9wcm90b2NvbC5TZXRWYXJpYWJsZXNSZXF1ZXN0",
-            "GiYuZ2F0ZXdheV9wcm90b2NvbC5TZXRWYXJpYWJsZXNSZXNwb25zZSIAElMK",
-            "CFRvcG9sb2d5EiEuZ2F0ZXdheV9wcm90b2NvbC5Ub3BvbG9neVJlcXVlc3Qa",
-            "Ii5nYXRld2F5X3Byb3RvY29sLlRvcG9sb2d5UmVzcG9uc2UiABJrChBVcGRh",
-            "dGVKb2JSZXRyaWVzEikuZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVKb2JSZXRy",
-            "aWVzUmVxdWVzdBoqLmdhdGV3YXlfcHJvdG9jb2wuVXBkYXRlSm9iUmV0cmll",
-            "c1Jlc3BvbnNlIgBCIQoZaW8uemVlYmUuZ2F0ZXdheS5wcm90b2NvbFAAWgJw",
-            "YmIGcHJvdG8z"));
+            "aXRpb25zQ291bnQYAyABKAUSGQoRcmVwbGljYXRpb25GYWN0b3IYBCABKAUS",
+            "FgoOZ2F0ZXdheVZlcnNpb24YBSABKAkiegoKQnJva2VySW5mbxIOCgZub2Rl",
+            "SWQYASABKAUSDAoEaG9zdBgCIAEoCRIMCgRwb3J0GAMgASgFEi8KCnBhcnRp",
+            "dGlvbnMYBCADKAsyGy5nYXRld2F5X3Byb3RvY29sLlBhcnRpdGlvbhIPCgd2",
+            "ZXJzaW9uGAUgASgJIpABCglQYXJ0aXRpb24SEwoLcGFydGl0aW9uSWQYASAB",
+            "KAUSPQoEcm9sZRgCIAEoDjIvLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9u",
+            "LlBhcnRpdGlvbkJyb2tlclJvbGUiLwoTUGFydGl0aW9uQnJva2VyUm9sZRIK",
+            "CgZMRUFERVIQABIMCghGT0xMT1dFUhABIjoKF1VwZGF0ZUpvYlJldHJpZXNS",
+            "ZXF1ZXN0Eg4KBmpvYktleRgBIAEoAxIPCgdyZXRyaWVzGAIgASgFIhoKGFVw",
+            "ZGF0ZUpvYlJldHJpZXNSZXNwb25zZSJTChNTZXRWYXJpYWJsZXNSZXF1ZXN0",
+            "EhoKEmVsZW1lbnRJbnN0YW5jZUtleRgBIAEoAxIRCgl2YXJpYWJsZXMYAiAB",
+            "KAkSDQoFbG9jYWwYAyABKAgiIwoUU2V0VmFyaWFibGVzUmVzcG9uc2USCwoD",
+            "a2V5GAEgASgDMu4KCgdHYXRld2F5EmEKDEFjdGl2YXRlSm9icxIlLmdhdGV3",
+            "YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVxdWVzdBomLmdhdGV3YXlfcHJv",
+            "dG9jb2wuQWN0aXZhdGVKb2JzUmVzcG9uc2UiADABEn0KFkNhbmNlbFdvcmtm",
+            "bG93SW5zdGFuY2USLy5nYXRld2F5X3Byb3RvY29sLkNhbmNlbFdvcmtmbG93",
+            "SW5zdGFuY2VSZXF1ZXN0GjAuZ2F0ZXdheV9wcm90b2NvbC5DYW5jZWxXb3Jr",
+            "Zmxvd0luc3RhbmNlUmVzcG9uc2UiABJcCgtDb21wbGV0ZUpvYhIkLmdhdGV3",
+            "YXlfcHJvdG9jb2wuQ29tcGxldGVKb2JSZXF1ZXN0GiUuZ2F0ZXdheV9wcm90",
+            "b2NvbC5Db21wbGV0ZUpvYlJlc3BvbnNlIgASfQoWQ3JlYXRlV29ya2Zsb3dJ",
+            "bnN0YW5jZRIvLmdhdGV3YXlfcHJvdG9jb2wuQ3JlYXRlV29ya2Zsb3dJbnN0",
+            "YW5jZVJlcXVlc3QaMC5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVdvcmtmbG93",
+            "SW5zdGFuY2VSZXNwb25zZSIAEpsBCiBDcmVhdGVXb3JrZmxvd0luc3RhbmNl",
+            "V2l0aFJlc3VsdBI5LmdhdGV3YXlfcHJvdG9jb2wuQ3JlYXRlV29ya2Zsb3dJ",
+            "bnN0YW5jZVdpdGhSZXN1bHRSZXF1ZXN0GjouZ2F0ZXdheV9wcm90b2NvbC5D",
+            "cmVhdGVXb3JrZmxvd0luc3RhbmNlV2l0aFJlc3VsdFJlc3BvbnNlIgASZQoO",
+            "RGVwbG95V29ya2Zsb3cSJy5nYXRld2F5X3Byb3RvY29sLkRlcGxveVdvcmtm",
+            "bG93UmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95V29ya2Zsb3dS",
+            "ZXNwb25zZSIAElAKB0ZhaWxKb2ISIC5nYXRld2F5X3Byb3RvY29sLkZhaWxK",
+            "b2JSZXF1ZXN0GiEuZ2F0ZXdheV9wcm90b2NvbC5GYWlsSm9iUmVzcG9uc2Ui",
+            "ABJZCgpUaHJvd0Vycm9yEiMuZ2F0ZXdheV9wcm90b2NvbC5UaHJvd0Vycm9y",
+            "UmVxdWVzdBokLmdhdGV3YXlfcHJvdG9jb2wuVGhyb3dFcnJvclJlc3BvbnNl",
+            "IgASZQoOUHVibGlzaE1lc3NhZ2USJy5nYXRld2F5X3Byb3RvY29sLlB1Ymxp",
+            "c2hNZXNzYWdlUmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlzaE1l",
+            "c3NhZ2VSZXNwb25zZSIAEmgKD1Jlc29sdmVJbmNpZGVudBIoLmdhdGV3YXlf",
+            "cHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVxdWVzdBopLmdhdGV3YXlfcHJv",
+            "dG9jb2wuUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiABJfCgxTZXRWYXJpYWJs",
+            "ZXMSJS5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1JlcXVlc3QaJi5n",
+            "YXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1Jlc3BvbnNlIgASUwoIVG9w",
+            "b2xvZ3kSIS5nYXRld2F5X3Byb3RvY29sLlRvcG9sb2d5UmVxdWVzdBoiLmdh",
+            "dGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXNwb25zZSIAEmsKEFVwZGF0ZUpv",
+            "YlJldHJpZXMSKS5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJldHJpZXNS",
+            "ZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVKb2JSZXRyaWVzUmVz",
+            "cG9uc2UiAEIhChlpby56ZWViZS5nYXRld2F5LnByb3RvY29sUABaAnBiYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsRequest), global::GatewayProtocol.ActivateJobsRequest.Parser, new[]{ "Type", "Worker", "Timeout", "MaxJobsToActivate", "FetchVariable", "RequestTimeout" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsResponse), global::GatewayProtocol.ActivateJobsResponse.Parser, new[]{ "Jobs" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivatedJob), global::GatewayProtocol.ActivatedJob.Parser, new[]{ "Key", "Type", "WorkflowInstanceKey", "BpmnProcessId", "WorkflowDefinitionVersion", "WorkflowKey", "ElementId", "ElementInstanceKey", "CustomHeaders", "Worker", "Retries", "Deadline", "Variables" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceRequest), global::GatewayProtocol.CancelWorkflowInstanceRequest.Parser, new[]{ "WorkflowInstanceKey" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceResponse), global::GatewayProtocol.CancelWorkflowInstanceResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobRequest), global::GatewayProtocol.CompleteJobRequest.Parser, new[]{ "JobKey", "Variables" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobResponse), global::GatewayProtocol.CompleteJobResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceRequest), global::GatewayProtocol.CreateWorkflowInstanceRequest.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "Variables" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceResponse), global::GatewayProtocol.CreateWorkflowInstanceResponse.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "WorkflowInstanceKey" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest), global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest.Parser, new[]{ "Request", "RequestTimeout", "FetchVariables" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse), global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "WorkflowInstanceKey", "Variables" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowRequest), global::GatewayProtocol.DeployWorkflowRequest.Parser, new[]{ "Workflows" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowRequestObject), global::GatewayProtocol.WorkflowRequestObject.Parser, new[]{ "Name", "Type", "Definition" }, null, new[]{ typeof(global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowResponse), global::GatewayProtocol.DeployWorkflowResponse.Parser, new[]{ "Key", "Workflows" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowMetadata), global::GatewayProtocol.WorkflowMetadata.Parser, new[]{ "BpmnProcessId", "Version", "WorkflowKey", "ResourceName" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobRequest), global::GatewayProtocol.FailJobRequest.Parser, new[]{ "JobKey", "Retries", "ErrorMessage" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobResponse), global::GatewayProtocol.FailJobResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ThrowErrorRequest), global::GatewayProtocol.ThrowErrorRequest.Parser, new[]{ "JobKey", "ErrorCode", "ErrorMessage" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ThrowErrorResponse), global::GatewayProtocol.ThrowErrorResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageRequest), global::GatewayProtocol.PublishMessageRequest.Parser, new[]{ "Name", "CorrelationKey", "TimeToLive", "MessageId", "Variables" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageResponse), global::GatewayProtocol.PublishMessageResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentRequest), global::GatewayProtocol.ResolveIncidentRequest.Parser, new[]{ "IncidentKey" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentResponse), global::GatewayProtocol.ResolveIncidentResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyRequest), global::GatewayProtocol.TopologyRequest.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyResponse), global::GatewayProtocol.TopologyResponse.Parser, new[]{ "Brokers", "ClusterSize", "PartitionsCount", "ReplicationFactor" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BrokerInfo), global::GatewayProtocol.BrokerInfo.Parser, new[]{ "NodeId", "Host", "Port", "Partitions" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.Partition), global::GatewayProtocol.Partition.Parser, new[]{ "PartitionId", "Role" }, null, new[]{ typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerRole) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesRequest), global::GatewayProtocol.UpdateJobRetriesRequest.Parser, new[]{ "JobKey", "Retries" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesResponse), global::GatewayProtocol.UpdateJobRetriesResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesRequest), global::GatewayProtocol.SetVariablesRequest.Parser, new[]{ "ElementInstanceKey", "Variables", "Local" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesResponse), global::GatewayProtocol.SetVariablesResponse.Parser, new[]{ "Key" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsRequest), global::GatewayProtocol.ActivateJobsRequest.Parser, new[]{ "Type", "Worker", "Timeout", "MaxJobsToActivate", "FetchVariable", "RequestTimeout" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsResponse), global::GatewayProtocol.ActivateJobsResponse.Parser, new[]{ "Jobs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivatedJob), global::GatewayProtocol.ActivatedJob.Parser, new[]{ "Key", "Type", "WorkflowInstanceKey", "BpmnProcessId", "WorkflowDefinitionVersion", "WorkflowKey", "ElementId", "ElementInstanceKey", "CustomHeaders", "Worker", "Retries", "Deadline", "Variables" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceRequest), global::GatewayProtocol.CancelWorkflowInstanceRequest.Parser, new[]{ "WorkflowInstanceKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceResponse), global::GatewayProtocol.CancelWorkflowInstanceResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobRequest), global::GatewayProtocol.CompleteJobRequest.Parser, new[]{ "JobKey", "Variables" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobResponse), global::GatewayProtocol.CompleteJobResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceRequest), global::GatewayProtocol.CreateWorkflowInstanceRequest.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "Variables" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceResponse), global::GatewayProtocol.CreateWorkflowInstanceResponse.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "WorkflowInstanceKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest), global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest.Parser, new[]{ "Request", "RequestTimeout", "FetchVariables" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse), global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "WorkflowInstanceKey", "Variables" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowRequest), global::GatewayProtocol.DeployWorkflowRequest.Parser, new[]{ "Workflows" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowRequestObject), global::GatewayProtocol.WorkflowRequestObject.Parser, new[]{ "Name", "Type", "Definition" }, null, new[]{ typeof(global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowResponse), global::GatewayProtocol.DeployWorkflowResponse.Parser, new[]{ "Key", "Workflows" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowMetadata), global::GatewayProtocol.WorkflowMetadata.Parser, new[]{ "BpmnProcessId", "Version", "WorkflowKey", "ResourceName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobRequest), global::GatewayProtocol.FailJobRequest.Parser, new[]{ "JobKey", "Retries", "ErrorMessage" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobResponse), global::GatewayProtocol.FailJobResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ThrowErrorRequest), global::GatewayProtocol.ThrowErrorRequest.Parser, new[]{ "JobKey", "ErrorCode", "ErrorMessage" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ThrowErrorResponse), global::GatewayProtocol.ThrowErrorResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageRequest), global::GatewayProtocol.PublishMessageRequest.Parser, new[]{ "Name", "CorrelationKey", "TimeToLive", "MessageId", "Variables" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageResponse), global::GatewayProtocol.PublishMessageResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentRequest), global::GatewayProtocol.ResolveIncidentRequest.Parser, new[]{ "IncidentKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentResponse), global::GatewayProtocol.ResolveIncidentResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyRequest), global::GatewayProtocol.TopologyRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyResponse), global::GatewayProtocol.TopologyResponse.Parser, new[]{ "Brokers", "ClusterSize", "PartitionsCount", "ReplicationFactor", "GatewayVersion" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BrokerInfo), global::GatewayProtocol.BrokerInfo.Parser, new[]{ "NodeId", "Host", "Port", "Partitions", "Version" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.Partition), global::GatewayProtocol.Partition.Parser, new[]{ "PartitionId", "Role" }, null, new[]{ typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerRole) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesRequest), global::GatewayProtocol.UpdateJobRetriesRequest.Parser, new[]{ "JobKey", "Retries" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesResponse), global::GatewayProtocol.UpdateJobRetriesResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesRequest), global::GatewayProtocol.SetVariablesRequest.Parser, new[]{ "ElementInstanceKey", "Variables", "Local" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesResponse), global::GatewayProtocol.SetVariablesResponse.Parser, new[]{ "Key" }, null, null, null, null)
           }));
     }
     #endregion
@@ -2655,7 +2656,7 @@ namespace GatewayProtocol {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 2;
-    private global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType type_ = 0;
+    private global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType type_ = global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType.File;
     /// <summary>
     /// the resource type; if set to BPMN or YAML then the file extension
     /// is ignored
@@ -2705,7 +2706,7 @@ namespace GatewayProtocol {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Type != global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType.File) hash ^= Type.GetHashCode();
       if (Definition.Length != 0) hash ^= Definition.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2724,7 +2725,7 @@ namespace GatewayProtocol {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Type != 0) {
+      if (Type != global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType.File) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Type);
       }
@@ -2743,7 +2744,7 @@ namespace GatewayProtocol {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Type != 0) {
+      if (Type != global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType.File) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (Definition.Length != 0) {
@@ -2763,7 +2764,7 @@ namespace GatewayProtocol {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Type != 0) {
+      if (other.Type != global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType.File) {
         Type = other.Type;
       }
       if (other.Definition.Length != 0) {
@@ -4517,6 +4518,7 @@ namespace GatewayProtocol {
       clusterSize_ = other.clusterSize_;
       partitionsCount_ = other.partitionsCount_;
       replicationFactor_ = other.replicationFactor_;
+      gatewayVersion_ = other.gatewayVersion_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4580,6 +4582,20 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "gatewayVersion" field.</summary>
+    public const int GatewayVersionFieldNumber = 5;
+    private string gatewayVersion_ = "";
+    /// <summary>
+    /// gateway version
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string GatewayVersion {
+      get { return gatewayVersion_; }
+      set {
+        gatewayVersion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as TopologyResponse);
@@ -4597,6 +4613,7 @@ namespace GatewayProtocol {
       if (ClusterSize != other.ClusterSize) return false;
       if (PartitionsCount != other.PartitionsCount) return false;
       if (ReplicationFactor != other.ReplicationFactor) return false;
+      if (GatewayVersion != other.GatewayVersion) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4607,6 +4624,7 @@ namespace GatewayProtocol {
       if (ClusterSize != 0) hash ^= ClusterSize.GetHashCode();
       if (PartitionsCount != 0) hash ^= PartitionsCount.GetHashCode();
       if (ReplicationFactor != 0) hash ^= ReplicationFactor.GetHashCode();
+      if (GatewayVersion.Length != 0) hash ^= GatewayVersion.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4633,6 +4651,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(32);
         output.WriteInt32(ReplicationFactor);
       }
+      if (GatewayVersion.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(GatewayVersion);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4650,6 +4672,9 @@ namespace GatewayProtocol {
       }
       if (ReplicationFactor != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReplicationFactor);
+      }
+      if (GatewayVersion.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(GatewayVersion);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4671,6 +4696,9 @@ namespace GatewayProtocol {
       }
       if (other.ReplicationFactor != 0) {
         ReplicationFactor = other.ReplicationFactor;
+      }
+      if (other.GatewayVersion.Length != 0) {
+        GatewayVersion = other.GatewayVersion;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4697,6 +4725,10 @@ namespace GatewayProtocol {
           }
           case 32: {
             ReplicationFactor = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            GatewayVersion = input.ReadString();
             break;
           }
         }
@@ -4734,6 +4766,7 @@ namespace GatewayProtocol {
       host_ = other.host_;
       port_ = other.port_;
       partitions_ = other.partitions_.Clone();
+      version_ = other.version_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4797,6 +4830,20 @@ namespace GatewayProtocol {
       get { return partitions_; }
     }
 
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 5;
+    private string version_ = "";
+    /// <summary>
+    /// broker version
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Version {
+      get { return version_; }
+      set {
+        version_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as BrokerInfo);
@@ -4814,6 +4861,7 @@ namespace GatewayProtocol {
       if (Host != other.Host) return false;
       if (Port != other.Port) return false;
       if(!partitions_.Equals(other.partitions_)) return false;
+      if (Version != other.Version) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4824,6 +4872,7 @@ namespace GatewayProtocol {
       if (Host.Length != 0) hash ^= Host.GetHashCode();
       if (Port != 0) hash ^= Port.GetHashCode();
       hash ^= partitions_.GetHashCode();
+      if (Version.Length != 0) hash ^= Version.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4850,6 +4899,10 @@ namespace GatewayProtocol {
         output.WriteInt32(Port);
       }
       partitions_.WriteTo(output, _repeated_partitions_codec);
+      if (Version.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Version);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4868,6 +4921,9 @@ namespace GatewayProtocol {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Port);
       }
       size += partitions_.CalculateSize(_repeated_partitions_codec);
+      if (Version.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Version);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4889,6 +4945,9 @@ namespace GatewayProtocol {
         Port = other.Port;
       }
       partitions_.Add(other.partitions_);
+      if (other.Version.Length != 0) {
+        Version = other.Version;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4914,6 +4973,10 @@ namespace GatewayProtocol {
           }
           case 34: {
             partitions_.AddEntriesFrom(input, _repeated_partitions_codec);
+            break;
+          }
+          case 42: {
+            Version = input.ReadString();
             break;
           }
         }
@@ -4973,7 +5036,7 @@ namespace GatewayProtocol {
 
     /// <summary>Field number for the "role" field.</summary>
     public const int RoleFieldNumber = 2;
-    private global::GatewayProtocol.Partition.Types.PartitionBrokerRole role_ = 0;
+    private global::GatewayProtocol.Partition.Types.PartitionBrokerRole role_ = global::GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader;
     /// <summary>
     /// the role of the broker for this partition
     /// </summary>
@@ -5007,7 +5070,7 @@ namespace GatewayProtocol {
     public override int GetHashCode() {
       int hash = 1;
       if (PartitionId != 0) hash ^= PartitionId.GetHashCode();
-      if (Role != 0) hash ^= Role.GetHashCode();
+      if (Role != global::GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader) hash ^= Role.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5025,7 +5088,7 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt32(PartitionId);
       }
-      if (Role != 0) {
+      if (Role != global::GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Role);
       }
@@ -5040,7 +5103,7 @@ namespace GatewayProtocol {
       if (PartitionId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(PartitionId);
       }
-      if (Role != 0) {
+      if (Role != global::GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Role);
       }
       if (_unknownFields != null) {
@@ -5057,7 +5120,7 @@ namespace GatewayProtocol {
       if (other.PartitionId != 0) {
         PartitionId = other.PartitionId;
       }
-      if (other.Role != 0) {
+      if (other.Role != global::GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader) {
         Role = other.Role;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
