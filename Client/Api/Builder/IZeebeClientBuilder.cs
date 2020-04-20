@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Extensions.Logging;
 
 namespace Zeebe.Client.Api.Builder
@@ -67,6 +68,16 @@ namespace Zeebe.Client.Api.Builder
 
     public interface IZeebeClientFinalBuildStep
     {
+        /// <summary>
+        /// Uses the given time interval to determine when to send a keepalive ping
+        /// to the gateway. The default is 30 seconds.
+        ///
+        /// <p>This is an optional configuration.</p>
+        /// </summary>
+        /// <param name="keepAlive">the timespan between keep alive requests</param>
+        /// <returns>the final step builder</returns>
+        IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive);
+
         /// <summary>
         /// Builds the client with the given configuration.
         /// </summary>

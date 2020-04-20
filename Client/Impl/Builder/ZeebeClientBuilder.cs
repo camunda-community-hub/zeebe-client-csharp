@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using Grpc.Auth;
 using Grpc.Core;
@@ -42,6 +43,7 @@ namespace Zeebe.Client.Impl.Builder
     internal class ZeebePlainClientBuilder : IZeebeClientFinalBuildStep
     {
         private readonly ILoggerFactory loggerFactory;
+        private TimeSpan? keepAlive;
 
         private string Address { get; }
 
@@ -51,15 +53,22 @@ namespace Zeebe.Client.Impl.Builder
             this.loggerFactory = loggerFactory;
         }
 
+        public IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive)
+        {
+            this.keepAlive = keepAlive;
+            return this;
+        }
+
         public IZeebeClient Build()
         {
-            return new ZeebeClient(Address, loggerFactory);
+            return new ZeebeClient(Address, keepAlive, loggerFactory);
         }
     }
 
     internal class ZeebeSecureClientBuilder : IZeebeSecureClientBuilder
     {
         private readonly ILoggerFactory loggerFactory;
+        private TimeSpan? keepAlive;
 
         private string Address { get; }
 
@@ -91,9 +100,15 @@ namespace Zeebe.Client.Impl.Builder
             return this;
         }
 
+        public IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive)
+        {
+            this.keepAlive = keepAlive;
+            return this;
+        }
+
         public IZeebeClient Build()
         {
-            return new ZeebeClient(Address, Credentials, loggerFactory);
+            return new ZeebeClient(Address, Credentials, keepAlive, loggerFactory);
         }
     }
 }
