@@ -5,9 +5,8 @@ using NUnit.Framework;
 namespace Zeebe.Client
 {
     [TestFixture]
-    public class RequestMetadataTest  : BaseZeebeTest
+    public class RequestMetadataTest : BaseZeebeTest
     {
-
         [Test]
         public async Task ShouldUseUserAgentHeader()
         {

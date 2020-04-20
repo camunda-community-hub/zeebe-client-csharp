@@ -12,7 +12,6 @@ namespace Client.IntegrationTests
     public class JobWorkerTest
     {
         private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "oneTaskProcess.bpmn");
-        private static readonly string WorkflowInstanceVariables = "{\"a\":123, \"b\":true}";
 
         private readonly ZeebeIntegrationTestHelper testHelper = new ZeebeIntegrationTestHelper();
         private IZeebeClient zeebeClient;
@@ -79,7 +78,7 @@ namespace Client.IntegrationTests
             // when
             using (zeebeClient.NewWorker()
                 .JobType("oneTask")
-                .Handler(async (jobClient, job) =>handledJobs.Add(job))
+                .Handler((jobClient, job) => handledJobs.Add(job))
                 .MaxJobsActive(1)
                 .AutoCompletion()
                 .Name("csharpWorker")

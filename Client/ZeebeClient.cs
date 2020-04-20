@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using GatewayProtocol;
@@ -32,15 +33,20 @@ namespace Zeebe.Client
     /// <inheritdoc />
     public class ZeebeClient : IZeebeClient
     {
+        private static readonly TimeSpan DefaultKeepAlive = TimeSpan.FromSeconds(30);
+
         private readonly Channel channelToGateway;
         private readonly ILoggerFactory loggerFactory;
         private Gateway.GatewayClient gatewayClient;
 
-        internal ZeebeClient(string address, ILoggerFactory loggerFactory = null)
-            : this(address, ChannelCredentials.Insecure, loggerFactory)
+        internal ZeebeClient(string address, TimeSpan? keepAlive, ILoggerFactory loggerFactory = null)
+            : this(address, ChannelCredentials.Insecure, keepAlive, loggerFactory)
         { }
 
-        internal ZeebeClient(string address, ChannelCredentials credentials, ILoggerFactory loggerFactory = null)
+        internal ZeebeClient(string address,
+            ChannelCredentials credentials,
+            TimeSpan? keepAlive,
+            ILoggerFactory loggerFactory = null)
         {
             this.loggerFactory = loggerFactory;
 
@@ -49,9 +55,30 @@ namespace Zeebe.Client
             var userAgentOption = new ChannelOption(ChannelOptions.PrimaryUserAgentString, userAgentString);
             channelOptions.Add(userAgentOption);
 
+            AddKeepAliveToChannelOptions(channelOptions, keepAlive);
+
             channelToGateway =
                 new Channel(address, credentials, channelOptions);
             gatewayClient = new Gateway.GatewayClient(channelToGateway);
+        }
+
+        /// <summary>
+        /// Adds keepAlive options to the channel options.
+        /// </summary>
+        /// <param name="channelOptions">the current existing channel options</param>
+        private void AddKeepAliveToChannelOptions(List<ChannelOption> channelOptions, TimeSpan? keepAlive)
+        {
+            // GRPC_ARG_KEEPALIVE_PERMIT_WITHOUT_CALLS
+            // This channel argument if set to 1 (0 : false; 1 : true), allows keepalive pings to be sent even if there are no calls in flight.
+            // channelOptions.Add(new ChannelOption("grpc.keepalive_permit_without_calls", "1"));
+            // this will increase load on the system and also increase used resources
+            // we should prefer idleTimeout setting
+            // https://stackoverflow.com/questions/57930529/grpc-connection-use-keepalive-or-idletimeout
+
+            // GRPC_ARG_KEEPALIVE_TIME_MS
+            // This channel argument controls the period (in milliseconds) after which a keepalive ping is sent on the transport.
+            var actualKeepAlive = keepAlive.GetValueOrDefault(DefaultKeepAlive);
+            channelOptions.Add(new ChannelOption("grpc.keepalive_time_ms", actualKeepAlive.TotalMilliseconds.ToString()));
         }
 
         ////////////////////////////////////////////////////////////////////////
