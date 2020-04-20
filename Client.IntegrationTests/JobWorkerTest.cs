@@ -13,7 +13,7 @@ namespace Client.IntegrationTests
     {
         private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "oneTaskProcess.bpmn");
 
-        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.latest();
+        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
         private IZeebeClient zeebeClient;
         private long workflowKey;
 

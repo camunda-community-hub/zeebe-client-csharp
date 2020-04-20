@@ -11,7 +11,7 @@ namespace Client.IntegrationTests
     [TestFixture]
     public class BrokerTopologyTest
     {
-        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.latest();
+        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
         private IZeebeClient zeebeClient;
 
         [OneTimeSetUp]

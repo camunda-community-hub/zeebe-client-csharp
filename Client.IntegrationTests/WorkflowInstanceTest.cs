@@ -15,7 +15,7 @@ namespace Client.IntegrationTests
         private static readonly string SimpleProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "simpleProcess.bpmn");
         private static readonly string WorkflowInstanceVariables = "{\"a\":123, \"b\":true}";
 
-        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.latest();
+        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
         private IZeebeClient zeebeClient;
 
         [OneTimeSetUp]

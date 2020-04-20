@@ -12,7 +12,7 @@ namespace Client.IntegrationTests
     public class OldVersionBrokerTopologyTest
     {
         private const string Version = "0.22.2";
-        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.ofVersion(Version);
+        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.OfVersion(Version);
         private IZeebeClient zeebeClient;
 
         [OneTimeSetUp]

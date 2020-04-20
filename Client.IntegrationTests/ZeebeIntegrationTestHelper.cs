@@ -23,12 +23,12 @@ namespace Client.IntegrationTests
             this.version = version;
         }
 
-        public static ZeebeIntegrationTestHelper latest()
+        public static ZeebeIntegrationTestHelper Latest()
         {
             return new ZeebeIntegrationTestHelper(LatestVersion);
         }
 
-        public static ZeebeIntegrationTestHelper ofVersion(string version)
+        public static ZeebeIntegrationTestHelper OfVersion(string version)
         {
             return new ZeebeIntegrationTestHelper(version);
         }
