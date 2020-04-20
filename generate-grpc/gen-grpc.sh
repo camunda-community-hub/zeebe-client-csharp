@@ -2,12 +2,16 @@
 set -euxo pipefail
 
 os=linux_x64
-grpcVersion=2.26.0
+grpcVersion=2.28.1
 packagePath=~/.nuget/packages/grpc.tools/${grpcVersion}/tools/${os}/
-zeebeVersion='0.22.1'
+zeebeVersion='0.23.0'
 protoFile=gateway.proto
 gwProtoPath=./
 genPath=Client/Impl/proto
+
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd $DIR
 
 # go to root
 echo -e "cd ../\n"

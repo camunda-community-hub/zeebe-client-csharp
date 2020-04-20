@@ -9,9 +9,10 @@ using Zeebe.Client.Api.Responses;
 namespace Client.IntegrationTests
 {
     [TestFixture]
-    public class BrokerTopologyTest
+    public class OldVersionBrokerTopologyTest
     {
-        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.latest();
+        private const string Version = "0.22.2";
+        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.ofVersion(Version);
         private IZeebeClient zeebeClient;
 
         [OneTimeSetUp]
@@ -38,7 +39,7 @@ namespace Client.IntegrationTests
             Console.WriteLine(topology);
 
             var gatewayVersion = topology.GatewayVersion;
-            Assert.AreEqual("0.23.0", gatewayVersion);
+            Assert.AreEqual("lower then 0.23", gatewayVersion);
 
             var topologyBrokers = topology.Brokers;
             Assert.AreEqual(1, topologyBrokers.Count);
