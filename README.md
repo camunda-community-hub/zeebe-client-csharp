@@ -2,7 +2,7 @@
 [![](https://img.shields.io/nuget/v/zb-client.svg)](https://www.nuget.org/packages/zb-client/) 
 [![](https://img.shields.io/nuget/dt/zb-client)](https://www.nuget.org/stats/packages/zb-client?groupby=Version) 
 [![](https://img.shields.io/github/license/zeebe-io/zeebe-client-csharp.svg)](https://www.apache.org/licenses/LICENSE-2.0) 
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/zeebe-io/zb-csharp-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/zeebe-io/zb-csharp-client/alerts/) 
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/zeebe-io/zeebe-client-csharp.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/zeebe-io/zb-csharp-client/alerts/) 
 
 
 
