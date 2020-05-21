@@ -50,7 +50,7 @@ Features:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" version="3.12.0" />
+    <PackageReference Include="Google.Protobuf" version="3.12.1" />
     <PackageReference Include="Grpc" version="2.29.0" />
     <PackageReference Include="Grpc.Auth" Version="2.29.0" />
     <PackageReference Include="Grpc.Core" version="2.29.0" />
