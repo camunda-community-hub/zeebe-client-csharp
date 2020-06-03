@@ -65,6 +65,13 @@ namespace Zeebe.Client.Impl.Worker
         public void Dispose()
         {
             source.Cancel();
+            // delay disposing, since poll and handler take some time to close
+            Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
+                .ContinueWith((t) =>
+                {
+                    logger?.LogError("Dispose source");
+                    source.Dispose();
+                });
             isRunning = false;
         }
 
@@ -129,7 +136,7 @@ namespace Zeebe.Client.Impl.Worker
                 }
                 else
                 {
-                    handleSignal.WaitOne();
+                    handleSignal.WaitOne(pollInterval);
                 }
             }
         }
