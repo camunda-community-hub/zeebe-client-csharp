@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.16.0</Version>
+    <Version>0.16.1</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,28 +13,13 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>0.16.0</AssemblyVersion>
-    <FileVersion>0.16.0</FileVersion>
+    <AssemblyVersion>0.16.1</AssemblyVersion>
+    <FileVersion>0.16.1</FileVersion>
     <PackageReleaseNotes>
-Misc:
-  * Migrated to latest Zeebe release (0.23.0)
-  * Upgraded dependecies
+Fixes:
+  * closes handler thread correctly 
 
-Contributions:
-
-  * Fix multiple Client dispose call problem
-  * DeadlineExceeded is logged with Debug LogLevel
-
-   Thanks to Kjetil Klaussen
-
-Features:
-
-  * Support GatewayVersion in TopologyRequest
-  * Support Async JobHandler
-  * Send client type and version via user-agent header
-  * Use keep alive ping
-
- This release is based on the Zeebe 0.23.0 release (https://github.com/zeebe-io/zeebe).
+ This release is based on the Zeebe 0.23.X release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -44,9 +29,9 @@ Features:
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>0.16.0</PackageVersion>
+    <PackageVersion>0.16.1</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>0.16.0</Title>
+    <Title>0.16.1</Title>
   </PropertyGroup>
 
   <ItemGroup>
