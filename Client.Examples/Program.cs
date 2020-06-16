@@ -17,21 +17,33 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using NLog;
 using NLog.Extensions.Logging;
 using Zeebe.Client;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Worker;
+using Zeebe.Client.Impl.Builder;
 
 namespace Client.Examples
 {
     internal class Program
     {
-        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
-        private static readonly string ZeebeUrl = "0.0.0.0:26500";
+        private const string AuthServer = "https://login.cloud.ultrawombat.com/oauth/token";
+        private const string ClientId = "KdxEcZ9PfistlkitIyh6Y9eFXTBqjsap";
+        private const string ClientSecret = "23upPNVO9GbOBQDuEIWV6sIok6b_Z8JycpAoXFcr6mbfX7Vo21GoLeysPTicaNpE";
+        private const string Audience = "ba4207a1-93b5-4526-afb1-1bdd417a566e.zeebe.ultrawombat.com";
+        private const string ZeebeUrl = Audience + ":443";
+
+
+        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ten_tasks.bpmn");
+        private static readonly string PayloadPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "big_payload.json");
+//        private static readonly string ZeebeUrl = "0.0.0.0:26500";
         private static readonly string WorkflowInstanceVariables = "{\"a\":\"123\"}";
-        private static readonly string JobType = "payment-service";
+        private static readonly string JobType = "benchmark-task";
         private static readonly string WorkerName = Environment.MachineName;
-        private static readonly long WorkCount = 100L;
+        private static readonly long WorkCount = 1_000_000L;
+
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         public static async Task Main(string[] args)
         {
@@ -39,18 +51,20 @@ namespace Client.Examples
             var client = ZeebeClient.Builder()
                 .UseLoggerFactory(new NLogLoggerFactory())
                 .UseGatewayAddress(ZeebeUrl)
-                .UsePlainText()
+                .UseTransportEncryption()
+                .UseAccessTokenSupplier(
+                    CamundaCloudTokenProvider.Builder()
+                        .UseAuthServer(AuthServer)
+                        .UseClientId(ClientId)
+                        .UseClientSecret(ClientSecret)
+                        .UseAudience(Audience)
+                        .Build())
                 .Build();
 
-            var topology = await client.TopologyRequest()
-                .Send();
-            Console.WriteLine(topology);
-            await client.NewPublishMessageCommand()
-                .MessageName("csharp")
-                .CorrelationKey("wow")
-                .Variables("{\"realValue\":2}")
-                .Send();
+            var topology = await client.TopologyRequest().Send();
 
+            Logger.Info(topology.ToString);
+            Console.WriteLine(topology);
             // deploy
             var deployResponse = await client.NewDeployCommand()
                 .AddResourceFile(DemoProcessPath)
@@ -58,23 +72,36 @@ namespace Client.Examples
 
             // create workflow instance
             var workflowKey = deployResponse.Workflows[0].WorkflowKey;
+            var bigPayload = File.ReadAllText(PayloadPath);
 
-            var workflowInstance = await client
-                .NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(workflowKey)
-                .Variables(WorkflowInstanceVariables)
-                .Send();
-
-            await client.NewSetVariablesCommand(workflowInstance.WorkflowInstanceKey).Variables("{\"wow\":\"this\"}").Local().Send();
-
-            for (var i = 0; i < WorkCount; i++)
+            Task.Run(async () =>
             {
-                await client
-                    .NewCreateWorkflowInstanceCommand()
-                    .WorkflowKey(workflowKey)
-                    .Variables(WorkflowInstanceVariables)
-                    .Send();
-            }
+
+                while (true)
+                {
+                    var start = DateTime.Now;
+                    for (var i = 0; i < 100; i++)
+                    {
+                        try {
+                        await client
+                            .NewCreateWorkflowInstanceCommand()
+                            .WorkflowKey(workflowKey)
+                            .Variables(bigPayload)
+                            .Send();
+                        } catch (Exception e) {
+
+                        }
+                    }
+                    var endTime = DateTime.Now;
+                    var diff = endTime.Millisecond - start.Millisecond;
+                    if (diff < 1000)
+                    {
+                        Thread.Sleep(1000 - diff);
+                    }
+                }
+
+
+            });
 
             // open job worker
             using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
@@ -82,11 +109,12 @@ namespace Client.Examples
                 client.NewWorker()
                       .JobType(JobType)
                       .Handler(HandleJob)
-                      .MaxJobsActive(5)
+                      .MaxJobsActive(120)
                       .Name(WorkerName)
                       .AutoCompletion()
-                      .PollInterval(TimeSpan.FromSeconds(1))
+                      .PollInterval(TimeSpan.FromMilliseconds(100))
                       .Timeout(TimeSpan.FromSeconds(10))
+                      .PollingTimeout(TimeSpan.FromSeconds(30))
                       .Open();
 
                 // blocks main thread, so that worker can run
@@ -96,31 +124,8 @@ namespace Client.Examples
 
         private static void HandleJob(IJobClient jobClient, IJob job)
         {
-            // business logic
-            var jobKey = job.Key;
-            Console.WriteLine("Handling job: " + job);
-
-            if (jobKey % 3 == 0)
-            {
-                jobClient.NewCompleteJobCommand(jobKey)
-                    .Variables("{\"foo\":2}")
-                    .Send()
-                    .GetAwaiter()
-                    .GetResult();
-            }
-            else if (jobKey % 2 == 0)
-            {
-                jobClient.NewFailCommand(jobKey)
-                    .Retries(job.Retries - 1)
-                    .ErrorMessage("Example fail")
-                    .Send()
-                    .GetAwaiter()
-                    .GetResult();
-            }
-            else
-            {
-                // auto completion
-            }
+            Logger.Debug("Handle job {job}", job.Key);
+            jobClient.NewCompleteJobCommand(job).Send();
         }
     }
 }
