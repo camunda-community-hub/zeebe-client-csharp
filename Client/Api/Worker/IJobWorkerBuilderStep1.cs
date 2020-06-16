@@ -229,6 +229,21 @@ namespace Zeebe.Client.Api.Worker
         IJobWorkerBuilderStep3 AutoCompletion();
 
         /// <summary>
+        /// Specifies how many handler threads are used by this job worker.
+        /// </summary>
+        ///
+        /// <para>
+        /// The previous defined job handler can be called by multiple threads, to execute more jobs concurrently.
+        /// Per default one job handler thread is used by an job worker.
+        /// This means the job handler implementation needs to be thread safe.
+        /// </para>
+        ///
+        /// <para>Note: Job polling is done by a separate thread.</para>
+        /// <param name="threadCount">handler thread count, needs to be larger then zero</param>
+        /// <returns>the builder for this worker</returns>
+        IJobWorkerBuilderStep3 HandlerThreads(byte threadCount);
+
+        /// <summary>
         /// Open the worker and start to work on available tasks.
         /// </summary>
         /// <returns>the worker</returns>

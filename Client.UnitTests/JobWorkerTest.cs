@@ -14,6 +14,8 @@
 //    limitations under the License.
 
 using System;
+using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -80,6 +82,21 @@ namespace Zeebe.Client
         }
 
         [Test]
+        public void ShouldFailWithZeroThreadCount()
+        {
+            // expected
+            var aggregateException = Assert.Throws<ArgumentOutOfRangeException>(
+                () =>
+                {
+                    ZeebeClient.NewWorker()
+                        .JobType("foo")
+                        .Handler((jobClient, job) => { })
+                        .HandlerThreads(0);
+                });
+            StringAssert.Contains("Expected an handler thread count larger then zero, but got 0.", aggregateException.Message);
+        }
+
+        [Test]
         public void ShouldSendAsyncCompleteInHandler()
         {
             // given
@@ -113,6 +130,7 @@ namespace Zeebe.Client
                 .Timeout(TimeSpan.FromSeconds(123L))
                 .PollInterval(TimeSpan.FromMilliseconds(100))
                 .PollingTimeout(TimeSpan.FromSeconds(5L))
+                .HandlerThreads(1)
                 .Open())
             {
                 Assert.True(jobWorker.IsOpen());
@@ -129,6 +147,57 @@ namespace Zeebe.Client
             AssertJob(completedJobs[0], 1);
             AssertJob(completedJobs[1], 2);
             AssertJob(completedJobs[2], 3);
+        }
+
+        [Test]
+        public void ShouldUseMultipleHandlerThreads()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 123_000L,
+                MaxJobsToActivate = 3,
+                Type = "foo",
+                Worker = "jobWorker",
+                RequestTimeout = 5_000L
+            };
+
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
+
+            // when
+            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
+            var completedJobs = new ConcurrentDictionary<long, IJob>();
+            using (var jobWorker = ZeebeClient.NewWorker()
+                .JobType("foo")
+                .Handler(async (jobClient, job) =>
+                {
+                    await jobClient.NewCompleteJobCommand(job).Send();
+                    completedJobs.TryAdd(job.Key, job);
+                    if (completedJobs.Count == 3)
+                    {
+                        signal.Set();
+                    }
+                })
+                .MaxJobsActive(3)
+                .Name("jobWorker")
+                .Timeout(TimeSpan.FromSeconds(123L))
+                .PollInterval(TimeSpan.FromMilliseconds(100))
+                .PollingTimeout(TimeSpan.FromSeconds(5L))
+                .HandlerThreads(3)
+                .Open())
+            {
+                Assert.True(jobWorker.IsOpen());
+                signal.WaitOne();
+            }
+
+            // then
+            var actualActivateRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
+            Assert.AreEqual(expectedRequest, actualActivateRequest);
+
+            var completeRequests = TestService.Requests[typeof(CompleteJobRequest)];
+            Assert.GreaterOrEqual(completeRequests.Count, 3);
+            Assert.GreaterOrEqual(completedJobs.Count, 3);
+            CollectionAssert.AreEquivalent(new List<long> { 1, 2, 3 }, completedJobs.Keys);
         }
 
         [Test]
@@ -205,8 +274,7 @@ namespace Zeebe.Client
             var expectedSecondRequest = new ActivateJobsRequest
             {
                 Timeout = 123_000L,
-                MaxJobsToActivate = 2, // first response contains 3 jobs and one is handled (blocking) so 2 jobs remain in queue
-                            // so we can try to activate 2 new jobs
+                MaxJobsToActivate = 2,
                 Type = "foo",
                 Worker = "jobWorker",
                 RequestTimeout = 5_000L

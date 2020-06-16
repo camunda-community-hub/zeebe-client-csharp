@@ -72,7 +72,59 @@ namespace Zeebe.Client.Impl.Responses
 
         public override string ToString()
         {
-            return $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(WorkflowInstanceKey)}: {WorkflowInstanceKey}, {nameof(BpmnProcessId)}: {BpmnProcessId}, {nameof(WorkflowDefinitionVersion)}: {WorkflowDefinitionVersion}, {nameof(WorkflowKey)}: {WorkflowKey}, {nameof(ElementId)}: {ElementId}, {nameof(ElementInstanceKey)}: {ElementInstanceKey}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}, {nameof(CustomHeaders)}: {CustomHeaders}";
+            return
+                $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(WorkflowInstanceKey)}: {WorkflowInstanceKey}, {nameof(BpmnProcessId)}: {BpmnProcessId}, {nameof(WorkflowDefinitionVersion)}: {WorkflowDefinitionVersion}, {nameof(WorkflowKey)}: {WorkflowKey}, {nameof(ElementId)}: {ElementId}, {nameof(ElementInstanceKey)}: {ElementInstanceKey}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}, {nameof(CustomHeaders)}: {CustomHeaders}";
+        }
+
+        protected bool Equals(ActivatedJob other)
+        {
+            return Key == other.Key && Type == other.Type && WorkflowInstanceKey == other.WorkflowInstanceKey &&
+                   BpmnProcessId == other.BpmnProcessId &&
+                   WorkflowDefinitionVersion == other.WorkflowDefinitionVersion && WorkflowKey == other.WorkflowKey &&
+                   ElementId == other.ElementId && ElementInstanceKey == other.ElementInstanceKey &&
+                   Worker == other.Worker && Retries == other.Retries && Deadline.Equals(other.Deadline) &&
+                   Variables == other.Variables && CustomHeaders == other.CustomHeaders;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            return Equals((ActivatedJob) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = Key.GetHashCode();
+                hashCode = (hashCode * 397) ^ (Type != null ? Type.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ WorkflowInstanceKey.GetHashCode();
+                hashCode = (hashCode * 397) ^ (BpmnProcessId != null ? BpmnProcessId.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ WorkflowDefinitionVersion;
+                hashCode = (hashCode * 397) ^ WorkflowKey.GetHashCode();
+                hashCode = (hashCode * 397) ^ (ElementId != null ? ElementId.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ ElementInstanceKey.GetHashCode();
+                hashCode = (hashCode * 397) ^ (Worker != null ? Worker.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ Retries;
+                hashCode = (hashCode * 397) ^ Deadline.GetHashCode();
+                hashCode = (hashCode * 397) ^ (Variables != null ? Variables.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (CustomHeaders != null ? CustomHeaders.GetHashCode() : 0);
+                return hashCode;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
@@ -10,60 +11,65 @@ namespace Zeebe.Client.Impl.Commands
 {
     internal class ActivateJobsCommand : IActivateJobsCommandStep1, IActivateJobsCommandStep2, IActivateJobsCommandStep3
     {
-        private readonly ActivateJobsRequest request;
         private readonly JobActivator activator;
+        public ActivateJobsRequest Request { get; }
 
         public ActivateJobsCommand(GatewayClient client)
         {
             activator = new JobActivator(client);
-            request = new ActivateJobsRequest();
+            Request = new ActivateJobsRequest();
         }
 
         public IActivateJobsCommandStep2 JobType(string jobType)
         {
-            request.Type = jobType;
+            Request.Type = jobType;
             return this;
         }
 
         public IActivateJobsCommandStep3 MaxJobsToActivate(int maxJobsToActivate)
         {
-            request.MaxJobsToActivate = maxJobsToActivate;
+            Request.MaxJobsToActivate = maxJobsToActivate;
             return this;
         }
 
         public IActivateJobsCommandStep3 FetchVariables(IList<string> fetchVariables)
         {
-            request.FetchVariable.AddRange(fetchVariables);
+            Request.FetchVariable.AddRange(fetchVariables);
             return this;
         }
 
         public IActivateJobsCommandStep3 FetchVariables(params string[] fetchVariables)
         {
-            request.FetchVariable.AddRange(fetchVariables);
+            Request.FetchVariable.AddRange(fetchVariables);
             return this;
         }
 
         public IActivateJobsCommandStep3 Timeout(TimeSpan timeout)
         {
-            request.Timeout = (long)timeout.TotalMilliseconds;
+            Request.Timeout = (long)timeout.TotalMilliseconds;
             return this;
         }
 
         public IActivateJobsCommandStep3 PollingTimeout(TimeSpan pollingTimeout)
         {
-            request.RequestTimeout = (long)pollingTimeout.TotalMilliseconds;
+            Request.RequestTimeout = (long)pollingTimeout.TotalMilliseconds;
             return this;
         }
 
         public IActivateJobsCommandStep3 WorkerName(string workerName)
         {
-            request.Worker = workerName;
+            Request.Worker = workerName;
             return this;
         }
 
         public async Task<IActivateJobsResponse> Send(TimeSpan? timeout = null)
         {
-            return await activator.SendActivateRequest(request, timeout?.FromUtcNow());
+            return await Send(timeout, null);
+        }
+
+        public async Task<IActivateJobsResponse> Send(TimeSpan? timeout, CancellationToken? cancelationToken)
+        {
+            return await activator.SendActivateRequest(Request, timeout?.FromUtcNow(), cancelationToken);
         }
     }
 }

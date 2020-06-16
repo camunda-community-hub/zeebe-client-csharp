@@ -13,6 +13,8 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+using System;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
@@ -28,8 +30,8 @@ namespace Zeebe.Client
         private IZeebeClient client;
 
         public Server Server => server;
-        public GatewayTestService TestService => testService;
-        public IZeebeClient ZeebeClient => client;
+        protected GatewayTestService TestService => testService;
+        protected IZeebeClient ZeebeClient => client;
 
         [SetUp]
         public void Init()
@@ -43,7 +45,11 @@ namespace Zeebe.Client
             server.Services.Add(serviceDefinition);
             server.Start();
 
-            client = Client.ZeebeClient.Builder().UseGatewayAddress("localhost:26500").UsePlainText().Build();
+            client = Client.ZeebeClient
+                .Builder()
+                .UseGatewayAddress("localhost:26500")
+                .UsePlainText()
+                .Build();
         }
 
         [TearDown]
@@ -51,9 +57,18 @@ namespace Zeebe.Client
         {
             client.Dispose();
             server.ShutdownAsync().Wait();
+            testService.Requests.Clear();
             testService = null;
             server = null;
             client = null;
+        }
+
+        public void AwaitRequestCount(Type type, int requestCount)
+        {
+            while (TestService.Requests[type].Count < requestCount)
+            {
+                Thread.Sleep(TimeSpan.FromMilliseconds(100));
+            }
         }
     }
 }

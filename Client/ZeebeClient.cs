@@ -87,7 +87,7 @@ namespace Zeebe.Client
 
         public IJobWorkerBuilderStep1 NewWorker()
         {
-            return new JobWorkerBuilder(gatewayClient, this, loggerFactory);
+            return new JobWorkerBuilder(this, loggerFactory);
         }
 
         public IActivateJobsCommandStep1 NewActivateJobsCommand()
