@@ -36,7 +36,7 @@ Fixes:
 
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" version="3.12.3" />
-    <PackageReference Include="Grpc" version="2.29.0" />
+    <PackageReference Include="Grpc" version="2.30.0" />
     <PackageReference Include="Grpc.Auth" Version="2.30.0" />
     <PackageReference Include="Grpc.Core" version="2.30.0" />
     <PackageReference Include="Grpc.Tools" version="2.29.0">
