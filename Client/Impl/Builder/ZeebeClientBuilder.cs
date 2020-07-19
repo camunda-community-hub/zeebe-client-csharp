@@ -100,6 +100,12 @@ namespace Zeebe.Client.Impl.Builder
             return this;
         }
 
+        public IZeebeClientFinalBuildStep UseCredentialsProvider(ICredentialsProvider credentialsProvider)
+        {
+            Credentials = ChannelCredentials.Create(Credentials, CallCredentials.FromInterceptor(FromCredentialsProvider(credentialsProvider)));
+            return this;
+        }
+
         public IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive)
         {
             this.keepAlive = keepAlive;
@@ -109,6 +115,14 @@ namespace Zeebe.Client.Impl.Builder
         public IZeebeClient Build()
         {
             return new ZeebeClient(Address, Credentials, keepAlive, loggerFactory);
+        }
+
+        private static AsyncAuthInterceptor FromCredentialsProvider(ICredentialsProvider credentialsProvider)
+        {
+            return new AsyncAuthInterceptor(async (context, metadata) =>
+            {
+                credentialsProvider.ApplyCredentials(context, metadata);
+            });
         }
     }
 }

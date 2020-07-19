@@ -58,7 +58,7 @@ namespace Zeebe.Client
 
             // then
             Assert.DoesNotThrow(() => zeebeClient.Dispose());
-        }
+        }        
 
         [Test]
         public async Task ShouldUseTransportEncryption()
@@ -175,6 +175,52 @@ namespace Zeebe.Client
         }
 
         [Test]
+        public async Task ShouldUseCredentialsProvider()
+        {
+            // given
+            GrpcEnvironment.SetLogger(new ConsoleLogger());
+
+            var keyCertificatePairs = new List<KeyCertificatePair>();
+            var serverCert = File.ReadAllText(ServerCertPath);
+            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
+            var channelCredentials = new SslServerCredentials(keyCertificatePairs);
+
+            var server = new Server();
+            server.Ports.Add(new ServerPort("127.0.0.1", 18891, channelCredentials));
+
+            Metadata sentMetadata = null;
+
+            var testService = new GatewayTestService();
+            testService.ConsumeRequestHeaders(metadata => sentMetadata = metadata);
+            var serviceDefinition = Gateway.BindService(testService);
+            server.Services.Add(serviceDefinition);
+            server.Start();
+
+            // client
+            var zeebeClient = ZeebeClient.Builder()
+                .UseGatewayAddress("127.0.0.1:18891")
+                .UseTransportEncryption(ClientCertPath)
+                .UseCredentialsProvider(new SimpleCredentialsProvider())
+                .Build();
+
+            // when
+            await zeebeClient.TopologyRequest().Send();
+            await zeebeClient.TopologyRequest().Send();
+            var topology = await zeebeClient.TopologyRequest().Send();
+
+            // then
+            Assert.NotNull(topology);
+
+            var auth = sentMetadata.Get("Authorization");
+            Assert.NotNull(auth);
+            Assert.IsTrue(auth.Value.Contains("Basic dXNlcjpwYXNzd29yZAo="));
+
+            var customValue = sentMetadata.Get("CustomHeader");
+            Assert.NotNull(customValue);
+            Assert.IsTrue(customValue.Value.Contains("CustomValue"));
+        }
+
+        [Test]
         public async Task ShouldUseAccessToken()
         {
             // given
@@ -244,6 +290,15 @@ namespace Zeebe.Client
             // then
             Assert.NotNull(topology);
             Assert.AreEqual(3, accessTokenSupplier.Count);
+        }
+
+        private class SimpleCredentialsProvider : ICredentialsProvider
+        {
+            public void ApplyCredentials(AuthInterceptorContext context, Metadata metadata)
+            {
+                metadata.Add("Authorization", "Basic dXNlcjpwYXNzd29yZAo=");
+                metadata.Add("CustomHeader", "CustomValue");
+            }
         }
 
         private class SimpleAccessTokenSupplier : IAccessTokenSupplier

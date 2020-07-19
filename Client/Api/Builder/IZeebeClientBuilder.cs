@@ -64,6 +64,13 @@ namespace Zeebe.Client.Api.Builder
         /// <param name="supplier">the access token supplier which is called to supplied the access token</param>
         /// <returns>the final client builder step</returns>
         IZeebeClientFinalBuildStep UseAccessTokenSupplier(IAccessTokenSupplier supplier);
+
+        /// <summary>
+        /// Client should use a credentials provider to add custom metadata to gRPC requests.
+        /// </summary>
+        /// <param name="credentialsProvider">the credentials provider that adds custom fields to the metadata</param>
+        /// <returns>the final client builder step</returns>
+        IZeebeClientFinalBuildStep UseCredentialsProvider(ICredentialsProvider credentialsProvider);
     }
 
     public interface IZeebeClientFinalBuildStep
