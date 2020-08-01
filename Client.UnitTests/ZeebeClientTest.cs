@@ -16,7 +16,7 @@ namespace Zeebe.Client
     public class ZeebeClientTest
     {
         private static readonly string ServerCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
-        private static readonly string ClientCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ca.cert.pem");
+        private static readonly string ClientCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
         private static readonly string ServerKeyPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "private.key.pem");
 
         private static readonly string WrongCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "server.crt");
