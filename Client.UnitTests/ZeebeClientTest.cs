@@ -207,11 +207,11 @@ namespace Zeebe.Client
             var topology = await zeebeClient.TopologyRequest().Send();
 
             // then
-            var auth = sentMetadata.Get("Authorization");
+            var auth = sentMetadata.Get("Authorization".ToLower());
             Assert.NotNull(auth);
             Assert.IsTrue(auth.Value.Contains("Basic dXNlcjpwYXNzd29yZAo="));
 
-            var customValue = sentMetadata.Get("CustomHeader");
+            var customValue = sentMetadata.Get("CustomHeader".ToLower());
             Assert.NotNull(customValue);
             Assert.IsTrue(customValue.Value.Contains("CustomValue"));
         }
