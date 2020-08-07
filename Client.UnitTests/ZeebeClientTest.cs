@@ -191,7 +191,7 @@ namespace Zeebe.Client
             Metadata sentMetadata = null;
 
             var testService = new GatewayTestService();
-            testService.ConsumeRequestHeaders(metadata => sentMetadata = metadata);
+            testService.ConsumeRequestHeaders(metadata => { sentMetadata = metadata; });
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
