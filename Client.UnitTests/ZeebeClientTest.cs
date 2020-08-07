@@ -204,9 +204,13 @@ namespace Zeebe.Client
                 .Build();
 
             // when
+            await zeebeClient.TopologyRequest().Send();
+            await zeebeClient.TopologyRequest().Send();
             var topology = await zeebeClient.TopologyRequest().Send();
 
             // then
+            Assert.NotNull(sentMetadata);
+
             var auth = sentMetadata.Get("Authorization".ToLower());
             Assert.NotNull(auth);
             Assert.IsTrue(auth.Value.Contains("Basic dXNlcjpwYXNzd29yZAo="));
