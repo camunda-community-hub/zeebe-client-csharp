@@ -130,14 +130,18 @@ namespace Zeebe.Client.Impl.Worker
                     notStartedJobs = workItems.Where(job => !job.IsRunning).ToList();
 
                     foreach (var job in notStartedJobs)
+                    {
                         job.IsRunning = true;
+                    }
                 }
 
                 if (notStartedJobs.Count > 0)
                 {
                     notStartedJobs.ForEach(job =>
                     {
-                        var task = HandleActivatedJob(cancellationToken, job);
+                        HandleActivatedJob(cancellationToken, job)
+                            .ContinueWith(t => logger?.LogError(t.Exception, "Job handling failed."),
+                                TaskContinuationOptions.OnlyOnFaulted);
                     });
                 }
                 else
