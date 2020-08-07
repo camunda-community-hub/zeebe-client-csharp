@@ -180,6 +180,8 @@ namespace Zeebe.Client
             // given
             GrpcEnvironment.SetLogger(new ConsoleLogger());
 
+            Metadata sentMetadata = null;
+
             var keyCertificatePairs = new List<KeyCertificatePair>();
             var serverCert = File.ReadAllText(ServerCertPath);
             keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
@@ -189,12 +191,10 @@ namespace Zeebe.Client
             server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
 
             var testService = new GatewayTestService();
+            testService.ConsumeRequestHeaders(metadata => { sentMetadata = metadata; });
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
-
-            Metadata sentMetadata = null;
-            testService.ConsumeRequestHeaders(metadata => { sentMetadata = metadata; });
 
             // client
             var zeebeClient = ZeebeClient.Builder()
