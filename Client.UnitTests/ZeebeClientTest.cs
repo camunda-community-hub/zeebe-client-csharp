@@ -186,7 +186,7 @@ namespace Zeebe.Client
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
-            server.Ports.Add(new ServerPort("127.0.0.1", 26505, channelCredentials));
+            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
 
             Metadata sentMetadata = null;
 
@@ -198,19 +198,15 @@ namespace Zeebe.Client
 
             // client
             var zeebeClient = ZeebeClient.Builder()
-                .UseGatewayAddress("127.0.0.1:26505")
+                .UseGatewayAddress("0.0.0.0:26505")
                 .UseTransportEncryption(ClientCertPath)
                 .UseCredentialsProvider(new SimpleCredentialsProvider())
                 .Build();
 
             // when
-            await zeebeClient.TopologyRequest().Send();
-            await zeebeClient.TopologyRequest().Send();
             var topology = await zeebeClient.TopologyRequest().Send();
 
             // then
-            Assert.NotNull(topology);
-
             var auth = sentMetadata.Get("Authorization");
             Assert.NotNull(auth);
             Assert.IsTrue(auth.Value.Contains("Basic dXNlcjpwYXNzd29yZAo="));
