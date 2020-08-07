@@ -139,9 +139,10 @@ namespace Zeebe.Client.Impl.Worker
                 {
                     notStartedJobs.ForEach(job =>
                     {
-                        HandleActivatedJob(cancellationToken, job)
-                            .ContinueWith(t => logger?.LogError(t.Exception, "Job handling failed."),
-                                TaskContinuationOptions.OnlyOnFaulted);
+                        var task = HandleActivatedJob(cancellationToken, job);
+
+                        task.ContinueWith(t => logger?.LogError(t.Exception, "Job handling failed."),
+                            TaskContinuationOptions.OnlyOnFaulted);
                     });
                 }
                 else

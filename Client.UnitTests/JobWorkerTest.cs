@@ -262,12 +262,12 @@ namespace Zeebe.Client
 
             // when
             var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
-            var receivedJobs = new List<IJob>();
+            var receivedJobs = new Dictionary<long, IJob>();
             using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler((jobClient, job) =>
                 {
-                    receivedJobs.Add(job);
+                    receivedJobs.Add(job.Key, job);
                     if (receivedJobs.Count == 3)
                     {
                         signal.Set();
@@ -290,9 +290,9 @@ namespace Zeebe.Client
 
             Assert.AreEqual(receivedJobs.Count, 3);
 
-            AssertJob(receivedJobs[0], 1);
-            AssertJob(receivedJobs[1], 2);
-            AssertJob(receivedJobs[2], 3);
+            AssertJob(receivedJobs[1], 1);
+            AssertJob(receivedJobs[2], 2);
+            AssertJob(receivedJobs[3], 3);
         }
 
         [Test]
@@ -312,12 +312,12 @@ namespace Zeebe.Client
 
             // when
             var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
-            var receivedJobs = new List<IJob>();
+            var receivedJobs = new Dictionary<long, IJob>();
             using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler((jobClient, job) =>
                 {
-                    receivedJobs.Add(job);
+                    receivedJobs.Add(job.Key, job);
                     if (receivedJobs.Count == 3)
                     {
                         signal.Set();
@@ -340,9 +340,9 @@ namespace Zeebe.Client
 
             Assert.AreEqual(receivedJobs.Count, 3);
 
-            AssertJob(receivedJobs[0], 1);
-            AssertJob(receivedJobs[1], 2);
-            AssertJob(receivedJobs[2], 3);
+            AssertJob(receivedJobs[1], 1);
+            AssertJob(receivedJobs[2], 2);
+            AssertJob(receivedJobs[3], 3);
         }
 
         [Test]
@@ -362,12 +362,12 @@ namespace Zeebe.Client
 
             // when
             var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
-            var receivedJobs = new List<IJob>();
+            var receivedJobs = new Dictionary<long, IJob>();
             using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler((jobClient, job) =>
                 {
-                    receivedJobs.Add(job);
+                    receivedJobs.Add(job.Key, job);
                     if (receivedJobs.Count == 3)
                     {
                         signal.Set();
@@ -390,9 +390,9 @@ namespace Zeebe.Client
 
             Assert.AreEqual(receivedJobs.Count, 3);
 
-            AssertJob(receivedJobs[0], 1);
-            AssertJob(receivedJobs[1], 2);
-            AssertJob(receivedJobs[2], 3);
+            AssertJob(receivedJobs[1], 1);
+            AssertJob(receivedJobs[2], 2);
+            AssertJob(receivedJobs[3], 3);
         }
 
         [Test]
