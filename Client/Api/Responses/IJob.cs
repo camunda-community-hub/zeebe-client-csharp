@@ -25,6 +25,9 @@ namespace Zeebe.Client.Api.Responses
         /// <returns> The type of the job </returns>
         string Type { get; }
 
+        /// <returns> True if the job is running </returns>
+        bool IsRunning { get; set; }
+
         /// <returns> Key of the workflow instance </summary>
         long WorkflowInstanceKey { get; }
 

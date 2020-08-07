@@ -15,6 +15,8 @@
 
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
@@ -33,7 +35,7 @@ namespace Zeebe.Client.Impl.Worker
             "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
 
         private readonly int maxJobsActive;
-        private readonly ConcurrentQueue<IJob> workItems = new ConcurrentQueue<IJob>();
+        private readonly List<IJob> workItems = new List<IJob>();
 
         private readonly ActivateJobsRequest activeRequest;
         private readonly JobActivator activator;
@@ -106,7 +108,7 @@ namespace Zeebe.Client.Impl.Worker
                     t => logger?.LogError(t.Exception, "Job polling failed."),
                     TaskContinuationOptions.OnlyOnFaulted);
 
-            Task.Run(async () => await HandleActivatedJobs(cancellationToken), cancellationToken)
+            Task.Run(() => HandleActivatedJobs(cancellationToken), cancellationToken)
                 .ContinueWith(
                     t => logger?.LogError(t.Exception, "Job handling failed."),
                     TaskContinuationOptions.OnlyOnFaulted);
@@ -117,22 +119,26 @@ namespace Zeebe.Client.Impl.Worker
                 activeRequest.Type);
         }
 
-        private async Task HandleActivatedJobs(CancellationToken cancellationToken)
+        private void HandleActivatedJobs(CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                if (!workItems.IsEmpty)
-                {
-                    bool success = workItems.TryDequeue(out IJob activatedJob);
+                var notStartedJobs = default(List<IJob>);
 
-                    if (success)
+                lock (workItems)
+                {
+                    notStartedJobs = workItems.Where(job => !job.IsRunning).ToList();
+
+                    foreach (var job in notStartedJobs)
+                        job.IsRunning = true;
+                }
+
+                if (notStartedJobs.Count > 0)
+                {
+                    notStartedJobs.ForEach(job =>
                     {
-                        await HandleActivatedJob(cancellationToken, activatedJob);
-                    }
-                    else
-                    {
-                        pollSignal.Set();
-                    }
+                        var task = HandleActivatedJob(cancellationToken, job);
+                    });
                 }
                 else
                 {
@@ -155,6 +161,13 @@ namespace Zeebe.Client.Impl.Worker
             finally
             {
                 jobClient.Reset();
+
+                lock (workItems)
+                {
+                    workItems.Remove(activatedJob);
+                }
+
+                pollSignal.Set();
             }
         }
 
@@ -198,11 +211,18 @@ namespace Zeebe.Client.Impl.Worker
         {
             while (!cancellationToken.IsCancellationRequested)
             {
-                if (workItems.Count < maxJobsActive)
+                int jobsToPoll = 0;
+
+                lock (workItems)
+                {
+                    jobsToPoll = maxJobsActive - workItems.Count;
+                }
+
+                if (jobsToPoll > 0)
                 {
                     try
                     {
-                        await PollJobs(cancellationToken);
+                        await PollJobs(jobsToPoll, cancellationToken);
                     }
                     catch (RpcException rpcException)
                     {
@@ -226,21 +246,28 @@ namespace Zeebe.Client.Impl.Worker
             }
         }
 
-        private async Task PollJobs(CancellationToken cancellationToken)
+        private async Task PollJobs(int jobsToPoll, CancellationToken cancellationToken)
         {
-            var jobCount = maxJobsActive - workItems.Count;
-            activeRequest.MaxJobsToActivate = jobCount;
+            activeRequest.MaxJobsToActivate = jobsToPoll;
+
+            logger?.LogInformation("Job worker ({worker}) polls {maxJobsActive} jobs.",
+                activeRequest.Worker,
+                activeRequest.MaxJobsToActivate);
 
             var response = await activator.SendActivateRequest(activeRequest, null, cancellationToken);
 
-            logger?.LogDebug(
+            logger?.LogInformation(
                 "Job worker ({worker}) activated {activatedCount} of {requestCount} successfully.",
                 activeRequest.Worker,
                 response.Jobs.Count,
-                jobCount);
-            foreach (var job in response.Jobs)
+                jobsToPoll);
+
+            lock (workItems)
             {
-                workItems.Enqueue(job);
+                foreach (var job in response.Jobs)
+                {
+                    workItems.Add(job);
+                }
             }
 
             handleSignal.Set();

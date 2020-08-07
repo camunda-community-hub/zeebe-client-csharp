@@ -47,6 +47,8 @@ namespace Zeebe.Client.Impl.Responses
         public long Key { get; }
 
         public string Type { get; }
+        
+        public bool IsRunning { get; set; }
 
         public long WorkflowInstanceKey { get; }
 
