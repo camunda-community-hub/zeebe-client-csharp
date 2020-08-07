@@ -188,13 +188,13 @@ namespace Zeebe.Client
             var server = new Server();
             server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
 
-            Metadata sentMetadata = null;
-
             var testService = new GatewayTestService();
-            testService.ConsumeRequestHeaders(metadata => { sentMetadata = metadata; });
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
+
+            Metadata sentMetadata = null;
+            testService.ConsumeRequestHeaders(metadata => { sentMetadata = metadata; });
 
             // client
             var zeebeClient = ZeebeClient.Builder()
