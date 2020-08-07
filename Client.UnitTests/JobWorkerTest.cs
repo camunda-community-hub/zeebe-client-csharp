@@ -46,12 +46,12 @@ namespace Zeebe.Client
 
             // when
             var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
-            var receivedJobs = new List<IJob>();
+            var receivedJobs = new Dictionary<long, IJob>();
             using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler((jobClient, job) =>
                 {
-                    receivedJobs.Add(job);
+                    receivedJobs.Add(job.Key, job);
                     if (receivedJobs.Count == 3)
                     {
                         signal.Set();
@@ -74,9 +74,9 @@ namespace Zeebe.Client
 
             Assert.AreEqual(receivedJobs.Count, 3);
 
-            AssertJob(receivedJobs[0], 1);
-            AssertJob(receivedJobs[1], 2);
-            AssertJob(receivedJobs[2], 3);
+            AssertJob(receivedJobs[1], 1);
+            AssertJob(receivedJobs[2], 2);
+            AssertJob(receivedJobs[3], 3);
         }
 
         [Test]
@@ -96,13 +96,13 @@ namespace Zeebe.Client
 
             // when
             var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
-            var completedJobs = new List<IJob>();
+            var completedJobs = new Dictionary<long, IJob>();
             using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler(async (jobClient, job) =>
                 {
                     await jobClient.NewCompleteJobCommand(job).Send();
-                    completedJobs.Add(job);
+                    completedJobs.Add(job.Key, job);
                     if (completedJobs.Count == 3)
                     {
                         signal.Set();
@@ -126,9 +126,9 @@ namespace Zeebe.Client
             var completeRequests = TestService.Requests[typeof(CompleteJobRequest)];
             Assert.GreaterOrEqual(completeRequests.Count, 3);
             Assert.GreaterOrEqual(completedJobs.Count, 3);
-            AssertJob(completedJobs[0], 1);
-            AssertJob(completedJobs[1], 2);
-            AssertJob(completedJobs[2], 3);
+            AssertJob(completedJobs[1], 1);
+            AssertJob(completedJobs[2], 2);
+            AssertJob(completedJobs[3], 3);
         }
 
         [Test]
@@ -148,13 +148,13 @@ namespace Zeebe.Client
 
             // when
             var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
-            var completedJobs = new List<IJob>();
+            var completedJobs = new Dictionary<long, IJob>();
             using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler((jobClient, job) =>
                 {
                     jobClient.NewCompleteJobCommand(job).Send();
-                    completedJobs.Add(job);
+                    completedJobs.Add(job.Key, job);
                     if (completedJobs.Count == 3)
                     {
                         signal.Set();
@@ -184,9 +184,9 @@ namespace Zeebe.Client
 
             Assert.GreaterOrEqual(completeRequests.Count, 3);
             Assert.GreaterOrEqual(completedJobs.Count, 3);
-            AssertJob(completedJobs[0], 1);
-            AssertJob(completedJobs[1], 2);
-            AssertJob(completedJobs[2], 3);
+            AssertJob(completedJobs[1], 1);
+            AssertJob(completedJobs[2], 2);
+            AssertJob(completedJobs[3], 3);
         }
 
         [Test]
@@ -205,8 +205,7 @@ namespace Zeebe.Client
             var expectedSecondRequest = new ActivateJobsRequest
             {
                 Timeout = 123_000L,
-                MaxJobsToActivate = 2, // first response contains 3 jobs and one is handled (blocking) so 2 jobs remain in queue
-                            // so we can try to activate 2 new jobs
+                MaxJobsToActivate = 1, // first response contains 3 jobs and all are handled - even if they are blocking!, so one is remaining
                 Type = "foo",
                 Worker = "jobWorker",
                 RequestTimeout = 5_000L
@@ -215,7 +214,6 @@ namespace Zeebe.Client
             TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
 
             // when
-            var receivedJobs = new List<IJob>();
             using (var jobWorker = ZeebeClient.NewWorker()
                 .JobType("foo")
                 .Handler((jobClient, job) =>
