@@ -190,8 +190,7 @@ namespace Zeebe.Client
             var server = new Server();
             server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
 
-            var testService = new GatewayTestService();
-            testService.ConsumeRequestHeaders(metadata => { sentMetadata = metadata; });
+            var testService = new GatewayTestService();            
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
@@ -202,6 +201,8 @@ namespace Zeebe.Client
                 .UseTransportEncryption(ClientCertPath)
                 .UseCredentialsProvider(new SimpleCredentialsProvider())
                 .Build();
+
+            testService.ConsumeRequestHeaders(metadata => { sentMetadata = metadata; });
 
             // when
             await zeebeClient.TopologyRequest().Send();
