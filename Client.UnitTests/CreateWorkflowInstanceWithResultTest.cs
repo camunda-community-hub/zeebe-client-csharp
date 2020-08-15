@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
 using NUnit.Framework;
+using Type = Google.Protobuf.WellKnownTypes.Type;
 
 namespace Zeebe.Client
 {
@@ -21,7 +23,8 @@ namespace Zeebe.Client
                 {
                     BpmnProcessId = "process",
                     Version = -1
-                }
+                },
+                RequestTimeout = 20 * 1000
             };
 
             // when
@@ -40,6 +43,12 @@ namespace Zeebe.Client
         public void ShouldTimeoutRequest()
         {
             // given
+            TestService.AddRequestHandler(typeof(CreateWorkflowInstanceWithResultRequest),
+                request =>
+                {
+                    new EventWaitHandle(false, EventResetMode.AutoReset).WaitOne();
+                    return null;
+                });
 
             // when
             var task = ZeebeClient.NewCreateWorkflowInstanceCommand()
@@ -47,7 +56,7 @@ namespace Zeebe.Client
                 .LatestVersion()
                 .WithResult()
                 .Send(TimeSpan.Zero);
-            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait(TimeSpan.FromSeconds(15)));
             var rpcException = (RpcException) aggregateException.InnerExceptions[0];
 
             // then
@@ -64,7 +73,8 @@ namespace Zeebe.Client
                 {
                     BpmnProcessId = "process",
                     Version = 1
-                }
+                },
+                RequestTimeout = 20 * 1000
             };
 
             // when
@@ -88,7 +98,8 @@ namespace Zeebe.Client
                 Request = new CreateWorkflowInstanceRequest
                 {
                     WorkflowKey = 1
-                }
+                },
+                RequestTimeout = 20 * 1000
             };
 
             // when
@@ -96,6 +107,30 @@ namespace Zeebe.Client
                 .WorkflowKey(1)
                 .WithResult()
                 .Send();
+
+            // then
+            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
+            Assert.AreEqual(expectedRequest, request);
+        }
+
+        [Test]
+        public async Task ShouldSendRequestWithRequestTimeoutAsExpected()
+        {
+            // given
+            var expectedRequest = new CreateWorkflowInstanceWithResultRequest
+            {
+                Request = new CreateWorkflowInstanceRequest
+                {
+                    WorkflowKey = 1
+                },
+                RequestTimeout = 123 * 1000
+            };
+
+            // when
+            await ZeebeClient.NewCreateWorkflowInstanceCommand()
+                .WorkflowKey(1)
+                .WithResult()
+                .Send(TimeSpan.FromSeconds(123));
 
             // then
             var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
@@ -112,7 +147,8 @@ namespace Zeebe.Client
                 {
                     WorkflowKey = 1,
                     Variables = "{\"foo\":1}"
-                }
+                },
+                RequestTimeout = 20 * 1000
             };
 
             // when
@@ -138,7 +174,8 @@ namespace Zeebe.Client
                     BpmnProcessId = "process",
                     Version = -1,
                     Variables = "{\"foo\":1}"
-                }
+                },
+                RequestTimeout = 20 * 1000
             };
 
             // when
@@ -166,6 +203,7 @@ namespace Zeebe.Client
                     Version = -1,
                     Variables = "{\"foo\":1}"
                 },
+                RequestTimeout = 20 * 1000,
                 FetchVariables = { "foo", "bar" }
             };
 
@@ -195,6 +233,7 @@ namespace Zeebe.Client
                     Version = -1,
                     Variables = "{\"foo\":1}"
                 },
+                RequestTimeout = 20 * 1000,
                 FetchVariables = { "foo", "bar" }
             };
 
