@@ -11,6 +11,9 @@ namespace Zeebe.Client.Impl.Commands
     /// <inheritdoc />
     public class CreateWorkflowInstanceCommandWithResult : ICreateWorkflowInstanceWithResultCommandStep1
     {
+        private static readonly long DefaultGatewayBrokerTimeoutMillisecond = 20 * 1000;
+        private static readonly long DefaultTimeoutAdditionMillisecond = 10 * 1000;
+
         private readonly CreateWorkflowInstanceWithResultRequest createWithResultRequest;
         private readonly Gateway.GatewayClient client;
 
@@ -37,7 +40,14 @@ namespace Zeebe.Client.Impl.Commands
         /// <inheritdoc/>
         public async Task<IWorkflowInstanceResult> Send(TimeSpan? timeout = null)
         {
-            var asyncReply = client.CreateWorkflowInstanceWithResultAsync(createWithResultRequest, deadline: timeout?.FromUtcNow());
+            // this timeout will be used for the Gateway-Broker communication
+            createWithResultRequest.RequestTimeout = (long)(timeout?.TotalMilliseconds ?? DefaultGatewayBrokerTimeoutMillisecond);
+
+            // this is the timeout between client and gateway
+            var clientDeadline = TimeSpan.FromMilliseconds(createWithResultRequest.RequestTimeout +
+                                                           DefaultTimeoutAdditionMillisecond).FromUtcNow();
+
+            var asyncReply = client.CreateWorkflowInstanceWithResultAsync(createWithResultRequest, deadline: clientDeadline);
             var response = await asyncReply.ResponseAsync;
             return new WorkflowInstanceResultResponse(response);
         }
