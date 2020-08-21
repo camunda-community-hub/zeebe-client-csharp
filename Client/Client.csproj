@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.16.1</Version>
+    <Version>0.17.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,13 +13,22 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>0.16.1</AssemblyVersion>
-    <FileVersion>0.16.1</FileVersion>
+    <AssemblyVersion>0.17.0</AssemblyVersion>
+    <FileVersion>0.17.0</FileVersion>
     <PackageReleaseNotes>
 Fixes:
-  * closes handler thread correctly 
 
- This release is based on the Zeebe 0.23.X release (https://github.com/zeebe-io/zeebe).
+  * Fixed some concurrency issues in activating and job handling, which caused that either for a longer time no jobs are polled or not handled or polled to fast. Poll interval are now respected better.
+  * Set request timeout for worklfow instance with result correctly
+
+Misc:
+
+  Job worker rewrite:
+
+  * The worker now allows to handle jobs concurrently. Via a new configuration `HandlerThreads` you can set the thread count, which are used to handle activated jobs. Make sure your given Handler implementation is thread-safe. Per default the HandlerThread is set to 1, to be backwards compatible.
+  * Introducing an threshold activation mechanism, which means that new jobs are only activated after the working queue reaches a threshold of 0.6.
+
+This release is based on the Zeebe 0.24.X release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -29,9 +38,9 @@ Fixes:
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>0.16.1</PackageVersion>
+    <PackageVersion>0.17.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>0.16.1</Title>
+    <Title>0.17.0</Title>
   </PropertyGroup>
 
   <ItemGroup>
