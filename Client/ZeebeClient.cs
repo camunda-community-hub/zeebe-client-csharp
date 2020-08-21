@@ -78,7 +78,7 @@ namespace Zeebe.Client
             // GRPC_ARG_KEEPALIVE_TIME_MS
             // This channel argument controls the period (in milliseconds) after which a keepalive ping is sent on the transport.
             var actualKeepAlive = keepAlive.GetValueOrDefault(DefaultKeepAlive);
-            channelOptions.Add(new ChannelOption("grpc.keepalive_time_ms", actualKeepAlive.TotalMilliseconds.ToString()));
+            channelOptions.Add(new ChannelOption("grpc.keepalive_time_ms", (int) actualKeepAlive.TotalMilliseconds));
         }
 
         ////////////////////////////////////////////////////////////////////////
