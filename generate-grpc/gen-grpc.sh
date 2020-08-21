@@ -2,9 +2,9 @@
 set -euxo pipefail
 
 os=linux_x64
-grpcVersion=2.28.1
+grpcVersion=2.31.0
 packagePath=~/.nuget/packages/grpc.tools/${grpcVersion}/tools/${os}/
-zeebeVersion='0.23.0'
+zeebeVersion='0.24.0'
 protoFile=gateway.proto
 gwProtoPath=./
 genPath=Client/Impl/proto
@@ -19,7 +19,7 @@ cd ../
 
 # restore packages
 echo -e "nuget restore Zeebe.sln\n"
-nuget restore Zeebe.sln
+dotnet restore Zeebe.sln
 
 # get gatway proto file
 echo -e "curl -X GET https://raw.githubusercontent.com/zeebe-io/zeebe/${zeebeVersion}/gateway-protocol/src/main/proto/gateway.proto > ${protoFile}\n"

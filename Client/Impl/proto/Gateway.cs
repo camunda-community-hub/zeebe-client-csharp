@@ -232,7 +232,7 @@ namespace GatewayProtocol {
     private long timeout_;
     /// <summary>
     /// a job returned after this call will not be activated by another call until the
-    /// timeout has been reached
+    /// timeout (in ms) has been reached
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Timeout {
@@ -274,7 +274,7 @@ namespace GatewayProtocol {
     public const int RequestTimeoutFieldNumber = 6;
     private long requestTimeout_;
     /// <summary>
-    /// The request will be completed when at least one job is activated or after the requestTimeout.
+    /// The request will be completed when at least one job is activated or after the requestTimeout (in ms).
     /// if the requestTimeout = 0, a default timeout is used.
     /// if the requestTimeout &lt; 0, long polling is disabled and the request is completed immediately, even when no job is activated.
     /// </summary>
@@ -2080,7 +2080,7 @@ namespace GatewayProtocol {
     public const int RequestTimeoutFieldNumber = 2;
     private long requestTimeout_;
     /// <summary>
-    /// timeout in milliseconds. the request will be closed if the workflow is not completed
+    /// timeout (in ms). the request will be closed if the workflow is not completed
     /// before the requestTimeout.
     /// if requestTimeout = 0, uses the generic requestTimeout configured in the gateway.
     /// </summary>
