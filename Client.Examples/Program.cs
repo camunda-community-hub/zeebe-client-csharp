@@ -26,12 +26,9 @@ namespace Client.Examples
 {
     internal class Program
     {
-        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
         private static readonly string ZeebeUrl = "0.0.0.0:26500";
-        private static readonly string WorkflowInstanceVariables = "{\"a\":\"123\"}";
-        private static readonly string JobType = "payment-service";
+        private static readonly string JobType = "benchmark-task";
         private static readonly string WorkerName = Environment.MachineName;
-        private static readonly long WorkCount = 100L;
 
         public static async Task Main(string[] args)
         {
@@ -45,36 +42,6 @@ namespace Client.Examples
             var topology = await client.TopologyRequest()
                 .Send();
             Console.WriteLine(topology);
-            await client.NewPublishMessageCommand()
-                .MessageName("csharp")
-                .CorrelationKey("wow")
-                .Variables("{\"realValue\":2}")
-                .Send();
-
-            // deploy
-            var deployResponse = await client.NewDeployCommand()
-                .AddResourceFile(DemoProcessPath)
-                .Send();
-
-            // create workflow instance
-            var workflowKey = deployResponse.Workflows[0].WorkflowKey;
-
-            var workflowInstance = await client
-                .NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(workflowKey)
-                .Variables(WorkflowInstanceVariables)
-                .Send();
-
-            await client.NewSetVariablesCommand(workflowInstance.WorkflowInstanceKey).Variables("{\"wow\":\"this\"}").Local().Send();
-
-            for (var i = 0; i < WorkCount; i++)
-            {
-                await client
-                    .NewCreateWorkflowInstanceCommand()
-                    .WorkflowKey(workflowKey)
-                    .Variables(WorkflowInstanceVariables)
-                    .Send();
-            }
 
             // open job worker
             using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
@@ -82,7 +49,7 @@ namespace Client.Examples
                 client.NewWorker()
                       .JobType(JobType)
                       .Handler(HandleJob)
-                      .MaxJobsActive(5)
+                      .MaxJobsActive(120)
                       .Name(WorkerName)
                       .AutoCompletion()
                       .PollInterval(TimeSpan.FromSeconds(1))
@@ -98,29 +65,13 @@ namespace Client.Examples
         {
             // business logic
             var jobKey = job.Key;
-            Console.WriteLine("Handling job: " + job);
+            Console.WriteLine("Handling job: " + job.Key);
 
-            if (jobKey % 3 == 0)
-            {
-                jobClient.NewCompleteJobCommand(jobKey)
+            jobClient.NewCompleteJobCommand(jobKey)
                     .Variables("{\"foo\":2}")
                     .Send()
                     .GetAwaiter()
                     .GetResult();
-            }
-            else if (jobKey % 2 == 0)
-            {
-                jobClient.NewFailCommand(jobKey)
-                    .Retries(job.Retries - 1)
-                    .ErrorMessage("Example fail")
-                    .Send()
-                    .GetAwaiter()
-                    .GetResult();
-            }
-            else
-            {
-                // auto completion
-            }
         }
     }
 }
