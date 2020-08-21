@@ -20,7 +20,6 @@ using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Worker;
 using Zeebe.Client.Impl.Commands;
@@ -29,45 +28,28 @@ namespace Zeebe.Client.Impl.Worker
 {
     public class JobWorker : IJobWorker
     {
-        private const string JobFailMessage =
-            "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
-
-        private readonly int maxJobsActive;
         private readonly ConcurrentQueue<IJob> workItems = new ConcurrentQueue<IJob>();
-
-        private readonly ActivateJobsRequest activeRequest;
-        private readonly JobActivator activator;
-        private readonly AsyncJobHandler jobHandler;
-        private readonly JobClientWrapper jobClient;
-        private readonly bool autoCompletion;
-        private readonly TimeSpan pollInterval;
         private readonly CancellationTokenSource source;
-
-        private readonly EventWaitHandle handleSignal = new EventWaitHandle(false, EventResetMode.AutoReset);
-        private readonly EventWaitHandle pollSignal = new EventWaitHandle(false, EventResetMode.AutoReset);
         private readonly ILogger<JobWorker> logger;
+        private readonly JobWorkerBuilder jobWorkerBuilder;
+
         private volatile bool isRunning;
 
         internal JobWorker(JobWorkerBuilder builder)
         {
-            source = new CancellationTokenSource();
-            activator = new JobActivator(builder.Client);
-            activeRequest = builder.Request;
-            maxJobsActive = activeRequest.MaxJobsToActivate;
-            pollInterval = builder.PollInterval();
-            jobClient = JobClientWrapper.Wrap(builder.JobClient);
-            jobHandler = builder.Handler();
-            autoCompletion = builder.AutoCompletionEnabled();
-            logger = builder.LoggerFactory?.CreateLogger<JobWorker>();
+            this.jobWorkerBuilder = builder;
+            this.source = new CancellationTokenSource();
+            this.logger = builder.LoggerFactory?.CreateLogger<JobWorker>();
         }
 
         /// <inheritdoc/>
         public void Dispose()
         {
             source.Cancel();
+            var pollInterval = jobWorkerBuilder.PollInterval();
             // delay disposing, since poll and handler take some time to close
             Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
-                .ContinueWith((t) =>
+                .ContinueWith(t =>
                 {
                     logger?.LogError("Dispose source");
                     source.Dispose();
@@ -95,201 +77,44 @@ namespace Zeebe.Client.Impl.Worker
         {
             isRunning = true;
             var cancellationToken = source.Token;
+            var jobWorkerSignal = new JobWorkerSignal();
 
+            StartPollerThread(jobWorkerSignal, cancellationToken);
+            StartHandlerThreads(jobWorkerSignal, cancellationToken);
+
+            var command = jobWorkerBuilder.Command;
+            logger?.LogDebug(
+                "Job worker ({worker}) for job type {type} has been opened.",
+                command.Request.Worker,
+                command.Request.Type);
+        }
+
+        private void StartPollerThread(JobWorkerSignal jobWorkerSignal, CancellationToken cancellationToken)
+        {
+            var poller = new JobPoller(jobWorkerBuilder, workItems, jobWorkerSignal);
             Task.Run(
                     async () =>
-                        await Poll(cancellationToken)
+                        await poller.Poll(cancellationToken)
                             .ContinueWith(
                                 t => logger?.LogError(t.Exception, "Job polling failed."),
                                 TaskContinuationOptions.OnlyOnFaulted), cancellationToken)
                 .ContinueWith(
                     t => logger?.LogError(t.Exception, "Job polling failed."),
                     TaskContinuationOptions.OnlyOnFaulted);
-
-            Task.Run(async () => await HandleActivatedJobs(cancellationToken), cancellationToken)
-                .ContinueWith(
-                    t => logger?.LogError(t.Exception, "Job handling failed."),
-                    TaskContinuationOptions.OnlyOnFaulted);
-
-            logger?.LogDebug(
-                "Job worker ({worker}) for job type {type} has been opened.",
-                activeRequest.Worker,
-                activeRequest.Type);
         }
 
-        private async Task HandleActivatedJobs(CancellationToken cancellationToken)
+        private void StartHandlerThreads(JobWorkerSignal jobWorkerSignal, CancellationToken cancellationToken)
         {
-            while (!cancellationToken.IsCancellationRequested)
+            var threadCount = jobWorkerBuilder.ThreadCount;
+            for (var i = 0; i < threadCount; i++)
             {
-                if (!workItems.IsEmpty)
-                {
-                    bool success = workItems.TryDequeue(out IJob activatedJob);
+                logger?.LogDebug("Start handler {index} thread", i);
 
-                    if (success)
-                    {
-                        await HandleActivatedJob(cancellationToken, activatedJob);
-                    }
-                    else
-                    {
-                        pollSignal.Set();
-                    }
-                }
-                else
-                {
-                    handleSignal.WaitOne(pollInterval);
-                }
-            }
-        }
-
-        private async Task HandleActivatedJob(CancellationToken cancellationToken, IJob activatedJob)
-        {
-            try
-            {
-                await jobHandler(jobClient, activatedJob);
-                await TryToAutoCompleteJob(activatedJob);
-            }
-            catch (Exception exception)
-            {
-                await FailActivatedJob(activatedJob, cancellationToken, exception);
-            }
-            finally
-            {
-                jobClient.Reset();
-            }
-        }
-
-        private async Task TryToAutoCompleteJob(IJob activatedJob)
-        {
-            if (!jobClient.ClientWasUsed && autoCompletion)
-            {
-                logger?.LogDebug(
-                    "Job worker ({worker}) will auto complete job with key '{key}'",
-                    activeRequest.Worker,
-                    activatedJob.Key);
-                await jobClient.NewCompleteJobCommand(activatedJob)
-                    .Send();
-            }
-        }
-
-        private Task FailActivatedJob(IJob activatedJob, CancellationToken cancellationToken, Exception exception)
-        {
-            var errorMessage = string.Format(
-                JobFailMessage,
-                activatedJob.Worker,
-                activatedJob.Type,
-                exception.Message);
-            logger?.LogError(exception, errorMessage);
-
-            return jobClient.NewFailCommand(activatedJob.Key)
-                .Retries(activatedJob.Retries - 1)
-                .ErrorMessage(errorMessage)
-                .Send()
-                .ContinueWith(
-                    task =>
-                    {
-                        if (task.IsFaulted)
-                        {
-                            logger?.LogError("Problem on failing job occured.", task.Exception);
-                        }
-                    }, cancellationToken);
-        }
-
-        private async Task Poll(CancellationToken cancellationToken)
-        {
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                if (workItems.Count < maxJobsActive)
-                {
-                    try
-                    {
-                        await PollJobs(cancellationToken);
-                    }
-                    catch (RpcException rpcException)
-                    {
-                        LogLevel logLevel;
-                        switch (rpcException.StatusCode)
-                        {
-                            case StatusCode.DeadlineExceeded:
-                            case StatusCode.Cancelled:
-                                logLevel = LogLevel.Debug;
-                                break;
-                            default:
-                                logLevel = LogLevel.Error;
-                                break;
-                        }
-
-                        logger?.Log(logLevel, rpcException, "Unexpected RpcException on polling new jobs.");
-                    }
-                }
-
-                pollSignal.WaitOne(pollInterval);
-            }
-        }
-
-        private async Task PollJobs(CancellationToken cancellationToken)
-        {
-            var jobCount = maxJobsActive - workItems.Count;
-            activeRequest.MaxJobsToActivate = jobCount;
-
-            var response = await activator.SendActivateRequest(activeRequest, null, cancellationToken);
-
-            logger?.LogDebug(
-                "Job worker ({worker}) activated {activatedCount} of {requestCount} successfully.",
-                activeRequest.Worker,
-                response.Jobs.Count,
-                jobCount);
-            foreach (var job in response.Jobs)
-            {
-                workItems.Enqueue(job);
-            }
-
-            handleSignal.Set();
-        }
-
-        private class JobClientWrapper : IJobClient
-        {
-            public static JobClientWrapper Wrap(IJobClient client)
-            {
-                return new JobClientWrapper(client);
-            }
-
-            public bool ClientWasUsed { get; private set; }
-
-            private IJobClient Client { get; }
-
-            private JobClientWrapper(IJobClient client)
-            {
-                Client = client;
-                ClientWasUsed = false;
-            }
-
-            public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
-            {
-                ClientWasUsed = true;
-                return Client.NewCompleteJobCommand(jobKey);
-            }
-
-            public IFailJobCommandStep1 NewFailCommand(long jobKey)
-            {
-                ClientWasUsed = true;
-                return Client.NewFailCommand(jobKey);
-            }
-
-            public IThrowErrorCommandStep1 NewThrowErrorCommand(long jobKey)
-            {
-                ClientWasUsed = true;
-                return Client.NewThrowErrorCommand(jobKey);
-            }
-
-            public void Reset()
-            {
-                ClientWasUsed = false;
-            }
-
-            public ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob)
-            {
-                ClientWasUsed = true;
-                return Client.NewCompleteJobCommand(activatedJob);
+                var jobHandlerExecutor = new JobHandlerExecutor(jobWorkerBuilder, workItems, jobWorkerSignal);
+                Task.Run(async () => await jobHandlerExecutor.HandleActivatedJobs(cancellationToken), cancellationToken)
+                    .ContinueWith(
+                        t => logger?.LogError(t.Exception, "Job handling failed."),
+                        TaskContinuationOptions.OnlyOnFaulted);
             }
         }
     }
