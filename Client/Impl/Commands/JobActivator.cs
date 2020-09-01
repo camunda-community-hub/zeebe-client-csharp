@@ -18,13 +18,13 @@ namespace Zeebe.Client.Impl.Commands
             this.client = client;
         }
 
-        public async Task<IActivateJobsResponse> SendActivateRequest(ActivateJobsRequest request, DateTime? requestTimeout = null, CancellationToken? cancelationToken = null)
+        public async Task<IActivateJobsResponse> SendActivateRequest(ActivateJobsRequest request, DateTime? requestTimeout = null, CancellationToken? cancellationToken = null)
         {
             DateTime activateRequestTimeout = requestTimeout ?? CalculateRequestTimeout(request);
             using (var stream = client.ActivateJobs(request, deadline: activateRequestTimeout))
             {
                 var responseStream = stream.ResponseStream;
-                if (await MoveNext(responseStream, cancelationToken))
+                if (await MoveNext(responseStream, cancellationToken))
                 {
                     var response = responseStream.Current;
                     return new ActivateJobsResponses(response);

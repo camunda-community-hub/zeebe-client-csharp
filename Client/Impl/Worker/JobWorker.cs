@@ -92,12 +92,14 @@ namespace Zeebe.Client.Impl.Worker
         private void StartPollerThread(JobWorkerSignal jobWorkerSignal, CancellationToken cancellationToken)
         {
             var poller = new JobPoller(jobWorkerBuilder, workItems, jobWorkerSignal);
-            Task.Run(
-                    async () =>
-                        await poller.Poll(cancellationToken)
-                            .ContinueWith(
-                                t => logger?.LogError(t.Exception, "Job polling failed."),
-                                TaskContinuationOptions.OnlyOnFaulted), cancellationToken)
+
+            Task.Factory.StartNew(async delegate
+                {
+                    await poller.Poll(cancellationToken)
+                        .ContinueWith(
+                            t => logger?.LogError(t.Exception, "Job polling failed."),
+                            TaskContinuationOptions.OnlyOnFaulted);
+                }, TaskCreationOptions.LongRunning, cancellationToken)
                 .ContinueWith(
                     t => logger?.LogError(t.Exception, "Job polling failed."),
                     TaskContinuationOptions.OnlyOnFaulted);
@@ -111,7 +113,10 @@ namespace Zeebe.Client.Impl.Worker
                 logger?.LogDebug("Start handler {index} thread", i);
 
                 var jobHandlerExecutor = new JobHandlerExecutor(jobWorkerBuilder, workItems, jobWorkerSignal);
-                Task.Run(async () => await jobHandlerExecutor.HandleActivatedJobs(cancellationToken), cancellationToken)
+
+                Task.Factory.StartNew(
+                        async delegate { await jobHandlerExecutor.HandleActivatedJobs(cancellationToken); },
+                        TaskCreationOptions.LongRunning, cancellationToken)
                     .ContinueWith(
                         t => logger?.LogError(t.Exception, "Job handling failed."),
                         TaskContinuationOptions.OnlyOnFaulted);

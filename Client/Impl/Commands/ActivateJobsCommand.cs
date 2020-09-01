@@ -67,9 +67,9 @@ namespace Zeebe.Client.Impl.Commands
             return await Send(timeout, null);
         }
 
-        public async Task<IActivateJobsResponse> Send(TimeSpan? timeout, CancellationToken? cancelationToken)
+        public async Task<IActivateJobsResponse> Send(TimeSpan? timeout, CancellationToken? cancellationToken)
         {
-            return await activator.SendActivateRequest(Request, timeout?.FromUtcNow(), cancelationToken);
+            return await activator.SendActivateRequest(Request, timeout?.FromUtcNow(), cancellationToken);
         }
     }
 }
