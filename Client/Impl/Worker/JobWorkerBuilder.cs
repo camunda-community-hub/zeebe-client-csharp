@@ -140,7 +140,7 @@ namespace Zeebe.Client.Impl.Worker
 
         public IJobWorker Open()
         {
-            var worker = new JobWorker(this);
+            var worker = new JobWorkerImprove(this);
 
             worker.Open();
 
