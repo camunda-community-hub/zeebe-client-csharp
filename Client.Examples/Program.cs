@@ -70,52 +70,52 @@ namespace Client.Examples
             Console.WriteLine(topology);
 
             // deploy
-            var deployResponse = await client.NewDeployCommand()
-                .AddResourceFile(DemoProcessPath)
-                .Send();
+//            var deployResponse = await client.NewDeployCommand()
+//                .AddResourceFile(DemoProcessPath)
+//                .Send();
 
             // create workflow instance
 //            var workflowKey = deployResponse.Workflows[0].WorkflowKey;
 //            var bigPayload = File.ReadAllText(PayloadPath);
 
-            Task.Run(async () =>
-            {
-                while (true)
-                {
-                    var start = DateTime.Now;
-                    for (var i = 0; i < 300; i++)
-                    {
-                        Task.Run(async () =>
-                        {
-                            try
-                            {
-                                var intArray = Enumerable.Range(0, 100).ToArray();
-                                var jsonObject = new {list = intArray};
-                                var jsonString = JsonConvert.SerializeObject(jsonObject);
-
-                                client
-                                    .NewCreateWorkflowInstanceCommand()
-                                    .BpmnProcessId("benchmark")
-                                    .LatestVersion()
-//                                .Variables(jsonString)
-                                    .Send();
-                            }
-                            catch (Exception e)
-                            {
-                                Logger.Error("Problem on creating instances", e);
-                            }
-                        });
-                    }
-
-                    Logger.Debug("Created 10 instances");
-                    var endTime = DateTime.Now;
-                    var diff = endTime.Millisecond - start.Millisecond;
-                    if (diff < 1000)
-                    {
-                        Thread.Sleep(1000 - diff);
-                    }
-                }
-            });
+//            Task.Run(async () =>
+//            {
+//                while (true)
+//                {
+//                    var start = DateTime.Now;
+//                    for (var i = 0; i < 300; i++)
+//                    {
+//                        Task.Run(async () =>
+//                        {
+//                            try
+//                            {
+//                                var intArray = Enumerable.Range(0, 100).ToArray();
+//                                var jsonObject = new {list = intArray};
+//                                var jsonString = JsonConvert.SerializeObject(jsonObject);
+//
+//                                client
+//                                    .NewCreateWorkflowInstanceCommand()
+//                                    .BpmnProcessId("benchmark")
+//                                    .LatestVersion()
+////                                .Variables(jsonString)
+//                                    .Send();
+//                            }
+//                            catch (Exception e)
+//                            {
+//                                Logger.Error("Problem on creating instances", e);
+//                            }
+//                        });
+//                    }
+//
+//                    Logger.Debug("Created 10 instances");
+//                    var endTime = DateTime.Now;
+//                    var diff = endTime.Millisecond - start.Millisecond;
+//                    if (diff < 1000)
+//                    {
+//                        Thread.Sleep(1000 - diff);
+//                    }
+//                }
+//            });
 
             // open job worker
             using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
@@ -137,11 +137,12 @@ namespace Client.Examples
             }
         }
 
-        private static void HandleJob(IJobClient jobClient, IJob job)
+        private static async Task HandleJob(IJobClient jobClient, IJob job)
         {
             // business logic
             var jobKey = job.Key;
-            Console.WriteLine("Handling job: " + job);
+            Console.WriteLine("Handling job with key: " + jobKey);
+            await Task.Delay(150);
 
 //            var bigPayload = File.ReadAllText(PayloadPath);
             jobClient.NewCompleteJobCommand(job)
