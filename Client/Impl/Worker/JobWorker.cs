@@ -129,7 +129,7 @@ namespace Zeebe.Client.Impl.Worker
                 executionOptions);
 
             // Action block to finalize handled tasks
-            var output = new ActionBlock<IJob>(async activatedJob => { currentJobsActive--; },
+            var output = new ActionBlock<IJob>(activatedJob => { currentJobsActive--; },
                 executionOptions);
 
             // Link blocks
