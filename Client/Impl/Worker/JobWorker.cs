@@ -40,14 +40,12 @@ namespace Zeebe.Client.Impl.Worker
         private readonly AsyncJobHandler jobHandler;
         private readonly bool autoCompletion;
         private readonly TimeSpan pollInterval;
-        private readonly JobClientWrapper jobClient;
 
         internal JobWorker(JobWorkerBuilder builder)
         {
             this.jobWorkerBuilder = builder;
             this.source = new CancellationTokenSource();
             this.logger = builder.LoggerFactory?.CreateLogger<JobWorker>();
-            this.jobClient = JobClientWrapper.Wrap(builder.JobClient);
             this.jobHandler = jobWorkerBuilder.Handler();
             this.autoCompletion = builder.AutoCompletionEnabled();
             this.pollInterval = jobWorkerBuilder.PollInterval();
@@ -112,14 +110,16 @@ namespace Zeebe.Client.Impl.Worker
             // Transformblock to process polled jobs
             var transformer = new TransformBlock<IJob, IJob>(async activatedJob =>
                 {
+                    var jobClient = JobClientWrapper.Wrap(jobWorkerBuilder.JobClient);
+
                     try
                     {
                         await jobHandler(jobClient, activatedJob);
-                        await TryToAutoCompleteJob(activatedJob);
+                        await TryToAutoCompleteJob(jobClient, activatedJob);
                     }
                     catch (Exception exception)
                     {
-                        await FailActivatedJob(activatedJob, cancellationToken, exception);
+                        await FailActivatedJob(jobClient, activatedJob, cancellationToken, exception);
                     }
                     finally
                     {
@@ -139,7 +139,7 @@ namespace Zeebe.Client.Impl.Worker
             transformer.LinkTo(output);
 
             // Start polling
-            var pollingTask = Task.Run(async () =>
+            Task.Run(async () =>
                 {
                     while (!source.IsCancellationRequested)
                     {
@@ -202,7 +202,7 @@ namespace Zeebe.Client.Impl.Worker
             logger?.Log(logLevel, rpcException, "Unexpected RpcException on polling new jobs.");
         }
 
-        private async Task TryToAutoCompleteJob(IJob activatedJob)
+        private async Task TryToAutoCompleteJob(JobClientWrapper jobClient, IJob activatedJob)
         {
             if (!jobClient.ClientWasUsed && autoCompletion)
             {
@@ -215,7 +215,7 @@ namespace Zeebe.Client.Impl.Worker
             }
         }
 
-        private Task FailActivatedJob(IJob activatedJob, CancellationToken cancellationToken, Exception exception)
+        private Task FailActivatedJob(JobClientWrapper jobClient, IJob activatedJob, CancellationToken cancellationToken, Exception exception)
         {
             var errorMessage = string.Format(
                 JobFailMessage,
