@@ -80,10 +80,4 @@ This release is based on the Zeebe 0.24.X release (https://github.com/zeebe-io/z
     </AssemblyAttribute>
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="System.Threading.Tasks.Dataflow">
-      <HintPath>..\..\..\..\Users\rickenw\.nuget\packages\microsoft.netcore.app\2.1.0\ref\netcoreapp2.1\System.Threading.Tasks.Dataflow.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

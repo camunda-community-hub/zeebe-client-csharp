@@ -39,6 +39,7 @@ namespace Zeebe.Client.Impl.Worker
         private volatile bool isRunning;
         private readonly AsyncJobHandler jobHandler;
         private readonly bool autoCompletion;
+        private readonly TimeSpan pollInterval;
         private readonly JobClientWrapper jobClient;
 
         internal JobWorker(JobWorkerBuilder builder)
@@ -49,6 +50,7 @@ namespace Zeebe.Client.Impl.Worker
             this.jobClient = JobClientWrapper.Wrap(builder.JobClient);
             this.jobHandler = jobWorkerBuilder.Handler();
             this.autoCompletion = builder.AutoCompletionEnabled();
+            this.pollInterval = jobWorkerBuilder.PollInterval();
         }
 
         /// <inheritdoc/>
@@ -143,7 +145,7 @@ namespace Zeebe.Client.Impl.Worker
                     {
                         if (currentJobsActive >= maxJobsActive)
                         {
-                            await Task.Delay(1);
+                            await Task.Delay(pollInterval);
                             continue;
                         }
 
