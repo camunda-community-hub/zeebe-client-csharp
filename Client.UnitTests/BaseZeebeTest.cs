@@ -29,7 +29,6 @@ namespace Zeebe.Client
         private GatewayTestService testService;
         private IZeebeClient client;
 
-        public Server Server => server;
         protected GatewayTestService TestService => testService;
         protected IZeebeClient ZeebeClient => client;
 
@@ -49,6 +48,7 @@ namespace Zeebe.Client
                 .Builder()
                 .UseGatewayAddress("localhost:26500")
                 .UsePlainText()
+                .UseRetrySleepDurationProvider(retryAttempt => TimeSpan.Zero)
                 .Build();
         }
 

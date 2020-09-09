@@ -39,5 +39,10 @@ namespace Zeebe.Client.Impl.Commands
             var response = await asyncReply.ResponseAsync;
             return new SetVariablesResponse(response);
         }
+
+        public Task<ISetVariablesResponse> SendWithRetry(TimeSpan? timespan = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

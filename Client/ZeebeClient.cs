@@ -15,17 +15,17 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using GatewayProtocol;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using Zeebe.Client.Api.Builder;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Worker;
 using Zeebe.Client.Impl.Builder;
 using Zeebe.Client.Impl.Commands;
+using Zeebe.Client.Impl.Misc;
 using Zeebe.Client.Impl.Worker;
 
 namespace Zeebe.Client
@@ -33,19 +33,24 @@ namespace Zeebe.Client
     /// <inheritdoc />
     public class ZeebeClient : IZeebeClient
     {
+        private static readonly int MaxWaitTimeInSeconds = 60;
+        private static readonly Func<int, TimeSpan> DefaultWaitTimeProvider =
+            retryAttempt => TimeSpan.FromSeconds(Math.Max(Math.Pow(2, retryAttempt), MaxWaitTimeInSeconds));
         private static readonly TimeSpan DefaultKeepAlive = TimeSpan.FromSeconds(30);
 
         private readonly Channel channelToGateway;
         private readonly ILoggerFactory loggerFactory;
         private Gateway.GatewayClient gatewayClient;
+        private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-        internal ZeebeClient(string address, TimeSpan? keepAlive, ILoggerFactory loggerFactory = null)
-            : this(address, ChannelCredentials.Insecure, keepAlive, loggerFactory)
+        internal ZeebeClient(string address, TimeSpan? keepAlive, Func<int, TimeSpan> sleepDurationProvider, ILoggerFactory loggerFactory = null)
+            : this(address, ChannelCredentials.Insecure, keepAlive, sleepDurationProvider, loggerFactory)
         { }
 
         internal ZeebeClient(string address,
             ChannelCredentials credentials,
             TimeSpan? keepAlive,
+            Func<int, TimeSpan> sleepDurationProvider,
             ILoggerFactory loggerFactory = null)
         {
             this.loggerFactory = loggerFactory;
@@ -60,6 +65,11 @@ namespace Zeebe.Client
             channelToGateway =
                 new Channel(address, credentials, channelOptions);
             gatewayClient = new Gateway.GatewayClient(channelToGateway);
+
+
+            asyncRetryStrategy =
+                new TransientGrpcErrorRetryStrategy(sleepDurationProvider ??
+                                                    DefaultWaitTimeProvider);
         }
 
         /// <summary>
@@ -136,7 +146,7 @@ namespace Zeebe.Client
 
         public ICancelWorkflowInstanceCommandStep1 NewCancelInstanceCommand(long workflowInstanceKey)
         {
-            return new CancelWorkflowInstanceCommand(gatewayClient, workflowInstanceKey);
+            return new CancelWorkflowInstanceCommand(gatewayClient, asyncRetryStrategy, workflowInstanceKey);
         }
 
         public ISetVariablesCommandStep1 NewSetVariablesCommand(long elementInstanceKey)

@@ -79,6 +79,18 @@ namespace Zeebe.Client.Api.Builder
         IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive);
 
         /// <summary>
+        /// Uses the given duration provider for the send retries.
+        /// On each retry, the duration to wait is calculated by calling <paramref name="sleepDurationProvider" /> with
+        /// the current retry number (1 for first retry, 2 for second etc)
+        ///
+        /// <p>This is an optional configuration. Per default the wait time provider provides base two wait time,
+        /// 2^1 seconds, 2^2 seconds, 2^3 seconds etc. until one minute is reached.</p>
+        /// </summary>
+        /// <param name="sleepDurationProvider">The function that provides the duration to wait for for a particular retry attempt.</param>
+        /// <returns>the final step builder</returns>
+        IZeebeClientFinalBuildStep UseRetrySleepDurationProvider(Func<int, TimeSpan> sleepDurationProvider);
+
+        /// <summary>
         /// Builds the client with the given configuration.
         /// </summary>
         /// <returns>the client which was build with the given configuration</returns>
