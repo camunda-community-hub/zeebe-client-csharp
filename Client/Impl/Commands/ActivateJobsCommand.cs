@@ -71,5 +71,10 @@ namespace Zeebe.Client.Impl.Commands
         {
             return await activator.SendActivateRequest(Request, timeout?.FromUtcNow(), cancelationToken);
         }
+
+        public Task<IActivateJobsResponse> SendWithRetry(TimeSpan? timespan = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

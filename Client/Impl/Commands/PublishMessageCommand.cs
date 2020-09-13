@@ -70,5 +70,10 @@ namespace Zeebe.Client.Impl.Commands
             await asyncReply.ResponseAsync;
             return new PublishMessageResponse();
         }
+
+        public Task<IPublishMessageResponse> SendWithRetry(TimeSpan? timespan = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

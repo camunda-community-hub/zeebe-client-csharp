@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Google.Protobuf.WellKnownTypes;
 using Grpc.Auth;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
@@ -44,6 +45,7 @@ namespace Zeebe.Client.Impl.Builder
     {
         private readonly ILoggerFactory loggerFactory;
         private TimeSpan? keepAlive;
+        private Func<int, TimeSpan> sleepDurationProvider;
 
         private string Address { get; }
 
@@ -59,9 +61,15 @@ namespace Zeebe.Client.Impl.Builder
             return this;
         }
 
+        public IZeebeClientFinalBuildStep UseRetrySleepDurationProvider(Func<int, TimeSpan> sleepDurationProvider)
+        {
+            this.sleepDurationProvider = sleepDurationProvider;
+            return this;
+        }
+
         public IZeebeClient Build()
         {
-            return new ZeebeClient(Address, keepAlive, loggerFactory);
+            return new ZeebeClient(Address, keepAlive, sleepDurationProvider, loggerFactory);
         }
     }
 
@@ -69,6 +77,7 @@ namespace Zeebe.Client.Impl.Builder
     {
         private readonly ILoggerFactory loggerFactory;
         private TimeSpan? keepAlive;
+        private Func<int, TimeSpan> sleepDurationProvider;
 
         private string Address { get; }
 
@@ -106,9 +115,15 @@ namespace Zeebe.Client.Impl.Builder
             return this;
         }
 
+        public IZeebeClientFinalBuildStep UseRetrySleepDurationProvider(Func<int, TimeSpan> sleepDurationProvider)
+        {
+            this.sleepDurationProvider = sleepDurationProvider;
+            return this;
+        }
+
         public IZeebeClient Build()
         {
-            return new ZeebeClient(Address, Credentials, keepAlive, loggerFactory);
+            return new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory);
         }
     }
 }
