@@ -274,7 +274,7 @@ namespace Zeebe.Client
             var expectedSecondRequest = new ActivateJobsRequest
             {
                 Timeout = 123_000L,
-                MaxJobsToActivate = 2,
+                MaxJobsToActivate = 1,
                 Type = "foo",
                 Worker = "jobWorker",
                 RequestTimeout = 5_000L
