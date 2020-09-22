@@ -26,7 +26,7 @@ namespace Zeebe.Client.Impl.Worker
     public class JobWorkerBuilder : IJobWorkerBuilderStep1, IJobWorkerBuilderStep2, IJobWorkerBuilderStep3
     {
         private TimeSpan pollInterval;
-        private AsyncJobHandler handler;
+        private AsyncJobHandler asyncJobHandler;
         private bool autoCompletion;
         internal byte ThreadCount { get; set; }
         internal ILoggerFactory LoggerFactory { get; }
@@ -53,19 +53,19 @@ namespace Zeebe.Client.Impl.Worker
 
         public IJobWorkerBuilderStep3 Handler(JobHandler handler)
         {
-            this.handler = (c, j) => Task.Run(() => handler.Invoke(c, j));
+            this.asyncJobHandler = (c, j) => Task.Run(() => handler.Invoke(c, j));
             return this;
         }
 
         public IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler)
         {
-            this.handler = handler;
+            this.asyncJobHandler = handler;
             return this;
         }
 
         internal AsyncJobHandler Handler()
         {
-            return handler;
+            return asyncJobHandler;
         }
 
         public IJobWorkerBuilderStep3 Timeout(TimeSpan timeout)
