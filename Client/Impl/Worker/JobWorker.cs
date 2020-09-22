@@ -14,6 +14,7 @@
 //    limitations under the License.
 
 using System;
+using System.ComponentModel.Design;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
@@ -38,6 +39,7 @@ namespace Zeebe.Client.Impl.Worker
         private readonly AsyncJobHandler jobHandler;
         private readonly bool autoCompletion;
         private readonly TimeSpan pollInterval;
+        private readonly double thresholdJobsActivation;
 
         private volatile int currentJobsActive;
         private volatile bool isRunning;
@@ -52,6 +54,7 @@ namespace Zeebe.Client.Impl.Worker
             this.pollInterval = jobWorkerBuilder.PollInterval();
             this.activateJobsCommand = jobWorkerBuilder.Command;
             this.maxJobsActive = jobWorkerBuilder.Command.Request.MaxJobsToActivate;
+            this.thresholdJobsActivation = maxJobsActive * 0.6;
         }
 
         /// <inheritdoc/>
@@ -135,23 +138,24 @@ namespace Zeebe.Client.Impl.Worker
         {
             while (!source.IsCancellationRequested)
             {
-                if (currentJobsActive >= maxJobsActive)
+                if (currentJobsActive < thresholdJobsActivation)
+                {
+                    var jobCount = maxJobsActive - currentJobsActive;
+                    activateJobsCommand.MaxJobsToActivate(jobCount);
+
+                    try
+                    {
+                        var response = await activateJobsCommand.Send(null, cancellationToken);
+                        await HandleActivationResponse(input, response, jobCount);
+                    }
+                    catch (RpcException rpcException)
+                    {
+                        LogRpcException(rpcException);
+                    }
+                }
+                else
                 {
                     await Task.Delay(pollInterval, cancellationToken);
-                    continue;
-                }
-
-                var jobCount = maxJobsActive - currentJobsActive;
-                activateJobsCommand.MaxJobsToActivate(jobCount);
-
-                try
-                {
-                    var response = await activateJobsCommand.Send(null, cancellationToken);
-                    await HandleActivationResponse(input, response, jobCount);
-                }
-                catch (RpcException rpcException)
-                {
-                    LogRpcException(rpcException);
                 }
             }
         }
