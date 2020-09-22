@@ -274,7 +274,7 @@ namespace Zeebe.Client
             var expectedSecondRequest = new ActivateJobsRequest
             {
                 Timeout = 123_000L,
-                MaxJobsToActivate = 1,
+                MaxJobsToActivate = 2,
                 Type = "foo",
                 Worker = "jobWorker",
                 RequestTimeout = 5_000L
@@ -289,9 +289,13 @@ namespace Zeebe.Client
                 .Handler((jobClient, job) =>
                 {
                     // block job handling
-                    using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
+                    receivedJobs.Add(job);
+                    if (receivedJobs.Count == 2)
                     {
-                        signal.WaitOne();
+                        using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
+                        {
+                            signal.WaitOne();
+                        }
                     }
                 })
                 .MaxJobsActive(4)

@@ -14,6 +14,7 @@
 //    limitations under the License.
 
 using System;
+using System.ComponentModel.Design;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
@@ -33,13 +34,15 @@ namespace Zeebe.Client.Impl.Worker
         private readonly CancellationTokenSource source;
         private readonly ILogger<JobWorker> logger;
         private readonly JobWorkerBuilder jobWorkerBuilder;
-        private ActivateJobsCommand activateJobsCommand;
-        private int maxJobsActive;
-        private volatile int currentJobsActive;
-        private volatile bool isRunning;
+        private readonly ActivateJobsCommand activateJobsCommand;
+        private readonly int maxJobsActive;
         private readonly AsyncJobHandler jobHandler;
         private readonly bool autoCompletion;
         private readonly TimeSpan pollInterval;
+        private readonly double thresholdJobsActivation;
+
+        private volatile int currentJobsActive;
+        private volatile bool isRunning;
 
         internal JobWorker(JobWorkerBuilder builder)
         {
@@ -49,13 +52,15 @@ namespace Zeebe.Client.Impl.Worker
             this.jobHandler = jobWorkerBuilder.Handler();
             this.autoCompletion = builder.AutoCompletionEnabled();
             this.pollInterval = jobWorkerBuilder.PollInterval();
+            this.activateJobsCommand = jobWorkerBuilder.Command;
+            this.maxJobsActive = jobWorkerBuilder.Command.Request.MaxJobsToActivate;
+            this.thresholdJobsActivation = maxJobsActive * 0.6;
         }
 
         /// <inheritdoc/>
         public void Dispose()
         {
             source.Cancel();
-            var pollInterval = jobWorkerBuilder.PollInterval();
             // delay disposing, since poll and handler take some time to close
             Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
                 .ContinueWith(t =>
@@ -86,103 +91,109 @@ namespace Zeebe.Client.Impl.Worker
         {
             isRunning = true;
             var cancellationToken = source.Token;
+            var bufferOptions = CreateBufferOptions(cancellationToken);
+            var executionOptions = CreateExecutionOptions(cancellationToken);
 
-            activateJobsCommand = jobWorkerBuilder.Command;
-            maxJobsActive = jobWorkerBuilder.Command.Request.MaxJobsToActivate;
+            var input = new BufferBlock<IJob>(bufferOptions);
+            var transformer = new TransformBlock<IJob, IJob>(async activatedJob => await HandleActivatedJob(activatedJob, cancellationToken),
+                executionOptions);
+            var output = new ActionBlock<IJob>(activatedJob => { currentJobsActive--; },
+                executionOptions);
 
-            // Create options for blocks
-            var bufferOptions = new DataflowBlockOptions
-            {
-                CancellationToken = cancellationToken,
-                EnsureOrdered = false
-            };
+            input.LinkTo(transformer);
+            transformer.LinkTo(output);
 
-            var executionOptions = new ExecutionDataflowBlockOptions
+            // Start polling
+            Task.Run(async () => await PollJobs(input, cancellationToken),
+                cancellationToken).ContinueWith(
+                t => logger?.LogError(t.Exception, "Job polling failed."),
+                TaskContinuationOptions.OnlyOnFaulted);
+
+            logger?.LogDebug(
+                "Job worker ({worker}) for job type {type} has been opened.",
+                activateJobsCommand.Request.Worker,
+                activateJobsCommand.Request.Type);
+        }
+
+        private ExecutionDataflowBlockOptions CreateExecutionOptions(CancellationToken cancellationToken)
+        {
+            return new ExecutionDataflowBlockOptions
             {
                 MaxDegreeOfParallelism = jobWorkerBuilder.ThreadCount,
                 CancellationToken = cancellationToken,
                 EnsureOrdered = false
             };
+        }
 
-            // Buffer for polled jobs
-            var input = new BufferBlock<IJob>(bufferOptions);
+        private static DataflowBlockOptions CreateBufferOptions(CancellationToken cancellationToken)
+        {
+            return new DataflowBlockOptions
+            {
+                CancellationToken = cancellationToken,
+                EnsureOrdered = false
+            };
+        }
 
-            // Transformblock to process polled jobs
-            var transformer = new TransformBlock<IJob, IJob>(async activatedJob =>
+        private async Task PollJobs(ITargetBlock<IJob> input, CancellationToken cancellationToken)
+        {
+            while (!source.IsCancellationRequested)
+            {
+                if (currentJobsActive < thresholdJobsActivation)
                 {
-                    var jobClient = JobClientWrapper.Wrap(jobWorkerBuilder.JobClient);
+                    var jobCount = maxJobsActive - currentJobsActive;
+                    activateJobsCommand.MaxJobsToActivate(jobCount);
 
                     try
                     {
-                        await jobHandler(jobClient, activatedJob);
-                        await TryToAutoCompleteJob(jobClient, activatedJob);
+                        var response = await activateJobsCommand.Send(null, cancellationToken);
+                        await HandleActivationResponse(input, response, jobCount);
                     }
-                    catch (Exception exception)
+                    catch (RpcException rpcException)
                     {
-                        await FailActivatedJob(jobClient, activatedJob, cancellationToken, exception);
+                        LogRpcException(rpcException);
                     }
-                    finally
-                    {
-                        jobClient.Reset();
-                    }
-
-                    return activatedJob;
-                },
-                executionOptions);
-
-            // Action block to finalize handled tasks
-            var output = new ActionBlock<IJob>(activatedJob => { currentJobsActive--; },
-                executionOptions);
-
-            // Link blocks
-            input.LinkTo(transformer);
-            transformer.LinkTo(output);
-
-            // Start polling
-            Task.Run(async () =>
+                }
+                else
                 {
-                    while (!source.IsCancellationRequested)
-                    {
-                        if (currentJobsActive >= maxJobsActive)
-                        {
-                            await Task.Delay(pollInterval);
-                            continue;
-                        }
+                    await Task.Delay(pollInterval, cancellationToken);
+                }
+            }
+        }
 
-                        var jobCount = maxJobsActive - currentJobsActive;
-                        activateJobsCommand.MaxJobsToActivate(jobCount);
-
-                        try
-                        {
-                            var response = await activateJobsCommand.Send(null, cancellationToken);
-
-                            logger?.LogDebug(
-                                "Job worker ({worker}) activated {activatedCount} of {requestCount} successfully.",
-                                activateJobsCommand.Request.Worker,
-                                response.Jobs.Count,
-                                jobCount);
-
-                            foreach (var job in response.Jobs)
-                            {
-                                await input.SendAsync(job);
-                                currentJobsActive++;
-                            }
-                        }
-                        catch (RpcException rpcException)
-                        {
-                            LogRpcException(rpcException);
-                        }
-                    }
-                },
-                cancellationToken).ContinueWith(
-                t => logger?.LogError(t.Exception, "Job polling failed."),
-                TaskContinuationOptions.OnlyOnFaulted);
-
-            var command = jobWorkerBuilder.Command;
+        private async Task HandleActivationResponse(ITargetBlock<IJob> input, IActivateJobsResponse response, int jobCount)
+        {
             logger?.LogDebug(
-                "Job worker ({worker}) for job type {type} has been opened.",
-                command.Request.Worker,
-                command.Request.Type);
+                "Job worker ({worker}) activated {activatedCount} of {requestCount} successfully.",
+                activateJobsCommand.Request.Worker,
+                response.Jobs.Count,
+                jobCount);
+
+            foreach (var job in response.Jobs)
+            {
+                await input.SendAsync(job);
+                currentJobsActive++;
+            }
+        }
+
+        private async Task<IJob> HandleActivatedJob(IJob activatedJob, CancellationToken cancellationToken)
+        {
+            var jobClient = JobClientWrapper.Wrap(jobWorkerBuilder.JobClient);
+
+            try
+            {
+                await jobHandler(jobClient, activatedJob);
+                await TryToAutoCompleteJob(jobClient, activatedJob);
+            }
+            catch (Exception exception)
+            {
+                await FailActivatedJob(jobClient, activatedJob, cancellationToken, exception);
+            }
+            finally
+            {
+                jobClient.Reset();
+            }
+
+            return activatedJob;
         }
 
         private void LogRpcException(RpcException rpcException)
