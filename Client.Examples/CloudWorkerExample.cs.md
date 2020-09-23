@@ -1,8 +1,8 @@
-## Camunda Cloud Example
-In the following you see an example of how to use the Zeebe C# client with the CamundaCloud.
+## Camunda Cloud Worker Example
+In the following you see an example of how to use the Zeebe C# client job worker with the CamundaCloud.
 
-The `CamundaCloudTokenProvider` will request an access token from the CamundCloud and store it
-under `~/.zeebe/cloud.token`, such that it is possible to reuse the token. To build the provider you need informations from the CamundaCloud, like `clientId`, `clientSecret`, `audience` etc.
+We have a separate thread which outputs how many jobs with worker has completed in a second.
+With that we can play around with the different job worker configuration and see how it affects the throughput.
 
 ```csharp
 using System;
@@ -18,7 +18,7 @@ using Zeebe.Client.Impl.Builder;
 
 namespace Client.Examples
 {
-    internal class Program
+    internal class CloudWorkerExample
     {
         private const string AuthServer = "https://login.cloud.ultrawombat.com/oauth/token";
         private const string ClientId = "{clientId}";
@@ -26,6 +26,8 @@ namespace Client.Examples
         private const string Audience = "{cluster-id}.zeebe.ultrawombat.com";
         private const string ZeebeUrl = Audience + ":443";
 
+        private static volatile int lastCompleted;
+        private static volatile int currentCompleted;
         private static readonly string DemoProcessPath =
             Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ten_tasks.bpmn");
 
@@ -57,41 +59,14 @@ namespace Client.Examples
 
             Logger.Info(topology.ToString);
             Console.WriteLine(topology);
-            // deploy
-            var deployResponse = await client.NewDeployCommand()
-                .AddResourceFile(DemoProcessPath)
-                .Send();
-
-            // create workflow instance
-            var workflowKey = deployResponse.Workflows[0].WorkflowKey;
-            var bigPayload = File.ReadAllText(PayloadPath);
 
             Task.Run(async () =>
             {
                 while (true)
                 {
-                    var start = DateTime.Now;
-                    for (var i = 0; i < 100; i++)
-                    {
-                        try
-                        {
-                            await client
-                                .NewCreateWorkflowInstanceCommand()
-                                .WorkflowKey(workflowKey)
-                                .Variables(bigPayload)
-                                .Send();
-                        }
-                        catch (Exception e)
-                        {
-                        }
-                    }
-
-                    var endTime = DateTime.Now;
-                    var diff = endTime.Millisecond - start.Millisecond;
-                    if (diff < 1000)
-                    {
-                        Thread.Sleep(1000 - diff);
-                    }
+                    await Task.Delay(1000);
+                    Logger.Info("Completed " + (currentCompleted - lastCompleted) + " in the last second.");
+                    lastCompleted = currentCompleted;
                 }
             });
 
@@ -107,6 +82,7 @@ namespace Client.Examples
                     .PollInterval(TimeSpan.FromMilliseconds(100))
                     .Timeout(TimeSpan.FromSeconds(10))
                     .PollingTimeout(TimeSpan.FromSeconds(30))
+                    .HandlerThreads(8)
                     .Open();
 
                 // blocks main thread, so that worker can run
@@ -114,10 +90,11 @@ namespace Client.Examples
             }
         }
 
-        private static void HandleJob(IJobClient jobClient, IJob job)
+        private static async Task HandleJob(IJobClient jobClient, IJob job)
         {
-            Logger.Debug("Handle job {job}", job.Key);
+            await Task.Delay(150);
             jobClient.NewCompleteJobCommand(job).Send();
+            currentCompleted++;
         }
     }
 }
