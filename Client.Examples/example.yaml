@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-example
+  labels:
+    app: client-example
+spec:
+  selector:
+    matchLabels:
+      app: client-example
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: client-example
+    spec:
+      containers:
+      - name: client-example
+        image: gcr.io/zeebe-io/zeebe-client-csharp-example:latest
+        imagePullPolicy: Always
+
+        resources:
+          requests:
+            cpu: 2
+            memory: 512Mi
