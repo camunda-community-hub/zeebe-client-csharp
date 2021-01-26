@@ -41,7 +41,7 @@ This release is based on the Zeebe 0.24.X release (https://github.com/zeebe-io/z
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" version="3.14.0" />
     <PackageReference Include="Grpc" version="2.34.1" />
-    <PackageReference Include="Grpc.Auth" Version="2.34.1" />
+    <PackageReference Include="Grpc.Auth" Version="2.35.0" />
     <PackageReference Include="Grpc.Core" version="2.35.0" />
     <PackageReference Include="Grpc.Tools" version="2.34.1">
       <PrivateAssets>all</PrivateAssets>
