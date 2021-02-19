@@ -145,7 +145,7 @@ namespace Zeebe.Client.Impl.Worker
 
                     try
                     {
-                        var response = await activateJobsCommand.Send(null, cancellationToken);
+                        var response = await activateJobsCommand.SendWithRetry(null, cancellationToken);
                         await HandleActivationResponse(input, response, jobCount);
                     }
                     catch (RpcException rpcException)
