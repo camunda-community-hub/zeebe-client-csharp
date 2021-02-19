@@ -16,6 +16,7 @@
 using System;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Google.Protobuf;
@@ -71,6 +72,13 @@ namespace Zeebe.Client.Impl.Commands
         public async Task<IDeployResponse> Send(TimeSpan? timeout = null)
         {
             var asyncReply = gatewayClient.DeployWorkflowAsync(request, deadline: timeout?.FromUtcNow());
+            var response = await asyncReply.ResponseAsync;
+            return new DeployResponse(response);
+        }
+
+        public async Task<IDeployResponse> Send(CancellationToken token)
+        {
+            var asyncReply = gatewayClient.DeployWorkflowAsync(request, cancellationToken: token);
             var response = await asyncReply.ResponseAsync;
             return new DeployResponse(response);
         }

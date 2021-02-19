@@ -14,6 +14,7 @@
 //    limitations under the License.
 
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
@@ -45,6 +46,13 @@ namespace Zeebe.Client.Impl.Commands
         public async Task<ICompleteJobResponse> Send(TimeSpan? timeout = null)
         {
             var asyncReply = gatewayClient.CompleteJobAsync(request, deadline: timeout?.FromUtcNow());
+            await asyncReply.ResponseAsync;
+            return new Responses.CompleteJobResponse();
+        }
+
+        public async Task<ICompleteJobResponse> Send(CancellationToken token)
+        {
+            var asyncReply = gatewayClient.CompleteJobAsync(request, cancellationToken: token);
             await asyncReply.ResponseAsync;
             return new Responses.CompleteJobResponse();
         }

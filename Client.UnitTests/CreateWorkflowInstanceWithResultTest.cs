@@ -64,6 +64,30 @@ namespace Zeebe.Client
         }
 
         [Test]
+        public void ShouldCancelRequest()
+        {
+            // given
+            TestService.AddRequestHandler(typeof(CreateWorkflowInstanceWithResultRequest),
+                request =>
+                {
+                    new EventWaitHandle(false, EventResetMode.AutoReset).WaitOne();
+                    return null;
+                });
+
+            // when
+            var task = ZeebeClient.NewCreateWorkflowInstanceCommand()
+                .BpmnProcessId("process")
+                .LatestVersion()
+                .WithResult()
+                .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
+            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait(TimeSpan.FromSeconds(15)));
+            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+
+            // then
+            Assert.AreEqual(Grpc.Core.StatusCode.Cancelled, rpcException.Status.StatusCode);
+        }
+        
+        [Test]
         public async Task ShouldSendRequestWithVersionAsExpected()
         {
             // given

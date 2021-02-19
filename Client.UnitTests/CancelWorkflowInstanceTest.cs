@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
 using NUnit.Framework;
-using Type = Google.Protobuf.WellKnownTypes.Type;
 
 namespace Zeebe.Client
 {
@@ -37,10 +36,25 @@ namespace Zeebe.Client
             var task = ZeebeClient.NewCancelInstanceCommand(12113)
                 .Send(TimeSpan.Zero);
             var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
             Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+        }
+
+        [Test]
+        public void ShouldCancelRequest()
+        {
+            // given
+
+            // when
+            var task = ZeebeClient.NewCancelInstanceCommand(12113)
+                .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
+            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+
+            // then
+            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
 
         [Test]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
@@ -61,10 +62,30 @@ namespace Zeebe.Client
                 .PollingTimeout(TimeSpan.FromSeconds(5))
                 .Send(TimeSpan.Zero);
             var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
             Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+        }
+
+        [Test]
+        public void ShouldCancelRequest()
+        {
+            // given
+
+            // when
+            var task = ZeebeClient.NewActivateJobsCommand()
+                .JobType("foo")
+                .MaxJobsToActivate(1)
+                .Timeout(TimeSpan.FromSeconds(10))
+                .WorkerName("jobWorker")
+                .PollingTimeout(TimeSpan.FromSeconds(5))
+                .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
+            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+
+            // then
+            Assert.AreEqual(Grpc.Core.StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
 
         [Test]

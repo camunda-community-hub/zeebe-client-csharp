@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.18.0</Version>
+    <Version>0.18.1</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,8 +13,8 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>0.18.0</AssemblyVersion>
-    <FileVersion>0.18.0</FileVersion>
+    <AssemblyVersion>0.18.1</AssemblyVersion>
+    <FileVersion>0.18.1</FileVersion>
     <PackageReleaseNotes>
 Misc:
 
@@ -33,9 +33,9 @@ This release is based on the Zeebe 0.24.X release (https://github.com/zeebe-io/z
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>0.18.0</PackageVersion>
+    <PackageVersion>0.18.1</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>0.18.0</Title>
+    <Title>0.18.1</Title>
   </PropertyGroup>
 
   <ItemGroup>
@@ -49,6 +49,7 @@ This release is based on the Zeebe 0.24.X release (https://github.com/zeebe-io/z
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.Threading.Tasks.Dataflow" Version="5.0.0" />
   </ItemGroup>
 

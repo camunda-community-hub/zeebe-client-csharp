@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
@@ -27,6 +28,13 @@ namespace Zeebe.Client.Impl.Commands
         public async Task<ICancelWorkflowInstanceResponse> Send(TimeSpan? timeout = null)
         {
             var asyncReply = client.CancelWorkflowInstanceAsync(request, deadline: timeout?.FromUtcNow());
+            await asyncReply.ResponseAsync;
+            return new CancelWorkflowInstanceResponse();
+        }
+
+        public async Task<ICancelWorkflowInstanceResponse> Send(CancellationToken token)
+        {
+            var asyncReply = client.CancelWorkflowInstanceAsync(request, cancellationToken: token);
             await asyncReply.ResponseAsync;
             return new CancelWorkflowInstanceResponse();
         }
