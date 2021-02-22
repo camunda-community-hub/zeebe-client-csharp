@@ -102,7 +102,7 @@ namespace Zeebe.Client
 
         public IActivateJobsCommandStep1 NewActivateJobsCommand()
         {
-            return new ActivateJobsCommand(gatewayClient);
+            return new ActivateJobsCommand(gatewayClient, asyncRetryStrategy);
         }
 
         public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)

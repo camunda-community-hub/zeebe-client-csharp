@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
 
@@ -13,9 +14,11 @@ namespace Zeebe.Client.Impl.Commands
     {
         private readonly JobActivator activator;
         public ActivateJobsRequest Request { get; }
+        private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-        public ActivateJobsCommand(GatewayClient client)
+        public ActivateJobsCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
         {
+            this.asyncRetryStrategy = asyncRetryStrategy;
             activator = new JobActivator(client);
             Request = new ActivateJobsRequest();
         }
@@ -72,9 +75,14 @@ namespace Zeebe.Client.Impl.Commands
             return await activator.SendActivateRequest(Request, timeout?.FromUtcNow(), cancellationToken);
         }
 
-        public Task<IActivateJobsResponse> SendWithRetry(TimeSpan? timespan = null)
+        public async Task<IActivateJobsResponse> SendWithRetry(TimeSpan? timespan)
         {
-            throw new NotImplementedException();
+            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan));
+        }
+
+        public async Task<IActivateJobsResponse> SendWithRetry(TimeSpan? timespan, CancellationToken? cancellationToken)
+        {
+            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, cancellationToken));
         }
     }
 }
