@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -31,7 +32,7 @@ namespace Zeebe.Client
                 .Build();
 
             MessageHandlerStub = new HttpMessageHandlerStub();
-            TokenProvider.HttpMessageHandler = MessageHandlerStub;
+            TokenProvider.SetHttpMessageHandler(MessageHandlerStub);
             TokenStoragePath = Path.GetTempPath() + ".zeebe/";
             TokenProvider.TokenStoragePath = TokenStoragePath;
             ExpiresIn = 3600;
@@ -48,10 +49,11 @@ namespace Zeebe.Client
         private class HttpMessageHandlerStub : HttpMessageHandler
         {
             public int RequestCount { get; set; }
-
-            protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
+            private bool _disposed = false;
+            protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, 
                 CancellationToken cancellationToken)
             {
+                CheckDisposed();
                 Assert.AreEqual(request.RequestUri, "https://local.de");
                 var content = await request.Content.ReadAsStringAsync();
                 var jsonObject = JObject.Parse(content);
@@ -72,6 +74,21 @@ namespace Zeebe.Client
 
                 return responseMessage;
             }
+
+            protected override void Dispose(bool disposing)
+            {
+                base.Dispose(disposing);
+                _disposed = true;
+            }
+
+            private void CheckDisposed() 
+            {
+                if (_disposed)
+                {
+                    throw new ObjectDisposedException("HttpMessageHandlerStub");
+                }
+            }
+
         }
 
         [Test]
@@ -221,5 +238,24 @@ namespace Zeebe.Client
             Assert.AreEqual("STORED_TOKEN", token);
             Assert.AreEqual(0, MessageHandlerStub.RequestCount);
         }
+
+        [Test]
+        public async Task ShouldNotThrowObjectDisposedExceptionWhenTokenExpires()
+        {
+            // given
+            ExpiresIn = 0;
+            var firstToken = await TokenProvider.GetAccessTokenForRequestAsync();
+            var files = Directory.GetFiles(TokenStoragePath);
+            var tokenFile = files[0];
+            await File.WriteAllTextAsync(tokenFile, "FILE_TOKEN");
+
+            // when
+            Token = "SECOND_TOKEN";
+            Assert.DoesNotThrowAsync(async () => await TokenProvider.GetAccessTokenForRequestAsync());
+
+            // then
+            Assert.AreEqual(2, MessageHandlerStub.RequestCount);
+        }
+
     }
 }
