@@ -6,4 +6,5 @@ install:
   - dotnet restore Zeebe.sln
 script:
   - dotnet build --configuration Release --no-restore
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - dotnet test --configuration Release --no-restore --no-build
