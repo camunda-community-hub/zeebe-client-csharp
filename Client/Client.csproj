@@ -43,7 +43,7 @@ This release is based on the Zeebe 0.24.X release (https://github.com/zeebe-io/z
     <PackageReference Include="Grpc" version="2.36.0" />
     <PackageReference Include="Grpc.Auth" Version="2.36.0" />
     <PackageReference Include="Grpc.Core" version="2.36.0" />
-    <PackageReference Include="Grpc.Tools" version="2.35.0">
+    <PackageReference Include="Grpc.Tools" version="2.36.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
