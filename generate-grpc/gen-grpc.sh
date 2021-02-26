@@ -4,7 +4,7 @@ set -euxo pipefail
 os=linux_x64
 grpcVersion=2.31.0
 packagePath=~/.nuget/packages/grpc.tools/${grpcVersion}/tools/${os}/
-zeebeVersion='0.24.0'
+zeebeVersion='0.26.1'
 protoFile=gateway.proto
 gwProtoPath=./
 genPath=Client/Impl/proto
