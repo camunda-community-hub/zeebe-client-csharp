@@ -69,56 +69,59 @@ namespace GatewayProtocol {
             "CSIUChJUaHJvd0Vycm9yUmVzcG9uc2UidwoVUHVibGlzaE1lc3NhZ2VSZXF1",
             "ZXN0EgwKBG5hbWUYASABKAkSFgoOY29ycmVsYXRpb25LZXkYAiABKAkSEgoK",
             "dGltZVRvTGl2ZRgDIAEoAxIRCgltZXNzYWdlSWQYBCABKAkSEQoJdmFyaWFi",
-            "bGVzGAUgASgJIhgKFlB1Ymxpc2hNZXNzYWdlUmVzcG9uc2UiLQoWUmVzb2x2",
-            "ZUluY2lkZW50UmVxdWVzdBITCgtpbmNpZGVudEtleRgBIAEoAyIZChdSZXNv",
-            "bHZlSW5jaWRlbnRSZXNwb25zZSIRCg9Ub3BvbG9neVJlcXVlc3QiogEKEFRv",
-            "cG9sb2d5UmVzcG9uc2USLQoHYnJva2VycxgBIAMoCzIcLmdhdGV3YXlfcHJv",
-            "dG9jb2wuQnJva2VySW5mbxITCgtjbHVzdGVyU2l6ZRgCIAEoBRIXCg9wYXJ0",
-            "aXRpb25zQ291bnQYAyABKAUSGQoRcmVwbGljYXRpb25GYWN0b3IYBCABKAUS",
-            "FgoOZ2F0ZXdheVZlcnNpb24YBSABKAkiegoKQnJva2VySW5mbxIOCgZub2Rl",
-            "SWQYASABKAUSDAoEaG9zdBgCIAEoCRIMCgRwb3J0GAMgASgFEi8KCnBhcnRp",
-            "dGlvbnMYBCADKAsyGy5nYXRld2F5X3Byb3RvY29sLlBhcnRpdGlvbhIPCgd2",
-            "ZXJzaW9uGAUgASgJIpABCglQYXJ0aXRpb24SEwoLcGFydGl0aW9uSWQYASAB",
-            "KAUSPQoEcm9sZRgCIAEoDjIvLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9u",
-            "LlBhcnRpdGlvbkJyb2tlclJvbGUiLwoTUGFydGl0aW9uQnJva2VyUm9sZRIK",
-            "CgZMRUFERVIQABIMCghGT0xMT1dFUhABIjoKF1VwZGF0ZUpvYlJldHJpZXNS",
-            "ZXF1ZXN0Eg4KBmpvYktleRgBIAEoAxIPCgdyZXRyaWVzGAIgASgFIhoKGFVw",
-            "ZGF0ZUpvYlJldHJpZXNSZXNwb25zZSJTChNTZXRWYXJpYWJsZXNSZXF1ZXN0",
-            "EhoKEmVsZW1lbnRJbnN0YW5jZUtleRgBIAEoAxIRCgl2YXJpYWJsZXMYAiAB",
-            "KAkSDQoFbG9jYWwYAyABKAgiIwoUU2V0VmFyaWFibGVzUmVzcG9uc2USCwoD",
-            "a2V5GAEgASgDMu4KCgdHYXRld2F5EmEKDEFjdGl2YXRlSm9icxIlLmdhdGV3",
-            "YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVxdWVzdBomLmdhdGV3YXlfcHJv",
-            "dG9jb2wuQWN0aXZhdGVKb2JzUmVzcG9uc2UiADABEn0KFkNhbmNlbFdvcmtm",
-            "bG93SW5zdGFuY2USLy5nYXRld2F5X3Byb3RvY29sLkNhbmNlbFdvcmtmbG93",
-            "SW5zdGFuY2VSZXF1ZXN0GjAuZ2F0ZXdheV9wcm90b2NvbC5DYW5jZWxXb3Jr",
-            "Zmxvd0luc3RhbmNlUmVzcG9uc2UiABJcCgtDb21wbGV0ZUpvYhIkLmdhdGV3",
-            "YXlfcHJvdG9jb2wuQ29tcGxldGVKb2JSZXF1ZXN0GiUuZ2F0ZXdheV9wcm90",
-            "b2NvbC5Db21wbGV0ZUpvYlJlc3BvbnNlIgASfQoWQ3JlYXRlV29ya2Zsb3dJ",
-            "bnN0YW5jZRIvLmdhdGV3YXlfcHJvdG9jb2wuQ3JlYXRlV29ya2Zsb3dJbnN0",
-            "YW5jZVJlcXVlc3QaMC5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVdvcmtmbG93",
-            "SW5zdGFuY2VSZXNwb25zZSIAEpsBCiBDcmVhdGVXb3JrZmxvd0luc3RhbmNl",
-            "V2l0aFJlc3VsdBI5LmdhdGV3YXlfcHJvdG9jb2wuQ3JlYXRlV29ya2Zsb3dJ",
-            "bnN0YW5jZVdpdGhSZXN1bHRSZXF1ZXN0GjouZ2F0ZXdheV9wcm90b2NvbC5D",
-            "cmVhdGVXb3JrZmxvd0luc3RhbmNlV2l0aFJlc3VsdFJlc3BvbnNlIgASZQoO",
-            "RGVwbG95V29ya2Zsb3cSJy5nYXRld2F5X3Byb3RvY29sLkRlcGxveVdvcmtm",
-            "bG93UmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95V29ya2Zsb3dS",
-            "ZXNwb25zZSIAElAKB0ZhaWxKb2ISIC5nYXRld2F5X3Byb3RvY29sLkZhaWxK",
-            "b2JSZXF1ZXN0GiEuZ2F0ZXdheV9wcm90b2NvbC5GYWlsSm9iUmVzcG9uc2Ui",
-            "ABJZCgpUaHJvd0Vycm9yEiMuZ2F0ZXdheV9wcm90b2NvbC5UaHJvd0Vycm9y",
-            "UmVxdWVzdBokLmdhdGV3YXlfcHJvdG9jb2wuVGhyb3dFcnJvclJlc3BvbnNl",
-            "IgASZQoOUHVibGlzaE1lc3NhZ2USJy5nYXRld2F5X3Byb3RvY29sLlB1Ymxp",
-            "c2hNZXNzYWdlUmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlzaE1l",
-            "c3NhZ2VSZXNwb25zZSIAEmgKD1Jlc29sdmVJbmNpZGVudBIoLmdhdGV3YXlf",
-            "cHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVxdWVzdBopLmdhdGV3YXlfcHJv",
-            "dG9jb2wuUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiABJfCgxTZXRWYXJpYWJs",
-            "ZXMSJS5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1JlcXVlc3QaJi5n",
-            "YXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1Jlc3BvbnNlIgASUwoIVG9w",
-            "b2xvZ3kSIS5nYXRld2F5X3Byb3RvY29sLlRvcG9sb2d5UmVxdWVzdBoiLmdh",
-            "dGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXNwb25zZSIAEmsKEFVwZGF0ZUpv",
-            "YlJldHJpZXMSKS5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJldHJpZXNS",
-            "ZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVKb2JSZXRyaWVzUmVz",
-            "cG9uc2UiAEIhChlpby56ZWViZS5nYXRld2F5LnByb3RvY29sUABaAnBiYgZw",
-            "cm90bzM="));
+            "bGVzGAUgASgJIiUKFlB1Ymxpc2hNZXNzYWdlUmVzcG9uc2USCwoDa2V5GAEg",
+            "ASgDIi0KFlJlc29sdmVJbmNpZGVudFJlcXVlc3QSEwoLaW5jaWRlbnRLZXkY",
+            "ASABKAMiGQoXUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiEQoPVG9wb2xvZ3lS",
+            "ZXF1ZXN0IqIBChBUb3BvbG9neVJlc3BvbnNlEi0KB2Jyb2tlcnMYASADKAsy",
+            "HC5nYXRld2F5X3Byb3RvY29sLkJyb2tlckluZm8SEwoLY2x1c3RlclNpemUY",
+            "AiABKAUSFwoPcGFydGl0aW9uc0NvdW50GAMgASgFEhkKEXJlcGxpY2F0aW9u",
+            "RmFjdG9yGAQgASgFEhYKDmdhdGV3YXlWZXJzaW9uGAUgASgJInoKCkJyb2tl",
+            "ckluZm8SDgoGbm9kZUlkGAEgASgFEgwKBGhvc3QYAiABKAkSDAoEcG9ydBgD",
+            "IAEoBRIvCgpwYXJ0aXRpb25zGAQgAygLMhsuZ2F0ZXdheV9wcm90b2NvbC5Q",
+            "YXJ0aXRpb24SDwoHdmVyc2lvbhgFIAEoCSKWAgoJUGFydGl0aW9uEhMKC3Bh",
+            "cnRpdGlvbklkGAEgASgFEj0KBHJvbGUYAiABKA4yLy5nYXRld2F5X3Byb3Rv",
+            "Y29sLlBhcnRpdGlvbi5QYXJ0aXRpb25Ccm9rZXJSb2xlEkEKBmhlYWx0aBgD",
+            "IAEoDjIxLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9uLlBhcnRpdGlvbkJy",
+            "b2tlckhlYWx0aCI9ChNQYXJ0aXRpb25Ccm9rZXJSb2xlEgoKBkxFQURFUhAA",
+            "EgwKCEZPTExPV0VSEAESDAoISU5BQ1RJVkUQAiIzChVQYXJ0aXRpb25Ccm9r",
+            "ZXJIZWFsdGgSCwoHSEVBTFRIWRAAEg0KCVVOSEVBTFRIWRABIjoKF1VwZGF0",
+            "ZUpvYlJldHJpZXNSZXF1ZXN0Eg4KBmpvYktleRgBIAEoAxIPCgdyZXRyaWVz",
+            "GAIgASgFIhoKGFVwZGF0ZUpvYlJldHJpZXNSZXNwb25zZSJTChNTZXRWYXJp",
+            "YWJsZXNSZXF1ZXN0EhoKEmVsZW1lbnRJbnN0YW5jZUtleRgBIAEoAxIRCgl2",
+            "YXJpYWJsZXMYAiABKAkSDQoFbG9jYWwYAyABKAgiIwoUU2V0VmFyaWFibGVz",
+            "UmVzcG9uc2USCwoDa2V5GAEgASgDMu4KCgdHYXRld2F5EmEKDEFjdGl2YXRl",
+            "Sm9icxIlLmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVxdWVzdBom",
+            "LmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVzcG9uc2UiADABEn0K",
+            "FkNhbmNlbFdvcmtmbG93SW5zdGFuY2USLy5nYXRld2F5X3Byb3RvY29sLkNh",
+            "bmNlbFdvcmtmbG93SW5zdGFuY2VSZXF1ZXN0GjAuZ2F0ZXdheV9wcm90b2Nv",
+            "bC5DYW5jZWxXb3JrZmxvd0luc3RhbmNlUmVzcG9uc2UiABJcCgtDb21wbGV0",
+            "ZUpvYhIkLmdhdGV3YXlfcHJvdG9jb2wuQ29tcGxldGVKb2JSZXF1ZXN0GiUu",
+            "Z2F0ZXdheV9wcm90b2NvbC5Db21wbGV0ZUpvYlJlc3BvbnNlIgASfQoWQ3Jl",
+            "YXRlV29ya2Zsb3dJbnN0YW5jZRIvLmdhdGV3YXlfcHJvdG9jb2wuQ3JlYXRl",
+            "V29ya2Zsb3dJbnN0YW5jZVJlcXVlc3QaMC5nYXRld2F5X3Byb3RvY29sLkNy",
+            "ZWF0ZVdvcmtmbG93SW5zdGFuY2VSZXNwb25zZSIAEpsBCiBDcmVhdGVXb3Jr",
+            "Zmxvd0luc3RhbmNlV2l0aFJlc3VsdBI5LmdhdGV3YXlfcHJvdG9jb2wuQ3Jl",
+            "YXRlV29ya2Zsb3dJbnN0YW5jZVdpdGhSZXN1bHRSZXF1ZXN0GjouZ2F0ZXdh",
+            "eV9wcm90b2NvbC5DcmVhdGVXb3JrZmxvd0luc3RhbmNlV2l0aFJlc3VsdFJl",
+            "c3BvbnNlIgASZQoORGVwbG95V29ya2Zsb3cSJy5nYXRld2F5X3Byb3RvY29s",
+            "LkRlcGxveVdvcmtmbG93UmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuRGVw",
+            "bG95V29ya2Zsb3dSZXNwb25zZSIAElAKB0ZhaWxKb2ISIC5nYXRld2F5X3By",
+            "b3RvY29sLkZhaWxKb2JSZXF1ZXN0GiEuZ2F0ZXdheV9wcm90b2NvbC5GYWls",
+            "Sm9iUmVzcG9uc2UiABJZCgpUaHJvd0Vycm9yEiMuZ2F0ZXdheV9wcm90b2Nv",
+            "bC5UaHJvd0Vycm9yUmVxdWVzdBokLmdhdGV3YXlfcHJvdG9jb2wuVGhyb3dF",
+            "cnJvclJlc3BvbnNlIgASZQoOUHVibGlzaE1lc3NhZ2USJy5nYXRld2F5X3By",
+            "b3RvY29sLlB1Ymxpc2hNZXNzYWdlUmVxdWVzdBooLmdhdGV3YXlfcHJvdG9j",
+            "b2wuUHVibGlzaE1lc3NhZ2VSZXNwb25zZSIAEmgKD1Jlc29sdmVJbmNpZGVu",
+            "dBIoLmdhdGV3YXlfcHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVxdWVzdBop",
+            "LmdhdGV3YXlfcHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiABJf",
+            "CgxTZXRWYXJpYWJsZXMSJS5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxl",
+            "c1JlcXVlc3QaJi5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1Jlc3Bv",
+            "bnNlIgASUwoIVG9wb2xvZ3kSIS5nYXRld2F5X3Byb3RvY29sLlRvcG9sb2d5",
+            "UmVxdWVzdBoiLmdhdGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXNwb25zZSIA",
+            "EmsKEFVwZGF0ZUpvYlJldHJpZXMSKS5nYXRld2F5X3Byb3RvY29sLlVwZGF0",
+            "ZUpvYlJldHJpZXNSZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVK",
+            "b2JSZXRyaWVzUmVzcG9uc2UiAEIhChlpby56ZWViZS5nYXRld2F5LnByb3Rv",
+            "Y29sUABaAnBiYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -142,13 +145,13 @@ namespace GatewayProtocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ThrowErrorRequest), global::GatewayProtocol.ThrowErrorRequest.Parser, new[]{ "JobKey", "ErrorCode", "ErrorMessage" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ThrowErrorResponse), global::GatewayProtocol.ThrowErrorResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageRequest), global::GatewayProtocol.PublishMessageRequest.Parser, new[]{ "Name", "CorrelationKey", "TimeToLive", "MessageId", "Variables" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageResponse), global::GatewayProtocol.PublishMessageResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageResponse), global::GatewayProtocol.PublishMessageResponse.Parser, new[]{ "Key" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentRequest), global::GatewayProtocol.ResolveIncidentRequest.Parser, new[]{ "IncidentKey" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentResponse), global::GatewayProtocol.ResolveIncidentResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyRequest), global::GatewayProtocol.TopologyRequest.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyResponse), global::GatewayProtocol.TopologyResponse.Parser, new[]{ "Brokers", "ClusterSize", "PartitionsCount", "ReplicationFactor", "GatewayVersion" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BrokerInfo), global::GatewayProtocol.BrokerInfo.Parser, new[]{ "NodeId", "Host", "Port", "Partitions", "Version" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.Partition), global::GatewayProtocol.Partition.Parser, new[]{ "PartitionId", "Role" }, null, new[]{ typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerRole) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.Partition), global::GatewayProtocol.Partition.Parser, new[]{ "PartitionId", "Role", "Health" }, null, new[]{ typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerRole), typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerHealth) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesRequest), global::GatewayProtocol.UpdateJobRetriesRequest.Parser, new[]{ "JobKey", "Retries" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesResponse), global::GatewayProtocol.UpdateJobRetriesResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesRequest), global::GatewayProtocol.SetVariablesRequest.Parser, new[]{ "ElementInstanceKey", "Variables", "Local" }, null, null, null, null),
@@ -4079,12 +4082,27 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PublishMessageResponse(PublishMessageResponse other) : this() {
+      key_ = other.key_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PublishMessageResponse Clone() {
       return new PublishMessageResponse(this);
+    }
+
+    /// <summary>Field number for the "key" field.</summary>
+    public const int KeyFieldNumber = 1;
+    private long key_;
+    /// <summary>
+    /// the unique ID of the message that was published
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Key {
+      get { return key_; }
+      set {
+        key_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4100,12 +4118,14 @@ namespace GatewayProtocol {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Key != other.Key) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (Key != 0L) hash ^= Key.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4119,6 +4139,10 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (Key != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Key);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4127,6 +4151,9 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (Key != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Key);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4137,6 +4164,9 @@ namespace GatewayProtocol {
     public void MergeFrom(PublishMessageResponse other) {
       if (other == null) {
         return;
+      }
+      if (other.Key != 0L) {
+        Key = other.Key;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4149,6 +4179,10 @@ namespace GatewayProtocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 8: {
+            Key = input.ReadInt64();
+            break;
+          }
         }
       }
     }
@@ -5012,6 +5046,7 @@ namespace GatewayProtocol {
     public Partition(Partition other) : this() {
       partitionId_ = other.partitionId_;
       role_ = other.role_;
+      health_ = other.health_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5048,6 +5083,20 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "health" field.</summary>
+    public const int HealthFieldNumber = 3;
+    private global::GatewayProtocol.Partition.Types.PartitionBrokerHealth health_ = global::GatewayProtocol.Partition.Types.PartitionBrokerHealth.Healthy;
+    /// <summary>
+    /// the health of this partition
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::GatewayProtocol.Partition.Types.PartitionBrokerHealth Health {
+      get { return health_; }
+      set {
+        health_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Partition);
@@ -5063,6 +5112,7 @@ namespace GatewayProtocol {
       }
       if (PartitionId != other.PartitionId) return false;
       if (Role != other.Role) return false;
+      if (Health != other.Health) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5071,6 +5121,7 @@ namespace GatewayProtocol {
       int hash = 1;
       if (PartitionId != 0) hash ^= PartitionId.GetHashCode();
       if (Role != global::GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader) hash ^= Role.GetHashCode();
+      if (Health != global::GatewayProtocol.Partition.Types.PartitionBrokerHealth.Healthy) hash ^= Health.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5092,6 +5143,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(16);
         output.WriteEnum((int) Role);
       }
+      if (Health != global::GatewayProtocol.Partition.Types.PartitionBrokerHealth.Healthy) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Health);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5105,6 +5160,9 @@ namespace GatewayProtocol {
       }
       if (Role != global::GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Role);
+      }
+      if (Health != global::GatewayProtocol.Partition.Types.PartitionBrokerHealth.Healthy) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Health);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -5122,6 +5180,9 @@ namespace GatewayProtocol {
       }
       if (other.Role != global::GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader) {
         Role = other.Role;
+      }
+      if (other.Health != global::GatewayProtocol.Partition.Types.PartitionBrokerHealth.Healthy) {
+        Health = other.Health;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -5142,6 +5203,10 @@ namespace GatewayProtocol {
             Role = (global::GatewayProtocol.Partition.Types.PartitionBrokerRole) input.ReadEnum();
             break;
           }
+          case 24: {
+            Health = (global::GatewayProtocol.Partition.Types.PartitionBrokerHealth) input.ReadEnum();
+            break;
+          }
         }
       }
     }
@@ -5156,6 +5221,15 @@ namespace GatewayProtocol {
       public enum PartitionBrokerRole {
         [pbr::OriginalName("LEADER")] Leader = 0,
         [pbr::OriginalName("FOLLOWER")] Follower = 1,
+        [pbr::OriginalName("INACTIVE")] Inactive = 2,
+      }
+
+      /// <summary>
+      /// Describes the current health of the partition
+      /// </summary>
+      public enum PartitionBrokerHealth {
+        [pbr::OriginalName("HEALTHY")] Healthy = 0,
+        [pbr::OriginalName("UNHEALTHY")] Unhealthy = 1,
       }
 
     }

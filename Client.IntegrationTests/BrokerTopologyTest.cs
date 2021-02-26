@@ -38,7 +38,7 @@ namespace Client.IntegrationTests
             Console.WriteLine(topology);
 
             var gatewayVersion = topology.GatewayVersion;
-            Assert.AreEqual("0.23.0", gatewayVersion);
+            Assert.AreEqual("0.26.1", gatewayVersion);
 
             var topologyBrokers = topology.Brokers;
             Assert.AreEqual(1, topologyBrokers.Count);
