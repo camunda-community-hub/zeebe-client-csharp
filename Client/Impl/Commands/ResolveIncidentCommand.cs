@@ -27,10 +27,5 @@ namespace Zeebe.Client.Impl.Commands
             await asyncReply.ResponseAsync;
             return new ResolveIncidentResponse();
         }
-
-        public Task<IResolveIncidentResponse> SendWithRetry(TimeSpan? timespan = null)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

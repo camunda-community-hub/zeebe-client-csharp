@@ -86,10 +86,5 @@ namespace Zeebe.Client.Impl.Commands
 
             request.Workflows.Add(requestObject);
         }
-
-        public Task<IDeployResponse> SendWithRetry(TimeSpan? timespan = null)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

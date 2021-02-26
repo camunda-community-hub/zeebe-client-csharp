@@ -66,7 +66,6 @@ namespace Zeebe.Client
                 new Channel(address, credentials, channelOptions);
             gatewayClient = new Gateway.GatewayClient(channelToGateway);
 
-
             asyncRetryStrategy =
                 new TransientGrpcErrorRetryStrategy(sleepDurationProvider ??
                                                     DefaultWaitTimeProvider);
