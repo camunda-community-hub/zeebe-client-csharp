@@ -51,10 +51,5 @@ namespace Zeebe.Client.Impl.Commands
             var response = await asyncReply.ResponseAsync;
             return new WorkflowInstanceResultResponse(response);
         }
-
-        public Task<IWorkflowInstanceResult> SendWithRetry(TimeSpan? timespan = null)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

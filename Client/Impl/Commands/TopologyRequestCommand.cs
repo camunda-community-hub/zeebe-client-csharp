@@ -39,10 +39,5 @@ namespace Zeebe.Client.Impl.Commands
 
             return new Topology(response);
         }
-
-        public Task<ITopology> SendWithRetry(TimeSpan? timespan = null)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
