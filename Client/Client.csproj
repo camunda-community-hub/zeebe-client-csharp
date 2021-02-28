@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.18.1</Version>
+    <Version>0.19.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,17 +13,28 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>0.18.1</AssemblyVersion>
-    <FileVersion>0.18.1</FileVersion>
+    <AssemblyVersion>0.19.0</AssemblyVersion>
+    <FileVersion>0.19.0</FileVersion>
     <PackageReleaseNotes>
-Misc:
+### Contributions:
 
-  * Job worker rewrite:
-      * Replace and simplified implementation with TPL Dataflow Library, contribution by https://github.com/MrRickwi
+* Introduce new send method which accepts a CancellationToken https://github.com/zeebe-io/zeebe-client-csharp/pull/219
+* Add delay for failing job activation in job worker https://github.com/zeebe-io/zeebe-client-csharp/pull/217
+* Prevent disposing of HttpMessageHandler in CamundaCloudTokenProvider https://github.com/zeebe-io/zeebe-client-csharp/pull/222
 
-  * Upgraded Dependencies
+Thanks to  @terjeinnerdal and Xavier Le Galles (@xlegalles)
 
-This release is based on the Zeebe 0.24.X release (https://github.com/zeebe-io/zeebe).
+### Features
+
+* Introduce new sendWithRetry method for some commands (https://github.com/zeebe-io/zeebe-client-csharp/pull/172, https://github.com/zeebe-io/zeebe-client-csharp/pull/232)
+
+### Misc:
+
+* Upgraded Dependencies
+
+-----
+
+This release is based on the Zeebe 0.26.X release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -33,9 +44,9 @@ This release is based on the Zeebe 0.24.X release (https://github.com/zeebe-io/z
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>0.18.1</PackageVersion>
+    <PackageVersion>0.19.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>0.18.1</Title>
+    <Title>0.19.0</Title>
   </PropertyGroup>
 
   <ItemGroup>
