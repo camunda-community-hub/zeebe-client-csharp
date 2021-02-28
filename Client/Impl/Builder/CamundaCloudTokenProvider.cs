@@ -26,6 +26,8 @@ namespace Zeebe.Client.Impl.Builder
         private readonly string clientId;
         private readonly string clientSecret;
         private readonly string audience;
+        private HttpClient httpClient;
+        private HttpMessageHandler httpMessageHandler;
 
         internal CamundaCloudTokenProvider(
             string authServer,
@@ -41,7 +43,7 @@ namespace Zeebe.Client.Impl.Builder
             this.audience = audience;
 
             // default client handler
-            HttpMessageHandler = new HttpClientHandler();
+            httpClient = new HttpClient(new HttpClientHandler(), disposeHandler: false);
             TokenStoragePath = ZeebeRootPath;
         }
 
@@ -50,7 +52,6 @@ namespace Zeebe.Client.Impl.Builder
             return new CamundaCloudTokenProviderBuilder();
         }
 
-        public HttpMessageHandler HttpMessageHandler { get; set; }
         public string TokenStoragePath { get; set; }
         private string TokenFileName => TokenStoragePath + Path.DirectorySeparatorChar + ZeebeCloudTokenFileName;
         private AccessToken CurrentAccessToken { get; set; }
@@ -81,6 +82,12 @@ namespace Zeebe.Client.Impl.Builder
 
             // request token
             return RequestAccessTokenAsync();
+        }
+
+        internal void SetHttpMessageHandler(HttpMessageHandler handler)
+        {
+            httpMessageHandler = handler;
+            httpClient = new HttpClient(handler);
         }
 
         private Task<string> GetValidToken(AccessToken currentAccessToken)
@@ -125,7 +132,7 @@ namespace Zeebe.Client.Impl.Builder
 
             var tokenFileName = TokenFileName;
             var json = string.Format(JsonContent, clientId, clientSecret, audience);
-            using (var httpClient = new HttpClient(HttpMessageHandler))
+
             using (var content = new StringContent(json, Encoding.UTF8, "application/json"))
             {
                 var httpResponseMessage = await httpClient.PostAsync(authServer, content);
@@ -170,7 +177,8 @@ namespace Zeebe.Client.Impl.Builder
 
         public void Dispose()
         {
-            HttpMessageHandler.Dispose();
+            httpClient.Dispose();
+            httpMessageHandler.Dispose();
         }
     }
 }
