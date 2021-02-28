@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
@@ -15,16 +16,16 @@ namespace Zeebe.Client
             // given
             const string errorCode = "code 13";
             const string errorMessage = "This is a business error!";
-            const int JobKey = 255;
+            const int jobKey = 255;
             var expectedRequest = new ThrowErrorRequest
             {
-                JobKey = JobKey,
+                JobKey = jobKey,
                 ErrorCode = errorCode,
                 ErrorMessage = errorMessage,
             };
 
             // when
-            await ZeebeClient.NewThrowErrorCommand(JobKey)
+            await ZeebeClient.NewThrowErrorCommand(jobKey)
                 .ErrorCode("code 13")
                 .ErrorMessage("This is a business error!")
                 .Send();
@@ -39,10 +40,10 @@ namespace Zeebe.Client
         public void ShouldTimeoutRequest()
         {
             // given
-            const int JobKey = 255;
+            const int jobKey = 255;
 
             // when
-            var task = ZeebeClient.NewThrowErrorCommand(JobKey)
+            var task = ZeebeClient.NewThrowErrorCommand(jobKey)
                 .ErrorCode("code 13")
                 .ErrorMessage("This is a business error!")
                 .Send(TimeSpan.Zero);
@@ -50,7 +51,25 @@ namespace Zeebe.Client
             var rpcException = (RpcException) aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+            Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+        }
+
+        [Test]
+        public void ShouldCancelRequest()
+        {
+            // given
+            const int jobKey = 255;
+
+            // when
+            var task = ZeebeClient.NewThrowErrorCommand(jobKey)
+                .ErrorCode("code 13")
+                .ErrorMessage("This is a business error!")
+                .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
+            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+
+            // then
+            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
     }
 }
