@@ -15,7 +15,6 @@
 
 using System;
 using System.Threading;
-using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
 using Grpc.Core.Logging;

@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
@@ -38,10 +39,27 @@ namespace Zeebe.Client
                 .Variables("{\"foo\":\"bar\"}")
                 .Send(TimeSpan.Zero);
             var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
             Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+        }
+
+        [Test]
+        public void ShouldCancelRequest()
+        {
+            // given
+
+            // when
+            var task = ZeebeClient
+                .NewSetVariablesCommand(2123)
+                .Variables("{\"foo\":\"bar\"}")
+                .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
+            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+
+            // then
+            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
 
         [Test]

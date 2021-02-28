@@ -1,7 +1,7 @@
 using System;
 using System.IO;
-using System.Net.Mime;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Google.Protobuf;
@@ -52,10 +52,27 @@ namespace Zeebe.Client
                 .AddResourceFile(_demoProcessPath)
                 .Send(TimeSpan.Zero);
             var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+            Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+        }
+
+        [Test]
+        public void ShouldCancelRequest()
+        {
+            // given
+
+            // when
+            var task = ZeebeClient
+                .NewDeployCommand()
+                .AddResourceFile(_demoProcessPath)
+                .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
+            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+
+            // then
+            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
 
         [Test]

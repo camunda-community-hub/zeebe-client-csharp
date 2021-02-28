@@ -1,8 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using TestContainers.Core.Builders;
-using TestContainers.Core.Containers;
 using Zeebe.Client;
 using Zeebe.Client.Api.Responses;
 
