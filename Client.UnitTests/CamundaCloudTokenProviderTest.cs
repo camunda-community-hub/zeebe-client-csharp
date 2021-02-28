@@ -50,7 +50,7 @@ namespace Zeebe.Client
         {
             public int RequestCount { get; set; }
             private bool _disposed = false;
-            protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, 
+            protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
                 CancellationToken cancellationToken)
             {
                 CheckDisposed();
@@ -81,14 +81,13 @@ namespace Zeebe.Client
                 _disposed = true;
             }
 
-            private void CheckDisposed() 
+            private void CheckDisposed()
             {
                 if (_disposed)
                 {
                     throw new ObjectDisposedException("HttpMessageHandlerStub");
                 }
             }
-
         }
 
         [Test]
@@ -244,18 +243,13 @@ namespace Zeebe.Client
         {
             // given
             ExpiresIn = 0;
-            var firstToken = await TokenProvider.GetAccessTokenForRequestAsync();
-            var files = Directory.GetFiles(TokenStoragePath);
-            var tokenFile = files[0];
-            await File.WriteAllTextAsync(tokenFile, "FILE_TOKEN");
+            await TokenProvider.GetAccessTokenForRequestAsync();
 
             // when
-            Token = "SECOND_TOKEN";
             Assert.DoesNotThrowAsync(async () => await TokenProvider.GetAccessTokenForRequestAsync());
 
             // then
             Assert.AreEqual(2, MessageHandlerStub.RequestCount);
         }
-
     }
 }
