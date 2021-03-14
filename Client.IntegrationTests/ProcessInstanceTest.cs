@@ -9,11 +9,11 @@ using Zeebe.Client;
 namespace Client.IntegrationTests
 {
     [TestFixture]
-    public class WorkflowInstanceTest
+    public class ProcessInstanceTest
     {
         private static readonly string OneTaskProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "oneTaskProcess.bpmn");
         private static readonly string SimpleProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "simpleProcess.bpmn");
-        private static readonly string WorkflowInstanceVariables = "{\"a\":123, \"b\":true}";
+        private static readonly string ProcessInstanceVariables = "{\"a\":123, \"b\":true}";
 
         private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
         private IZeebeClient zeebeClient;
@@ -31,38 +31,38 @@ namespace Client.IntegrationTests
         }
 
         [Test]
-        public async Task ShouldCreateWorkflowInstance()
+        public async Task ShouldCreateProcessInstance()
         {
             // given
             var deployResponse = await zeebeClient.NewDeployCommand()
                 .AddResourceFile(OneTaskProcessPath)
                 .Send();
-            var workflowKey = deployResponse.Workflows[0].WorkflowKey;
+            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
 
             // when
-            var workflowInstance = await zeebeClient
-                .NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(workflowKey)
-                .Variables(WorkflowInstanceVariables)
+            var processInstance = await zeebeClient
+                .NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(processDefinitionKey)
+                .Variables(ProcessInstanceVariables)
                 .Send();
 
             // then
-            Assert.AreEqual(workflowInstance.Version, 1);
-            Assert.AreEqual(workflowKey, workflowInstance.WorkflowKey);
-            Assert.AreEqual("oneTaskProcess", workflowInstance.BpmnProcessId);
-            Assert.Greater(workflowInstance.WorkflowInstanceKey, 1);
+            Assert.AreEqual(processInstance.Version, 1);
+            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
+            Assert.AreEqual("oneTaskProcess", processInstance.BpmnProcessId);
+            Assert.Greater(processInstance.ProcessInstanceKey, 1);
         }
 
         [Test]
-        public void ShouldNotCreateWorkflowInstanceWithoutDeployment()
+        public void ShouldNotCreateProcessInstanceWithoutDeployment()
         {
             // given
 
             // when
             var aggregateException = Assert.Throws<AggregateException>(() => zeebeClient
-                .NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(1)
-                .Variables(WorkflowInstanceVariables)
+                .NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(1)
+                .Variables(ProcessInstanceVariables)
                 .Send().Wait());
 
             // then
@@ -71,30 +71,30 @@ namespace Client.IntegrationTests
         }
 
         [Test]
-        public async Task ShouldGetResultAfterCreateWorkflowInstance()
+        public async Task ShouldGetResultAfterCreateProcessInstance()
         {
             // given
             var deployResponse = await zeebeClient.NewDeployCommand()
                 .AddResourceFile(SimpleProcessPath)
                 .Send();
-            var workflowKey = deployResponse.Workflows[0].WorkflowKey;
+            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
 
             // when
-            var workflowInstance = await zeebeClient
-                .NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(workflowKey)
-                .Variables(WorkflowInstanceVariables)
+            var processInstance = await zeebeClient
+                .NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(processDefinitionKey)
+                .Variables(ProcessInstanceVariables)
                 .WithResult()
                 .Send();
 
             // then
-            Assert.AreEqual(workflowInstance.Version, 1);
-            Assert.AreEqual(workflowKey, workflowInstance.WorkflowKey);
-            Assert.AreEqual("simpleProcess", workflowInstance.BpmnProcessId);
-            Assert.Greater(workflowInstance.WorkflowInstanceKey, 1);
+            Assert.AreEqual(processInstance.Version, 1);
+            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
+            Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
+            Assert.Greater(processInstance.ProcessInstanceKey, 1);
 
-            var expectedJson = JObject.Parse(WorkflowInstanceVariables);
-            var actualJson = JObject.Parse(workflowInstance.Variables);
+            var expectedJson = JObject.Parse(ProcessInstanceVariables);
+            var actualJson = JObject.Parse(processInstance.Variables);
             Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
         }
 
@@ -105,25 +105,25 @@ namespace Client.IntegrationTests
             var deployResponse = await zeebeClient.NewDeployCommand()
                 .AddResourceFile(SimpleProcessPath)
                 .Send();
-            var workflowKey = deployResponse.Workflows[0].WorkflowKey;
+            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
 
             // when
-            var workflowInstance = await zeebeClient
-                .NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(workflowKey)
-                .Variables(WorkflowInstanceVariables)
+            var processInstance = await zeebeClient
+                .NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(processDefinitionKey)
+                .Variables(ProcessInstanceVariables)
                 .WithResult()
                 .FetchVariables("b")
                 .Send();
 
             // then
-            Assert.AreEqual(workflowInstance.Version, 1);
-            Assert.AreEqual(workflowKey, workflowInstance.WorkflowKey);
-            Assert.AreEqual("simpleProcess", workflowInstance.BpmnProcessId);
-            Assert.Greater(workflowInstance.WorkflowInstanceKey, 1);
+            Assert.AreEqual(processInstance.Version, 1);
+            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
+            Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
+            Assert.Greater(processInstance.ProcessInstanceKey, 1);
 
             var expectedJson = new JObject { { "b", true } };
-            var actualJson = JObject.Parse(workflowInstance.Variables);
+            var actualJson = JObject.Parse(processInstance.Variables);
             Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
         }
 
@@ -134,25 +134,25 @@ namespace Client.IntegrationTests
             var deployResponse = await zeebeClient.NewDeployCommand()
                 .AddResourceFile(SimpleProcessPath)
                 .Send();
-            var workflowKey = deployResponse.Workflows[0].WorkflowKey;
+            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
 
             // when
-            var workflowInstance = await zeebeClient
-                .NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(workflowKey)
-                .Variables(WorkflowInstanceVariables)
+            var processInstance = await zeebeClient
+                .NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(processDefinitionKey)
+                .Variables(ProcessInstanceVariables)
                 .WithResult()
                 .FetchVariables("c")
                 .Send();
 
             // then
-            Assert.AreEqual(workflowInstance.Version, 1);
-            Assert.AreEqual(workflowKey, workflowInstance.WorkflowKey);
-            Assert.AreEqual("simpleProcess", workflowInstance.BpmnProcessId);
-            Assert.Greater(workflowInstance.WorkflowInstanceKey, 1);
+            Assert.AreEqual(processInstance.Version, 1);
+            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
+            Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
+            Assert.Greater(processInstance.ProcessInstanceKey, 1);
 
             var expectedJson = new JObject();
-            var actualJson = JObject.Parse(workflowInstance.Variables);
+            var actualJson = JObject.Parse(processInstance.Variables);
             Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
         }
     }

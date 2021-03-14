@@ -43,7 +43,7 @@ namespace Zeebe.Client.Api.Worker
         /// </example>
         ///
         /// <para>
-        ///     The job is linked to a workflow instance, which means this command will complete the related
+        ///     The job is linked to a process instance, which means this command will complete the related
         ///     activity and continue the flow.
         /// </para>
         ///
@@ -67,7 +67,7 @@ namespace Zeebe.Client.Api.Worker
         /// </example>
         ///
         /// <para>
-        ///     The job is linked to a workflow instance, which means this command will complete the related
+        ///     The job is linked to a process instance, which means this command will complete the related
         ///     activity and continue the flow.
         /// </para>
         ///

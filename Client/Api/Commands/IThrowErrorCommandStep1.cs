@@ -8,7 +8,7 @@ namespace Zeebe.Client.Api.Commands
         /// Set the errorCode for the error.
         /// </summary>
         /// <para>
-        ///     If the errorCode can't be matched to an error catch event in the workflow, an incident will
+        ///     If the errorCode can't be matched to an error catch event in the process, an incident will
         ///     be created.
         /// </para>
         /// <param name="errorCode">the errorCode that will be matched against an error catch event</param>

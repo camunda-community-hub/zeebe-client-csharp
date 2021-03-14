@@ -127,19 +127,19 @@ namespace GatewayProtocol {
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsRequest), global::GatewayProtocol.ActivateJobsRequest.Parser, new[]{ "Type", "Worker", "Timeout", "MaxJobsToActivate", "FetchVariable", "RequestTimeout" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsResponse), global::GatewayProtocol.ActivateJobsResponse.Parser, new[]{ "Jobs" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivatedJob), global::GatewayProtocol.ActivatedJob.Parser, new[]{ "Key", "Type", "WorkflowInstanceKey", "BpmnProcessId", "WorkflowDefinitionVersion", "WorkflowKey", "ElementId", "ElementInstanceKey", "CustomHeaders", "Worker", "Retries", "Deadline", "Variables" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceRequest), global::GatewayProtocol.CancelWorkflowInstanceRequest.Parser, new[]{ "WorkflowInstanceKey" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelWorkflowInstanceResponse), global::GatewayProtocol.CancelWorkflowInstanceResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivatedJob), global::GatewayProtocol.ActivatedJob.Parser, new[]{ "Key", "Type", "ProcessInstanceKey", "BpmnProcessId", "ProcessDefinitionVersion", "ProcessDefinitionKey", "ElementId", "ElementInstanceKey", "CustomHeaders", "Worker", "Retries", "Deadline", "Variables" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelProcessInstanceRequest), global::GatewayProtocol.CancelProcessInstanceRequest.Parser, new[]{ "ProcessInstanceKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelProcessInstanceResponse), global::GatewayProtocol.CancelProcessInstanceResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobRequest), global::GatewayProtocol.CompleteJobRequest.Parser, new[]{ "JobKey", "Variables" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobResponse), global::GatewayProtocol.CompleteJobResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceRequest), global::GatewayProtocol.CreateWorkflowInstanceRequest.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "Variables" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceResponse), global::GatewayProtocol.CreateWorkflowInstanceResponse.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "WorkflowInstanceKey" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest), global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest.Parser, new[]{ "Request", "RequestTimeout", "FetchVariables" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse), global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse.Parser, new[]{ "WorkflowKey", "BpmnProcessId", "Version", "WorkflowInstanceKey", "Variables" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowRequest), global::GatewayProtocol.DeployWorkflowRequest.Parser, new[]{ "Workflows" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowRequestObject), global::GatewayProtocol.WorkflowRequestObject.Parser, new[]{ "Name", "Type", "Definition" }, null, new[]{ typeof(global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployWorkflowResponse), global::GatewayProtocol.DeployWorkflowResponse.Parser, new[]{ "Key", "Workflows" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.WorkflowMetadata), global::GatewayProtocol.WorkflowMetadata.Parser, new[]{ "BpmnProcessId", "Version", "WorkflowKey", "ResourceName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateProcessInstanceRequest), global::GatewayProtocol.CreateProcessInstanceRequest.Parser, new[]{ "ProcessDefinitionKey", "BpmnProcessId", "Version", "Variables" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateProcessInstanceResponse), global::GatewayProtocol.CreateProcessInstanceResponse.Parser, new[]{ "ProcessDefinitionKey", "BpmnProcessId", "Version", "ProcessInstanceKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateProcessInstanceWithResultRequest), global::GatewayProtocol.CreateProcessInstanceWithResultRequest.Parser, new[]{ "Request", "RequestTimeout", "FetchVariables" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateProcessInstanceWithResultResponse), global::GatewayProtocol.CreateProcessInstanceWithResultResponse.Parser, new[]{ "ProcessDefinitionKey", "BpmnProcessId", "Version", "ProcessInstanceKey", "Variables" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployProcessRequest), global::GatewayProtocol.DeployProcessRequest.Parser, new[]{ "Processes" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ProcessRequestObject), global::GatewayProtocol.ProcessRequestObject.Parser, new[]{ "Name", "Type", "Definition" }, null, new[]{ typeof(global::GatewayProtocol.ProcessRequestObject.Types.ResourceType) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployProcessResponse), global::GatewayProtocol.DeployProcessResponse.Parser, new[]{ "Key", "Processes" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ProcessMetadata), global::GatewayProtocol.ProcessMetadata.Parser, new[]{ "BpmnProcessId", "Version", "ProcessDefinitionKey", "ResourceName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobRequest), global::GatewayProtocol.FailJobRequest.Parser, new[]{ "JobKey", "Retries", "ErrorMessage" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobResponse), global::GatewayProtocol.FailJobResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ThrowErrorRequest), global::GatewayProtocol.ThrowErrorRequest.Parser, new[]{ "JobKey", "ErrorCode", "ErrorMessage" }, null, null, null, null),
@@ -597,10 +597,10 @@ namespace GatewayProtocol {
     public ActivatedJob(ActivatedJob other) : this() {
       key_ = other.key_;
       type_ = other.type_;
-      workflowInstanceKey_ = other.workflowInstanceKey_;
+      processInstanceKey_ = other.processInstanceKey_;
       bpmnProcessId_ = other.bpmnProcessId_;
-      workflowDefinitionVersion_ = other.workflowDefinitionVersion_;
-      workflowKey_ = other.workflowKey_;
+      processDefinitionVersion_ = other.processDefinitionVersion_;
+      processDefinitionKey_ = other.processDefinitionKey_;
       elementId_ = other.elementId_;
       elementInstanceKey_ = other.elementInstanceKey_;
       customHeaders_ = other.customHeaders_;
@@ -644,17 +644,17 @@ namespace GatewayProtocol {
       }
     }
 
-    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
-    public const int WorkflowInstanceKeyFieldNumber = 3;
-    private long workflowInstanceKey_;
+    /// <summary>Field number for the "processInstanceKey" field.</summary>
+    public const int ProcessInstanceKeyFieldNumber = 3;
+    private long processInstanceKey_;
     /// <summary>
-    /// the job's workflow instance key
+    /// the job's process instance key
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowInstanceKey {
-      get { return workflowInstanceKey_; }
+    public long ProcessInstanceKey {
+      get { return processInstanceKey_; }
       set {
-        workflowInstanceKey_ = value;
+        processInstanceKey_ = value;
       }
     }
 
@@ -662,7 +662,7 @@ namespace GatewayProtocol {
     public const int BpmnProcessIdFieldNumber = 4;
     private string bpmnProcessId_ = "";
     /// <summary>
-    /// the bpmn process ID of the job workflow definition
+    /// the bpmn process ID of the job process definition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string BpmnProcessId {
@@ -672,31 +672,31 @@ namespace GatewayProtocol {
       }
     }
 
-    /// <summary>Field number for the "workflowDefinitionVersion" field.</summary>
-    public const int WorkflowDefinitionVersionFieldNumber = 5;
-    private int workflowDefinitionVersion_;
+    /// <summary>Field number for the "processDefinitionVersion" field.</summary>
+    public const int ProcessDefinitionVersionFieldNumber = 5;
+    private int processDefinitionVersion_;
     /// <summary>
-    /// the version of the job workflow definition
+    /// the version of the job process definition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int WorkflowDefinitionVersion {
-      get { return workflowDefinitionVersion_; }
+    public int ProcessDefinitionVersion {
+      get { return processDefinitionVersion_; }
       set {
-        workflowDefinitionVersion_ = value;
+        processDefinitionVersion_ = value;
       }
     }
 
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 6;
-    private long workflowKey_;
+    /// <summary>Field number for the "processDefinitionKey" field.</summary>
+    public const int ProcessDefinitionKeyFieldNumber = 6;
+    private long processDefinitionKey_;
     /// <summary>
-    /// the key of the job workflow definition
+    /// the key of the job process definition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
+    public long ProcessDefinitionKey {
+      get { return processDefinitionKey_; }
       set {
-        workflowKey_ = value;
+        processDefinitionKey_ = value;
       }
     }
 
@@ -719,7 +719,7 @@ namespace GatewayProtocol {
     private long elementInstanceKey_;
     /// <summary>
     /// the unique key identifying the associated task, unique within the scope of the
-    /// workflow instance
+    /// process instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long ElementInstanceKey {
@@ -816,10 +816,10 @@ namespace GatewayProtocol {
       }
       if (Key != other.Key) return false;
       if (Type != other.Type) return false;
-      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
+      if (ProcessInstanceKey != other.ProcessInstanceKey) return false;
       if (BpmnProcessId != other.BpmnProcessId) return false;
-      if (WorkflowDefinitionVersion != other.WorkflowDefinitionVersion) return false;
-      if (WorkflowKey != other.WorkflowKey) return false;
+      if (ProcessDefinitionVersion != other.ProcessDefinitionVersion) return false;
+      if (ProcessDefinitionKey != other.ProcessDefinitionKey) return false;
       if (ElementId != other.ElementId) return false;
       if (ElementInstanceKey != other.ElementInstanceKey) return false;
       if (CustomHeaders != other.CustomHeaders) return false;
@@ -835,10 +835,10 @@ namespace GatewayProtocol {
       int hash = 1;
       if (Key != 0L) hash ^= Key.GetHashCode();
       if (Type.Length != 0) hash ^= Type.GetHashCode();
-      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
+      if (ProcessInstanceKey != 0L) hash ^= ProcessInstanceKey.GetHashCode();
       if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
-      if (WorkflowDefinitionVersion != 0) hash ^= WorkflowDefinitionVersion.GetHashCode();
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (ProcessDefinitionVersion != 0) hash ^= ProcessDefinitionVersion.GetHashCode();
+      if (ProcessDefinitionKey != 0L) hash ^= ProcessDefinitionKey.GetHashCode();
       if (ElementId.Length != 0) hash ^= ElementId.GetHashCode();
       if (ElementInstanceKey != 0L) hash ^= ElementInstanceKey.GetHashCode();
       if (CustomHeaders.Length != 0) hash ^= CustomHeaders.GetHashCode();
@@ -867,21 +867,21 @@ namespace GatewayProtocol {
         output.WriteRawTag(18);
         output.WriteString(Type);
       }
-      if (WorkflowInstanceKey != 0L) {
+      if (ProcessInstanceKey != 0L) {
         output.WriteRawTag(24);
-        output.WriteInt64(WorkflowInstanceKey);
+        output.WriteInt64(ProcessInstanceKey);
       }
       if (BpmnProcessId.Length != 0) {
         output.WriteRawTag(34);
         output.WriteString(BpmnProcessId);
       }
-      if (WorkflowDefinitionVersion != 0) {
+      if (ProcessDefinitionVersion != 0) {
         output.WriteRawTag(40);
-        output.WriteInt32(WorkflowDefinitionVersion);
+        output.WriteInt32(ProcessDefinitionVersion);
       }
-      if (WorkflowKey != 0L) {
+      if (ProcessDefinitionKey != 0L) {
         output.WriteRawTag(48);
-        output.WriteInt64(WorkflowKey);
+        output.WriteInt64(ProcessDefinitionKey);
       }
       if (ElementId.Length != 0) {
         output.WriteRawTag(58);
@@ -925,17 +925,17 @@ namespace GatewayProtocol {
       if (Type.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Type);
       }
-      if (WorkflowInstanceKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
+      if (ProcessInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessInstanceKey);
       }
       if (BpmnProcessId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
       }
-      if (WorkflowDefinitionVersion != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(WorkflowDefinitionVersion);
+      if (ProcessDefinitionVersion != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ProcessDefinitionVersion);
       }
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      if (ProcessDefinitionKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessDefinitionKey);
       }
       if (ElementId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ElementId);
@@ -975,17 +975,17 @@ namespace GatewayProtocol {
       if (other.Type.Length != 0) {
         Type = other.Type;
       }
-      if (other.WorkflowInstanceKey != 0L) {
-        WorkflowInstanceKey = other.WorkflowInstanceKey;
+      if (other.ProcessInstanceKey != 0L) {
+        ProcessInstanceKey = other.ProcessInstanceKey;
       }
       if (other.BpmnProcessId.Length != 0) {
         BpmnProcessId = other.BpmnProcessId;
       }
-      if (other.WorkflowDefinitionVersion != 0) {
-        WorkflowDefinitionVersion = other.WorkflowDefinitionVersion;
+      if (other.ProcessDefinitionVersion != 0) {
+        ProcessDefinitionVersion = other.ProcessDefinitionVersion;
       }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
+      if (other.ProcessDefinitionKey != 0L) {
+        ProcessDefinitionKey = other.ProcessDefinitionKey;
       }
       if (other.ElementId.Length != 0) {
         ElementId = other.ElementId;
@@ -1028,7 +1028,7 @@ namespace GatewayProtocol {
             break;
           }
           case 24: {
-            WorkflowInstanceKey = input.ReadInt64();
+            ProcessInstanceKey = input.ReadInt64();
             break;
           }
           case 34: {
@@ -1036,11 +1036,11 @@ namespace GatewayProtocol {
             break;
           }
           case 40: {
-            WorkflowDefinitionVersion = input.ReadInt32();
+            ProcessDefinitionVersion = input.ReadInt32();
             break;
           }
           case 48: {
-            WorkflowKey = input.ReadInt64();
+            ProcessDefinitionKey = input.ReadInt64();
             break;
           }
           case 58: {
@@ -1077,11 +1077,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class CancelWorkflowInstanceRequest : pb::IMessage<CancelWorkflowInstanceRequest> {
-    private static readonly pb::MessageParser<CancelWorkflowInstanceRequest> _parser = new pb::MessageParser<CancelWorkflowInstanceRequest>(() => new CancelWorkflowInstanceRequest());
+  public sealed partial class CancelProcessInstanceRequest : pb::IMessage<CancelProcessInstanceRequest> {
+    private static readonly pb::MessageParser<CancelProcessInstanceRequest> _parser = new pb::MessageParser<CancelProcessInstanceRequest>(() => new CancelProcessInstanceRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CancelWorkflowInstanceRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<CancelProcessInstanceRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1094,59 +1094,59 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceRequest() {
+    public CancelProcessInstanceRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceRequest(CancelWorkflowInstanceRequest other) : this() {
-      workflowInstanceKey_ = other.workflowInstanceKey_;
+    public CancelProcessInstanceRequest(CancelProcessInstanceRequest other) : this() {
+      processInstanceKey_ = other.processInstanceKey_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceRequest Clone() {
-      return new CancelWorkflowInstanceRequest(this);
+    public CancelProcessInstanceRequest Clone() {
+      return new CancelProcessInstanceRequest(this);
     }
 
-    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
-    public const int WorkflowInstanceKeyFieldNumber = 1;
-    private long workflowInstanceKey_;
+    /// <summary>Field number for the "processInstanceKey" field.</summary>
+    public const int ProcessInstanceKeyFieldNumber = 1;
+    private long processInstanceKey_;
     /// <summary>
-    /// the workflow instance key (as, for example, obtained from
-    /// CreateWorkflowInstanceResponse)
+    /// the process instance key (as, for example, obtained from
+    /// CreateProcessInstanceResponse)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowInstanceKey {
-      get { return workflowInstanceKey_; }
+    public long ProcessInstanceKey {
+      get { return processInstanceKey_; }
       set {
-        workflowInstanceKey_ = value;
+        processInstanceKey_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as CancelWorkflowInstanceRequest);
+      return Equals(other as CancelProcessInstanceRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CancelWorkflowInstanceRequest other) {
+    public bool Equals(CancelProcessInstanceRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
+      if (ProcessInstanceKey != other.ProcessInstanceKey) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
+      if (ProcessInstanceKey != 0L) hash ^= ProcessInstanceKey.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1160,9 +1160,9 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (WorkflowInstanceKey != 0L) {
+      if (ProcessInstanceKey != 0L) {
         output.WriteRawTag(8);
-        output.WriteInt64(WorkflowInstanceKey);
+        output.WriteInt64(ProcessInstanceKey);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1172,8 +1172,8 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (WorkflowInstanceKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
+      if (ProcessInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessInstanceKey);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1182,12 +1182,12 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CancelWorkflowInstanceRequest other) {
+    public void MergeFrom(CancelProcessInstanceRequest other) {
       if (other == null) {
         return;
       }
-      if (other.WorkflowInstanceKey != 0L) {
-        WorkflowInstanceKey = other.WorkflowInstanceKey;
+      if (other.ProcessInstanceKey != 0L) {
+        ProcessInstanceKey = other.ProcessInstanceKey;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1201,7 +1201,7 @@ namespace GatewayProtocol {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            WorkflowInstanceKey = input.ReadInt64();
+            ProcessInstanceKey = input.ReadInt64();
             break;
           }
         }
@@ -1210,11 +1210,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class CancelWorkflowInstanceResponse : pb::IMessage<CancelWorkflowInstanceResponse> {
-    private static readonly pb::MessageParser<CancelWorkflowInstanceResponse> _parser = new pb::MessageParser<CancelWorkflowInstanceResponse>(() => new CancelWorkflowInstanceResponse());
+  public sealed partial class CancelProcessInstanceResponse : pb::IMessage<CancelProcessInstanceResponse> {
+    private static readonly pb::MessageParser<CancelProcessInstanceResponse> _parser = new pb::MessageParser<CancelProcessInstanceResponse>(() => new CancelProcessInstanceResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CancelWorkflowInstanceResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<CancelProcessInstanceResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1227,29 +1227,29 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceResponse() {
+    public CancelProcessInstanceResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceResponse(CancelWorkflowInstanceResponse other) : this() {
+    public CancelProcessInstanceResponse(CancelProcessInstanceResponse other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CancelWorkflowInstanceResponse Clone() {
-      return new CancelWorkflowInstanceResponse(this);
+    public CancelProcessInstanceResponse Clone() {
+      return new CancelProcessInstanceResponse(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as CancelWorkflowInstanceResponse);
+      return Equals(other as CancelProcessInstanceResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CancelWorkflowInstanceResponse other) {
+    public bool Equals(CancelProcessInstanceResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1290,7 +1290,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CancelWorkflowInstanceResponse other) {
+    public void MergeFrom(CancelProcessInstanceResponse other) {
       if (other == null) {
         return;
       }
@@ -1575,11 +1575,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class CreateWorkflowInstanceRequest : pb::IMessage<CreateWorkflowInstanceRequest> {
-    private static readonly pb::MessageParser<CreateWorkflowInstanceRequest> _parser = new pb::MessageParser<CreateWorkflowInstanceRequest>(() => new CreateWorkflowInstanceRequest());
+  public sealed partial class CreateProcessInstanceRequest : pb::IMessage<CreateProcessInstanceRequest> {
+    private static readonly pb::MessageParser<CreateProcessInstanceRequest> _parser = new pb::MessageParser<CreateProcessInstanceRequest>(() => new CreateProcessInstanceRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CreateWorkflowInstanceRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<CreateProcessInstanceRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1592,15 +1592,15 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceRequest() {
+    public CreateProcessInstanceRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceRequest(CreateWorkflowInstanceRequest other) : this() {
-      workflowKey_ = other.workflowKey_;
+    public CreateProcessInstanceRequest(CreateProcessInstanceRequest other) : this() {
+      processDefinitionKey_ = other.processDefinitionKey_;
       bpmnProcessId_ = other.bpmnProcessId_;
       version_ = other.version_;
       variables_ = other.variables_;
@@ -1608,22 +1608,22 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceRequest Clone() {
-      return new CreateWorkflowInstanceRequest(this);
+    public CreateProcessInstanceRequest Clone() {
+      return new CreateProcessInstanceRequest(this);
     }
 
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 1;
-    private long workflowKey_;
+    /// <summary>Field number for the "processDefinitionKey" field.</summary>
+    public const int ProcessDefinitionKeyFieldNumber = 1;
+    private long processDefinitionKey_;
     /// <summary>
-    /// the unique key identifying the workflow definition (e.g. returned from a workflow
-    /// in the DeployWorkflowResponse message)
+    /// the unique key identifying the process definition (e.g. returned from a process
+    /// in the DeployProcessResponse message)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
+    public long ProcessDefinitionKey {
+      get { return processDefinitionKey_; }
       set {
-        workflowKey_ = value;
+        processDefinitionKey_ = value;
       }
     }
 
@@ -1631,7 +1631,7 @@ namespace GatewayProtocol {
     public const int BpmnProcessIdFieldNumber = 2;
     private string bpmnProcessId_ = "";
     /// <summary>
-    /// the BPMN process ID of the workflow definition
+    /// the BPMN process ID of the process definition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string BpmnProcessId {
@@ -1660,7 +1660,7 @@ namespace GatewayProtocol {
     private string variables_ = "";
     /// <summary>
     /// JSON document that will instantiate the variables for the root variable scope of the
-    /// workflow instance; it must be a JSON object, as variables will be mapped in a
+    /// process instance; it must be a JSON object, as variables will be mapped in a
     /// key-value fashion. e.g. { "a": 1, "b": 2 } will create two variables, named "a" and
     /// "b" respectively, with their associated values. [{ "a": 1, "b": 2 }] would not be a
     /// valid argument, as the root of the JSON document is an array and not an object.
@@ -1675,18 +1675,18 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as CreateWorkflowInstanceRequest);
+      return Equals(other as CreateProcessInstanceRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CreateWorkflowInstanceRequest other) {
+    public bool Equals(CreateProcessInstanceRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (WorkflowKey != other.WorkflowKey) return false;
+      if (ProcessDefinitionKey != other.ProcessDefinitionKey) return false;
       if (BpmnProcessId != other.BpmnProcessId) return false;
       if (Version != other.Version) return false;
       if (Variables != other.Variables) return false;
@@ -1696,7 +1696,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (ProcessDefinitionKey != 0L) hash ^= ProcessDefinitionKey.GetHashCode();
       if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
       if (Version != 0) hash ^= Version.GetHashCode();
       if (Variables.Length != 0) hash ^= Variables.GetHashCode();
@@ -1713,9 +1713,9 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (WorkflowKey != 0L) {
+      if (ProcessDefinitionKey != 0L) {
         output.WriteRawTag(8);
-        output.WriteInt64(WorkflowKey);
+        output.WriteInt64(ProcessDefinitionKey);
       }
       if (BpmnProcessId.Length != 0) {
         output.WriteRawTag(18);
@@ -1737,8 +1737,8 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      if (ProcessDefinitionKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessDefinitionKey);
       }
       if (BpmnProcessId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
@@ -1756,12 +1756,12 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CreateWorkflowInstanceRequest other) {
+    public void MergeFrom(CreateProcessInstanceRequest other) {
       if (other == null) {
         return;
       }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
+      if (other.ProcessDefinitionKey != 0L) {
+        ProcessDefinitionKey = other.ProcessDefinitionKey;
       }
       if (other.BpmnProcessId.Length != 0) {
         BpmnProcessId = other.BpmnProcessId;
@@ -1784,7 +1784,7 @@ namespace GatewayProtocol {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            WorkflowKey = input.ReadInt64();
+            ProcessDefinitionKey = input.ReadInt64();
             break;
           }
           case 18: {
@@ -1805,11 +1805,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class CreateWorkflowInstanceResponse : pb::IMessage<CreateWorkflowInstanceResponse> {
-    private static readonly pb::MessageParser<CreateWorkflowInstanceResponse> _parser = new pb::MessageParser<CreateWorkflowInstanceResponse>(() => new CreateWorkflowInstanceResponse());
+  public sealed partial class CreateProcessInstanceResponse : pb::IMessage<CreateProcessInstanceResponse> {
+    private static readonly pb::MessageParser<CreateProcessInstanceResponse> _parser = new pb::MessageParser<CreateProcessInstanceResponse>(() => new CreateProcessInstanceResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CreateWorkflowInstanceResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<CreateProcessInstanceResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1822,37 +1822,37 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceResponse() {
+    public CreateProcessInstanceResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceResponse(CreateWorkflowInstanceResponse other) : this() {
-      workflowKey_ = other.workflowKey_;
+    public CreateProcessInstanceResponse(CreateProcessInstanceResponse other) : this() {
+      processDefinitionKey_ = other.processDefinitionKey_;
       bpmnProcessId_ = other.bpmnProcessId_;
       version_ = other.version_;
-      workflowInstanceKey_ = other.workflowInstanceKey_;
+      processInstanceKey_ = other.processInstanceKey_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceResponse Clone() {
-      return new CreateWorkflowInstanceResponse(this);
+    public CreateProcessInstanceResponse Clone() {
+      return new CreateProcessInstanceResponse(this);
     }
 
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 1;
-    private long workflowKey_;
+    /// <summary>Field number for the "processDefinitionKey" field.</summary>
+    public const int ProcessDefinitionKeyFieldNumber = 1;
+    private long processDefinitionKey_;
     /// <summary>
-    /// the key of the workflow definition which was used to create the workflow instance
+    /// the key of the process definition which was used to create the process instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
+    public long ProcessDefinitionKey {
+      get { return processDefinitionKey_; }
       set {
-        workflowKey_ = value;
+        processDefinitionKey_ = value;
       }
     }
 
@@ -1860,7 +1860,7 @@ namespace GatewayProtocol {
     public const int BpmnProcessIdFieldNumber = 2;
     private string bpmnProcessId_ = "";
     /// <summary>
-    /// the BPMN process ID of the workflow definition which was used to create the workflow
+    /// the BPMN process ID of the process definition which was used to create the process
     /// instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1875,7 +1875,7 @@ namespace GatewayProtocol {
     public const int VersionFieldNumber = 3;
     private int version_;
     /// <summary>
-    /// the version of the workflow definition which was used to create the workflow instance
+    /// the version of the process definition which was used to create the process instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Version {
@@ -1885,48 +1885,48 @@ namespace GatewayProtocol {
       }
     }
 
-    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
-    public const int WorkflowInstanceKeyFieldNumber = 4;
-    private long workflowInstanceKey_;
+    /// <summary>Field number for the "processInstanceKey" field.</summary>
+    public const int ProcessInstanceKeyFieldNumber = 4;
+    private long processInstanceKey_;
     /// <summary>
-    /// the unique identifier of the created workflow instance; to be used wherever a request
-    /// needs a workflow instance key (e.g. CancelWorkflowInstanceRequest)
+    /// the unique identifier of the created process instance; to be used wherever a request
+    /// needs a process instance key (e.g. CancelProcessInstanceRequest)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowInstanceKey {
-      get { return workflowInstanceKey_; }
+    public long ProcessInstanceKey {
+      get { return processInstanceKey_; }
       set {
-        workflowInstanceKey_ = value;
+        processInstanceKey_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as CreateWorkflowInstanceResponse);
+      return Equals(other as CreateProcessInstanceResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CreateWorkflowInstanceResponse other) {
+    public bool Equals(CreateProcessInstanceResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (WorkflowKey != other.WorkflowKey) return false;
+      if (ProcessDefinitionKey != other.ProcessDefinitionKey) return false;
       if (BpmnProcessId != other.BpmnProcessId) return false;
       if (Version != other.Version) return false;
-      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
+      if (ProcessInstanceKey != other.ProcessInstanceKey) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (ProcessDefinitionKey != 0L) hash ^= ProcessDefinitionKey.GetHashCode();
       if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
       if (Version != 0) hash ^= Version.GetHashCode();
-      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
+      if (ProcessInstanceKey != 0L) hash ^= ProcessInstanceKey.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1940,9 +1940,9 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (WorkflowKey != 0L) {
+      if (ProcessDefinitionKey != 0L) {
         output.WriteRawTag(8);
-        output.WriteInt64(WorkflowKey);
+        output.WriteInt64(ProcessDefinitionKey);
       }
       if (BpmnProcessId.Length != 0) {
         output.WriteRawTag(18);
@@ -1952,9 +1952,9 @@ namespace GatewayProtocol {
         output.WriteRawTag(24);
         output.WriteInt32(Version);
       }
-      if (WorkflowInstanceKey != 0L) {
+      if (ProcessInstanceKey != 0L) {
         output.WriteRawTag(32);
-        output.WriteInt64(WorkflowInstanceKey);
+        output.WriteInt64(ProcessInstanceKey);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1964,8 +1964,8 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      if (ProcessDefinitionKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessDefinitionKey);
       }
       if (BpmnProcessId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
@@ -1973,8 +1973,8 @@ namespace GatewayProtocol {
       if (Version != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
       }
-      if (WorkflowInstanceKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
+      if (ProcessInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessInstanceKey);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1983,12 +1983,12 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CreateWorkflowInstanceResponse other) {
+    public void MergeFrom(CreateProcessInstanceResponse other) {
       if (other == null) {
         return;
       }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
+      if (other.ProcessDefinitionKey != 0L) {
+        ProcessDefinitionKey = other.ProcessDefinitionKey;
       }
       if (other.BpmnProcessId.Length != 0) {
         BpmnProcessId = other.BpmnProcessId;
@@ -1996,8 +1996,8 @@ namespace GatewayProtocol {
       if (other.Version != 0) {
         Version = other.Version;
       }
-      if (other.WorkflowInstanceKey != 0L) {
-        WorkflowInstanceKey = other.WorkflowInstanceKey;
+      if (other.ProcessInstanceKey != 0L) {
+        ProcessInstanceKey = other.ProcessInstanceKey;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2011,7 +2011,7 @@ namespace GatewayProtocol {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            WorkflowKey = input.ReadInt64();
+            ProcessDefinitionKey = input.ReadInt64();
             break;
           }
           case 18: {
@@ -2023,7 +2023,7 @@ namespace GatewayProtocol {
             break;
           }
           case 32: {
-            WorkflowInstanceKey = input.ReadInt64();
+            ProcessInstanceKey = input.ReadInt64();
             break;
           }
         }
@@ -2032,11 +2032,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class CreateWorkflowInstanceWithResultRequest : pb::IMessage<CreateWorkflowInstanceWithResultRequest> {
-    private static readonly pb::MessageParser<CreateWorkflowInstanceWithResultRequest> _parser = new pb::MessageParser<CreateWorkflowInstanceWithResultRequest>(() => new CreateWorkflowInstanceWithResultRequest());
+  public sealed partial class CreateProcessInstanceWithResultRequest : pb::IMessage<CreateProcessInstanceWithResultRequest> {
+    private static readonly pb::MessageParser<CreateProcessInstanceWithResultRequest> _parser = new pb::MessageParser<CreateProcessInstanceWithResultRequest>(() => new CreateProcessInstanceWithResultRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CreateWorkflowInstanceWithResultRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<CreateProcessInstanceWithResultRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -2049,14 +2049,14 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceWithResultRequest() {
+    public CreateProcessInstanceWithResultRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceWithResultRequest(CreateWorkflowInstanceWithResultRequest other) : this() {
+    public CreateProcessInstanceWithResultRequest(CreateProcessInstanceWithResultRequest other) : this() {
       request_ = other.request_ != null ? other.request_.Clone() : null;
       requestTimeout_ = other.requestTimeout_;
       fetchVariables_ = other.fetchVariables_.Clone();
@@ -2064,15 +2064,15 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceWithResultRequest Clone() {
-      return new CreateWorkflowInstanceWithResultRequest(this);
+    public CreateProcessInstanceWithResultRequest Clone() {
+      return new CreateProcessInstanceWithResultRequest(this);
     }
 
     /// <summary>Field number for the "request" field.</summary>
     public const int RequestFieldNumber = 1;
-    private global::GatewayProtocol.CreateWorkflowInstanceRequest request_;
+    private global::GatewayProtocol.CreateProcessInstanceRequest request_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::GatewayProtocol.CreateWorkflowInstanceRequest Request {
+    public global::GatewayProtocol.CreateProcessInstanceRequest Request {
       get { return request_; }
       set {
         request_ = value;
@@ -2083,7 +2083,7 @@ namespace GatewayProtocol {
     public const int RequestTimeoutFieldNumber = 2;
     private long requestTimeout_;
     /// <summary>
-    /// timeout (in ms). the request will be closed if the workflow is not completed
+    /// timeout (in ms). the request will be closed if the process is not completed
     /// before the requestTimeout.
     /// if requestTimeout = 0, uses the generic requestTimeout configured in the gateway.
     /// </summary>
@@ -2101,7 +2101,7 @@ namespace GatewayProtocol {
         = pb::FieldCodec.ForString(26);
     private readonly pbc::RepeatedField<string> fetchVariables_ = new pbc::RepeatedField<string>();
     /// <summary>
-    /// list of names of variables to be included in `CreateWorkflowInstanceWithResultResponse.variables`
+    /// list of names of variables to be included in `CreateProcessInstanceWithResultResponse.variables`
     /// if empty, all visible variables in the root scope will be returned.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2111,11 +2111,11 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as CreateWorkflowInstanceWithResultRequest);
+      return Equals(other as CreateProcessInstanceWithResultRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CreateWorkflowInstanceWithResultRequest other) {
+    public bool Equals(CreateProcessInstanceWithResultRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -2178,13 +2178,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CreateWorkflowInstanceWithResultRequest other) {
+    public void MergeFrom(CreateProcessInstanceWithResultRequest other) {
       if (other == null) {
         return;
       }
       if (other.request_ != null) {
         if (request_ == null) {
-          Request = new global::GatewayProtocol.CreateWorkflowInstanceRequest();
+          Request = new global::GatewayProtocol.CreateProcessInstanceRequest();
         }
         Request.MergeFrom(other.Request);
       }
@@ -2205,7 +2205,7 @@ namespace GatewayProtocol {
             break;
           case 10: {
             if (request_ == null) {
-              Request = new global::GatewayProtocol.CreateWorkflowInstanceRequest();
+              Request = new global::GatewayProtocol.CreateProcessInstanceRequest();
             }
             input.ReadMessage(Request);
             break;
@@ -2224,11 +2224,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class CreateWorkflowInstanceWithResultResponse : pb::IMessage<CreateWorkflowInstanceWithResultResponse> {
-    private static readonly pb::MessageParser<CreateWorkflowInstanceWithResultResponse> _parser = new pb::MessageParser<CreateWorkflowInstanceWithResultResponse>(() => new CreateWorkflowInstanceWithResultResponse());
+  public sealed partial class CreateProcessInstanceWithResultResponse : pb::IMessage<CreateProcessInstanceWithResultResponse> {
+    private static readonly pb::MessageParser<CreateProcessInstanceWithResultResponse> _parser = new pb::MessageParser<CreateProcessInstanceWithResultResponse>(() => new CreateProcessInstanceWithResultResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CreateWorkflowInstanceWithResultResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<CreateProcessInstanceWithResultResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -2241,38 +2241,38 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceWithResultResponse() {
+    public CreateProcessInstanceWithResultResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceWithResultResponse(CreateWorkflowInstanceWithResultResponse other) : this() {
-      workflowKey_ = other.workflowKey_;
+    public CreateProcessInstanceWithResultResponse(CreateProcessInstanceWithResultResponse other) : this() {
+      processDefinitionKey_ = other.processDefinitionKey_;
       bpmnProcessId_ = other.bpmnProcessId_;
       version_ = other.version_;
-      workflowInstanceKey_ = other.workflowInstanceKey_;
+      processInstanceKey_ = other.processInstanceKey_;
       variables_ = other.variables_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateWorkflowInstanceWithResultResponse Clone() {
-      return new CreateWorkflowInstanceWithResultResponse(this);
+    public CreateProcessInstanceWithResultResponse Clone() {
+      return new CreateProcessInstanceWithResultResponse(this);
     }
 
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 1;
-    private long workflowKey_;
+    /// <summary>Field number for the "processDefinitionKey" field.</summary>
+    public const int ProcessDefinitionKeyFieldNumber = 1;
+    private long processDefinitionKey_;
     /// <summary>
-    /// the key of the workflow definition which was used to create the workflow instance
+    /// the key of the process definition which was used to create the process instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
+    public long ProcessDefinitionKey {
+      get { return processDefinitionKey_; }
       set {
-        workflowKey_ = value;
+        processDefinitionKey_ = value;
       }
     }
 
@@ -2280,7 +2280,7 @@ namespace GatewayProtocol {
     public const int BpmnProcessIdFieldNumber = 2;
     private string bpmnProcessId_ = "";
     /// <summary>
-    /// the BPMN process ID of the workflow definition which was used to create the workflow
+    /// the BPMN process ID of the process definition which was used to create the process
     /// instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2295,7 +2295,7 @@ namespace GatewayProtocol {
     public const int VersionFieldNumber = 3;
     private int version_;
     /// <summary>
-    /// the version of the workflow definition which was used to create the workflow instance
+    /// the version of the process definition which was used to create the process instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Version {
@@ -2305,18 +2305,18 @@ namespace GatewayProtocol {
       }
     }
 
-    /// <summary>Field number for the "workflowInstanceKey" field.</summary>
-    public const int WorkflowInstanceKeyFieldNumber = 4;
-    private long workflowInstanceKey_;
+    /// <summary>Field number for the "processInstanceKey" field.</summary>
+    public const int ProcessInstanceKeyFieldNumber = 4;
+    private long processInstanceKey_;
     /// <summary>
-    /// the unique identifier of the created workflow instance; to be used wherever a request
-    /// needs a workflow instance key (e.g. CancelWorkflowInstanceRequest)
+    /// the unique identifier of the created process instance; to be used wherever a request
+    /// needs a process instance key (e.g. CancelProcessInstanceRequest)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowInstanceKey {
-      get { return workflowInstanceKey_; }
+    public long ProcessInstanceKey {
+      get { return processInstanceKey_; }
       set {
-        workflowInstanceKey_ = value;
+        processInstanceKey_ = value;
       }
     }
 
@@ -2337,21 +2337,21 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as CreateWorkflowInstanceWithResultResponse);
+      return Equals(other as CreateProcessInstanceWithResultResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CreateWorkflowInstanceWithResultResponse other) {
+    public bool Equals(CreateProcessInstanceWithResultResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (WorkflowKey != other.WorkflowKey) return false;
+      if (ProcessDefinitionKey != other.ProcessDefinitionKey) return false;
       if (BpmnProcessId != other.BpmnProcessId) return false;
       if (Version != other.Version) return false;
-      if (WorkflowInstanceKey != other.WorkflowInstanceKey) return false;
+      if (ProcessInstanceKey != other.ProcessInstanceKey) return false;
       if (Variables != other.Variables) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2359,10 +2359,10 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (ProcessDefinitionKey != 0L) hash ^= ProcessDefinitionKey.GetHashCode();
       if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
       if (Version != 0) hash ^= Version.GetHashCode();
-      if (WorkflowInstanceKey != 0L) hash ^= WorkflowInstanceKey.GetHashCode();
+      if (ProcessInstanceKey != 0L) hash ^= ProcessInstanceKey.GetHashCode();
       if (Variables.Length != 0) hash ^= Variables.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2377,9 +2377,9 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (WorkflowKey != 0L) {
+      if (ProcessDefinitionKey != 0L) {
         output.WriteRawTag(8);
-        output.WriteInt64(WorkflowKey);
+        output.WriteInt64(ProcessDefinitionKey);
       }
       if (BpmnProcessId.Length != 0) {
         output.WriteRawTag(18);
@@ -2389,9 +2389,9 @@ namespace GatewayProtocol {
         output.WriteRawTag(24);
         output.WriteInt32(Version);
       }
-      if (WorkflowInstanceKey != 0L) {
+      if (ProcessInstanceKey != 0L) {
         output.WriteRawTag(32);
-        output.WriteInt64(WorkflowInstanceKey);
+        output.WriteInt64(ProcessInstanceKey);
       }
       if (Variables.Length != 0) {
         output.WriteRawTag(42);
@@ -2405,8 +2405,8 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      if (ProcessDefinitionKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessDefinitionKey);
       }
       if (BpmnProcessId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(BpmnProcessId);
@@ -2414,8 +2414,8 @@ namespace GatewayProtocol {
       if (Version != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
       }
-      if (WorkflowInstanceKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowInstanceKey);
+      if (ProcessInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessInstanceKey);
       }
       if (Variables.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Variables);
@@ -2427,12 +2427,12 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CreateWorkflowInstanceWithResultResponse other) {
+    public void MergeFrom(CreateProcessInstanceWithResultResponse other) {
       if (other == null) {
         return;
       }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
+      if (other.ProcessDefinitionKey != 0L) {
+        ProcessDefinitionKey = other.ProcessDefinitionKey;
       }
       if (other.BpmnProcessId.Length != 0) {
         BpmnProcessId = other.BpmnProcessId;
@@ -2440,8 +2440,8 @@ namespace GatewayProtocol {
       if (other.Version != 0) {
         Version = other.Version;
       }
-      if (other.WorkflowInstanceKey != 0L) {
-        WorkflowInstanceKey = other.WorkflowInstanceKey;
+      if (other.ProcessInstanceKey != 0L) {
+        ProcessInstanceKey = other.ProcessInstanceKey;
       }
       if (other.Variables.Length != 0) {
         Variables = other.Variables;
@@ -2458,7 +2458,7 @@ namespace GatewayProtocol {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            WorkflowKey = input.ReadInt64();
+            ProcessDefinitionKey = input.ReadInt64();
             break;
           }
           case 18: {
@@ -2470,7 +2470,7 @@ namespace GatewayProtocol {
             break;
           }
           case 32: {
-            WorkflowInstanceKey = input.ReadInt64();
+            ProcessInstanceKey = input.ReadInt64();
             break;
           }
           case 42: {
@@ -2483,11 +2483,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class DeployWorkflowRequest : pb::IMessage<DeployWorkflowRequest> {
-    private static readonly pb::MessageParser<DeployWorkflowRequest> _parser = new pb::MessageParser<DeployWorkflowRequest>(() => new DeployWorkflowRequest());
+  public sealed partial class DeployProcessRequest : pb::IMessage<DeployProcessRequest> {
+    private static readonly pb::MessageParser<DeployProcessRequest> _parser = new pb::MessageParser<DeployProcessRequest>(() => new DeployProcessRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DeployWorkflowRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<DeployProcessRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -2500,57 +2500,57 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowRequest() {
+    public DeployProcessRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowRequest(DeployWorkflowRequest other) : this() {
-      workflows_ = other.workflows_.Clone();
+    public DeployProcessRequest(DeployProcessRequest other) : this() {
+      processes_ = other.processes_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowRequest Clone() {
-      return new DeployWorkflowRequest(this);
+    public DeployProcessRequest Clone() {
+      return new DeployProcessRequest(this);
     }
 
-    /// <summary>Field number for the "workflows" field.</summary>
-    public const int WorkflowsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::GatewayProtocol.WorkflowRequestObject> _repeated_workflows_codec
-        = pb::FieldCodec.ForMessage(10, global::GatewayProtocol.WorkflowRequestObject.Parser);
-    private readonly pbc::RepeatedField<global::GatewayProtocol.WorkflowRequestObject> workflows_ = new pbc::RepeatedField<global::GatewayProtocol.WorkflowRequestObject>();
+    /// <summary>Field number for the "processes" field.</summary>
+    public const int ProcessesFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::GatewayProtocol.ProcessRequestObject> _repeated_processes_codec
+        = pb::FieldCodec.ForMessage(10, global::GatewayProtocol.ProcessRequestObject.Parser);
+    private readonly pbc::RepeatedField<global::GatewayProtocol.ProcessRequestObject> processes_ = new pbc::RepeatedField<global::GatewayProtocol.ProcessRequestObject>();
     /// <summary>
-    /// List of workflow resources to deploy
+    /// List of process resources to deploy
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GatewayProtocol.WorkflowRequestObject> Workflows {
-      get { return workflows_; }
+    public pbc::RepeatedField<global::GatewayProtocol.ProcessRequestObject> Processes {
+      get { return processes_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as DeployWorkflowRequest);
+      return Equals(other as DeployProcessRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DeployWorkflowRequest other) {
+    public bool Equals(DeployProcessRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!workflows_.Equals(other.workflows_)) return false;
+      if(!processes_.Equals(other.processes_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= workflows_.GetHashCode();
+      hash ^= processes_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2564,7 +2564,7 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      workflows_.WriteTo(output, _repeated_workflows_codec);
+      processes_.WriteTo(output, _repeated_processes_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2573,7 +2573,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += workflows_.CalculateSize(_repeated_workflows_codec);
+      size += processes_.CalculateSize(_repeated_processes_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2581,11 +2581,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DeployWorkflowRequest other) {
+    public void MergeFrom(DeployProcessRequest other) {
       if (other == null) {
         return;
       }
-      workflows_.Add(other.workflows_);
+      processes_.Add(other.processes_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2598,7 +2598,7 @@ namespace GatewayProtocol {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            workflows_.AddEntriesFrom(input, _repeated_workflows_codec);
+            processes_.AddEntriesFrom(input, _repeated_processes_codec);
             break;
           }
         }
@@ -2607,11 +2607,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class WorkflowRequestObject : pb::IMessage<WorkflowRequestObject> {
-    private static readonly pb::MessageParser<WorkflowRequestObject> _parser = new pb::MessageParser<WorkflowRequestObject>(() => new WorkflowRequestObject());
+  public sealed partial class ProcessRequestObject : pb::IMessage<ProcessRequestObject> {
+    private static readonly pb::MessageParser<ProcessRequestObject> _parser = new pb::MessageParser<ProcessRequestObject>(() => new ProcessRequestObject());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<WorkflowRequestObject> Parser { get { return _parser; } }
+    public static pb::MessageParser<ProcessRequestObject> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -2624,14 +2624,14 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowRequestObject() {
+    public ProcessRequestObject() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowRequestObject(WorkflowRequestObject other) : this() {
+    public ProcessRequestObject(ProcessRequestObject other) : this() {
       name_ = other.name_;
       type_ = other.type_;
       definition_ = other.definition_;
@@ -2639,8 +2639,8 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowRequestObject Clone() {
-      return new WorkflowRequestObject(this);
+    public ProcessRequestObject Clone() {
+      return new ProcessRequestObject(this);
     }
 
     /// <summary>Field number for the "name" field.</summary>
@@ -2659,7 +2659,7 @@ namespace GatewayProtocol {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 2;
-    private global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType type_ = global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType.File;
+    private global::GatewayProtocol.ProcessRequestObject.Types.ResourceType type_ = global::GatewayProtocol.ProcessRequestObject.Types.ResourceType.File;
     /// <summary>
     /// the resource type; if set to BPMN or YAML then the file extension
     /// is ignored
@@ -2668,7 +2668,7 @@ namespace GatewayProtocol {
     /// </summary>
     [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType Type {
+    public global::GatewayProtocol.ProcessRequestObject.Types.ResourceType Type {
       get { return type_; }
       set {
         type_ = value;
@@ -2691,11 +2691,11 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as WorkflowRequestObject);
+      return Equals(other as ProcessRequestObject);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(WorkflowRequestObject other) {
+    public bool Equals(ProcessRequestObject other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -2712,7 +2712,7 @@ namespace GatewayProtocol {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Type != global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType.File) hash ^= Type.GetHashCode();
+      if (Type != global::GatewayProtocol.ProcessRequestObject.Types.ResourceType.File) hash ^= Type.GetHashCode();
       if (Definition.Length != 0) hash ^= Definition.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2731,7 +2731,7 @@ namespace GatewayProtocol {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Type != global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType.File) {
+      if (Type != global::GatewayProtocol.ProcessRequestObject.Types.ResourceType.File) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Type);
       }
@@ -2750,7 +2750,7 @@ namespace GatewayProtocol {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Type != global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType.File) {
+      if (Type != global::GatewayProtocol.ProcessRequestObject.Types.ResourceType.File) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (Definition.Length != 0) {
@@ -2763,14 +2763,14 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(WorkflowRequestObject other) {
+    public void MergeFrom(ProcessRequestObject other) {
       if (other == null) {
         return;
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Type != global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType.File) {
+      if (other.Type != global::GatewayProtocol.ProcessRequestObject.Types.ResourceType.File) {
         Type = other.Type;
       }
       if (other.Definition.Length != 0) {
@@ -2792,7 +2792,7 @@ namespace GatewayProtocol {
             break;
           }
           case 16: {
-            Type = (global::GatewayProtocol.WorkflowRequestObject.Types.ResourceType) input.ReadEnum();
+            Type = (global::GatewayProtocol.ProcessRequestObject.Types.ResourceType) input.ReadEnum();
             break;
           }
           case 26: {
@@ -2804,7 +2804,7 @@ namespace GatewayProtocol {
     }
 
     #region Nested types
-    /// <summary>Container for nested types declared in the WorkflowRequestObject message type.</summary>
+    /// <summary>Container for nested types declared in the ProcessRequestObject message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
       public enum ResourceType {
@@ -2828,11 +2828,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class DeployWorkflowResponse : pb::IMessage<DeployWorkflowResponse> {
-    private static readonly pb::MessageParser<DeployWorkflowResponse> _parser = new pb::MessageParser<DeployWorkflowResponse>(() => new DeployWorkflowResponse());
+  public sealed partial class DeployProcessResponse : pb::IMessage<DeployProcessResponse> {
+    private static readonly pb::MessageParser<DeployProcessResponse> _parser = new pb::MessageParser<DeployProcessResponse>(() => new DeployProcessResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DeployWorkflowResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<DeployProcessResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -2845,22 +2845,22 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowResponse() {
+    public DeployProcessResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowResponse(DeployWorkflowResponse other) : this() {
+    public DeployProcessResponse(DeployProcessResponse other) : this() {
       key_ = other.key_;
-      workflows_ = other.workflows_.Clone();
+      processes_ = other.processes_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DeployWorkflowResponse Clone() {
-      return new DeployWorkflowResponse(this);
+    public DeployProcessResponse Clone() {
+      return new DeployProcessResponse(this);
     }
 
     /// <summary>Field number for the "key" field.</summary>
@@ -2877,26 +2877,26 @@ namespace GatewayProtocol {
       }
     }
 
-    /// <summary>Field number for the "workflows" field.</summary>
-    public const int WorkflowsFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::GatewayProtocol.WorkflowMetadata> _repeated_workflows_codec
-        = pb::FieldCodec.ForMessage(18, global::GatewayProtocol.WorkflowMetadata.Parser);
-    private readonly pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata> workflows_ = new pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata>();
+    /// <summary>Field number for the "processes" field.</summary>
+    public const int ProcessesFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::GatewayProtocol.ProcessMetadata> _repeated_processes_codec
+        = pb::FieldCodec.ForMessage(18, global::GatewayProtocol.ProcessMetadata.Parser);
+    private readonly pbc::RepeatedField<global::GatewayProtocol.ProcessMetadata> processes_ = new pbc::RepeatedField<global::GatewayProtocol.ProcessMetadata>();
     /// <summary>
-    /// a list of deployed workflows
+    /// a list of deployed processes
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GatewayProtocol.WorkflowMetadata> Workflows {
-      get { return workflows_; }
+    public pbc::RepeatedField<global::GatewayProtocol.ProcessMetadata> Processes {
+      get { return processes_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as DeployWorkflowResponse);
+      return Equals(other as DeployProcessResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DeployWorkflowResponse other) {
+    public bool Equals(DeployProcessResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -2904,7 +2904,7 @@ namespace GatewayProtocol {
         return true;
       }
       if (Key != other.Key) return false;
-      if(!workflows_.Equals(other.workflows_)) return false;
+      if(!processes_.Equals(other.processes_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2912,7 +2912,7 @@ namespace GatewayProtocol {
     public override int GetHashCode() {
       int hash = 1;
       if (Key != 0L) hash ^= Key.GetHashCode();
-      hash ^= workflows_.GetHashCode();
+      hash ^= processes_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2930,7 +2930,7 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt64(Key);
       }
-      workflows_.WriteTo(output, _repeated_workflows_codec);
+      processes_.WriteTo(output, _repeated_processes_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2942,7 +2942,7 @@ namespace GatewayProtocol {
       if (Key != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Key);
       }
-      size += workflows_.CalculateSize(_repeated_workflows_codec);
+      size += processes_.CalculateSize(_repeated_processes_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2950,14 +2950,14 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DeployWorkflowResponse other) {
+    public void MergeFrom(DeployProcessResponse other) {
       if (other == null) {
         return;
       }
       if (other.Key != 0L) {
         Key = other.Key;
       }
-      workflows_.Add(other.workflows_);
+      processes_.Add(other.processes_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2974,7 +2974,7 @@ namespace GatewayProtocol {
             break;
           }
           case 18: {
-            workflows_.AddEntriesFrom(input, _repeated_workflows_codec);
+            processes_.AddEntriesFrom(input, _repeated_processes_codec);
             break;
           }
         }
@@ -2983,11 +2983,11 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class WorkflowMetadata : pb::IMessage<WorkflowMetadata> {
-    private static readonly pb::MessageParser<WorkflowMetadata> _parser = new pb::MessageParser<WorkflowMetadata>(() => new WorkflowMetadata());
+  public sealed partial class ProcessMetadata : pb::IMessage<ProcessMetadata> {
+    private static readonly pb::MessageParser<ProcessMetadata> _parser = new pb::MessageParser<ProcessMetadata>(() => new ProcessMetadata());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<WorkflowMetadata> Parser { get { return _parser; } }
+    public static pb::MessageParser<ProcessMetadata> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -3000,24 +3000,24 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowMetadata() {
+    public ProcessMetadata() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowMetadata(WorkflowMetadata other) : this() {
+    public ProcessMetadata(ProcessMetadata other) : this() {
       bpmnProcessId_ = other.bpmnProcessId_;
       version_ = other.version_;
-      workflowKey_ = other.workflowKey_;
+      processDefinitionKey_ = other.processDefinitionKey_;
       resourceName_ = other.resourceName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WorkflowMetadata Clone() {
-      return new WorkflowMetadata(this);
+    public ProcessMetadata Clone() {
+      return new ProcessMetadata(this);
     }
 
     /// <summary>Field number for the "bpmnProcessId" field.</summary>
@@ -3025,7 +3025,7 @@ namespace GatewayProtocol {
     private string bpmnProcessId_ = "";
     /// <summary>
     /// the bpmn process ID, as parsed during deployment; together with the version forms a
-    /// unique identifier for a specific workflow definition
+    /// unique identifier for a specific process definition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string BpmnProcessId {
@@ -3049,17 +3049,17 @@ namespace GatewayProtocol {
       }
     }
 
-    /// <summary>Field number for the "workflowKey" field.</summary>
-    public const int WorkflowKeyFieldNumber = 3;
-    private long workflowKey_;
+    /// <summary>Field number for the "processDefinitionKey" field.</summary>
+    public const int ProcessDefinitionKeyFieldNumber = 3;
+    private long processDefinitionKey_;
     /// <summary>
-    /// the assigned key, which acts as a unique identifier for this workflow
+    /// the assigned key, which acts as a unique identifier for this process
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long WorkflowKey {
-      get { return workflowKey_; }
+    public long ProcessDefinitionKey {
+      get { return processDefinitionKey_; }
       set {
-        workflowKey_ = value;
+        processDefinitionKey_ = value;
       }
     }
 
@@ -3067,7 +3067,7 @@ namespace GatewayProtocol {
     public const int ResourceNameFieldNumber = 4;
     private string resourceName_ = "";
     /// <summary>
-    /// the resource name (see: WorkflowRequestObject.name) from which this workflow was
+    /// the resource name (see: ProcessRequestObject.name) from which this process was
     /// parsed
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3080,11 +3080,11 @@ namespace GatewayProtocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as WorkflowMetadata);
+      return Equals(other as ProcessMetadata);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(WorkflowMetadata other) {
+    public bool Equals(ProcessMetadata other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -3093,7 +3093,7 @@ namespace GatewayProtocol {
       }
       if (BpmnProcessId != other.BpmnProcessId) return false;
       if (Version != other.Version) return false;
-      if (WorkflowKey != other.WorkflowKey) return false;
+      if (ProcessDefinitionKey != other.ProcessDefinitionKey) return false;
       if (ResourceName != other.ResourceName) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3103,7 +3103,7 @@ namespace GatewayProtocol {
       int hash = 1;
       if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
       if (Version != 0) hash ^= Version.GetHashCode();
-      if (WorkflowKey != 0L) hash ^= WorkflowKey.GetHashCode();
+      if (ProcessDefinitionKey != 0L) hash ^= ProcessDefinitionKey.GetHashCode();
       if (ResourceName.Length != 0) hash ^= ResourceName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3126,9 +3126,9 @@ namespace GatewayProtocol {
         output.WriteRawTag(16);
         output.WriteInt32(Version);
       }
-      if (WorkflowKey != 0L) {
+      if (ProcessDefinitionKey != 0L) {
         output.WriteRawTag(24);
-        output.WriteInt64(WorkflowKey);
+        output.WriteInt64(ProcessDefinitionKey);
       }
       if (ResourceName.Length != 0) {
         output.WriteRawTag(34);
@@ -3148,8 +3148,8 @@ namespace GatewayProtocol {
       if (Version != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Version);
       }
-      if (WorkflowKey != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(WorkflowKey);
+      if (ProcessDefinitionKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessDefinitionKey);
       }
       if (ResourceName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ResourceName);
@@ -3161,7 +3161,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(WorkflowMetadata other) {
+    public void MergeFrom(ProcessMetadata other) {
       if (other == null) {
         return;
       }
@@ -3171,8 +3171,8 @@ namespace GatewayProtocol {
       if (other.Version != 0) {
         Version = other.Version;
       }
-      if (other.WorkflowKey != 0L) {
-        WorkflowKey = other.WorkflowKey;
+      if (other.ProcessDefinitionKey != 0L) {
+        ProcessDefinitionKey = other.ProcessDefinitionKey;
       }
       if (other.ResourceName.Length != 0) {
         ResourceName = other.ResourceName;
@@ -3197,7 +3197,7 @@ namespace GatewayProtocol {
             break;
           }
           case 24: {
-            WorkflowKey = input.ReadInt64();
+            ProcessDefinitionKey = input.ReadInt64();
             break;
           }
           case 34: {
@@ -5544,7 +5544,7 @@ namespace GatewayProtocol {
     public const int ElementInstanceKeyFieldNumber = 1;
     private long elementInstanceKey_;
     /// <summary>
-    /// the unique identifier of a particular element; can be the workflow instance key (as
+    /// the unique identifier of a particular element; can be the process instance key (as
     /// obtained during instance creation), or a given element, such as a service task (see
     /// elementInstanceKey on the job message)
     /// </summary>

@@ -7,7 +7,7 @@ using Zeebe.Client;
 namespace Client.IntegrationTests
 {
     [TestFixture]
-    public class WorkflowTest
+    public class ProcessTest
     {
         private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "simpleProcess.bpmn");
 
@@ -27,7 +27,7 @@ namespace Client.IntegrationTests
         }
 
         [Test]
-        public async Task DeployWorkflowTest()
+        public async Task DeployProcessTest()
         {
             // given
 
@@ -39,13 +39,13 @@ namespace Client.IntegrationTests
             // then
             Assert.Greater(deployResponse.Key, 0);
 
-            var deployedWorkflows = deployResponse.Workflows;
-            Assert.AreEqual(1, deployedWorkflows.Count);
+            var deployedProcesses = deployResponse.Processes;
+            Assert.AreEqual(1, deployedProcesses.Count);
 
-            Assert.AreEqual(1, deployedWorkflows[0].Version);
-            Assert.Greater(deployedWorkflows[0].WorkflowKey, 1);
-            Assert.AreEqual("simpleProcess", deployedWorkflows[0].BpmnProcessId);
-            Assert.AreEqual(DemoProcessPath, deployedWorkflows[0].ResourceName);
+            Assert.AreEqual(1, deployedProcesses[0].Version);
+            Assert.Greater(deployedProcesses[0].ProcessDefinitionKey, 1);
+            Assert.AreEqual("simpleProcess", deployedProcesses[0].BpmnProcessId);
+            Assert.AreEqual(DemoProcessPath, deployedProcesses[0].ResourceName);
         }
     }
 }

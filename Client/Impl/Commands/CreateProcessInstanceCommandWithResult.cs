@@ -10,36 +10,36 @@ using Zeebe.Client.Impl.Responses;
 namespace Zeebe.Client.Impl.Commands
 {
     /// <inheritdoc />
-    public class CreateWorkflowInstanceCommandWithResult : ICreateWorkflowInstanceWithResultCommandStep1
+    public class CreateProcessInstanceCommandWithResult : ICreateProcessInstanceWithResultCommandStep1
     {
         private static readonly long DefaultGatewayBrokerTimeoutMillisecond = 20 * 1000;
         private static readonly long DefaultTimeoutAdditionMillisecond = 10 * 1000;
 
-        private readonly CreateWorkflowInstanceWithResultRequest createWithResultRequest;
+        private readonly CreateProcessInstanceWithResultRequest createWithResultRequest;
         private readonly Gateway.GatewayClient client;
 
-        public CreateWorkflowInstanceCommandWithResult(Gateway.GatewayClient client, CreateWorkflowInstanceRequest createRequest)
+        public CreateProcessInstanceCommandWithResult(Gateway.GatewayClient client, CreateProcessInstanceRequest createRequest)
         {
             this.client = client;
-            createWithResultRequest = new CreateWorkflowInstanceWithResultRequest { Request = createRequest };
+            createWithResultRequest = new CreateProcessInstanceWithResultRequest { Request = createRequest };
         }
 
         /// <inheritdoc/>
-        public ICreateWorkflowInstanceWithResultCommandStep1 FetchVariables(IList<string> fetchVariables)
+        public ICreateProcessInstanceWithResultCommandStep1 FetchVariables(IList<string> fetchVariables)
         {
             createWithResultRequest.FetchVariables.AddRange(fetchVariables);
             return this;
         }
 
         /// <inheritdoc/>
-        public ICreateWorkflowInstanceWithResultCommandStep1 FetchVariables(params string[] fetchVariables)
+        public ICreateProcessInstanceWithResultCommandStep1 FetchVariables(params string[] fetchVariables)
         {
             createWithResultRequest.FetchVariables.AddRange(fetchVariables);
             return this;
         }
 
         /// <inheritdoc/>
-        public async Task<IWorkflowInstanceResult> Send(TimeSpan? timeout = null)
+        public async Task<IProcessInstanceResult> Send(TimeSpan? timeout = null)
         {
             // this timeout will be used for the Gateway-Broker communication
             createWithResultRequest.RequestTimeout = (long)(timeout?.TotalMilliseconds ?? DefaultGatewayBrokerTimeoutMillisecond);
@@ -48,16 +48,16 @@ namespace Zeebe.Client.Impl.Commands
             var clientDeadline = TimeSpan.FromMilliseconds(createWithResultRequest.RequestTimeout +
                                                            DefaultTimeoutAdditionMillisecond).FromUtcNow();
 
-            var asyncReply = client.CreateWorkflowInstanceWithResultAsync(createWithResultRequest, deadline: clientDeadline);
+            var asyncReply = client.CreateProcessInstanceWithResultAsync(createWithResultRequest, deadline: clientDeadline);
             var response = await asyncReply.ResponseAsync;
-            return new WorkflowInstanceResultResponse(response);
+            return new ProcessInstanceResultResponse(response);
         }
 
-        public async Task<IWorkflowInstanceResult> Send(CancellationToken token)
+        public async Task<IProcessInstanceResult> Send(CancellationToken token)
         {
-            var asyncReply = client.CreateWorkflowInstanceWithResultAsync(createWithResultRequest, cancellationToken: token);
+            var asyncReply = client.CreateProcessInstanceWithResultAsync(createWithResultRequest, cancellationToken: token);
             var response = await asyncReply.ResponseAsync;
-            return new WorkflowInstanceResultResponse(response);
+            return new ProcessInstanceResultResponse(response);
         }
     }
 }

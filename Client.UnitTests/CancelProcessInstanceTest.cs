@@ -8,22 +8,22 @@ using NUnit.Framework;
 namespace Zeebe.Client
 {
     [TestFixture]
-    public class CancelWorkflowInstanceTest : BaseZeebeTest
+    public class CancelProcessInstanceTest : BaseZeebeTest
     {
         [Test]
         public async Task ShouldSendRequestAsExpected()
         {
             // given
-            var expected = new CancelWorkflowInstanceRequest
+            var expected = new CancelProcessInstanceRequest
             {
-                WorkflowInstanceKey = 12113
+                ProcessInstanceKey = 12113
             };
 
             // when
             await ZeebeClient.NewCancelInstanceCommand(12113).Send();
 
             // then
-            var request = TestService.Requests[typeof(CancelWorkflowInstanceRequest)][0];
+            var request = TestService.Requests[typeof(CancelProcessInstanceRequest)][0];
             Assert.AreEqual(expected, request);
         }
 
@@ -63,15 +63,15 @@ namespace Zeebe.Client
             // given
             var countdownEvent = new CountdownEvent(5);
             TestService.AddRequestHandler(
-                typeof(CancelWorkflowInstanceRequest),
+                typeof(CancelProcessInstanceRequest),
                 req =>
                 {
                     countdownEvent.Signal();
                     throw new RpcException(new Status(StatusCode.ResourceExhausted, "exhausted"));
                 });
-            var expectedRequest = new CancelWorkflowInstanceRequest
+            var expectedRequest = new CancelProcessInstanceRequest
             {
-                WorkflowInstanceKey = 12113
+                ProcessInstanceKey = 12113
             };
 
             // when
@@ -80,13 +80,13 @@ namespace Zeebe.Client
 
             // then
             Assert.AreEqual(0, countdownEvent.CurrentCount);
-            TestService.AddRequestHandler(typeof(CancelWorkflowInstanceRequest), req => new CancelWorkflowInstanceResponse());
+            TestService.AddRequestHandler(typeof(CancelProcessInstanceRequest), req => new CancelProcessInstanceResponse());
             await resultTask;
 
-            var request = TestService.Requests[typeof(CancelWorkflowInstanceRequest)][0];
+            var request = TestService.Requests[typeof(CancelProcessInstanceRequest)][0];
             Assert.AreEqual(expectedRequest, request);
 
-            var requestCount = TestService.Requests[typeof(CancelWorkflowInstanceRequest)].Count;
+            var requestCount = TestService.Requests[typeof(CancelProcessInstanceRequest)].Count;
             Assert.GreaterOrEqual(requestCount, 5);
         }
 
@@ -96,15 +96,15 @@ namespace Zeebe.Client
             // given
             var countdownEvent = new CountdownEvent(5);
             TestService.AddRequestHandler(
-                typeof(CancelWorkflowInstanceRequest),
+                typeof(CancelProcessInstanceRequest),
                 req =>
                 {
                     countdownEvent.Signal();
                     throw new RpcException(new Status(StatusCode.Unavailable, "exhausted"));
                 });
-            var expectedRequest = new CancelWorkflowInstanceRequest
+            var expectedRequest = new CancelProcessInstanceRequest
             {
-                WorkflowInstanceKey = 12113
+                ProcessInstanceKey = 12113
             };
 
             // when
@@ -113,13 +113,13 @@ namespace Zeebe.Client
 
             // then
             Assert.AreEqual(0, countdownEvent.CurrentCount);
-            TestService.AddRequestHandler(typeof(CancelWorkflowInstanceRequest), req => new CancelWorkflowInstanceResponse());
+            TestService.AddRequestHandler(typeof(CancelProcessInstanceRequest), req => new CancelProcessInstanceResponse());
             await resultTask;
 
-            var request = TestService.Requests[typeof(CancelWorkflowInstanceRequest)][0];
+            var request = TestService.Requests[typeof(CancelProcessInstanceRequest)][0];
             Assert.AreEqual(expectedRequest, request);
 
-            var requestCount = TestService.Requests[typeof(CancelWorkflowInstanceRequest)].Count;
+            var requestCount = TestService.Requests[typeof(CancelProcessInstanceRequest)].Count;
             Assert.GreaterOrEqual(requestCount, 5);
         }
 
@@ -128,7 +128,7 @@ namespace Zeebe.Client
         {
             // given
             TestService.AddRequestHandler(
-                typeof(CancelWorkflowInstanceRequest),
+                typeof(CancelProcessInstanceRequest),
                 req =>
                 {
                     throw new RpcException(new Status(StatusCode.Internal, "exhausted"));

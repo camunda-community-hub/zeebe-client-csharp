@@ -1,29 +1,29 @@
 namespace Zeebe.Client.Api.Responses
 {
     /// <summary>
-    /// Response for an create workflow instance with result command.
+    /// Response for an create process instance with result command.
     /// </summary>
-    public interface IWorkflowInstanceResult
+    public interface IProcessInstanceResult
     {
         /// <returns>
-        /// Key of the workflow which this instance was created for.
+        /// Key of the process which this instance was created for.
         /// </returns>
-        long WorkflowKey { get; }
+        long ProcessDefinitionKey { get; }
 
         /// <returns>
-        /// BPMN process id of the workflow which this instance was created for.
+        /// BPMN process id of the process which this instance was created for.
         /// </returns>
         string BpmnProcessId { get; }
 
         /// <returns>
-        /// Version of the workflow which this instance was created for.
+        /// Version of the process which this instance was created for.
         /// </returns>
         int Version { get; }
 
         /// <returns>
-        /// Unique key of the created workflow instance on the partition.
+        /// Unique key of the created process instance on the partition.
         /// </returns>
-        long WorkflowInstanceKey { get; }
+        long ProcessInstanceKey { get; }
 
         /// <returns> JSON-formatted variables </returns>
         string Variables { get; }

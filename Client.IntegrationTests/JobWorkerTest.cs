@@ -15,7 +15,7 @@ namespace Client.IntegrationTests
 
         private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
         private IZeebeClient zeebeClient;
-        private long workflowKey;
+        private long processDefinitionKey;
 
         [OneTimeSetUp]
         public async Task Setup()
@@ -24,7 +24,7 @@ namespace Client.IntegrationTests
             var deployResponse = await zeebeClient.NewDeployCommand()
                 .AddResourceFile(DemoProcessPath)
                 .Send();
-            workflowKey = deployResponse.Workflows[0].WorkflowKey;
+            processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
         }
 
         [OneTimeTearDown]
@@ -34,7 +34,7 @@ namespace Client.IntegrationTests
         }
 
         [Test]
-        public async Task ShouldCompleteWorkflow()
+        public async Task ShouldCompleteProcess()
         {
             // given
             var handledJobs = new List<IJob>();
@@ -54,23 +54,23 @@ namespace Client.IntegrationTests
                 .PollingTimeout(TimeSpan.FromSeconds(30L))
                 .Open())
             {
-                var workflowInstance = await zeebeClient.NewCreateWorkflowInstanceCommand()
-                    .WorkflowKey(workflowKey)
+                var processInstance = await zeebeClient.NewCreateProcessInstanceCommand()
+                    .ProcessDefinitionKey(processDefinitionKey)
                     .WithResult()
                     .Send();
 
-                // then workflow was completed
+                // then process was completed
                 Assert.AreEqual(1, handledJobs.Count);
 
-                Assert.AreEqual(workflowInstance.Version, 1);
-                Assert.AreEqual(workflowKey, workflowInstance.WorkflowKey);
-                Assert.AreEqual("oneTaskProcess", workflowInstance.BpmnProcessId);
-                Assert.Greater(workflowInstance.WorkflowInstanceKey, 1);
+                Assert.AreEqual(processInstance.Version, 1);
+                Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
+                Assert.AreEqual("oneTaskProcess", processInstance.BpmnProcessId);
+                Assert.Greater(processInstance.ProcessInstanceKey, 1);
             }
         }
 
         [Test]
-        public async Task ShouldCompleteWorkflowWithJobAutoCompletion()
+        public async Task ShouldCompleteProcessWithJobAutoCompletion()
         {
             // given
             var handledJobs = new List<IJob>();
@@ -87,18 +87,18 @@ namespace Client.IntegrationTests
                 .PollingTimeout(TimeSpan.FromSeconds(30L))
                 .Open())
             {
-                var workflowInstance = await zeebeClient.NewCreateWorkflowInstanceCommand()
-                    .WorkflowKey(workflowKey)
+                var processInstance = await zeebeClient.NewCreateProcessInstanceCommand()
+                    .ProcessDefinitionKey(processDefinitionKey)
                     .WithResult()
                     .Send();
 
-                // then workflow was completed
+                // then process was completed
                 Assert.AreEqual(1, handledJobs.Count);
 
-                Assert.AreEqual(workflowInstance.Version, 1);
-                Assert.AreEqual(workflowKey, workflowInstance.WorkflowKey);
-                Assert.AreEqual("oneTaskProcess", workflowInstance.BpmnProcessId);
-                Assert.Greater(workflowInstance.WorkflowInstanceKey, 1);
+                Assert.AreEqual(processInstance.Version, 1);
+                Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
+                Assert.AreEqual("oneTaskProcess", processInstance.BpmnProcessId);
+                Assert.Greater(processInstance.ProcessInstanceKey, 1);
             }
         }
     }

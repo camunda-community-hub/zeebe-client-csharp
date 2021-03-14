@@ -5,41 +5,41 @@ using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
-using CancelWorkflowInstanceResponse = Zeebe.Client.Impl.Responses.CancelWorkflowInstanceResponse;
+using CancelProcessInstanceResponse = Zeebe.Client.Impl.Responses.CancelProcessInstanceResponse;
 
 namespace Zeebe.Client.Impl.Commands
 {
-    public class CancelWorkflowInstanceCommand : ICancelWorkflowInstanceCommandStep1
+    public class CancelProcessInstanceCommand : ICancelProcessInstanceCommandStep1
     {
-        private readonly CancelWorkflowInstanceRequest request;
+        private readonly CancelProcessInstanceRequest request;
         private readonly Gateway.GatewayClient client;
         private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-        public CancelWorkflowInstanceCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long workflowInstanceKey)
+        public CancelProcessInstanceCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long processInstanceKey)
         {
-            request = new CancelWorkflowInstanceRequest
+            request = new CancelProcessInstanceRequest
             {
-                WorkflowInstanceKey = workflowInstanceKey
+                ProcessInstanceKey = processInstanceKey
             };
             this.client = client;
             this.asyncRetryStrategy = asyncRetryStrategy;
         }
 
-        public async Task<ICancelWorkflowInstanceResponse> Send(TimeSpan? timeout = null)
+        public async Task<ICancelProcessInstanceResponse> Send(TimeSpan? timeout = null)
         {
-            var asyncReply = client.CancelWorkflowInstanceAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = client.CancelProcessInstanceAsync(request, deadline: timeout?.FromUtcNow());
             await asyncReply.ResponseAsync;
-            return new CancelWorkflowInstanceResponse();
+            return new CancelProcessInstanceResponse();
         }
 
-        public async Task<ICancelWorkflowInstanceResponse> Send(CancellationToken token)
+        public async Task<ICancelProcessInstanceResponse> Send(CancellationToken token)
         {
-            var asyncReply = client.CancelWorkflowInstanceAsync(request, cancellationToken: token);
+            var asyncReply = client.CancelProcessInstanceAsync(request, cancellationToken: token);
             await asyncReply.ResponseAsync;
-            return new CancelWorkflowInstanceResponse();
+            return new CancelProcessInstanceResponse();
         }
 
-        public async Task<ICancelWorkflowInstanceResponse> SendWithRetry(TimeSpan? timespan = null)
+        public async Task<ICancelProcessInstanceResponse> SendWithRetry(TimeSpan? timespan = null)
         {
             return await asyncRetryStrategy.DoWithRetry(() => Send(timespan));
         }

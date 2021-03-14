@@ -11,15 +11,15 @@ using Type = Google.Protobuf.WellKnownTypes.Type;
 namespace Zeebe.Client
 {
     [TestFixture]
-    public class CreateWorkflowInstanceWithResultTest : BaseZeebeTest
+    public class CreateProcessInstanceWithResultTest : BaseZeebeTest
     {
         [Test]
         public async Task ShouldSendRequestAsExpected()
         {
             // given
-            var expectedRequest = new CreateWorkflowInstanceWithResultRequest
+            var expectedRequest = new CreateProcessInstanceWithResultRequest
             {
-                Request = new CreateWorkflowInstanceRequest
+                Request = new CreateProcessInstanceRequest
                 {
                     BpmnProcessId = "process",
                     Version = -1
@@ -28,14 +28,14 @@ namespace Zeebe.Client
             };
 
             // when
-            await ZeebeClient.NewCreateWorkflowInstanceCommand()
+            await ZeebeClient.NewCreateProcessInstanceCommand()
                 .BpmnProcessId("process")
                 .LatestVersion()
                 .WithResult()
                 .Send();
 
             // then
-            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
+            var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -43,7 +43,7 @@ namespace Zeebe.Client
         public void ShouldTimeoutRequest()
         {
             // given
-            TestService.AddRequestHandler(typeof(CreateWorkflowInstanceWithResultRequest),
+            TestService.AddRequestHandler(typeof(CreateProcessInstanceWithResultRequest),
                 request =>
                 {
                     new EventWaitHandle(false, EventResetMode.AutoReset).WaitOne();
@@ -51,7 +51,7 @@ namespace Zeebe.Client
                 });
 
             // when
-            var task = ZeebeClient.NewCreateWorkflowInstanceCommand()
+            var task = ZeebeClient.NewCreateProcessInstanceCommand()
                 .BpmnProcessId("process")
                 .LatestVersion()
                 .WithResult()
@@ -67,7 +67,7 @@ namespace Zeebe.Client
         public void ShouldCancelRequest()
         {
             // given
-            TestService.AddRequestHandler(typeof(CreateWorkflowInstanceWithResultRequest),
+            TestService.AddRequestHandler(typeof(CreateProcessInstanceWithResultRequest),
                 request =>
                 {
                     new EventWaitHandle(false, EventResetMode.AutoReset).WaitOne();
@@ -75,7 +75,7 @@ namespace Zeebe.Client
                 });
 
             // when
-            var task = ZeebeClient.NewCreateWorkflowInstanceCommand()
+            var task = ZeebeClient.NewCreateProcessInstanceCommand()
                 .BpmnProcessId("process")
                 .LatestVersion()
                 .WithResult()
@@ -91,9 +91,9 @@ namespace Zeebe.Client
         public async Task ShouldSendRequestWithVersionAsExpected()
         {
             // given
-            var expectedRequest = new CreateWorkflowInstanceWithResultRequest
+            var expectedRequest = new CreateProcessInstanceWithResultRequest
             {
-                Request = new CreateWorkflowInstanceRequest
+                Request = new CreateProcessInstanceRequest
                 {
                     BpmnProcessId = "process",
                     Version = 1
@@ -102,38 +102,38 @@ namespace Zeebe.Client
             };
 
             // when
-            await ZeebeClient.NewCreateWorkflowInstanceCommand()
+            await ZeebeClient.NewCreateProcessInstanceCommand()
                 .BpmnProcessId("process")
                 .Version(1)
                 .WithResult()
                 .Send();
 
             // then
-            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
+            var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
         [Test]
-        public async Task ShouldSendRequestWithWorkflowKeyAsExpected()
+        public async Task ShouldSendRequestWithProcessDefinitionKeyAsExpected()
         {
             // given
-            var expectedRequest = new CreateWorkflowInstanceWithResultRequest
+            var expectedRequest = new CreateProcessInstanceWithResultRequest
             {
-                Request = new CreateWorkflowInstanceRequest
+                Request = new CreateProcessInstanceRequest
                 {
-                    WorkflowKey = 1
+                    ProcessDefinitionKey = 1
                 },
                 RequestTimeout = 20 * 1000
             };
 
             // when
-            await ZeebeClient.NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(1)
+            await ZeebeClient.NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(1)
                 .WithResult()
                 .Send();
 
             // then
-            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
+            var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -141,23 +141,23 @@ namespace Zeebe.Client
         public async Task ShouldSendRequestWithRequestTimeoutAsExpected()
         {
             // given
-            var expectedRequest = new CreateWorkflowInstanceWithResultRequest
+            var expectedRequest = new CreateProcessInstanceWithResultRequest
             {
-                Request = new CreateWorkflowInstanceRequest
+                Request = new CreateProcessInstanceRequest
                 {
-                    WorkflowKey = 1
+                    ProcessDefinitionKey = 1
                 },
                 RequestTimeout = 123 * 1000
             };
 
             // when
-            await ZeebeClient.NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(1)
+            await ZeebeClient.NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(1)
                 .WithResult()
                 .Send(TimeSpan.FromSeconds(123));
 
             // then
-            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
+            var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -165,25 +165,25 @@ namespace Zeebe.Client
         public async Task ShouldSendRequestWithVariablesAsExpected()
         {
             // given
-            var expectedRequest = new CreateWorkflowInstanceWithResultRequest
+            var expectedRequest = new CreateProcessInstanceWithResultRequest
             {
-                Request = new CreateWorkflowInstanceRequest
+                Request = new CreateProcessInstanceRequest
                 {
-                    WorkflowKey = 1,
+                    ProcessDefinitionKey = 1,
                     Variables = "{\"foo\":1}"
                 },
                 RequestTimeout = 20 * 1000
             };
 
             // when
-            await ZeebeClient.NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(1)
+            await ZeebeClient.NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(1)
                 .Variables("{\"foo\":1}")
                 .WithResult()
                 .Send();
 
             // then
-            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
+            var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -191,9 +191,9 @@ namespace Zeebe.Client
         public async Task ShouldSendRequestWithVariablesAndProcessIdAsExpected()
         {
             // given
-            var expectedRequest = new CreateWorkflowInstanceWithResultRequest
+            var expectedRequest = new CreateProcessInstanceWithResultRequest
             {
-                Request = new CreateWorkflowInstanceRequest
+                Request = new CreateProcessInstanceRequest
                 {
                     BpmnProcessId = "process",
                     Version = -1,
@@ -203,7 +203,7 @@ namespace Zeebe.Client
             };
 
             // when
-            await ZeebeClient.NewCreateWorkflowInstanceCommand()
+            await ZeebeClient.NewCreateProcessInstanceCommand()
                 .BpmnProcessId("process")
                 .LatestVersion()
                 .Variables("{\"foo\":1}")
@@ -211,7 +211,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
+            var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -219,9 +219,9 @@ namespace Zeebe.Client
         public async Task ShouldSendRequestWithFetchVariables()
         {
             // given
-            var expectedRequest = new CreateWorkflowInstanceWithResultRequest
+            var expectedRequest = new CreateProcessInstanceWithResultRequest
             {
-                Request = new CreateWorkflowInstanceRequest
+                Request = new CreateProcessInstanceRequest
                 {
                     BpmnProcessId = "process",
                     Version = -1,
@@ -232,7 +232,7 @@ namespace Zeebe.Client
             };
 
             // when
-            await ZeebeClient.NewCreateWorkflowInstanceCommand()
+            await ZeebeClient.NewCreateProcessInstanceCommand()
                 .BpmnProcessId("process")
                 .LatestVersion()
                 .Variables("{\"foo\":1}")
@@ -241,7 +241,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
+            var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -249,9 +249,9 @@ namespace Zeebe.Client
         public async Task ShouldSendRequestWithFetchVariablesAsList()
         {
             // given
-            var expectedRequest = new CreateWorkflowInstanceWithResultRequest
+            var expectedRequest = new CreateProcessInstanceWithResultRequest
             {
-                Request = new CreateWorkflowInstanceRequest
+                Request = new CreateProcessInstanceRequest
                 {
                     BpmnProcessId = "process",
                     Version = -1,
@@ -262,7 +262,7 @@ namespace Zeebe.Client
             };
 
             // when
-            await ZeebeClient.NewCreateWorkflowInstanceCommand()
+            await ZeebeClient.NewCreateProcessInstanceCommand()
                 .BpmnProcessId("process")
                 .LatestVersion()
                 .Variables("{\"foo\":1}")
@@ -271,7 +271,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var request = TestService.Requests[typeof(CreateWorkflowInstanceWithResultRequest)][0];
+            var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
 
@@ -279,30 +279,30 @@ namespace Zeebe.Client
         public async Task ShouldReceiveResponseAsExpected()
         {
             // given
-            var expectedResponse = new CreateWorkflowInstanceWithResultResponse
+            var expectedResponse = new CreateProcessInstanceWithResultResponse
             {
                 BpmnProcessId = "process",
                 Version = 1,
-                WorkflowKey = 2,
-                WorkflowInstanceKey = 121,
+                ProcessDefinitionKey = 2,
+                ProcessInstanceKey = 121,
                 Variables = "{\"foo\":\"bar\"}",
             };
 
-            TestService.AddRequestHandler(typeof(CreateWorkflowInstanceWithResultRequest), request => expectedResponse);
+            TestService.AddRequestHandler(typeof(CreateProcessInstanceWithResultRequest), request => expectedResponse);
 
             // when
-            var workflowInstanceResponse = await ZeebeClient.NewCreateWorkflowInstanceCommand()
+            var processInstanceResponse = await ZeebeClient.NewCreateProcessInstanceCommand()
                 .BpmnProcessId("process")
                 .LatestVersion()
                 .WithResult()
                 .Send();
 
             // then
-            Assert.AreEqual(2, workflowInstanceResponse.WorkflowKey);
-            Assert.AreEqual(1, workflowInstanceResponse.Version);
-            Assert.AreEqual(121, workflowInstanceResponse.WorkflowInstanceKey);
-            Assert.AreEqual("process", workflowInstanceResponse.BpmnProcessId);
-            Assert.AreEqual("{\"foo\":\"bar\"}", workflowInstanceResponse.Variables);
+            Assert.AreEqual(2, processInstanceResponse.ProcessDefinitionKey);
+            Assert.AreEqual(1, processInstanceResponse.Version);
+            Assert.AreEqual(121, processInstanceResponse.ProcessInstanceKey);
+            Assert.AreEqual("process", processInstanceResponse.BpmnProcessId);
+            Assert.AreEqual("{\"foo\":\"bar\"}", processInstanceResponse.Variables);
         }
     }
 }

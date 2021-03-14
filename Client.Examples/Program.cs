@@ -28,7 +28,7 @@ namespace Client.Examples
     {
         private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
         private static readonly string ZeebeUrl = "0.0.0.0:26500";
-        private static readonly string WorkflowInstanceVariables = "{\"a\":\"123\"}";
+        private static readonly string ProcessInstanceVariables = "{\"a\":\"123\"}";
         private static readonly string JobType = "payment-service";
         private static readonly string WorkerName = Environment.MachineName;
         private static readonly long WorkCount = 100L;
@@ -56,23 +56,23 @@ namespace Client.Examples
                 .AddResourceFile(DemoProcessPath)
                 .Send();
 
-            // create workflow instance
-            var workflowKey = deployResponse.Workflows[0].WorkflowKey;
+            // create process instance
+            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
 
-            var workflowInstance = await client
-                .NewCreateWorkflowInstanceCommand()
-                .WorkflowKey(workflowKey)
-                .Variables(WorkflowInstanceVariables)
+            var processInstance = await client
+                .NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(processDefinitionKey)
+                .Variables(ProcessInstanceVariables)
                 .Send();
 
-            await client.NewSetVariablesCommand(workflowInstance.WorkflowInstanceKey).Variables("{\"wow\":\"this\"}").Local().Send();
+            await client.NewSetVariablesCommand(processInstance.ProcessInstanceKey).Variables("{\"wow\":\"this\"}").Local().Send();
 
             for (var i = 0; i < WorkCount; i++)
             {
                 await client
-                    .NewCreateWorkflowInstanceCommand()
-                    .WorkflowKey(workflowKey)
-                    .Variables(WorkflowInstanceVariables)
+                    .NewCreateProcessInstanceCommand()
+                    .ProcessDefinitionKey(processDefinitionKey)
+                    .Variables(ProcessInstanceVariables)
                     .Send();
             }
 

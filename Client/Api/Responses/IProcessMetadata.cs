@@ -1,17 +1,17 @@
 namespace Zeebe.Client.Api.Responses
 {
-    public interface IWorkflowMetadata
+    public interface IProcessMetadata
     {
-        /// <returns>the BPMN process id of the workflow </returns>
+        /// <returns>the BPMN process id of the process </returns>
         string BpmnProcessId { get; }
 
-        /// <returns>the version of the deployed workflow </returns>
+        /// <returns>the version of the deployed process </returns>
         int Version { get; }
 
-        /// <summary> <returns>the key of the deployed workflow </returns>
-        long WorkflowKey { get; }
+        /// <summary> <returns>the key of the deployed process </returns>
+        long ProcessDefinitionKey { get; }
 
-        /// <returns>the name of the deployment resource which contains the workflow </returns>
+        /// <returns>the name of the deployment resource which contains the process </returns>
         string ResourceName { get; }
     }
 }

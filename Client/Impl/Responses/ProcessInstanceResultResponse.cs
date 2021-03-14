@@ -4,25 +4,25 @@ using Zeebe.Client.Api.Responses;
 namespace Zeebe.Client.Impl.Responses
 {
     /// <inheritdoc />
-    public class WorkflowInstanceResultResponse : IWorkflowInstanceResult
+    public class ProcessInstanceResultResponse : IProcessInstanceResult
     {
         /// <inheritdoc/>
-        public long WorkflowKey { get; }
+        public long ProcessDefinitionKey { get; }
         /// <inheritdoc/>
         public string BpmnProcessId { get; }
         /// <inheritdoc/>
         public int Version { get; }
         /// <inheritdoc/>
-        public long WorkflowInstanceKey { get; }
+        public long ProcessInstanceKey { get; }
         /// <inheritdoc/>
         public string Variables { get; }
 
-        public WorkflowInstanceResultResponse(CreateWorkflowInstanceWithResultResponse response)
+        public ProcessInstanceResultResponse(CreateProcessInstanceWithResultResponse response)
         {
-            WorkflowKey = response.WorkflowKey;
+            ProcessDefinitionKey = response.ProcessDefinitionKey;
             BpmnProcessId = response.BpmnProcessId;
             Version = response.Version;
-            WorkflowInstanceKey = response.WorkflowInstanceKey;
+            ProcessInstanceKey = response.ProcessInstanceKey;
             Variables = response.Variables;
         }
     }

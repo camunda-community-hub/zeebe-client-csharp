@@ -119,25 +119,25 @@ namespace Zeebe.Client
         IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey);
 
         /// <summary>
-        /// Command to deploy new workflows.
+        /// Command to deploy new processes.
         /// </summary>
         ///
         /// <example>
         /// <code>
         /// zeebeClient
         ///  .NewDeployCommand()
-        ///  .AddResourceFile("~/wf/workflow1.bpmn")
-        ///  .AddResourceFile("~/wf/workflow2.bpmn")
+        ///  .AddResourceFile("~/wf/process1.bpmn")
+        ///  .AddResourceFile("~/wf/process2.bpmn")
         ///  .Send();
         /// </code>
         /// </example>
         /// <returns>
         ///     a builder for the deploy command
         /// </returns>
-        IDeployWorkflowCommandStep1 NewDeployCommand();
+        IDeployProcessCommandStep1 NewDeployCommand();
 
         /// <summary>
-        /// Command to create/start a new instance of a workflow.
+        /// Command to create/start a new instance of a process.
         /// </summary>
         ///
         /// <example>
@@ -151,28 +151,28 @@ namespace Zeebe.Client
         /// </code>
         /// </example>
         /// <returns>a builder for the command</returns>
-        ICreateWorkflowInstanceCommandStep1 NewCreateWorkflowInstanceCommand();
+        ICreateProcessInstanceCommandStep1 NewCreateProcessInstanceCommand();
 
         /// <summary>
-        /// Command to cancel a workflow instance.
+        /// Command to cancel a process instance.
         /// </summary>
         /// <example>
         /// <code>
         /// zeebeClient
-        ///  .NewCancelInstanceCommand(workflowInstanceKey)
+        ///  .NewCancelInstanceCommand(processInstanceKey)
         ///  .Send();
         /// </code>
         /// </example>
-        /// <param name="workflowInstanceKey">
-        ///     workflowInstanceKey the key which identifies the corresponding workflow instance
+        /// <param name="processInstanceKey">
+        ///     processInstanceKey the key which identifies the corresponding process instance
         /// </param>
         /// <returns>
         /// a builder for the command
         /// </returns>
-        ICancelWorkflowInstanceCommandStep1 NewCancelInstanceCommand(long workflowInstanceKey);
+        ICancelProcessInstanceCommandStep1 NewCancelInstanceCommand(long processInstanceKey);
 
         /// <summary>
-        /// Command to update the variables of a workflow instance.
+        /// Command to update the variables of a process instance.
         /// </summary>
         /// <example>
         ///  <code>
@@ -209,7 +209,7 @@ namespace Zeebe.Client
         IResolveIncidentCommandStep1 NewResolveIncidentCommand(long incidentKey);
 
         /// <summary>
-        /// Command to publish a message which can be correlated to a workflow instance.
+        /// Command to publish a message which can be correlated to a process instance.
         /// </summary>
         /// <example>
         /// <code>

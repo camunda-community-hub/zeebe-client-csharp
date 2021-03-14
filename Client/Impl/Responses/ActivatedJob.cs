@@ -31,10 +31,10 @@ namespace Zeebe.Client.Impl.Responses
         {
             Key = activatedJob.Key;
             Type = activatedJob.Type;
-            WorkflowInstanceKey = activatedJob.WorkflowInstanceKey;
+            ProcessInstanceKey = activatedJob.ProcessInstanceKey;
             BpmnProcessId = activatedJob.BpmnProcessId;
-            WorkflowDefinitionVersion = activatedJob.WorkflowDefinitionVersion;
-            WorkflowKey = activatedJob.WorkflowKey;
+            ProcessDefinitionVersion = activatedJob.ProcessDefinitionVersion;
+            ProcessDefinitionKey = activatedJob.ProcessDefinitionKey;
             ElementId = activatedJob.ElementId;
             ElementInstanceKey = activatedJob.ElementInstanceKey;
             Worker = activatedJob.Worker;
@@ -48,13 +48,13 @@ namespace Zeebe.Client.Impl.Responses
 
         public string Type { get; }
 
-        public long WorkflowInstanceKey { get; }
+        public long ProcessInstanceKey { get; }
 
         public string BpmnProcessId { get; }
 
-        public int WorkflowDefinitionVersion { get; }
+        public int ProcessDefinitionVersion { get; }
 
-        public long WorkflowKey { get; }
+        public long ProcessDefinitionKey { get; }
 
         public string ElementId { get; }
 
@@ -73,14 +73,14 @@ namespace Zeebe.Client.Impl.Responses
         public override string ToString()
         {
             return
-                $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(WorkflowInstanceKey)}: {WorkflowInstanceKey}, {nameof(BpmnProcessId)}: {BpmnProcessId}, {nameof(WorkflowDefinitionVersion)}: {WorkflowDefinitionVersion}, {nameof(WorkflowKey)}: {WorkflowKey}, {nameof(ElementId)}: {ElementId}, {nameof(ElementInstanceKey)}: {ElementInstanceKey}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}, {nameof(CustomHeaders)}: {CustomHeaders}";
+                $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(ProcessInstanceKey)}: {ProcessInstanceKey}, {nameof(BpmnProcessId)}: {BpmnProcessId}, {nameof(ProcessDefinitionVersion)}: {ProcessDefinitionVersion}, {nameof(ProcessDefinitionKey)}: {ProcessDefinitionKey}, {nameof(ElementId)}: {ElementId}, {nameof(ElementInstanceKey)}: {ElementInstanceKey}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}, {nameof(CustomHeaders)}: {CustomHeaders}";
         }
 
         protected bool Equals(ActivatedJob other)
         {
-            return Key == other.Key && Type == other.Type && WorkflowInstanceKey == other.WorkflowInstanceKey &&
+            return Key == other.Key && Type == other.Type && ProcessInstanceKey == other.ProcessInstanceKey &&
                    BpmnProcessId == other.BpmnProcessId &&
-                   WorkflowDefinitionVersion == other.WorkflowDefinitionVersion && WorkflowKey == other.WorkflowKey &&
+                   ProcessDefinitionVersion == other.ProcessDefinitionVersion && ProcessDefinitionKey == other.ProcessDefinitionKey &&
                    ElementId == other.ElementId && ElementInstanceKey == other.ElementInstanceKey &&
                    Worker == other.Worker && Retries == other.Retries && Deadline.Equals(other.Deadline) &&
                    Variables == other.Variables && CustomHeaders == other.CustomHeaders;
@@ -112,10 +112,10 @@ namespace Zeebe.Client.Impl.Responses
             {
                 var hashCode = Key.GetHashCode();
                 hashCode = (hashCode * 397) ^ (Type != null ? Type.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ WorkflowInstanceKey.GetHashCode();
+                hashCode = (hashCode * 397) ^ ProcessInstanceKey.GetHashCode();
                 hashCode = (hashCode * 397) ^ (BpmnProcessId != null ? BpmnProcessId.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ WorkflowDefinitionVersion;
-                hashCode = (hashCode * 397) ^ WorkflowKey.GetHashCode();
+                hashCode = (hashCode * 397) ^ ProcessDefinitionVersion;
+                hashCode = (hashCode * 397) ^ ProcessDefinitionKey.GetHashCode();
                 hashCode = (hashCode * 397) ^ (ElementId != null ? ElementId.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ ElementInstanceKey.GetHashCode();
                 hashCode = (hashCode * 397) ^ (Worker != null ? Worker.GetHashCode() : 0);

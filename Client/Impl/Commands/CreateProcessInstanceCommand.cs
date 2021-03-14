@@ -9,69 +9,69 @@ using Zeebe.Client.Impl.Responses;
 
 namespace Zeebe.Client.Impl.Commands
 {
-    public class CreateWorkflowInstanceCommand
-        : ICreateWorkflowInstanceCommandStep1,
-            ICreateWorkflowInstanceCommandStep2,
-            ICreateWorkflowInstanceCommandStep3
+    public class CreateProcessInstanceCommand
+        : ICreateProcessInstanceCommandStep1,
+            ICreateProcessInstanceCommandStep2,
+            ICreateProcessInstanceCommandStep3
     {
         private const int LatestVersionValue = -1;
 
-        private readonly CreateWorkflowInstanceRequest request;
+        private readonly CreateProcessInstanceRequest request;
         private readonly Gateway.GatewayClient client;
 
-        public CreateWorkflowInstanceCommand(Gateway.GatewayClient client)
+        public CreateProcessInstanceCommand(Gateway.GatewayClient client)
         {
             this.client = client;
-            request = new CreateWorkflowInstanceRequest();
+            request = new CreateProcessInstanceRequest();
         }
 
-        public ICreateWorkflowInstanceCommandStep2 BpmnProcessId(string bpmnProcessId)
+        public ICreateProcessInstanceCommandStep2 BpmnProcessId(string bpmnProcessId)
         {
             request.BpmnProcessId = bpmnProcessId;
             return this;
         }
 
-        public ICreateWorkflowInstanceCommandStep3 WorkflowKey(long workflowKey)
+        public ICreateProcessInstanceCommandStep3 ProcessDefinitionKey(long processDefinitionKey)
         {
-            request.WorkflowKey = workflowKey;
+            request.ProcessDefinitionKey = processDefinitionKey;
             return this;
         }
 
-        public ICreateWorkflowInstanceCommandStep3 Version(int version)
+        public ICreateProcessInstanceCommandStep3 Version(int version)
         {
             request.Version = version;
             return this;
         }
 
-        public ICreateWorkflowInstanceCommandStep3 LatestVersion()
+        public ICreateProcessInstanceCommandStep3 LatestVersion()
         {
             request.Version = LatestVersionValue;
             return this;
         }
 
-        public ICreateWorkflowInstanceCommandStep3 Variables(string variables)
+        public ICreateProcessInstanceCommandStep3 Variables(string variables)
         {
             request.Variables = variables;
             return this;
         }
 
-        public ICreateWorkflowInstanceWithResultCommandStep1 WithResult()
+        public ICreateProcessInstanceWithResultCommandStep1 WithResult()
         {
-            return new CreateWorkflowInstanceCommandWithResult(client, request);
+            return new CreateProcessInstanceCommandWithResult(client, request);
         }
 
-        public async Task<IWorkflowInstanceResponse> Send(TimeSpan? timeout = null)
+        public async Task<IProcessInstanceResponse> Send(TimeSpan? timeout = null)
         {
-            var asyncReply = client.CreateWorkflowInstanceAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = client.CreateProcessInstanceAsync(request, deadline: timeout?.FromUtcNow());
             var response = await asyncReply.ResponseAsync;
-            return new WorkflowInstanceResponse(response);
+            return new ProcessInstanceResponse(response);
         }
 
-        public async Task<IWorkflowInstanceResponse> Send(CancellationToken token)
+        public async Task<IProcessInstanceResponse> Send(CancellationToken token)
         {
-            var asyncReply = client.CreateWorkflowInstanceAsync(request, cancellationToken: token);
+            var asyncReply = client.CreateProcessInstanceAsync(request, cancellationToken: token);
             var response = await asyncReply.ResponseAsync;
-            return new WorkflowInstanceResponse(response);
+            return new ProcessInstanceResponse(response);
         }
     }
 }

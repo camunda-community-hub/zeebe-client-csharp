@@ -26,73 +26,73 @@ using Zeebe.Client.Impl.Responses;
 
 namespace Zeebe.Client.Impl.Commands
 {
-    public class DeployWorkflowCommand : IDeployWorkflowCommandBuilderStep2
+    public class DeployProcessCommand : IDeployProcessCommandBuilderStep2
     {
         private readonly Gateway.GatewayClient gatewayClient;
-        private readonly DeployWorkflowRequest request;
+        private readonly DeployProcessRequest request;
 
-        public DeployWorkflowCommand(Gateway.GatewayClient client)
+        public DeployProcessCommand(Gateway.GatewayClient client)
         {
             gatewayClient = client;
-            request = new DeployWorkflowRequest();
+            request = new DeployProcessRequest();
         }
 
-        public IDeployWorkflowCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName)
+        public IDeployProcessCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName)
         {
-            AddWorkflow(ByteString.CopyFrom(resourceBytes), resourceName);
+            AddProcess(ByteString.CopyFrom(resourceBytes), resourceName);
 
             return this;
         }
 
-        public IDeployWorkflowCommandBuilderStep2 AddResourceFile(string filename)
+        public IDeployProcessCommandBuilderStep2 AddResourceFile(string filename)
         {
             var text = File.ReadAllText(filename);
             AddResourceStringUtf8(text, filename);
             return this;
         }
 
-        public IDeployWorkflowCommandBuilderStep2 AddResourceStream(Stream resourceStream, string resourceName)
+        public IDeployProcessCommandBuilderStep2 AddResourceStream(Stream resourceStream, string resourceName)
         {
-            AddWorkflow(ByteString.FromStream(resourceStream), resourceName);
+            AddProcess(ByteString.FromStream(resourceStream), resourceName);
             return this;
         }
 
-        public IDeployWorkflowCommandBuilderStep2 AddResourceString(string resourceString, Encoding encoding, string resourceName)
+        public IDeployProcessCommandBuilderStep2 AddResourceString(string resourceString, Encoding encoding, string resourceName)
         {
-            AddWorkflow(ByteString.CopyFrom(resourceString, encoding), resourceName);
+            AddProcess(ByteString.CopyFrom(resourceString, encoding), resourceName);
             return this;
         }
 
-        public IDeployWorkflowCommandBuilderStep2 AddResourceStringUtf8(string resourceString, string resourceName)
+        public IDeployProcessCommandBuilderStep2 AddResourceStringUtf8(string resourceString, string resourceName)
         {
-            AddWorkflow(ByteString.CopyFromUtf8(resourceString), resourceName);
+            AddProcess(ByteString.CopyFromUtf8(resourceString), resourceName);
             return this;
         }
 
         public async Task<IDeployResponse> Send(TimeSpan? timeout = null)
         {
-            var asyncReply = gatewayClient.DeployWorkflowAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = gatewayClient.DeployProcessAsync(request, deadline: timeout?.FromUtcNow());
             var response = await asyncReply.ResponseAsync;
             return new DeployResponse(response);
         }
 
         public async Task<IDeployResponse> Send(CancellationToken token)
         {
-            var asyncReply = gatewayClient.DeployWorkflowAsync(request, cancellationToken: token);
+            var asyncReply = gatewayClient.DeployProcessAsync(request, cancellationToken: token);
             var response = await asyncReply.ResponseAsync;
             return new DeployResponse(response);
         }
 
-        private void AddWorkflow(ByteString resource, string resourceName)
+        private void AddProcess(ByteString resource, string resourceName)
         {
-            var requestObject = new WorkflowRequestObject
+            var requestObject = new ProcessRequestObject
             {
                 Definition = resource,
                 Name = resourceName,
-                Type = WorkflowRequestObject.Types.ResourceType.File
+                Type = ProcessRequestObject.Types.ResourceType.File
             };
 
-            request.Workflows.Add(requestObject);
+            request.Processes.Add(requestObject);
         }
     }
 }

@@ -130,22 +130,22 @@ namespace Zeebe.Client
         }
 
         ////////////////////////////////////////////////////////////////////////
-        ///////////////////////////// Workflows ////////////////////////////////
+        ///////////////////////////// Processes ////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
 
-        public IDeployWorkflowCommandStep1 NewDeployCommand()
+        public IDeployProcessCommandStep1 NewDeployCommand()
         {
-            return new DeployWorkflowCommand(gatewayClient);
+            return new DeployProcessCommand(gatewayClient);
         }
 
-        public ICreateWorkflowInstanceCommandStep1 NewCreateWorkflowInstanceCommand()
+        public ICreateProcessInstanceCommandStep1 NewCreateProcessInstanceCommand()
         {
-            return new CreateWorkflowInstanceCommand(gatewayClient);
+            return new CreateProcessInstanceCommand(gatewayClient);
         }
 
-        public ICancelWorkflowInstanceCommandStep1 NewCancelInstanceCommand(long workflowInstanceKey)
+        public ICancelProcessInstanceCommandStep1 NewCancelInstanceCommand(long processInstanceKey)
         {
-            return new CancelWorkflowInstanceCommand(gatewayClient, asyncRetryStrategy, workflowInstanceKey);
+            return new CancelProcessInstanceCommand(gatewayClient, asyncRetryStrategy, processInstanceKey);
         }
 
         public ISetVariablesCommandStep1 NewSetVariablesCommand(long elementInstanceKey)

@@ -25,19 +25,19 @@ namespace Zeebe.Client.Api.Responses
         /// <returns> The type of the job </returns>
         string Type { get; }
 
-        /// <returns> Key of the workflow instance </summary>
-        long WorkflowInstanceKey { get; }
+        /// <returns> Key of the process instance </summary>
+        long ProcessInstanceKey { get; }
 
-        /// <returns> BPMN process id of the workflow </summary>
+        /// <returns> BPMN process id of the process </summary>
         string BpmnProcessId { get; }
 
-        /// <returns> Version of the workflow </returns>
-        int WorkflowDefinitionVersion { get; }
+        /// <returns> Version of the process </returns>
+        int ProcessDefinitionVersion { get; }
 
-        /// <returns> Key of the workflow </returns>
-        long WorkflowKey { get; }
+        /// <returns> Key of the process </returns>
+        long ProcessDefinitionKey { get; }
 
-        /// <returns> Id of the workflow element </returns>
+        /// <returns> Id of the process element </returns>
         string ElementId { get; }
 
         /// <returns> Key of the element instance </returns>
