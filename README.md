@@ -3,6 +3,9 @@
 [![](https://img.shields.io/nuget/dt/zb-client)](https://www.nuget.org/stats/packages/zb-client?groupby=Version) 
 [![](https://img.shields.io/github/license/zeebe-io/zeebe-client-csharp.svg)](https://www.apache.org/licenses/LICENSE-2.0) 
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/zeebe-io/zeebe-client-csharp.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/zeebe-io/zb-csharp-client/alerts/) 
+[![](https://img.shields.io/badge/Community%20Extension-An%20open%20source%20community%20maintained%20project-FF4700)
+[![](https://img.shields.io/badge/Lifecycle-Stable-brightgreen)
+
 
 
 
