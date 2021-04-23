@@ -1,0 +1,11 @@
+# Specify assignees for pull requests
+
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/Client"
+    schedule:
+      interval: "daily"
+    # Add assignees
+    assignees:
+      - "zelldon"
