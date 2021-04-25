@@ -10,6 +10,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
     - run: docker pull camunda/zeebe:0.26.1
+    - run: docker pull camunda/zeebe:0.22.2
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
