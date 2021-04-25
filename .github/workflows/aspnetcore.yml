@@ -1,18 +1,15 @@
-name: ASP.NET Core CI
-
+name: .NET Core CI
 on: [push]
-
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
-    - name: Build with dotnet
-    - run: dotnet build --configuration Release
-    - run: dotnet test
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: Test
+      run: dotnet test
