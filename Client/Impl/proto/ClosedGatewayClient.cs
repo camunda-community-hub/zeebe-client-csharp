@@ -19,24 +19,24 @@ namespace GatewayProtocol
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override CancelWorkflowInstanceResponse CancelWorkflowInstance(CancelWorkflowInstanceRequest request, Metadata headers = null,
+        public override CancelProcessInstanceResponse CancelProcessInstance(CancelProcessInstanceRequest request, Metadata headers = null,
             DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override CancelWorkflowInstanceResponse CancelWorkflowInstance(CancelWorkflowInstanceRequest request, CallOptions options)
+        public override CancelProcessInstanceResponse CancelProcessInstance(CancelProcessInstanceRequest request, CallOptions options)
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override AsyncUnaryCall<CancelWorkflowInstanceResponse> CancelWorkflowInstanceAsync(CancelWorkflowInstanceRequest request, Metadata headers = null,
+        public override AsyncUnaryCall<CancelProcessInstanceResponse> CancelProcessInstanceAsync(CancelProcessInstanceRequest request, Metadata headers = null,
             DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override AsyncUnaryCall<CancelWorkflowInstanceResponse> CancelWorkflowInstanceAsync(CancelWorkflowInstanceRequest request, CallOptions options)
+        public override AsyncUnaryCall<CancelProcessInstanceResponse> CancelProcessInstanceAsync(CancelProcessInstanceRequest request, CallOptions options)
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
@@ -63,46 +63,46 @@ namespace GatewayProtocol
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override CreateWorkflowInstanceResponse CreateWorkflowInstance(CreateWorkflowInstanceRequest request, Metadata headers = null,
+        public override CreateProcessInstanceResponse CreateProcessInstance(CreateProcessInstanceRequest request, Metadata headers = null,
             DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override CreateWorkflowInstanceResponse CreateWorkflowInstance(CreateWorkflowInstanceRequest request, CallOptions options)
+        public override CreateProcessInstanceResponse CreateProcessInstance(CreateProcessInstanceRequest request, CallOptions options)
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override AsyncUnaryCall<CreateWorkflowInstanceResponse> CreateWorkflowInstanceAsync(CreateWorkflowInstanceRequest request, Metadata headers = null,
+        public override AsyncUnaryCall<CreateProcessInstanceResponse> CreateProcessInstanceAsync(CreateProcessInstanceRequest request, Metadata headers = null,
             DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override AsyncUnaryCall<CreateWorkflowInstanceResponse> CreateWorkflowInstanceAsync(CreateWorkflowInstanceRequest request, CallOptions options)
+        public override AsyncUnaryCall<CreateProcessInstanceResponse> CreateProcessInstanceAsync(CreateProcessInstanceRequest request, CallOptions options)
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override DeployWorkflowResponse DeployWorkflow(DeployWorkflowRequest request, Metadata headers = null, DateTime? deadline = null,
+        public override DeployProcessResponse DeployProcess(DeployProcessRequest request, Metadata headers = null, DateTime? deadline = null,
             CancellationToken cancellationToken = default(CancellationToken))
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override DeployWorkflowResponse DeployWorkflow(DeployWorkflowRequest request, CallOptions options)
+        public override DeployProcessResponse DeployProcess(DeployProcessRequest request, CallOptions options)
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override AsyncUnaryCall<DeployWorkflowResponse> DeployWorkflowAsync(DeployWorkflowRequest request, Metadata headers = null, DateTime? deadline = null,
+        public override AsyncUnaryCall<DeployProcessResponse> DeployProcessAsync(DeployProcessRequest request, Metadata headers = null, DateTime? deadline = null,
             CancellationToken cancellationToken = default(CancellationToken))
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
 
-        public override AsyncUnaryCall<DeployWorkflowResponse> DeployWorkflowAsync(DeployWorkflowRequest request, CallOptions options)
+        public override AsyncUnaryCall<DeployProcessResponse> DeployProcessAsync(DeployProcessRequest request, CallOptions options)
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }

@@ -62,8 +62,8 @@ namespace Client.Examples
                 .AddResourceFile(DemoProcessPath)
                 .Send();
 
-            // create workflow instance
-            var workflowKey = deployResponse.Workflows[0].WorkflowKey;
+            // create process instance
+            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
             var bigPayload = File.ReadAllText(PayloadPath);
 
             Task.Run(async () =>
@@ -76,8 +76,8 @@ namespace Client.Examples
                         try
                         {
                             await client
-                                .NewCreateWorkflowInstanceCommand()
-                                .WorkflowKey(workflowKey)
+                                .NewCreateProcessInstanceCommand()
+                                .ProcessDefinitionKey(processDefinitionKey)
                                 .Variables(bigPayload)
                                 .Send();
                         }

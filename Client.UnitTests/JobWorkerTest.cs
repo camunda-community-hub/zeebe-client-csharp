@@ -626,9 +626,9 @@ namespace Zeebe.Client
                         BpmnProcessId = "process",
                         ElementId = "job1",
                         ElementInstanceKey = 23,
-                        WorkflowInstanceKey = 29,
-                        WorkflowDefinitionVersion = 3,
-                        WorkflowKey = 21
+                        ProcessInstanceKey = 29,
+                        ProcessDefinitionVersion = 3,
+                        ProcessDefinitionKey = 21
                     },
                     new ActivatedJob
                     {
@@ -642,9 +642,9 @@ namespace Zeebe.Client
                         BpmnProcessId = "process",
                         ElementId = "job2",
                         ElementInstanceKey = 23,
-                        WorkflowInstanceKey = 29,
-                        WorkflowDefinitionVersion = 3,
-                        WorkflowKey = 21
+                        ProcessInstanceKey = 29,
+                        ProcessDefinitionVersion = 3,
+                        ProcessDefinitionKey = 21
                     },
                     new ActivatedJob
                     {
@@ -658,9 +658,9 @@ namespace Zeebe.Client
                         BpmnProcessId = "process",
                         ElementId = "job3",
                         ElementInstanceKey = 23,
-                        WorkflowInstanceKey = 29,
-                        WorkflowDefinitionVersion = 3,
-                        WorkflowKey = 21
+                        ProcessInstanceKey = 29,
+                        ProcessDefinitionVersion = 3,
+                        ProcessDefinitionKey = 21
                     },
                 },
             };
@@ -679,9 +679,9 @@ namespace Zeebe.Client
             Assert.AreEqual("process", job.BpmnProcessId);
             Assert.AreEqual("job" + expectedKey, job.ElementId);
             Assert.AreEqual(23, job.ElementInstanceKey);
-            Assert.AreEqual(29, job.WorkflowInstanceKey);
-            Assert.AreEqual(3, job.WorkflowDefinitionVersion);
-            Assert.AreEqual(21, job.WorkflowKey);
+            Assert.AreEqual(29, job.ProcessInstanceKey);
+            Assert.AreEqual(3, job.ProcessDefinitionVersion);
+            Assert.AreEqual(21, job.ProcessDefinitionKey);
         }
     }
 }

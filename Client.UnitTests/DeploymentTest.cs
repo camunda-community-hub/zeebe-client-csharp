@@ -19,15 +19,15 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceFileAsExpected()
         {
             // given
-            var expectedRequest = new DeployWorkflowRequest
+            var expectedRequest = new DeployProcessRequest
             {
-                Workflows =
+                Processes =
                 {
-                    new WorkflowRequestObject
+                    new ProcessRequestObject
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = WorkflowRequestObject.Types.ResourceType.File
+                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -36,7 +36,7 @@ namespace Zeebe.Client
             await ZeebeClient.NewDeployCommand().AddResourceFile(_demoProcessPath).Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -79,15 +79,15 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceStringAsExpected()
         {
             // given
-            var expectedRequest = new DeployWorkflowRequest
+            var expectedRequest = new DeployProcessRequest
             {
-                Workflows =
+                Processes =
                 {
-                    new WorkflowRequestObject
+                    new ProcessRequestObject
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = WorkflowRequestObject.Types.ResourceType.File
+                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -99,7 +99,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -108,15 +108,15 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceStringUtf8AsExpected()
         {
             // given
-            var expectedRequest = new DeployWorkflowRequest
+            var expectedRequest = new DeployProcessRequest
             {
-                Workflows =
+                Processes =
                 {
-                    new WorkflowRequestObject
+                    new ProcessRequestObject
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = WorkflowRequestObject.Types.ResourceType.File
+                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -128,7 +128,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -137,15 +137,15 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceBytesAsExpected()
         {
             // given
-            var expectedRequest = new DeployWorkflowRequest
+            var expectedRequest = new DeployProcessRequest
             {
-                Workflows =
+                Processes =
                 {
-                    new WorkflowRequestObject
+                    new ProcessRequestObject
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = WorkflowRequestObject.Types.ResourceType.File
+                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -157,7 +157,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -166,15 +166,15 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceStreamAsExpected()
         {
             // given
-            var expectedRequest = new DeployWorkflowRequest
+            var expectedRequest = new DeployProcessRequest
             {
-                Workflows =
+                Processes =
                 {
-                    new WorkflowRequestObject
+                    new ProcessRequestObject
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = WorkflowRequestObject.Types.ResourceType.File
+                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -185,7 +185,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -194,52 +194,52 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceAndGetResponseAsExpected()
         {
             // given
-            var expectedResponse = new DeployWorkflowResponse { Key = 1 };
-            expectedResponse.Workflows.Add(new WorkflowMetadata
+            var expectedResponse = new DeployProcessResponse { Key = 1 };
+            expectedResponse.Processes.Add(new ProcessMetadata
             {
                 BpmnProcessId = "process",
                 ResourceName = _demoProcessPath,
                 Version = 1,
-                WorkflowKey = 2
+                ProcessDefinitionKey = 2
             });
 
-            TestService.AddRequestHandler(typeof(DeployWorkflowRequest), request => expectedResponse);
+            TestService.AddRequestHandler(typeof(DeployProcessRequest), request => expectedResponse);
 
             // when
-            var deployWorkflowResponse = await ZeebeClient.NewDeployCommand()
+            var deployProcessResponse = await ZeebeClient.NewDeployCommand()
                 .AddResourceFile(_demoProcessPath)
                 .Send();
 
             // then
-            Assert.AreEqual(1, deployWorkflowResponse.Key);
-            Assert.AreEqual(1, deployWorkflowResponse.Workflows.Count);
+            Assert.AreEqual(1, deployProcessResponse.Key);
+            Assert.AreEqual(1, deployProcessResponse.Processes.Count);
 
-            var workflowMetadata = deployWorkflowResponse.Workflows[0];
-            Assert.AreEqual("process", workflowMetadata.BpmnProcessId);
-            Assert.AreEqual(1, workflowMetadata.Version);
-            Assert.AreEqual(_demoProcessPath, workflowMetadata.ResourceName);
-            Assert.AreEqual(2, workflowMetadata.WorkflowKey);
+            var processMetadata = deployProcessResponse.Processes[0];
+            Assert.AreEqual("process", processMetadata.BpmnProcessId);
+            Assert.AreEqual(1, processMetadata.Version);
+            Assert.AreEqual(_demoProcessPath, processMetadata.ResourceName);
+            Assert.AreEqual(2, processMetadata.ProcessDefinitionKey);
         }
 
         [Test]
         public async Task ShouldSendMultipleDeployResourceAsExpected()
         {
             // given
-            var expectedRequest = new DeployWorkflowRequest
+            var expectedRequest = new DeployProcessRequest
             {
-                Workflows =
+                Processes =
                 {
-                    new WorkflowRequestObject
+                    new ProcessRequestObject
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = WorkflowRequestObject.Types.ResourceType.File
+                        Type = ProcessRequestObject.Types.ResourceType.File
                     },
-                    new WorkflowRequestObject
+                    new ProcessRequestObject
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = WorkflowRequestObject.Types.ResourceType.File
+                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -251,7 +251,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployWorkflowRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -260,46 +260,46 @@ namespace Zeebe.Client
         public async Task ShouldSendMultipleDeployResourceAndGetResponseAsExpected()
         {
             // given
-            var expectedResponse = new DeployWorkflowResponse { Key = 1 };
-            expectedResponse.Workflows.Add(new WorkflowMetadata
+            var expectedResponse = new DeployProcessResponse { Key = 1 };
+            expectedResponse.Processes.Add(new ProcessMetadata
             {
                 BpmnProcessId = "process",
                 ResourceName = _demoProcessPath,
                 Version = 1,
-                WorkflowKey = 2
+                ProcessDefinitionKey = 2
             });
-            expectedResponse.Workflows.Add(new WorkflowMetadata
+            expectedResponse.Processes.Add(new ProcessMetadata
             {
                 BpmnProcessId = "process2",
                 ResourceName = _demoProcessPath,
                 Version = 1,
-                WorkflowKey = 3
+                ProcessDefinitionKey = 3
             });
 
-            TestService.AddRequestHandler(typeof(DeployWorkflowRequest), request => expectedResponse);
+            TestService.AddRequestHandler(typeof(DeployProcessRequest), request => expectedResponse);
 
             // when
             var fileContent = File.ReadAllText(_demoProcessPath);
-            var deployWorkflowResponse = await ZeebeClient.NewDeployCommand()
+            var deployProcessResponse = await ZeebeClient.NewDeployCommand()
                 .AddResourceFile(_demoProcessPath)
                 .AddResourceString(fileContent, Encoding.UTF8, _demoProcessPath)
                 .Send();
 
             // then
-            Assert.AreEqual(1, deployWorkflowResponse.Key);
-            Assert.AreEqual(2, deployWorkflowResponse.Workflows.Count);
+            Assert.AreEqual(1, deployProcessResponse.Key);
+            Assert.AreEqual(2, deployProcessResponse.Processes.Count);
 
-            var workflowMetadata = deployWorkflowResponse.Workflows[0];
-            Assert.AreEqual("process", workflowMetadata.BpmnProcessId);
-            Assert.AreEqual(1, workflowMetadata.Version);
-            Assert.AreEqual(_demoProcessPath, workflowMetadata.ResourceName);
-            Assert.AreEqual(2, workflowMetadata.WorkflowKey);
+            var processMetadata = deployProcessResponse.Processes[0];
+            Assert.AreEqual("process", processMetadata.BpmnProcessId);
+            Assert.AreEqual(1, processMetadata.Version);
+            Assert.AreEqual(_demoProcessPath, processMetadata.ResourceName);
+            Assert.AreEqual(2, processMetadata.ProcessDefinitionKey);
 
-            var workflowMetadata2 = deployWorkflowResponse.Workflows[1];
-            Assert.AreEqual("process2", workflowMetadata2.BpmnProcessId);
-            Assert.AreEqual(1, workflowMetadata2.Version);
-            Assert.AreEqual(_demoProcessPath, workflowMetadata2.ResourceName);
-            Assert.AreEqual(3, workflowMetadata2.WorkflowKey);
+            var processMetadata2 = deployProcessResponse.Processes[1];
+            Assert.AreEqual("process2", processMetadata2.BpmnProcessId);
+            Assert.AreEqual(1, processMetadata2.Version);
+            Assert.AreEqual(_demoProcessPath, processMetadata2.ResourceName);
+            Assert.AreEqual(3, processMetadata2.ProcessDefinitionKey);
         }
     }
 }

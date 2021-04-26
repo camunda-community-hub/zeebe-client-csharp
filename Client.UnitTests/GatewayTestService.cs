@@ -55,12 +55,12 @@ namespace Zeebe.Client
             typedRequestHandler.Add(typeof(UpdateJobRetriesRequest), request => new UpdateJobRetriesResponse());
             typedRequestHandler.Add(typeof(ThrowErrorRequest), request => new ThrowErrorResponse());
 
-            typedRequestHandler.Add(typeof(DeployWorkflowRequest), request => new DeployWorkflowResponse());
-            typedRequestHandler.Add(typeof(CreateWorkflowInstanceRequest), request => new CreateWorkflowInstanceResponse());
-            typedRequestHandler.Add(typeof(CancelWorkflowInstanceRequest), request => new CancelWorkflowInstanceResponse());
+            typedRequestHandler.Add(typeof(DeployProcessRequest), request => new DeployProcessResponse());
+            typedRequestHandler.Add(typeof(CreateProcessInstanceRequest), request => new CreateProcessInstanceResponse());
+            typedRequestHandler.Add(typeof(CancelProcessInstanceRequest), request => new CancelProcessInstanceResponse());
             typedRequestHandler.Add(typeof(SetVariablesRequest), request => new SetVariablesResponse());
             typedRequestHandler.Add(typeof(ResolveIncidentRequest), request => new ResolveIncidentResponse());
-            typedRequestHandler.Add(typeof(CreateWorkflowInstanceWithResultRequest), request => new CreateWorkflowInstanceWithResultResponse());
+            typedRequestHandler.Add(typeof(CreateProcessInstanceWithResultRequest), request => new CreateProcessInstanceWithResultResponse());
 
             foreach (var pair in typedRequestHandler)
             {
@@ -109,19 +109,19 @@ namespace Zeebe.Client
             return Task.FromResult((ThrowErrorResponse)HandleRequest(request, context));
         }
 
-        public override Task<DeployWorkflowResponse> DeployWorkflow(DeployWorkflowRequest request, ServerCallContext context)
+        public override Task<DeployProcessResponse> DeployProcess(DeployProcessRequest request, ServerCallContext context)
         {
-            return Task.FromResult((DeployWorkflowResponse)HandleRequest(request, context));
+            return Task.FromResult((DeployProcessResponse)HandleRequest(request, context));
         }
 
-        public override Task<CreateWorkflowInstanceResponse> CreateWorkflowInstance(CreateWorkflowInstanceRequest request, ServerCallContext context)
+        public override Task<CreateProcessInstanceResponse> CreateProcessInstance(CreateProcessInstanceRequest request, ServerCallContext context)
         {
-            return Task.FromResult((CreateWorkflowInstanceResponse)HandleRequest(request, context));
+            return Task.FromResult((CreateProcessInstanceResponse)HandleRequest(request, context));
         }
 
-        public override Task<CancelWorkflowInstanceResponse> CancelWorkflowInstance(CancelWorkflowInstanceRequest request, ServerCallContext context)
+        public override Task<CancelProcessInstanceResponse> CancelProcessInstance(CancelProcessInstanceRequest request, ServerCallContext context)
         {
-            return Task.FromResult((CancelWorkflowInstanceResponse)HandleRequest(request, context));
+            return Task.FromResult((CancelProcessInstanceResponse)HandleRequest(request, context));
         }
 
         public override Task<SetVariablesResponse> SetVariables(SetVariablesRequest request, ServerCallContext context)
@@ -134,9 +134,9 @@ namespace Zeebe.Client
             return Task.FromResult((ResolveIncidentResponse)HandleRequest(request, context));
         }
 
-        public override Task<CreateWorkflowInstanceWithResultResponse> CreateWorkflowInstanceWithResult(CreateWorkflowInstanceWithResultRequest request, ServerCallContext context)
+        public override Task<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResult(CreateProcessInstanceWithResultRequest request, ServerCallContext context)
         {
-            return Task.FromResult((CreateWorkflowInstanceWithResultResponse)HandleRequest(request, context));
+            return Task.FromResult((CreateProcessInstanceWithResultResponse)HandleRequest(request, context));
         }
 
         public delegate void ConsumeMetadata(Metadata metadata);

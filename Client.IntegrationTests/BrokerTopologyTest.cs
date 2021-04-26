@@ -36,7 +36,7 @@ namespace Client.IntegrationTests
             Console.WriteLine(topology);
 
             var gatewayVersion = topology.GatewayVersion;
-            Assert.AreEqual("0.26.1", gatewayVersion);
+            Assert.AreEqual(ZeebeIntegrationTestHelper.LatestVersion, gatewayVersion);
 
             var topologyBrokers = topology.Brokers;
             Assert.AreEqual(1, topologyBrokers.Count);

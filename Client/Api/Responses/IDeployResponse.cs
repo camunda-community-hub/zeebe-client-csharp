@@ -7,7 +7,7 @@ namespace Zeebe.Client.Api.Responses
         /// <returns>the unique key of the deployment </returns>
         long Key { get; }
 
-        /// <returns>the workflows meta data, which are deployed </returns>
-        IList<IWorkflowMetadata> Workflows { get; }
+        /// <returns>the processes meta data, which are deployed </returns>
+        IList<IProcessMetadata> Processes { get; }
     }
 }

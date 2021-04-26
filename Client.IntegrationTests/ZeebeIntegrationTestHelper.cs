@@ -11,7 +11,7 @@ namespace Client.IntegrationTests
 {
     public class ZeebeIntegrationTestHelper
     {
-        private const string LatestVersion = "0.26.1";
+        public const string LatestVersion = "1.0.0-alpha6";
 
         private Container container;
         private IZeebeClient client;

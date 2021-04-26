@@ -134,7 +134,7 @@ Example</h1>
 <div class="line">    {</div>
 <div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, <span class="stringliteral">&quot;Resources&quot;</span>, <span class="stringliteral">&quot;demo-process.bpmn&quot;</span>);</div>
 <div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> ZeebeUrl = <span class="stringliteral">&quot;0.0.0.0:26500&quot;</span>;</div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> WorkflowInstanceVariables = <span class="stringliteral">&quot;{\&quot;a\&quot;:\&quot;123\&quot;}&quot;</span>;</div>
+<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> ProcessInstanceVariables = <span class="stringliteral">&quot;{\&quot;a\&quot;:\&quot;123\&quot;}&quot;</span>;</div>
 <div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> JobType = <span class="stringliteral">&quot;payment-service&quot;</span>;</div>
 <div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> WorkerName = Environment.MachineName;</div>
 <div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">long</span> WorkCount = 100L;</div>
@@ -162,23 +162,23 @@ Example</h1>
 <div class="line">                .AddResourceFile(DemoProcessPath)</div>
 <div class="line">                .Send();</div>
 <div class="line"> </div>
-<div class="line">            <span class="comment">// create workflow instance</span></div>
-<div class="line">            var workflowKey = deployResponse.Workflows[0].WorkflowKey;</div>
+<div class="line">            <span class="comment">// create process instance</span></div>
+<div class="line">            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;</div>
 <div class="line"> </div>
-<div class="line">            var workflowInstance = await client</div>
-<div class="line">                .NewCreateWorkflowInstanceCommand()</div>
-<div class="line">                .WorkflowKey(workflowKey)</div>
-<div class="line">                .Variables(WorkflowInstanceVariables)</div>
+<div class="line">            var processInstance = await client</div>
+<div class="line">                .NewCreateProcessInstanceCommand()</div>
+<div class="line">                .ProcessDefinitionKey(processDefinitionKey)</div>
+<div class="line">                .Variables(ProcessInstanceVariables)</div>
 <div class="line">                .Send();</div>
 <div class="line"> </div>
-<div class="line">            await client.NewSetVariablesCommand(workflowInstance.WorkflowInstanceKey).Variables(<span class="stringliteral">&quot;{\&quot;wow\&quot;:\&quot;this\&quot;}&quot;</span>).Local().Send();</div>
+<div class="line">            await client.NewSetVariablesCommand(processInstance.ProcessInstanceKey).Variables(<span class="stringliteral">&quot;{\&quot;wow\&quot;:\&quot;this\&quot;}&quot;</span>).Local().Send();</div>
 <div class="line"> </div>
 <div class="line">            <span class="keywordflow">for</span> (var i = 0; i &lt; WorkCount; i++)</div>
 <div class="line">            {</div>
 <div class="line">                await client</div>
-<div class="line">                    .NewCreateWorkflowInstanceCommand()</div>
-<div class="line">                    .WorkflowKey(workflowKey)</div>
-<div class="line">                    .Variables(WorkflowInstanceVariables)</div>
+<div class="line">                    .NewCreateProcessInstanceCommand()</div>
+<div class="line">                    .ProcessDefinitionKey(processDefinitionKey)</div>
+<div class="line">                    .Variables(ProcessInstanceVariables)</div>
 <div class="line">                    .Send();</div>
 <div class="line">            }</div>
 <div class="line"> </div>

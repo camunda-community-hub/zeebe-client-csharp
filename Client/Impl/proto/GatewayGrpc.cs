@@ -14,16 +14,16 @@ namespace GatewayProtocol {
 
     static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsRequest> __Marshaller_gateway_protocol_ActivateJobsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ActivateJobsRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsResponse> __Marshaller_gateway_protocol_ActivateJobsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ActivateJobsResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CancelWorkflowInstanceRequest> __Marshaller_gateway_protocol_CancelWorkflowInstanceRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CancelWorkflowInstanceRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CancelWorkflowInstanceResponse> __Marshaller_gateway_protocol_CancelWorkflowInstanceResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CancelWorkflowInstanceResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.CancelProcessInstanceRequest> __Marshaller_gateway_protocol_CancelProcessInstanceRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CancelProcessInstanceRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.CancelProcessInstanceResponse> __Marshaller_gateway_protocol_CancelProcessInstanceResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CancelProcessInstanceResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.CompleteJobRequest> __Marshaller_gateway_protocol_CompleteJobRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CompleteJobRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.CompleteJobResponse> __Marshaller_gateway_protocol_CompleteJobResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CompleteJobResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CreateWorkflowInstanceRequest> __Marshaller_gateway_protocol_CreateWorkflowInstanceRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateWorkflowInstanceRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CreateWorkflowInstanceResponse> __Marshaller_gateway_protocol_CreateWorkflowInstanceResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateWorkflowInstanceResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest> __Marshaller_gateway_protocol_CreateWorkflowInstanceWithResultRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse> __Marshaller_gateway_protocol_CreateWorkflowInstanceWithResultResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.DeployWorkflowRequest> __Marshaller_gateway_protocol_DeployWorkflowRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployWorkflowRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.DeployWorkflowResponse> __Marshaller_gateway_protocol_DeployWorkflowResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployWorkflowResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceRequest> __Marshaller_gateway_protocol_CreateProcessInstanceRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateProcessInstanceRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceResponse> __Marshaller_gateway_protocol_CreateProcessInstanceResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateProcessInstanceResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceWithResultRequest> __Marshaller_gateway_protocol_CreateProcessInstanceWithResultRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateProcessInstanceWithResultRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> __Marshaller_gateway_protocol_CreateProcessInstanceWithResultResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateProcessInstanceWithResultResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.DeployProcessRequest> __Marshaller_gateway_protocol_DeployProcessRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployProcessRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GatewayProtocol.DeployProcessResponse> __Marshaller_gateway_protocol_DeployProcessResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployProcessResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.FailJobRequest> __Marshaller_gateway_protocol_FailJobRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.FailJobRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.FailJobResponse> __Marshaller_gateway_protocol_FailJobResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.FailJobResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GatewayProtocol.ThrowErrorRequest> __Marshaller_gateway_protocol_ThrowErrorRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ThrowErrorRequest.Parser.ParseFrom);
@@ -46,12 +46,12 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_ActivateJobsRequest,
         __Marshaller_gateway_protocol_ActivateJobsResponse);
 
-    static readonly grpc::Method<global::GatewayProtocol.CancelWorkflowInstanceRequest, global::GatewayProtocol.CancelWorkflowInstanceResponse> __Method_CancelWorkflowInstance = new grpc::Method<global::GatewayProtocol.CancelWorkflowInstanceRequest, global::GatewayProtocol.CancelWorkflowInstanceResponse>(
+    static readonly grpc::Method<global::GatewayProtocol.CancelProcessInstanceRequest, global::GatewayProtocol.CancelProcessInstanceResponse> __Method_CancelProcessInstance = new grpc::Method<global::GatewayProtocol.CancelProcessInstanceRequest, global::GatewayProtocol.CancelProcessInstanceResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "CancelWorkflowInstance",
-        __Marshaller_gateway_protocol_CancelWorkflowInstanceRequest,
-        __Marshaller_gateway_protocol_CancelWorkflowInstanceResponse);
+        "CancelProcessInstance",
+        __Marshaller_gateway_protocol_CancelProcessInstanceRequest,
+        __Marshaller_gateway_protocol_CancelProcessInstanceResponse);
 
     static readonly grpc::Method<global::GatewayProtocol.CompleteJobRequest, global::GatewayProtocol.CompleteJobResponse> __Method_CompleteJob = new grpc::Method<global::GatewayProtocol.CompleteJobRequest, global::GatewayProtocol.CompleteJobResponse>(
         grpc::MethodType.Unary,
@@ -60,26 +60,26 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_CompleteJobRequest,
         __Marshaller_gateway_protocol_CompleteJobResponse);
 
-    static readonly grpc::Method<global::GatewayProtocol.CreateWorkflowInstanceRequest, global::GatewayProtocol.CreateWorkflowInstanceResponse> __Method_CreateWorkflowInstance = new grpc::Method<global::GatewayProtocol.CreateWorkflowInstanceRequest, global::GatewayProtocol.CreateWorkflowInstanceResponse>(
+    static readonly grpc::Method<global::GatewayProtocol.CreateProcessInstanceRequest, global::GatewayProtocol.CreateProcessInstanceResponse> __Method_CreateProcessInstance = new grpc::Method<global::GatewayProtocol.CreateProcessInstanceRequest, global::GatewayProtocol.CreateProcessInstanceResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "CreateWorkflowInstance",
-        __Marshaller_gateway_protocol_CreateWorkflowInstanceRequest,
-        __Marshaller_gateway_protocol_CreateWorkflowInstanceResponse);
+        "CreateProcessInstance",
+        __Marshaller_gateway_protocol_CreateProcessInstanceRequest,
+        __Marshaller_gateway_protocol_CreateProcessInstanceResponse);
 
-    static readonly grpc::Method<global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest, global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse> __Method_CreateWorkflowInstanceWithResult = new grpc::Method<global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest, global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse>(
+    static readonly grpc::Method<global::GatewayProtocol.CreateProcessInstanceWithResultRequest, global::GatewayProtocol.CreateProcessInstanceWithResultResponse> __Method_CreateProcessInstanceWithResult = new grpc::Method<global::GatewayProtocol.CreateProcessInstanceWithResultRequest, global::GatewayProtocol.CreateProcessInstanceWithResultResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "CreateWorkflowInstanceWithResult",
-        __Marshaller_gateway_protocol_CreateWorkflowInstanceWithResultRequest,
-        __Marshaller_gateway_protocol_CreateWorkflowInstanceWithResultResponse);
+        "CreateProcessInstanceWithResult",
+        __Marshaller_gateway_protocol_CreateProcessInstanceWithResultRequest,
+        __Marshaller_gateway_protocol_CreateProcessInstanceWithResultResponse);
 
-    static readonly grpc::Method<global::GatewayProtocol.DeployWorkflowRequest, global::GatewayProtocol.DeployWorkflowResponse> __Method_DeployWorkflow = new grpc::Method<global::GatewayProtocol.DeployWorkflowRequest, global::GatewayProtocol.DeployWorkflowResponse>(
+    static readonly grpc::Method<global::GatewayProtocol.DeployProcessRequest, global::GatewayProtocol.DeployProcessResponse> __Method_DeployProcess = new grpc::Method<global::GatewayProtocol.DeployProcessRequest, global::GatewayProtocol.DeployProcessResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "DeployWorkflow",
-        __Marshaller_gateway_protocol_DeployWorkflowRequest,
-        __Marshaller_gateway_protocol_DeployWorkflowResponse);
+        "DeployProcess",
+        __Marshaller_gateway_protocol_DeployProcessRequest,
+        __Marshaller_gateway_protocol_DeployProcessResponse);
 
     static readonly grpc::Method<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse> __Method_FailJob = new grpc::Method<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse>(
         grpc::MethodType.Unary,
@@ -163,16 +163,16 @@ namespace GatewayProtocol {
 
       /// <summary>
       ///
-      ///Cancels a running workflow instance
+      ///Cancels a running process instance
       ///
       ///Errors:
       ///NOT_FOUND:
-      ///- no workflow instance exists with the given key
+      ///- no process instance exists with the given key
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CancelWorkflowInstanceResponse> CancelWorkflowInstance(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CancelProcessInstanceResponse> CancelProcessInstance(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -200,20 +200,20 @@ namespace GatewayProtocol {
 
       /// <summary>
       ///
-      ///Creates and starts an instance of the specified workflow. The workflow definition to use to
+      ///Creates and starts an instance of the specified process. The process definition to use to
       ///create the instance can be specified either using its unique key (as returned by
-      ///DeployWorkflow), or using the BPMN process ID and a version. Pass -1 as the version to use the
-      ///latest deployed version. Note that only workflows with none start events can be started through
+      ///DeployProcess), or using the BPMN process ID and a version. Pass -1 as the version to use the
+      ///latest deployed version. Note that only processes with none start events can be started through
       ///this command.
       ///
       ///Errors:
       ///NOT_FOUND:
-      ///- no workflow with the given key exists (if workflowKey was given)
-      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
-      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      ///- no process with the given key exists (if processDefinitionKey was given)
+      ///- no process with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no process with the given process ID and version exists (if both bpmnProcessId and version were given)
       ///
       ///FAILED_PRECONDITION:
-      ///- the workflow definition does not contain a none start event; only workflows with none
+      ///- the process definition does not contain a none start event; only processes with none
       ///start event can be started manually.
       ///
       ///INVALID_ARGUMENT:
@@ -223,27 +223,27 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateWorkflowInstanceResponse> CreateWorkflowInstance(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateProcessInstanceResponse> CreateProcessInstance(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       /// <summary>
       ///
-      ///Behaves similarly to `rpc CreateWorkflowInstance`, except that a successful response is received when the workflow completes successfully.
+      ///Behaves similarly to `rpc CreateProcessInstance`, except that a successful response is received when the process completes successfully.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse> CreateWorkflowInstanceWithResult(global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResult(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       /// <summary>
       ///
-      ///Deploys one or more workflows to Zeebe. Note that this is an atomic call,
-      ///i.e. either all workflows are deployed, or none of them are.
+      ///Deploys one or more processes to Zeebe. Note that this is an atomic call,
+      ///i.e. either all processes are deployed, or none of them are.
       ///
       ///Errors:
       ///INVALID_ARGUMENT:
@@ -251,12 +251,12 @@ namespace GatewayProtocol {
       ///- if at least one resource is invalid. A resource is considered invalid if:
       ///- it is not a BPMN or YAML file (currently detected through the file extension)
       ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
-      ///- the workflow is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      ///- the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.DeployWorkflowResponse> DeployWorkflow(global::GatewayProtocol.DeployWorkflowRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.DeployProcessResponse> DeployProcess(global::GatewayProtocol.DeployProcessRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -286,7 +286,7 @@ namespace GatewayProtocol {
 
       /// <summary>
       ///
-      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the workflow by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
+      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the process by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
       ///
       ///Errors:
       ///NOT_FOUND:
@@ -340,7 +340,7 @@ namespace GatewayProtocol {
 
       /// <summary>
       ///
-      ///Updates all the variables of a particular scope (e.g. workflow instance, flow element instance)
+      ///Updates all the variables of a particular scope (e.g. process instance, flow element instance)
       ///from the given JSON document.
       ///
       ///Errors:
@@ -457,67 +457,67 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Cancels a running workflow instance
+      ///Cancels a running process instance
       ///
       ///Errors:
       ///NOT_FOUND:
-      ///- no workflow instance exists with the given key
+      ///- no process instance exists with the given key
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::GatewayProtocol.CancelWorkflowInstanceResponse CancelWorkflowInstance(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::GatewayProtocol.CancelProcessInstanceResponse CancelProcessInstance(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return CancelWorkflowInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return CancelProcessInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       ///
-      ///Cancels a running workflow instance
+      ///Cancels a running process instance
       ///
       ///Errors:
       ///NOT_FOUND:
-      ///- no workflow instance exists with the given key
+      ///- no process instance exists with the given key
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::GatewayProtocol.CancelWorkflowInstanceResponse CancelWorkflowInstance(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::CallOptions options)
+      public virtual global::GatewayProtocol.CancelProcessInstanceResponse CancelProcessInstance(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_CancelWorkflowInstance, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_CancelProcessInstance, null, options, request);
       }
       /// <summary>
       ///
-      ///Cancels a running workflow instance
+      ///Cancels a running process instance
       ///
       ///Errors:
       ///NOT_FOUND:
-      ///- no workflow instance exists with the given key
+      ///- no process instance exists with the given key
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CancelWorkflowInstanceResponse> CancelWorkflowInstanceAsync(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CancelProcessInstanceResponse> CancelProcessInstanceAsync(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return CancelWorkflowInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return CancelProcessInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       ///
-      ///Cancels a running workflow instance
+      ///Cancels a running process instance
       ///
       ///Errors:
       ///NOT_FOUND:
-      ///- no workflow instance exists with the given key
+      ///- no process instance exists with the given key
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CancelWorkflowInstanceResponse> CancelWorkflowInstanceAsync(global::GatewayProtocol.CancelWorkflowInstanceRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CancelProcessInstanceResponse> CancelProcessInstanceAsync(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_CancelWorkflowInstance, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_CancelProcessInstance, null, options, request);
       }
       /// <summary>
       ///
@@ -605,20 +605,20 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Creates and starts an instance of the specified workflow. The workflow definition to use to
+      ///Creates and starts an instance of the specified process. The process definition to use to
       ///create the instance can be specified either using its unique key (as returned by
-      ///DeployWorkflow), or using the BPMN process ID and a version. Pass -1 as the version to use the
-      ///latest deployed version. Note that only workflows with none start events can be started through
+      ///DeployProcess), or using the BPMN process ID and a version. Pass -1 as the version to use the
+      ///latest deployed version. Note that only processes with none start events can be started through
       ///this command.
       ///
       ///Errors:
       ///NOT_FOUND:
-      ///- no workflow with the given key exists (if workflowKey was given)
-      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
-      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      ///- no process with the given key exists (if processDefinitionKey was given)
+      ///- no process with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no process with the given process ID and version exists (if both bpmnProcessId and version were given)
       ///
       ///FAILED_PRECONDITION:
-      ///- the workflow definition does not contain a none start event; only workflows with none
+      ///- the process definition does not contain a none start event; only processes with none
       ///start event can be started manually.
       ///
       ///INVALID_ARGUMENT:
@@ -630,26 +630,26 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::GatewayProtocol.CreateWorkflowInstanceResponse CreateWorkflowInstance(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::GatewayProtocol.CreateProcessInstanceResponse CreateProcessInstance(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return CreateWorkflowInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return CreateProcessInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       ///
-      ///Creates and starts an instance of the specified workflow. The workflow definition to use to
+      ///Creates and starts an instance of the specified process. The process definition to use to
       ///create the instance can be specified either using its unique key (as returned by
-      ///DeployWorkflow), or using the BPMN process ID and a version. Pass -1 as the version to use the
-      ///latest deployed version. Note that only workflows with none start events can be started through
+      ///DeployProcess), or using the BPMN process ID and a version. Pass -1 as the version to use the
+      ///latest deployed version. Note that only processes with none start events can be started through
       ///this command.
       ///
       ///Errors:
       ///NOT_FOUND:
-      ///- no workflow with the given key exists (if workflowKey was given)
-      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
-      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      ///- no process with the given key exists (if processDefinitionKey was given)
+      ///- no process with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no process with the given process ID and version exists (if both bpmnProcessId and version were given)
       ///
       ///FAILED_PRECONDITION:
-      ///- the workflow definition does not contain a none start event; only workflows with none
+      ///- the process definition does not contain a none start event; only processes with none
       ///start event can be started manually.
       ///
       ///INVALID_ARGUMENT:
@@ -659,26 +659,26 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::GatewayProtocol.CreateWorkflowInstanceResponse CreateWorkflowInstance(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::CallOptions options)
+      public virtual global::GatewayProtocol.CreateProcessInstanceResponse CreateProcessInstance(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_CreateWorkflowInstance, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_CreateProcessInstance, null, options, request);
       }
       /// <summary>
       ///
-      ///Creates and starts an instance of the specified workflow. The workflow definition to use to
+      ///Creates and starts an instance of the specified process. The process definition to use to
       ///create the instance can be specified either using its unique key (as returned by
-      ///DeployWorkflow), or using the BPMN process ID and a version. Pass -1 as the version to use the
-      ///latest deployed version. Note that only workflows with none start events can be started through
+      ///DeployProcess), or using the BPMN process ID and a version. Pass -1 as the version to use the
+      ///latest deployed version. Note that only processes with none start events can be started through
       ///this command.
       ///
       ///Errors:
       ///NOT_FOUND:
-      ///- no workflow with the given key exists (if workflowKey was given)
-      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
-      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      ///- no process with the given key exists (if processDefinitionKey was given)
+      ///- no process with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no process with the given process ID and version exists (if both bpmnProcessId and version were given)
       ///
       ///FAILED_PRECONDITION:
-      ///- the workflow definition does not contain a none start event; only workflows with none
+      ///- the process definition does not contain a none start event; only processes with none
       ///start event can be started manually.
       ///
       ///INVALID_ARGUMENT:
@@ -690,26 +690,26 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateWorkflowInstanceResponse> CreateWorkflowInstanceAsync(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateProcessInstanceResponse> CreateProcessInstanceAsync(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return CreateWorkflowInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return CreateProcessInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       ///
-      ///Creates and starts an instance of the specified workflow. The workflow definition to use to
+      ///Creates and starts an instance of the specified process. The process definition to use to
       ///create the instance can be specified either using its unique key (as returned by
-      ///DeployWorkflow), or using the BPMN process ID and a version. Pass -1 as the version to use the
-      ///latest deployed version. Note that only workflows with none start events can be started through
+      ///DeployProcess), or using the BPMN process ID and a version. Pass -1 as the version to use the
+      ///latest deployed version. Note that only processes with none start events can be started through
       ///this command.
       ///
       ///Errors:
       ///NOT_FOUND:
-      ///- no workflow with the given key exists (if workflowKey was given)
-      ///- no workflow with the given process ID exists (if bpmnProcessId was given but version was -1)
-      ///- no workflow with the given process ID and version exists (if both bpmnProcessId and version were given)
+      ///- no process with the given key exists (if processDefinitionKey was given)
+      ///- no process with the given process ID exists (if bpmnProcessId was given but version was -1)
+      ///- no process with the given process ID and version exists (if both bpmnProcessId and version were given)
       ///
       ///FAILED_PRECONDITION:
-      ///- the workflow definition does not contain a none start event; only workflows with none
+      ///- the process definition does not contain a none start event; only processes with none
       ///start event can be started manually.
       ///
       ///INVALID_ARGUMENT:
@@ -719,62 +719,62 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateWorkflowInstanceResponse> CreateWorkflowInstanceAsync(global::GatewayProtocol.CreateWorkflowInstanceRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateProcessInstanceResponse> CreateProcessInstanceAsync(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_CreateWorkflowInstance, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_CreateProcessInstance, null, options, request);
       }
       /// <summary>
       ///
-      ///Behaves similarly to `rpc CreateWorkflowInstance`, except that a successful response is received when the workflow completes successfully.
+      ///Behaves similarly to `rpc CreateProcessInstance`, except that a successful response is received when the process completes successfully.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse CreateWorkflowInstanceWithResult(global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::GatewayProtocol.CreateProcessInstanceWithResultResponse CreateProcessInstanceWithResult(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return CreateWorkflowInstanceWithResult(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return CreateProcessInstanceWithResult(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       ///
-      ///Behaves similarly to `rpc CreateWorkflowInstance`, except that a successful response is received when the workflow completes successfully.
+      ///Behaves similarly to `rpc CreateProcessInstance`, except that a successful response is received when the process completes successfully.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse CreateWorkflowInstanceWithResult(global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest request, grpc::CallOptions options)
+      public virtual global::GatewayProtocol.CreateProcessInstanceWithResultResponse CreateProcessInstanceWithResult(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_CreateWorkflowInstanceWithResult, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_CreateProcessInstanceWithResult, null, options, request);
       }
       /// <summary>
       ///
-      ///Behaves similarly to `rpc CreateWorkflowInstance`, except that a successful response is received when the workflow completes successfully.
+      ///Behaves similarly to `rpc CreateProcessInstance`, except that a successful response is received when the process completes successfully.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse> CreateWorkflowInstanceWithResultAsync(global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return CreateWorkflowInstanceWithResultAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return CreateProcessInstanceWithResultAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       ///
-      ///Behaves similarly to `rpc CreateWorkflowInstance`, except that a successful response is received when the workflow completes successfully.
+      ///Behaves similarly to `rpc CreateProcessInstance`, except that a successful response is received when the process completes successfully.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse> CreateWorkflowInstanceWithResultAsync(global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_CreateWorkflowInstanceWithResult, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_CreateProcessInstanceWithResult, null, options, request);
       }
       /// <summary>
       ///
-      ///Deploys one or more workflows to Zeebe. Note that this is an atomic call,
-      ///i.e. either all workflows are deployed, or none of them are.
+      ///Deploys one or more processes to Zeebe. Note that this is an atomic call,
+      ///i.e. either all processes are deployed, or none of them are.
       ///
       ///Errors:
       ///INVALID_ARGUMENT:
@@ -782,21 +782,21 @@ namespace GatewayProtocol {
       ///- if at least one resource is invalid. A resource is considered invalid if:
       ///- it is not a BPMN or YAML file (currently detected through the file extension)
       ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
-      ///- the workflow is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      ///- the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::GatewayProtocol.DeployWorkflowResponse DeployWorkflow(global::GatewayProtocol.DeployWorkflowRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::GatewayProtocol.DeployProcessResponse DeployProcess(global::GatewayProtocol.DeployProcessRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return DeployWorkflow(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return DeployProcess(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       ///
-      ///Deploys one or more workflows to Zeebe. Note that this is an atomic call,
-      ///i.e. either all workflows are deployed, or none of them are.
+      ///Deploys one or more processes to Zeebe. Note that this is an atomic call,
+      ///i.e. either all processes are deployed, or none of them are.
       ///
       ///Errors:
       ///INVALID_ARGUMENT:
@@ -804,19 +804,19 @@ namespace GatewayProtocol {
       ///- if at least one resource is invalid. A resource is considered invalid if:
       ///- it is not a BPMN or YAML file (currently detected through the file extension)
       ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
-      ///- the workflow is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      ///- the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::GatewayProtocol.DeployWorkflowResponse DeployWorkflow(global::GatewayProtocol.DeployWorkflowRequest request, grpc::CallOptions options)
+      public virtual global::GatewayProtocol.DeployProcessResponse DeployProcess(global::GatewayProtocol.DeployProcessRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_DeployWorkflow, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_DeployProcess, null, options, request);
       }
       /// <summary>
       ///
-      ///Deploys one or more workflows to Zeebe. Note that this is an atomic call,
-      ///i.e. either all workflows are deployed, or none of them are.
+      ///Deploys one or more processes to Zeebe. Note that this is an atomic call,
+      ///i.e. either all processes are deployed, or none of them are.
       ///
       ///Errors:
       ///INVALID_ARGUMENT:
@@ -824,21 +824,21 @@ namespace GatewayProtocol {
       ///- if at least one resource is invalid. A resource is considered invalid if:
       ///- it is not a BPMN or YAML file (currently detected through the file extension)
       ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
-      ///- the workflow is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      ///- the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeployWorkflowResponse> DeployWorkflowAsync(global::GatewayProtocol.DeployWorkflowRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeployProcessResponse> DeployProcessAsync(global::GatewayProtocol.DeployProcessRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return DeployWorkflowAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return DeployProcessAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       ///
-      ///Deploys one or more workflows to Zeebe. Note that this is an atomic call,
-      ///i.e. either all workflows are deployed, or none of them are.
+      ///Deploys one or more processes to Zeebe. Note that this is an atomic call,
+      ///i.e. either all processes are deployed, or none of them are.
       ///
       ///Errors:
       ///INVALID_ARGUMENT:
@@ -846,14 +846,14 @@ namespace GatewayProtocol {
       ///- if at least one resource is invalid. A resource is considered invalid if:
       ///- it is not a BPMN or YAML file (currently detected through the file extension)
       ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
-      ///- the workflow is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      ///- the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeployWorkflowResponse> DeployWorkflowAsync(global::GatewayProtocol.DeployWorkflowRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeployProcessResponse> DeployProcessAsync(global::GatewayProtocol.DeployProcessRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_DeployWorkflow, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_DeployProcess, null, options, request);
       }
       /// <summary>
       ///
@@ -949,7 +949,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the workflow by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
+      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the process by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
       ///
       ///Errors:
       ///NOT_FOUND:
@@ -969,7 +969,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the workflow by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
+      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the process by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
       ///
       ///Errors:
       ///NOT_FOUND:
@@ -987,7 +987,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the workflow by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
+      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the process by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
       ///
       ///Errors:
       ///NOT_FOUND:
@@ -1007,7 +1007,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the workflow by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
+      ///Reports a business error (i.e. non-technical) that occurs while processing a job. The error is handled in the process by an error catch event. If there is no error catch event with the specified errorCode then an incident will be raised instead.
       ///
       ///Errors:
       ///NOT_FOUND:
@@ -1165,7 +1165,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Updates all the variables of a particular scope (e.g. workflow instance, flow element instance)
+      ///Updates all the variables of a particular scope (e.g. process instance, flow element instance)
       ///from the given JSON document.
       ///
       ///Errors:
@@ -1186,7 +1186,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Updates all the variables of a particular scope (e.g. workflow instance, flow element instance)
+      ///Updates all the variables of a particular scope (e.g. process instance, flow element instance)
       ///from the given JSON document.
       ///
       ///Errors:
@@ -1205,7 +1205,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Updates all the variables of a particular scope (e.g. workflow instance, flow element instance)
+      ///Updates all the variables of a particular scope (e.g. process instance, flow element instance)
       ///from the given JSON document.
       ///
       ///Errors:
@@ -1226,7 +1226,7 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
-      ///Updates all the variables of a particular scope (e.g. workflow instance, flow element instance)
+      ///Updates all the variables of a particular scope (e.g. process instance, flow element instance)
       ///from the given JSON document.
       ///
       ///Errors:
@@ -1384,11 +1384,11 @@ namespace GatewayProtocol {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_ActivateJobs, serviceImpl.ActivateJobs)
-          .AddMethod(__Method_CancelWorkflowInstance, serviceImpl.CancelWorkflowInstance)
+          .AddMethod(__Method_CancelProcessInstance, serviceImpl.CancelProcessInstance)
           .AddMethod(__Method_CompleteJob, serviceImpl.CompleteJob)
-          .AddMethod(__Method_CreateWorkflowInstance, serviceImpl.CreateWorkflowInstance)
-          .AddMethod(__Method_CreateWorkflowInstanceWithResult, serviceImpl.CreateWorkflowInstanceWithResult)
-          .AddMethod(__Method_DeployWorkflow, serviceImpl.DeployWorkflow)
+          .AddMethod(__Method_CreateProcessInstance, serviceImpl.CreateProcessInstance)
+          .AddMethod(__Method_CreateProcessInstanceWithResult, serviceImpl.CreateProcessInstanceWithResult)
+          .AddMethod(__Method_DeployProcess, serviceImpl.DeployProcess)
           .AddMethod(__Method_FailJob, serviceImpl.FailJob)
           .AddMethod(__Method_ThrowError, serviceImpl.ThrowError)
           .AddMethod(__Method_PublishMessage, serviceImpl.PublishMessage)
@@ -1405,11 +1405,11 @@ namespace GatewayProtocol {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, GatewayBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_ActivateJobs, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse>(serviceImpl.ActivateJobs));
-      serviceBinder.AddMethod(__Method_CancelWorkflowInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CancelWorkflowInstanceRequest, global::GatewayProtocol.CancelWorkflowInstanceResponse>(serviceImpl.CancelWorkflowInstance));
+      serviceBinder.AddMethod(__Method_CancelProcessInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CancelProcessInstanceRequest, global::GatewayProtocol.CancelProcessInstanceResponse>(serviceImpl.CancelProcessInstance));
       serviceBinder.AddMethod(__Method_CompleteJob, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CompleteJobRequest, global::GatewayProtocol.CompleteJobResponse>(serviceImpl.CompleteJob));
-      serviceBinder.AddMethod(__Method_CreateWorkflowInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CreateWorkflowInstanceRequest, global::GatewayProtocol.CreateWorkflowInstanceResponse>(serviceImpl.CreateWorkflowInstance));
-      serviceBinder.AddMethod(__Method_CreateWorkflowInstanceWithResult, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CreateWorkflowInstanceWithResultRequest, global::GatewayProtocol.CreateWorkflowInstanceWithResultResponse>(serviceImpl.CreateWorkflowInstanceWithResult));
-      serviceBinder.AddMethod(__Method_DeployWorkflow, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.DeployWorkflowRequest, global::GatewayProtocol.DeployWorkflowResponse>(serviceImpl.DeployWorkflow));
+      serviceBinder.AddMethod(__Method_CreateProcessInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CreateProcessInstanceRequest, global::GatewayProtocol.CreateProcessInstanceResponse>(serviceImpl.CreateProcessInstance));
+      serviceBinder.AddMethod(__Method_CreateProcessInstanceWithResult, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CreateProcessInstanceWithResultRequest, global::GatewayProtocol.CreateProcessInstanceWithResultResponse>(serviceImpl.CreateProcessInstanceWithResult));
+      serviceBinder.AddMethod(__Method_DeployProcess, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.DeployProcessRequest, global::GatewayProtocol.DeployProcessResponse>(serviceImpl.DeployProcess));
       serviceBinder.AddMethod(__Method_FailJob, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse>(serviceImpl.FailJob));
       serviceBinder.AddMethod(__Method_ThrowError, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.ThrowErrorRequest, global::GatewayProtocol.ThrowErrorResponse>(serviceImpl.ThrowError));
       serviceBinder.AddMethod(__Method_PublishMessage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse>(serviceImpl.PublishMessage));

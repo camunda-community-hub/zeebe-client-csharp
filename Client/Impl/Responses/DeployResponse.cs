@@ -8,14 +8,14 @@ namespace Zeebe.Client.Impl.Responses
     public class DeployResponse : IDeployResponse
     {
         public long Key { get; }
-        public IList<IWorkflowMetadata> Workflows { get; }
+        public IList<IProcessMetadata> Processes { get; }
 
-        public DeployResponse(DeployWorkflowResponse response)
+        public DeployResponse(DeployProcessResponse response)
         {
             Key = response.Key;
-            Workflows = response.Workflows
-                .Select(metadata => new WorkflowMetadata(metadata))
-                .Cast<IWorkflowMetadata>()
+            Processes = response.Processes
+                .Select(metadata => new ProcessMetadata(metadata))
+                .Cast<IProcessMetadata>()
                 .ToList();
         }
     }
