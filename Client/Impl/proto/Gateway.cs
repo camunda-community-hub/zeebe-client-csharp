@@ -54,74 +54,72 @@ namespace GatewayProtocol {
             "ZXNzSWQYAiABKAkSDwoHdmVyc2lvbhgDIAEoBRIaChJwcm9jZXNzSW5zdGFu",
             "Y2VLZXkYBCABKAMSEQoJdmFyaWFibGVzGAUgASgJIlEKFERlcGxveVByb2Nl",
             "c3NSZXF1ZXN0EjkKCXByb2Nlc3NlcxgBIAMoCzImLmdhdGV3YXlfcHJvdG9j",
-            "b2wuUHJvY2Vzc1JlcXVlc3RPYmplY3QisQEKFFByb2Nlc3NSZXF1ZXN0T2Jq",
-            "ZWN0EgwKBG5hbWUYASABKAkSRQoEdHlwZRgCIAEoDjIzLmdhdGV3YXlfcHJv",
-            "dG9jb2wuUHJvY2Vzc1JlcXVlc3RPYmplY3QuUmVzb3VyY2VUeXBlQgIYARIS",
-            "CgpkZWZpbml0aW9uGAMgASgMIjAKDFJlc291cmNlVHlwZRIICgRGSUxFEAAS",
-            "CAoEQlBNThABEgwKBFlBTUwQAhoCCAEiWgoVRGVwbG95UHJvY2Vzc1Jlc3Bv",
-            "bnNlEgsKA2tleRgBIAEoAxI0Cglwcm9jZXNzZXMYAiADKAsyIS5nYXRld2F5",
-            "X3Byb3RvY29sLlByb2Nlc3NNZXRhZGF0YSJtCg9Qcm9jZXNzTWV0YWRhdGES",
-            "FQoNYnBtblByb2Nlc3NJZBgBIAEoCRIPCgd2ZXJzaW9uGAIgASgFEhwKFHBy",
-            "b2Nlc3NEZWZpbml0aW9uS2V5GAMgASgDEhQKDHJlc291cmNlTmFtZRgEIAEo",
-            "CSJHCg5GYWlsSm9iUmVxdWVzdBIOCgZqb2JLZXkYASABKAMSDwoHcmV0cmll",
-            "cxgCIAEoBRIUCgxlcnJvck1lc3NhZ2UYAyABKAkiEQoPRmFpbEpvYlJlc3Bv",
-            "bnNlIkwKEVRocm93RXJyb3JSZXF1ZXN0Eg4KBmpvYktleRgBIAEoAxIRCgll",
-            "cnJvckNvZGUYAiABKAkSFAoMZXJyb3JNZXNzYWdlGAMgASgJIhQKElRocm93",
-            "RXJyb3JSZXNwb25zZSJ3ChVQdWJsaXNoTWVzc2FnZVJlcXVlc3QSDAoEbmFt",
-            "ZRgBIAEoCRIWCg5jb3JyZWxhdGlvbktleRgCIAEoCRISCgp0aW1lVG9MaXZl",
-            "GAMgASgDEhEKCW1lc3NhZ2VJZBgEIAEoCRIRCgl2YXJpYWJsZXMYBSABKAki",
-            "JQoWUHVibGlzaE1lc3NhZ2VSZXNwb25zZRILCgNrZXkYASABKAMiLQoWUmVz",
-            "b2x2ZUluY2lkZW50UmVxdWVzdBITCgtpbmNpZGVudEtleRgBIAEoAyIZChdS",
-            "ZXNvbHZlSW5jaWRlbnRSZXNwb25zZSIRCg9Ub3BvbG9neVJlcXVlc3QiogEK",
-            "EFRvcG9sb2d5UmVzcG9uc2USLQoHYnJva2VycxgBIAMoCzIcLmdhdGV3YXlf",
-            "cHJvdG9jb2wuQnJva2VySW5mbxITCgtjbHVzdGVyU2l6ZRgCIAEoBRIXCg9w",
-            "YXJ0aXRpb25zQ291bnQYAyABKAUSGQoRcmVwbGljYXRpb25GYWN0b3IYBCAB",
-            "KAUSFgoOZ2F0ZXdheVZlcnNpb24YBSABKAkiegoKQnJva2VySW5mbxIOCgZu",
-            "b2RlSWQYASABKAUSDAoEaG9zdBgCIAEoCRIMCgRwb3J0GAMgASgFEi8KCnBh",
-            "cnRpdGlvbnMYBCADKAsyGy5nYXRld2F5X3Byb3RvY29sLlBhcnRpdGlvbhIP",
-            "Cgd2ZXJzaW9uGAUgASgJIpYCCglQYXJ0aXRpb24SEwoLcGFydGl0aW9uSWQY",
-            "ASABKAUSPQoEcm9sZRgCIAEoDjIvLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0",
-            "aW9uLlBhcnRpdGlvbkJyb2tlclJvbGUSQQoGaGVhbHRoGAMgASgOMjEuZ2F0",
-            "ZXdheV9wcm90b2NvbC5QYXJ0aXRpb24uUGFydGl0aW9uQnJva2VySGVhbHRo",
-            "Ij0KE1BhcnRpdGlvbkJyb2tlclJvbGUSCgoGTEVBREVSEAASDAoIRk9MTE9X",
-            "RVIQARIMCghJTkFDVElWRRACIjMKFVBhcnRpdGlvbkJyb2tlckhlYWx0aBIL",
-            "CgdIRUFMVEhZEAASDQoJVU5IRUFMVEhZEAEiOgoXVXBkYXRlSm9iUmV0cmll",
-            "c1JlcXVlc3QSDgoGam9iS2V5GAEgASgDEg8KB3JldHJpZXMYAiABKAUiGgoY",
-            "VXBkYXRlSm9iUmV0cmllc1Jlc3BvbnNlIlMKE1NldFZhcmlhYmxlc1JlcXVl",
-            "c3QSGgoSZWxlbWVudEluc3RhbmNlS2V5GAEgASgDEhEKCXZhcmlhYmxlcxgC",
-            "IAEoCRINCgVsb2NhbBgDIAEoCCIjChRTZXRWYXJpYWJsZXNSZXNwb25zZRIL",
-            "CgNrZXkYASABKAMy4goKB0dhdGV3YXkSYQoMQWN0aXZhdGVKb2JzEiUuZ2F0",
-            "ZXdheV9wcm90b2NvbC5BY3RpdmF0ZUpvYnNSZXF1ZXN0GiYuZ2F0ZXdheV9w",
-            "cm90b2NvbC5BY3RpdmF0ZUpvYnNSZXNwb25zZSIAMAESegoVQ2FuY2VsUHJv",
-            "Y2Vzc0luc3RhbmNlEi4uZ2F0ZXdheV9wcm90b2NvbC5DYW5jZWxQcm9jZXNz",
-            "SW5zdGFuY2VSZXF1ZXN0Gi8uZ2F0ZXdheV9wcm90b2NvbC5DYW5jZWxQcm9j",
-            "ZXNzSW5zdGFuY2VSZXNwb25zZSIAElwKC0NvbXBsZXRlSm9iEiQuZ2F0ZXdh",
-            "eV9wcm90b2NvbC5Db21wbGV0ZUpvYlJlcXVlc3QaJS5nYXRld2F5X3Byb3Rv",
-            "Y29sLkNvbXBsZXRlSm9iUmVzcG9uc2UiABJ6ChVDcmVhdGVQcm9jZXNzSW5z",
-            "dGFuY2USLi5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVByb2Nlc3NJbnN0YW5j",
-            "ZVJlcXVlc3QaLy5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVByb2Nlc3NJbnN0",
-            "YW5jZVJlc3BvbnNlIgASmAEKH0NyZWF0ZVByb2Nlc3NJbnN0YW5jZVdpdGhS",
-            "ZXN1bHQSOC5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVByb2Nlc3NJbnN0YW5j",
-            "ZVdpdGhSZXN1bHRSZXF1ZXN0GjkuZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQ",
-            "cm9jZXNzSW5zdGFuY2VXaXRoUmVzdWx0UmVzcG9uc2UiABJiCg1EZXBsb3lQ",
-            "cm9jZXNzEiYuZ2F0ZXdheV9wcm90b2NvbC5EZXBsb3lQcm9jZXNzUmVxdWVz",
-            "dBonLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95UHJvY2Vzc1Jlc3BvbnNlIgAS",
-            "UAoHRmFpbEpvYhIgLmdhdGV3YXlfcHJvdG9jb2wuRmFpbEpvYlJlcXVlc3Qa",
-            "IS5nYXRld2F5X3Byb3RvY29sLkZhaWxKb2JSZXNwb25zZSIAElkKClRocm93",
-            "RXJyb3ISIy5nYXRld2F5X3Byb3RvY29sLlRocm93RXJyb3JSZXF1ZXN0GiQu",
-            "Z2F0ZXdheV9wcm90b2NvbC5UaHJvd0Vycm9yUmVzcG9uc2UiABJlCg5QdWJs",
-            "aXNoTWVzc2FnZRInLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlzaE1lc3NhZ2VS",
-            "ZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2NvbC5QdWJsaXNoTWVzc2FnZVJlc3Bv",
-            "bnNlIgASaAoPUmVzb2x2ZUluY2lkZW50EiguZ2F0ZXdheV9wcm90b2NvbC5S",
-            "ZXNvbHZlSW5jaWRlbnRSZXF1ZXN0GikuZ2F0ZXdheV9wcm90b2NvbC5SZXNv",
-            "bHZlSW5jaWRlbnRSZXNwb25zZSIAEl8KDFNldFZhcmlhYmxlcxIlLmdhdGV3",
-            "YXlfcHJvdG9jb2wuU2V0VmFyaWFibGVzUmVxdWVzdBomLmdhdGV3YXlfcHJv",
-            "dG9jb2wuU2V0VmFyaWFibGVzUmVzcG9uc2UiABJTCghUb3BvbG9neRIhLmdh",
-            "dGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXF1ZXN0GiIuZ2F0ZXdheV9wcm90",
-            "b2NvbC5Ub3BvbG9neVJlc3BvbnNlIgASawoQVXBkYXRlSm9iUmV0cmllcxIp",
-            "LmdhdGV3YXlfcHJvdG9jb2wuVXBkYXRlSm9iUmV0cmllc1JlcXVlc3QaKi5n",
-            "YXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJldHJpZXNSZXNwb25zZSIAQiEK",
-            "GWlvLnplZWJlLmdhdGV3YXkucHJvdG9jb2xQAFoCcGJiBnByb3RvMw=="));
+            "b2wuUHJvY2Vzc1JlcXVlc3RPYmplY3QiOAoUUHJvY2Vzc1JlcXVlc3RPYmpl",
+            "Y3QSDAoEbmFtZRgBIAEoCRISCgpkZWZpbml0aW9uGAIgASgMIloKFURlcGxv",
+            "eVByb2Nlc3NSZXNwb25zZRILCgNrZXkYASABKAMSNAoJcHJvY2Vzc2VzGAIg",
+            "AygLMiEuZ2F0ZXdheV9wcm90b2NvbC5Qcm9jZXNzTWV0YWRhdGEibQoPUHJv",
+            "Y2Vzc01ldGFkYXRhEhUKDWJwbW5Qcm9jZXNzSWQYASABKAkSDwoHdmVyc2lv",
+            "bhgCIAEoBRIcChRwcm9jZXNzRGVmaW5pdGlvbktleRgDIAEoAxIUCgxyZXNv",
+            "dXJjZU5hbWUYBCABKAkiRwoORmFpbEpvYlJlcXVlc3QSDgoGam9iS2V5GAEg",
+            "ASgDEg8KB3JldHJpZXMYAiABKAUSFAoMZXJyb3JNZXNzYWdlGAMgASgJIhEK",
+            "D0ZhaWxKb2JSZXNwb25zZSJMChFUaHJvd0Vycm9yUmVxdWVzdBIOCgZqb2JL",
+            "ZXkYASABKAMSEQoJZXJyb3JDb2RlGAIgASgJEhQKDGVycm9yTWVzc2FnZRgD",
+            "IAEoCSIUChJUaHJvd0Vycm9yUmVzcG9uc2UidwoVUHVibGlzaE1lc3NhZ2VS",
+            "ZXF1ZXN0EgwKBG5hbWUYASABKAkSFgoOY29ycmVsYXRpb25LZXkYAiABKAkS",
+            "EgoKdGltZVRvTGl2ZRgDIAEoAxIRCgltZXNzYWdlSWQYBCABKAkSEQoJdmFy",
+            "aWFibGVzGAUgASgJIiUKFlB1Ymxpc2hNZXNzYWdlUmVzcG9uc2USCwoDa2V5",
+            "GAEgASgDIi0KFlJlc29sdmVJbmNpZGVudFJlcXVlc3QSEwoLaW5jaWRlbnRL",
+            "ZXkYASABKAMiGQoXUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiEQoPVG9wb2xv",
+            "Z3lSZXF1ZXN0IqIBChBUb3BvbG9neVJlc3BvbnNlEi0KB2Jyb2tlcnMYASAD",
+            "KAsyHC5nYXRld2F5X3Byb3RvY29sLkJyb2tlckluZm8SEwoLY2x1c3RlclNp",
+            "emUYAiABKAUSFwoPcGFydGl0aW9uc0NvdW50GAMgASgFEhkKEXJlcGxpY2F0",
+            "aW9uRmFjdG9yGAQgASgFEhYKDmdhdGV3YXlWZXJzaW9uGAUgASgJInoKCkJy",
+            "b2tlckluZm8SDgoGbm9kZUlkGAEgASgFEgwKBGhvc3QYAiABKAkSDAoEcG9y",
+            "dBgDIAEoBRIvCgpwYXJ0aXRpb25zGAQgAygLMhsuZ2F0ZXdheV9wcm90b2Nv",
+            "bC5QYXJ0aXRpb24SDwoHdmVyc2lvbhgFIAEoCSKWAgoJUGFydGl0aW9uEhMK",
+            "C3BhcnRpdGlvbklkGAEgASgFEj0KBHJvbGUYAiABKA4yLy5nYXRld2F5X3By",
+            "b3RvY29sLlBhcnRpdGlvbi5QYXJ0aXRpb25Ccm9rZXJSb2xlEkEKBmhlYWx0",
+            "aBgDIAEoDjIxLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9uLlBhcnRpdGlv",
+            "bkJyb2tlckhlYWx0aCI9ChNQYXJ0aXRpb25Ccm9rZXJSb2xlEgoKBkxFQURF",
+            "UhAAEgwKCEZPTExPV0VSEAESDAoISU5BQ1RJVkUQAiIzChVQYXJ0aXRpb25C",
+            "cm9rZXJIZWFsdGgSCwoHSEVBTFRIWRAAEg0KCVVOSEVBTFRIWRABIjoKF1Vw",
+            "ZGF0ZUpvYlJldHJpZXNSZXF1ZXN0Eg4KBmpvYktleRgBIAEoAxIPCgdyZXRy",
+            "aWVzGAIgASgFIhoKGFVwZGF0ZUpvYlJldHJpZXNSZXNwb25zZSJTChNTZXRW",
+            "YXJpYWJsZXNSZXF1ZXN0EhoKEmVsZW1lbnRJbnN0YW5jZUtleRgBIAEoAxIR",
+            "Cgl2YXJpYWJsZXMYAiABKAkSDQoFbG9jYWwYAyABKAgiIwoUU2V0VmFyaWFi",
+            "bGVzUmVzcG9uc2USCwoDa2V5GAEgASgDMuIKCgdHYXRld2F5EmEKDEFjdGl2",
+            "YXRlSm9icxIlLmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVxdWVz",
+            "dBomLmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVzcG9uc2UiADAB",
+            "EnoKFUNhbmNlbFByb2Nlc3NJbnN0YW5jZRIuLmdhdGV3YXlfcHJvdG9jb2wu",
+            "Q2FuY2VsUHJvY2Vzc0luc3RhbmNlUmVxdWVzdBovLmdhdGV3YXlfcHJvdG9j",
+            "b2wuQ2FuY2VsUHJvY2Vzc0luc3RhbmNlUmVzcG9uc2UiABJcCgtDb21wbGV0",
+            "ZUpvYhIkLmdhdGV3YXlfcHJvdG9jb2wuQ29tcGxldGVKb2JSZXF1ZXN0GiUu",
+            "Z2F0ZXdheV9wcm90b2NvbC5Db21wbGV0ZUpvYlJlc3BvbnNlIgASegoVQ3Jl",
+            "YXRlUHJvY2Vzc0luc3RhbmNlEi4uZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQ",
+            "cm9jZXNzSW5zdGFuY2VSZXF1ZXN0Gi8uZ2F0ZXdheV9wcm90b2NvbC5DcmVh",
+            "dGVQcm9jZXNzSW5zdGFuY2VSZXNwb25zZSIAEpgBCh9DcmVhdGVQcm9jZXNz",
+            "SW5zdGFuY2VXaXRoUmVzdWx0EjguZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQ",
+            "cm9jZXNzSW5zdGFuY2VXaXRoUmVzdWx0UmVxdWVzdBo5LmdhdGV3YXlfcHJv",
+            "dG9jb2wuQ3JlYXRlUHJvY2Vzc0luc3RhbmNlV2l0aFJlc3VsdFJlc3BvbnNl",
+            "IgASYgoNRGVwbG95UHJvY2VzcxImLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95",
+            "UHJvY2Vzc1JlcXVlc3QaJy5nYXRld2F5X3Byb3RvY29sLkRlcGxveVByb2Nl",
+            "c3NSZXNwb25zZSIAElAKB0ZhaWxKb2ISIC5nYXRld2F5X3Byb3RvY29sLkZh",
+            "aWxKb2JSZXF1ZXN0GiEuZ2F0ZXdheV9wcm90b2NvbC5GYWlsSm9iUmVzcG9u",
+            "c2UiABJZCgpUaHJvd0Vycm9yEiMuZ2F0ZXdheV9wcm90b2NvbC5UaHJvd0Vy",
+            "cm9yUmVxdWVzdBokLmdhdGV3YXlfcHJvdG9jb2wuVGhyb3dFcnJvclJlc3Bv",
+            "bnNlIgASZQoOUHVibGlzaE1lc3NhZ2USJy5nYXRld2F5X3Byb3RvY29sLlB1",
+            "Ymxpc2hNZXNzYWdlUmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlz",
+            "aE1lc3NhZ2VSZXNwb25zZSIAEmgKD1Jlc29sdmVJbmNpZGVudBIoLmdhdGV3",
+            "YXlfcHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVxdWVzdBopLmdhdGV3YXlf",
+            "cHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiABJfCgxTZXRWYXJp",
+            "YWJsZXMSJS5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1JlcXVlc3Qa",
+            "Ji5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1Jlc3BvbnNlIgASUwoI",
+            "VG9wb2xvZ3kSIS5nYXRld2F5X3Byb3RvY29sLlRvcG9sb2d5UmVxdWVzdBoi",
+            "LmdhdGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXNwb25zZSIAEmsKEFVwZGF0",
+            "ZUpvYlJldHJpZXMSKS5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJldHJp",
+            "ZXNSZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVKb2JSZXRyaWVz",
+            "UmVzcG9uc2UiAEIkChlpby56ZWViZS5nYXRld2F5LnByb3RvY29sUABaBS4v",
+            "O3BiYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -137,7 +135,7 @@ namespace GatewayProtocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateProcessInstanceWithResultRequest), global::GatewayProtocol.CreateProcessInstanceWithResultRequest.Parser, new[]{ "Request", "RequestTimeout", "FetchVariables" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateProcessInstanceWithResultResponse), global::GatewayProtocol.CreateProcessInstanceWithResultResponse.Parser, new[]{ "ProcessDefinitionKey", "BpmnProcessId", "Version", "ProcessInstanceKey", "Variables" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployProcessRequest), global::GatewayProtocol.DeployProcessRequest.Parser, new[]{ "Processes" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ProcessRequestObject), global::GatewayProtocol.ProcessRequestObject.Parser, new[]{ "Name", "Type", "Definition" }, null, new[]{ typeof(global::GatewayProtocol.ProcessRequestObject.Types.ResourceType) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ProcessRequestObject), global::GatewayProtocol.ProcessRequestObject.Parser, new[]{ "Name", "Definition" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployProcessResponse), global::GatewayProtocol.DeployProcessResponse.Parser, new[]{ "Key", "Processes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ProcessMetadata), global::GatewayProtocol.ProcessMetadata.Parser, new[]{ "BpmnProcessId", "Version", "ProcessDefinitionKey", "ResourceName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobRequest), global::GatewayProtocol.FailJobRequest.Parser, new[]{ "JobKey", "Retries", "ErrorMessage" }, null, null, null, null),
@@ -2633,7 +2631,6 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ProcessRequestObject(ProcessRequestObject other) : this() {
       name_ = other.name_;
-      type_ = other.type_;
       definition_ = other.definition_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -2657,26 +2654,8 @@ namespace GatewayProtocol {
       }
     }
 
-    /// <summary>Field number for the "type" field.</summary>
-    public const int TypeFieldNumber = 2;
-    private global::GatewayProtocol.ProcessRequestObject.Types.ResourceType type_ = global::GatewayProtocol.ProcessRequestObject.Types.ResourceType.File;
-    /// <summary>
-    /// the resource type; if set to BPMN or YAML then the file extension
-    /// is ignored
-    /// As of release 1.0, YAML support was removed and BPMN is the only supported resource type.
-    /// The field was kept to not break clients.
-    /// </summary>
-    [global::System.ObsoleteAttribute]
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::GatewayProtocol.ProcessRequestObject.Types.ResourceType Type {
-      get { return type_; }
-      set {
-        type_ = value;
-      }
-    }
-
     /// <summary>Field number for the "definition" field.</summary>
-    public const int DefinitionFieldNumber = 3;
+    public const int DefinitionFieldNumber = 2;
     private pb::ByteString definition_ = pb::ByteString.Empty;
     /// <summary>
     /// the process definition as a UTF8-encoded string
@@ -2703,7 +2682,6 @@ namespace GatewayProtocol {
         return true;
       }
       if (Name != other.Name) return false;
-      if (Type != other.Type) return false;
       if (Definition != other.Definition) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2712,7 +2690,6 @@ namespace GatewayProtocol {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Type != global::GatewayProtocol.ProcessRequestObject.Types.ResourceType.File) hash ^= Type.GetHashCode();
       if (Definition.Length != 0) hash ^= Definition.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2731,12 +2708,8 @@ namespace GatewayProtocol {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Type != global::GatewayProtocol.ProcessRequestObject.Types.ResourceType.File) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) Type);
-      }
       if (Definition.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteBytes(Definition);
       }
       if (_unknownFields != null) {
@@ -2749,9 +2722,6 @@ namespace GatewayProtocol {
       int size = 0;
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (Type != global::GatewayProtocol.ProcessRequestObject.Types.ResourceType.File) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (Definition.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Definition);
@@ -2769,9 +2739,6 @@ namespace GatewayProtocol {
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
-      }
-      if (other.Type != global::GatewayProtocol.ProcessRequestObject.Types.ResourceType.File) {
-        Type = other.Type;
       }
       if (other.Definition.Length != 0) {
         Definition = other.Definition;
@@ -2791,40 +2758,13 @@ namespace GatewayProtocol {
             Name = input.ReadString();
             break;
           }
-          case 16: {
-            Type = (global::GatewayProtocol.ProcessRequestObject.Types.ResourceType) input.ReadEnum();
-            break;
-          }
-          case 26: {
+          case 18: {
             Definition = input.ReadBytes();
             break;
           }
         }
       }
     }
-
-    #region Nested types
-    /// <summary>Container for nested types declared in the ProcessRequestObject message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static partial class Types {
-      public enum ResourceType {
-        /// <summary>
-        /// FILE type means the gateway will try to detect the resource type
-        /// using the file extension of the name field
-        /// </summary>
-        [pbr::OriginalName("FILE")] File = 0,
-        /// <summary>
-        /// extension 'bpmn'
-        /// </summary>
-        [pbr::OriginalName("BPMN")] Bpmn = 1,
-        /// <summary>
-        /// extension 'yaml'; deprecated as of release 1.0
-        /// </summary>
-        [pbr::OriginalName("YAML")] Yaml = 2,
-      }
-
-    }
-    #endregion
 
   }
 
