@@ -249,7 +249,6 @@ namespace GatewayProtocol {
       ///INVALID_ARGUMENT:
       ///- no resources given.
       ///- if at least one resource is invalid. A resource is considered invalid if:
-      ///- it is not a BPMN or YAML file (currently detected through the file extension)
       ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
       ///- the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
       /// </summary>
@@ -780,7 +779,6 @@ namespace GatewayProtocol {
       ///INVALID_ARGUMENT:
       ///- no resources given.
       ///- if at least one resource is invalid. A resource is considered invalid if:
-      ///- it is not a BPMN or YAML file (currently detected through the file extension)
       ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
       ///- the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
       /// </summary>
@@ -802,7 +800,6 @@ namespace GatewayProtocol {
       ///INVALID_ARGUMENT:
       ///- no resources given.
       ///- if at least one resource is invalid. A resource is considered invalid if:
-      ///- it is not a BPMN or YAML file (currently detected through the file extension)
       ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
       ///- the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
       /// </summary>
@@ -822,7 +819,6 @@ namespace GatewayProtocol {
       ///INVALID_ARGUMENT:
       ///- no resources given.
       ///- if at least one resource is invalid. A resource is considered invalid if:
-      ///- it is not a BPMN or YAML file (currently detected through the file extension)
       ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
       ///- the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
       /// </summary>
@@ -844,7 +840,6 @@ namespace GatewayProtocol {
       ///INVALID_ARGUMENT:
       ///- no resources given.
       ///- if at least one resource is invalid. A resource is considered invalid if:
-      ///- it is not a BPMN or YAML file (currently detected through the file extension)
       ///- the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
       ///- the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
       /// </summary>

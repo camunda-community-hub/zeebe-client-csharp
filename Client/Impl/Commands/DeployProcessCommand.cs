@@ -89,7 +89,6 @@ namespace Zeebe.Client.Impl.Commands
             {
                 Definition = resource,
                 Name = resourceName,
-                Type = ProcessRequestObject.Types.ResourceType.File
             };
 
             request.Processes.Add(requestObject);
