@@ -27,7 +27,6 @@ namespace Zeebe.Client
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -87,7 +86,6 @@ namespace Zeebe.Client
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -116,7 +114,6 @@ namespace Zeebe.Client
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -145,7 +142,6 @@ namespace Zeebe.Client
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -174,7 +170,6 @@ namespace Zeebe.Client
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
@@ -233,13 +228,11 @@ namespace Zeebe.Client
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = ProcessRequestObject.Types.ResourceType.File
                     },
                     new ProcessRequestObject
                     {
                         Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
-                        Type = ProcessRequestObject.Types.ResourceType.File
                     }
                 }
             };
