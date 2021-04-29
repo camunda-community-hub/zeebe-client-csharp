@@ -106,12 +106,12 @@ namespace Zeebe.Client
 
         public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
         {
-            return new CompleteJobCommand(gatewayClient, jobKey);
+            return new CompleteJobCommand(gatewayClient, asyncRetryStrategy, jobKey);
         }
 
         public ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob)
         {
-            return new CompleteJobCommand(gatewayClient, activatedJob.Key);
+            return new CompleteJobCommand(gatewayClient, asyncRetryStrategy, activatedJob.Key);
         }
 
         public IFailJobCommandStep1 NewFailCommand(long jobKey)

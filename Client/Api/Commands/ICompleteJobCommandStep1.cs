@@ -16,7 +16,7 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
 {
-    public interface ICompleteJobCommandStep1 : IFinalCommandStep<ICompleteJobResponse>
+    public interface ICompleteJobCommandStep1 : IFinalCommandWithRetryStep<ICompleteJobResponse>
     {
         /// <summary>
         /// Set the variables to complete the job with.
