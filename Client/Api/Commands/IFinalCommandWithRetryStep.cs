@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Zeebe.Client.Api.Commands
@@ -23,7 +24,8 @@ namespace Zeebe.Client.Api.Commands
         /// </summary>
         ///
         /// <param name="timeout">the time span after request should be timed out</param>
+        /// <param name="token">the token that manages the cancellation of the request.</param>
         /// <returns>a task tracking state of success/failure of the command.</returns>
-        Task<T> SendWithRetry(TimeSpan? timeout = null);
+        Task<T> SendWithRetry(TimeSpan? timeout = null, CancellationToken token = default);
     }
 }
