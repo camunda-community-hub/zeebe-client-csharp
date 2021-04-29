@@ -65,27 +65,17 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<IActivateJobsResponse> Send(TimeSpan? timeout = null)
+        public async Task<IActivateJobsResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            return await Send(timeout, null);
+            return await activator.SendActivateRequest(Request, timeout?.FromUtcNow(), token);
         }
 
-        public Task<IActivateJobsResponse> Send(CancellationToken token)
+        public async Task<IActivateJobsResponse> Send(CancellationToken cancellationToken)
         {
-            return Send(null, token);
+            return await Send(token: cancellationToken);
         }
 
-        public async Task<IActivateJobsResponse> Send(TimeSpan? timeout, CancellationToken? cancellationToken)
-        {
-            return await activator.SendActivateRequest(Request, timeout?.FromUtcNow(), cancellationToken);
-        }
-
-        public async Task<IActivateJobsResponse> SendWithRetry(TimeSpan? timespan)
-        {
-            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan));
-        }
-
-        public async Task<IActivateJobsResponse> SendWithRetry(TimeSpan? timespan, CancellationToken? cancellationToken)
+        public async Task<IActivateJobsResponse> SendWithRetry(TimeSpan? timespan, CancellationToken cancellationToken = default)
         {
             return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, cancellationToken));
         }

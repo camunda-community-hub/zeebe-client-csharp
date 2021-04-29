@@ -43,18 +43,16 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<ICompleteJobResponse> Send(TimeSpan? timeout = null)
+        public async Task<ICompleteJobResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            var asyncReply = gatewayClient.CompleteJobAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = gatewayClient.CompleteJobAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
             await asyncReply.ResponseAsync;
             return new Responses.CompleteJobResponse();
         }
 
-        public async Task<ICompleteJobResponse> Send(CancellationToken token)
+        public async Task<ICompleteJobResponse> Send(CancellationToken cancellationToken)
         {
-            var asyncReply = gatewayClient.CompleteJobAsync(request, cancellationToken: token);
-            await asyncReply.ResponseAsync;
-            return new Responses.CompleteJobResponse();
+            return await Send(token: cancellationToken);
         }
     }
 }

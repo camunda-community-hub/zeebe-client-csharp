@@ -33,20 +33,17 @@ namespace Zeebe.Client.Impl.Commands
             gatewayClient = client;
         }
 
-        public async Task<ITopology> Send(TimeSpan? timeout = null)
+        public async Task<ITopology> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            var asyncReply = gatewayClient.TopologyAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = gatewayClient.TopologyAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
             var response = await asyncReply.ResponseAsync;
 
             return new Topology(response);
         }
 
-        public async Task<ITopology> Send(CancellationToken token)
+        public async Task<ITopology> Send(CancellationToken cancellationToken)
         {
-            var asyncReply = gatewayClient.TopologyAsync(request, cancellationToken: token);
-            var response = await asyncReply.ResponseAsync;
-
-            return new Topology(response);
+            return await Send(token: cancellationToken);
         }
     }
 }

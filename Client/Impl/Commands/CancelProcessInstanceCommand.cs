@@ -25,23 +25,21 @@ namespace Zeebe.Client.Impl.Commands
             this.asyncRetryStrategy = asyncRetryStrategy;
         }
 
-        public async Task<ICancelProcessInstanceResponse> Send(TimeSpan? timeout = null)
+        public async Task<ICancelProcessInstanceResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            var asyncReply = client.CancelProcessInstanceAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = client.CancelProcessInstanceAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
             await asyncReply.ResponseAsync;
             return new CancelProcessInstanceResponse();
         }
 
-        public async Task<ICancelProcessInstanceResponse> Send(CancellationToken token)
+        public async Task<ICancelProcessInstanceResponse> Send(CancellationToken cancellationToken)
         {
-            var asyncReply = client.CancelProcessInstanceAsync(request, cancellationToken: token);
-            await asyncReply.ResponseAsync;
-            return new CancelProcessInstanceResponse();
+            return await Send(token: cancellationToken);
         }
 
-        public async Task<ICancelProcessInstanceResponse> SendWithRetry(TimeSpan? timespan = null)
+        public async Task<ICancelProcessInstanceResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
         {
-            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan));
+            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
         }
     }
 }

@@ -60,18 +60,16 @@ namespace Zeebe.Client.Impl.Commands
             return new CreateProcessInstanceCommandWithResult(client, request);
         }
 
-        public async Task<IProcessInstanceResponse> Send(TimeSpan? timeout = null)
+        public async Task<IProcessInstanceResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            var asyncReply = client.CreateProcessInstanceAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = client.CreateProcessInstanceAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
             var response = await asyncReply.ResponseAsync;
             return new ProcessInstanceResponse(response);
         }
 
-        public async Task<IProcessInstanceResponse> Send(CancellationToken token)
+        public async Task<IProcessInstanceResponse> Send(CancellationToken cancellationToken)
         {
-            var asyncReply = client.CreateProcessInstanceAsync(request, cancellationToken: token);
-            var response = await asyncReply.ResponseAsync;
-            return new ProcessInstanceResponse(response);
+            return await Send(token: cancellationToken);
         }
     }
 }

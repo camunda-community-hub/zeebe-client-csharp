@@ -69,18 +69,16 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<IDeployResponse> Send(TimeSpan? timeout = null)
+        public async Task<IDeployResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            var asyncReply = gatewayClient.DeployProcessAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = gatewayClient.DeployProcessAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
             var response = await asyncReply.ResponseAsync;
             return new DeployResponse(response);
         }
 
-        public async Task<IDeployResponse> Send(CancellationToken token)
+        public async Task<IDeployResponse> Send(CancellationToken cancellationToken)
         {
-            var asyncReply = gatewayClient.DeployProcessAsync(request, cancellationToken: token);
-            var response = await asyncReply.ResponseAsync;
-            return new DeployResponse(response);
+            return await Send(token: cancellationToken);
         }
 
         private void AddProcess(ByteString resource, string resourceName)
