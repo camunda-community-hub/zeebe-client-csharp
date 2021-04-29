@@ -28,18 +28,16 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<IUpdateRetriesResponse> Send(TimeSpan? timeout = null)
+        public async Task<IUpdateRetriesResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            var asyncReply = client.UpdateJobRetriesAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = client.UpdateJobRetriesAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
             await asyncReply.ResponseAsync;
             return new UpdateRetriesResponse();
         }
 
-        public async Task<IUpdateRetriesResponse> Send(CancellationToken token)
+        public async Task<IUpdateRetriesResponse> Send(CancellationToken cancellationToken)
         {
-            var asyncReply = client.UpdateJobRetriesAsync(request, cancellationToken: token);
-            await asyncReply.ResponseAsync;
-            return new UpdateRetriesResponse();
+            return await Send(token: cancellationToken);
         }
     }
 }

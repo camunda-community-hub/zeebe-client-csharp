@@ -49,18 +49,16 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<IThrowErrorResponse> Send(TimeSpan? timeout = null)
+        public async Task<IThrowErrorResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            var asyncReply = gatewayClient.ThrowErrorAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = gatewayClient.ThrowErrorAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
             await asyncReply.ResponseAsync;
             return new Responses.ThrowErrorResponse();
         }
 
-        public async Task<IThrowErrorResponse> Send(CancellationToken token)
+        public async Task<IThrowErrorResponse> Send(CancellationToken cancellationToken)
         {
-            var asyncReply = gatewayClient.ThrowErrorAsync(request, cancellationToken: token);
-            await asyncReply.ResponseAsync;
-            return new Responses.ThrowErrorResponse();
+            return await Send(token: cancellationToken);
         }
     }
 }

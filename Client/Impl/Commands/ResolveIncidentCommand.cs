@@ -22,18 +22,16 @@ namespace Zeebe.Client.Impl.Commands
             this.client = client;
         }
 
-        public async Task<IResolveIncidentResponse> Send(TimeSpan? timeout = null)
+        public async Task<IResolveIncidentResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            var asyncReply = client.ResolveIncidentAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = client.ResolveIncidentAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
             await asyncReply.ResponseAsync;
             return new ResolveIncidentResponse();
         }
 
-        public async Task<IResolveIncidentResponse> Send(CancellationToken token)
+        public async Task<IResolveIncidentResponse> Send(CancellationToken cancellationToken)
         {
-            var asyncReply = client.ResolveIncidentAsync(request, cancellationToken: token);
-            await asyncReply.ResponseAsync;
-            return new ResolveIncidentResponse();
+            return await Send(token: cancellationToken);
         }
     }
 }

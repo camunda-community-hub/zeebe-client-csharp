@@ -34,18 +34,16 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
-        public async Task<ISetVariablesResponse> Send(TimeSpan? timeout = null)
+        public async Task<ISetVariablesResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            var asyncReply = client.SetVariablesAsync(request, deadline: timeout?.FromUtcNow());
+            var asyncReply = client.SetVariablesAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
             var response = await asyncReply.ResponseAsync;
             return new SetVariablesResponse(response);
         }
 
-        public async Task<ISetVariablesResponse> Send(CancellationToken token)
+        public async Task<ISetVariablesResponse> Send(CancellationToken cancellationToken)
         {
-            var asyncReply = client.SetVariablesAsync(request, cancellationToken: token);
-            var response = await asyncReply.ResponseAsync;
-            return new SetVariablesResponse(response);
+            return await Send(token: cancellationToken);
         }
     }
 }

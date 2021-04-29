@@ -39,7 +39,7 @@ namespace Zeebe.Client.Impl.Commands
         }
 
         /// <inheritdoc/>
-        public async Task<IProcessInstanceResult> Send(TimeSpan? timeout = null)
+        public async Task<IProcessInstanceResult> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
             // this timeout will be used for the Gateway-Broker communication
             createWithResultRequest.RequestTimeout = (long)(timeout?.TotalMilliseconds ?? DefaultGatewayBrokerTimeoutMillisecond);
@@ -48,16 +48,14 @@ namespace Zeebe.Client.Impl.Commands
             var clientDeadline = TimeSpan.FromMilliseconds(createWithResultRequest.RequestTimeout +
                                                            DefaultTimeoutAdditionMillisecond).FromUtcNow();
 
-            var asyncReply = client.CreateProcessInstanceWithResultAsync(createWithResultRequest, deadline: clientDeadline);
+            var asyncReply = client.CreateProcessInstanceWithResultAsync(createWithResultRequest, deadline: clientDeadline, cancellationToken: token);
             var response = await asyncReply.ResponseAsync;
             return new ProcessInstanceResultResponse(response);
         }
 
-        public async Task<IProcessInstanceResult> Send(CancellationToken token)
+        public async Task<IProcessInstanceResult> Send(CancellationToken cancellationToken)
         {
-            var asyncReply = client.CreateProcessInstanceWithResultAsync(createWithResultRequest, cancellationToken: token);
-            var response = await asyncReply.ResponseAsync;
-            return new ProcessInstanceResultResponse(response);
+                return await Send(token: cancellationToken);
         }
     }
 }
