@@ -182,7 +182,7 @@ namespace Zeebe.Client.Impl.Worker
             try
             {
                 await jobHandler(jobClient, activatedJob);
-                await TryToAutoCompleteJob(jobClient, activatedJob);
+                await TryToAutoCompleteJob(jobClient, activatedJob, cancellationToken);
             }
             catch (Exception exception)
             {
@@ -213,7 +213,8 @@ namespace Zeebe.Client.Impl.Worker
             logger?.Log(logLevel, rpcException, "Unexpected RpcException on polling new jobs.");
         }
 
-        private async Task TryToAutoCompleteJob(JobClientWrapper jobClient, IJob activatedJob)
+        private async Task TryToAutoCompleteJob(JobClientWrapper jobClient, IJob activatedJob,
+            CancellationToken cancellationToken)
         {
             if (!jobClient.ClientWasUsed && autoCompletion)
             {
@@ -222,7 +223,7 @@ namespace Zeebe.Client.Impl.Worker
                     activateJobsCommand.Request.Worker,
                     activatedJob.Key);
                 await jobClient.NewCompleteJobCommand(activatedJob)
-                    .Send();
+                    .Send(cancellationToken);
             }
         }
 
@@ -238,7 +239,7 @@ namespace Zeebe.Client.Impl.Worker
             return jobClient.NewFailCommand(activatedJob.Key)
                 .Retries(activatedJob.Retries - 1)
                 .ErrorMessage(errorMessage)
-                .Send()
+                .Send(cancellationToken)
                 .ContinueWith(
                     task =>
                     {
