@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -21,14 +22,23 @@ namespace Zeebe.Client
         private static long ExpiresIn { get; set; }
         private static string Token { get; set; }
 
+        private static string _requestUri;
+        private static string _clientId;
+        private static string _clientSecret;
+        private static string _audience;
+
         [SetUp]
         public void Init()
         {
+            _requestUri = "https://local.de";
+            _clientId = "ID";
+            _clientSecret = "SECRET";
+            _audience = "AUDIENCE";
             TokenProvider = new CamundaCloudTokenProviderBuilder()
-                .UseAuthServer("https://local.de")
-                .UseClientId("ID")
-                .UseClientSecret("SECRET")
-                .UseAudience("AUDIENCE")
+                .UseAuthServer(_requestUri)
+                .UseClientId(_clientId)
+                .UseClientSecret(_clientSecret)
+                .UseAudience(_audience)
                 .Build();
 
             MessageHandlerStub = new HttpMessageHandlerStub();
@@ -50,16 +60,17 @@ namespace Zeebe.Client
         {
             public int RequestCount { get; set; }
             private bool _disposed = false;
+
             protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
                 CancellationToken cancellationToken)
             {
                 CheckDisposed();
-                Assert.AreEqual(request.RequestUri, "https://local.de");
+                Assert.AreEqual(request.RequestUri, _requestUri);
                 var content = await request.Content.ReadAsStringAsync();
                 var jsonObject = JObject.Parse(content);
-                Assert.AreEqual((string)jsonObject["client_id"], "ID");
-                Assert.AreEqual((string)jsonObject["client_secret"], "SECRET");
-                Assert.AreEqual((string)jsonObject["audience"], "AUDIENCE");
+                Assert.AreEqual((string)jsonObject["client_id"], _clientId);
+                Assert.AreEqual((string)jsonObject["client_secret"], _clientSecret);
+                Assert.AreEqual((string)jsonObject["audience"], _audience);
 
                 RequestCount++;
                 var responseMessage = new HttpResponseMessage(HttpStatusCode.OK)
@@ -117,8 +128,39 @@ namespace Zeebe.Client
             Assert.AreEqual(1, files.Length);
             var tokenFile = files[0];
             var content = File.ReadAllText(tokenFile);
-            var fileToken = JsonConvert.DeserializeObject<CamundaCloudTokenProvider.AccessToken>(content);
-            Assert.AreEqual(token, fileToken.Token);
+            var credentials = JsonConvert.DeserializeObject<Dictionary<string, CamundaCloudTokenProvider.AccessToken>>(content);
+            Assert.AreEqual(credentials["AUDIENCE"].Token, token);
+        }
+
+        [Test]
+        public async Task ShouldStoreMultipleCredentials()
+        {
+            // given
+            await TokenProvider.GetAccessTokenForRequestAsync();
+            var otherProvider = new CamundaCloudTokenProviderBuilder()
+                .UseAuthServer(_requestUri)
+                .UseClientId(_clientId = "OTHERID")
+                .UseClientSecret(_clientSecret = "OTHERSECRET")
+                .UseAudience(_audience = "OTHER_AUDIENCE")
+                .Build();
+            otherProvider.SetHttpMessageHandler(MessageHandlerStub);
+            otherProvider.TokenStoragePath = TokenStoragePath;
+            Token = "OTHER_TOKEN";
+
+            // when
+            var token = await otherProvider.GetAccessTokenForRequestAsync();
+
+            // then
+            Assert.AreEqual("OTHER_TOKEN", token);
+            var files = Directory.GetFiles(TokenStoragePath);
+            Assert.AreEqual(1, files.Length);
+            var tokenFile = files[0];
+            var content = File.ReadAllText(tokenFile);
+            var credentials = JsonConvert.DeserializeObject<Dictionary<string, CamundaCloudTokenProvider.AccessToken>>(content);
+
+            Assert.AreEqual(credentials.Count, 2);
+            Assert.AreEqual(token, credentials["OTHER_AUDIENCE"].Token);
+            Assert.AreEqual("REQUESTED_TOKEN", credentials["AUDIENCE"].Token);
         }
 
         [Test]
@@ -197,6 +239,29 @@ namespace Zeebe.Client
             // then
             Assert.AreEqual("STORED_TOKEN", token);
             Assert.AreEqual(0, MessageHandlerStub.RequestCount);
+        }
+
+        [Test]
+        public async Task ShouldNotUseCachedFileForOtherAudience()
+        {
+            // given
+            Token = "STORED_TOKEN";
+            await TokenProvider.GetAccessTokenForRequestAsync();
+            var otherProvider = new CamundaCloudTokenProviderBuilder()
+                .UseAuthServer(_requestUri)
+                .UseClientId(_clientId = "OTHERID")
+                .UseClientSecret(_clientSecret = "OTHERSECRET")
+                .UseAudience(_audience = "OTHER_AUDIENCE")
+                .Build();
+            otherProvider.SetHttpMessageHandler(MessageHandlerStub);
+            otherProvider.TokenStoragePath = TokenStoragePath;
+            Token = "OTHER_TOKEN";
+
+            // when
+            var token = await otherProvider.GetAccessTokenForRequestAsync();
+
+            // then
+            Assert.AreEqual("OTHER_TOKEN", token);
         }
 
         [Test]
