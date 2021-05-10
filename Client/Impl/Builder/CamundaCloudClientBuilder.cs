@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using Zeebe.Client.Api.Builder;
 using Zeebe.Client.Impl.Builder;
 
-namespace Zeebe.Client
+namespace Zeebe.Client.Impl.Builder
 {
     public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaCloudClientBuilderStep1, ICamundaCloudClientBuilderStep2, ICamundaCloudClientBuilderFinalStep
     {
@@ -35,6 +35,8 @@ namespace Zeebe.Client
 
         public ICamundaCloudClientBuilderFinalStep UseContactPoint(string contactPoint)
         {
+            _ = contactPoint ?? throw new ArgumentNullException(nameof(contactPoint));
+
             if (!contactPoint.EndsWith(":443"))
             {
                 gatewayAddress = contactPoint + ":443";
@@ -71,6 +73,5 @@ namespace Zeebe.Client
                 .UseAccessTokenSupplier(camundaCloudTokenProviderBuilder.Build())
                 .Build();
         }
-
     }
 }
