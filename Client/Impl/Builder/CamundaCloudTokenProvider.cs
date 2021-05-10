@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Text;
@@ -16,7 +18,7 @@ namespace Zeebe.Client.Impl.Builder
         private const string JsonContent =
             "{{\"client_id\":\"{0}\",\"client_secret\":\"{1}\",\"audience\":\"{2}\",\"grant_type\":\"client_credentials\"}}";
 
-        private const string ZeebeCloudTokenFileName = "cloud.token";
+        private const string ZeebeCloudTokenFileName = "credentials";
 
         private static readonly string ZeebeRootPath =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
@@ -45,6 +47,7 @@ namespace Zeebe.Client.Impl.Builder
             // default client handler
             httpClient = new HttpClient(new HttpClientHandler(), disposeHandler: false);
             TokenStoragePath = ZeebeRootPath;
+            Credentials = new Dictionary<string, AccessToken>();
         }
 
         public static CamundaCloudTokenProviderBuilder Builder()
@@ -54,17 +57,18 @@ namespace Zeebe.Client.Impl.Builder
 
         public string TokenStoragePath { get; set; }
         private string TokenFileName => TokenStoragePath + Path.DirectorySeparatorChar + ZeebeCloudTokenFileName;
-        private AccessToken CurrentAccessToken { get; set; }
+        private Dictionary<string, AccessToken> Credentials { get; set; }
 
         public Task<string> GetAccessTokenForRequestAsync(
             string authUri = null,
             CancellationToken cancellationToken = default(CancellationToken))
         {
             // check in memory
-            if (CurrentAccessToken != null)
+            AccessToken currentAccessToken;
+            if (Credentials.TryGetValue(audience, out currentAccessToken))
             {
                 logger?.LogTrace("Use in memory access token.");
-                return GetValidToken(CurrentAccessToken);
+                return GetValidToken(currentAccessToken);
             }
 
             // check if token file exists
@@ -75,9 +79,12 @@ namespace Zeebe.Client.Impl.Builder
                 logger?.LogTrace("Read cached access token from {tokenFileName}", tokenFileName);
                 // read token
                 var content = File.ReadAllText(tokenFileName);
-                var accessToken = JsonConvert.DeserializeObject<AccessToken>(content);
-                CurrentAccessToken = accessToken;
-                return GetValidToken(accessToken);
+                Credentials = JsonConvert.DeserializeObject<Dictionary<string, AccessToken>>(content);
+                if (Credentials.TryGetValue(audience, out currentAccessToken))
+                {
+                    logger?.LogTrace("Found access token in credentials file.");
+                    return GetValidToken(currentAccessToken);
+                }
             }
 
             // request token
@@ -139,12 +146,17 @@ namespace Zeebe.Client.Impl.Builder
 
                 var result = await httpResponseMessage.Content.ReadAsStringAsync();
                 var token = ToAccessToken(result);
-                logger?.LogDebug("Received access token {token}, will backup at {path}.", token, tokenFileName);
-                File.WriteAllText(tokenFileName, JsonConvert.SerializeObject(token));
-                CurrentAccessToken = token;
+                logger?.LogDebug("Received access token for {audience}, will backup at {path}.", audience, tokenFileName);
+                Credentials[audience] = token;
+                WriteCredentials();
 
                 return token.Token;
             }
+        }
+
+        private void WriteCredentials()
+        {
+            File.WriteAllText(TokenFileName, JsonConvert.SerializeObject(Credentials));
         }
 
         private static AccessToken ToAccessToken(string result)
