@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest    
     steps:
-    - run: docker pull camunda/zeebe:1.0.0-alpha7
+    - run: docker pull camunda/zeebe:1.0.0
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
