@@ -22,7 +22,7 @@ Features:
       * Switch to common user agent format https://github.com/camunda-community-hub/zeebe-client-csharp/pull/278
       * Refactor send API https://github.com/camunda-community-hub/zeebe-client-csharp/pull/265
 
-Bugs:
+Bug Fixes:
 
       * Fix problems with accessing multiple camunda cloud clusters https://github.com/camunda-community-hub/zeebe-client-csharp/pull/276
 
