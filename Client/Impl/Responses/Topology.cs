@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GatewayProtocol;
+using Newtonsoft.Json;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Impl.Responses
@@ -36,9 +37,7 @@ namespace Zeebe.Client.Impl.Responses
 
         public override string ToString()
         {
-            return
-                "GatewayVersion: " + GatewayVersion + "\n"
-                + "Brokers:\n" + string.Join(",\n", Brokers);
+            return JsonConvert.SerializeObject(Brokers, Formatting.Indented);
         }
     }
 }
