@@ -118,8 +118,8 @@ namespace GatewayProtocol {
             "LmdhdGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXNwb25zZSIAEmsKEFVwZGF0",
             "ZUpvYlJldHJpZXMSKS5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJldHJp",
             "ZXNSZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVKb2JSZXRyaWVz",
-            "UmVzcG9uc2UiAEIkChlpby56ZWViZS5nYXRld2F5LnByb3RvY29sUABaBS4v",
-            "O3BiYgZwcm90bzM="));
+            "UmVzcG9uc2UiAEIsCiFpby5jYW11bmRhLnplZWJlLmdhdGV3YXkucHJvdG9j",
+            "b2xQAFoFLi87cGJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
