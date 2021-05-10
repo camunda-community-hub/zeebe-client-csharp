@@ -39,7 +39,7 @@ namespace Zeebe.Client.Api.Commands
         IActivateJobsCommandStep3 MaxJobsToActivate(int maxJobsToActivate);
     }
 
-    public interface IActivateJobsCommandStep3 : IFinalCommandStep<IActivateJobsResponse>
+    public interface IActivateJobsCommandStep3 : IFinalCommandWithRetryStep<IActivateJobsResponse>
     {
         /// <summary>
         /// Set the time for how long a job is exclusively assigned for this subscription.
