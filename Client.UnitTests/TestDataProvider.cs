@@ -25,6 +25,14 @@ namespace Zeebe.Client
                     }, new CompleteJobResponse(),
                     (RequestCreator<ICompleteJobResponse>)
                     (zeebeClient => zeebeClient.NewCompleteJobCommand(12113)));
+                yield return new TestCaseData(
+                    new ActivateJobsRequest()
+                    {
+                        Type = "type",
+                        MaxJobsToActivate = 12
+                    }, new ActivateJobsResponse(),
+                    (RequestCreator<IActivateJobsResponse>)
+                    (zeebeClient => zeebeClient.NewActivateJobsCommand().JobType("type").MaxJobsToActivate(12)));
             }
     }
 }
