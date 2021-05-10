@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.19.0</Version>
+    <Version>1.0.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,28 +13,27 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>0.19.0</AssemblyVersion>
-    <FileVersion>0.19.0</FileVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
     <PackageReleaseNotes>
-### Contributions:
+Features:
 
-* Introduce new send method which accepts a CancellationToken https://github.com/zeebe-io/zeebe-client-csharp/pull/219
-* Add delay for failing job activation in job worker https://github.com/zeebe-io/zeebe-client-csharp/pull/217
-* Prevent disposing of HttpMessageHandler in CamundaCloudTokenProvider https://github.com/zeebe-io/zeebe-client-csharp/pull/222
+      * Add new Camunda Cloud Client https://github.com/camunda-community-hub/zeebe-client-csharp/pull/280
+      * Switch to common user agent format https://github.com/camunda-community-hub/zeebe-client-csharp/pull/278
+      * Refactor send API https://github.com/camunda-community-hub/zeebe-client-csharp/pull/265
 
-Thanks to  @terjeinnerdal and Xavier Le Galles (@xlegalles)
+Bugs:
 
-### Features
+      * Fix problems with accessing multiple camunda cloud clusters https://github.com/camunda-community-hub/zeebe-client-csharp/pull/276
 
-* Introduce new sendWithRetry method for some commands (https://github.com/zeebe-io/zeebe-client-csharp/pull/172, https://github.com/zeebe-io/zeebe-client-csharp/pull/232)
+Misc:
 
-### Misc:
-
-* Upgraded Dependencies
+      * Migrate to Zeebe 1.0.0 breaking changes https://github.com/camunda-community-hub/zeebe-client-csharp/pull/257
+      * More commands support SendWithRetry
 
 -----
 
-This release is based on the Zeebe 0.26.X release (https://github.com/zeebe-io/zeebe).
+This release is based on the Zeebe 1.0.X release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -44,9 +43,9 @@ This release is based on the Zeebe 0.26.X release (https://github.com/zeebe-io/z
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>0.19.0</PackageVersion>
+    <PackageVersion>1.0.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>0.19.0</Title>
+    <Title>1.0.0</Title>
   </PropertyGroup>
 
   <ItemGroup>
