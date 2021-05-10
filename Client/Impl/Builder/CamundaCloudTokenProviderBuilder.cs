@@ -15,7 +15,7 @@ namespace Zeebe.Client.Impl.Builder
     {
         private ILoggerFactory loggerFactory;
         private string audience;
-        private string authServer;
+        private string authServer = "https://login.cloud.camunda.io/oauth/token";
         private string clientId;
         private string clientSecret;
 
