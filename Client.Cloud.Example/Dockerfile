@@ -1,11 +1,11 @@
-﻿FROM mcr.microsoft.com/dotnet/runtime:5.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/core/runtime:2.1 AS base
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
 WORKDIR /src
-COPY ["Client.Cloud.Example/Client.Cloud.Example.csproj", "Client.Cloud.Example/"]
+COPY ["Client.Cloud.Example.csproj", "Client.Cloud.Example/"]
 RUN dotnet restore "Client.Cloud.Example/Client.Cloud.Example.csproj"
-COPY . .
+COPY . "Client.Cloud.Example"
 WORKDIR "/src/Client.Cloud.Example"
 RUN dotnet build "Client.Cloud.Example.csproj" -c Release -o /app/build
 

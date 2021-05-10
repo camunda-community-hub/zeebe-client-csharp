@@ -4,14 +4,12 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <OutputType>Exe</OutputType>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\Client.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="NLog.Extensions.Logging" Version="1.7.2" />
+    <PackageReference Include="zb-client" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>

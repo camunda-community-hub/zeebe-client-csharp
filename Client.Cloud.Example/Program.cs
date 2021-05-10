@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using NLog.Extensions.Logging;
-using Zeebe.Client;
-using Zeebe.Client.Api.Builder;
 using Zeebe.Client.Impl.Builder;
 
 namespace Client.Cloud.Example
