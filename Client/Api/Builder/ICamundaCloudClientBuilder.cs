@@ -16,6 +16,22 @@ namespace Zeebe.Client.Api.Builder
         /// <param name="clientId">the client id, which is supplied by the Camunda Cloud</param>
         /// <returns>the next step in building a ICamundaCloudClient</returns>
         ICamundaCloudClientBuilderStep1 UseClientId(string clientId);
+
+        /// <summary>
+        /// Short cut operation.
+        /// Reads from the environment all necessary information, to communicate with the camunda cloud cluster.
+        ///
+        /// Following environment variables are expected:
+        /// <list type="bullet">
+        /// <item>ZEEBE_ADDRESS</item>
+        /// <item>ZEEBE_CLIENT_ID</item>
+        /// <item>ZEEBE_CLIENT_SECRET</item>
+        /// </list>
+        ///
+        /// Optional the authorization server url can be set via: ZEEBE_AUTHORIZATION_SERVER_URL
+        /// </summary>
+        /// <returns>the final ICamundaCloudClientBuilder step</returns>
+        ICamundaCloudClientBuilderFinalStep FromEnv();
     }
 
     public interface ICamundaCloudClientBuilderStep1

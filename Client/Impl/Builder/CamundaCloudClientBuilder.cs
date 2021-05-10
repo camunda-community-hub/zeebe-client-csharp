@@ -7,6 +7,11 @@ namespace Zeebe.Client.Impl.Builder
 {
     public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaCloudClientBuilderStep1, ICamundaCloudClientBuilderStep2, ICamundaCloudClientBuilderFinalStep
     {
+        private const string ZeebeAddressEnvVar = "ZEEBE_ADDRESS";
+        private const string ZeebeClientIdEnvVar = "ZEEBE_CLIENT_ID";
+        private const string ZeebeClientSecretEnvVar = "ZEEBE_CLIENT_SECRET";
+        private const string ZeebeAuthServerEnvVar = "ZEEBE_AUTHORIZATION_SERVER_UR";
+
         private readonly CamundaCloudTokenProviderBuilder camundaCloudTokenProviderBuilder;
         private string gatewayAddress;
         private ILoggerFactory loggerFactory;
@@ -60,7 +65,28 @@ namespace Zeebe.Client.Impl.Builder
 
         public ICamundaCloudClientBuilderFinalStep UseAuthServer(string url)
         {
+            if (url is null)
+            {
+                // use default
+                return this;
+            }
+
             camundaCloudTokenProviderBuilder.UseAuthServer(url);
+            return this;
+        }
+
+        private string GetFromEnv(string key)
+        {
+            char[] charsToTrim = { ' ', '\'' };
+            return Environment.GetEnvironmentVariable(key)?.Trim(charsToTrim);
+        }
+
+        public ICamundaCloudClientBuilderFinalStep FromEnv()
+        {
+            this.UseClientId(GetFromEnv(ZeebeClientIdEnvVar))
+                .UseClientSecret(GetFromEnv(ZeebeClientSecretEnvVar))
+                .UseContactPoint(GetFromEnv(ZeebeAddressEnvVar))
+                .UseAuthServer(GetFromEnv(ZeebeAuthServerEnvVar));
             return this;
         }
 
