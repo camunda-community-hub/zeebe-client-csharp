@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.Examples", "Client.E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.IntegrationTests", "Client.IntegrationTests\Client.IntegrationTests.csproj", "{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Cloud.Example", "Client.Cloud.Example\Client.Cloud.Example.csproj", "{933072DC-3888-4C63-969E-E45B1BB1804F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,18 @@ Global
 		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Release|x64.Build.0 = Release|Any CPU
 		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Release|x86.ActiveCfg = Release|Any CPU
 		{07BA7B8D-2E3C-4F54-AA2C-41515D9E968B}.Release|x86.Build.0 = Release|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Debug|x64.Build.0 = Debug|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Debug|x86.Build.0 = Debug|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Release|x64.ActiveCfg = Release|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Release|x64.Build.0 = Release|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Release|x86.ActiveCfg = Release|Any CPU
+		{933072DC-3888-4C63-969E-E45B1BB1804F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
