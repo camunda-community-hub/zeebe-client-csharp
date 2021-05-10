@@ -56,7 +56,8 @@ namespace Zeebe.Client
             this.loggerFactory = loggerFactory;
 
             var channelOptions = new List<ChannelOption>();
-            var userAgentString = "client: csharp, version: " + typeof(ZeebeClient).Assembly.GetName().Version;
+            var clientVersion = typeof(ZeebeClient).Assembly.GetName().Version;
+            var userAgentString = $"zeebe-client-csharp/{clientVersion}";
             var userAgentOption = new ChannelOption(ChannelOptions.PrimaryUserAgentString, userAgentString);
             channelOptions.Add(userAgentOption);
 
