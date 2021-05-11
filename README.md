@@ -26,7 +26,7 @@ for more information about the Zeebe project.
 
 The Zeebe C# client is available via nuget (https://www.nuget.org/packages/zb-client/).
 
-Please have a look at the [API documentation](https://zeebe-io.github.io/zeebe-client-csharp/).
+Please have a look at the [API documentation](https://camunda-community-hub.github.io/zeebe-client-csharp/).
 
 ## Camunda Cloud
 
