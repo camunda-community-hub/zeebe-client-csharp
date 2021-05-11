@@ -36,6 +36,9 @@
   <item>Zeebe.Client.Api.Worker</item>
  </list>
 
+ \section Cloud-Example Cloud-Example
+ \include Client.Cloud.Example/Program.cs
+
  \section Example Example
  \include Client.Examples/Program.cs
 
