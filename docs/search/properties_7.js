@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jobs_307',['Jobs',['../d5/d31/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IActivateJobsResponse.html#a64a9a9c685df4a474ace2528601fc7e4',1,'Zeebe::Client::Api::Responses::IActivateJobsResponse']]]
+  ['isleader_338',['IsLeader',['../d7/d34/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IPartitionInfo.html#aeb042974a9a3c564e767415a0dcaac6e',1,'Zeebe::Client::Api::Responses::IPartitionInfo']]]
 ];

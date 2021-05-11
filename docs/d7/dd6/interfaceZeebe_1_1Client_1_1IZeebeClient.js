@@ -1,9 +1,9 @@
 var interfaceZeebe_1_1Client_1_1IZeebeClient =
 [
     [ "NewActivateJobsCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ae9ab9cf439f070dd5c785a2aa87e2303", null ],
-    [ "NewCancelInstanceCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ac6f46aece8181403f4cefc9adfee2d8b", null ],
-    [ "NewCreateProcessInstanceCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#abfe56a9ebe1d96ee916d57ef133c1406", null ],
-    [ "NewDeployCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a6eb217d763c83f387434f9626e6f5716", null ],
+    [ "NewCancelInstanceCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a377d14ed8a060b6a652b24a369833c98", null ],
+    [ "NewCreateProcessInstanceCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ae4878e746b228217ce748cb59a2e86e4", null ],
+    [ "NewDeployCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a2476cea57ad101c9ced9097f700638a1", null ],
     [ "NewPublishMessageCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ab8ab0c28694249cc682e32a24cc7889a", null ],
     [ "NewResolveIncidentCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ad551d03f526c8694b2a0be7f8dc26bab", null ],
     [ "NewSetVariablesCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a715622caf01c5e5b92bea55df0aefe95", null ],

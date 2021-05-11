@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['timeout_279',['Timeout',['../df/d94/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IActivateJobsCommandStep3.html#aa1b591ff96d653c3631faacc86d209cb',1,'Zeebe.Client.Api.Commands.IActivateJobsCommandStep3.Timeout()'],['../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html#ae13a82bafc0d7c1ffe5b9b9273106843',1,'Zeebe.Client.Api.Worker.IJobWorkerBuilderStep3.Timeout()']]],
-  ['timetolive_280',['TimeToLive',['../d5/d02/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep3.html#a0be9cde9a6d1b0e1dc3562d913ccd814',1,'Zeebe::Client::Api::Commands::IPublishMessageCommandStep3']]],
-  ['topologyrequest_281',['TopologyRequest',['../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a04edceb7abb5195c0c35efa0de843236',1,'Zeebe::Client::IZeebeClient']]]
+  ['send_306',['Send',['../d2/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandStep.html#adc0ff5f12e104c7086bb5e8c821b0dba',1,'Zeebe.Client.Api.Commands.IFinalCommandStep.Send(TimeSpan? timeout=null, CancellationToken token=default)'],['../d2/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandStep.html#a922dde6f442d6d80b648549b5b226734',1,'Zeebe.Client.Api.Commands.IFinalCommandStep.Send(CancellationToken cancellationToken)']]],
+  ['sendwithretry_307',['SendWithRetry',['../d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html#a3a465da77923d1b9906246cd298c7a07',1,'Zeebe::Client::Api::Commands::IFinalCommandWithRetryStep']]]
 ];

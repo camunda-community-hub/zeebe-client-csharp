@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isleader_306',['IsLeader',['../d7/d34/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IPartitionInfo.html#aeb042974a9a3c564e767415a0dcaac6e',1,'Zeebe::Client::Api::Responses::IPartitionInfo']]]
+  ['host_337',['Host',['../d7/dce/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IBrokerInfo.html#adf89f92afa01a33f813cefe6fd7f3137',1,'Zeebe::Client::Api::Responses::IBrokerInfo']]]
 ];

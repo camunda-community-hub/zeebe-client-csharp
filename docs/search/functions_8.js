@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['latestversion_255',['LatestVersion',['../d8/dce/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep2.html#a883928d9ceff62718986b335525a18f2',1,'Zeebe::Client::Api::Commands::ICreateProcessInstanceCommandStep2']]],
-  ['local_256',['Local',['../de/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep2.html#a571c951aa60a16f6c3ed957a897499dd',1,'Zeebe::Client::Api::Commands::ISetVariablesCommandStep2']]]
+  ['jobhandler_280',['JobHandler',['../db/d2d/namespaceZeebe_1_1Client_1_1Api_1_1Worker.html#a8e517f013623c95560b142de35a6d33d',1,'Zeebe::Client::Api::Worker']]],
+  ['jobtype_281',['JobType',['../d4/d1d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IActivateJobsCommandStep1.html#ae28f36413983e55d97b5db9aa7ed5a59',1,'Zeebe.Client.Api.Commands.IActivateJobsCommandStep1.JobType()'],['../d5/dc7/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep1.html#a751286c47f00b2b07eb221f21143079c',1,'Zeebe.Client.Api.Worker.IJobWorkerBuilderStep1.JobType()']]]
 ];
