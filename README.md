@@ -31,9 +31,34 @@ Please have a look at the [API documentation](https://camunda-community-hub.gith
 ## Camunda Cloud
 
 The Zeebe C# Client is Camunda Cloud ready.
-To get an example how to use the Zeebe C# Client with the Cloud take a look at [Client.Examples/CloudExample.cs.md](Client.Examples/CloudExample.cs.md).
+To get an example how to use the Zeebe C# Client with the Cloud take a look at [Client.Cloud.Example/](Client.Cloud.Example/).
+
+### Quick start
+As quick start you can use the following code:
+
+```csharp
+var zeebeClient = CamundaCloudClientBuilder
+    .Builder()
+      .UseClientId("CLIENT_ID")
+      .UseClientSecret("CLIENT_SECRET")
+      .UseContactPoint("ZEEBE_ADDRESS")
+    .Build();
+
+var topology = await zeebeClient.TopologyRequest().Send();
+```
+
+Alternatively you could also read the credentials from the environment:
+
+```csharp
+var zeebeClient = CamundaCloudClientBuilder
+    .Builder()
+      .FromEnv()
+    .Build();
+
+var topology = await zeebeClient.TopologyRequest().Send();
+```
 
 ## How to build
 
-Simply run `msbuild Zeebe.sln` or `dotnet build Zeebe.sln`
+Run `msbuild Zeebe.sln` or `dotnet build Zeebe.sln`
 
