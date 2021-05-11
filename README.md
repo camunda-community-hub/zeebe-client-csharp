@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/zeebe-io/zeebe-client-csharp.svg?branch=master)](https://travis-ci.org/zeebe-io/zeebe-client-csharp)
+[![Build Status](https://github.com/camunda-community-hub/zeebe-client-csharp/actions/workflows/aspnetcore.yml/badge.svg)](https://github.com/camunda-community-hub/zeebe-client-csharp/actions/workflows/aspnetcore.yml)
 [![](https://img.shields.io/nuget/v/zb-client.svg)](https://www.nuget.org/packages/zb-client/) 
 [![](https://img.shields.io/nuget/dt/zb-client)](https://www.nuget.org/stats/packages/zb-client?groupby=Version) 
 [![](https://img.shields.io/github/license/zeebe-io/zeebe-client-csharp.svg)](https://www.apache.org/licenses/LICENSE-2.0) 
