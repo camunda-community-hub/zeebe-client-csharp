@@ -49,7 +49,7 @@ This release is based on the Zeebe 1.0.X release (https://github.com/zeebe-io/ze
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" version="3.16.0" />
+    <PackageReference Include="Google.Protobuf" version="3.17.0" />
     <PackageReference Include="Grpc" version="2.37.1" />
     <PackageReference Include="Grpc.Auth" Version="2.37.1" />
     <PackageReference Include="Grpc.Core" version="2.37.1" />
