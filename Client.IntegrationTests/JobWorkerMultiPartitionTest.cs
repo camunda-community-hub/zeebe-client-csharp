@@ -36,7 +36,7 @@ namespace Client.IntegrationTests
         }
 
         [Test]
-        public async Task ShouldCompleteProcess()
+        public async Task ShouldHandleAllJobs()
         {
             // given
             var handledJobs = new List<IJob>();
@@ -68,7 +68,6 @@ namespace Client.IntegrationTests
                     .Open())
                 {
                         signal.WaitOne(TimeSpan.FromSeconds(5));
-
                 }
             }
 
