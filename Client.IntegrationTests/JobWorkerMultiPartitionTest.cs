@@ -73,5 +73,28 @@ namespace Client.IntegrationTests
 
             Assert.AreEqual(3, handledJobs.Count);
         }
+
+
+        [Test]
+        public async Task ShouldActivateAllJobs()
+        {
+            // given
+            foreach (int i in Enumerable.Range(1, 3))
+            {
+                await zeebeClient.NewCreateProcessInstanceCommand()
+                    .ProcessDefinitionKey(processDefinitionKey)
+                    .Send();
+            }
+
+            // when
+            var activateJobsResponse = await zeebeClient.NewActivateJobsCommand()
+                .JobType("oneTask")
+                .MaxJobsToActivate(5)
+                .WorkerName("csharpWorker")
+                .Timeout(TimeSpan.FromHours(10))
+                .Send();
+
+            Assert.AreEqual(3, activateJobsResponse.Jobs.Count);
+        }
     }
 }
