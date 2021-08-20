@@ -18,8 +18,10 @@ using System.ComponentModel.Design;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
+using GatewayProtocol;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
+using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Worker;
 using Zeebe.Client.Impl.Commands;
@@ -34,7 +36,8 @@ namespace Zeebe.Client.Impl.Worker
         private readonly CancellationTokenSource source;
         private readonly ILogger<JobWorker> logger;
         private readonly JobWorkerBuilder jobWorkerBuilder;
-        private readonly ActivateJobsCommand activateJobsCommand;
+        private readonly ActivateJobsRequest activateJobsRequest;
+        private readonly JobActivator jobActivator;
         private readonly int maxJobsActive;
         private readonly AsyncJobHandler jobHandler;
         private readonly bool autoCompletion;
@@ -52,8 +55,9 @@ namespace Zeebe.Client.Impl.Worker
             this.jobHandler = jobWorkerBuilder.Handler();
             this.autoCompletion = builder.AutoCompletionEnabled();
             this.pollInterval = jobWorkerBuilder.PollInterval();
-            this.activateJobsCommand = jobWorkerBuilder.Command;
-            this.maxJobsActive = jobWorkerBuilder.Command.Request.MaxJobsToActivate;
+            this.activateJobsRequest = jobWorkerBuilder.Request;
+            jobActivator = jobWorkerBuilder.Activator;
+            this.maxJobsActive = jobWorkerBuilder.Request.MaxJobsToActivate;
             this.thresholdJobsActivation = maxJobsActive * 0.6;
         }
 
@@ -114,8 +118,8 @@ namespace Zeebe.Client.Impl.Worker
 
             logger?.LogDebug(
                 "Job worker ({worker}) for job type {type} has been opened.",
-                activateJobsCommand.Request.Worker,
-                activateJobsCommand.Request.Type);
+                activateJobsRequest.Worker,
+                activateJobsRequest.Type);
         }
 
         private ExecutionDataflowBlockOptions CreateExecutionOptions(CancellationToken cancellationToken)
@@ -145,12 +149,14 @@ namespace Zeebe.Client.Impl.Worker
                 if (currentJobs < thresholdJobsActivation)
                 {
                     var jobCount = maxJobsActive - currentJobs;
-                    activateJobsCommand.MaxJobsToActivate(jobCount);
+                    activateJobsRequest.MaxJobsToActivate = jobCount;
 
                     try
                     {
-                        var response = await activateJobsCommand.SendWithRetry(null, cancellationToken);
-                        await HandleActivationResponse(input, response, jobCount);
+                        await jobActivator.SendActivateRequest(activateJobsRequest,
+                            async jobsResponse => await HandleActivationResponse(input, jobsResponse, jobCount),
+                            null,
+                            cancellationToken);
                     }
                     catch (RpcException rpcException)
                     {
@@ -168,7 +174,7 @@ namespace Zeebe.Client.Impl.Worker
         {
             logger?.LogDebug(
                 "Job worker ({worker}) activated {activatedCount} of {requestCount} successfully.",
-                activateJobsCommand.Request.Worker,
+                activateJobsRequest.Worker,
                 response.Jobs.Count,
                 jobCount);
 
@@ -207,6 +213,7 @@ namespace Zeebe.Client.Impl.Worker
             {
                 case StatusCode.DeadlineExceeded:
                 case StatusCode.Cancelled:
+                case StatusCode.ResourceExhausted:
                     logLevel = LogLevel.Trace;
                     break;
                 default:
@@ -224,7 +231,7 @@ namespace Zeebe.Client.Impl.Worker
             {
                 logger?.LogDebug(
                     "Job worker ({worker}) will auto complete job with key '{key}'",
-                    activateJobsCommand.Request.Worker,
+                    activateJobsRequest.Worker,
                     activatedJob.Key);
                 await jobClient.NewCompleteJobCommand(activatedJob)
                     .Send(cancellationToken);

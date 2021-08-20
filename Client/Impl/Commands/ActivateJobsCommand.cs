@@ -67,7 +67,9 @@ namespace Zeebe.Client.Impl.Commands
 
         public async Task<IActivateJobsResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
-            return await activator.SendActivateRequest(Request, timeout?.FromUtcNow(), token);
+            var activateJobsResponses = new Responses.ActivateJobsResponses();
+            await activator.SendActivateRequest(Request, response => Task.Run(() => activateJobsResponses.Add(response), token), timeout?.FromUtcNow(), token);
+            return activateJobsResponses;
         }
 
         public async Task<IActivateJobsResponse> Send(CancellationToken cancellationToken)

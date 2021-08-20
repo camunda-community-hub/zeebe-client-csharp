@@ -1,6 +1,10 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using DotNet.Testcontainers.Containers.Builders;
+using DotNet.Testcontainers.Containers.Configurations;
+using DotNet.Testcontainers.Containers.Modules;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using TestContainers.Core.Builders;
@@ -13,10 +17,11 @@ namespace Client.IntegrationTests
     {
         public const string LatestVersion = "1.0.0";
 
-        private Container container;
+        private TestcontainersContainer container;
         private IZeebeClient client;
 
         private readonly string version;
+        private int count = 1;
 
         private ZeebeIntegrationTestHelper(string version)
         {
@@ -28,6 +33,12 @@ namespace Client.IntegrationTests
             return new ZeebeIntegrationTestHelper(LatestVersion);
         }
 
+        public ZeebeIntegrationTestHelper withPartitionCount(int count)
+        {
+            this.count = count;
+            return this;
+        }
+
         public static ZeebeIntegrationTestHelper OfVersion(string version)
         {
             return new ZeebeIntegrationTestHelper(version);
@@ -36,7 +47,7 @@ namespace Client.IntegrationTests
         public async Task<IZeebeClient> SetupIntegrationTest()
         {
             container = CreateZeebeContainer();
-            await container.Start();
+            await container.StartAsync();
 
             client = CreateZeebeClient();
             await AwaitBrokerReadiness();
@@ -47,16 +58,16 @@ namespace Client.IntegrationTests
         {
             client.Dispose();
             client = null;
-            await container.Stop();
+            await container.StopAsync();
             container = null;
         }
 
-        private Container CreateZeebeContainer()
+        private TestcontainersContainer CreateZeebeContainer()
         {
-            return new GenericContainerBuilder<Container>()
-                .Begin()
+            return new TestcontainersBuilder<TestcontainersContainer>()
                 .WithImage("camunda/zeebe:" + version)
-                .WithExposedPorts(26500)
+                .WithPortBinding(26500)
+                .WithEnvironment("ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT", count.ToString())
                 .Build();
         }
 
@@ -71,7 +82,7 @@ namespace Client.IntegrationTests
                 loggingBuilder.AddNLog(path);
             });
 
-            var host = "0.0.0.0:" + container.GetMappedPort(26500);
+            var host = "0.0.0.0:" + container.GetMappedPublicPort(26500);
 
             return ZeebeClient.Builder()
                 .UseLoggerFactory(loggerFactory)
@@ -88,7 +99,7 @@ namespace Client.IntegrationTests
                 try
                 {
                     var topology = await client.TopologyRequest().Send();
-                    ready = topology.Brokers[0].Partitions.Count == 1;
+                    ready = topology.Brokers[0].Partitions.Count >= count;
                 }
                 catch (Exception)
                 {
