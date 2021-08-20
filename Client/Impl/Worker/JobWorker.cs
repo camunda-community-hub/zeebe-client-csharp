@@ -41,7 +41,7 @@ namespace Zeebe.Client.Impl.Worker
         private readonly TimeSpan pollInterval;
         private readonly double thresholdJobsActivation;
 
-        private volatile int currentJobsActive;
+        private int currentJobsActive;
         private volatile bool isRunning;
 
         internal JobWorker(JobWorkerBuilder builder)
@@ -97,7 +97,10 @@ namespace Zeebe.Client.Impl.Worker
             var input = new BufferBlock<IJob>(bufferOptions);
             var transformer = new TransformBlock<IJob, IJob>(async activatedJob => await HandleActivatedJob(activatedJob, cancellationToken),
                 executionOptions);
-            var output = new ActionBlock<IJob>(activatedJob => { currentJobsActive--; },
+            var output = new ActionBlock<IJob>(activatedJob =>
+                {
+                    Interlocked.Decrement(ref currentJobsActive);
+                },
                 executionOptions);
 
             input.LinkTo(transformer);
@@ -138,9 +141,10 @@ namespace Zeebe.Client.Impl.Worker
         {
             while (!source.IsCancellationRequested)
             {
-                if (currentJobsActive < thresholdJobsActivation)
+                var currentJobs = Thread.VolatileRead(ref currentJobsActive);
+                if (currentJobs < thresholdJobsActivation)
                 {
-                    var jobCount = maxJobsActive - currentJobsActive;
+                    var jobCount = maxJobsActive - currentJobs;
                     activateJobsCommand.MaxJobsToActivate(jobCount);
 
                     try
@@ -171,7 +175,7 @@ namespace Zeebe.Client.Impl.Worker
             foreach (var job in response.Jobs)
             {
                 await input.SendAsync(job);
-                currentJobsActive++;
+                Interlocked.Increment(ref currentJobsActive);
             }
         }
 
