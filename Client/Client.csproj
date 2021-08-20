@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,23 +13,20 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
     <PackageReleaseNotes>
 Features:
 
-      * Add new Camunda Cloud Client https://github.com/camunda-community-hub/zeebe-client-csharp/pull/280
-      * Switch to common user agent format https://github.com/camunda-community-hub/zeebe-client-csharp/pull/278
-      * Refactor send API https://github.com/camunda-community-hub/zeebe-client-csharp/pull/265
 
 Bug Fixes:
 
-      * Fix problems with accessing multiple camunda cloud clusters https://github.com/camunda-community-hub/zeebe-client-csharp/pull/276
+      * Fix concurrent counter updates in job worker https://github.com/camunda-community-hub/zeebe-client-csharp/pull/307
 
 Misc:
 
-      * Migrate to Zeebe 1.0.0 breaking changes https://github.com/camunda-community-hub/zeebe-client-csharp/pull/257
-      * More commands support SendWithRetry
+      * Update Dependencies
+
 
 -----
 
@@ -43,9 +40,9 @@ This release is based on the Zeebe 1.0.X release (https://github.com/zeebe-io/ze
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>1.0.0</Title>
+    <Title>1.0.1</Title>
   </PropertyGroup>
 
   <ItemGroup>
