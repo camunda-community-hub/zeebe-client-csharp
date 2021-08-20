@@ -9,7 +9,7 @@ using static GatewayProtocol.Gateway;
 
 namespace Zeebe.Client.Impl.Commands
 {
-    public delegate void ConsumeJob(IActivateJobsResponse response);
+    public delegate Task ConsumeJob(IActivateJobsResponse response);
     internal class JobActivator
     {
         private readonly GatewayClient client;
@@ -21,7 +21,7 @@ namespace Zeebe.Client.Impl.Commands
 
         public async Task SendActivateRequest(ActivateJobsRequest request, ConsumeJob consumer, DateTime? requestTimeout = null, CancellationToken? cancellationToken = null)
         {
-            DateTime activateRequestTimeout = requestTimeout ?? CalculateRequestTimeout(request);
+            var activateRequestTimeout = requestTimeout ?? CalculateRequestTimeout(request);
             using (var stream = client.ActivateJobs(request, deadline: activateRequestTimeout))
             {
                 var responseStream = stream.ResponseStream;
@@ -30,7 +30,7 @@ namespace Zeebe.Client.Impl.Commands
                 {
                     var currentResponse = responseStream.Current;
                     var response = new ActivateJobsResponses(currentResponse);
-                    consumer.Invoke(response);
+                    await consumer.Invoke(response);
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace Zeebe.Client.Impl.Commands
                 : TimeSpan.FromSeconds((longPollingTimeout / 1000f) + 10).FromUtcNow();
         }
 
-        private async Task<bool> MoveNext(IAsyncStreamReader<ActivateJobsResponse> stream, CancellationToken? cancellationToken = null)
+        private static async Task<bool> MoveNext(IAsyncStreamReader<ActivateJobsResponse> stream, CancellationToken? cancellationToken = null)
         {
             if (cancellationToken.HasValue)
             {
