@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GatewayProtocol;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Impl.Responses
@@ -15,7 +16,17 @@ namespace Zeebe.Client.Impl.Responses
 
         public ActivateJobsResponses(GatewayProtocol.ActivateJobsResponse jobsResponse)
         {
-            Jobs = jobsResponse.Jobs
+            Jobs = ConvertToList(jobsResponse);
+        }
+
+        public void Add(IActivateJobsResponse jobsResponse)
+        {
+            ((List<IJob>) Jobs).AddRange(jobsResponse.Jobs);
+        }
+
+        private static List<IJob> ConvertToList(ActivateJobsResponse jobsResponse)
+        {
+            return jobsResponse.Jobs
                 .Select(job => new ActivatedJob(job))
                 .Cast<IJob>()
                 .ToList();
