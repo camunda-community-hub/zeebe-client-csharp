@@ -9,6 +9,7 @@ using static GatewayProtocol.Gateway;
 
 namespace Zeebe.Client.Impl.Commands
 {
+    public delegate Task ConsumeJob(IActivateJobsResponse response);
     internal class JobActivator
     {
         private readonly GatewayClient client;
@@ -18,20 +19,19 @@ namespace Zeebe.Client.Impl.Commands
             this.client = client;
         }
 
-        public async Task<IActivateJobsResponse> SendActivateRequest(ActivateJobsRequest request, DateTime? requestTimeout = null, CancellationToken? cancellationToken = null)
+        public async Task SendActivateRequest(ActivateJobsRequest request, ConsumeJob consumer, DateTime? requestTimeout = null, CancellationToken? cancellationToken = null)
         {
-            DateTime activateRequestTimeout = requestTimeout ?? CalculateRequestTimeout(request);
+            var activateRequestTimeout = requestTimeout ?? CalculateRequestTimeout(request);
             using (var stream = client.ActivateJobs(request, deadline: activateRequestTimeout))
             {
                 var responseStream = stream.ResponseStream;
-                if (await MoveNext(responseStream, cancellationToken))
-                {
-                    var response = responseStream.Current;
-                    return new ActivateJobsResponses(response);
-                }
 
-                // empty response
-                return new ActivateJobsResponses();
+                while (await MoveNext(responseStream, cancellationToken))
+                {
+                    var currentResponse = responseStream.Current;
+                    var response = new ActivateJobsResponses(currentResponse);
+                    await consumer.Invoke(response);
+                }
             }
         }
 
@@ -44,7 +44,7 @@ namespace Zeebe.Client.Impl.Commands
                 : TimeSpan.FromSeconds((longPollingTimeout / 1000f) + 10).FromUtcNow();
         }
 
-        private async Task<bool> MoveNext(IAsyncStreamReader<ActivateJobsResponse> stream, CancellationToken? cancellationToken = null)
+        private static async Task<bool> MoveNext(IAsyncStreamReader<ActivateJobsResponse> stream, CancellationToken? cancellationToken = null)
         {
             if (cancellationToken.HasValue)
             {
