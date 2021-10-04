@@ -22,37 +22,20 @@ If you have a general usage question please ask on the [forum][] or [slack][] ch
 
 ## Work on an issue
 
-Please refer the [Contributing](https://github.com/zeebe-io/zeebe/blob/master/CONTRIBUTING.md) details of zeebe project.
+Please refer the [working on an issue](https://github.com/camunda-cloud/zeebe/blob/develop/CONTRIBUTING.md#starting-on-an-issue) details of zeebe project.
 
 ## GitHub Issue Guidelines
 
-Please refer the [Contributing](https://github.com/zeebe-io/zeebe/blob/master/CONTRIBUTING.md) details of zeebe project.
+Please refer the [github issue guidelines](https://github.com/camunda-cloud/zeebe/blob/develop/CONTRIBUTING.md#github-issue-guidelines) details of zeebe project.
 
 ## Commit Message Guidelines
 
-The commit message should match the following pattern
-```
-%{type}(%{scope}): %{description}
-```
-
-- `type` and `scope` should be chosen as follows
-    - `feat`: For user facing features or improvements. `scope` should be `client`
-    - `fix`: For user facing bug fixes. `scope` should be either
-      `client`, `test` or `example`.
-    - `chore`: For code changes which are not user facing, `scope` should be either
-      `client`, `test` or `example.
-    - `docs`:  For changes on the documentation. `scope` should be either
-      `client`, `test` or `example
-- `description`: short description of the change to a max length of the whole
-  subject line of 120 characters
+Please refer the [Commit guidelines](https://github.com/camunda-cloud/zeebe/blob/develop/CONTRIBUTING.md#commit-message-guidelines) details of zeebe project.
 
 ## License
 
-Most Zeebe source files are made available under the [Apache License, Version
-2.0](/APACHE-2.0) except for the [broker-core](/broker-core) component. The
-[broker-core](/broker-core) source files are made available under the terms of
-the [GNU Affero General Public License (GNU AGPLv3)](/GNU-AGPL-3.0). See
-individual source files for details.
+Source files are made available under the [Apache License, Version
+2.0](/APACHE-2.0). See individual source files for details.
 
 If you would like to contribute something, or simply want to hack on the code
 this document should help you get started.
