@@ -12,6 +12,7 @@ namespace Zeebe.Client.Impl.Commands
     {
         private readonly UpdateJobRetriesRequest request;
         private readonly Gateway.GatewayClient client;
+        private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
         public UpdateRetriesCommand(Gateway.GatewayClient client, long jobKey)
         {
@@ -38,6 +39,11 @@ namespace Zeebe.Client.Impl.Commands
         public async Task<IUpdateRetriesResponse> Send(CancellationToken cancellationToken)
         {
             return await Send(token: cancellationToken);
+        }
+
+        public async Task<IUpdateRetriesResponse> SendWithRetry(CancellationToken cancellationToken)
+        {
+            return await asyncRetryStrategy.DoWithRetry(() => Send(token: cancellationToken));
         }
     }
 }
