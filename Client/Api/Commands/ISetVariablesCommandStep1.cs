@@ -14,7 +14,7 @@ namespace Zeebe.Client.Api.Commands
         ISetVariablesCommandStep2 Variables(string variables);
     }
 
-    public interface ISetVariablesCommandStep2 : IFinalCommandStep<ISetVariablesResponse>
+    public interface ISetVariablesCommandStep2 : IFinalCommandWithRetryStep<ISetVariablesResponse>
     {
         /// <summary>
         /// The variables will be merged strictly into the local scope (as indicated by the given elementInstanceKey);
