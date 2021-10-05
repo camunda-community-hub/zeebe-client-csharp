@@ -127,7 +127,7 @@ namespace Zeebe.Client
 
         public IThrowErrorCommandStep1 NewThrowErrorCommand(long jobKey)
         {
-            return new ThrowErrorCommand(gatewayClient, jobKey);
+            return new ThrowErrorCommand(gatewayClient, asyncRetryStrategy,jobKey);
         }
 
         ////////////////////////////////////////////////////////////////////////
