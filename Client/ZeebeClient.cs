@@ -122,7 +122,7 @@ namespace Zeebe.Client
 
         public IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey)
         {
-            return new UpdateRetriesCommand(gatewayClient, jobKey);
+            return new UpdateRetriesCommand(gatewayClient, asyncRetryStrategy, jobKey);
         }
 
         public IThrowErrorCommandStep1 NewThrowErrorCommand(long jobKey)
@@ -164,7 +164,7 @@ namespace Zeebe.Client
             return new PublishMessageCommand(gatewayClient);
         }
 
-        public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient);
+        public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient, asyncRetryStrategy);
 
         public void Dispose()
         {

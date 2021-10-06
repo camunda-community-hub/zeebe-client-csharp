@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Impl.Responses;
 
@@ -27,9 +28,11 @@ namespace Zeebe.Client.Impl.Commands
     {
         private readonly Gateway.GatewayClient gatewayClient;
         private readonly TopologyRequest request = new TopologyRequest();
+        private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-        public TopologyRequestCommand(Gateway.GatewayClient client)
+        public TopologyRequestCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
         {
+
             gatewayClient = client;
         }
 
@@ -39,6 +42,11 @@ namespace Zeebe.Client.Impl.Commands
             var response = await asyncReply.ResponseAsync;
 
             return new Topology(response);
+        }
+
+        public async Task<ITopology> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+        {
+            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
         }
 
         public async Task<ITopology> Send(CancellationToken cancellationToken)
