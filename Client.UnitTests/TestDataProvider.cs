@@ -52,7 +52,7 @@ namespace Zeebe.Client
                     new SetVariablesRequest(),
                     new  SetVariablesResponse(),
                     (RequestCreator<ISetVariablesResponse>)
-                    (zeebeClient => zeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}").Send()));	
+                    (zeebeClient => zeebeClient.NewSetVariablesCommand()));	
             }
 
     }
