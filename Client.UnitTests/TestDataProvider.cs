@@ -49,10 +49,8 @@ namespace Zeebe.Client
                     (RequestCreator<IUpdateRetriesResponse>)
                     (zeebeClient => zeebeClient.NewUpdateRetriesCommand(12113L).Retries(1)));
                 yield return new TestCaseData(
-                    new SetVariablesRequest
-                    {
-                        ProcessInstanceKey = 12113  
-                    }, new  SetVariablesResponse()
+                    new SetVariablesRequest(),
+                    new  SetVariablesResponse(),
                     (RequestCreator<ISetVariables>)
                     (zeebeClient => zeebeClient.SetVariablesRequest()));	
             }
