@@ -33,6 +33,21 @@ namespace Zeebe.Client
                     }, new ActivateJobsResponse(),
                     (RequestCreator<IActivateJobsResponse>)
                     (zeebeClient => zeebeClient.NewActivateJobsCommand().JobType("type").MaxJobsToActivate(12)));
+                yield return new TestCaseData(
+                    new TopologyRequest
+                    {
+                        ProcessInstanceKey = 12113
+                    }, new TopologyResponse(),
+                    (RequestCreator<ITopology>)
+                    (zeebeClient => zeebeClient.TopologyRequest()));
+                yield return new TestCaseData(
+                    new UpdateRetries
+                    {
+                        ProcessInstanceKey = 12113
+                    }, new UpdateRetriesResponse()
+                    { RequestCreator<IUpdateRetries>}
+                    (ZeebeClientTest => ZeebeClient.NewUpdateRetriesCommand()));
             }
+
     }
 }
