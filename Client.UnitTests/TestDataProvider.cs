@@ -55,7 +55,7 @@ namespace Zeebe.Client
                     },
                     new  SetVariablesResponse(),
                     (RequestCreator<ISetVariablesResponse>)
-                    (zeebeClient => zeebeClient.NewSetVariablesCommand()));	
+                    (zeebeClient => zeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}").Send()));	
             }
 
     }
