@@ -51,7 +51,7 @@ namespace Zeebe.Client
                 yield return new TestCaseData(
                     new SetVariablesRequest(),
                     new  SetVariablesResponse(),
-                    (RequestCreator<ISetVariables>)
+                    (RequestCreator<ISetVariablesResponse>)
                     (zeebeClient => zeebeClient.SetVariablesRequest()));	
             }
 
