@@ -49,10 +49,13 @@ namespace Zeebe.Client
                     (RequestCreator<IUpdateRetriesResponse>)
                     (zeebeClient => zeebeClient.NewUpdateRetriesCommand(12113L).Retries(1)));
                 yield return new TestCaseData(
-                    new SetVariablesRequest,
+                    new SetVariablesRequest
+                    {
+                        JobKey = 12113
+                    },
                     new  SetVariablesResponse(),
                     (RequestCreator<ISetVariablesResponse>)
-                    (zeebeClient => zeebeClient.SetVariablesRequest()));	
+                    (zeebeClient => zeebeClient.NewSetVariablesCommand()));	
             }
 
     }
