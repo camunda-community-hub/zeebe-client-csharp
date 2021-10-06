@@ -33,6 +33,13 @@ namespace Zeebe.Client
                     }, new ActivateJobsResponse(),
                     (RequestCreator<IActivateJobsResponse>)
                     (zeebeClient => zeebeClient.NewActivateJobsCommand().JobType("type").MaxJobsToActivate(12)));
-            }
+                 yield return new TestCaseData(
+                    new SetVariablesRequest
+                    {
+                        ProcessInstanceKey = 12113  
+                    }, new  SetVariablesRequest(),
+                    (RequestCreator<ISetVariables>)
+                    (zeebeClient => zeebeClient.SetVariablesRequest()));
+        }
     }
 }
