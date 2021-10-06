@@ -3,6 +3,9 @@ using GatewayProtocol;
 using NUnit.Framework;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
+using Zeebe.Client.Impl.Responses;
+using CancelProcessInstanceResponse = GatewayProtocol.CancelProcessInstanceResponse;
+using CompleteJobResponse = GatewayProtocol.CompleteJobResponse;
 
 namespace Zeebe.Client
 {
@@ -38,13 +41,14 @@ namespace Zeebe.Client
                     new TopologyResponse(),
                     (RequestCreator<ITopology>)
                     (zeebeClient => zeebeClient.TopologyRequest()));
+          
                 yield return new TestCaseData(
-                    new UpdateRetries
+                    new UpdateJobRetriesRequest
                     {
-                        ProcessInstanceKey = 12113
-                    }, new UpdateRetriesResponse()
-                    { RequestCreator<IUpdateRetries>}
-                    (ZeebeClientTest => ZeebeClient.NewUpdateRetriesCommand()));
+                        JobKey = 12113
+                    }, new UpdateRetriesResponse(),
+                    (RequestCreator<IUpdateRetriesResponse>)
+                    (zeebeClient => zeebeClient.NewUpdateRetriesCommand(12113L).Retries(1)));
                 yield return new TestCaseData(
                     new ThrowErrorRequest()
                     {
@@ -55,4 +59,4 @@ namespace Zeebe.Client
             }
 
     }
-}}
+}

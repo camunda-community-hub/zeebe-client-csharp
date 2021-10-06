@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Impl.Responses;
 
@@ -12,14 +13,16 @@ namespace Zeebe.Client.Impl.Commands
     {
         private readonly UpdateJobRetriesRequest request;
         private readonly Gateway.GatewayClient client;
+        private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-        public UpdateRetriesCommand(Gateway.GatewayClient client, long jobKey)
+        public UpdateRetriesCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
         {
             request = new UpdateJobRetriesRequest
             {
                 JobKey = jobKey
             };
             this.client = client;
+            this.asyncRetryStrategy = asyncRetryStrategy;
         }
 
         public IUpdateRetriesCommandStep2 Retries(int retries)
@@ -38,6 +41,11 @@ namespace Zeebe.Client.Impl.Commands
         public async Task<IUpdateRetriesResponse> Send(CancellationToken cancellationToken)
         {
             return await Send(token: cancellationToken);
+        }
+
+        public async Task<IUpdateRetriesResponse> SendWithRetry(TimeSpan? timeout = null, CancellationToken token = default)
+        {
+            return await asyncRetryStrategy.DoWithRetry(() => Send(timeout, token));
         }
     }
 }
