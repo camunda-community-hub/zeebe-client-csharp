@@ -16,7 +16,7 @@ namespace Zeebe.Client.Api.Commands
         IThrowErrorCommandStep2 ErrorCode(string errorCode);
     }
 
-    public interface IThrowErrorCommandStep2 : IFinalCommandStep<IThrowErrorResponse>
+    public interface IThrowErrorCommandStep2 : IFinalCommandWithRetryStep<IThrowErrorResponse>
     {
         /// <summary>
         /// Provide an error message describing the reason for the non-technical error.
