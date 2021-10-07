@@ -41,7 +41,6 @@ namespace Zeebe.Client
                     new TopologyResponse(),
                     (RequestCreator<ITopology>)
                     (zeebeClient => zeebeClient.TopologyRequest()));
-          
                 yield return new TestCaseData(
                     new UpdateJobRetriesRequest
                     {
@@ -61,6 +60,13 @@ namespace Zeebe.Client
                     }, new GatewayProtocol.ThrowErrorResponse(),
                     (RequestCreator<IThrowErrorResponse>)
                     (zeebeClient => zeebeClient.NewThrowErrorCommand(12113).ErrorCode("Code 13").ErrorMessage("This is a business error!")));
-            }
+                yield return new TestCaseData(
+                    new ResolveIncidentRequest
+                    {
+                        IncidentKey = 1201321
+                    }, new GatewayProtocol.ResolveIncidentResponse(),
+                    (RequestCreator<IResolveIncidentResponse>)
+                    (zeebeClient => zeebeClient.NewResolveIncidentCommand(1201321)));
+        }
     }
 }
