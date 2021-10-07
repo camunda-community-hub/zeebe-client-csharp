@@ -141,7 +141,7 @@ namespace Zeebe.Client
 
         public ICreateProcessInstanceCommandStep1 NewCreateProcessInstanceCommand()
         {
-            return new CreateProcessInstanceCommand(gatewayClient);
+            return new CreateProcessInstanceCommand(gatewayClient, asyncRetryStrategy);
         }
 
         public ICancelProcessInstanceCommandStep1 NewCancelInstanceCommand(long processInstanceKey)

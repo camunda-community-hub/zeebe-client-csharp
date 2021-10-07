@@ -67,6 +67,19 @@ namespace Zeebe.Client
                     }, new GatewayProtocol.ResolveIncidentResponse(),
                     (RequestCreator<IResolveIncidentResponse>)
                     (zeebeClient => zeebeClient.NewResolveIncidentCommand(1201321)));
-        }
+                yield return new TestCaseData(
+                    new CreateProcessInstanceRequest
+                    {
+                        BpmnProcessId = "Process"
+                    },
+                    new CreateProcessInstanceResponse(),
+                    (RequestCreator<ICreateProcessInstanceCommandStep3>)
+                    (zeebeClient => (IFinalCommandWithRetryStep<ICreateProcessInstanceCommandStep3>)zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion()));
+                yield return new TestCaseData(
+                    new CreateProcessInstanceWithResultRequest(),
+                    new CreateProcessInstanceWithResultResponse(),
+                    (RequestCreator<ICreateProcessInstanceWithResultCommandStep1>)
+                    (zeebeClient => (IFinalCommandWithRetryStep<ICreateProcessInstanceWithResultCommandStep1>)zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion().WithResult()));
+                }
     }
 }
