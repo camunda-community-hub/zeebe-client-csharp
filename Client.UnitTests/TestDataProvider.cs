@@ -49,11 +49,11 @@ namespace Zeebe.Client
                     (RequestCreator<IUpdateRetriesResponse>)
                     (zeebeClient => zeebeClient.NewUpdateRetriesCommand(12113L).Retries(1)));
                 yield return new TestCaseData(
-                    new SetVariablesRequest(), 
-                    new SetVariablesResponse(),
+                    new SetVariablesRequest(),
+                    new GatewayProtocol.SetVariablesResponse(),
                     (RequestCreator<ISetVariablesResponse>)
-                    (zeebeClient => zeebeClient.SetVariablesRequest()));	
-            }
+                    (zeebeClient => zeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}")));
+        }
 
     }
 }
