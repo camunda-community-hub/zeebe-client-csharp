@@ -29,7 +29,7 @@ namespace Zeebe.Client.Impl.Commands
         private readonly ThrowErrorRequest request;
         private readonly GatewayClient gatewayClient;
         private readonly IAsyncRetryStrategy asyncRetryStrategy;
-        
+
         public ThrowErrorCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
         {
             gatewayClient = client;
@@ -63,7 +63,7 @@ namespace Zeebe.Client.Impl.Commands
         {
             return await Send(token: cancellationToken);
         }
-        
+
         public async Task<IThrowErrorResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
         {
             return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));

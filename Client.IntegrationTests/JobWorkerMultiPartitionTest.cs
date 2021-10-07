@@ -15,7 +15,7 @@ namespace Client.IntegrationTests
     {
         private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "oneTaskProcess.bpmn");
 
-        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest().withPartitionCount(3);
+        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest().WithPartitionCount(3);
         private IZeebeClient zeebeClient;
         private long processDefinitionKey;
 
@@ -73,7 +73,6 @@ namespace Client.IntegrationTests
 
             Assert.AreEqual(3, handledJobs.Count);
         }
-
 
         [Test]
         public async Task ShouldActivateAllJobs()

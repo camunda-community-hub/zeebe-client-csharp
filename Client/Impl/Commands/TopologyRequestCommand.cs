@@ -32,8 +32,8 @@ namespace Zeebe.Client.Impl.Commands
 
         public TopologyRequestCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
         {
-
             gatewayClient = client;
+            this.asyncRetryStrategy = asyncRetryStrategy;
         }
 
         public async Task<ITopology> Send(TimeSpan? timeout = null, CancellationToken token = default)

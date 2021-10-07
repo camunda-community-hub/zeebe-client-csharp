@@ -75,7 +75,7 @@ namespace Zeebe.Client
         /// <summary>
         /// Adds keepAlive options to the channel options.
         /// </summary>
-        /// <param name="channelOptions">the current existing channel options</param>
+        /// <param name="channelOptions">the current existing channel options.</param>
         private void AddKeepAliveToChannelOptions(List<ChannelOption> channelOptions, TimeSpan? keepAlive)
         {
             // GRPC_ARG_KEEPALIVE_PERMIT_WITHOUT_CALLS
@@ -127,7 +127,7 @@ namespace Zeebe.Client
 
         public IThrowErrorCommandStep1 NewThrowErrorCommand(long jobKey)
         {
-            return new ThrowErrorCommand(gatewayClient, asyncRetryStrategy,jobKey);
+            return new ThrowErrorCommand(gatewayClient, asyncRetryStrategy, jobKey);
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -161,7 +161,7 @@ namespace Zeebe.Client
 
         public IPublishMessageCommandStep1 NewPublishMessageCommand()
         {
-            return new PublishMessageCommand(gatewayClient);
+            return new PublishMessageCommand(gatewayClient, asyncRetryStrategy);
         }
 
         public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient, asyncRetryStrategy);
@@ -181,7 +181,7 @@ namespace Zeebe.Client
         /// Creates an new IZeebeClientBuilder. This builder need to be used to construct
         /// a ZeebeClient.
         /// </summary>
-        /// <returns>an builder to construct an ZeebeClient</returns>
+        /// <returns>an builder to construct an ZeebeClient.</returns>
         public static IZeebeClientBuilder Builder()
         {
             return new ZeebeClientBuilder();

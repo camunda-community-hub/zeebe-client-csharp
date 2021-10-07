@@ -33,7 +33,7 @@ namespace Client.IntegrationTests
             return new ZeebeIntegrationTestHelper(LatestVersion);
         }
 
-        public ZeebeIntegrationTestHelper withPartitionCount(int count)
+        public ZeebeIntegrationTestHelper WithPartitionCount(int count)
         {
             this.count = count;
             return this;

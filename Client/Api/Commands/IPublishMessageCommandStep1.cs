@@ -23,8 +23,8 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the name of the message.
         /// </summary>
-        /// <param name="messageName"> the name of the message</param>
-        /// <returns>the builder for this command</returns>
+        /// <param name="messageName"> the name of the message.</param>
+        /// <returns>the builder for this command.</returns>
         IPublishMessageCommandStep2 MessageName(string messageName);
     }
 
@@ -36,19 +36,19 @@ namespace Zeebe.Client.Api.Commands
         /// This value will be used together with the message name
         /// to find matching message subscriptions.
         /// </summary>
-        /// <param name="correlationKey">the correlation key value of the message</param>
+        /// <param name="correlationKey">the correlation key value of the message.</param>
         /// <returns>the builder for this command</returns>
         IPublishMessageCommandStep3 CorrelationKey(string correlationKey);
     }
 
-    public interface IPublishMessageCommandStep3 : IFinalCommandStep<IPublishMessageResponse>
+    public interface IPublishMessageCommandStep3 : IFinalCommandWithRetryStep<IPublishMessageResponse>
     {
         /// <summary>
         /// Set the id of the message. The message is rejected if another message is already published
         /// with the same id, name and correlation-key.
         /// </summary>
-        /// <param name="messageId">the id of the message</param>
-        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
+        /// <param name="messageId">the id of the message.</param>
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandWithRetryStep{T}.Send"/> to complete the command and send
         ///     it to the broker.</returns>
         IPublishMessageCommandStep3 MessageId(string messageId);
 
@@ -70,7 +70,7 @@ namespace Zeebe.Client.Api.Commands
         /// Set the variables of the message.
         /// </summary>
         ///
-        /// <param name="variables">the variables (JSON) as String</param>
+        /// <param name="variables">the variables (JSON) as String.</param>
         /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
         ///     it to the broker.</returns>
         IPublishMessageCommandStep3 Variables(string variables);

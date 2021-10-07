@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
 using PublishMessageResponse = Zeebe.Client.Impl.Responses.PublishMessageResponse;
@@ -28,11 +29,13 @@ namespace Zeebe.Client.Impl.Commands
     {
         private readonly PublishMessageRequest request;
         private readonly GatewayClient gatewayClient;
+        private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-        public PublishMessageCommand(GatewayClient client)
+        public PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
         {
             gatewayClient = client;
             request = new PublishMessageRequest();
+            this.asyncRetryStrategy = asyncRetryStrategy;
         }
 
         public IPublishMessageCommandStep3 CorrelationKey(string correlationKey)
@@ -75,6 +78,11 @@ namespace Zeebe.Client.Impl.Commands
         public async Task<IPublishMessageResponse> Send(CancellationToken cancellationToken)
         {
             return await Send(token: cancellationToken);
+        }
+
+        public async Task<IPublishMessageResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+        {
+            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
         }
     }
 }
