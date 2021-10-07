@@ -151,7 +151,7 @@ namespace Zeebe.Client
 
         public ISetVariablesCommandStep1 NewSetVariablesCommand(long elementInstanceKey)
         {
-            return new SetVariablesCommand(gatewayClient, elementInstanceKey);
+            return new SetVariablesCommand(gatewayClient, asyncRetryStrategy, elementInstanceKey);
         }
 
         public IResolveIncidentCommandStep1 NewResolveIncidentCommand(long incidentKey)
