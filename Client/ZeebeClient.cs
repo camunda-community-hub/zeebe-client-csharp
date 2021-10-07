@@ -156,7 +156,7 @@ namespace Zeebe.Client
 
         public IResolveIncidentCommandStep1 NewResolveIncidentCommand(long incidentKey)
         {
-            return new ResolveIncidentCommand(gatewayClient, incidentKey);
+            return new ResolveIncidentCommand(gatewayClient, asyncRetryStrategy, incidentKey);
         }
 
         public IPublishMessageCommandStep1 NewPublishMessageCommand()
