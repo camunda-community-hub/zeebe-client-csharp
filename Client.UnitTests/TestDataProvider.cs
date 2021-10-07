@@ -52,10 +52,10 @@ namespace Zeebe.Client
                 yield return new TestCaseData(
                     new ThrowErrorRequest()
                     {
-                        ProcessInstanceKey = 12113
-                    }, new ThrowErrorResponse()
-                    { RequestCreator<IThrowErrorCommand>}
-                    (ZeebeClientTest => ZeebeClient.NewThrowErrorCommand()));
+                        JobKey = 12113
+                    }, new GatewayProtocol.ThrowErrorResponse(),
+                    (RequestCreator<IThrowErrorResponse>)
+                    (zeebeClient => zeebeClient.NewThrowErrorCommand(12113).ErrorCode("Code 13").ErrorMessage("This is a business error!")));
             }
 
     }
