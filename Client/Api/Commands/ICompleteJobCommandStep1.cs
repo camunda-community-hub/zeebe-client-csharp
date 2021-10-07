@@ -21,8 +21,8 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Set the variables to complete the job with.
         /// </summary>
-        /// <param name="variables">the variables (JSON) as String</param>
-        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
+        /// <param name="variables">the variables (JSON) as String.</param>
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandWithRetryStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
         ICompleteJobCommandStep1 Variables(string variables);
     }

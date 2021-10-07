@@ -43,13 +43,13 @@ namespace Zeebe.Client.Api.Commands
         ICreateProcessInstanceCommandStep3 LatestVersion();
     }
 
-    public interface ICreateProcessInstanceCommandStep3 : IFinalCommandStep<IProcessInstanceResponse>
+    public interface ICreateProcessInstanceCommandStep3 : IFinalCommandWithRetryStep<IProcessInstanceResponse>
     {
         /// <summary>
         /// Set the initial variables of the process instance.
         /// </summary>
         /// <param name="variables">the variables (JSON) as String</param>
-        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandWithRetryStep{T}.Send"/> to complete the command and send
         ///     it to the broker.</returns>
         ICreateProcessInstanceCommandStep3 Variables(string variables);
 
