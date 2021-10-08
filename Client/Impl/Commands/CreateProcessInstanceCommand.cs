@@ -75,9 +75,9 @@ namespace Zeebe.Client.Impl.Commands
             return await Send(token: cancellationToken);
         }
 
-        public Task<IProcessInstanceResponse> SendWithRetry(TimeSpan? timeout = null, CancellationToken token = default)
+        public async Task<IProcessInstanceResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
         {
-            throw new NotImplementedException();
+            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
         }
     }
 }
