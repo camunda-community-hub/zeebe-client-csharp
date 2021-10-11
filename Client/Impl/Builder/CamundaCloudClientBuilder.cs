@@ -10,7 +10,7 @@ namespace Zeebe.Client.Impl.Builder
         private const string ZeebeAddressEnvVar = "ZEEBE_ADDRESS";
         private const string ZeebeClientIdEnvVar = "ZEEBE_CLIENT_ID";
         private const string ZeebeClientSecretEnvVar = "ZEEBE_CLIENT_SECRET";
-        private const string ZeebeAuthServerEnvVar = "ZEEBE_AUTHORIZATION_SERVER_UR";
+        private const string ZeebeAuthServerEnvVar = "ZEEBE_AUTHORIZATION_SERVER_URL";
 
         private readonly CamundaCloudTokenProviderBuilder camundaCloudTokenProviderBuilder;
         private string gatewayAddress;
