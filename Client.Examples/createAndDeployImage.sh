@@ -6,7 +6,7 @@ set -exuo pipefail
 ## Builds the project
 cd ../
 dotnet restore *.sln
-dotnet build *.sln
+dotnet publish *.sln # https://stackoverflow.com/questions/38796439/how-to-include-dependencies-in-net-core-app-docker-image/38804583
 
 ## Build image
 cd Client.Examples/
