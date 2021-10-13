@@ -20,12 +20,6 @@ namespace Client.Examples
 {
     internal class CloudWorkerExample
     {
-        private const string AuthServer = "https://login.cloud.ultrawombat.com/oauth/token";
-        private const string ClientId = "{clientId}";
-        private const string ClientSecret = "{clientSecret}";
-        private const string Audience = "{cluster-id}.zeebe.ultrawombat.com";
-        private const string ZeebeUrl = Audience + ":443";
-
         private static volatile int lastCompleted;
         private static volatile int currentCompleted;
         private static readonly string DemoProcessPath =
@@ -42,18 +36,11 @@ namespace Client.Examples
         public static async Task Main(string[] args)
         {
             // create zeebe client
-            var client = ZeebeClient.Builder()
-                .UseLoggerFactory(new NLogLoggerFactory())
-                .UseGatewayAddress(ZeebeUrl)
-                .UseTransportEncryption()
-                .UseAccessTokenSupplier(
-                    CamundaCloudTokenProvider.Builder()
-                        .UseAuthServer(AuthServer)
-                        .UseClientId(ClientId)
-                        .UseClientSecret(ClientSecret)
-                        .UseAudience(Audience)
-                        .Build())
-                .Build();
+            var client = 
+                CamundaCloudClientBuilder.Builder()
+                    .FromEnv()
+                    .UseLoggerFactory(new NLogLoggerFactory())
+                    .Build();
 
             var topology = await client.TopologyRequest().Send();
 

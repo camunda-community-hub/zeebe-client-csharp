@@ -1,8 +1,6 @@
 ## Camunda Cloud Example
 In the following you see an example of how to use the Zeebe C# client with the CamundaCloud.
-
-The `CamundaCloudTokenProvider` will request an access token from the CamundCloud and store it
-under `~/.zeebe/cloud.token`, such that it is possible to reuse the token. To build the provider you need informations from the CamundaCloud, like `clientId`, `clientSecret`, `audience` etc.
+`CamundaCloudClientBuilder.Builder().FromEnv()` will look for credentials details in the environment.
 
 ```csharp
 using System;
@@ -20,12 +18,6 @@ namespace Client.Examples
 {
     internal class Program
     {
-        private const string AuthServer = "https://login.cloud.ultrawombat.com/oauth/token";
-        private const string ClientId = "{clientId}";
-        private const string ClientSecret = "{clientSecret}";
-        private const string Audience = "{cluster-id}.zeebe.ultrawombat.com";
-        private const string ZeebeUrl = Audience + ":443";
-
         private static readonly string DemoProcessPath =
             Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ten_tasks.bpmn");
 
@@ -40,18 +32,11 @@ namespace Client.Examples
         public static async Task Main(string[] args)
         {
             // create zeebe client
-            var client = ZeebeClient.Builder()
-                .UseLoggerFactory(new NLogLoggerFactory())
-                .UseGatewayAddress(ZeebeUrl)
-                .UseTransportEncryption()
-                .UseAccessTokenSupplier(
-                    CamundaCloudTokenProvider.Builder()
-                        .UseAuthServer(AuthServer)
-                        .UseClientId(ClientId)
-                        .UseClientSecret(ClientSecret)
-                        .UseAudience(Audience)
-                        .Build())
-                .Build();
+            var client = 
+                CamundaCloudClientBuilder.Builder()
+                    .FromEnv()
+                    .UseLoggerFactory(new NLogLoggerFactory())
+                    .Build();
 
             var topology = await client.TopologyRequest().Send();
 

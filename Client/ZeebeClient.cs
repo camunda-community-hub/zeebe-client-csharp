@@ -55,6 +55,9 @@ namespace Zeebe.Client
         {
             this.loggerFactory = loggerFactory;
 
+            var logger = loggerFactory?.CreateLogger<ZeebeClient>();
+            logger.LogDebug("Connect to {Address}", address);
+
             var channelOptions = new List<ChannelOption>();
             var clientVersion = typeof(ZeebeClient).Assembly.GetName().Version;
             var userAgentString = $"zeebe-client-csharp/{clientVersion}";
@@ -156,7 +159,7 @@ namespace Zeebe.Client
 
         public IResolveIncidentCommandStep1 NewResolveIncidentCommand(long incidentKey)
         {
-            return new ResolveIncidentCommand(gatewayClient, incidentKey);
+            return new ResolveIncidentCommand(gatewayClient, asyncRetryStrategy, incidentKey);
         }
 
         public IPublishMessageCommandStep1 NewPublishMessageCommand()

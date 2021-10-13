@@ -65,6 +65,13 @@ namespace Zeebe.Client
                     new GatewayProtocol.PublishMessageResponse(),
                     (RequestCreator<IPublishMessageResponse>)
                     (zeebeClient => zeebeClient.NewPublishMessageCommand().MessageName("messageName").CorrelationKey("p-1")));
+                yield return new TestCaseData(
+                    new ResolveIncidentRequest
+                    {
+                        IncidentKey = 1201321
+                    }, new GatewayProtocol.ResolveIncidentResponse(),
+                    (RequestCreator<IResolveIncidentResponse>)
+                    (zeebeClient => zeebeClient.NewResolveIncidentCommand(1201321)));
         }
     }
 }
