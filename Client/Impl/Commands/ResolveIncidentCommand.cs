@@ -36,10 +36,10 @@ namespace Zeebe.Client.Impl.Commands
         {
             return await Send(token: cancellationToken);
         }
+
         public async Task<IResolveIncidentResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
         {
             return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
         }
-
     }
 }
