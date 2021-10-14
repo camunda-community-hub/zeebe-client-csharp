@@ -61,6 +61,11 @@ namespace Zeebe.Client
                     (RequestCreator<IThrowErrorResponse>)
                     (zeebeClient => zeebeClient.NewThrowErrorCommand(12113).ErrorCode("Code 13").ErrorMessage("This is a business error!")));
                 yield return new TestCaseData(
+                    new PublishMessageRequest(),
+                    new GatewayProtocol.PublishMessageResponse(),
+                    (RequestCreator<IPublishMessageResponse>)
+                    (zeebeClient => zeebeClient.NewPublishMessageCommand().MessageName("messageName").CorrelationKey("p-1")));
+                yield return new TestCaseData(
                     new ResolveIncidentRequest
                     {
                         IncidentKey = 1201321

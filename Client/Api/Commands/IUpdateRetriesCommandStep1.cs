@@ -12,7 +12,7 @@ namespace Zeebe.Client.Api.Commands
         /// If the given retries are greater than zero then this job will be picked up again by a job
         /// subscription and a related incident will be marked as resolved.
         /// </para>
-        /// <param name="retries">retries the retries of this job</param>
+        /// <param name="retries">retries the retries of this job.</param>
         /// <returns>
         /// the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it to the broker.
         /// </returns>
@@ -21,6 +21,6 @@ namespace Zeebe.Client.Api.Commands
 
     public interface IUpdateRetriesCommandStep2 : IFinalCommandWithRetryStep<IUpdateRetriesResponse>
     {
-    // the place for new optional parameters 
+    // the place for new optional parameters
     }
 }
