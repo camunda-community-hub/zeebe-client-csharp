@@ -74,7 +74,7 @@ namespace Zeebe.Client
                     },
                     new CreateProcessInstanceResponse(),
                     (RequestCreator<ICreateProcessInstanceCommandStep3>)
-                    (zeebeClient => (IFinalCommandWithRetryStep<ICreateProcessInstanceCommandStep3>)zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process")));
+                    (zeebeClient => (IFinalCommandWithRetryStep<ICreateProcessInstanceCommandStep3>)zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion()));
                 yield return new TestCaseData(
                     new CreateProcessInstanceWithResultRequest(),
                     new CreateProcessInstanceWithResultResponse(),
