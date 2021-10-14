@@ -3,9 +3,6 @@ using GatewayProtocol;
 using NUnit.Framework;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
-using Zeebe.Client.Impl.Responses;
-using CancelProcessInstanceResponse = GatewayProtocol.CancelProcessInstanceResponse;
-using CompleteJobResponse = GatewayProtocol.CompleteJobResponse;
 
 namespace Zeebe.Client
 {
@@ -44,32 +41,43 @@ namespace Zeebe.Client
                 yield return new TestCaseData(
                     new UpdateJobRetriesRequest
                     {
-                        JobKey = 12113
-                    }, new UpdateRetriesResponse(),
+                        JobKey = 12113L,
+                        Retries = 1
+                    }, new UpdateJobRetriesResponse(),
                     (RequestCreator<IUpdateRetriesResponse>)
                     (zeebeClient => zeebeClient.NewUpdateRetriesCommand(12113L).Retries(1)));
                 yield return new TestCaseData(
-                    new SetVariablesRequest(),
-                    new GatewayProtocol.SetVariablesResponse(),
+                    new SetVariablesRequest
+                    {
+                        ElementInstanceKey = 2123,
+                        Variables = "{\"foo\":\"bar\"}"
+                    },
+                    new SetVariablesResponse(),
                     (RequestCreator<ISetVariablesResponse>)
                     (zeebeClient => zeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}")));
                 yield return new TestCaseData(
-                    new ThrowErrorRequest()
+                    new ThrowErrorRequest
                     {
-                        JobKey = 12113
-                    }, new GatewayProtocol.ThrowErrorResponse(),
+                        JobKey = 12113,
+                        ErrorCode = "Code 13",
+                        ErrorMessage = "This is a business error!"
+                    }, new ThrowErrorResponse(),
                     (RequestCreator<IThrowErrorResponse>)
                     (zeebeClient => zeebeClient.NewThrowErrorCommand(12113).ErrorCode("Code 13").ErrorMessage("This is a business error!")));
                 yield return new TestCaseData(
-                    new PublishMessageRequest(),
-                    new GatewayProtocol.PublishMessageResponse(),
+                    new PublishMessageRequest
+                    {
+                        Name = "messageName",
+                        CorrelationKey = "p-1"
+                    },
+                    new PublishMessageResponse(),
                     (RequestCreator<IPublishMessageResponse>)
                     (zeebeClient => zeebeClient.NewPublishMessageCommand().MessageName("messageName").CorrelationKey("p-1")));
                 yield return new TestCaseData(
                     new ResolveIncidentRequest
                     {
                         IncidentKey = 1201321
-                    }, new GatewayProtocol.ResolveIncidentResponse(),
+                    }, new ResolveIncidentResponse(),
                     (RequestCreator<IResolveIncidentResponse>)
                     (zeebeClient => zeebeClient.NewResolveIncidentCommand(1201321)));
         }
