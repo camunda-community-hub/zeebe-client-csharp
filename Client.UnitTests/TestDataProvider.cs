@@ -101,8 +101,13 @@ namespace Zeebe.Client
                         RequestTimeout = 20000
                     },
                     new CreateProcessInstanceWithResultResponse(),
-                    (RequestCreator<IProcessInstanceResult>)
-                    (zeebeClient => zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion().WithResult()));
-                }
+                    (RequestCreator<ICreateProcessInstanceWithResultCommandStep1>)
+                    (zeebeClient => (IFinalCommandWithRetryStep<ICreateProcessInstanceWithResultCommandStep1>)zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion().WithResult()));
+                yield return new TestCaseData(
+                    new FailJobRequest(),
+                    new FailJobResponse(),
+                    (RequestCreator<IFailJobCommandStep1>)
+                    (zeebeClient => (IFinalCommandWithRetryStep<IFailJobCommandStep1>)zeebeClient.NewFailCommand(255)));
+            }
     }
 }
