@@ -120,7 +120,7 @@ namespace Zeebe.Client
 
         public IFailJobCommandStep1 NewFailCommand(long jobKey)
         {
-            return new FailJobCommand(gatewayClient, jobKey);
+            return new FailJobCommand(gatewayClient, asyncRetryStrategy, jobKey);
         }
 
         public IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey)

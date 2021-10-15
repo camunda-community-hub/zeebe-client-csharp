@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
 using FailJobResponse = Zeebe.Client.Impl.Responses.FailJobResponse;
@@ -28,10 +29,12 @@ namespace Zeebe.Client.Impl.Commands
     {
         private readonly FailJobRequest request;
         private readonly GatewayClient gatewayClient;
+        private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-        public FailJobCommand(GatewayClient client, long jobKey)
+        public FailJobCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
         {
             gatewayClient = client;
+            this.asyncRetryStrategy = asyncRetryStrategy;
             request = new FailJobRequest
             {
                 JobKey = jobKey
@@ -60,6 +63,11 @@ namespace Zeebe.Client.Impl.Commands
         public async Task<IFailJobResponse> Send(CancellationToken cancellationToken)
         {
             return await Send(token: cancellationToken);
+        }
+
+        public async Task<IFailJobResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+        {
+            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
         }
     }
 }
