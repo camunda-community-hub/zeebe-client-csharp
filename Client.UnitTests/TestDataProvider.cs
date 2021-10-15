@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using GatewayProtocol;
 using NUnit.Framework;
 using Zeebe.Client.Api.Commands;
@@ -96,7 +98,7 @@ namespace Zeebe.Client
                 yield return new TestCaseData(
                     new DeployProcessRequest(),
                     (RequestCreator<IDeployProcessCommandStep1>)
-                    (zeebeClient => (IFinalCommandWithRetryStep<IDeployProcessCommandStep1>)zeebeClient.NewDeployCommand()));
+                    (zeebeClient => (IFinalCommandWithRetryStep<IDeployProcessCommandStep1>)zeebeClient.NewDeployCommand().AddResourceFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn"))));
         }
     }
 }
