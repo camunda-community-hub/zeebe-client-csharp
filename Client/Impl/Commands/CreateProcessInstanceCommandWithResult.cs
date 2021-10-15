@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Impl.Responses;
 
@@ -17,11 +18,13 @@ namespace Zeebe.Client.Impl.Commands
 
         private readonly CreateProcessInstanceWithResultRequest createWithResultRequest;
         private readonly Gateway.GatewayClient client;
-
-        public CreateProcessInstanceCommandWithResult(Gateway.GatewayClient client, CreateProcessInstanceRequest createRequest)
+        private readonly IAsyncRetryStrategy asyncRetryStrategy;
+        
+        public CreateProcessInstanceCommandWithResult(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, CreateProcessInstanceRequest createRequest)
         {
             this.client = client;
             createWithResultRequest = new CreateProcessInstanceWithResultRequest { Request = createRequest };
+            this.asyncRetryStrategy = asyncRetryStrategy;
         }
 
         /// <inheritdoc/>
@@ -56,6 +59,11 @@ namespace Zeebe.Client.Impl.Commands
         public async Task<IProcessInstanceResult> Send(CancellationToken cancellationToken)
         {
                 return await Send(token: cancellationToken);
+        }
+
+        public async Task<IProcessInstanceResult> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+        {
+            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
         }
     }
 }
