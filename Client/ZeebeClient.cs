@@ -139,7 +139,7 @@ namespace Zeebe.Client
 
         public IDeployProcessCommandStep1 NewDeployCommand()
         {
-            return new DeployProcessCommand(gatewayClient);
+            return new DeployProcessCommand(gatewayClient, asyncRetryStrategy);
         }
 
         public ICreateProcessInstanceCommandStep1 NewCreateProcessInstanceCommand()

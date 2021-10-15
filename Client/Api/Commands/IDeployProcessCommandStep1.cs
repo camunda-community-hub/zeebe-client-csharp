@@ -70,7 +70,7 @@ namespace Zeebe.Client.Api.Commands
         IDeployProcessCommandBuilderStep2 AddResourceFile(string filename);
     }
 
-    public interface IDeployProcessCommandBuilderStep2 : IDeployProcessCommandStep1, IFinalCommandStep<IDeployResponse>
+    public interface IDeployProcessCommandBuilderStep2 : IDeployProcessCommandStep1, IFinalCommandWithRetryStep<IDeployResponse>
     {
         // the place for new optional parameters
     }
