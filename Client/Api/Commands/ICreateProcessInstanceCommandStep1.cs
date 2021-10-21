@@ -62,7 +62,7 @@ namespace Zeebe.Client.Api.Commands
     }
 
     public interface ICreateProcessInstanceWithResultCommandStep1
-        : IFinalCommandStep<IProcessInstanceResult>
+        : IFinalCommandWithRetryStep<IProcessInstanceResult>
     {
         /// <summary>
         /// Set a list of variables names which should be fetched in the response.
