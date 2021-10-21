@@ -43,8 +43,6 @@ var zeebeClient = CamundaCloudClientBuilder
       .UseClientSecret("CLIENT_SECRET")
       .UseContactPoint("ZEEBE_ADDRESS")
     .Build();
-
-var topology = await zeebeClient.TopologyRequest().Send();
 ```
 
 Alternatively you could also read the credentials from the environment:
@@ -54,8 +52,50 @@ var zeebeClient = CamundaCloudClientBuilder
     .Builder()
       .FromEnv()
     .Build();
+```
 
-var topology = await zeebeClient.TopologyRequest().Send();
+#### Implementing a worker
+A job worker is a service capable of performing a particular task in a process. After having build the C# Zeebe Client as shown in the example above you can create a new worker which subscribes to a certain **JobType**. 
+
+
+```csharp
+using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset)){
+  zeebeClient.NewWorker()
+    .JobType("worker")
+    .Handler(HandleJob)
+    .MaxJobsActive(5)
+    .Name(Environment.MachineName)
+    .AutoCompletion()
+    .PollInterval(TimeSpan.FromSeconds(1))
+    .Timeout(TimeSpan.FromSeconds(10))
+    .Open();
+
+  // blocks main thread, so that worker can run
+  signal.WaitOne();
+}
+```
+
+This code will also call a method called **HandleJob** which can execute your business logic of choice. A stub of this method is show below. You can also see how to pass variables back to Zeebe. 
+
+```csharp
+private static void HandleJob(IJobClient jobClient, IJob job){
+  // business logic
+
+  //Completion of a job
+  jobClient.NewCompleteJobCommand(job.Key)
+                    .Variables("{\"foo\":2}")
+                    .Send()
+                    .GetAwaiter()
+                    .GetResult();
+}
+```
+
+#### Making a typology request
+This example shows which broker is leader and follower for which partition. This is particularly useful when you run a cluster with multiple Zeebe brokers. To do so in C# use the code displayed below: 
+
+```csharp
+var topology = await client.TopologyRequest().Send();
+Console.WriteLine(topology);
 ```
 
 ## How to build
