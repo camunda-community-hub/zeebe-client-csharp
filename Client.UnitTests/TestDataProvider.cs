@@ -102,9 +102,11 @@ namespace Zeebe.Client
                     },
                     new CreateProcessInstanceWithResultResponse(),
                     (RequestCreator<ICreateProcessInstanceWithResultCommandStep1>)
-                    (zeebeClient => (IFinalCommandWithRetryStep<ICreateProcessInstanceWithResultCommandStep1>)zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion().WithResult()));
+                    (zeebeClient => (IFinalCommandWithRetryStep<ICreateProcessInstanceWithResultCommandStep1>)zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion().WithResult().Send()));
                 yield return new TestCaseData(
-                    new FailJobRequest{ JobKey = 255 },
+                    new FailJobRequest {
+                        JobKey = 255
+                        },
                     new FailJobResponse(),
                     (RequestCreator<IFailJobCommandStep1>)
                     (zeebeClient => (IFinalCommandWithRetryStep<IFailJobCommandStep1>)zeebeClient.NewFailCommand(255)));
