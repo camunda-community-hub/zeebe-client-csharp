@@ -19,7 +19,7 @@ namespace Zeebe.Client.Impl.Commands
         private readonly CreateProcessInstanceWithResultRequest createWithResultRequest;
         private readonly Gateway.GatewayClient client;
         private readonly IAsyncRetryStrategy asyncRetryStrategy;
-        
+
         public CreateProcessInstanceCommandWithResult(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, CreateProcessInstanceRequest createRequest)
         {
             this.client = client;
