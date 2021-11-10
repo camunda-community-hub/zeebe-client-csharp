@@ -33,7 +33,7 @@ namespace Zeebe.Client.Api.Commands
         IFailJobCommandStep2 Retries(int remainingRetries);
     }
 
-    public interface IFailJobCommandStep2 : IFinalCommandStep<IFailJobResponse>
+    public interface IFailJobCommandStep2 : IFinalCommandWithRetryStep<IFailJobResponse>
     {
         /// <summary>
         /// Set the error message of this failing job.
