@@ -37,7 +37,7 @@ namespace Zeebe.Client.Impl.Responses
 
         public override string ToString()
         {
-            return JsonConvert.SerializeObject(Brokers, Formatting.Indented);
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
 }
