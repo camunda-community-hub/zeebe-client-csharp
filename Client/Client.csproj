@@ -19,17 +19,23 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
 Features:
 
 
+  * feat: Migrate to .Net Core 3.1 by @Christian-Oleson in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/328
+  * Feat(client/ C#): Update TopologyRequestCommand and UpdateRetriesCommand for retries by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/329
+  * feature: use the client to send SetVariablesCommand with retries by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/332
+  * feature: use the client to send ThrowErrorCommand with retries. … by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/331
+  * feature: updated ResolveIncidentCommand so that it would run with ret… by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/334
+  * feat(client/c#): update PublishMessageCommand to run with retries.  Also update… by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/335
+  * feat(client/C#): Update CreateWorkFlowInstanceCommandWithResult to run with retries by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/336
+  * Askalik feature fail job command with retries by @Zelldon in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/356
+
 Bug Fixes:
 
-      * Fix job worker misses handling of activated jobs https://github.com/camunda-community-hub/zeebe-client-csharp/pull/312
-Misc:
-
-      * Update Dependencies
+Update Dependencies
 
 
 -----
 
-This release is based on the Zeebe 1.0.X release (https://github.com/zeebe-io/zeebe).
+This release is based on the Zeebe 1.2.X release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
