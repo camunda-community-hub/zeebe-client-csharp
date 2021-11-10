@@ -21,6 +21,7 @@ using System.Threading.Tasks;
 using GatewayProtocol;
 using Google.Protobuf;
 using Zeebe.Client.Api.Commands;
+using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Impl.Responses;
 
@@ -30,10 +31,12 @@ namespace Zeebe.Client.Impl.Commands
     {
         private readonly Gateway.GatewayClient gatewayClient;
         private readonly DeployProcessRequest request;
+        private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-        public DeployProcessCommand(Gateway.GatewayClient client)
+        public DeployProcessCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
         {
             gatewayClient = client;
+            this.asyncRetryStrategy = asyncRetryStrategy;
             request = new DeployProcessRequest();
         }
 
@@ -79,6 +82,11 @@ namespace Zeebe.Client.Impl.Commands
         public async Task<IDeployResponse> Send(CancellationToken cancellationToken)
         {
             return await Send(token: cancellationToken);
+        }
+
+        public async Task<IDeployResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+        {
+            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
         }
 
         private void AddProcess(ByteString resource, string resourceName)

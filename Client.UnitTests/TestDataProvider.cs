@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using GatewayProtocol;
 using NUnit.Framework;
 using Zeebe.Client.Api.Commands;
@@ -99,8 +101,15 @@ namespace Zeebe.Client
                         RequestTimeout = 20000
                     },
                     new CreateProcessInstanceWithResultResponse(),
-                    (RequestCreator<IProcessInstanceResult>)
-                    (zeebeClient => zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion().WithResult()));
-                }
+                    (RequestCreator<ICreateProcessInstanceWithResultCommandStep1>)
+                    (zeebeClient => (IFinalCommandWithRetryStep<ICreateProcessInstanceWithResultCommandStep1>)zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion().WithResult().Send()));
+                yield return new TestCaseData(
+                    new FailJobRequest {
+                        JobKey = 255
+                        },
+                    new FailJobResponse(),
+                    (RequestCreator<IFailJobCommandStep1>)
+                    (zeebeClient => (IFinalCommandWithRetryStep<IFailJobCommandStep1>)zeebeClient.NewFailCommand(255)));
+            }
     }
 }
