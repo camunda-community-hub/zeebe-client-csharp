@@ -2,9 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using GatewayProtocol;
+using Google.Protobuf;
 using NUnit.Framework;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
+using Zeebe.Client.Impl.Responses;
+using CancelProcessInstanceResponse = GatewayProtocol.CancelProcessInstanceResponse;
+using CompleteJobResponse = GatewayProtocol.CompleteJobResponse;
+using FailJobResponse = GatewayProtocol.FailJobResponse;
+using PublishMessageResponse = GatewayProtocol.PublishMessageResponse;
+using ResolveIncidentResponse = GatewayProtocol.ResolveIncidentResponse;
+using SetVariablesResponse = GatewayProtocol.SetVariablesResponse;
+using ThrowErrorResponse = GatewayProtocol.ThrowErrorResponse;
 
 namespace Zeebe.Client
 {
@@ -12,6 +21,8 @@ namespace Zeebe.Client
 
     public class TestDataProvider
     {
+        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
+
         public static IEnumerable<TestCaseData> Provider()
         {
             yield return new TestCaseData(
@@ -117,6 +128,21 @@ namespace Zeebe.Client
                 new FailJobResponse(),
                 (RequestCreator<IFailJobResponse>)
                 (zeebeClient => zeebeClient.NewFailCommand(255L).Retries(1)));
+            yield return new TestCaseData(
+                new DeployProcessRequest
+                {
+                    Processes =
+                    {
+                        new ProcessRequestObject
+                        {
+                            Definition = ByteString.FromStream(File.OpenRead(DemoProcessPath)),
+                            Name = DemoProcessPath
+                        }
+                    }
+                },
+                new DeployProcessResponse(),
+                (RequestCreator<IDeployResponse>)
+                (zeebeClient => zeebeClient.NewDeployCommand().AddResourceFile(DemoProcessPath)));
         }
     }
 }
