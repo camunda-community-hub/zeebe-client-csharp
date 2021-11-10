@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.2</Version>
+    <Version>1.1.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,8 +13,8 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>1.0.2</AssemblyVersion>
-    <FileVersion>1.0.2</FileVersion>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
     <PackageReleaseNotes>
 Features:
 
@@ -39,9 +39,9 @@ This release is based on the Zeebe 1.0.X release (https://github.com/zeebe-io/ze
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.1.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>1.0.2</Title>
+    <Title>1.1.0</Title>
   </PropertyGroup>
 
   <ItemGroup>
