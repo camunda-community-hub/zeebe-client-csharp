@@ -29,7 +29,7 @@ namespace Zeebe.Client
                 (RequestCreator<ICompleteJobResponse>)
                 (zeebeClient => zeebeClient.NewCompleteJobCommand(12113)));
             yield return new TestCaseData(
-                new ActivateJobsRequest()
+                new ActivateJobsRequest
                 {
                     Type = "type",
                     MaxJobsToActivate = 12
@@ -106,17 +106,17 @@ namespace Zeebe.Client
                     RequestTimeout = 20000
                 },
                 new CreateProcessInstanceWithResultResponse(),
-                (RequestCreator<ICreateProcessInstanceWithResultCommandStep1>)
-                (zeebeClient => (IFinalCommandWithRetryStep<ICreateProcessInstanceWithResultCommandStep1>) zeebeClient
-                    .NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion().WithResult().Send()));
+                (RequestCreator<IProcessInstanceResult>)
+                (zeebeClient => zeebeClient.NewCreateProcessInstanceCommand().BpmnProcessId("process").LatestVersion().WithResult()));
             yield return new TestCaseData(
                 new FailJobRequest
                 {
-                    JobKey = 255
+                    JobKey = 255,
+                    Retries = 1
                 },
                 new FailJobResponse(),
-                (RequestCreator<IFailJobCommandStep1>)
-                (zeebeClient => (IFinalCommandWithRetryStep<IFailJobCommandStep1>) zeebeClient.NewFailCommand(255)));
+                (RequestCreator<IFailJobResponse>)
+                (zeebeClient => zeebeClient.NewFailCommand(255L).Retries(1)));
         }
     }
 }
