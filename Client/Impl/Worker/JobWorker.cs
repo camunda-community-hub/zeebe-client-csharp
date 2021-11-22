@@ -161,6 +161,7 @@ namespace Zeebe.Client.Impl.Worker
                     catch (RpcException rpcException)
                     {
                         LogRpcException(rpcException);
+                        await Task.Delay(pollInterval, cancellationToken);
                     }
                 }
                 else
