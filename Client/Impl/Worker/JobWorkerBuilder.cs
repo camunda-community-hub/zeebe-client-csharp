@@ -27,6 +27,7 @@ namespace Zeebe.Client.Impl.Worker
     public class JobWorkerBuilder : IJobWorkerBuilderStep1, IJobWorkerBuilderStep2, IJobWorkerBuilderStep3
     {
         private TimeSpan pollInterval;
+        private TimeSpan reconnectInterval;
         private AsyncJobHandler asyncJobHandler;
         private bool autoCompletion;
         internal JobActivator Activator { get; }
@@ -102,12 +103,29 @@ namespace Zeebe.Client.Impl.Worker
         public IJobWorkerBuilderStep3 PollInterval(TimeSpan pollInterval)
         {
             this.pollInterval = pollInterval;
+            // For backward compatibility
+            if (this.reconnectInterval == default(TimeSpan))
+            {
+                this.reconnectInterval = pollInterval;
+            }
+
+            return this;
+        }
+
+        public IJobWorkerBuilderStep3 ReconnectInterval(TimeSpan reconnectInterval)
+        {
+            this.reconnectInterval = reconnectInterval;
             return this;
         }
 
         internal TimeSpan PollInterval()
         {
             return pollInterval;
+        }
+
+        internal TimeSpan ReconnectInterval()
+        {
+            return reconnectInterval;
         }
 
         public IJobWorkerBuilderStep3 PollingTimeout(TimeSpan pollingTimeout)

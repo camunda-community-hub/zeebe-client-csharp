@@ -206,6 +206,17 @@ namespace Zeebe.Client.Api.Worker
         IJobWorkerBuilderStep3 PollInterval(TimeSpan pollInterval);
 
         /// <summary>
+        /// Set the maximal interval between attempts to reconnect for jobs.
+        /// </summary>
+        /// <para>
+        ///     A job worker will automatically try to reconnect if connection lost.
+        /// </para>
+        ///
+        /// <param name="reconnectInterval">the maximal interval to reconnect</param>
+        /// <returns>the builder for this worker</returns>
+        IJobWorkerBuilderStep3 ReconnectInterval(TimeSpan reconnectInterval);
+
+        /// <summary>
         /// Set the polling timeout for the job activation.
         /// </summary>
         ///

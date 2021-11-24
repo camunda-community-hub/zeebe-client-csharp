@@ -42,6 +42,7 @@ namespace Zeebe.Client.Impl.Worker
         private readonly AsyncJobHandler jobHandler;
         private readonly bool autoCompletion;
         private readonly TimeSpan pollInterval;
+        private readonly TimeSpan reconnectInterval;
         private readonly double thresholdJobsActivation;
 
         private int currentJobsActive;
@@ -55,6 +56,7 @@ namespace Zeebe.Client.Impl.Worker
             this.jobHandler = jobWorkerBuilder.Handler();
             this.autoCompletion = builder.AutoCompletionEnabled();
             this.pollInterval = jobWorkerBuilder.PollInterval();
+            this.reconnectInterval = jobWorkerBuilder.ReconnectInterval();
             this.activateJobsRequest = jobWorkerBuilder.Request;
             jobActivator = jobWorkerBuilder.Activator;
             this.maxJobsActive = jobWorkerBuilder.Request.MaxJobsToActivate;
@@ -161,7 +163,7 @@ namespace Zeebe.Client.Impl.Worker
                     catch (RpcException rpcException)
                     {
                         LogRpcException(rpcException);
-                        await Task.Delay(pollInterval, cancellationToken);
+                        await Task.Delay(reconnectInterval, cancellationToken);
                     }
                 }
                 else
