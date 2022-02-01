@@ -12,33 +12,93 @@ namespace GatewayProtocol {
   {
     static readonly string __ServiceName = "gateway_protocol.Gateway";
 
-    static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsRequest> __Marshaller_gateway_protocol_ActivateJobsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ActivateJobsRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsResponse> __Marshaller_gateway_protocol_ActivateJobsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ActivateJobsResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CancelProcessInstanceRequest> __Marshaller_gateway_protocol_CancelProcessInstanceRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CancelProcessInstanceRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CancelProcessInstanceResponse> __Marshaller_gateway_protocol_CancelProcessInstanceResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CancelProcessInstanceResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CompleteJobRequest> __Marshaller_gateway_protocol_CompleteJobRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CompleteJobRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CompleteJobResponse> __Marshaller_gateway_protocol_CompleteJobResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CompleteJobResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceRequest> __Marshaller_gateway_protocol_CreateProcessInstanceRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateProcessInstanceRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceResponse> __Marshaller_gateway_protocol_CreateProcessInstanceResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateProcessInstanceResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceWithResultRequest> __Marshaller_gateway_protocol_CreateProcessInstanceWithResultRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateProcessInstanceWithResultRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> __Marshaller_gateway_protocol_CreateProcessInstanceWithResultResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.CreateProcessInstanceWithResultResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.DeployProcessRequest> __Marshaller_gateway_protocol_DeployProcessRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployProcessRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.DeployProcessResponse> __Marshaller_gateway_protocol_DeployProcessResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.DeployProcessResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.FailJobRequest> __Marshaller_gateway_protocol_FailJobRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.FailJobRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.FailJobResponse> __Marshaller_gateway_protocol_FailJobResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.FailJobResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.ThrowErrorRequest> __Marshaller_gateway_protocol_ThrowErrorRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ThrowErrorRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.ThrowErrorResponse> __Marshaller_gateway_protocol_ThrowErrorResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ThrowErrorResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageRequest> __Marshaller_gateway_protocol_PublishMessageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.PublishMessageRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageResponse> __Marshaller_gateway_protocol_PublishMessageResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.PublishMessageResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.ResolveIncidentRequest> __Marshaller_gateway_protocol_ResolveIncidentRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ResolveIncidentRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.ResolveIncidentResponse> __Marshaller_gateway_protocol_ResolveIncidentResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.ResolveIncidentResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.SetVariablesRequest> __Marshaller_gateway_protocol_SetVariablesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.SetVariablesRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.SetVariablesResponse> __Marshaller_gateway_protocol_SetVariablesResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.SetVariablesResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.TopologyRequest> __Marshaller_gateway_protocol_TopologyRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.TopologyRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.TopologyResponse> __Marshaller_gateway_protocol_TopologyResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.TopologyResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobRetriesRequest> __Marshaller_gateway_protocol_UpdateJobRetriesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateJobRetriesRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobRetriesResponse> __Marshaller_gateway_protocol_UpdateJobRetriesResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GatewayProtocol.UpdateJobRetriesResponse.Parser.ParseFrom);
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsRequest> __Marshaller_gateway_protocol_ActivateJobsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ActivateJobsRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsResponse> __Marshaller_gateway_protocol_ActivateJobsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ActivateJobsResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.CancelProcessInstanceRequest> __Marshaller_gateway_protocol_CancelProcessInstanceRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CancelProcessInstanceRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.CancelProcessInstanceResponse> __Marshaller_gateway_protocol_CancelProcessInstanceResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CancelProcessInstanceResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.CompleteJobRequest> __Marshaller_gateway_protocol_CompleteJobRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CompleteJobRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.CompleteJobResponse> __Marshaller_gateway_protocol_CompleteJobResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CompleteJobResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceRequest> __Marshaller_gateway_protocol_CreateProcessInstanceRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CreateProcessInstanceRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceResponse> __Marshaller_gateway_protocol_CreateProcessInstanceResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CreateProcessInstanceResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceWithResultRequest> __Marshaller_gateway_protocol_CreateProcessInstanceWithResultRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CreateProcessInstanceWithResultRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> __Marshaller_gateway_protocol_CreateProcessInstanceWithResultResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CreateProcessInstanceWithResultResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.DeployProcessRequest> __Marshaller_gateway_protocol_DeployProcessRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.DeployProcessRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.DeployProcessResponse> __Marshaller_gateway_protocol_DeployProcessResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.DeployProcessResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.FailJobRequest> __Marshaller_gateway_protocol_FailJobRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.FailJobRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.FailJobResponse> __Marshaller_gateway_protocol_FailJobResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.FailJobResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.ThrowErrorRequest> __Marshaller_gateway_protocol_ThrowErrorRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ThrowErrorRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.ThrowErrorResponse> __Marshaller_gateway_protocol_ThrowErrorResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ThrowErrorResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageRequest> __Marshaller_gateway_protocol_PublishMessageRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.PublishMessageRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.PublishMessageResponse> __Marshaller_gateway_protocol_PublishMessageResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.PublishMessageResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.ResolveIncidentRequest> __Marshaller_gateway_protocol_ResolveIncidentRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ResolveIncidentRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.ResolveIncidentResponse> __Marshaller_gateway_protocol_ResolveIncidentResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ResolveIncidentResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.SetVariablesRequest> __Marshaller_gateway_protocol_SetVariablesRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.SetVariablesRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.SetVariablesResponse> __Marshaller_gateway_protocol_SetVariablesResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.SetVariablesResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.TopologyRequest> __Marshaller_gateway_protocol_TopologyRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.TopologyRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.TopologyResponse> __Marshaller_gateway_protocol_TopologyResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.TopologyResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobRetriesRequest> __Marshaller_gateway_protocol_UpdateJobRetriesRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.UpdateJobRetriesRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobRetriesResponse> __Marshaller_gateway_protocol_UpdateJobRetriesResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.UpdateJobRetriesResponse.Parser));
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse> __Method_ActivateJobs = new grpc::Method<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
@@ -46,6 +106,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_ActivateJobsRequest,
         __Marshaller_gateway_protocol_ActivateJobsResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.CancelProcessInstanceRequest, global::GatewayProtocol.CancelProcessInstanceResponse> __Method_CancelProcessInstance = new grpc::Method<global::GatewayProtocol.CancelProcessInstanceRequest, global::GatewayProtocol.CancelProcessInstanceResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -53,6 +114,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_CancelProcessInstanceRequest,
         __Marshaller_gateway_protocol_CancelProcessInstanceResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.CompleteJobRequest, global::GatewayProtocol.CompleteJobResponse> __Method_CompleteJob = new grpc::Method<global::GatewayProtocol.CompleteJobRequest, global::GatewayProtocol.CompleteJobResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -60,6 +122,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_CompleteJobRequest,
         __Marshaller_gateway_protocol_CompleteJobResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.CreateProcessInstanceRequest, global::GatewayProtocol.CreateProcessInstanceResponse> __Method_CreateProcessInstance = new grpc::Method<global::GatewayProtocol.CreateProcessInstanceRequest, global::GatewayProtocol.CreateProcessInstanceResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -67,6 +130,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_CreateProcessInstanceRequest,
         __Marshaller_gateway_protocol_CreateProcessInstanceResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.CreateProcessInstanceWithResultRequest, global::GatewayProtocol.CreateProcessInstanceWithResultResponse> __Method_CreateProcessInstanceWithResult = new grpc::Method<global::GatewayProtocol.CreateProcessInstanceWithResultRequest, global::GatewayProtocol.CreateProcessInstanceWithResultResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -74,6 +138,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_CreateProcessInstanceWithResultRequest,
         __Marshaller_gateway_protocol_CreateProcessInstanceWithResultResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.DeployProcessRequest, global::GatewayProtocol.DeployProcessResponse> __Method_DeployProcess = new grpc::Method<global::GatewayProtocol.DeployProcessRequest, global::GatewayProtocol.DeployProcessResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -81,6 +146,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_DeployProcessRequest,
         __Marshaller_gateway_protocol_DeployProcessResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse> __Method_FailJob = new grpc::Method<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -88,6 +154,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_FailJobRequest,
         __Marshaller_gateway_protocol_FailJobResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.ThrowErrorRequest, global::GatewayProtocol.ThrowErrorResponse> __Method_ThrowError = new grpc::Method<global::GatewayProtocol.ThrowErrorRequest, global::GatewayProtocol.ThrowErrorResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -95,6 +162,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_ThrowErrorRequest,
         __Marshaller_gateway_protocol_ThrowErrorResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse> __Method_PublishMessage = new grpc::Method<global::GatewayProtocol.PublishMessageRequest, global::GatewayProtocol.PublishMessageResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -102,6 +170,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_PublishMessageRequest,
         __Marshaller_gateway_protocol_PublishMessageResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.ResolveIncidentRequest, global::GatewayProtocol.ResolveIncidentResponse> __Method_ResolveIncident = new grpc::Method<global::GatewayProtocol.ResolveIncidentRequest, global::GatewayProtocol.ResolveIncidentResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -109,6 +178,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_ResolveIncidentRequest,
         __Marshaller_gateway_protocol_ResolveIncidentResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.SetVariablesRequest, global::GatewayProtocol.SetVariablesResponse> __Method_SetVariables = new grpc::Method<global::GatewayProtocol.SetVariablesRequest, global::GatewayProtocol.SetVariablesResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -116,6 +186,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_SetVariablesRequest,
         __Marshaller_gateway_protocol_SetVariablesResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse> __Method_Topology = new grpc::Method<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -123,6 +194,7 @@ namespace GatewayProtocol {
         __Marshaller_gateway_protocol_TopologyRequest,
         __Marshaller_gateway_protocol_TopologyResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.UpdateJobRetriesRequest, global::GatewayProtocol.UpdateJobRetriesResponse> __Method_UpdateJobRetries = new grpc::Method<global::GatewayProtocol.UpdateJobRetriesRequest, global::GatewayProtocol.UpdateJobRetriesResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -156,6 +228,7 @@ namespace GatewayProtocol {
       /// <param name="responseStream">Used for sending responses back to the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>A task indicating completion of the handler.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task ActivateJobs(global::GatewayProtocol.ActivateJobsRequest request, grpc::IServerStreamWriter<global::GatewayProtocol.ActivateJobsResponse> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -172,6 +245,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CancelProcessInstanceResponse> CancelProcessInstance(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -193,6 +267,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CompleteJobResponse> CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -223,6 +298,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateProcessInstanceResponse> CreateProcessInstance(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -235,6 +311,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResult(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -255,6 +332,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.DeployProcessResponse> DeployProcess(global::GatewayProtocol.DeployProcessRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -278,6 +356,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.FailJobResponse> FailJob(global::GatewayProtocol.FailJobRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -297,6 +376,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ThrowErrorResponse> ThrowError(global::GatewayProtocol.ThrowErrorRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -314,6 +394,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.PublishMessageResponse> PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -332,6 +413,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ResolveIncidentResponse> ResolveIncident(global::GatewayProtocol.ResolveIncidentRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -352,6 +434,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.SetVariablesResponse> SetVariables(global::GatewayProtocol.SetVariablesRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -364,6 +447,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.TopologyResponse> Topology(global::GatewayProtocol.TopologyRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -384,6 +468,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -396,20 +481,24 @@ namespace GatewayProtocol {
     {
       /// <summary>Creates a new client for Gateway</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public GatewayClient(grpc::ChannelBase channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for Gateway that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public GatewayClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected GatewayClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected GatewayClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
@@ -431,6 +520,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::GatewayProtocol.ActivateJobsResponse> ActivateJobs(global::GatewayProtocol.ActivateJobsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ActivateJobs(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -450,6 +540,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::GatewayProtocol.ActivateJobsResponse> ActivateJobs(global::GatewayProtocol.ActivateJobsRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_ActivateJobs, null, options, request);
@@ -467,6 +558,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.CancelProcessInstanceResponse CancelProcessInstance(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CancelProcessInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -482,6 +574,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.CancelProcessInstanceResponse CancelProcessInstance(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_CancelProcessInstance, null, options, request);
@@ -499,6 +592,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CancelProcessInstanceResponse> CancelProcessInstanceAsync(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CancelProcessInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -514,6 +608,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CancelProcessInstanceResponse> CancelProcessInstanceAsync(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_CancelProcessInstance, null, options, request);
@@ -536,6 +631,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.CompleteJobResponse CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CompleteJob(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -556,6 +652,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.CompleteJobResponse CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_CompleteJob, null, options, request);
@@ -578,6 +675,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CompleteJobResponse> CompleteJobAsync(global::GatewayProtocol.CompleteJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CompleteJobAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -598,6 +696,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CompleteJobResponse> CompleteJobAsync(global::GatewayProtocol.CompleteJobRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_CompleteJob, null, options, request);
@@ -629,6 +728,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.CreateProcessInstanceResponse CreateProcessInstance(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateProcessInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -658,6 +758,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.CreateProcessInstanceResponse CreateProcessInstance(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_CreateProcessInstance, null, options, request);
@@ -689,6 +790,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateProcessInstanceResponse> CreateProcessInstanceAsync(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateProcessInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -718,6 +820,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateProcessInstanceResponse> CreateProcessInstanceAsync(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_CreateProcessInstance, null, options, request);
@@ -731,6 +834,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.CreateProcessInstanceWithResultResponse CreateProcessInstanceWithResult(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateProcessInstanceWithResult(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -742,6 +846,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.CreateProcessInstanceWithResultResponse CreateProcessInstanceWithResult(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_CreateProcessInstanceWithResult, null, options, request);
@@ -755,6 +860,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return CreateProcessInstanceWithResultAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -766,6 +872,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_CreateProcessInstanceWithResult, null, options, request);
@@ -787,6 +894,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.DeployProcessResponse DeployProcess(global::GatewayProtocol.DeployProcessRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return DeployProcess(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -806,6 +914,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.DeployProcessResponse DeployProcess(global::GatewayProtocol.DeployProcessRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_DeployProcess, null, options, request);
@@ -827,6 +936,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeployProcessResponse> DeployProcessAsync(global::GatewayProtocol.DeployProcessRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return DeployProcessAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -846,6 +956,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeployProcessResponse> DeployProcessAsync(global::GatewayProtocol.DeployProcessRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeployProcess, null, options, request);
@@ -870,6 +981,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.FailJobResponse FailJob(global::GatewayProtocol.FailJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return FailJob(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -892,6 +1004,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.FailJobResponse FailJob(global::GatewayProtocol.FailJobRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_FailJob, null, options, request);
@@ -916,6 +1029,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.FailJobResponse> FailJobAsync(global::GatewayProtocol.FailJobRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return FailJobAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -938,6 +1052,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.FailJobResponse> FailJobAsync(global::GatewayProtocol.FailJobRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_FailJob, null, options, request);
@@ -958,6 +1073,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.ThrowErrorResponse ThrowError(global::GatewayProtocol.ThrowErrorRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ThrowError(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -976,6 +1092,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.ThrowErrorResponse ThrowError(global::GatewayProtocol.ThrowErrorRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_ThrowError, null, options, request);
@@ -996,6 +1113,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ThrowErrorResponse> ThrowErrorAsync(global::GatewayProtocol.ThrowErrorRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ThrowErrorAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1014,6 +1132,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ThrowErrorResponse> ThrowErrorAsync(global::GatewayProtocol.ThrowErrorRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_ThrowError, null, options, request);
@@ -1032,6 +1151,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.PublishMessageResponse PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return PublishMessage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1048,6 +1168,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.PublishMessageResponse PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_PublishMessage, null, options, request);
@@ -1066,6 +1187,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.PublishMessageResponse> PublishMessageAsync(global::GatewayProtocol.PublishMessageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return PublishMessageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1082,6 +1204,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.PublishMessageResponse> PublishMessageAsync(global::GatewayProtocol.PublishMessageRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_PublishMessage, null, options, request);
@@ -1101,6 +1224,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.ResolveIncidentResponse ResolveIncident(global::GatewayProtocol.ResolveIncidentRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ResolveIncident(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1118,6 +1242,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.ResolveIncidentResponse ResolveIncident(global::GatewayProtocol.ResolveIncidentRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_ResolveIncident, null, options, request);
@@ -1137,6 +1262,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ResolveIncidentResponse> ResolveIncidentAsync(global::GatewayProtocol.ResolveIncidentRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ResolveIncidentAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1154,6 +1280,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.ResolveIncidentResponse> ResolveIncidentAsync(global::GatewayProtocol.ResolveIncidentRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_ResolveIncident, null, options, request);
@@ -1175,6 +1302,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.SetVariablesResponse SetVariables(global::GatewayProtocol.SetVariablesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SetVariables(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1194,6 +1322,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.SetVariablesResponse SetVariables(global::GatewayProtocol.SetVariablesRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_SetVariables, null, options, request);
@@ -1215,6 +1344,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.SetVariablesResponse> SetVariablesAsync(global::GatewayProtocol.SetVariablesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SetVariablesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1234,6 +1364,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.SetVariablesResponse> SetVariablesAsync(global::GatewayProtocol.SetVariablesRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_SetVariables, null, options, request);
@@ -1247,6 +1378,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.TopologyResponse Topology(global::GatewayProtocol.TopologyRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Topology(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1258,6 +1390,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.TopologyResponse Topology(global::GatewayProtocol.TopologyRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Topology, null, options, request);
@@ -1271,6 +1404,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.TopologyResponse> TopologyAsync(global::GatewayProtocol.TopologyRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return TopologyAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1282,6 +1416,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.TopologyResponse> TopologyAsync(global::GatewayProtocol.TopologyRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Topology, null, options, request);
@@ -1303,6 +1438,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.UpdateJobRetriesResponse UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateJobRetries(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1322,6 +1458,7 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GatewayProtocol.UpdateJobRetriesResponse UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_UpdateJobRetries, null, options, request);
@@ -1343,6 +1480,7 @@ namespace GatewayProtocol {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetriesAsync(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return UpdateJobRetriesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -1362,11 +1500,13 @@ namespace GatewayProtocol {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetriesAsync(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_UpdateJobRetries, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override GatewayClient NewInstance(ClientBaseConfiguration configuration)
       {
         return new GatewayClient(configuration);
@@ -1375,6 +1515,7 @@ namespace GatewayProtocol {
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static grpc::ServerServiceDefinition BindService(GatewayBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
@@ -1397,6 +1538,7 @@ namespace GatewayProtocol {
     /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
     /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, GatewayBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_ActivateJobs, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse>(serviceImpl.ActivateJobs));
