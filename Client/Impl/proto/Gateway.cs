@@ -60,66 +60,67 @@ namespace GatewayProtocol {
             "AygLMiEuZ2F0ZXdheV9wcm90b2NvbC5Qcm9jZXNzTWV0YWRhdGEibQoPUHJv",
             "Y2Vzc01ldGFkYXRhEhUKDWJwbW5Qcm9jZXNzSWQYASABKAkSDwoHdmVyc2lv",
             "bhgCIAEoBRIcChRwcm9jZXNzRGVmaW5pdGlvbktleRgDIAEoAxIUCgxyZXNv",
-            "dXJjZU5hbWUYBCABKAkiRwoORmFpbEpvYlJlcXVlc3QSDgoGam9iS2V5GAEg",
-            "ASgDEg8KB3JldHJpZXMYAiABKAUSFAoMZXJyb3JNZXNzYWdlGAMgASgJIhEK",
-            "D0ZhaWxKb2JSZXNwb25zZSJMChFUaHJvd0Vycm9yUmVxdWVzdBIOCgZqb2JL",
-            "ZXkYASABKAMSEQoJZXJyb3JDb2RlGAIgASgJEhQKDGVycm9yTWVzc2FnZRgD",
-            "IAEoCSIUChJUaHJvd0Vycm9yUmVzcG9uc2UidwoVUHVibGlzaE1lc3NhZ2VS",
-            "ZXF1ZXN0EgwKBG5hbWUYASABKAkSFgoOY29ycmVsYXRpb25LZXkYAiABKAkS",
-            "EgoKdGltZVRvTGl2ZRgDIAEoAxIRCgltZXNzYWdlSWQYBCABKAkSEQoJdmFy",
-            "aWFibGVzGAUgASgJIiUKFlB1Ymxpc2hNZXNzYWdlUmVzcG9uc2USCwoDa2V5",
-            "GAEgASgDIi0KFlJlc29sdmVJbmNpZGVudFJlcXVlc3QSEwoLaW5jaWRlbnRL",
-            "ZXkYASABKAMiGQoXUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiEQoPVG9wb2xv",
-            "Z3lSZXF1ZXN0IqIBChBUb3BvbG9neVJlc3BvbnNlEi0KB2Jyb2tlcnMYASAD",
-            "KAsyHC5nYXRld2F5X3Byb3RvY29sLkJyb2tlckluZm8SEwoLY2x1c3RlclNp",
-            "emUYAiABKAUSFwoPcGFydGl0aW9uc0NvdW50GAMgASgFEhkKEXJlcGxpY2F0",
-            "aW9uRmFjdG9yGAQgASgFEhYKDmdhdGV3YXlWZXJzaW9uGAUgASgJInoKCkJy",
-            "b2tlckluZm8SDgoGbm9kZUlkGAEgASgFEgwKBGhvc3QYAiABKAkSDAoEcG9y",
-            "dBgDIAEoBRIvCgpwYXJ0aXRpb25zGAQgAygLMhsuZ2F0ZXdheV9wcm90b2Nv",
-            "bC5QYXJ0aXRpb24SDwoHdmVyc2lvbhgFIAEoCSKWAgoJUGFydGl0aW9uEhMK",
-            "C3BhcnRpdGlvbklkGAEgASgFEj0KBHJvbGUYAiABKA4yLy5nYXRld2F5X3By",
-            "b3RvY29sLlBhcnRpdGlvbi5QYXJ0aXRpb25Ccm9rZXJSb2xlEkEKBmhlYWx0",
-            "aBgDIAEoDjIxLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9uLlBhcnRpdGlv",
-            "bkJyb2tlckhlYWx0aCI9ChNQYXJ0aXRpb25Ccm9rZXJSb2xlEgoKBkxFQURF",
-            "UhAAEgwKCEZPTExPV0VSEAESDAoISU5BQ1RJVkUQAiIzChVQYXJ0aXRpb25C",
-            "cm9rZXJIZWFsdGgSCwoHSEVBTFRIWRAAEg0KCVVOSEVBTFRIWRABIjoKF1Vw",
-            "ZGF0ZUpvYlJldHJpZXNSZXF1ZXN0Eg4KBmpvYktleRgBIAEoAxIPCgdyZXRy",
-            "aWVzGAIgASgFIhoKGFVwZGF0ZUpvYlJldHJpZXNSZXNwb25zZSJTChNTZXRW",
-            "YXJpYWJsZXNSZXF1ZXN0EhoKEmVsZW1lbnRJbnN0YW5jZUtleRgBIAEoAxIR",
-            "Cgl2YXJpYWJsZXMYAiABKAkSDQoFbG9jYWwYAyABKAgiIwoUU2V0VmFyaWFi",
-            "bGVzUmVzcG9uc2USCwoDa2V5GAEgASgDMuIKCgdHYXRld2F5EmEKDEFjdGl2",
-            "YXRlSm9icxIlLmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVxdWVz",
-            "dBomLmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVzcG9uc2UiADAB",
-            "EnoKFUNhbmNlbFByb2Nlc3NJbnN0YW5jZRIuLmdhdGV3YXlfcHJvdG9jb2wu",
-            "Q2FuY2VsUHJvY2Vzc0luc3RhbmNlUmVxdWVzdBovLmdhdGV3YXlfcHJvdG9j",
-            "b2wuQ2FuY2VsUHJvY2Vzc0luc3RhbmNlUmVzcG9uc2UiABJcCgtDb21wbGV0",
-            "ZUpvYhIkLmdhdGV3YXlfcHJvdG9jb2wuQ29tcGxldGVKb2JSZXF1ZXN0GiUu",
-            "Z2F0ZXdheV9wcm90b2NvbC5Db21wbGV0ZUpvYlJlc3BvbnNlIgASegoVQ3Jl",
-            "YXRlUHJvY2Vzc0luc3RhbmNlEi4uZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQ",
-            "cm9jZXNzSW5zdGFuY2VSZXF1ZXN0Gi8uZ2F0ZXdheV9wcm90b2NvbC5DcmVh",
-            "dGVQcm9jZXNzSW5zdGFuY2VSZXNwb25zZSIAEpgBCh9DcmVhdGVQcm9jZXNz",
-            "SW5zdGFuY2VXaXRoUmVzdWx0EjguZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQ",
-            "cm9jZXNzSW5zdGFuY2VXaXRoUmVzdWx0UmVxdWVzdBo5LmdhdGV3YXlfcHJv",
-            "dG9jb2wuQ3JlYXRlUHJvY2Vzc0luc3RhbmNlV2l0aFJlc3VsdFJlc3BvbnNl",
-            "IgASYgoNRGVwbG95UHJvY2VzcxImLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95",
-            "UHJvY2Vzc1JlcXVlc3QaJy5nYXRld2F5X3Byb3RvY29sLkRlcGxveVByb2Nl",
-            "c3NSZXNwb25zZSIAElAKB0ZhaWxKb2ISIC5nYXRld2F5X3Byb3RvY29sLkZh",
-            "aWxKb2JSZXF1ZXN0GiEuZ2F0ZXdheV9wcm90b2NvbC5GYWlsSm9iUmVzcG9u",
-            "c2UiABJZCgpUaHJvd0Vycm9yEiMuZ2F0ZXdheV9wcm90b2NvbC5UaHJvd0Vy",
-            "cm9yUmVxdWVzdBokLmdhdGV3YXlfcHJvdG9jb2wuVGhyb3dFcnJvclJlc3Bv",
-            "bnNlIgASZQoOUHVibGlzaE1lc3NhZ2USJy5nYXRld2F5X3Byb3RvY29sLlB1",
-            "Ymxpc2hNZXNzYWdlUmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlz",
-            "aE1lc3NhZ2VSZXNwb25zZSIAEmgKD1Jlc29sdmVJbmNpZGVudBIoLmdhdGV3",
-            "YXlfcHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVxdWVzdBopLmdhdGV3YXlf",
-            "cHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiABJfCgxTZXRWYXJp",
-            "YWJsZXMSJS5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1JlcXVlc3Qa",
-            "Ji5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1Jlc3BvbnNlIgASUwoI",
-            "VG9wb2xvZ3kSIS5nYXRld2F5X3Byb3RvY29sLlRvcG9sb2d5UmVxdWVzdBoi",
-            "LmdhdGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXNwb25zZSIAEmsKEFVwZGF0",
-            "ZUpvYlJldHJpZXMSKS5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJldHJp",
-            "ZXNSZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVKb2JSZXRyaWVz",
-            "UmVzcG9uc2UiAEIsCiFpby5jYW11bmRhLnplZWJlLmdhdGV3YXkucHJvdG9j",
-            "b2xQAFoFLi87cGJiBnByb3RvMw=="));
+            "dXJjZU5hbWUYBCABKAkiXQoORmFpbEpvYlJlcXVlc3QSDgoGam9iS2V5GAEg",
+            "ASgDEg8KB3JldHJpZXMYAiABKAUSFAoMZXJyb3JNZXNzYWdlGAMgASgJEhQK",
+            "DHJldHJ5QmFja09mZhgEIAEoAyIRCg9GYWlsSm9iUmVzcG9uc2UiTAoRVGhy",
+            "b3dFcnJvclJlcXVlc3QSDgoGam9iS2V5GAEgASgDEhEKCWVycm9yQ29kZRgC",
+            "IAEoCRIUCgxlcnJvck1lc3NhZ2UYAyABKAkiFAoSVGhyb3dFcnJvclJlc3Bv",
+            "bnNlIncKFVB1Ymxpc2hNZXNzYWdlUmVxdWVzdBIMCgRuYW1lGAEgASgJEhYK",
+            "DmNvcnJlbGF0aW9uS2V5GAIgASgJEhIKCnRpbWVUb0xpdmUYAyABKAMSEQoJ",
+            "bWVzc2FnZUlkGAQgASgJEhEKCXZhcmlhYmxlcxgFIAEoCSIlChZQdWJsaXNo",
+            "TWVzc2FnZVJlc3BvbnNlEgsKA2tleRgBIAEoAyItChZSZXNvbHZlSW5jaWRl",
+            "bnRSZXF1ZXN0EhMKC2luY2lkZW50S2V5GAEgASgDIhkKF1Jlc29sdmVJbmNp",
+            "ZGVudFJlc3BvbnNlIhEKD1RvcG9sb2d5UmVxdWVzdCKiAQoQVG9wb2xvZ3lS",
+            "ZXNwb25zZRItCgdicm9rZXJzGAEgAygLMhwuZ2F0ZXdheV9wcm90b2NvbC5C",
+            "cm9rZXJJbmZvEhMKC2NsdXN0ZXJTaXplGAIgASgFEhcKD3BhcnRpdGlvbnND",
+            "b3VudBgDIAEoBRIZChFyZXBsaWNhdGlvbkZhY3RvchgEIAEoBRIWCg5nYXRl",
+            "d2F5VmVyc2lvbhgFIAEoCSJ6CgpCcm9rZXJJbmZvEg4KBm5vZGVJZBgBIAEo",
+            "BRIMCgRob3N0GAIgASgJEgwKBHBvcnQYAyABKAUSLwoKcGFydGl0aW9ucxgE",
+            "IAMoCzIbLmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9uEg8KB3ZlcnNpb24Y",
+            "BSABKAkioAIKCVBhcnRpdGlvbhITCgtwYXJ0aXRpb25JZBgBIAEoBRI9CgRy",
+            "b2xlGAIgASgOMi8uZ2F0ZXdheV9wcm90b2NvbC5QYXJ0aXRpb24uUGFydGl0",
+            "aW9uQnJva2VyUm9sZRJBCgZoZWFsdGgYAyABKA4yMS5nYXRld2F5X3Byb3Rv",
+            "Y29sLlBhcnRpdGlvbi5QYXJ0aXRpb25Ccm9rZXJIZWFsdGgiPQoTUGFydGl0",
+            "aW9uQnJva2VyUm9sZRIKCgZMRUFERVIQABIMCghGT0xMT1dFUhABEgwKCElO",
+            "QUNUSVZFEAIiPQoVUGFydGl0aW9uQnJva2VySGVhbHRoEgsKB0hFQUxUSFkQ",
+            "ABINCglVTkhFQUxUSFkQARIICgRERUFEEAIiOgoXVXBkYXRlSm9iUmV0cmll",
+            "c1JlcXVlc3QSDgoGam9iS2V5GAEgASgDEg8KB3JldHJpZXMYAiABKAUiGgoY",
+            "VXBkYXRlSm9iUmV0cmllc1Jlc3BvbnNlIlMKE1NldFZhcmlhYmxlc1JlcXVl",
+            "c3QSGgoSZWxlbWVudEluc3RhbmNlS2V5GAEgASgDEhEKCXZhcmlhYmxlcxgC",
+            "IAEoCRINCgVsb2NhbBgDIAEoCCIjChRTZXRWYXJpYWJsZXNSZXNwb25zZRIL",
+            "CgNrZXkYASABKAMy4goKB0dhdGV3YXkSYQoMQWN0aXZhdGVKb2JzEiUuZ2F0",
+            "ZXdheV9wcm90b2NvbC5BY3RpdmF0ZUpvYnNSZXF1ZXN0GiYuZ2F0ZXdheV9w",
+            "cm90b2NvbC5BY3RpdmF0ZUpvYnNSZXNwb25zZSIAMAESegoVQ2FuY2VsUHJv",
+            "Y2Vzc0luc3RhbmNlEi4uZ2F0ZXdheV9wcm90b2NvbC5DYW5jZWxQcm9jZXNz",
+            "SW5zdGFuY2VSZXF1ZXN0Gi8uZ2F0ZXdheV9wcm90b2NvbC5DYW5jZWxQcm9j",
+            "ZXNzSW5zdGFuY2VSZXNwb25zZSIAElwKC0NvbXBsZXRlSm9iEiQuZ2F0ZXdh",
+            "eV9wcm90b2NvbC5Db21wbGV0ZUpvYlJlcXVlc3QaJS5nYXRld2F5X3Byb3Rv",
+            "Y29sLkNvbXBsZXRlSm9iUmVzcG9uc2UiABJ6ChVDcmVhdGVQcm9jZXNzSW5z",
+            "dGFuY2USLi5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVByb2Nlc3NJbnN0YW5j",
+            "ZVJlcXVlc3QaLy5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVByb2Nlc3NJbnN0",
+            "YW5jZVJlc3BvbnNlIgASmAEKH0NyZWF0ZVByb2Nlc3NJbnN0YW5jZVdpdGhS",
+            "ZXN1bHQSOC5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVByb2Nlc3NJbnN0YW5j",
+            "ZVdpdGhSZXN1bHRSZXF1ZXN0GjkuZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQ",
+            "cm9jZXNzSW5zdGFuY2VXaXRoUmVzdWx0UmVzcG9uc2UiABJiCg1EZXBsb3lQ",
+            "cm9jZXNzEiYuZ2F0ZXdheV9wcm90b2NvbC5EZXBsb3lQcm9jZXNzUmVxdWVz",
+            "dBonLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95UHJvY2Vzc1Jlc3BvbnNlIgAS",
+            "UAoHRmFpbEpvYhIgLmdhdGV3YXlfcHJvdG9jb2wuRmFpbEpvYlJlcXVlc3Qa",
+            "IS5nYXRld2F5X3Byb3RvY29sLkZhaWxKb2JSZXNwb25zZSIAElkKClRocm93",
+            "RXJyb3ISIy5nYXRld2F5X3Byb3RvY29sLlRocm93RXJyb3JSZXF1ZXN0GiQu",
+            "Z2F0ZXdheV9wcm90b2NvbC5UaHJvd0Vycm9yUmVzcG9uc2UiABJlCg5QdWJs",
+            "aXNoTWVzc2FnZRInLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlzaE1lc3NhZ2VS",
+            "ZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2NvbC5QdWJsaXNoTWVzc2FnZVJlc3Bv",
+            "bnNlIgASaAoPUmVzb2x2ZUluY2lkZW50EiguZ2F0ZXdheV9wcm90b2NvbC5S",
+            "ZXNvbHZlSW5jaWRlbnRSZXF1ZXN0GikuZ2F0ZXdheV9wcm90b2NvbC5SZXNv",
+            "bHZlSW5jaWRlbnRSZXNwb25zZSIAEl8KDFNldFZhcmlhYmxlcxIlLmdhdGV3",
+            "YXlfcHJvdG9jb2wuU2V0VmFyaWFibGVzUmVxdWVzdBomLmdhdGV3YXlfcHJv",
+            "dG9jb2wuU2V0VmFyaWFibGVzUmVzcG9uc2UiABJTCghUb3BvbG9neRIhLmdh",
+            "dGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXF1ZXN0GiIuZ2F0ZXdheV9wcm90",
+            "b2NvbC5Ub3BvbG9neVJlc3BvbnNlIgASawoQVXBkYXRlSm9iUmV0cmllcxIp",
+            "LmdhdGV3YXlfcHJvdG9jb2wuVXBkYXRlSm9iUmV0cmllc1JlcXVlc3QaKi5n",
+            "YXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJldHJpZXNSZXNwb25zZSIAQiwK",
+            "IWlvLmNhbXVuZGEuemVlYmUuZ2F0ZXdheS5wcm90b2NvbFAAWgUuLztwYmIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -138,7 +139,7 @@ namespace GatewayProtocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ProcessRequestObject), global::GatewayProtocol.ProcessRequestObject.Parser, new[]{ "Name", "Definition" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeployProcessResponse), global::GatewayProtocol.DeployProcessResponse.Parser, new[]{ "Key", "Processes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ProcessMetadata), global::GatewayProtocol.ProcessMetadata.Parser, new[]{ "BpmnProcessId", "Version", "ProcessDefinitionKey", "ResourceName" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobRequest), global::GatewayProtocol.FailJobRequest.Parser, new[]{ "JobKey", "Retries", "ErrorMessage" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobRequest), global::GatewayProtocol.FailJobRequest.Parser, new[]{ "JobKey", "Retries", "ErrorMessage", "RetryBackOff" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.FailJobResponse), global::GatewayProtocol.FailJobResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ThrowErrorRequest), global::GatewayProtocol.ThrowErrorRequest.Parser, new[]{ "JobKey", "ErrorCode", "ErrorMessage" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ThrowErrorResponse), global::GatewayProtocol.ThrowErrorResponse.Parser, null, null, null, null, null),
@@ -160,23 +161,31 @@ namespace GatewayProtocol {
 
   }
   #region Messages
-  public sealed partial class ActivateJobsRequest : pb::IMessage<ActivateJobsRequest> {
+  public sealed partial class ActivateJobsRequest : pb::IMessage<ActivateJobsRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<ActivateJobsRequest> _parser = new pb::MessageParser<ActivateJobsRequest>(() => new ActivateJobsRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ActivateJobsRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ActivateJobsRequest() {
       OnConstruction();
     }
@@ -184,6 +193,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ActivateJobsRequest(ActivateJobsRequest other) : this() {
       type_ = other.type_;
       worker_ = other.worker_;
@@ -195,6 +205,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ActivateJobsRequest Clone() {
       return new ActivateJobsRequest(this);
     }
@@ -207,6 +218,7 @@ namespace GatewayProtocol {
     /// type="payment-service" />)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Type {
       get { return type_; }
       set {
@@ -221,6 +233,7 @@ namespace GatewayProtocol {
     /// the name of the worker activating the jobs, mostly used for logging purposes
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Worker {
       get { return worker_; }
       set {
@@ -236,6 +249,7 @@ namespace GatewayProtocol {
     /// timeout (in ms) has been reached
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long Timeout {
       get { return timeout_; }
       set {
@@ -250,6 +264,7 @@ namespace GatewayProtocol {
     /// the maximum jobs to activate by this request
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int MaxJobsToActivate {
       get { return maxJobsToActivate_; }
       set {
@@ -267,6 +282,7 @@ namespace GatewayProtocol {
     /// the time of activation for the scope of the job will be returned
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<string> FetchVariable {
       get { return fetchVariable_; }
     }
@@ -280,6 +296,7 @@ namespace GatewayProtocol {
     /// if the requestTimeout &lt; 0, long polling is disabled and the request is completed immediately, even when no job is activated.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long RequestTimeout {
       get { return requestTimeout_; }
       set {
@@ -288,11 +305,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as ActivateJobsRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(ActivateJobsRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -310,6 +329,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (Type.Length != 0) hash ^= Type.GetHashCode();
@@ -325,12 +345,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Type.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(Type);
@@ -355,9 +380,42 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Type);
+      }
+      if (Worker.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Worker);
+      }
+      if (Timeout != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Timeout);
+      }
+      if (MaxJobsToActivate != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(MaxJobsToActivate);
+      }
+      fetchVariable_.WriteTo(ref output, _repeated_fetchVariable_codec);
+      if (RequestTimeout != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(RequestTimeout);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (Type.Length != 0) {
@@ -383,6 +441,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ActivateJobsRequest other) {
       if (other == null) {
         return;
@@ -407,7 +466,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -440,27 +503,75 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Type = input.ReadString();
+            break;
+          }
+          case 18: {
+            Worker = input.ReadString();
+            break;
+          }
+          case 24: {
+            Timeout = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            MaxJobsToActivate = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            fetchVariable_.AddEntriesFrom(ref input, _repeated_fetchVariable_codec);
+            break;
+          }
+          case 48: {
+            RequestTimeout = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class ActivateJobsResponse : pb::IMessage<ActivateJobsResponse> {
+  public sealed partial class ActivateJobsResponse : pb::IMessage<ActivateJobsResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<ActivateJobsResponse> _parser = new pb::MessageParser<ActivateJobsResponse>(() => new ActivateJobsResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ActivateJobsResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ActivateJobsResponse() {
       OnConstruction();
     }
@@ -468,12 +579,14 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ActivateJobsResponse(ActivateJobsResponse other) : this() {
       jobs_ = other.jobs_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ActivateJobsResponse Clone() {
       return new ActivateJobsResponse(this);
     }
@@ -487,16 +600,19 @@ namespace GatewayProtocol {
     /// list of activated jobs
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::GatewayProtocol.ActivatedJob> Jobs {
       get { return jobs_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as ActivateJobsResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(ActivateJobsResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -509,6 +625,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= jobs_.GetHashCode();
@@ -519,19 +636,37 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       jobs_.WriteTo(output, _repeated_jobs_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      jobs_.WriteTo(ref output, _repeated_jobs_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       size += jobs_.CalculateSize(_repeated_jobs_codec);
@@ -542,6 +677,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ActivateJobsResponse other) {
       if (other == null) {
         return;
@@ -551,7 +687,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -564,27 +704,55 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            jobs_.AddEntriesFrom(ref input, _repeated_jobs_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class ActivatedJob : pb::IMessage<ActivatedJob> {
+  public sealed partial class ActivatedJob : pb::IMessage<ActivatedJob>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<ActivatedJob> _parser = new pb::MessageParser<ActivatedJob>(() => new ActivatedJob());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ActivatedJob> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ActivatedJob() {
       OnConstruction();
     }
@@ -592,6 +760,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ActivatedJob(ActivatedJob other) : this() {
       key_ = other.key_;
       type_ = other.type_;
@@ -610,6 +779,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ActivatedJob Clone() {
       return new ActivatedJob(this);
     }
@@ -621,6 +791,7 @@ namespace GatewayProtocol {
     /// the key, a unique identifier for the job
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long Key {
       get { return key_; }
       set {
@@ -635,6 +806,7 @@ namespace GatewayProtocol {
     /// the type of the job (should match what was requested)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Type {
       get { return type_; }
       set {
@@ -649,6 +821,7 @@ namespace GatewayProtocol {
     /// the job's process instance key
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ProcessInstanceKey {
       get { return processInstanceKey_; }
       set {
@@ -663,6 +836,7 @@ namespace GatewayProtocol {
     /// the bpmn process ID of the job process definition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string BpmnProcessId {
       get { return bpmnProcessId_; }
       set {
@@ -677,6 +851,7 @@ namespace GatewayProtocol {
     /// the version of the job process definition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int ProcessDefinitionVersion {
       get { return processDefinitionVersion_; }
       set {
@@ -691,6 +866,7 @@ namespace GatewayProtocol {
     /// the key of the job process definition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ProcessDefinitionKey {
       get { return processDefinitionKey_; }
       set {
@@ -705,6 +881,7 @@ namespace GatewayProtocol {
     /// the associated task element ID
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ElementId {
       get { return elementId_; }
       set {
@@ -720,6 +897,7 @@ namespace GatewayProtocol {
     /// process instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ElementInstanceKey {
       get { return elementInstanceKey_; }
       set {
@@ -735,6 +913,7 @@ namespace GatewayProtocol {
     /// JSON document
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string CustomHeaders {
       get { return customHeaders_; }
       set {
@@ -749,6 +928,7 @@ namespace GatewayProtocol {
     /// the name of the worker which activated this job
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Worker {
       get { return worker_; }
       set {
@@ -763,6 +943,7 @@ namespace GatewayProtocol {
     /// the amount of retries left to this job (should always be positive)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Retries {
       get { return retries_; }
       set {
@@ -777,6 +958,7 @@ namespace GatewayProtocol {
     /// when the job can be activated again, sent as a UNIX epoch timestamp
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long Deadline {
       get { return deadline_; }
       set {
@@ -792,6 +974,7 @@ namespace GatewayProtocol {
     /// the task scope
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Variables {
       get { return variables_; }
       set {
@@ -800,11 +983,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as ActivatedJob);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(ActivatedJob other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -829,6 +1014,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (Key != 0L) hash ^= Key.GetHashCode();
@@ -851,12 +1037,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Key != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(Key);
@@ -912,9 +1103,73 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Key != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Key);
+      }
+      if (Type.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Type);
+      }
+      if (ProcessInstanceKey != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ProcessInstanceKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(BpmnProcessId);
+      }
+      if (ProcessDefinitionVersion != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(ProcessDefinitionVersion);
+      }
+      if (ProcessDefinitionKey != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(ProcessDefinitionKey);
+      }
+      if (ElementId.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(ElementId);
+      }
+      if (ElementInstanceKey != 0L) {
+        output.WriteRawTag(64);
+        output.WriteInt64(ElementInstanceKey);
+      }
+      if (CustomHeaders.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(CustomHeaders);
+      }
+      if (Worker.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(Worker);
+      }
+      if (Retries != 0) {
+        output.WriteRawTag(88);
+        output.WriteInt32(Retries);
+      }
+      if (Deadline != 0L) {
+        output.WriteRawTag(96);
+        output.WriteInt64(Deadline);
+      }
+      if (Variables.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(Variables);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (Key != 0L) {
@@ -963,6 +1218,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ActivatedJob other) {
       if (other == null) {
         return;
@@ -1010,7 +1266,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1071,27 +1331,103 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Key = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            Type = input.ReadString();
+            break;
+          }
+          case 24: {
+            ProcessInstanceKey = input.ReadInt64();
+            break;
+          }
+          case 34: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 40: {
+            ProcessDefinitionVersion = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            ProcessDefinitionKey = input.ReadInt64();
+            break;
+          }
+          case 58: {
+            ElementId = input.ReadString();
+            break;
+          }
+          case 64: {
+            ElementInstanceKey = input.ReadInt64();
+            break;
+          }
+          case 74: {
+            CustomHeaders = input.ReadString();
+            break;
+          }
+          case 82: {
+            Worker = input.ReadString();
+            break;
+          }
+          case 88: {
+            Retries = input.ReadInt32();
+            break;
+          }
+          case 96: {
+            Deadline = input.ReadInt64();
+            break;
+          }
+          case 106: {
+            Variables = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class CancelProcessInstanceRequest : pb::IMessage<CancelProcessInstanceRequest> {
+  public sealed partial class CancelProcessInstanceRequest : pb::IMessage<CancelProcessInstanceRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<CancelProcessInstanceRequest> _parser = new pb::MessageParser<CancelProcessInstanceRequest>(() => new CancelProcessInstanceRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CancelProcessInstanceRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CancelProcessInstanceRequest() {
       OnConstruction();
     }
@@ -1099,12 +1435,14 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CancelProcessInstanceRequest(CancelProcessInstanceRequest other) : this() {
       processInstanceKey_ = other.processInstanceKey_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CancelProcessInstanceRequest Clone() {
       return new CancelProcessInstanceRequest(this);
     }
@@ -1117,6 +1455,7 @@ namespace GatewayProtocol {
     /// CreateProcessInstanceResponse)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ProcessInstanceKey {
       get { return processInstanceKey_; }
       set {
@@ -1125,11 +1464,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as CancelProcessInstanceRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(CancelProcessInstanceRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1142,6 +1483,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (ProcessInstanceKey != 0L) hash ^= ProcessInstanceKey.GetHashCode();
@@ -1152,12 +1494,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (ProcessInstanceKey != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(ProcessInstanceKey);
@@ -1165,9 +1512,25 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ProcessInstanceKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ProcessInstanceKey);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (ProcessInstanceKey != 0L) {
@@ -1180,6 +1543,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(CancelProcessInstanceRequest other) {
       if (other == null) {
         return;
@@ -1191,7 +1555,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1204,27 +1572,55 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ProcessInstanceKey = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class CancelProcessInstanceResponse : pb::IMessage<CancelProcessInstanceResponse> {
+  public sealed partial class CancelProcessInstanceResponse : pb::IMessage<CancelProcessInstanceResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<CancelProcessInstanceResponse> _parser = new pb::MessageParser<CancelProcessInstanceResponse>(() => new CancelProcessInstanceResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CancelProcessInstanceResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CancelProcessInstanceResponse() {
       OnConstruction();
     }
@@ -1232,21 +1628,25 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CancelProcessInstanceResponse(CancelProcessInstanceResponse other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CancelProcessInstanceResponse Clone() {
       return new CancelProcessInstanceResponse(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as CancelProcessInstanceResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(CancelProcessInstanceResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1258,6 +1658,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (_unknownFields != null) {
@@ -1267,18 +1668,35 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (_unknownFields != null) {
@@ -1288,6 +1706,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(CancelProcessInstanceResponse other) {
       if (other == null) {
         return;
@@ -1296,7 +1715,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1305,27 +1728,51 @@ namespace GatewayProtocol {
             break;
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class CompleteJobRequest : pb::IMessage<CompleteJobRequest> {
+  public sealed partial class CompleteJobRequest : pb::IMessage<CompleteJobRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<CompleteJobRequest> _parser = new pb::MessageParser<CompleteJobRequest>(() => new CompleteJobRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CompleteJobRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CompleteJobRequest() {
       OnConstruction();
     }
@@ -1333,6 +1780,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CompleteJobRequest(CompleteJobRequest other) : this() {
       jobKey_ = other.jobKey_;
       variables_ = other.variables_;
@@ -1340,6 +1788,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CompleteJobRequest Clone() {
       return new CompleteJobRequest(this);
     }
@@ -1351,6 +1800,7 @@ namespace GatewayProtocol {
     /// the unique job identifier, as obtained from ActivateJobsResponse
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long JobKey {
       get { return jobKey_; }
       set {
@@ -1365,6 +1815,7 @@ namespace GatewayProtocol {
     /// a JSON document representing the variables in the current task scope
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Variables {
       get { return variables_; }
       set {
@@ -1373,11 +1824,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as CompleteJobRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(CompleteJobRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1391,6 +1844,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (JobKey != 0L) hash ^= JobKey.GetHashCode();
@@ -1402,12 +1856,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (JobKey != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(JobKey);
@@ -1419,9 +1878,29 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (JobKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(JobKey);
+      }
+      if (Variables.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Variables);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (JobKey != 0L) {
@@ -1437,6 +1916,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(CompleteJobRequest other) {
       if (other == null) {
         return;
@@ -1451,7 +1931,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1468,27 +1952,59 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            JobKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            Variables = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class CompleteJobResponse : pb::IMessage<CompleteJobResponse> {
+  public sealed partial class CompleteJobResponse : pb::IMessage<CompleteJobResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<CompleteJobResponse> _parser = new pb::MessageParser<CompleteJobResponse>(() => new CompleteJobResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CompleteJobResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CompleteJobResponse() {
       OnConstruction();
     }
@@ -1496,21 +2012,25 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CompleteJobResponse(CompleteJobResponse other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CompleteJobResponse Clone() {
       return new CompleteJobResponse(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as CompleteJobResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(CompleteJobResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1522,6 +2042,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (_unknownFields != null) {
@@ -1531,18 +2052,35 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (_unknownFields != null) {
@@ -1552,6 +2090,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(CompleteJobResponse other) {
       if (other == null) {
         return;
@@ -1560,7 +2099,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1569,27 +2112,51 @@ namespace GatewayProtocol {
             break;
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class CreateProcessInstanceRequest : pb::IMessage<CreateProcessInstanceRequest> {
+  public sealed partial class CreateProcessInstanceRequest : pb::IMessage<CreateProcessInstanceRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<CreateProcessInstanceRequest> _parser = new pb::MessageParser<CreateProcessInstanceRequest>(() => new CreateProcessInstanceRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CreateProcessInstanceRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceRequest() {
       OnConstruction();
     }
@@ -1597,6 +2164,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceRequest(CreateProcessInstanceRequest other) : this() {
       processDefinitionKey_ = other.processDefinitionKey_;
       bpmnProcessId_ = other.bpmnProcessId_;
@@ -1606,6 +2174,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceRequest Clone() {
       return new CreateProcessInstanceRequest(this);
     }
@@ -1618,6 +2187,7 @@ namespace GatewayProtocol {
     /// in the DeployProcessResponse message)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ProcessDefinitionKey {
       get { return processDefinitionKey_; }
       set {
@@ -1632,6 +2202,7 @@ namespace GatewayProtocol {
     /// the BPMN process ID of the process definition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string BpmnProcessId {
       get { return bpmnProcessId_; }
       set {
@@ -1646,6 +2217,7 @@ namespace GatewayProtocol {
     /// the version of the process; set to -1 to use the latest version
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Version {
       get { return version_; }
       set {
@@ -1664,6 +2236,7 @@ namespace GatewayProtocol {
     /// valid argument, as the root of the JSON document is an array and not an object.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Variables {
       get { return variables_; }
       set {
@@ -1672,11 +2245,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as CreateProcessInstanceRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(CreateProcessInstanceRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1692,6 +2267,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (ProcessDefinitionKey != 0L) hash ^= ProcessDefinitionKey.GetHashCode();
@@ -1705,12 +2281,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (ProcessDefinitionKey != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(ProcessDefinitionKey);
@@ -1730,9 +2311,37 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ProcessDefinitionKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ProcessDefinitionKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(BpmnProcessId);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Version);
+      }
+      if (Variables.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Variables);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (ProcessDefinitionKey != 0L) {
@@ -1754,6 +2363,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(CreateProcessInstanceRequest other) {
       if (other == null) {
         return;
@@ -1774,7 +2384,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1799,27 +2413,67 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ProcessDefinitionKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 24: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            Variables = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class CreateProcessInstanceResponse : pb::IMessage<CreateProcessInstanceResponse> {
+  public sealed partial class CreateProcessInstanceResponse : pb::IMessage<CreateProcessInstanceResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<CreateProcessInstanceResponse> _parser = new pb::MessageParser<CreateProcessInstanceResponse>(() => new CreateProcessInstanceResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CreateProcessInstanceResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceResponse() {
       OnConstruction();
     }
@@ -1827,6 +2481,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceResponse(CreateProcessInstanceResponse other) : this() {
       processDefinitionKey_ = other.processDefinitionKey_;
       bpmnProcessId_ = other.bpmnProcessId_;
@@ -1836,6 +2491,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceResponse Clone() {
       return new CreateProcessInstanceResponse(this);
     }
@@ -1847,6 +2503,7 @@ namespace GatewayProtocol {
     /// the key of the process definition which was used to create the process instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ProcessDefinitionKey {
       get { return processDefinitionKey_; }
       set {
@@ -1862,6 +2519,7 @@ namespace GatewayProtocol {
     /// instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string BpmnProcessId {
       get { return bpmnProcessId_; }
       set {
@@ -1876,6 +2534,7 @@ namespace GatewayProtocol {
     /// the version of the process definition which was used to create the process instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Version {
       get { return version_; }
       set {
@@ -1891,6 +2550,7 @@ namespace GatewayProtocol {
     /// needs a process instance key (e.g. CancelProcessInstanceRequest)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ProcessInstanceKey {
       get { return processInstanceKey_; }
       set {
@@ -1899,11 +2559,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as CreateProcessInstanceResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(CreateProcessInstanceResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1919,6 +2581,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (ProcessDefinitionKey != 0L) hash ^= ProcessDefinitionKey.GetHashCode();
@@ -1932,12 +2595,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (ProcessDefinitionKey != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(ProcessDefinitionKey);
@@ -1957,9 +2625,37 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ProcessDefinitionKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ProcessDefinitionKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(BpmnProcessId);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Version);
+      }
+      if (ProcessInstanceKey != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(ProcessInstanceKey);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (ProcessDefinitionKey != 0L) {
@@ -1981,6 +2677,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(CreateProcessInstanceResponse other) {
       if (other == null) {
         return;
@@ -2001,7 +2698,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2026,27 +2727,67 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ProcessDefinitionKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 24: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            ProcessInstanceKey = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class CreateProcessInstanceWithResultRequest : pb::IMessage<CreateProcessInstanceWithResultRequest> {
+  public sealed partial class CreateProcessInstanceWithResultRequest : pb::IMessage<CreateProcessInstanceWithResultRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<CreateProcessInstanceWithResultRequest> _parser = new pb::MessageParser<CreateProcessInstanceWithResultRequest>(() => new CreateProcessInstanceWithResultRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CreateProcessInstanceWithResultRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceWithResultRequest() {
       OnConstruction();
     }
@@ -2054,6 +2795,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceWithResultRequest(CreateProcessInstanceWithResultRequest other) : this() {
       request_ = other.request_ != null ? other.request_.Clone() : null;
       requestTimeout_ = other.requestTimeout_;
@@ -2062,6 +2804,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceWithResultRequest Clone() {
       return new CreateProcessInstanceWithResultRequest(this);
     }
@@ -2070,6 +2813,7 @@ namespace GatewayProtocol {
     public const int RequestFieldNumber = 1;
     private global::GatewayProtocol.CreateProcessInstanceRequest request_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::GatewayProtocol.CreateProcessInstanceRequest Request {
       get { return request_; }
       set {
@@ -2086,6 +2830,7 @@ namespace GatewayProtocol {
     /// if requestTimeout = 0, uses the generic requestTimeout configured in the gateway.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long RequestTimeout {
       get { return requestTimeout_; }
       set {
@@ -2103,16 +2848,19 @@ namespace GatewayProtocol {
     /// if empty, all visible variables in the root scope will be returned.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<string> FetchVariables {
       get { return fetchVariables_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as CreateProcessInstanceWithResultRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(CreateProcessInstanceWithResultRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2127,6 +2875,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (request_ != null) hash ^= Request.GetHashCode();
@@ -2139,12 +2888,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (request_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Request);
@@ -2157,9 +2911,30 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (request_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Request);
+      }
+      if (RequestTimeout != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(RequestTimeout);
+      }
+      fetchVariables_.WriteTo(ref output, _repeated_fetchVariables_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (request_ != null) {
@@ -2176,6 +2951,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(CreateProcessInstanceWithResultRequest other) {
       if (other == null) {
         return;
@@ -2194,7 +2970,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2218,27 +2998,66 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (request_ == null) {
+              Request = new global::GatewayProtocol.CreateProcessInstanceRequest();
+            }
+            input.ReadMessage(Request);
+            break;
+          }
+          case 16: {
+            RequestTimeout = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            fetchVariables_.AddEntriesFrom(ref input, _repeated_fetchVariables_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class CreateProcessInstanceWithResultResponse : pb::IMessage<CreateProcessInstanceWithResultResponse> {
+  public sealed partial class CreateProcessInstanceWithResultResponse : pb::IMessage<CreateProcessInstanceWithResultResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<CreateProcessInstanceWithResultResponse> _parser = new pb::MessageParser<CreateProcessInstanceWithResultResponse>(() => new CreateProcessInstanceWithResultResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CreateProcessInstanceWithResultResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceWithResultResponse() {
       OnConstruction();
     }
@@ -2246,6 +3065,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceWithResultResponse(CreateProcessInstanceWithResultResponse other) : this() {
       processDefinitionKey_ = other.processDefinitionKey_;
       bpmnProcessId_ = other.bpmnProcessId_;
@@ -2256,6 +3076,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceWithResultResponse Clone() {
       return new CreateProcessInstanceWithResultResponse(this);
     }
@@ -2267,6 +3088,7 @@ namespace GatewayProtocol {
     /// the key of the process definition which was used to create the process instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ProcessDefinitionKey {
       get { return processDefinitionKey_; }
       set {
@@ -2282,6 +3104,7 @@ namespace GatewayProtocol {
     /// instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string BpmnProcessId {
       get { return bpmnProcessId_; }
       set {
@@ -2296,6 +3119,7 @@ namespace GatewayProtocol {
     /// the version of the process definition which was used to create the process instance
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Version {
       get { return version_; }
       set {
@@ -2311,6 +3135,7 @@ namespace GatewayProtocol {
     /// needs a process instance key (e.g. CancelProcessInstanceRequest)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ProcessInstanceKey {
       get { return processInstanceKey_; }
       set {
@@ -2326,6 +3151,7 @@ namespace GatewayProtocol {
     /// consists of visible variables in the root scope
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Variables {
       get { return variables_; }
       set {
@@ -2334,11 +3160,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as CreateProcessInstanceWithResultResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(CreateProcessInstanceWithResultResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2355,6 +3183,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (ProcessDefinitionKey != 0L) hash ^= ProcessDefinitionKey.GetHashCode();
@@ -2369,12 +3198,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (ProcessDefinitionKey != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(ProcessDefinitionKey);
@@ -2398,9 +3232,41 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ProcessDefinitionKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ProcessDefinitionKey);
+      }
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(BpmnProcessId);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Version);
+      }
+      if (ProcessInstanceKey != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(ProcessInstanceKey);
+      }
+      if (Variables.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Variables);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (ProcessDefinitionKey != 0L) {
@@ -2425,6 +3291,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(CreateProcessInstanceWithResultResponse other) {
       if (other == null) {
         return;
@@ -2448,7 +3315,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2477,27 +3348,71 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ProcessDefinitionKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 24: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            ProcessInstanceKey = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            Variables = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class DeployProcessRequest : pb::IMessage<DeployProcessRequest> {
+  public sealed partial class DeployProcessRequest : pb::IMessage<DeployProcessRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<DeployProcessRequest> _parser = new pb::MessageParser<DeployProcessRequest>(() => new DeployProcessRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<DeployProcessRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DeployProcessRequest() {
       OnConstruction();
     }
@@ -2505,12 +3420,14 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DeployProcessRequest(DeployProcessRequest other) : this() {
       processes_ = other.processes_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DeployProcessRequest Clone() {
       return new DeployProcessRequest(this);
     }
@@ -2524,16 +3441,19 @@ namespace GatewayProtocol {
     /// List of process resources to deploy
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::GatewayProtocol.ProcessRequestObject> Processes {
       get { return processes_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as DeployProcessRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(DeployProcessRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2546,6 +3466,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= processes_.GetHashCode();
@@ -2556,19 +3477,37 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       processes_.WriteTo(output, _repeated_processes_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      processes_.WriteTo(ref output, _repeated_processes_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       size += processes_.CalculateSize(_repeated_processes_codec);
@@ -2579,6 +3518,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(DeployProcessRequest other) {
       if (other == null) {
         return;
@@ -2588,7 +3528,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2601,27 +3545,55 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            processes_.AddEntriesFrom(ref input, _repeated_processes_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class ProcessRequestObject : pb::IMessage<ProcessRequestObject> {
+  public sealed partial class ProcessRequestObject : pb::IMessage<ProcessRequestObject>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<ProcessRequestObject> _parser = new pb::MessageParser<ProcessRequestObject>(() => new ProcessRequestObject());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ProcessRequestObject> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ProcessRequestObject() {
       OnConstruction();
     }
@@ -2629,6 +3601,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ProcessRequestObject(ProcessRequestObject other) : this() {
       name_ = other.name_;
       definition_ = other.definition_;
@@ -2636,6 +3609,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ProcessRequestObject Clone() {
       return new ProcessRequestObject(this);
     }
@@ -2647,6 +3621,7 @@ namespace GatewayProtocol {
     /// the resource basename, e.g. myProcess.bpmn
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Name {
       get { return name_; }
       set {
@@ -2661,6 +3636,7 @@ namespace GatewayProtocol {
     /// the process definition as a UTF8-encoded string
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pb::ByteString Definition {
       get { return definition_; }
       set {
@@ -2669,11 +3645,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as ProcessRequestObject);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(ProcessRequestObject other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2687,6 +3665,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
@@ -2698,12 +3677,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Name.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(Name);
@@ -2715,9 +3699,29 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (Definition.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Definition);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (Name.Length != 0) {
@@ -2733,6 +3737,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ProcessRequestObject other) {
       if (other == null) {
         return;
@@ -2747,7 +3752,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2764,27 +3773,59 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            Definition = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class DeployProcessResponse : pb::IMessage<DeployProcessResponse> {
+  public sealed partial class DeployProcessResponse : pb::IMessage<DeployProcessResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<DeployProcessResponse> _parser = new pb::MessageParser<DeployProcessResponse>(() => new DeployProcessResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<DeployProcessResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DeployProcessResponse() {
       OnConstruction();
     }
@@ -2792,6 +3833,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DeployProcessResponse(DeployProcessResponse other) : this() {
       key_ = other.key_;
       processes_ = other.processes_.Clone();
@@ -2799,6 +3841,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DeployProcessResponse Clone() {
       return new DeployProcessResponse(this);
     }
@@ -2810,6 +3853,7 @@ namespace GatewayProtocol {
     /// the unique key identifying the deployment
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long Key {
       get { return key_; }
       set {
@@ -2826,16 +3870,19 @@ namespace GatewayProtocol {
     /// a list of deployed processes
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::GatewayProtocol.ProcessMetadata> Processes {
       get { return processes_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as DeployProcessResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(DeployProcessResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -2849,6 +3896,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (Key != 0L) hash ^= Key.GetHashCode();
@@ -2860,12 +3908,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Key != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(Key);
@@ -2874,9 +3927,26 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Key != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Key);
+      }
+      processes_.WriteTo(ref output, _repeated_processes_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (Key != 0L) {
@@ -2890,6 +3960,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(DeployProcessResponse other) {
       if (other == null) {
         return;
@@ -2902,7 +3973,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2919,27 +3994,59 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Key = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            processes_.AddEntriesFrom(ref input, _repeated_processes_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class ProcessMetadata : pb::IMessage<ProcessMetadata> {
+  public sealed partial class ProcessMetadata : pb::IMessage<ProcessMetadata>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<ProcessMetadata> _parser = new pb::MessageParser<ProcessMetadata>(() => new ProcessMetadata());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ProcessMetadata> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ProcessMetadata() {
       OnConstruction();
     }
@@ -2947,6 +4054,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ProcessMetadata(ProcessMetadata other) : this() {
       bpmnProcessId_ = other.bpmnProcessId_;
       version_ = other.version_;
@@ -2956,6 +4064,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ProcessMetadata Clone() {
       return new ProcessMetadata(this);
     }
@@ -2968,6 +4077,7 @@ namespace GatewayProtocol {
     /// unique identifier for a specific process definition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string BpmnProcessId {
       get { return bpmnProcessId_; }
       set {
@@ -2982,6 +4092,7 @@ namespace GatewayProtocol {
     /// the assigned process version
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Version {
       get { return version_; }
       set {
@@ -2996,6 +4107,7 @@ namespace GatewayProtocol {
     /// the assigned key, which acts as a unique identifier for this process
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ProcessDefinitionKey {
       get { return processDefinitionKey_; }
       set {
@@ -3011,6 +4123,7 @@ namespace GatewayProtocol {
     /// parsed
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ResourceName {
       get { return resourceName_; }
       set {
@@ -3019,11 +4132,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as ProcessMetadata);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(ProcessMetadata other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -3039,6 +4154,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (BpmnProcessId.Length != 0) hash ^= BpmnProcessId.GetHashCode();
@@ -3052,12 +4168,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (BpmnProcessId.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(BpmnProcessId);
@@ -3077,9 +4198,37 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (BpmnProcessId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(BpmnProcessId);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Version);
+      }
+      if (ProcessDefinitionKey != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ProcessDefinitionKey);
+      }
+      if (ResourceName.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(ResourceName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (BpmnProcessId.Length != 0) {
@@ -3101,6 +4250,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ProcessMetadata other) {
       if (other == null) {
         return;
@@ -3121,7 +4271,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3146,27 +4300,67 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            BpmnProcessId = input.ReadString();
+            break;
+          }
+          case 16: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            ProcessDefinitionKey = input.ReadInt64();
+            break;
+          }
+          case 34: {
+            ResourceName = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class FailJobRequest : pb::IMessage<FailJobRequest> {
+  public sealed partial class FailJobRequest : pb::IMessage<FailJobRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<FailJobRequest> _parser = new pb::MessageParser<FailJobRequest>(() => new FailJobRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<FailJobRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FailJobRequest() {
       OnConstruction();
     }
@@ -3174,14 +4368,17 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FailJobRequest(FailJobRequest other) : this() {
       jobKey_ = other.jobKey_;
       retries_ = other.retries_;
       errorMessage_ = other.errorMessage_;
+      retryBackOff_ = other.retryBackOff_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FailJobRequest Clone() {
       return new FailJobRequest(this);
     }
@@ -3193,6 +4390,7 @@ namespace GatewayProtocol {
     /// the unique job identifier, as obtained when activating the job
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long JobKey {
       get { return jobKey_; }
       set {
@@ -3207,6 +4405,7 @@ namespace GatewayProtocol {
     /// the amount of retries the job should have left
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Retries {
       get { return retries_; }
       set {
@@ -3223,6 +4422,7 @@ namespace GatewayProtocol {
     /// as it this message can help explain why an incident was raised
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ErrorMessage {
       get { return errorMessage_; }
       set {
@@ -3230,12 +4430,29 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "retryBackOff" field.</summary>
+    public const int RetryBackOffFieldNumber = 4;
+    private long retryBackOff_;
+    /// <summary>
+    /// the backoff timeout for the next retry
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long RetryBackOff {
+      get { return retryBackOff_; }
+      set {
+        retryBackOff_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as FailJobRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(FailJobRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -3246,15 +4463,18 @@ namespace GatewayProtocol {
       if (JobKey != other.JobKey) return false;
       if (Retries != other.Retries) return false;
       if (ErrorMessage != other.ErrorMessage) return false;
+      if (RetryBackOff != other.RetryBackOff) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (JobKey != 0L) hash ^= JobKey.GetHashCode();
       if (Retries != 0) hash ^= Retries.GetHashCode();
       if (ErrorMessage.Length != 0) hash ^= ErrorMessage.GetHashCode();
+      if (RetryBackOff != 0L) hash ^= RetryBackOff.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3262,12 +4482,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (JobKey != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(JobKey);
@@ -3280,12 +4505,44 @@ namespace GatewayProtocol {
         output.WriteRawTag(26);
         output.WriteString(ErrorMessage);
       }
+      if (RetryBackOff != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(RetryBackOff);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (JobKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(JobKey);
+      }
+      if (Retries != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Retries);
+      }
+      if (ErrorMessage.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ErrorMessage);
+      }
+      if (RetryBackOff != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(RetryBackOff);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (JobKey != 0L) {
@@ -3297,6 +4554,9 @@ namespace GatewayProtocol {
       if (ErrorMessage.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorMessage);
       }
+      if (RetryBackOff != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(RetryBackOff);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3304,6 +4564,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(FailJobRequest other) {
       if (other == null) {
         return;
@@ -3317,11 +4578,18 @@ namespace GatewayProtocol {
       if (other.ErrorMessage.Length != 0) {
         ErrorMessage = other.ErrorMessage;
       }
+      if (other.RetryBackOff != 0L) {
+        RetryBackOff = other.RetryBackOff;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3340,29 +4608,73 @@ namespace GatewayProtocol {
             ErrorMessage = input.ReadString();
             break;
           }
+          case 32: {
+            RetryBackOff = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            JobKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Retries = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            ErrorMessage = input.ReadString();
+            break;
+          }
+          case 32: {
+            RetryBackOff = input.ReadInt64();
+            break;
+          }
         }
       }
     }
+    #endif
 
   }
 
-  public sealed partial class FailJobResponse : pb::IMessage<FailJobResponse> {
+  public sealed partial class FailJobResponse : pb::IMessage<FailJobResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<FailJobResponse> _parser = new pb::MessageParser<FailJobResponse>(() => new FailJobResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<FailJobResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FailJobResponse() {
       OnConstruction();
     }
@@ -3370,21 +4682,25 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FailJobResponse(FailJobResponse other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FailJobResponse Clone() {
       return new FailJobResponse(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as FailJobResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(FailJobResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -3396,6 +4712,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (_unknownFields != null) {
@@ -3405,18 +4722,35 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (_unknownFields != null) {
@@ -3426,6 +4760,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(FailJobResponse other) {
       if (other == null) {
         return;
@@ -3434,7 +4769,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3443,27 +4782,51 @@ namespace GatewayProtocol {
             break;
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class ThrowErrorRequest : pb::IMessage<ThrowErrorRequest> {
+  public sealed partial class ThrowErrorRequest : pb::IMessage<ThrowErrorRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<ThrowErrorRequest> _parser = new pb::MessageParser<ThrowErrorRequest>(() => new ThrowErrorRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ThrowErrorRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ThrowErrorRequest() {
       OnConstruction();
     }
@@ -3471,6 +4834,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ThrowErrorRequest(ThrowErrorRequest other) : this() {
       jobKey_ = other.jobKey_;
       errorCode_ = other.errorCode_;
@@ -3479,6 +4843,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ThrowErrorRequest Clone() {
       return new ThrowErrorRequest(this);
     }
@@ -3490,6 +4855,7 @@ namespace GatewayProtocol {
     /// the unique job identifier, as obtained when activating the job
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long JobKey {
       get { return jobKey_; }
       set {
@@ -3504,6 +4870,7 @@ namespace GatewayProtocol {
     /// the error code that will be matched with an error catch event
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ErrorCode {
       get { return errorCode_; }
       set {
@@ -3518,6 +4885,7 @@ namespace GatewayProtocol {
     /// an optional error message that provides additional context
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ErrorMessage {
       get { return errorMessage_; }
       set {
@@ -3526,11 +4894,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as ThrowErrorRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(ThrowErrorRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -3545,6 +4915,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (JobKey != 0L) hash ^= JobKey.GetHashCode();
@@ -3557,12 +4928,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (JobKey != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(JobKey);
@@ -3578,9 +4954,33 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (JobKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(JobKey);
+      }
+      if (ErrorCode.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(ErrorCode);
+      }
+      if (ErrorMessage.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ErrorMessage);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (JobKey != 0L) {
@@ -3599,6 +4999,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ThrowErrorRequest other) {
       if (other == null) {
         return;
@@ -3616,7 +5017,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3637,27 +5042,63 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            JobKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            ErrorCode = input.ReadString();
+            break;
+          }
+          case 26: {
+            ErrorMessage = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class ThrowErrorResponse : pb::IMessage<ThrowErrorResponse> {
+  public sealed partial class ThrowErrorResponse : pb::IMessage<ThrowErrorResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<ThrowErrorResponse> _parser = new pb::MessageParser<ThrowErrorResponse>(() => new ThrowErrorResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ThrowErrorResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ThrowErrorResponse() {
       OnConstruction();
     }
@@ -3665,21 +5106,25 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ThrowErrorResponse(ThrowErrorResponse other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ThrowErrorResponse Clone() {
       return new ThrowErrorResponse(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as ThrowErrorResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(ThrowErrorResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -3691,6 +5136,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (_unknownFields != null) {
@@ -3700,18 +5146,35 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (_unknownFields != null) {
@@ -3721,6 +5184,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ThrowErrorResponse other) {
       if (other == null) {
         return;
@@ -3729,7 +5193,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3738,27 +5206,51 @@ namespace GatewayProtocol {
             break;
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class PublishMessageRequest : pb::IMessage<PublishMessageRequest> {
+  public sealed partial class PublishMessageRequest : pb::IMessage<PublishMessageRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<PublishMessageRequest> _parser = new pb::MessageParser<PublishMessageRequest>(() => new PublishMessageRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<PublishMessageRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PublishMessageRequest() {
       OnConstruction();
     }
@@ -3766,6 +5258,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PublishMessageRequest(PublishMessageRequest other) : this() {
       name_ = other.name_;
       correlationKey_ = other.correlationKey_;
@@ -3776,6 +5269,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PublishMessageRequest Clone() {
       return new PublishMessageRequest(this);
     }
@@ -3787,6 +5281,7 @@ namespace GatewayProtocol {
     /// the name of the message
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Name {
       get { return name_; }
       set {
@@ -3801,6 +5296,7 @@ namespace GatewayProtocol {
     /// the correlation key of the message
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string CorrelationKey {
       get { return correlationKey_; }
       set {
@@ -3815,6 +5311,7 @@ namespace GatewayProtocol {
     /// how long the message should be buffered on the broker, in milliseconds
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long TimeToLive {
       get { return timeToLive_; }
       set {
@@ -3830,6 +5327,7 @@ namespace GatewayProtocol {
     /// with the given ID will ever be published (during its lifetime)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string MessageId {
       get { return messageId_; }
       set {
@@ -3845,6 +5343,7 @@ namespace GatewayProtocol {
     /// object, e.g. { "a": "foo" }. [ "foo" ] would not be valid.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Variables {
       get { return variables_; }
       set {
@@ -3853,11 +5352,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as PublishMessageRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(PublishMessageRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -3874,6 +5375,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
@@ -3888,12 +5390,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Name.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(Name);
@@ -3917,9 +5424,41 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (CorrelationKey.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(CorrelationKey);
+      }
+      if (TimeToLive != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(TimeToLive);
+      }
+      if (MessageId.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(MessageId);
+      }
+      if (Variables.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Variables);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (Name.Length != 0) {
@@ -3944,6 +5483,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(PublishMessageRequest other) {
       if (other == null) {
         return;
@@ -3967,7 +5507,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3996,27 +5540,71 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            CorrelationKey = input.ReadString();
+            break;
+          }
+          case 24: {
+            TimeToLive = input.ReadInt64();
+            break;
+          }
+          case 34: {
+            MessageId = input.ReadString();
+            break;
+          }
+          case 42: {
+            Variables = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class PublishMessageResponse : pb::IMessage<PublishMessageResponse> {
+  public sealed partial class PublishMessageResponse : pb::IMessage<PublishMessageResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<PublishMessageResponse> _parser = new pb::MessageParser<PublishMessageResponse>(() => new PublishMessageResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<PublishMessageResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PublishMessageResponse() {
       OnConstruction();
     }
@@ -4024,12 +5612,14 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PublishMessageResponse(PublishMessageResponse other) : this() {
       key_ = other.key_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PublishMessageResponse Clone() {
       return new PublishMessageResponse(this);
     }
@@ -4041,6 +5631,7 @@ namespace GatewayProtocol {
     /// the unique ID of the message that was published
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long Key {
       get { return key_; }
       set {
@@ -4049,11 +5640,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as PublishMessageResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(PublishMessageResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -4066,6 +5659,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (Key != 0L) hash ^= Key.GetHashCode();
@@ -4076,12 +5670,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Key != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(Key);
@@ -4089,9 +5688,25 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Key != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Key);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (Key != 0L) {
@@ -4104,6 +5719,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(PublishMessageResponse other) {
       if (other == null) {
         return;
@@ -4115,7 +5731,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4128,27 +5748,55 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Key = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class ResolveIncidentRequest : pb::IMessage<ResolveIncidentRequest> {
+  public sealed partial class ResolveIncidentRequest : pb::IMessage<ResolveIncidentRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<ResolveIncidentRequest> _parser = new pb::MessageParser<ResolveIncidentRequest>(() => new ResolveIncidentRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ResolveIncidentRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ResolveIncidentRequest() {
       OnConstruction();
     }
@@ -4156,12 +5804,14 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ResolveIncidentRequest(ResolveIncidentRequest other) : this() {
       incidentKey_ = other.incidentKey_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ResolveIncidentRequest Clone() {
       return new ResolveIncidentRequest(this);
     }
@@ -4173,6 +5823,7 @@ namespace GatewayProtocol {
     /// the unique ID of the incident to resolve
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long IncidentKey {
       get { return incidentKey_; }
       set {
@@ -4181,11 +5832,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as ResolveIncidentRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(ResolveIncidentRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -4198,6 +5851,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (IncidentKey != 0L) hash ^= IncidentKey.GetHashCode();
@@ -4208,12 +5862,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (IncidentKey != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(IncidentKey);
@@ -4221,9 +5880,25 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (IncidentKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IncidentKey);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (IncidentKey != 0L) {
@@ -4236,6 +5911,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ResolveIncidentRequest other) {
       if (other == null) {
         return;
@@ -4247,7 +5923,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4260,27 +5940,55 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            IncidentKey = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class ResolveIncidentResponse : pb::IMessage<ResolveIncidentResponse> {
+  public sealed partial class ResolveIncidentResponse : pb::IMessage<ResolveIncidentResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<ResolveIncidentResponse> _parser = new pb::MessageParser<ResolveIncidentResponse>(() => new ResolveIncidentResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ResolveIncidentResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ResolveIncidentResponse() {
       OnConstruction();
     }
@@ -4288,21 +5996,25 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ResolveIncidentResponse(ResolveIncidentResponse other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ResolveIncidentResponse Clone() {
       return new ResolveIncidentResponse(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as ResolveIncidentResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(ResolveIncidentResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -4314,6 +6026,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (_unknownFields != null) {
@@ -4323,18 +6036,35 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (_unknownFields != null) {
@@ -4344,6 +6074,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ResolveIncidentResponse other) {
       if (other == null) {
         return;
@@ -4352,7 +6083,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4361,27 +6096,51 @@ namespace GatewayProtocol {
             break;
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class TopologyRequest : pb::IMessage<TopologyRequest> {
+  public sealed partial class TopologyRequest : pb::IMessage<TopologyRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<TopologyRequest> _parser = new pb::MessageParser<TopologyRequest>(() => new TopologyRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<TopologyRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TopologyRequest() {
       OnConstruction();
     }
@@ -4389,21 +6148,25 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TopologyRequest(TopologyRequest other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TopologyRequest Clone() {
       return new TopologyRequest(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as TopologyRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(TopologyRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -4415,6 +6178,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (_unknownFields != null) {
@@ -4424,18 +6188,35 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (_unknownFields != null) {
@@ -4445,6 +6226,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(TopologyRequest other) {
       if (other == null) {
         return;
@@ -4453,7 +6235,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4462,27 +6248,51 @@ namespace GatewayProtocol {
             break;
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class TopologyResponse : pb::IMessage<TopologyResponse> {
+  public sealed partial class TopologyResponse : pb::IMessage<TopologyResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<TopologyResponse> _parser = new pb::MessageParser<TopologyResponse>(() => new TopologyResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<TopologyResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TopologyResponse() {
       OnConstruction();
     }
@@ -4490,6 +6300,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TopologyResponse(TopologyResponse other) : this() {
       brokers_ = other.brokers_.Clone();
       clusterSize_ = other.clusterSize_;
@@ -4500,6 +6311,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TopologyResponse Clone() {
       return new TopologyResponse(this);
     }
@@ -4513,6 +6325,7 @@ namespace GatewayProtocol {
     /// list of brokers part of this cluster
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::GatewayProtocol.BrokerInfo> Brokers {
       get { return brokers_; }
     }
@@ -4524,6 +6337,7 @@ namespace GatewayProtocol {
     /// how many nodes are in the cluster
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int ClusterSize {
       get { return clusterSize_; }
       set {
@@ -4538,6 +6352,7 @@ namespace GatewayProtocol {
     /// how many partitions are spread across the cluster
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int PartitionsCount {
       get { return partitionsCount_; }
       set {
@@ -4552,6 +6367,7 @@ namespace GatewayProtocol {
     /// configured replication factor for this cluster
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int ReplicationFactor {
       get { return replicationFactor_; }
       set {
@@ -4566,6 +6382,7 @@ namespace GatewayProtocol {
     /// gateway version
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string GatewayVersion {
       get { return gatewayVersion_; }
       set {
@@ -4574,11 +6391,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as TopologyResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(TopologyResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -4595,6 +6414,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= brokers_.GetHashCode();
@@ -4609,12 +6429,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       brokers_.WriteTo(output, _repeated_brokers_codec);
       if (ClusterSize != 0) {
         output.WriteRawTag(16);
@@ -4635,9 +6460,38 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      brokers_.WriteTo(ref output, _repeated_brokers_codec);
+      if (ClusterSize != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(ClusterSize);
+      }
+      if (PartitionsCount != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(PartitionsCount);
+      }
+      if (ReplicationFactor != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(ReplicationFactor);
+      }
+      if (GatewayVersion.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(GatewayVersion);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       size += brokers_.CalculateSize(_repeated_brokers_codec);
@@ -4660,6 +6514,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(TopologyResponse other) {
       if (other == null) {
         return;
@@ -4681,7 +6536,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4710,27 +6569,71 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            brokers_.AddEntriesFrom(ref input, _repeated_brokers_codec);
+            break;
+          }
+          case 16: {
+            ClusterSize = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            PartitionsCount = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            ReplicationFactor = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            GatewayVersion = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class BrokerInfo : pb::IMessage<BrokerInfo> {
+  public sealed partial class BrokerInfo : pb::IMessage<BrokerInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<BrokerInfo> _parser = new pb::MessageParser<BrokerInfo>(() => new BrokerInfo());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<BrokerInfo> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public BrokerInfo() {
       OnConstruction();
     }
@@ -4738,6 +6641,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public BrokerInfo(BrokerInfo other) : this() {
       nodeId_ = other.nodeId_;
       host_ = other.host_;
@@ -4748,6 +6652,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public BrokerInfo Clone() {
       return new BrokerInfo(this);
     }
@@ -4759,6 +6664,7 @@ namespace GatewayProtocol {
     /// unique (within a cluster) node ID for the broker
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int NodeId {
       get { return nodeId_; }
       set {
@@ -4773,6 +6679,7 @@ namespace GatewayProtocol {
     /// hostname of the broker
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Host {
       get { return host_; }
       set {
@@ -4787,6 +6694,7 @@ namespace GatewayProtocol {
     /// port for the broker
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Port {
       get { return port_; }
       set {
@@ -4803,6 +6711,7 @@ namespace GatewayProtocol {
     /// list of partitions managed or replicated on this broker
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::GatewayProtocol.Partition> Partitions {
       get { return partitions_; }
     }
@@ -4814,6 +6723,7 @@ namespace GatewayProtocol {
     /// broker version
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Version {
       get { return version_; }
       set {
@@ -4822,11 +6732,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as BrokerInfo);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(BrokerInfo other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -4843,6 +6755,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (NodeId != 0) hash ^= NodeId.GetHashCode();
@@ -4857,12 +6770,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (NodeId != 0) {
         output.WriteRawTag(8);
         output.WriteInt32(NodeId);
@@ -4883,9 +6801,38 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (NodeId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(NodeId);
+      }
+      if (Host.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Host);
+      }
+      if (Port != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Port);
+      }
+      partitions_.WriteTo(ref output, _repeated_partitions_codec);
+      if (Version.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Version);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (NodeId != 0) {
@@ -4908,6 +6855,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(BrokerInfo other) {
       if (other == null) {
         return;
@@ -4929,7 +6877,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4958,27 +6910,71 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            NodeId = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Host = input.ReadString();
+            break;
+          }
+          case 24: {
+            Port = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            partitions_.AddEntriesFrom(ref input, _repeated_partitions_codec);
+            break;
+          }
+          case 42: {
+            Version = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class Partition : pb::IMessage<Partition> {
+  public sealed partial class Partition : pb::IMessage<Partition>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<Partition> _parser = new pb::MessageParser<Partition>(() => new Partition());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<Partition> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Partition() {
       OnConstruction();
     }
@@ -4986,6 +6982,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Partition(Partition other) : this() {
       partitionId_ = other.partitionId_;
       role_ = other.role_;
@@ -4994,6 +6991,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public Partition Clone() {
       return new Partition(this);
     }
@@ -5005,6 +7003,7 @@ namespace GatewayProtocol {
     /// the unique ID of this partition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int PartitionId {
       get { return partitionId_; }
       set {
@@ -5019,6 +7018,7 @@ namespace GatewayProtocol {
     /// the role of the broker for this partition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::GatewayProtocol.Partition.Types.PartitionBrokerRole Role {
       get { return role_; }
       set {
@@ -5033,6 +7033,7 @@ namespace GatewayProtocol {
     /// the health of this partition
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::GatewayProtocol.Partition.Types.PartitionBrokerHealth Health {
       get { return health_; }
       set {
@@ -5041,11 +7042,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as Partition);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(Partition other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -5060,6 +7063,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (PartitionId != 0) hash ^= PartitionId.GetHashCode();
@@ -5072,12 +7076,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (PartitionId != 0) {
         output.WriteRawTag(8);
         output.WriteInt32(PartitionId);
@@ -5093,9 +7102,33 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (PartitionId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(PartitionId);
+      }
+      if (Role != global::GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) Role);
+      }
+      if (Health != global::GatewayProtocol.Partition.Types.PartitionBrokerHealth.Healthy) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Health);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (PartitionId != 0) {
@@ -5114,6 +7147,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(Partition other) {
       if (other == null) {
         return;
@@ -5131,7 +7165,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -5152,11 +7190,40 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            PartitionId = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Role = (global::GatewayProtocol.Partition.Types.PartitionBrokerRole) input.ReadEnum();
+            break;
+          }
+          case 24: {
+            Health = (global::GatewayProtocol.Partition.Types.PartitionBrokerHealth) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
     #region Nested types
     /// <summary>Container for nested types declared in the Partition message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
       /// <summary>
       /// Describes the Raft role of the broker for a given partition
@@ -5173,6 +7240,7 @@ namespace GatewayProtocol {
       public enum PartitionBrokerHealth {
         [pbr::OriginalName("HEALTHY")] Healthy = 0,
         [pbr::OriginalName("UNHEALTHY")] Unhealthy = 1,
+        [pbr::OriginalName("DEAD")] Dead = 2,
       }
 
     }
@@ -5180,23 +7248,31 @@ namespace GatewayProtocol {
 
   }
 
-  public sealed partial class UpdateJobRetriesRequest : pb::IMessage<UpdateJobRetriesRequest> {
+  public sealed partial class UpdateJobRetriesRequest : pb::IMessage<UpdateJobRetriesRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<UpdateJobRetriesRequest> _parser = new pb::MessageParser<UpdateJobRetriesRequest>(() => new UpdateJobRetriesRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<UpdateJobRetriesRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdateJobRetriesRequest() {
       OnConstruction();
     }
@@ -5204,6 +7280,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdateJobRetriesRequest(UpdateJobRetriesRequest other) : this() {
       jobKey_ = other.jobKey_;
       retries_ = other.retries_;
@@ -5211,6 +7288,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdateJobRetriesRequest Clone() {
       return new UpdateJobRetriesRequest(this);
     }
@@ -5222,6 +7300,7 @@ namespace GatewayProtocol {
     /// the unique job identifier, as obtained through ActivateJobs
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long JobKey {
       get { return jobKey_; }
       set {
@@ -5236,6 +7315,7 @@ namespace GatewayProtocol {
     /// the new amount of retries for the job; must be positive
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Retries {
       get { return retries_; }
       set {
@@ -5244,11 +7324,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as UpdateJobRetriesRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(UpdateJobRetriesRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -5262,6 +7344,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (JobKey != 0L) hash ^= JobKey.GetHashCode();
@@ -5273,12 +7356,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (JobKey != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(JobKey);
@@ -5290,9 +7378,29 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (JobKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(JobKey);
+      }
+      if (Retries != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Retries);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (JobKey != 0L) {
@@ -5308,6 +7416,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(UpdateJobRetriesRequest other) {
       if (other == null) {
         return;
@@ -5322,7 +7431,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -5339,27 +7452,59 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            JobKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Retries = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class UpdateJobRetriesResponse : pb::IMessage<UpdateJobRetriesResponse> {
+  public sealed partial class UpdateJobRetriesResponse : pb::IMessage<UpdateJobRetriesResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<UpdateJobRetriesResponse> _parser = new pb::MessageParser<UpdateJobRetriesResponse>(() => new UpdateJobRetriesResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<UpdateJobRetriesResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdateJobRetriesResponse() {
       OnConstruction();
     }
@@ -5367,21 +7512,25 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdateJobRetriesResponse(UpdateJobRetriesResponse other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdateJobRetriesResponse Clone() {
       return new UpdateJobRetriesResponse(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as UpdateJobRetriesResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(UpdateJobRetriesResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -5393,6 +7542,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (_unknownFields != null) {
@@ -5402,18 +7552,35 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (_unknownFields != null) {
@@ -5423,6 +7590,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(UpdateJobRetriesResponse other) {
       if (other == null) {
         return;
@@ -5431,7 +7599,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -5440,27 +7612,51 @@ namespace GatewayProtocol {
             break;
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class SetVariablesRequest : pb::IMessage<SetVariablesRequest> {
+  public sealed partial class SetVariablesRequest : pb::IMessage<SetVariablesRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<SetVariablesRequest> _parser = new pb::MessageParser<SetVariablesRequest>(() => new SetVariablesRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<SetVariablesRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetVariablesRequest() {
       OnConstruction();
     }
@@ -5468,6 +7664,7 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetVariablesRequest(SetVariablesRequest other) : this() {
       elementInstanceKey_ = other.elementInstanceKey_;
       variables_ = other.variables_;
@@ -5476,6 +7673,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetVariablesRequest Clone() {
       return new SetVariablesRequest(this);
     }
@@ -5489,6 +7687,7 @@ namespace GatewayProtocol {
     /// elementInstanceKey on the job message)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long ElementInstanceKey {
       get { return elementInstanceKey_; }
       set {
@@ -5504,6 +7703,7 @@ namespace GatewayProtocol {
     /// must be an object
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Variables {
       get { return variables_; }
       set {
@@ -5524,6 +7724,7 @@ namespace GatewayProtocol {
     /// then scope 1 would be `{ "foo": 5 }`, and scope 2 would be `{ "bar" : 1 }`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Local {
       get { return local_; }
       set {
@@ -5532,11 +7733,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as SetVariablesRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(SetVariablesRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -5551,6 +7754,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (ElementInstanceKey != 0L) hash ^= ElementInstanceKey.GetHashCode();
@@ -5563,12 +7767,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (ElementInstanceKey != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(ElementInstanceKey);
@@ -5584,9 +7793,33 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ElementInstanceKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ElementInstanceKey);
+      }
+      if (Variables.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Variables);
+      }
+      if (Local != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(Local);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (ElementInstanceKey != 0L) {
@@ -5605,6 +7838,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(SetVariablesRequest other) {
       if (other == null) {
         return;
@@ -5622,7 +7856,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -5643,27 +7881,63 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ElementInstanceKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            Variables = input.ReadString();
+            break;
+          }
+          case 24: {
+            Local = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class SetVariablesResponse : pb::IMessage<SetVariablesResponse> {
+  public sealed partial class SetVariablesResponse : pb::IMessage<SetVariablesResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<SetVariablesResponse> _parser = new pb::MessageParser<SetVariablesResponse>(() => new SetVariablesResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<SetVariablesResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[30]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetVariablesResponse() {
       OnConstruction();
     }
@@ -5671,12 +7945,14 @@ namespace GatewayProtocol {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetVariablesResponse(SetVariablesResponse other) : this() {
       key_ = other.key_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetVariablesResponse Clone() {
       return new SetVariablesResponse(this);
     }
@@ -5688,6 +7964,7 @@ namespace GatewayProtocol {
     /// the unique key of the set variables command
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public long Key {
       get { return key_; }
       set {
@@ -5696,11 +7973,13 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as SetVariablesResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(SetVariablesResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -5713,6 +7992,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (Key != 0L) hash ^= Key.GetHashCode();
@@ -5723,12 +8003,17 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Key != 0L) {
         output.WriteRawTag(8);
         output.WriteInt64(Key);
@@ -5736,9 +8021,25 @@ namespace GatewayProtocol {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Key != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Key);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (Key != 0L) {
@@ -5751,6 +8052,7 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(SetVariablesResponse other) {
       if (other == null) {
         return;
@@ -5762,7 +8064,11 @@ namespace GatewayProtocol {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -5775,7 +8081,27 @@ namespace GatewayProtocol {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Key = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
