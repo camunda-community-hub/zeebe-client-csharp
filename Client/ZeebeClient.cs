@@ -33,9 +33,9 @@ namespace Zeebe.Client
     /// <inheritdoc />
     public class ZeebeClient : IZeebeClient
     {
-        private static readonly int MaxWaitTimeInSeconds = 60;
-        private static readonly Func<int, TimeSpan> DefaultWaitTimeProvider =
-            retryAttempt => TimeSpan.FromSeconds(Math.Max(Math.Pow(2, retryAttempt), MaxWaitTimeInSeconds));
+        internal static readonly int MaxWaitTimeInSeconds = 60;
+        internal static readonly Func<int, TimeSpan> DefaultWaitTimeProvider =
+            retryAttempt => TimeSpan.FromSeconds(Math.Min(Math.Pow(2, retryAttempt), MaxWaitTimeInSeconds));
         private static readonly TimeSpan DefaultKeepAlive = TimeSpan.FromSeconds(30);
 
         private readonly Channel channelToGateway;

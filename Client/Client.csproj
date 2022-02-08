@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.1.0</Version>
+    <Version>1.2.1</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,29 +13,23 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>1.1.0</AssemblyVersion>
-    <FileVersion>1.1.0</FileVersion>
+    <AssemblyVersion>1.2.1</AssemblyVersion>
+    <FileVersion>1.2.1</FileVersion>
     <PackageReleaseNotes>
 Features:
 
-
-  * feat: Migrate to .Net Core 3.1 by @Christian-Oleson in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/328
-  * Feat(client/ C#): Update TopologyRequestCommand and UpdateRetriesCommand for retries by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/329
-  * feature: use the client to send SetVariablesCommand with retries by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/332
-  * feature: use the client to send ThrowErrorCommand with retries. … by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/331
-  * feature: updated ResolveIncidentCommand so that it would run with ret… by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/334
-  * feat(client/c#): update PublishMessageCommand to run with retries.  Also update… by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/335
-  * feat(client/C#): Update CreateWorkFlowInstanceCommandWithResult to run with retries by @askalik in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/336
-  * Askalik feature fail job command with retries by @Zelldon in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/356
-
 Bug Fixes:
+
+  * Return max if exceeding max wait time by @Zelldon in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/381
+
+
 
 Update Dependencies
 
 
 -----
 
-This release is based on the Zeebe 1.2.X release (https://github.com/zeebe-io/zeebe).
+This release is based on the Zeebe 1.3.X release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -45,17 +39,17 @@ This release is based on the Zeebe 1.2.X release (https://github.com/zeebe-io/ze
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>1.1.0</PackageVersion>
+    <PackageVersion>1.2.1</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>1.1.0</Title>
+    <Title>1.2.1</Title>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" version="3.19.1" />
-    <PackageReference Include="Grpc" version="2.42.0" />
-    <PackageReference Include="Grpc.Auth" Version="2.42.0" />
-    <PackageReference Include="Grpc.Core" version="2.42.0" />
-    <PackageReference Include="Grpc.Tools" version="2.42.0">
+    <PackageReference Include="Google.Protobuf" version="3.19.4" />
+    <PackageReference Include="Grpc" version="2.43.0" />
+    <PackageReference Include="Grpc.Auth" Version="2.43.0" />
+    <PackageReference Include="Grpc.Core" version="2.43.0" />
+    <PackageReference Include="Grpc.Tools" version="2.43.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
