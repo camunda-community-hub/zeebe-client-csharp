@@ -53,7 +53,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"d9/d49/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep2.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

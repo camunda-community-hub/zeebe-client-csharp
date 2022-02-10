@@ -6,18 +6,18 @@ var annotated_dup =
           [ "Builder", "dc/d04/namespaceZeebe_1_1Client_1_1Api_1_1Builder.html", [
             [ "IAccessTokenSupplier", "d2/d24/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IAccessTokenSupplier.html", null ],
             [ "ICamundaCloudClientBuilder", "d7/d02/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilder.html", "d7/d02/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilder" ],
+            [ "ICamundaCloudClientBuilderFinalStep", "d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html", "d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep" ],
             [ "ICamundaCloudClientBuilderStep1", "d7/d12/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderStep1.html", "d7/d12/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderStep1" ],
             [ "ICamundaCloudClientBuilderStep2", "d9/d8a/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderStep2.html", "d9/d8a/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderStep2" ],
-            [ "ICamundaCloudClientBuilderFinalStep", "d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html", "d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep" ],
             [ "ICamundaCloudTokenProviderBuilder", "d3/d08/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilder.html", "d3/d08/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilder" ],
+            [ "ICamundaCloudTokenProviderBuilderFinalStep", "d6/dd9/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderFinalStep.html", "d6/dd9/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderFinalStep" ],
             [ "ICamundaCloudTokenProviderBuilderStep2", "de/db1/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderStep2.html", "de/db1/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderStep2" ],
             [ "ICamundaCloudTokenProviderBuilderStep3", "d8/d4e/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderStep3.html", "d8/d4e/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderStep3" ],
             [ "ICamundaCloudTokenProviderBuilderStep4", "da/d5d/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderStep4.html", "da/d5d/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderStep4" ],
-            [ "ICamundaCloudTokenProviderBuilderFinalStep", "d6/dd9/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderFinalStep.html", "d6/dd9/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderFinalStep" ],
             [ "IZeebeClientBuilder", "d2/d7d/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientBuilder.html", "d2/d7d/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientBuilder" ],
+            [ "IZeebeClientFinalBuildStep", "d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html", "d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep" ],
             [ "IZeebeClientTransportBuilder", "d2/df5/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientTransportBuilder.html", "d2/df5/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientTransportBuilder" ],
-            [ "IZeebeSecureClientBuilder", "d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html", "d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder" ],
-            [ "IZeebeClientFinalBuildStep", "d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html", "d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep" ]
+            [ "IZeebeSecureClientBuilder", "d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html", "d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder" ]
           ] ],
           [ "Commands", "d9/def/namespaceZeebe_1_1Client_1_1Api_1_1Commands.html", [
             [ "IActivateJobsCommandStep1", "d4/d1d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IActivateJobsCommandStep1.html", "d4/d1d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IActivateJobsCommandStep1" ],
@@ -29,8 +29,8 @@ var annotated_dup =
             [ "ICreateProcessInstanceCommandStep2", "df/d4a/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep2.html", "df/d4a/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep2" ],
             [ "ICreateProcessInstanceCommandStep3", "d0/db3/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep3.html", "d0/db3/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep3" ],
             [ "ICreateProcessInstanceWithResultCommandStep1", "dd/dd6/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceWithResultCommandStep1.html", "dd/dd6/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceWithResultCommandStep1" ],
-            [ "IDeployProcessCommandStep1", "d6/db0/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandStep1.html", "d6/db0/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandStep1" ],
             [ "IDeployProcessCommandBuilderStep2", "da/d46/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandBuilderStep2.html", null ],
+            [ "IDeployProcessCommandStep1", "d6/db0/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandStep1.html", "d6/db0/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandStep1" ],
             [ "IFailJobCommandStep1", "d9/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep1.html", "d9/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep1" ],
             [ "IFailJobCommandStep2", "d5/d66/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep2.html", "d5/d66/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep2" ],
             [ "IFinalCommandStep", "d2/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandStep.html", "d2/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandStep" ],
