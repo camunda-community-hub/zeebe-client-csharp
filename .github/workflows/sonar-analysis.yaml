@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   build:
-    if: (github.ref == 'refs/heads/main' || github.event.pull_request.head.repo.full_name == github.repository) && github.actor!= 'dependabot'
+    if: (github.ref == 'refs/heads/main' || github.event.pull_request.head.repo.full_name == github.repository) && github.actor != "dependabot[bot]"
     name: Build
     runs-on: windows-latest
     steps:
