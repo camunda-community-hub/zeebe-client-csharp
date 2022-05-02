@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <None Update="Resources\**" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Resources\test-script-worker.bpmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

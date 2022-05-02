@@ -17,110 +17,90 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using NLog;
 using NLog.Extensions.Logging;
 using Zeebe.Client;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Api.Worker;
+using Zeebe.Client.Impl.Builder;
 
 namespace Client.Examples
 {
-    internal class Program
+    internal class CloudWorkerExample
     {
-        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
-        private static readonly string ZeebeUrl = "0.0.0.0:26500";
-        private static readonly string ProcessInstanceVariables = "{\"a\":\"123\"}";
-        private static readonly string JobType = "payment-service";
+        private static readonly string DemoProcessPath =
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "test-script-worker.bpmn");
+
+        private static readonly string JobType = "AddOneTask";
         private static readonly string WorkerName = Environment.MachineName;
-        private static readonly long WorkCount = 100L;
+
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         public static async Task Main(string[] args)
         {
             // create zeebe client
-            var client = ZeebeClient.Builder()
-                .UseLoggerFactory(new NLogLoggerFactory())
-                .UseGatewayAddress(ZeebeUrl)
-                .UsePlainText()
-                .Build();
+            var client =
+                CamundaCloudClientBuilder.Builder()
+                    .FromEnv()
+                    .UseLoggerFactory(new NLogLoggerFactory())
+                    .Build();
 
-            var topology = await client.TopologyRequest()
-                .Send();
+            var topology = await client.TopologyRequest().Send();
+
+            Logger.Info(topology.ToString);
             Console.WriteLine(topology);
-            await client.NewPublishMessageCommand()
-                .MessageName("csharp")
-                .CorrelationKey("wow")
-                .Variables("{\"realValue\":2}")
-                .Send();
 
-            // deploy
-            var deployResponse = await client.NewDeployCommand()
-                .AddResourceFile(DemoProcessPath)
-                .Send();
-
-            // create process instance
-            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
-
-            var processInstance = await client
-                .NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(processDefinitionKey)
-                .Variables(ProcessInstanceVariables)
-                .Send();
-
-            await client.NewSetVariablesCommand(processInstance.ProcessInstanceKey).Variables("{\"wow\":\"this\"}").Local().Send();
-
-            for (var i = 0; i < WorkCount; i++)
-            {
-                await client
-                    .NewCreateProcessInstanceCommand()
-                    .ProcessDefinitionKey(processDefinitionKey)
-                    .Variables(ProcessInstanceVariables)
-                    .Send();
-            }
+            await client.NewDeployCommand().AddResourceFile(DemoProcessPath).Send();
+            await client.NewCreateProcessInstanceCommand().BpmnProcessId("TestScriptWorker").LatestVersion().Send();
 
             // open job worker
             using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
             {
                 client.NewWorker()
-                      .JobType(JobType)
-                      .Handler(HandleJob)
-                      .MaxJobsActive(5)
-                      .Name(WorkerName)
-                      .AutoCompletion()
-                      .PollInterval(TimeSpan.FromSeconds(1))
-                      .Timeout(TimeSpan.FromSeconds(10))
-                      .Open();
+                    .JobType(JobType)
+                    .Handler(HandleJob)
+                    .MaxJobsActive(120)
+                    .Name(WorkerName)
+                    .AutoCompletion()
+                    .PollInterval(TimeSpan.FromMilliseconds(100))
+                    .Timeout(TimeSpan.FromSeconds(10))
+                    .PollingTimeout(TimeSpan.FromSeconds(30))
+                    .HandlerThreads(8)
+                    .Open();
 
                 // blocks main thread, so that worker can run
                 signal.WaitOne();
             }
         }
 
-        private static void HandleJob(IJobClient jobClient, IJob job)
+        private static async Task HandleJob(IJobClient jobClient, IJob job)
         {
-            // business logic
-            var jobKey = job.Key;
-            Console.WriteLine("Handling job: " + job);
+            Logger.Debug("Handling job: {Key}", job.Key);
 
-            if (jobKey % 3 == 0)
-            {
-                jobClient.NewCompleteJobCommand(jobKey)
-                    .Variables("{\"foo\":2}")
-                    .Send()
-                    .GetAwaiter()
-                    .GetResult();
-            }
-            else if (jobKey % 2 == 0)
-            {
-                jobClient.NewFailCommand(jobKey)
-                    .Retries(job.Retries - 1)
-                    .ErrorMessage("Example fail")
-                    .Send()
-                    .GetAwaiter()
-                    .GetResult();
-            }
-            else
-            {
-                // auto completion
-            }
+            var jobVariables = job.Variables;
+            Logger.Debug("Incoming variables: {Variables}", jobVariables);
+
+            var calculation = JsonConvert.DeserializeObject<Calculation>(jobVariables);
+            calculation!.AddToCount();
+            var result = JsonConvert.SerializeObject(calculation);
+
+            Logger.Debug("Job complete with: {Result}", result);
+            await jobClient.NewCompleteJobCommand(job).Variables(result).Send();
+        }
+    }
+
+    internal class Calculation
+    {
+        [JsonProperty("count")]
+        public int Count { get; set; }
+        [JsonProperty("add")]
+        public int Add { get; set; }
+
+        public void AddToCount()
+        {
+            Count += Add;
         }
     }
 }
