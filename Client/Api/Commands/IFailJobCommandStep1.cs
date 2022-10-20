@@ -47,5 +47,16 @@ namespace Zeebe.Client.Api.Commands
         ///     to the broker.
         ///     </returns>
         IFailJobCommandStep2 ErrorMessage(string errorMsg);
+
+        /// <summary>
+        /// Set the backoff timeout for the next retry of this job.
+        ///
+        /// </summary>
+        ///
+        /// <param name="retryBackOff">the backoff timeout (in ms) for the next retry of this job.</param>
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
+        ///     to the broker.
+        /// </returns>
+        IFailJobCommandStep2 RetryBackOff(long retryBackOff);
     }
 }
