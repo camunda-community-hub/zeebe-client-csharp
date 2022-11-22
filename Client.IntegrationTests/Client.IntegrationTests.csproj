@@ -12,7 +12,7 @@
     <PackageReference Include="NLog" Version="5.0.5" />
     <PackageReference Include="NLog.Extensions.Logging" Version="5.1.0" />
     <PackageReference Include="nunit" Version="3.13.3" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.3.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.3.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
     <PackageReference Include="TestContainers" Version="0.0.2.107" />
     <PackageReference Update="StyleCop.Analyzers" Version="1.1.118" />
