@@ -1,14 +1,11 @@
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using DotNet.Testcontainers.Containers.Builders;
-using DotNet.Testcontainers.Containers.Configurations;
-using DotNet.Testcontainers.Containers.Modules;
+using DotNet.Testcontainers.Builders;
+using DotNet.Testcontainers.Containers;
+using DotNet.Testcontainers.Images;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
-using TestContainers.Core.Builders;
-using TestContainers.Core.Containers;
 using Zeebe.Client;
 
 namespace Client.IntegrationTests
@@ -17,7 +14,9 @@ namespace Client.IntegrationTests
     {
         public const string LatestVersion = "1.2.4";
 
-        private TestcontainersContainer container;
+        public const ushort ZeebePort = 26500;
+
+        private ITestcontainersContainer container;
         private IZeebeClient client;
 
         private readonly string version;
@@ -65,8 +64,8 @@ namespace Client.IntegrationTests
         private TestcontainersContainer CreateZeebeContainer()
         {
             return new TestcontainersBuilder<TestcontainersContainer>()
-                .WithImage("camunda/zeebe:" + version)
-                .WithPortBinding(26500)
+                .WithImage(new DockerImage("camunda", "zeebe", version))
+                .WithPortBinding(ZeebePort, true)
                 .WithEnvironment("ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT", count.ToString())
                 .Build();
         }
@@ -82,7 +81,7 @@ namespace Client.IntegrationTests
                 loggingBuilder.AddNLog(path);
             });
 
-            var host = "0.0.0.0:" + container.GetMappedPublicPort(26500);
+            var host = container.Hostname + ":" + container.GetMappedPublicPort(ZeebePort);
 
             return ZeebeClient.Builder()
                 .UseLoggerFactory(loggerFactory)
