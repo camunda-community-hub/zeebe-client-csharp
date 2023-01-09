@@ -12,6 +12,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+using System;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
@@ -47,5 +48,16 @@ namespace Zeebe.Client.Api.Commands
         ///     to the broker.
         ///     </returns>
         IFailJobCommandStep2 ErrorMessage(string errorMsg);
+
+        /// <summary>
+        /// Set the backoff timeout for the next retry of this job.
+        ///
+        /// </summary>
+        ///
+        /// <param name="retryBackOff">the backoff timeout for the next retry of this job.</param>
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
+        ///     to the broker.
+        /// </returns>
+        IFailJobCommandStep2 RetryBackOff(TimeSpan retryBackOff);
     }
 }
