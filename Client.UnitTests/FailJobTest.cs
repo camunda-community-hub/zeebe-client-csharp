@@ -21,7 +21,7 @@ namespace Zeebe.Client
                 JobKey = jobKey,
                 ErrorMessage = errorMessage,
                 Retries = 2,
-                RetryBackOff = 1563
+                RetryBackOff = 1562
             };
 
             // when

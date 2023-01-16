@@ -55,7 +55,7 @@ namespace Zeebe.Client.Impl.Commands
 
         public IFailJobCommandStep2 RetryBackOff(TimeSpan retryBackOff)
         {
-            request.RetryBackOff = (long)Math.Round(retryBackOff.TotalMilliseconds, MidpointRounding.AwayFromZero);
+            request.RetryBackOff = (long)retryBackOff.TotalMilliseconds;
             return this;
         }
 
