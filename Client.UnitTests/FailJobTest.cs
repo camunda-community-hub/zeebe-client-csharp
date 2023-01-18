@@ -20,11 +20,16 @@ namespace Zeebe.Client
             {
                 JobKey = jobKey,
                 ErrorMessage = errorMessage,
-                Retries = 2
+                Retries = 2,
+                RetryBackOff = 1562
             };
 
             // when
-            await ZeebeClient.NewFailCommand(jobKey).Retries(2).ErrorMessage("This job failed!").Send();
+            await ZeebeClient.NewFailCommand(jobKey)
+                .Retries(2)
+                .ErrorMessage("This job failed!")
+                .RetryBackOff(TimeSpan.FromMilliseconds(1562.5))
+                .Send();
 
             // then
             var actualRequest = TestService.Requests[typeof(FailJobRequest)][0];

@@ -53,6 +53,12 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
+        public IFailJobCommandStep2 RetryBackOff(TimeSpan retryBackOff)
+        {
+            request.RetryBackOff = (long)retryBackOff.TotalMilliseconds;
+            return this;
+        }
+
         public async Task<IFailJobResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
             var asyncReply = gatewayClient.FailJobAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
