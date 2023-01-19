@@ -20,3 +20,5 @@ jobs:
     - name: Pack 
       working-directory: ./Client
       run: dotnet pack --configuration Release --no-restore
+    - name: Release
+      run: dotnet nuget push Client/bin/Release/zb-client.*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s  https://api.nuget.org/v3/index.json
