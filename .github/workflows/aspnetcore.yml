@@ -31,7 +31,7 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - id: merge
         name: Merge PR
-        if: steps.metadata.outputs.update-type == 'version-update:semver-patch'
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
         run: gh pr merge ${{ github.event.pull_request.number }} --merge
         env:
           GITHUB_TOKEN: "${{secrets.AUTO_MERGE_GITHUB_TOKEN}}"
