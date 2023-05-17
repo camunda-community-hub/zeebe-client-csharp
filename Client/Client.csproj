@@ -1,164 +1,163 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.3.0</Version>
-    <Authors>Christopher Zell</Authors>
-    <Company />
-    <Description>
-Client to communicate with a Zeebe broker.
+    <PropertyGroup>
+        <TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
+        <LangVersion>latest</LangVersion>
+        <Version>2.0.0</Version>
+        <Authors>Christopher Zell</Authors>
+        <Company />
+        <Description>
+            Client to communicate with a Zeebe broker.
 
-Uses GRPC as protocol for communication.
-For more information about the zeebe project please visit http://zeebe.io</Description>
-    <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
-    <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
+            Uses GRPC as protocol for communication.
+            For more information about the zeebe project please visit http://zeebe.io
+        </Description>
+        <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
+        <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>1.3.0</AssemblyVersion>
-    <FileVersion>1.3.0</FileVersion>
-    <PackageReleaseNotes>
-Features:
+        <AssemblyVersion>2.0.0</AssemblyVersion>
+        <FileVersion>2.0.0</FileVersion>
+        <PackageReleaseNotes>
+            Features:
 
-  * feat: allowed to set retryBackOff parameter of FailJobCommand by @aanodin in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/482
+            * feat: allowed to set retryBackOff parameter of FailJobCommand by @aanodin in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/482
 
-Bug Fixes:
+            Bug Fixes:
 
-  * 
+            *
 
-Dependency updates:
+            Dependency updates:
 
-  * chore(deps): bump zb-client from 1.2.0 to 1.2.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/382
-  * chore(deps): bump Grpc.Auth from 2.43.0 to 2.44.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/389
-  * chore(deps): bump Grpc.Core from 2.43.0 to 2.44.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/386
-  * chore(deps): bump Grpc.Tools from 2.43.0 to 2.44.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/387
-  * chore(deps): bump Grpc from 2.43.0 to 2.44.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/388
-  * chore(deps): bump Microsoft.NET.Test.Sdk from 17.0.0 to 17.1.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/390
-  * chore(deps): bump NLog from 4.7.13 to 4.7.14 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/391
-  * chore(deps): bump Microsoft.Extensions.Logging.Abstractions from 6.0.0 to 6.0.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/392
-  * chore(deps): bump NUnit from 3.13.2 to 3.13.3 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/393
-  * chore(deps): bump Grpc.Core from 2.44.0 to 2.45.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/397
-  * chore(deps): bump NLog from 4.7.14 to 4.7.15 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/398
-  * chore(deps): bump Grpc.Auth from 2.44.0 to 2.45.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/396
-  * chore(deps): bump Grpc from 2.44.0 to 2.45.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/395
-  * chore(deps): bump Grpc.Tools from 2.44.0 to 2.45.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/394
-  * chore(deps): bump Google.Protobuf from 3.19.4 to 3.20.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/399
-  * chore(deps): bump Google.Protobuf from 3.20.0 to 3.20.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/400
-  * chore(deps): bump Microsoft.NET.Test.Sdk from 17.1.0 to 17.2.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/401
-  * chore(deps): bump Grpc.Tools from 2.45.0 to 2.46.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/405
-  * chore(deps): bump Grpc.Auth from 2.45.0 to 2.46.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/404
-  * chore(deps): bump Grpc.Core from 2.45.0 to 2.46.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/403
-  * chore(deps): bump Grpc from 2.45.0 to 2.46.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/402
-  * chore(deps): bump NLog from 4.7.15 to 5.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/407
-  * chore(deps): bump NLog.Extensions.Logging from 1.7.4 to 5.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/406
-  * chore(deps): bump Grpc.Core from 2.46.1 to 2.46.3 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/409
-  * chore(deps): bump Grpc.Tools from 2.46.1 to 2.46.3 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/408
-  * chore(deps): bump Grpc from 2.46.1 to 2.46.3 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/411
-  * chore(deps): bump Grpc.Auth from 2.46.1 to 2.46.3 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/410
-  * chore(deps): bump Google.Protobuf from 3.20.1 to 3.21.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/412
-  * chore(deps): bump Google.Protobuf from 3.21.0 to 3.21.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/413
-  * chore(deps): bump NLog from 5.0.0 to 5.0.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/416
-  * chore(deps): bump Grpc.Tools from 2.46.3 to 2.47.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/419
-  * chore(deps): bump NLog.Extensions.Logging from 5.0.0 to 5.0.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/420
-  * chore(deps): bump Google.Protobuf from 3.21.1 to 3.21.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/421
-  * chore(deps): bump Grpc.Auth from 2.46.3 to 2.47.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/422
-  * chore(deps): bump Google.Protobuf from 3.21.2 to 3.21.4 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/425
-  * chore(deps): bump Microsoft.NET.Test.Sdk from 17.2.0 to 17.3.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/427
-  * chore(deps): bump Google.Protobuf from 3.21.4 to 3.21.5 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/426
-  * chore(deps): bump NLog from 5.0.1 to 5.0.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/429
-  * chore(deps): bump NLog.Extensions.Logging from 5.0.1 to 5.0.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/428
-  * chore(deps): bump Grpc.Tools from 2.47.0 to 2.48.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/430
-  * chore(deps): bump Grpc.Auth from 2.47.0 to 2.48.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/431
-  * chore(deps): bump NLog from 5.0.2 to 5.0.4 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/436
-  * chore(deps): bump Microsoft.NET.Test.Sdk from 17.3.0 to 17.3.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/432
-  * chore(deps): bump NLog.Extensions.Logging from 5.0.2 to 5.0.4 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/435
-  * chore(deps): bump Grpc.Tools from 2.48.0 to 2.48.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/437
-  * chore(deps): bump Google.Protobuf from 3.21.5 to 3.21.6 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/440
-  * chore(deps): bump Microsoft.Extensions.Logging.Abstractions from 6.0.1 to 6.0.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/441
-  * chore(deps): bump Grpc.Tools from 2.48.1 to 2.49.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/444
-  * chore(deps): bump Grpc.Auth from 2.48.0 to 2.49.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/442
-  * chore(deps): bump Microsoft.NET.Test.Sdk from 17.3.1 to 17.3.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/445
-  * chore(deps): bump Grpc.Core from 2.46.3 to 2.46.5 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/446
-  * chore(deps): bump Grpc from 2.46.3 to 2.46.5 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/443
-  * chore(deps): bump Google.Protobuf from 3.21.6 to 3.21.7 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/447
-  * chore(deps): bump Microsoft.Extensions.DependencyInjection from 6.0.0 to 6.0.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/448
-  * chore(deps): bump Google.Protobuf from 3.21.7 to 3.21.9 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/454
-  * chore(deps): bump NLog from 5.0.4 to 5.0.5 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/453
-  * chore(deps): bump Grpc.Tools from 2.49.1 to 2.50.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/449
-  * chore(deps): bump Microsoft.Extensions.DependencyInjection from 6.0.1 to 7.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/457
-  * chore(deps): bump NLog.Extensions.Logging from 5.0.4 to 5.1.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/458
-  * chore(deps): bump Microsoft.Extensions.DependencyInjection.Abstractions from 6.0.0 to 7.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/456
-  * chore(deps): bump Microsoft.NET.Test.Sdk from 17.3.2 to 17.4.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/461
-  * chore(deps): bump System.Threading.Tasks.Dataflow from 6.0.0 to 7.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/460
-  * chore(deps): bump Microsoft.Extensions.Logging.Abstractions from 6.0.2 to 7.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/459
-  * chore(deps): bump NUnit3TestAdapter from 4.2.1 to 4.3.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/465
-  * chore(deps): bump Microsoft.Extensions.Configuration.FileExtensions from 6.0.0 to 7.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/464
-  * chore(deps): bump Grpc.Auth from 2.49.0 to 2.50.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/463
-  * chore(deps): bump NUnit3TestAdapter from 4.3.0 to 4.3.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/466
-  * chore(deps): bump Newtonsoft.Json from 13.0.1 to 13.0.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/467
-  * chore(deps): bump NLog from 5.0.5 to 5.1.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/470
-  * chore(deps): bump NLog.Extensions.Logging from 5.1.0 to 5.2.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/469
-  * chore(deps): bump Google.Protobuf from 3.21.9 to 3.21.10 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/471
-  * feat: Update Testcontainers for .NET by @HofmeisterAn in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/475
-  * chore(deps): bump Microsoft.NET.Test.Sdk from 17.4.0 to 17.4.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/476
-  * chore(deps): bump Google.Protobuf from 3.21.10 to 3.21.12 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/477
-  * chore(deps): bump Grpc.Tools from 2.50.0 to 2.51.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/472
-  * chore(deps): bump NLog from 5.1.0 to 5.1.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/479
-  * chore(deps): bump NLog.Extensions.Logging from 5.2.0 to 5.2.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/478
-  * chore(deps): bump Grpc.Auth from 2.50.0 to 2.51.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/480
-  * chore(deps): bump Grpc.Core from 2.46.5 to 2.46.6 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/484
-  * chore(deps): bump Grpc from 2.46.5 to 2.46.6 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/485
+            * chore(deps): bump zb-client from 1.2.0 to 1.2.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/382
+            * chore(deps): bump Grpc.Auth from 2.43.0 to 2.44.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/389
+            * chore(deps): bump Grpc.Core from 2.43.0 to 2.44.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/386
+            * chore(deps): bump Grpc.Tools from 2.43.0 to 2.44.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/387
+            * chore(deps): bump Grpc from 2.43.0 to 2.44.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/388
+            * chore(deps): bump Microsoft.NET.Test.Sdk from 17.0.0 to 17.1.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/390
+            * chore(deps): bump NLog from 4.7.13 to 4.7.14 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/391
+            * chore(deps): bump Microsoft.Extensions.Logging.Abstractions from 6.0.0 to 6.0.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/392
+            * chore(deps): bump NUnit from 3.13.2 to 3.13.3 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/393
+            * chore(deps): bump Grpc.Core from 2.44.0 to 2.45.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/397
+            * chore(deps): bump NLog from 4.7.14 to 4.7.15 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/398
+            * chore(deps): bump Grpc.Auth from 2.44.0 to 2.45.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/396
+            * chore(deps): bump Grpc from 2.44.0 to 2.45.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/395
+            * chore(deps): bump Grpc.Tools from 2.44.0 to 2.45.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/394
+            * chore(deps): bump Google.Protobuf from 3.19.4 to 3.20.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/399
+            * chore(deps): bump Google.Protobuf from 3.20.0 to 3.20.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/400
+            * chore(deps): bump Microsoft.NET.Test.Sdk from 17.1.0 to 17.2.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/401
+            * chore(deps): bump Grpc.Tools from 2.45.0 to 2.46.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/405
+            * chore(deps): bump Grpc.Auth from 2.45.0 to 2.46.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/404
+            * chore(deps): bump Grpc.Core from 2.45.0 to 2.46.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/403
+            * chore(deps): bump Grpc from 2.45.0 to 2.46.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/402
+            * chore(deps): bump NLog from 4.7.15 to 5.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/407
+            * chore(deps): bump NLog.Extensions.Logging from 1.7.4 to 5.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/406
+            * chore(deps): bump Grpc.Core from 2.46.1 to 2.46.3 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/409
+            * chore(deps): bump Grpc.Tools from 2.46.1 to 2.46.3 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/408
+            * chore(deps): bump Grpc from 2.46.1 to 2.46.3 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/411
+            * chore(deps): bump Grpc.Auth from 2.46.1 to 2.46.3 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/410
+            * chore(deps): bump Google.Protobuf from 3.20.1 to 3.21.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/412
+            * chore(deps): bump Google.Protobuf from 3.21.0 to 3.21.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/413
+            * chore(deps): bump NLog from 5.0.0 to 5.0.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/416
+            * chore(deps): bump Grpc.Tools from 2.46.3 to 2.47.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/419
+            * chore(deps): bump NLog.Extensions.Logging from 5.0.0 to 5.0.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/420
+            * chore(deps): bump Google.Protobuf from 3.21.1 to 3.21.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/421
+            * chore(deps): bump Grpc.Auth from 2.46.3 to 2.47.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/422
+            * chore(deps): bump Google.Protobuf from 3.21.2 to 3.21.4 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/425
+            * chore(deps): bump Microsoft.NET.Test.Sdk from 17.2.0 to 17.3.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/427
+            * chore(deps): bump Google.Protobuf from 3.21.4 to 3.21.5 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/426
+            * chore(deps): bump NLog from 5.0.1 to 5.0.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/429
+            * chore(deps): bump NLog.Extensions.Logging from 5.0.1 to 5.0.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/428
+            * chore(deps): bump Grpc.Tools from 2.47.0 to 2.48.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/430
+            * chore(deps): bump Grpc.Auth from 2.47.0 to 2.48.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/431
+            * chore(deps): bump NLog from 5.0.2 to 5.0.4 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/436
+            * chore(deps): bump Microsoft.NET.Test.Sdk from 17.3.0 to 17.3.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/432
+            * chore(deps): bump NLog.Extensions.Logging from 5.0.2 to 5.0.4 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/435
+            * chore(deps): bump Grpc.Tools from 2.48.0 to 2.48.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/437
+            * chore(deps): bump Google.Protobuf from 3.21.5 to 3.21.6 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/440
+            * chore(deps): bump Microsoft.Extensions.Logging.Abstractions from 6.0.1 to 6.0.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/441
+            * chore(deps): bump Grpc.Tools from 2.48.1 to 2.49.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/444
+            * chore(deps): bump Grpc.Auth from 2.48.0 to 2.49.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/442
+            * chore(deps): bump Microsoft.NET.Test.Sdk from 17.3.1 to 17.3.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/445
+            * chore(deps): bump Grpc.Core from 2.46.3 to 2.46.5 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/446
+            * chore(deps): bump Grpc from 2.46.3 to 2.46.5 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/443
+            * chore(deps): bump Google.Protobuf from 3.21.6 to 3.21.7 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/447
+            * chore(deps): bump Microsoft.Extensions.DependencyInjection from 6.0.0 to 6.0.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/448
+            * chore(deps): bump Google.Protobuf from 3.21.7 to 3.21.9 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/454
+            * chore(deps): bump NLog from 5.0.4 to 5.0.5 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/453
+            * chore(deps): bump Grpc.Tools from 2.49.1 to 2.50.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/449
+            * chore(deps): bump Microsoft.Extensions.DependencyInjection from 6.0.1 to 7.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/457
+            * chore(deps): bump NLog.Extensions.Logging from 5.0.4 to 5.1.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/458
+            * chore(deps): bump Microsoft.Extensions.DependencyInjection.Abstractions from 6.0.0 to 7.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/456
+            * chore(deps): bump Microsoft.NET.Test.Sdk from 17.3.2 to 17.4.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/461
+            * chore(deps): bump System.Threading.Tasks.Dataflow from 6.0.0 to 7.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/460
+            * chore(deps): bump Microsoft.Extensions.Logging.Abstractions from 6.0.2 to 7.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/459
+            * chore(deps): bump NUnit3TestAdapter from 4.2.1 to 4.3.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/465
+            * chore(deps): bump Microsoft.Extensions.Configuration.FileExtensions from 6.0.0 to 7.0.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/464
+            * chore(deps): bump Grpc.Auth from 2.49.0 to 2.50.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/463
+            * chore(deps): bump NUnit3TestAdapter from 4.3.0 to 4.3.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/466
+            * chore(deps): bump Newtonsoft.Json from 13.0.1 to 13.0.2 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/467
+            * chore(deps): bump NLog from 5.0.5 to 5.1.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/470
+            * chore(deps): bump NLog.Extensions.Logging from 5.1.0 to 5.2.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/469
+            * chore(deps): bump Google.Protobuf from 3.21.9 to 3.21.10 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/471
+            * feat: Update Testcontainers for .NET by @HofmeisterAn in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/475
+            * chore(deps): bump Microsoft.NET.Test.Sdk from 17.4.0 to 17.4.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/476
+            * chore(deps): bump Google.Protobuf from 3.21.10 to 3.21.12 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/477
+            * chore(deps): bump Grpc.Tools from 2.50.0 to 2.51.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/472
+            * chore(deps): bump NLog from 5.1.0 to 5.1.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/479
+            * chore(deps): bump NLog.Extensions.Logging from 5.2.0 to 5.2.1 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/478
+            * chore(deps): bump Grpc.Auth from 2.50.0 to 2.51.0 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/480
+            * chore(deps): bump Grpc.Core from 2.46.5 to 2.46.6 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/484
+            * chore(deps): bump Grpc from 2.46.5 to 2.46.6 by @dependabot in https://github.com/camunda-community-hub/zeebe-client-csharp/pull/485
 
------
+            -----
 
-This release is based on the Zeebe 8.1.X release (https://github.com/zeebe-io/zeebe).
-    </PackageReleaseNotes>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>zb-client</PackageId>
-    <Product>Zeebe C# client</Product>
-    <RepositoryUrl>https://github.com/zeebe-io/zeebe-client-csharp</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>1.3.0</PackageVersion>
-    <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>1.3.0</Title>
-  </PropertyGroup>
+            This release is based on the Zeebe 8.1.X release (https://github.com/zeebe-io/zeebe).
+        </PackageReleaseNotes>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>zb-client</PackageId>
+        <Product>Zeebe C# client</Product>
+        <RepositoryUrl>https://github.com/zeebe-io/zeebe-client-csharp</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageVersion>2.0.0</PackageVersion>
+        <RootNamespace>Zeebe.Client</RootNamespace>
+        <Title>2.0.0</Title>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Google.Protobuf" version="3.23.0" />
-    <PackageReference Include="Grpc" version="2.46.6" />
-    <PackageReference Include="Grpc.Auth" Version="2.53.0" />
-    <PackageReference Include="Grpc.Core" version="2.46.6" />
-    <PackageReference Include="Grpc.Tools" version="2.54.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
-    <PackageReference Include="System.Threading.Tasks.Dataflow" Version="7.0.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Grpc.Net.Client" version="2.53.0" />
+        <PackageReference Include="Grpc.AspNetCore" version="2.53.0" />
+        <PackageReference Include="Grpc.Auth" version="2.53.0" />
+        <PackageReference Include="Grpc.Tools" version="2.54.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="System.Threading.Tasks.Dataflow" Version="7.0.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Update="StyleCop.Analyzers" Version="1.1.118" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Update="StyleCop.Analyzers" Version="1.1.118" />
+    </ItemGroup>
 
 
-  <ItemGroup>
-    <None Include="..\docs\icon.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="..\docs\icon.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
 
-  <PropertyGroup>
-    <!-- Explicitly generate Assembly Info -->
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-  </PropertyGroup>
+    <PropertyGroup>
+        <!-- Explicitly generate Assembly Info -->
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-      <_Parameter1>Client.UnitTests</_Parameter1>
-    </AssemblyAttribute>
-  </ItemGroup>
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>Client.UnitTests</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
 
 </Project>

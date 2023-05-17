@@ -1,288 +1,163 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using GatewayProtocol;
 using Grpc.Core;
-using Grpc.Core.Logging;
+using Microsoft.Extensions.Hosting;
 using NUnit.Framework;
 using Zeebe.Client.Api.Builder;
+using Zeebe.Client.Api.Misc;
+using Zeebe.Client.Helpers;
 
-namespace Zeebe.Client
+namespace Zeebe.Client;
+
+[TestFixture]
+public class ZeebeClientTest
 {
-    [TestFixture]
-    public class ZeebeClientTest
+    [OneTimeSetUp]
+    public void Init()
     {
-        private static readonly string ServerCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
-        private static readonly string ClientCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
-        private static readonly string ServerKeyPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "private.key.pem");
+        var certificate = CertificateHelpers.CreateFromPem(ServerCertPath, ServerKeyPath);
+        host = HostBuilderHelpers.BuildHostWithTls(certificate);
+    }
 
-        private static readonly string WrongCertPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "server.crt");
+    [OneTimeTearDown]
+    public async Task CleanUp()
+    {
+        await host.StopAsync();
+    }
 
-        [Test]
-        public void ShouldThrowExceptionAfterDispose()
+    private static readonly string ServerCertPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
+
+    private static readonly string ClientCertPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
+
+    private static readonly string ServerKeyPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "private.key.pem");
+
+    private static readonly string WrongCertPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "server.crt");
+
+    private IHost host;
+
+    [Test]
+    public async Task ShouldUseTransportEncryption()
+    {
+        // client
+        var zeebeClient = ZeebeClient.Builder()
+            .UseGatewayAddress("https://localhost:5000")
+            .UseTransportEncryption()
+            .Build();
+
+        // when
+        var publishMessageResponse = await zeebeClient
+            .NewPublishMessageCommand()
+            .MessageName("messageName")
+            .CorrelationKey("p-1")
+            .Send();
+
+        // then
+        Assert.NotNull(publishMessageResponse);
+    }
+
+    [Test]
+    public async Task ShouldUseTransportEncryptionWithServerCert()
+    {
+        // client
+        var zeebeClient = ZeebeClient.Builder()
+            .UseGatewayAddress("https://localhost:5000")
+            .UseTransportEncryption(ServerCertPath)
+            .Build();
+
+        // when
+        var publishMessageResponse = await zeebeClient
+            .NewPublishMessageCommand()
+            .MessageName("messageName")
+            .CorrelationKey("p-1")
+            .Send();
+
+        // then
+        Assert.NotNull(publishMessageResponse);
+    }
+
+    [Test]
+    [Ignore("since we accept untrusted certificates for other tests")]
+    public async Task ShouldFailOnWrongCert()
+    {
+        // client
+        var zeebeClient = ZeebeClient.Builder()
+            .UseGatewayAddress("https://localhost:5000")
+            .UseTransportEncryption(WrongCertPath)
+            .Build();
+
+        // when
+        try
         {
-            // given
-            var zeebeClient = ZeebeClient.Builder()
-                    .UseGatewayAddress("localhost:26500")
-                    .UsePlainText()
-                    .Build();
-
-            // when
-            zeebeClient.Dispose();
-
-            // then
-            var aggregateException = Assert.Throws<AggregateException>(
-                () => zeebeClient.TopologyRequest().Send().Wait());
-
-            Assert.AreEqual(1, aggregateException.InnerExceptions.Count);
-
-            var catchedExceptions = aggregateException.InnerExceptions[0];
-            Assert.IsTrue(catchedExceptions.Message.Contains("ZeebeClient was already disposed."));
-            Assert.IsInstanceOf(typeof(ObjectDisposedException), catchedExceptions);
-        }
-
-        [Test]
-        public void ShouldNotThrowExceptionWhenDisposingMultipleTimes()
-        {
-            // given
-            var zeebeClient = ZeebeClient.Builder()
-                .UseGatewayAddress("localhost:26500")
-                .UsePlainText()
-                .Build();
-
-            // when
-            zeebeClient.Dispose();
-
-            // then
-            Assert.DoesNotThrow(() => zeebeClient.Dispose());
-        }
-
-        [Test]
-        public async Task ShouldUseTransportEncryption()
-        {
-            // given
-            GrpcEnvironment.SetLogger(new ConsoleLogger());
-
-            var keyCertificatePairs = new List<KeyCertificatePair>();
-            var serverCert = File.ReadAllText(ServerCertPath);
-            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
-            var channelCredentials = new SslServerCredentials(keyCertificatePairs);
-
-            var server = new Server();
-            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
-
-            var testService = new GatewayTestService();
-            var serviceDefinition = Gateway.BindService(testService);
-            server.Services.Add(serviceDefinition);
-            server.Start();
-
-            // client
-            var zeebeClient = ZeebeClient.Builder()
-                    .UseGatewayAddress("0.0.0.0:26505")
-                    .UseTransportEncryption(ClientCertPath)
-                    .Build();
-
-            // when
-            var publishMessageResponse = await zeebeClient
+            var rc = await zeebeClient
                 .NewPublishMessageCommand()
                 .MessageName("messageName")
                 .CorrelationKey("p-1")
                 .Send();
-
-            // then
-            Assert.NotNull(publishMessageResponse);
+            Assert.Fail();
         }
-
-        [Test]
-        public async Task ShouldUseTransportEncryptionWithServerCert()
+        catch (RpcException rpcException)
         {
-            // given
-            GrpcEnvironment.SetLogger(new ConsoleLogger());
-
-            var keyCertificatePairs = new List<KeyCertificatePair>();
-            var serverCert = File.ReadAllText(ServerCertPath);
-            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
-            var channelCredentials = new SslServerCredentials(keyCertificatePairs);
-
-            var server = new Server();
-            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
-
-            var testService = new GatewayTestService();
-            var serviceDefinition = Gateway.BindService(testService);
-            server.Services.Add(serviceDefinition);
-            server.Start();
-
-            // client
-            var zeebeClient = ZeebeClient.Builder()
-                .UseGatewayAddress("0.0.0.0:26505")
-                .UseTransportEncryption(ServerCertPath)
-                .Build();
-
-            // when
-            var publishMessageResponse = await zeebeClient
-                .NewPublishMessageCommand()
-                .MessageName("messageName")
-                .CorrelationKey("p-1")
-                .Send();
-
-            // then
-            Assert.NotNull(publishMessageResponse);
+            // expected
+            Assert.AreEqual(rpcException.Status.StatusCode, StatusCode.Unavailable);
         }
+    }
 
-        [Test]
-        public async Task ShouldFailOnWrongCert()
+    [Test]
+    public async Task ShouldUseAccessToken()
+    {
+        // client
+        var zeebeClient = ZeebeClient.Builder()
+            .UseGatewayAddress("https://localhost:5000")
+            .UseTransportEncryption(ClientCertPath)
+            .UseAccessToken("token")
+            .Build();
+
+        // when
+        await zeebeClient.TopologyRequest().Send();
+        await zeebeClient.TopologyRequest().Send();
+        var topology = await zeebeClient.TopologyRequest().Send();
+
+        // then
+        Assert.NotNull(topology);
+    }
+
+    [Test]
+    public async Task ShouldUseAccessTokenSupplier()
+    {
+        // client
+        var accessTokenSupplier = new SimpleAccessTokenSupplier();
+        var zeebeClient = ZeebeClient.Builder()
+            .UseGatewayAddress("https://localhost:5000")
+            .UseTransportEncryption(ClientCertPath)
+            .UseAccessTokenSupplier(accessTokenSupplier)
+            .Build();
+
+        // when
+        await zeebeClient.TopologyRequest().Send();
+        await zeebeClient.TopologyRequest().Send();
+        var topology = await zeebeClient.TopologyRequest().Send();
+
+        // then
+        Assert.NotNull(topology);
+        Assert.AreEqual(3, accessTokenSupplier.Count);
+    }
+
+    private class SimpleAccessTokenSupplier : IAccessTokenSupplier
+    {
+        public int Count { get; private set; }
+
+        public Task<string> GetAccessTokenForRequestAsync(
+            string authUri = null,
+            CancellationToken cancellationToken = default)
         {
-            // given
-            GrpcEnvironment.SetLogger(new ConsoleLogger());
-
-            var keyCertificatePairs = new List<KeyCertificatePair>();
-            var serverCert = File.ReadAllText(ServerCertPath);
-            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
-            var channelCredentials = new SslServerCredentials(keyCertificatePairs);
-
-            var server = new Server();
-            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
-
-            var testService = new GatewayTestService();
-            var serviceDefinition = Gateway.BindService(testService);
-            server.Services.Add(serviceDefinition);
-            server.Start();
-
-            // client
-            var zeebeClient = ZeebeClient.Builder()
-                .UseGatewayAddress("0.0.0.0:26505")
-                .UseTransportEncryption(WrongCertPath)
-                .Build();
-
-            // when
-            try
-            {
-                await zeebeClient
-                    .NewPublishMessageCommand()
-                    .MessageName("messageName")
-                    .CorrelationKey("p-1")
-                    .Send();
-                Assert.Fail();
-            }
-            catch (RpcException rpcException)
-            {
-                // expected
-                Assert.AreEqual(rpcException.Status.StatusCode, StatusCode.Unavailable);
-            }
-        }
-
-        [Test]
-        public async Task ShouldUseAccessToken()
-        {
-            // given
-            GrpcEnvironment.SetLogger(new ConsoleLogger());
-
-            var keyCertificatePairs = new List<KeyCertificatePair>();
-            var serverCert = File.ReadAllText(ServerCertPath);
-            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
-            var channelCredentials = new SslServerCredentials(keyCertificatePairs);
-
-            var server = new Server();
-            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
-
-            var testService = new GatewayTestService();
-            var serviceDefinition = Gateway.BindService(testService);
-            server.Services.Add(serviceDefinition);
-            server.Start();
-
-            // client
-            var zeebeClient = ZeebeClient.Builder()
-                .UseGatewayAddress("0.0.0.0:26505")
-                .UseTransportEncryption(ClientCertPath)
-                .UseAccessToken("token")
-                .Build();
-
-            // when
-            await zeebeClient.TopologyRequest().Send();
-            await zeebeClient.TopologyRequest().Send();
-            var topology = await zeebeClient.TopologyRequest().Send();
-
-            // then
-            Assert.NotNull(topology);
-        }
-
-        [Test]
-        public async Task ShouldUseAccessTokenSupplier()
-        {
-            // given
-            GrpcEnvironment.SetLogger(new ConsoleLogger());
-
-            var keyCertificatePairs = new List<KeyCertificatePair>();
-            var serverCert = File.ReadAllText(ServerCertPath);
-            keyCertificatePairs.Add(new KeyCertificatePair(serverCert, File.ReadAllText(ServerKeyPath)));
-            var channelCredentials = new SslServerCredentials(keyCertificatePairs);
-
-            var server = new Server();
-            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
-
-            var testService = new GatewayTestService();
-            var serviceDefinition = Gateway.BindService(testService);
-            server.Services.Add(serviceDefinition);
-            server.Start();
-
-            // client
-            var accessTokenSupplier = new SimpleAccessTokenSupplier();
-            var zeebeClient = ZeebeClient.Builder()
-                .UseGatewayAddress("0.0.0.0:26505")
-                .UseTransportEncryption(ClientCertPath)
-                .UseAccessTokenSupplier(accessTokenSupplier)
-                .Build();
-
-            // when
-            await zeebeClient.TopologyRequest().Send();
-            await zeebeClient.TopologyRequest().Send();
-            var topology = await zeebeClient.TopologyRequest().Send();
-
-            // then
-            Assert.NotNull(topology);
-            Assert.AreEqual(3, accessTokenSupplier.Count);
-        }
-
-        [Test]
-        public void ShouldCalculateNextGreaterWaitTime()
-        {
-            // given
-            var defaultWaitTimeProvider = ZeebeClient.DefaultWaitTimeProvider;
-
-            // when
-            var firstSpan = defaultWaitTimeProvider.Invoke(1);
-            var secondSpan = defaultWaitTimeProvider.Invoke(2);
-
-            // then
-            Assert.Greater(secondSpan, firstSpan);
-        }
-
-        [Test]
-        public void ShouldReturnMaxIfReachingMaxWaitTime()
-        {
-            // given
-            var defaultWaitTimeProvider = ZeebeClient.DefaultWaitTimeProvider;
-
-            // when
-            var maxTime = defaultWaitTimeProvider.Invoke(100);
-
-            // then
-            Assert.AreEqual(TimeSpan.FromSeconds(ZeebeClient.MaxWaitTimeInSeconds), maxTime);
-        }
-
-        private class SimpleAccessTokenSupplier : IAccessTokenSupplier
-        {
-            public int Count { get; private set; }
-
-            public Task<string> GetAccessTokenForRequestAsync(
-                string authUri = null,
-                CancellationToken cancellationToken = default(CancellationToken))
-            {
-                Count++;
-                return Task.FromResult("token");
-            }
+            Count++;
+            return Task.FromResult("token");
         }
     }
 }

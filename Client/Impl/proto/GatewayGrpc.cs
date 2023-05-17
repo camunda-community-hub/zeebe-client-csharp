@@ -5,6 +5,7 @@
 #pragma warning disable 0414, 1591, 8981
 #region Designer generated code
 
+using System.Threading.Tasks;
 using grpc = global::Grpc.Core;
 
 namespace GatewayProtocol {
@@ -253,7 +254,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>A task indicating completion of the handler.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task ActivateJobs(global::GatewayProtocol.ActivateJobsRequest request, grpc::IServerStreamWriter<global::GatewayProtocol.ActivateJobsResponse> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task ActivateJobs(global::GatewayProtocol.ActivateJobsRequest request, grpc.IServerStreamWriter<ActivateJobsResponse> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -270,7 +271,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CancelProcessInstanceResponse> CancelProcessInstance(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::ServerCallContext context)
+      public virtual Task<CancelProcessInstanceResponse> CancelProcessInstance(global::GatewayProtocol.CancelProcessInstanceRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -292,7 +293,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CompleteJobResponse> CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::ServerCallContext context)
+      public virtual Task<CompleteJobResponse> CompleteJob(global::GatewayProtocol.CompleteJobRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -323,7 +324,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateProcessInstanceResponse> CreateProcessInstance(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::ServerCallContext context)
+      public virtual Task<CreateProcessInstanceResponse> CreateProcessInstance(global::GatewayProtocol.CreateProcessInstanceRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -336,7 +337,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResult(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::ServerCallContext context)
+      public virtual Task<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResult(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -357,7 +358,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.DeployProcessResponse> DeployProcess(global::GatewayProtocol.DeployProcessRequest request, grpc::ServerCallContext context)
+      public virtual Task<DeployProcessResponse> DeployProcess(global::GatewayProtocol.DeployProcessRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -402,7 +403,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.FailJobResponse> FailJob(global::GatewayProtocol.FailJobRequest request, grpc::ServerCallContext context)
+      public virtual Task<FailJobResponse> FailJob(global::GatewayProtocol.FailJobRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -422,7 +423,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ThrowErrorResponse> ThrowError(global::GatewayProtocol.ThrowErrorRequest request, grpc::ServerCallContext context)
+      public virtual Task<ThrowErrorResponse> ThrowError(global::GatewayProtocol.ThrowErrorRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -440,7 +441,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.PublishMessageResponse> PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::ServerCallContext context)
+      public virtual Task<PublishMessageResponse> PublishMessage(global::GatewayProtocol.PublishMessageRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -459,7 +460,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ResolveIncidentResponse> ResolveIncident(global::GatewayProtocol.ResolveIncidentRequest request, grpc::ServerCallContext context)
+      public virtual Task<ResolveIncidentResponse> ResolveIncident(global::GatewayProtocol.ResolveIncidentRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -480,7 +481,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.SetVariablesResponse> SetVariables(global::GatewayProtocol.SetVariablesRequest request, grpc::ServerCallContext context)
+      public virtual Task<SetVariablesResponse> SetVariables(global::GatewayProtocol.SetVariablesRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -493,7 +494,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.TopologyResponse> Topology(global::GatewayProtocol.TopologyRequest request, grpc::ServerCallContext context)
+      public virtual Task<TopologyResponse> Topology(global::GatewayProtocol.TopologyRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -514,7 +515,7 @@ namespace GatewayProtocol {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.UpdateJobRetriesResponse> UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::ServerCallContext context)
+      public virtual Task<UpdateJobRetriesResponse> UpdateJobRetries(global::GatewayProtocol.UpdateJobRetriesRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }

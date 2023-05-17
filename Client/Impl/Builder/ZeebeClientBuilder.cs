@@ -1,129 +1,164 @@
 using System;
 using System.IO;
-using Google.Protobuf.WellKnownTypes;
+using System.Security.Cryptography.X509Certificates;
 using Grpc.Auth;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using Zeebe.Client.Api.Builder;
 
-namespace Zeebe.Client.Impl.Builder
+namespace Zeebe.Client.Impl.Builder;
+
+public class ZeebeClientBuilder : IZeebeClientBuilder, IZeebeClientTransportBuilder
 {
-    public class ZeebeClientBuilder : IZeebeClientBuilder, IZeebeClientTransportBuilder
+    private ILoggerFactory LoggerFactory { get; set; }
+    private string GatewayAddress { get; set; }
+
+    public IZeebeClientBuilder UseLoggerFactory(ILoggerFactory loggerFactory)
     {
-        private ILoggerFactory LoggerFactory { get; set; }
-        private string GatewayAddress { get; set; }
-
-        public IZeebeClientBuilder UseLoggerFactory(ILoggerFactory loggerFactory)
-        {
-            LoggerFactory = loggerFactory;
-            return this;
-        }
-
-        public IZeebeClientTransportBuilder UseGatewayAddress(string gatewayAddress)
-        {
-            GatewayAddress = gatewayAddress;
-            return this;
-        }
-
-        public IZeebeSecureClientBuilder UseTransportEncryption(string rootCertificatePath)
-        {
-            return new ZeebeSecureClientBuilder(GatewayAddress, rootCertificatePath, LoggerFactory);
-        }
-
-        public IZeebeSecureClientBuilder UseTransportEncryption()
-        {
-            return new ZeebeSecureClientBuilder(GatewayAddress, LoggerFactory);
-        }
-
-        public IZeebeClientFinalBuildStep UsePlainText()
-        {
-            return new ZeebePlainClientBuilder(GatewayAddress, LoggerFactory);
-        }
+        LoggerFactory = loggerFactory;
+        return this;
     }
 
-    internal class ZeebePlainClientBuilder : IZeebeClientFinalBuildStep
+    public IZeebeClientTransportBuilder UseGatewayAddress(string gatewayAddress)
     {
-        private readonly ILoggerFactory loggerFactory;
-        private TimeSpan? keepAlive;
-        private Func<int, TimeSpan> sleepDurationProvider;
-
-        private string Address { get; }
-
-        public ZeebePlainClientBuilder(string address, ILoggerFactory loggerFactory = null)
-        {
-            Address = address;
-            this.loggerFactory = loggerFactory;
-        }
-
-        public IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive)
-        {
-            this.keepAlive = keepAlive;
-            return this;
-        }
-
-        public IZeebeClientFinalBuildStep UseRetrySleepDurationProvider(Func<int, TimeSpan> sleepDurationProvider)
-        {
-            this.sleepDurationProvider = sleepDurationProvider;
-            return this;
-        }
-
-        public IZeebeClient Build()
-        {
-            return new ZeebeClient(Address, keepAlive, sleepDurationProvider, loggerFactory);
-        }
+        GatewayAddress = gatewayAddress;
+        return this;
     }
 
-    internal class ZeebeSecureClientBuilder : IZeebeSecureClientBuilder
+    public IZeebeSecureClientBuilder UseTransportEncryption(string rootCertificatePath)
     {
-        private readonly ILoggerFactory loggerFactory;
-        private TimeSpan? keepAlive;
-        private Func<int, TimeSpan> sleepDurationProvider;
+        return new ZeebeSecureClientBuilder(GatewayAddress, rootCertificatePath, LoggerFactory);
+    }
 
-        private string Address { get; }
+    public IZeebeSecureClientBuilder UseTransportEncryption()
+    {
+        return new ZeebeSecureClientBuilder(GatewayAddress, LoggerFactory);
+    }
 
-        private ChannelCredentials Credentials { get; set; }
+    public IZeebeClientFinalBuildStep UsePlainText()
+    {
+        return new ZeebePlainClientBuilder(GatewayAddress, LoggerFactory);
+    }
+}
 
-        public ZeebeSecureClientBuilder(string address, string certificatePath, ILoggerFactory loggerFactory = null)
+internal class ZeebePlainClientBuilder : IZeebeClientFinalBuildStep
+{
+    public ZeebePlainClientBuilder(string address, ILoggerFactory loggerFactory = null)
+    {
+        Address = address;
+        LoggerFactory = loggerFactory;
+    }
+
+    private ILoggerFactory LoggerFactory { get; }
+    private TimeSpan? KeepAlive { get; set; }
+    private Func<int, TimeSpan> SleepDurationProvider { get; set; }
+
+    private string Address { get; }
+
+    public IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive)
+    {
+        KeepAlive = keepAlive;
+        return this;
+    }
+
+    public IZeebeClientFinalBuildStep UseRetrySleepDurationProvider(Func<int, TimeSpan> sleepDurationProvider)
+    {
+        SleepDurationProvider = sleepDurationProvider;
+        return this;
+    }
+
+    public IZeebeClient Build()
+    {
+        return new ZeebeClient(Address, KeepAlive, SleepDurationProvider, LoggerFactory);
+    }
+}
+
+internal class ZeebeSecureClientBuilder : IZeebeSecureClientBuilder
+{
+    // https://learn.microsoft.com/en-us/dotnet/architecture/grpc-for-wcf-developers/channel-credentials#combine-channelcredentials-and-callcredentials
+    // If you pass any arguments to the SslCredentials constructor, the internal client code throws an exception.
+    // The SslCredentials parameter is only included to maintain compatibility with the Grpc.Core package
+    public ZeebeSecureClientBuilder(string address, string certificatePath, ILoggerFactory loggerFactory = null)
+    {
+        Address = address;
+        LoggerFactory = loggerFactory;
+        Certificate = CreateFromPemFile(certificatePath);
+        Credentials = new SslCredentials();
+    }
+
+    public ZeebeSecureClientBuilder(string address, ILoggerFactory loggerFactory = null)
+    {
+        Address = address;
+        LoggerFactory = loggerFactory;
+        Credentials = new SslCredentials();
+    }
+
+    private X509Certificate2 Certificate { get; }
+    private ILoggerFactory LoggerFactory { get; }
+    private TimeSpan? KeepAlive { get; set; }
+    private Func<int, TimeSpan> SleepDurationProvider { get; set; }
+
+    private string Address { get; }
+
+    private ChannelCredentials Credentials { get; set; }
+
+    public IZeebeClientFinalBuildStep UseAccessToken(string accessToken)
+    {
+        Credentials = ChannelCredentials.Create(Credentials, GoogleGrpcCredentials.FromAccessToken(accessToken));
+        return this;
+    }
+
+    public IZeebeClientFinalBuildStep UseAccessTokenSupplier(IAccessTokenSupplier supplier)
+    {
+        Credentials = ChannelCredentials.Create(Credentials, supplier.ToCallCredentials());
+        return this;
+    }
+
+    public IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive)
+    {
+        KeepAlive = keepAlive;
+        return this;
+    }
+
+    public IZeebeClientFinalBuildStep UseRetrySleepDurationProvider(Func<int, TimeSpan> sleepDurationProvider)
+    {
+        SleepDurationProvider = sleepDurationProvider;
+        return this;
+    }
+
+    public IZeebeClient Build()
+    {
+        return new ZeebeClient(Address, Credentials, KeepAlive, SleepDurationProvider, LoggerFactory, Certificate);
+    }
+
+    private X509Certificate2 CreateFromPemFile(string fileName)
+    {
+        var pem = File.ReadAllText(fileName);
+        var certData = GetBytesFromPem(pem, "CERTIFICATE");
+        return new X509Certificate2(certData);
+    }
+
+    // PEM loading logic from https://stackoverflow.com/a/10498045/11829
+    // .NET does not have a built-in API for loading pem files
+    private byte[] GetBytesFromPem(string pemString, string section)
+    {
+        var header = $"-----BEGIN {section}-----";
+        var footer = $"-----END {section}-----";
+
+        var start = pemString.IndexOf(header, StringComparison.Ordinal);
+        if (start == -1)
         {
-            Address = address;
-            this.loggerFactory = loggerFactory;
-            Credentials = new SslCredentials(File.ReadAllText(certificatePath));
+            throw new ArgumentException($"cannot find start section {section} in PEM file");
         }
 
-        public ZeebeSecureClientBuilder(string address, ILoggerFactory loggerFactory = null)
+        start += header.Length;
+        var end = pemString.IndexOf(footer, start, StringComparison.Ordinal) - start;
+
+        if (end == -1)
         {
-            Address = address;
-            this.loggerFactory = loggerFactory;
-            Credentials = new SslCredentials();
+            throw new ArgumentException($"cannot find end section {section} in PEM file");
         }
 
-        public IZeebeClientFinalBuildStep UseAccessToken(string accessToken)
-        {
-            Credentials = ChannelCredentials.Create(Credentials, GoogleGrpcCredentials.FromAccessToken(accessToken));
-            return this;
-        }
-
-        public IZeebeClientFinalBuildStep UseAccessTokenSupplier(IAccessTokenSupplier supplier)
-        {
-            Credentials = ChannelCredentials.Create(Credentials, supplier.ToCallCredentials());
-            return this;
-        }
-
-        public IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive)
-        {
-            this.keepAlive = keepAlive;
-            return this;
-        }
-
-        public IZeebeClientFinalBuildStep UseRetrySleepDurationProvider(Func<int, TimeSpan> sleepDurationProvider)
-        {
-            this.sleepDurationProvider = sleepDurationProvider;
-            return this;
-        }
-
-        public IZeebeClient Build()
-        {
-            return new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory);
-        }
+        return Convert.FromBase64String(pemString.Substring(start, end));
     }
 }

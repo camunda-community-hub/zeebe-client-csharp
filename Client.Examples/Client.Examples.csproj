@@ -1,33 +1,31 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Update="Resources\**" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Update="Resources\**" CopyToOutputDirectory="PreserveNewest"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.19" />
-    <PackageReference Include="Newtonsoft.Json" version="13.0.3" />
-    <PackageReference Include="NLog" Version="5.1.4" />
-    <PackageReference Include="NLog.Extensions.Logging" Version="5.2.3" />
-    <PackageReference Update="StyleCop.Analyzers" Version="1.1.118" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="7.0.0"/>
+        <PackageReference Include="Newtonsoft.Json" version="13.0.3"/>
+        <PackageReference Include="NLog" Version="5.1.4"/>
+        <PackageReference Include="NLog.Extensions.Logging" Version="5.2.3"/>
+        <PackageReference Update="StyleCop.Analyzers" Version="1.1.118"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Client\Client.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Client\Client.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+    <ItemGroup>
+        <Content Include="NLog.config">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
 
 </Project>

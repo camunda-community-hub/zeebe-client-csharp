@@ -19,88 +19,93 @@ using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
 using NUnit.Framework;
+using Zeebe.Client.Helpers;
 
-namespace Zeebe.Client
+namespace Zeebe.Client;
+
+[TestFixture]
+public class CompleteJobTest : BaseZeebeTest
 {
-    [TestFixture]
-    public class CompleteJobTest : BaseZeebeTest
+    [Test]
+    public async Task ShouldSendRequestAsExpected()
     {
-        [Test]
-        public async Task ShouldSendRequestAsExpected()
+        // given
+        const string variables = "{\"foo\":23}";
+        const int jobKey = 255;
+        var expectedRequest = new CompleteJobRequest
         {
-            // given
-            const string variables = "{\"foo\":23}";
-            const int jobKey = 255;
-            var expectedRequest = new CompleteJobRequest
-            {
-                JobKey = jobKey,
-                Variables = variables
-            };
+            JobKey = jobKey,
+            Variables = variables
+        };
+        TestService.Reset();
 
-            // when
-            await ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables).Send();
+        // when
+        await ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables).Send();
 
-            // then
-            var actualRequest = TestService.Requests[typeof(CompleteJobRequest)][0];
+        // then
+        var actualRequest = TestService.Requests[typeof(CompleteJobRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
-        }
+        Assert.AreEqual(expectedRequest, actualRequest);
+    }
 
-        [Test]
-        public void ShouldTimeoutRequest()
+    [Test]
+    public void ShouldTimeoutRequest()
+    {
+        // given
+        const string variables = "{\"foo\":23}";
+        const int jobKey = 255;
+        TestService.Reset();
+
+        // when
+        var task = ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables).Send(TimeSpan.Zero);
+        var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+        var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+
+        // then
+        Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+    }
+
+    [Test]
+    public void ShouldCancelRequest()
+    {
+        // given
+        const string variables = "{\"foo\":23}";
+        const int jobKey = 255;
+        TestService.Reset();
+
+        // when
+        var task = ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables)
+            .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
+        var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+        var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+
+        // then
+        Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
+    }
+
+    [Test]
+    public async Task ShouldUseActivatedJobToComplete()
+    {
+        // given
+        const string variables = "{\"foo\":23}";
+        const int jobKey = 255;
+
+        var grpcActivatedJob = new ActivatedJob();
+        grpcActivatedJob.Key = jobKey;
+        var activatedJob = new Impl.Responses.ActivatedJob(grpcActivatedJob);
+        var expectedRequest = new CompleteJobRequest
         {
-            // given
-            const string variables = "{\"foo\":23}";
-            const int jobKey = 255;
+            JobKey = jobKey,
+            Variables = variables
+        };
+        TestService.Reset();
 
-            // when
-            var task = ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables).Send(TimeSpan.Zero);
-            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+        // when
+        await ZeebeClient.NewCompleteJobCommand(activatedJob).Variables(variables).Send();
 
-            // then
-            Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
-        }
+        // then
+        var actualRequest = TestService.Requests[typeof(CompleteJobRequest)][0];
 
-        [Test]
-        public void ShouldCancelRequest()
-        {
-            // given
-            const string variables = "{\"foo\":23}";
-            const int jobKey = 255;
-
-            // when
-            var task = ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables).Send(new CancellationTokenSource(TimeSpan.Zero).Token);
-            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
-
-            // then
-            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
-        }
-
-        [Test]
-        public async Task ShouldUseActivatedJobToComplete()
-        {
-            // given
-            const string variables = "{\"foo\":23}";
-            const int jobKey = 255;
-
-            var grpcActivatedJob = new ActivatedJob();
-            grpcActivatedJob.Key = jobKey;
-            var activatedJob = new Impl.Responses.ActivatedJob(grpcActivatedJob);
-            var expectedRequest = new CompleteJobRequest
-            {
-                JobKey = jobKey,
-                Variables = variables
-            };
-
-            // when
-            await ZeebeClient.NewCompleteJobCommand(activatedJob).Variables(variables).Send();
-
-            // then
-            var actualRequest = TestService.Requests[typeof(CompleteJobRequest)][0];
-
-            Assert.AreEqual(expectedRequest, actualRequest);
-        }
+        Assert.AreEqual(expectedRequest, actualRequest);
     }
 }
