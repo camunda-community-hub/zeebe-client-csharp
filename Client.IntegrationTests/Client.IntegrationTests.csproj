@@ -34,35 +34,4 @@
     <ItemGroup>
         <ProjectReference Include="..\Client\Client.csproj"/>
     </ItemGroup>
-    <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <IsPackable>false</IsPackable>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="NLog" Version="5.1.5"/>
-        <PackageReference Include="NLog.Extensions.Logging" Version="5.2.3"/>
-        <PackageReference Include="nunit" Version="3.13.3"/>
-        <PackageReference Include="NUnit3TestAdapter" Version="4.4.2"/>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0"/>
-        <PackageReference Include="TestContainers" Version="3.0.0"/>
-        <PackageReference Update="StyleCop.Analyzers" Version="1.1.118"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Content Include="NLog.config">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-    </ItemGroup>
-    <ItemGroup>
-        <None Update="Resources\simpleProcess.bpmn">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="Resources\oneTaskProcess.bpmn">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\Client\Client.csproj"/>
-    </ItemGroup>
-
 </Project>
