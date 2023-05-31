@@ -1,71 +1,72 @@
 using System;
 using NUnit.Framework;
 
-namespace Zeebe.Client;
-
-[TestFixture]
-public class ZeebeClientWoServerTest
+namespace Zeebe.Client
 {
-    [Test]
-    public void ShouldThrowExceptionAfterDispose()
+    [TestFixture]
+    public class ZeebeClientWoServerTest
     {
-        // given
-        var zeebeClient = ZeebeClient.Builder()
-            .UseGatewayAddress("http://localhost")
-            .UsePlainText()
-            .Build();
+        [Test]
+        public void ShouldThrowExceptionAfterDispose()
+        {
+            // given
+            var zeebeClient = ZeebeClient.Builder()
+                .UseGatewayAddress("http://localhost")
+                .UsePlainText()
+                .Build();
 
-        // when
-        zeebeClient.Dispose();
+            // when
+            zeebeClient.Dispose();
 
-        // then
-        var catchedExceptions = Assert.ThrowsAsync<ObjectDisposedException>(
-            () => zeebeClient.TopologyRequest().Send());
+            // then
+            var catchedExceptions = Assert.ThrowsAsync<ObjectDisposedException>(
+                () => zeebeClient.TopologyRequest().Send());
 
-        Assert.NotNull(catchedExceptions);
-        Assert.IsTrue(catchedExceptions.Message.Contains("ZeebeClient was already disposed."));
-    }
+            Assert.NotNull(catchedExceptions);
+            Assert.IsTrue(catchedExceptions.Message.Contains("ZeebeClient was already disposed."));
+        }
 
-    [Test]
-    public void ShouldNotThrowExceptionWhenDisposingMultipleTimes()
-    {
-        // given
-        var zeebeClient = ZeebeClient.Builder()
-            .UseGatewayAddress("http://localhost")
-            .UsePlainText()
-            .Build();
+        [Test]
+        public void ShouldNotThrowExceptionWhenDisposingMultipleTimes()
+        {
+            // given
+            var zeebeClient = ZeebeClient.Builder()
+                .UseGatewayAddress("http://localhost")
+                .UsePlainText()
+                .Build();
 
-        // when
-        zeebeClient.Dispose();
+            // when
+            zeebeClient.Dispose();
 
-        // then
-        Assert.DoesNotThrow(() => zeebeClient.Dispose());
-    }
+            // then
+            Assert.DoesNotThrow(() => zeebeClient.Dispose());
+        }
 
-    [Test]
-    public void ShouldCalculateNextGreaterWaitTime()
-    {
-        // given
-        var defaultWaitTimeProvider = ZeebeClient.DefaultWaitTimeProvider;
+        [Test]
+        public void ShouldCalculateNextGreaterWaitTime()
+        {
+            // given
+            var defaultWaitTimeProvider = ZeebeClient.DefaultWaitTimeProvider;
 
-        // when
-        var firstSpan = defaultWaitTimeProvider.Invoke(1);
-        var secondSpan = defaultWaitTimeProvider.Invoke(2);
+            // when
+            var firstSpan = defaultWaitTimeProvider.Invoke(1);
+            var secondSpan = defaultWaitTimeProvider.Invoke(2);
 
-        // then
-        Assert.Greater(secondSpan, firstSpan);
-    }
+            // then
+            Assert.Greater(secondSpan, firstSpan);
+        }
 
-    [Test]
-    public void ShouldReturnMaxIfReachingMaxWaitTime()
-    {
-        // given
-        var defaultWaitTimeProvider = ZeebeClient.DefaultWaitTimeProvider;
+        [Test]
+        public void ShouldReturnMaxIfReachingMaxWaitTime()
+        {
+            // given
+            var defaultWaitTimeProvider = ZeebeClient.DefaultWaitTimeProvider;
 
-        // when
-        var maxTime = defaultWaitTimeProvider.Invoke(100);
+            // when
+            var maxTime = defaultWaitTimeProvider.Invoke(100);
 
-        // then
-        Assert.AreEqual(TimeSpan.FromSeconds(ZeebeClient.MaxWaitTimeInSeconds), maxTime);
+            // then
+            Assert.AreEqual(TimeSpan.FromSeconds(ZeebeClient.MaxWaitTimeInSeconds), maxTime);
+        }
     }
 }
