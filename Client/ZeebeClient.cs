@@ -32,183 +32,182 @@ using Zeebe.Client.Impl;
 using Zeebe.Client.Impl.Builder;
 using Zeebe.Client.Impl.Commands;
 using Zeebe.Client.Impl.Misc;
-using Zeebe.Client.Impl.proto;
 using Zeebe.Client.Impl.Worker;
 
-namespace Zeebe.Client;
-
-/// <inheritdoc />
-public sealed class ZeebeClient : IZeebeClient
+namespace Zeebe.Client
 {
-    internal static readonly int MaxWaitTimeInSeconds = 60;
-
-    internal static readonly Func<int, TimeSpan> DefaultWaitTimeProvider =
-        retryAttempt => TimeSpan.FromSeconds(Math.Min(Math.Pow(2, retryAttempt), MaxWaitTimeInSeconds));
-
-    private static readonly TimeSpan DefaultKeepAlive = TimeSpan.FromSeconds(30);
-    private readonly IAsyncRetryStrategy asyncRetryStrategy;
-
-    private readonly GrpcChannel channelToGateway;
-    private readonly ILoggerFactory loggerFactory;
-    private Gateway.GatewayClient gatewayClient;
-
-    internal ZeebeClient(string address, TimeSpan? keepAlive, Func<int, TimeSpan> sleepDurationProvider,
-        ILoggerFactory loggerFactory = null)
-        : this(address, ChannelCredentials.Insecure, keepAlive, sleepDurationProvider, loggerFactory)
+    /// <inheritdoc />
+    public sealed class ZeebeClient : IZeebeClient
     {
-    }
+        internal static readonly int MaxWaitTimeInSeconds = 60;
+        internal static readonly Func<int, TimeSpan> DefaultWaitTimeProvider =
+            retryAttempt => TimeSpan.FromSeconds(Math.Min(Math.Pow(2, retryAttempt), MaxWaitTimeInSeconds));
 
-    internal ZeebeClient(string address,
-        ChannelCredentials credentials,
-        TimeSpan? keepAlive,
-        Func<int, TimeSpan> sleepDurationProvider,
-        ILoggerFactory loggerFactory = null,
-        X509Certificate2 certificate = null)
-    {
-        this.loggerFactory = loggerFactory;
+        private static readonly TimeSpan DefaultKeepAlive = TimeSpan.FromSeconds(30);
+        private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-        var logger = loggerFactory?.CreateLogger<ZeebeClient>();
-        logger?.LogDebug("Connect to {Address}", address);
+        private readonly GrpcChannel channelToGateway;
+        private readonly ILoggerFactory loggerFactory;
+        private Gateway.GatewayClient gatewayClient;
 
-        // Keep alive pings
-        // https://learn.microsoft.com/en-us/aspnet/core/grpc/performance?view=aspnetcore-5.0#keep-alive-pings
-        var handler = new SocketsHttpHandler
+        internal ZeebeClient(string address, TimeSpan? keepAlive, Func<int, TimeSpan> sleepDurationProvider,
+            ILoggerFactory loggerFactory = null)
+            : this(address, ChannelCredentials.Insecure, keepAlive, sleepDurationProvider, loggerFactory)
         {
-            PooledConnectionIdleTimeout = Timeout.InfiniteTimeSpan,
-            KeepAlivePingDelay = keepAlive ?? DefaultKeepAlive,
-            KeepAlivePingTimeout = TimeSpan.FromSeconds(30),
-            EnableMultipleHttp2Connections = true
-        };
-        handler.SslOptions = new SslClientAuthenticationOptions
+        }
+
+        internal ZeebeClient(string address,
+            ChannelCredentials credentials,
+            TimeSpan? keepAlive,
+            Func<int, TimeSpan> sleepDurationProvider,
+            ILoggerFactory loggerFactory = null,
+            X509Certificate2 certificate = null)
         {
-            ClientCertificates = new X509CertificateCollection(GetCertificates()),
-            // allow untrusted certificate
-            RemoteCertificateValidationCallback = (_, _, _, _) => true
-        };
+            this.loggerFactory = loggerFactory;
 
-        var options = new GrpcChannelOptions
-        {
-            HttpHandler = handler,
-            DisposeHttpClient = true,
-            LoggerFactory = this.loggerFactory,
-            Credentials = credentials
-        };
+            var logger = loggerFactory?.CreateLogger<ZeebeClient>();
+            logger?.LogDebug("Connect to {Address}", address);
 
-        channelToGateway = GrpcChannel.ForAddress(address, options);
-        var invoker = channelToGateway.Intercept(new CustomHeaderInterceptor());
-        gatewayClient = new Gateway.GatewayClient(invoker);
-
-        asyncRetryStrategy =
-            new TransientGrpcErrorRetryStrategy(sleepDurationProvider ?? DefaultWaitTimeProvider);
-
-        X509Certificate[] GetCertificates()
-        {
-            if (certificate is null)
+            // Keep alive pings
+            // https://learn.microsoft.com/en-us/aspnet/core/grpc/performance?view=aspnetcore-5.0#keep-alive-pings
+            var handler = new SocketsHttpHandler
             {
-                return Array.Empty<X509Certificate>();
+                PooledConnectionIdleTimeout = Timeout.InfiniteTimeSpan,
+                KeepAlivePingDelay = keepAlive ?? DefaultKeepAlive,
+                KeepAlivePingTimeout = TimeSpan.FromSeconds(30),
+                EnableMultipleHttp2Connections = true
+            };
+            handler.SslOptions = new SslClientAuthenticationOptions
+            {
+                ClientCertificates = new X509CertificateCollection(GetCertificates()),
+                // allow untrusted certificate
+                RemoteCertificateValidationCallback = (_, _, _, _) => true
+            };
+
+            var options = new GrpcChannelOptions
+            {
+                HttpHandler = handler,
+                DisposeHttpClient = true,
+                LoggerFactory = this.loggerFactory,
+                Credentials = credentials
+            };
+
+            channelToGateway = GrpcChannel.ForAddress(address, options);
+            var invoker = channelToGateway.Intercept(new CustomHeaderInterceptor());
+            gatewayClient = new Gateway.GatewayClient(invoker);
+
+            asyncRetryStrategy =
+                new TransientGrpcErrorRetryStrategy(sleepDurationProvider ?? DefaultWaitTimeProvider);
+
+            X509Certificate[] GetCertificates()
+            {
+                if (certificate is null)
+                {
+                    return Array.Empty<X509Certificate>();
+                }
+
+                return new X509Certificate[] { certificate };
+            }
+        }
+
+        ////////////////////////////////////////////////////////////////////////
+        ///////////////////////////// JOBS /////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+
+        public IJobWorkerBuilderStep1 NewWorker()
+        {
+            return new JobWorkerBuilder(this, gatewayClient, loggerFactory);
+        }
+
+        public IActivateJobsCommandStep1 NewActivateJobsCommand()
+        {
+            return new ActivateJobsCommand(gatewayClient, asyncRetryStrategy);
+        }
+
+        public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
+        {
+            return new CompleteJobCommand(gatewayClient, asyncRetryStrategy, jobKey);
+        }
+
+        public ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob)
+        {
+            return new CompleteJobCommand(gatewayClient, asyncRetryStrategy, activatedJob.Key);
+        }
+
+        public IFailJobCommandStep1 NewFailCommand(long jobKey)
+        {
+            return new FailJobCommand(gatewayClient, asyncRetryStrategy, jobKey);
+        }
+
+        public IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey)
+        {
+            return new UpdateRetriesCommand(gatewayClient, asyncRetryStrategy, jobKey);
+        }
+
+        public IThrowErrorCommandStep1 NewThrowErrorCommand(long jobKey)
+        {
+            return new ThrowErrorCommand(gatewayClient, asyncRetryStrategy, jobKey);
+        }
+
+        ////////////////////////////////////////////////////////////////////////
+        ///////////////////////////// Processes ////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+
+        public IDeployProcessCommandStep1 NewDeployCommand()
+        {
+            return new DeployProcessCommand(gatewayClient, asyncRetryStrategy);
+        }
+
+        public ICreateProcessInstanceCommandStep1 NewCreateProcessInstanceCommand()
+        {
+            return new CreateProcessInstanceCommand(gatewayClient, asyncRetryStrategy);
+        }
+
+        public ICancelProcessInstanceCommandStep1 NewCancelInstanceCommand(long processInstanceKey)
+        {
+            return new CancelProcessInstanceCommand(gatewayClient, asyncRetryStrategy, processInstanceKey);
+        }
+
+        public ISetVariablesCommandStep1 NewSetVariablesCommand(long elementInstanceKey)
+        {
+            return new SetVariablesCommand(gatewayClient, asyncRetryStrategy, elementInstanceKey);
+        }
+
+        public IResolveIncidentCommandStep1 NewResolveIncidentCommand(long incidentKey)
+        {
+            return new ResolveIncidentCommand(gatewayClient, asyncRetryStrategy, incidentKey);
+        }
+
+        public IPublishMessageCommandStep1 NewPublishMessageCommand()
+        {
+            return new PublishMessageCommand(gatewayClient, asyncRetryStrategy);
+        }
+
+        public ITopologyRequestStep1 TopologyRequest()
+        {
+            return new TopologyRequestCommand(gatewayClient, asyncRetryStrategy);
+        }
+
+        public void Dispose()
+        {
+            if (gatewayClient is ClosedGatewayClient)
+            {
+                return;
             }
 
-            return new X509Certificate[] { certificate };
+            gatewayClient = new ClosedGatewayClient();
+            channelToGateway.ShutdownAsync().Wait();
+            channelToGateway.Dispose();
         }
-    }
 
-    ////////////////////////////////////////////////////////////////////////
-    ///////////////////////////// JOBS /////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////
-
-    public IJobWorkerBuilderStep1 NewWorker()
-    {
-        return new JobWorkerBuilder(this, gatewayClient, loggerFactory);
-    }
-
-    public IActivateJobsCommandStep1 NewActivateJobsCommand()
-    {
-        return new ActivateJobsCommand(gatewayClient, asyncRetryStrategy);
-    }
-
-    public ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)
-    {
-        return new CompleteJobCommand(gatewayClient, asyncRetryStrategy, jobKey);
-    }
-
-    public ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob)
-    {
-        return new CompleteJobCommand(gatewayClient, asyncRetryStrategy, activatedJob.Key);
-    }
-
-    public IFailJobCommandStep1 NewFailCommand(long jobKey)
-    {
-        return new FailJobCommand(gatewayClient, asyncRetryStrategy, jobKey);
-    }
-
-    public IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey)
-    {
-        return new UpdateRetriesCommand(gatewayClient, asyncRetryStrategy, jobKey);
-    }
-
-    public IThrowErrorCommandStep1 NewThrowErrorCommand(long jobKey)
-    {
-        return new ThrowErrorCommand(gatewayClient, asyncRetryStrategy, jobKey);
-    }
-
-    ////////////////////////////////////////////////////////////////////////
-    ///////////////////////////// Processes ////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////
-
-    public IDeployProcessCommandStep1 NewDeployCommand()
-    {
-        return new DeployProcessCommand(gatewayClient, asyncRetryStrategy);
-    }
-
-    public ICreateProcessInstanceCommandStep1 NewCreateProcessInstanceCommand()
-    {
-        return new CreateProcessInstanceCommand(gatewayClient, asyncRetryStrategy);
-    }
-
-    public ICancelProcessInstanceCommandStep1 NewCancelInstanceCommand(long processInstanceKey)
-    {
-        return new CancelProcessInstanceCommand(gatewayClient, asyncRetryStrategy, processInstanceKey);
-    }
-
-    public ISetVariablesCommandStep1 NewSetVariablesCommand(long elementInstanceKey)
-    {
-        return new SetVariablesCommand(gatewayClient, asyncRetryStrategy, elementInstanceKey);
-    }
-
-    public IResolveIncidentCommandStep1 NewResolveIncidentCommand(long incidentKey)
-    {
-        return new ResolveIncidentCommand(gatewayClient, asyncRetryStrategy, incidentKey);
-    }
-
-    public IPublishMessageCommandStep1 NewPublishMessageCommand()
-    {
-        return new PublishMessageCommand(gatewayClient, asyncRetryStrategy);
-    }
-
-    public ITopologyRequestStep1 TopologyRequest()
-    {
-        return new TopologyRequestCommand(gatewayClient, asyncRetryStrategy);
-    }
-
-    public void Dispose()
-    {
-        if (gatewayClient is ClosedGatewayClient)
+        /// <summary>
+        ///     Creates an new IZeebeClientBuilder. This builder need to be used to construct
+        ///     a ZeebeClient.
+        /// </summary>
+        /// <returns>an builder to construct an ZeebeClient.</returns>
+        public static IZeebeClientBuilder Builder()
         {
-            return;
+            return new ZeebeClientBuilder();
         }
-
-        gatewayClient = new ClosedGatewayClient();
-        channelToGateway.ShutdownAsync().Wait();
-        channelToGateway.Dispose();
-    }
-
-    /// <summary>
-    ///     Creates an new IZeebeClientBuilder. This builder need to be used to construct
-    ///     a ZeebeClient.
-    /// </summary>
-    /// <returns>an builder to construct an ZeebeClient.</returns>
-    public static IZeebeClientBuilder Builder()
-    {
-        return new ZeebeClientBuilder();
     }
 }

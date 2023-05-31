@@ -8,110 +8,111 @@ using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using Zeebe.Client;
 
-namespace Client.IntegrationTests;
-
-public class ZeebeIntegrationTestHelper
+namespace Client.IntegrationTests
 {
-    public const string LatestVersion = "1.2.4";
-
-    public const ushort ZeebePort = 26500;
-
-    private readonly string version;
-    private IZeebeClient client;
-
-    private ITestcontainersContainer container;
-    private int count = 1;
-
-    private ZeebeIntegrationTestHelper(string version)
+    public class ZeebeIntegrationTestHelper
     {
-        this.version = version;
-    }
+        public const string LatestVersion = "1.2.4";
 
-    public static ZeebeIntegrationTestHelper Latest()
-    {
-        return new ZeebeIntegrationTestHelper(LatestVersion);
-    }
+        public const ushort ZeebePort = 26500;
 
-    public ZeebeIntegrationTestHelper WithPartitionCount(int count)
-    {
-        this.count = count;
-        return this;
-    }
+        private readonly string version;
+        private IZeebeClient client;
 
-    public static ZeebeIntegrationTestHelper OfVersion(string version)
-    {
-        return new ZeebeIntegrationTestHelper(version);
-    }
+        private ITestcontainersContainer container;
+        private int count = 1;
 
-    public async Task<IZeebeClient> SetupIntegrationTest()
-    {
-        container = CreateZeebeContainer();
-        await container.StartAsync();
-
-        client = CreateZeebeClient();
-        await AwaitBrokerReadiness();
-        return client;
-    }
-
-    public async Task TearDownIntegrationTest()
-    {
-        try
+        private ZeebeIntegrationTestHelper(string version)
         {
-            client.Dispose();
-            client = null;
+            this.version = version;
         }
-        finally
+
+        public static ZeebeIntegrationTestHelper Latest()
         {
-            await container.StopAsync();
-            container = null;
+            return new ZeebeIntegrationTestHelper(LatestVersion);
         }
-    }
 
-    private TestcontainersContainer CreateZeebeContainer()
-    {
-        return new TestcontainersBuilder<TestcontainersContainer>()
-            .WithImage(new DockerImage("camunda", "zeebe", version))
-            .WithPortBinding(ZeebePort, true)
-            .WithEnvironment("ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT", count.ToString())
-            .Build();
-    }
-
-    private IZeebeClient CreateZeebeClient()
-    {
-        var loggerFactory = LoggerFactory.Create(loggingBuilder =>
+        public ZeebeIntegrationTestHelper WithPartitionCount(int count)
         {
-            // configure Logging with NLog
-            loggingBuilder.ClearProviders();
-            loggingBuilder.SetMinimumLevel(LogLevel.Trace);
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "NLog.config");
-            loggingBuilder.AddNLog(path);
-        });
+            this.count = count;
+            return this;
+        }
 
-        // It has to be a valid Uri
-        // e.g. IP address without scheme or hostname with scheme
-        var host = "http://" + container.Hostname + ":" + container.GetMappedPublicPort(ZeebePort);
+        public static ZeebeIntegrationTestHelper OfVersion(string version)
+        {
+            return new ZeebeIntegrationTestHelper(version);
+        }
 
-        return ZeebeClient.Builder()
-            .UseLoggerFactory(loggerFactory)
-            .UseGatewayAddress(host)
-            .UsePlainText()
-            .Build();
-    }
+        public async Task<IZeebeClient> SetupIntegrationTest()
+        {
+            container = CreateZeebeContainer();
+            await container.StartAsync();
 
-    private async Task AwaitBrokerReadiness()
-    {
-        var ready = false;
-        do
+            client = CreateZeebeClient();
+            await AwaitBrokerReadiness();
+            return client;
+        }
+
+        public async Task TearDownIntegrationTest()
         {
             try
             {
-                var topology = await client.TopologyRequest().Send();
-                ready = topology.Brokers[0].Partitions.Count >= count;
+                client.Dispose();
+                client = null;
             }
-            catch (Exception)
+            finally
             {
-                // retry
+                await container.StopAsync();
+                container = null;
             }
-        } while (!ready);
+        }
+
+        private TestcontainersContainer CreateZeebeContainer()
+        {
+            return new TestcontainersBuilder<TestcontainersContainer>()
+                .WithImage(new DockerImage("camunda", "zeebe", version))
+                .WithPortBinding(ZeebePort, true)
+                .WithEnvironment("ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT", count.ToString())
+                .Build();
+        }
+
+        private IZeebeClient CreateZeebeClient()
+        {
+            var loggerFactory = LoggerFactory.Create(loggingBuilder =>
+            {
+                // configure Logging with NLog
+                loggingBuilder.ClearProviders();
+                loggingBuilder.SetMinimumLevel(LogLevel.Trace);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "NLog.config");
+                loggingBuilder.AddNLog(path);
+            });
+
+            // It has to be a valid Uri
+            // e.g. IP address without scheme or hostname with scheme
+            var host = "http://" + container.Hostname + ":" + container.GetMappedPublicPort(ZeebePort);
+
+            return ZeebeClient.Builder()
+                .UseLoggerFactory(loggerFactory)
+                .UseGatewayAddress(host)
+                .UsePlainText()
+                .Build();
+        }
+
+        private async Task AwaitBrokerReadiness()
+        {
+            var ready = false;
+            do
+            {
+                try
+                {
+                    var topology = await client.TopologyRequest().Send();
+                    ready = topology.Brokers[0].Partitions.Count >= count;
+                }
+                catch (Exception)
+                {
+                    // retry
+                }
+            } while (!ready);
+        }
     }
 }
