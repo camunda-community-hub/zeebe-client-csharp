@@ -43,17 +43,17 @@ namespace Zeebe.Client.Impl.Builder
 
     internal class ZeebePlainClientBuilder : IZeebeClientFinalBuildStep
     {
-        public ZeebePlainClientBuilder(string address, ILoggerFactory loggerFactory = null)
-        {
-            Address = address;
-            LoggerFactory = loggerFactory;
-        }
-
         private ILoggerFactory LoggerFactory { get; }
         private TimeSpan? KeepAlive { get; set; }
         private Func<int, TimeSpan> SleepDurationProvider { get; set; }
 
         private string Address { get; }
+
+        public ZeebePlainClientBuilder(string address, ILoggerFactory loggerFactory = null)
+        {
+            Address = address;
+            LoggerFactory = loggerFactory;
+        }
 
         public IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive)
         {
@@ -75,6 +75,16 @@ namespace Zeebe.Client.Impl.Builder
 
     internal class ZeebeSecureClientBuilder : IZeebeSecureClientBuilder
     {
+        private ILoggerFactory LoggerFactory { get; }
+        private TimeSpan? KeepAlive { get; set; }
+        private Func<int, TimeSpan> SleepDurationProvider { get; set; }
+
+        private string Address { get; }
+
+        private ChannelCredentials Credentials { get; set; }
+
+        private X509Certificate2 Certificate { get; }
+
         // https://learn.microsoft.com/en-us/dotnet/architecture/grpc-for-wcf-developers/channel-credentials#combine-channelcredentials-and-callcredentials
         // If you pass any arguments to the SslCredentials constructor, the internal client code throws an exception.
         // The SslCredentials parameter is only included to maintain compatibility with the Grpc.Core package
@@ -92,15 +102,6 @@ namespace Zeebe.Client.Impl.Builder
             LoggerFactory = loggerFactory;
             Credentials = new SslCredentials();
         }
-
-        private X509Certificate2 Certificate { get; }
-        private ILoggerFactory LoggerFactory { get; }
-        private TimeSpan? KeepAlive { get; set; }
-        private Func<int, TimeSpan> SleepDurationProvider { get; set; }
-
-        private string Address { get; }
-
-        private ChannelCredentials Credentials { get; set; }
 
         public IZeebeClientFinalBuildStep UseAccessToken(string accessToken)
         {

@@ -22,12 +22,12 @@ namespace Zeebe.Client.Impl.Builder
         private static readonly string ZeebeRootPath =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
 
-        private readonly string audience;
+        private readonly ILogger<CamundaCloudTokenProvider> logger;
         private readonly string authServer;
         private readonly string clientId;
         private readonly string clientSecret;
+        private readonly string audience;
 
-        private readonly ILogger<CamundaCloudTokenProvider> logger;
         private HttpClient httpClient;
         private HttpMessageHandler httpMessageHandler;
 
@@ -48,6 +48,11 @@ namespace Zeebe.Client.Impl.Builder
             httpClient = new HttpClient(new HttpClientHandler(), false);
             TokenStoragePath = ZeebeRootPath;
             Credentials = new Dictionary<string, AccessToken>();
+        }
+
+        public static CamundaCloudTokenProviderBuilder Builder()
+        {
+            return new CamundaCloudTokenProviderBuilder();
         }
 
         public string TokenStoragePath { get; set; }
@@ -84,17 +89,6 @@ namespace Zeebe.Client.Impl.Builder
 
             // request token
             return RequestAccessTokenAsync();
-        }
-
-        public void Dispose()
-        {
-            httpClient.Dispose();
-            httpMessageHandler.Dispose();
-        }
-
-        public static CamundaCloudTokenProviderBuilder Builder()
-        {
-            return new CamundaCloudTokenProviderBuilder();
         }
 
         internal void SetHttpMessageHandler(HttpMessageHandler handler)
@@ -169,9 +163,9 @@ namespace Zeebe.Client.Impl.Builder
         private static AccessToken ToAccessToken(string result)
         {
             var jsonResult = JObject.Parse(result);
-            var accessToken = (string) jsonResult["access_token"];
+            var accessToken = (string)jsonResult["access_token"];
 
-            var expiresInMilliSeconds = (long) jsonResult["expires_in"] * 1_000L;
+            var expiresInMilliSeconds = (long)jsonResult["expires_in"] * 1_000L;
             var dueDate = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + expiresInMilliSeconds;
             var token = new AccessToken(accessToken, dueDate);
             return token;
@@ -179,19 +173,25 @@ namespace Zeebe.Client.Impl.Builder
 
         public class AccessToken
         {
+            public string Token { get; set; }
+            public long DueDate { get; set; }
+
             public AccessToken(string token, long dueDate)
             {
                 Token = token;
                 DueDate = dueDate;
             }
 
-            public string Token { get; set; }
-            public long DueDate { get; set; }
-
             public override string ToString()
             {
                 return $"{nameof(Token)}: {Token}, {nameof(DueDate)}: {DueDate}";
             }
         }
+        public void Dispose()
+        {
+            httpClient.Dispose();
+            httpMessageHandler.Dispose();
+        }
+
     }
 }
