@@ -66,6 +66,10 @@ namespace GatewayProtocol {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> __Marshaller_gateway_protocol_CreateProcessInstanceWithResultResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CreateProcessInstanceWithResultResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.EvaluateDecisionRequest> __Marshaller_gateway_protocol_EvaluateDecisionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.EvaluateDecisionRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.EvaluateDecisionResponse> __Marshaller_gateway_protocol_EvaluateDecisionResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.EvaluateDecisionResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GatewayProtocol.DeployProcessRequest> __Marshaller_gateway_protocol_DeployProcessRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.DeployProcessRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GatewayProtocol.DeployProcessResponse> __Marshaller_gateway_protocol_DeployProcessResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.DeployProcessResponse.Parser));
@@ -105,6 +109,14 @@ namespace GatewayProtocol {
     static readonly grpc::Marshaller<global::GatewayProtocol.ModifyProcessInstanceRequest> __Marshaller_gateway_protocol_ModifyProcessInstanceRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ModifyProcessInstanceRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GatewayProtocol.ModifyProcessInstanceResponse> __Marshaller_gateway_protocol_ModifyProcessInstanceResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ModifyProcessInstanceResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.DeleteResourceRequest> __Marshaller_gateway_protocol_DeleteResourceRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.DeleteResourceRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.DeleteResourceResponse> __Marshaller_gateway_protocol_DeleteResourceResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.DeleteResourceResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.BroadcastSignalRequest> __Marshaller_gateway_protocol_BroadcastSignalRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.BroadcastSignalRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.BroadcastSignalResponse> __Marshaller_gateway_protocol_BroadcastSignalResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.BroadcastSignalResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse> __Method_ActivateJobs = new grpc::Method<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse>(
@@ -145,6 +157,14 @@ namespace GatewayProtocol {
         "CreateProcessInstanceWithResult",
         __Marshaller_gateway_protocol_CreateProcessInstanceWithResultRequest,
         __Marshaller_gateway_protocol_CreateProcessInstanceWithResultResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GatewayProtocol.EvaluateDecisionRequest, global::GatewayProtocol.EvaluateDecisionResponse> __Method_EvaluateDecision = new grpc::Method<global::GatewayProtocol.EvaluateDecisionRequest, global::GatewayProtocol.EvaluateDecisionResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "EvaluateDecision",
+        __Marshaller_gateway_protocol_EvaluateDecisionRequest,
+        __Marshaller_gateway_protocol_EvaluateDecisionResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.DeployProcessRequest, global::GatewayProtocol.DeployProcessResponse> __Method_DeployProcess = new grpc::Method<global::GatewayProtocol.DeployProcessRequest, global::GatewayProtocol.DeployProcessResponse>(
@@ -225,6 +245,22 @@ namespace GatewayProtocol {
         "ModifyProcessInstance",
         __Marshaller_gateway_protocol_ModifyProcessInstanceRequest,
         __Marshaller_gateway_protocol_ModifyProcessInstanceResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GatewayProtocol.DeleteResourceRequest, global::GatewayProtocol.DeleteResourceResponse> __Method_DeleteResource = new grpc::Method<global::GatewayProtocol.DeleteResourceRequest, global::GatewayProtocol.DeleteResourceResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteResource",
+        __Marshaller_gateway_protocol_DeleteResourceRequest,
+        __Marshaller_gateway_protocol_DeleteResourceResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GatewayProtocol.BroadcastSignalRequest, global::GatewayProtocol.BroadcastSignalResponse> __Method_BroadcastSignal = new grpc::Method<global::GatewayProtocol.BroadcastSignalRequest, global::GatewayProtocol.BroadcastSignalResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "BroadcastSignal",
+        __Marshaller_gateway_protocol_BroadcastSignalRequest,
+        __Marshaller_gateway_protocol_BroadcastSignalResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -337,6 +373,28 @@ namespace GatewayProtocol {
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResult(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Evaluates a decision. The decision to evaluate can be specified either by
+      ///using its unique key (as returned by DeployResource), or using the decision
+      ///ID. When using the decision ID, the latest deployed version of the decision
+      ///is used.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- no decision with the given key exists (if decisionKey was given)
+      ///- no decision with the given decision ID exists (if decisionId was given)
+      ///- both decision ID and decision KEY were provided, or are missing
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.EvaluateDecisionResponse> EvaluateDecision(global::GatewayProtocol.EvaluateDecisionRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -540,6 +598,49 @@ namespace GatewayProtocol {
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ModifyProcessInstanceResponse> ModifyProcessInstance(global::GatewayProtocol.ModifyProcessInstanceRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Deletes a resource from the state. Once a resource has been deleted it cannot
+      ///be recovered. If the resource needs to be available again, a new deployment
+      ///of the resource is required.
+      ///
+      ///Deleting a process will cancel any running instances of this process
+      ///definition. New instances of a deleted process are created using
+      ///the lastest version that hasn't been deleted. Creating a new
+      ///process instance is impossible when all versions have been
+      ///deleted.
+      ///
+      ///Deleting a decision requirement definitions could cause incidents in process
+      ///instances referencing these decisions in a business rule task. A decision
+      ///will be evaluated with the latest version that hasn't been deleted. If all
+      ///versions of a decision have been deleted the evaluation is rejected.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- No resource exists with the given key
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.DeleteResourceResponse> DeleteResource(global::GatewayProtocol.DeleteResourceRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Broadcasts a signal.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.BroadcastSignalResponse> BroadcastSignal(global::GatewayProtocol.BroadcastSignalRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -946,6 +1047,94 @@ namespace GatewayProtocol {
       public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(global::GatewayProtocol.CreateProcessInstanceWithResultRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_CreateProcessInstanceWithResult, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Evaluates a decision. The decision to evaluate can be specified either by
+      ///using its unique key (as returned by DeployResource), or using the decision
+      ///ID. When using the decision ID, the latest deployed version of the decision
+      ///is used.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- no decision with the given key exists (if decisionKey was given)
+      ///- no decision with the given decision ID exists (if decisionId was given)
+      ///- both decision ID and decision KEY were provided, or are missing
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GatewayProtocol.EvaluateDecisionResponse EvaluateDecision(global::GatewayProtocol.EvaluateDecisionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return EvaluateDecision(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Evaluates a decision. The decision to evaluate can be specified either by
+      ///using its unique key (as returned by DeployResource), or using the decision
+      ///ID. When using the decision ID, the latest deployed version of the decision
+      ///is used.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- no decision with the given key exists (if decisionKey was given)
+      ///- no decision with the given decision ID exists (if decisionId was given)
+      ///- both decision ID and decision KEY were provided, or are missing
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GatewayProtocol.EvaluateDecisionResponse EvaluateDecision(global::GatewayProtocol.EvaluateDecisionRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_EvaluateDecision, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Evaluates a decision. The decision to evaluate can be specified either by
+      ///using its unique key (as returned by DeployResource), or using the decision
+      ///ID. When using the decision ID, the latest deployed version of the decision
+      ///is used.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- no decision with the given key exists (if decisionKey was given)
+      ///- no decision with the given decision ID exists (if decisionId was given)
+      ///- both decision ID and decision KEY were provided, or are missing
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.EvaluateDecisionResponse> EvaluateDecisionAsync(global::GatewayProtocol.EvaluateDecisionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return EvaluateDecisionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Evaluates a decision. The decision to evaluate can be specified either by
+      ///using its unique key (as returned by DeployResource), or using the decision
+      ///ID. When using the decision ID, the latest deployed version of the decision
+      ///is used.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- no decision with the given key exists (if decisionKey was given)
+      ///- no decision with the given decision ID exists (if decisionId was given)
+      ///- both decision ID and decision KEY were provided, or are missing
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.EvaluateDecisionResponse> EvaluateDecisionAsync(global::GatewayProtocol.EvaluateDecisionRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_EvaluateDecision, null, options, request);
       }
       /// <summary>
       ///
@@ -1759,6 +1948,178 @@ namespace GatewayProtocol {
       {
         return CallInvoker.AsyncUnaryCall(__Method_ModifyProcessInstance, null, options, request);
       }
+      /// <summary>
+      ///
+      ///Deletes a resource from the state. Once a resource has been deleted it cannot
+      ///be recovered. If the resource needs to be available again, a new deployment
+      ///of the resource is required.
+      ///
+      ///Deleting a process will cancel any running instances of this process
+      ///definition. New instances of a deleted process are created using
+      ///the lastest version that hasn't been deleted. Creating a new
+      ///process instance is impossible when all versions have been
+      ///deleted.
+      ///
+      ///Deleting a decision requirement definitions could cause incidents in process
+      ///instances referencing these decisions in a business rule task. A decision
+      ///will be evaluated with the latest version that hasn't been deleted. If all
+      ///versions of a decision have been deleted the evaluation is rejected.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- No resource exists with the given key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GatewayProtocol.DeleteResourceResponse DeleteResource(global::GatewayProtocol.DeleteResourceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteResource(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Deletes a resource from the state. Once a resource has been deleted it cannot
+      ///be recovered. If the resource needs to be available again, a new deployment
+      ///of the resource is required.
+      ///
+      ///Deleting a process will cancel any running instances of this process
+      ///definition. New instances of a deleted process are created using
+      ///the lastest version that hasn't been deleted. Creating a new
+      ///process instance is impossible when all versions have been
+      ///deleted.
+      ///
+      ///Deleting a decision requirement definitions could cause incidents in process
+      ///instances referencing these decisions in a business rule task. A decision
+      ///will be evaluated with the latest version that hasn't been deleted. If all
+      ///versions of a decision have been deleted the evaluation is rejected.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- No resource exists with the given key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GatewayProtocol.DeleteResourceResponse DeleteResource(global::GatewayProtocol.DeleteResourceRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteResource, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Deletes a resource from the state. Once a resource has been deleted it cannot
+      ///be recovered. If the resource needs to be available again, a new deployment
+      ///of the resource is required.
+      ///
+      ///Deleting a process will cancel any running instances of this process
+      ///definition. New instances of a deleted process are created using
+      ///the lastest version that hasn't been deleted. Creating a new
+      ///process instance is impossible when all versions have been
+      ///deleted.
+      ///
+      ///Deleting a decision requirement definitions could cause incidents in process
+      ///instances referencing these decisions in a business rule task. A decision
+      ///will be evaluated with the latest version that hasn't been deleted. If all
+      ///versions of a decision have been deleted the evaluation is rejected.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- No resource exists with the given key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeleteResourceResponse> DeleteResourceAsync(global::GatewayProtocol.DeleteResourceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteResourceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Deletes a resource from the state. Once a resource has been deleted it cannot
+      ///be recovered. If the resource needs to be available again, a new deployment
+      ///of the resource is required.
+      ///
+      ///Deleting a process will cancel any running instances of this process
+      ///definition. New instances of a deleted process are created using
+      ///the lastest version that hasn't been deleted. Creating a new
+      ///process instance is impossible when all versions have been
+      ///deleted.
+      ///
+      ///Deleting a decision requirement definitions could cause incidents in process
+      ///instances referencing these decisions in a business rule task. A decision
+      ///will be evaluated with the latest version that hasn't been deleted. If all
+      ///versions of a decision have been deleted the evaluation is rejected.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- No resource exists with the given key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.DeleteResourceResponse> DeleteResourceAsync(global::GatewayProtocol.DeleteResourceRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteResource, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Broadcasts a signal.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GatewayProtocol.BroadcastSignalResponse BroadcastSignal(global::GatewayProtocol.BroadcastSignalRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BroadcastSignal(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Broadcasts a signal.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GatewayProtocol.BroadcastSignalResponse BroadcastSignal(global::GatewayProtocol.BroadcastSignalRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_BroadcastSignal, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Broadcasts a signal.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.BroadcastSignalResponse> BroadcastSignalAsync(global::GatewayProtocol.BroadcastSignalRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BroadcastSignalAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Broadcasts a signal.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.BroadcastSignalResponse> BroadcastSignalAsync(global::GatewayProtocol.BroadcastSignalRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_BroadcastSignal, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override GatewayClient NewInstance(ClientBaseConfiguration configuration)
@@ -1778,6 +2139,7 @@ namespace GatewayProtocol {
           .AddMethod(__Method_CompleteJob, serviceImpl.CompleteJob)
           .AddMethod(__Method_CreateProcessInstance, serviceImpl.CreateProcessInstance)
           .AddMethod(__Method_CreateProcessInstanceWithResult, serviceImpl.CreateProcessInstanceWithResult)
+          .AddMethod(__Method_EvaluateDecision, serviceImpl.EvaluateDecision)
           .AddMethod(__Method_DeployProcess, serviceImpl.DeployProcess)
           .AddMethod(__Method_DeployResource, serviceImpl.DeployResource)
           .AddMethod(__Method_FailJob, serviceImpl.FailJob)
@@ -1787,7 +2149,9 @@ namespace GatewayProtocol {
           .AddMethod(__Method_SetVariables, serviceImpl.SetVariables)
           .AddMethod(__Method_Topology, serviceImpl.Topology)
           .AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries)
-          .AddMethod(__Method_ModifyProcessInstance, serviceImpl.ModifyProcessInstance).Build();
+          .AddMethod(__Method_ModifyProcessInstance, serviceImpl.ModifyProcessInstance)
+          .AddMethod(__Method_DeleteResource, serviceImpl.DeleteResource)
+          .AddMethod(__Method_BroadcastSignal, serviceImpl.BroadcastSignal).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -1802,6 +2166,7 @@ namespace GatewayProtocol {
       serviceBinder.AddMethod(__Method_CompleteJob, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CompleteJobRequest, global::GatewayProtocol.CompleteJobResponse>(serviceImpl.CompleteJob));
       serviceBinder.AddMethod(__Method_CreateProcessInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CreateProcessInstanceRequest, global::GatewayProtocol.CreateProcessInstanceResponse>(serviceImpl.CreateProcessInstance));
       serviceBinder.AddMethod(__Method_CreateProcessInstanceWithResult, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CreateProcessInstanceWithResultRequest, global::GatewayProtocol.CreateProcessInstanceWithResultResponse>(serviceImpl.CreateProcessInstanceWithResult));
+      serviceBinder.AddMethod(__Method_EvaluateDecision, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.EvaluateDecisionRequest, global::GatewayProtocol.EvaluateDecisionResponse>(serviceImpl.EvaluateDecision));
       serviceBinder.AddMethod(__Method_DeployProcess, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.DeployProcessRequest, global::GatewayProtocol.DeployProcessResponse>(serviceImpl.DeployProcess));
       serviceBinder.AddMethod(__Method_DeployResource, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.DeployResourceRequest, global::GatewayProtocol.DeployResourceResponse>(serviceImpl.DeployResource));
       serviceBinder.AddMethod(__Method_FailJob, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.FailJobRequest, global::GatewayProtocol.FailJobResponse>(serviceImpl.FailJob));
@@ -1812,6 +2177,8 @@ namespace GatewayProtocol {
       serviceBinder.AddMethod(__Method_Topology, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse>(serviceImpl.Topology));
       serviceBinder.AddMethod(__Method_UpdateJobRetries, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.UpdateJobRetriesRequest, global::GatewayProtocol.UpdateJobRetriesResponse>(serviceImpl.UpdateJobRetries));
       serviceBinder.AddMethod(__Method_ModifyProcessInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.ModifyProcessInstanceRequest, global::GatewayProtocol.ModifyProcessInstanceResponse>(serviceImpl.ModifyProcessInstance));
+      serviceBinder.AddMethod(__Method_DeleteResource, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.DeleteResourceRequest, global::GatewayProtocol.DeleteResourceResponse>(serviceImpl.DeleteResource));
+      serviceBinder.AddMethod(__Method_BroadcastSignal, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.BroadcastSignalRequest, global::GatewayProtocol.BroadcastSignalResponse>(serviceImpl.BroadcastSignal));
     }
 
   }
