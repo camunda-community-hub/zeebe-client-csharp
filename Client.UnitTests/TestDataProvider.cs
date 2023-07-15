@@ -129,18 +129,18 @@ namespace Zeebe.Client
                 (RequestCreator<IFailJobResponse>)
                 (zeebeClient => zeebeClient.NewFailCommand(255L).Retries(1)));
             yield return new TestCaseData(
-                new DeployProcessRequest
+                new DeployResourceRequest
                 {
-                    Processes =
+                    Resources =
                     {
-                        new ProcessRequestObject
+                        new Resource
                         {
-                            Definition = ByteString.FromStream(File.OpenRead(DemoProcessPath)),
+                            Content = ByteString.FromStream(File.OpenRead(DemoProcessPath)),
                             Name = DemoProcessPath
                         }
                     }
                 },
-                new DeployProcessResponse(),
+                new GatewayProtocol.DeployResourceResponse(),
                 (RequestCreator<IDeployResourceResponse>)
                 (zeebeClient => zeebeClient.NewDeployCommand().AddResourceFile(DemoProcessPath)));
         }
