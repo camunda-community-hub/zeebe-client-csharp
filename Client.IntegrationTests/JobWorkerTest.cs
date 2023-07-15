@@ -44,8 +44,8 @@ namespace Client.IntegrationTests
                 .JobType("oneTask")
                 .Handler(async (jobClient, job) =>
                 {
-                    await jobClient.NewCompleteJobCommand(job).Send();
                     handledJobs.Add(job);
+                    await jobClient.NewCompleteJobCommand(job).Send();
                 })
                 .MaxJobsActive(1)
                 .Name("ShouldCompleteProcess")
