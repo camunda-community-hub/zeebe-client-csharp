@@ -18,59 +18,59 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
 {
-    public interface IDeployProcessCommandStep1
+    public interface IDeployResourceCommandStep1
     {
         /// <summary>
         /// Add the given resource to the deployment.
         /// </summary>
-        /// <param name="resourceBytes">the process resource as byte array</param>
+        /// <param name="resourceBytes">the resource as byte array</param>
         /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
         /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
-        IDeployProcessCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName);
+        IDeployResourceCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName);
 
         /// <summary>
         /// Add the given resource to the deployment.
         /// </summary>
-        /// <param name="resourceString">the process resource as String</param>
+        /// <param name="resourceString">the resource as String</param>
         /// <param name="encoding">the charset of the String</param>
         /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
         /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
-        IDeployProcessCommandBuilderStep2 AddResourceString(
+        IDeployResourceCommandBuilderStep2 AddResourceString(
             string resourceString, Encoding encoding, string resourceName);
 
         /// <summary>
         /// Add the given resource to the deployment.
         /// </summary>
-        /// <param name="resourceString">the process resource as UTF-8-encoded String</param>
+        /// <param name="resourceString">the resource as UTF-8-encoded String</param>
         /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
         /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
-        IDeployProcessCommandBuilderStep2 AddResourceStringUtf8(
+        IDeployResourceCommandBuilderStep2 AddResourceStringUtf8(
             string resourceString, string resourceName);
 
         /// <summary>
         /// Add the given resource to the deployment.
         /// </summary>
-        /// <param name="resourceStream">the process resource as stream</param>
+        /// <param name="resourceStream">the resource as stream</param>
         /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
         /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.
         /// </returns>
-        IDeployProcessCommandBuilderStep2 AddResourceStream(
+        IDeployResourceCommandBuilderStep2 AddResourceStream(
             Stream resourceStream, string resourceName);
 
         /// <summary>
         /// Add the given resource to the deployment.
         /// </summary>
-        /// <param name="filename">the absolute path of the process resource (e.g. "~/wf/process.bpmn")</param>
+        /// <param name="filename">the absolute path of the resource (e.g. "~/wf/process.bpmn")</param>
         /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
-        IDeployProcessCommandBuilderStep2 AddResourceFile(string filename);
+        IDeployResourceCommandBuilderStep2 AddResourceFile(string filename);
     }
 
-    public interface IDeployProcessCommandBuilderStep2 : IDeployProcessCommandStep1, IFinalCommandWithRetryStep<IDeployResponse>
+    public interface IDeployResourceCommandBuilderStep2 : IDeployResourceCommandStep1, IFinalCommandWithRetryStep<IDeployResourceResponse>
     {
         // the place for new optional parameters
     }

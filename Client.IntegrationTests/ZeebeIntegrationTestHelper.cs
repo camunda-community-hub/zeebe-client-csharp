@@ -12,11 +12,11 @@ namespace Client.IntegrationTests
 {
     public class ZeebeIntegrationTestHelper
     {
-        public const string LatestVersion = "1.2.4";
+        public const string LatestVersion = "8.2.8";
 
-        public const ushort ZeebePort = 26500;
+        private const ushort ZeebePort = 26500;
 
-        private ITestcontainersContainer container;
+        private IContainer container;
         private IZeebeClient client;
 
         private readonly string version;
@@ -61,9 +61,9 @@ namespace Client.IntegrationTests
             container = null;
         }
 
-        private TestcontainersContainer CreateZeebeContainer()
+        private IContainer CreateZeebeContainer()
         {
-            return new TestcontainersBuilder<TestcontainersContainer>()
+            return new ContainerBuilder()
                 .WithImage(new DockerImage("camunda", "zeebe", version))
                 .WithPortBinding(ZeebePort, true)
                 .WithEnvironment("ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT", count.ToString())

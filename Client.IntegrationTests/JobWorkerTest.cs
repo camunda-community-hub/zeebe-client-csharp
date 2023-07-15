@@ -44,11 +44,11 @@ namespace Client.IntegrationTests
                 .JobType("oneTask")
                 .Handler(async (jobClient, job) =>
                 {
-                    await jobClient.NewCompleteJobCommand(job).Send();
                     handledJobs.Add(job);
+                    await jobClient.NewCompleteJobCommand(job).Send();
                 })
                 .MaxJobsActive(1)
-                .Name("csharpWorker")
+                .Name("ShouldCompleteProcess")
                 .Timeout(TimeSpan.FromSeconds(10))
                 .PollInterval(TimeSpan.FromMilliseconds(100))
                 .PollingTimeout(TimeSpan.FromSeconds(30L))
@@ -60,7 +60,7 @@ namespace Client.IntegrationTests
                     .Send();
 
                 // then process was completed
-                Assert.AreEqual(1, handledJobs.Count);
+                Assert.AreEqual(1, handledJobs.Count, "Jobs handled");
 
                 Assert.AreEqual(processInstance.Version, 1);
                 Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
@@ -78,10 +78,10 @@ namespace Client.IntegrationTests
             // when
             using (zeebeClient.NewWorker()
                 .JobType("oneTask")
-                .Handler((jobClient, job) => handledJobs.Add(job))
+                .Handler((_, job) => handledJobs.Add(job))
                 .MaxJobsActive(1)
                 .AutoCompletion()
-                .Name("csharpWorker")
+                .Name("ShouldCompleteProcessWithJobAutoCompletion")
                 .Timeout(TimeSpan.FromSeconds(10))
                 .PollInterval(TimeSpan.FromMilliseconds(100))
                 .PollingTimeout(TimeSpan.FromSeconds(30L))

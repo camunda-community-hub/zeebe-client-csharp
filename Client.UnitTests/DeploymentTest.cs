@@ -19,13 +19,13 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceFileAsExpected()
         {
             // given
-            var expectedRequest = new DeployProcessRequest
+            var expectedRequest = new DeployResourceRequest
             {
-                Processes =
+                Resources =
                 {
-                    new ProcessRequestObject
+                    new Resource
                     {
-                        Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
+                        Content = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
                     }
                 }
@@ -35,7 +35,7 @@ namespace Zeebe.Client
             await ZeebeClient.NewDeployCommand().AddResourceFile(_demoProcessPath).Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -78,13 +78,13 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceStringAsExpected()
         {
             // given
-            var expectedRequest = new DeployProcessRequest
+            var expectedRequest = new DeployResourceRequest
             {
-                Processes =
+                Resources =
                 {
-                    new ProcessRequestObject
+                    new Resource
                     {
-                        Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
+                        Content = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
                     }
                 }
@@ -97,7 +97,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -106,13 +106,13 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceStringUtf8AsExpected()
         {
             // given
-            var expectedRequest = new DeployProcessRequest
+            var expectedRequest = new DeployResourceRequest
             {
-                Processes =
+                Resources =
                 {
-                    new ProcessRequestObject
+                    new Resource
                     {
-                        Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
+                        Content = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
                     }
                 }
@@ -125,7 +125,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -134,13 +134,13 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceBytesAsExpected()
         {
             // given
-            var expectedRequest = new DeployProcessRequest
+            var expectedRequest = new DeployResourceRequest
             {
-                Processes =
+                Resources =
                 {
-                    new ProcessRequestObject
+                    new Resource
                     {
-                        Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
+                        Content = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
                     }
                 }
@@ -153,7 +153,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -162,13 +162,13 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceStreamAsExpected()
         {
             // given
-            var expectedRequest = new DeployProcessRequest
+            var expectedRequest = new DeployResourceRequest
             {
-                Processes =
+                Resources =
                 {
-                    new ProcessRequestObject
+                    new Resource
                     {
-                        Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
+                        Content = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
                     }
                 }
@@ -180,7 +180,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -189,16 +189,25 @@ namespace Zeebe.Client
         public async Task ShouldSendDeployResourceAndGetResponseAsExpected()
         {
             // given
-            var expectedResponse = new DeployProcessResponse { Key = 1 };
-            expectedResponse.Processes.Add(new ProcessMetadata
+            var expectedResponse = new DeployResourceResponse
             {
-                BpmnProcessId = "process",
-                ResourceName = _demoProcessPath,
-                Version = 1,
-                ProcessDefinitionKey = 2
-            });
+                Key = 1,
+                Deployments =
+                {
+                    new Deployment
+                    {
+                        Process = new ProcessMetadata
+                        {
+                            BpmnProcessId = "process",
+                            ResourceName = _demoProcessPath,
+                            Version = 1,
+                            ProcessDefinitionKey = 2
+                        }
+                    }
+                }
+            };
 
-            TestService.AddRequestHandler(typeof(DeployProcessRequest), request => expectedResponse);
+            TestService.AddRequestHandler(typeof(DeployResourceRequest), request => expectedResponse);
 
             // when
             var deployProcessResponse = await ZeebeClient.NewDeployCommand()
@@ -220,18 +229,18 @@ namespace Zeebe.Client
         public async Task ShouldSendMultipleDeployResourceAsExpected()
         {
             // given
-            var expectedRequest = new DeployProcessRequest
+            var expectedRequest = new DeployResourceRequest
             {
-                Processes =
+                Resources =
                 {
-                    new ProcessRequestObject
+                    new Resource
                     {
-                        Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
+                        Content = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
                     },
-                    new ProcessRequestObject
+                    new Resource
                     {
-                        Definition = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
+                        Content = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
                         Name = _demoProcessPath,
                     }
                 }
@@ -244,7 +253,7 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            var actualRequest = TestService.Requests[typeof(DeployProcessRequest)][0];
+            var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
             Assert.AreEqual(expectedRequest, actualRequest);
         }
@@ -253,23 +262,48 @@ namespace Zeebe.Client
         public async Task ShouldSendMultipleDeployResourceAndGetResponseAsExpected()
         {
             // given
-            var expectedResponse = new DeployProcessResponse { Key = 1 };
-            expectedResponse.Processes.Add(new ProcessMetadata
+            var expectedResponse = new DeployResourceResponse
             {
-                BpmnProcessId = "process",
-                ResourceName = _demoProcessPath,
-                Version = 1,
-                ProcessDefinitionKey = 2
-            });
-            expectedResponse.Processes.Add(new ProcessMetadata
-            {
-                BpmnProcessId = "process2",
-                ResourceName = _demoProcessPath,
-                Version = 1,
-                ProcessDefinitionKey = 3
-            });
+                Key = 1,
+                Deployments =
+                {
+                    new Deployment
+                    {
+                        Process = new ProcessMetadata
+                        {
+                            BpmnProcessId = "process",
+                            ResourceName = _demoProcessPath,
+                            Version = 1,
+                            ProcessDefinitionKey = 2
+                        }
+                    },
+                    new Deployment
+                    {
+                        Decision = new DecisionMetadata
+                        {
+                            DecisionKey = 1,
+                            DecisionRequirementsKey = 2,
+                            Version = 3,
+                            DmnDecisionId = "decisionId",
+                            DmnDecisionName = "decisionName",
+                            DmnDecisionRequirementsId = "idk",
+                        }
+                    },
+                    new Deployment
+                    {
+                        DecisionRequirements = new DecisionRequirementsMetadata
+                        {
+                            Version = 1,
+                            ResourceName = "requirement",
+                            DecisionRequirementsKey = 2,
+                            DmnDecisionRequirementsId = "id",
+                            DmnDecisionRequirementsName = "nameRequirement"
+                        }
+                    }
+                }
+            };
 
-            TestService.AddRequestHandler(typeof(DeployProcessRequest), request => expectedResponse);
+            TestService.AddRequestHandler(typeof(DeployResourceRequest), request => expectedResponse);
 
             // when
             var fileContent = File.ReadAllText(_demoProcessPath);
@@ -280,7 +314,9 @@ namespace Zeebe.Client
 
             // then
             Assert.AreEqual(1, deployProcessResponse.Key);
-            Assert.AreEqual(2, deployProcessResponse.Processes.Count);
+            Assert.AreEqual(1, deployProcessResponse.Processes.Count);
+            Assert.AreEqual(1, deployProcessResponse.Decisions.Count);
+            Assert.AreEqual(1, deployProcessResponse.DecisionRequirements.Count);
 
             var processMetadata = deployProcessResponse.Processes[0];
             Assert.AreEqual("process", processMetadata.BpmnProcessId);
@@ -288,11 +324,20 @@ namespace Zeebe.Client
             Assert.AreEqual(_demoProcessPath, processMetadata.ResourceName);
             Assert.AreEqual(2, processMetadata.ProcessDefinitionKey);
 
-            var processMetadata2 = deployProcessResponse.Processes[1];
-            Assert.AreEqual("process2", processMetadata2.BpmnProcessId);
-            Assert.AreEqual(1, processMetadata2.Version);
-            Assert.AreEqual(_demoProcessPath, processMetadata2.ResourceName);
-            Assert.AreEqual(3, processMetadata2.ProcessDefinitionKey);
+            var decisionMetadata = deployProcessResponse.Decisions[0];
+            Assert.AreEqual(1, decisionMetadata.DecisionKey);
+            Assert.AreEqual(2, decisionMetadata.DecisionRequirementsKey);
+            Assert.AreEqual(3, decisionMetadata.Version);
+            Assert.AreEqual("decisionId", decisionMetadata.DmnDecisionId);
+            Assert.AreEqual("decisionName", decisionMetadata.DmnDecisionName);
+            Assert.AreEqual("idk", decisionMetadata.DmnDecisionRequirementsId);
+
+            var decisionRequirementsMetadata = deployProcessResponse.DecisionRequirements[0];
+            Assert.AreEqual(2, decisionRequirementsMetadata.DecisionRequirementsKey);
+            Assert.AreEqual(1, decisionRequirementsMetadata.Version);
+            Assert.AreEqual("requirement", decisionRequirementsMetadata.ResourceName);
+            Assert.AreEqual("nameRequirement", decisionRequirementsMetadata.DmnDecisionRequirementsName);
+            Assert.AreEqual("id", decisionRequirementsMetadata.DmnDecisionRequirementsId);
         }
     }
 }

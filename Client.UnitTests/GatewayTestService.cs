@@ -55,7 +55,7 @@ namespace Zeebe.Client
             typedRequestHandler.Add(typeof(UpdateJobRetriesRequest), request => new UpdateJobRetriesResponse());
             typedRequestHandler.Add(typeof(ThrowErrorRequest), request => new ThrowErrorResponse());
 
-            typedRequestHandler.Add(typeof(DeployProcessRequest), request => new DeployProcessResponse());
+            typedRequestHandler.Add(typeof(DeployResourceRequest), request => new DeployResourceResponse());
             typedRequestHandler.Add(typeof(CreateProcessInstanceRequest), request => new CreateProcessInstanceResponse());
             typedRequestHandler.Add(typeof(CancelProcessInstanceRequest), request => new CancelProcessInstanceResponse());
             typedRequestHandler.Add(typeof(SetVariablesRequest), request => new SetVariablesResponse());
@@ -137,6 +137,11 @@ namespace Zeebe.Client
         public override Task<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResult(CreateProcessInstanceWithResultRequest request, ServerCallContext context)
         {
             return Task.FromResult((CreateProcessInstanceWithResultResponse)HandleRequest(request, context));
+        }
+
+        public override Task<DeployResourceResponse> DeployResource(DeployResourceRequest request, ServerCallContext context)
+        {
+            return Task.FromResult((DeployResourceResponse)HandleRequest(request, context));
         }
 
         public delegate void ConsumeMetadata(Metadata metadata);
