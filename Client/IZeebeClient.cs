@@ -119,22 +119,23 @@ namespace Zeebe.Client
         IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey);
 
         /// <summary>
-        /// Command to deploy new processes.
+        /// Command to deploy new resources, i.e. BPMN process models and DMN decision models.
         /// </summary>
         ///
         /// <example>
         /// <code>
         /// zeebeClient
-        ///  .NewDeployCommand()
+        ///  .NewDeployResourceCommand()
         ///  .AddResourceFile("~/wf/process1.bpmn")
         ///  .AddResourceFile("~/wf/process2.bpmn")
+        ///  .AddResourceFile("~/dmn/decision.dmn")
         ///  .Send();
         /// </code>
         /// </example>
         /// <returns>
         ///     a builder for the deploy command
         /// </returns>
-        IDeployProcessCommandStep1 NewDeployCommand();
+        IDeployResourceCommandStep1 NewDeployCommand();
 
         /// <summary>
         /// Command to create/start a new instance of a process.
