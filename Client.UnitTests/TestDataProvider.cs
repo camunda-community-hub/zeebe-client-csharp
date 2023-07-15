@@ -141,7 +141,7 @@ namespace Zeebe.Client
                     }
                 },
                 new DeployProcessResponse(),
-                (RequestCreator<IDeployResponse>)
+                (RequestCreator<IDeployResourceResponse>)
                 (zeebeClient => zeebeClient.NewDeployCommand().AddResourceFile(DemoProcessPath)));
         }
     }
