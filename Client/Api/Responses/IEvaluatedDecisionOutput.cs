@@ -20,15 +20,15 @@ public interface IEvaluatedDecisionOutput
     /// <returns>
     /// the id of the evaluated decision output
     /// </returns>
-    string GetOutputId { get; }
+    string OutputId { get; }
 
     /// <returns>
     /// the name of the evaluated decision output
     /// </returns>
-    string GetOutputName { get; }
+    string OutputName { get; }
 
     /// <returns>
     /// the value of the evaluated decision output
     /// </returns>
-    string GetOutputValue { get; }
+    string OutputValue { get; }
 }

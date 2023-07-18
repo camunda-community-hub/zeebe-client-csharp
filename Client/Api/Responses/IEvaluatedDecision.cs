@@ -20,46 +20,44 @@ namespace Zeebe.Client.Api.Responses;
 
 public interface IEvaluatedDecision
 {
-    
-    
     /// <returns>
     /// the decision ID, as parsed during deployment; together with the versions forms a unique
     /// identifier for a specific decision
     /// </returns>
-    string GetDecisionId { get; }
+    string DecisionId { get; }
 
     /// <returns>
     /// the assigned decision version
     /// </returns>
-    int GetDecisionVersion { get; }
+    int DecisionVersion { get; }
 
     /// <returns>
     /// the assigned decision key, which acts as a unique identifier for this decision
     /// </returns>
-    long GetDecisionKey { get; }
+    long DecisionKey { get; }
 
     /// <returns>
     /// the name of the decision, as parsed during deployment
     /// </returns>
-    string GetDecisionName { get; }
+    string DecisionName { get; }
 
     /// <returns>
     /// the type of the evaluated decision
     /// </returns>
-    string GetDecisionType { get; }
+    string DecisionType { get; }
 
     /// <returns>
     /// the output of the evaluated decision
     /// </returns>
-    string GetDecisionOutput { get; }
+    string DecisionOutput { get; }
 
     /// <returns>
     /// the decision inputs that were evaluated within this decision evaluation
     /// </returns>
-    IList<IEvaluatedDecisionInput> GetEvaluatedInputs { get; }
+    IList<IEvaluatedDecisionInput> EvaluatedInputs { get; }
 
     /// <returns>
     /// the decision rules that matched within this decision evaluation
     /// </returns>
-    IList<IMatchedDecisionRule> GetMatchedRules { get; }
+    IList<IMatchedDecisionRule> MatchedRules { get; }
 }

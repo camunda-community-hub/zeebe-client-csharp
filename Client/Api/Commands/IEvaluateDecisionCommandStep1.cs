@@ -14,6 +14,7 @@
 //     limitations under the License.
 
 using GatewayProtocol;
+using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands;
 
@@ -39,7 +40,7 @@ public interface IEvaluateDecisionCommandStep1
   ///     it to the broker.</returns>
   IEvaluateDecisionCommandStep2 DecisionKey(long decisionKey);
 
-  public interface IEvaluateDecisionCommandStep2 : IFinalCommandStep<EvaluateDecisionResponse> 
+  public interface IEvaluateDecisionCommandStep2 : IFinalCommandStep<IEvaluateDecisionResponse> 
   {
       /// <summary>
       /// Set the variables for the decision evaluation.

@@ -23,15 +23,15 @@ public interface IMatchedDecisionRule
     /// <returns>
     /// the id of the matched rule
     /// </returns>
-    string GetRuleId { get; }
+    string RuleId { get; }
 
     /// <returns>
     /// the index of the matched rule
     /// </returns>
-    int GetRuleIndex { get; }
+    int RuleIndex { get; }
 
     /// <returns>
     /// the evaluated decision outputs
     /// </returns>
-    IList<IEvaluatedDecisionOutput> GetEvaluatedOutputs { get; }
+    IList<IEvaluatedDecisionOutput> EvaluatedOutputs { get; }
 }

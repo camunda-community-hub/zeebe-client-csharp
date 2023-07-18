@@ -11,52 +11,52 @@ namespace Zeebe.Client.Api.Responses
         /// the decision ID, as parsed during deployment; together with the versions forms a unique
         /// identifier for a specific decision
         /// </returns>
-        string GetDecisionId { get; }
+        string DecisionId { get; }
 
         /// <returns>
         /// the assigned decision version
         /// </returns>
-        int GetDecisionVersion { get; }
+        int DecisionVersion { get; }
 
         /// <returns>
         /// the assigned decision key, which acts as a unique identifier for this decision
         /// </returns>
-        long GetDecisionKey { get; }
+        long DecisionKey { get; }
 
         /// <returns>
         /// the name of the decision, as parsed during deployment
         /// </returns>
-        string GetDecisionName { get; }
+        string DecisionName { get; }
 
         /// <returns>
         /// the ID of the decision requirements graph that this decision is part of, as parsed
         /// during deployment
         /// </returns>
-        string GetDecisionRequirementsId { get; }
+        string DecisionRequirementsId { get; }
 
         /// <returns>
         /// the assigned key of the decision requirements graph that this decision is part of
         /// </returns>
-        long GetDecisionRequirementsKey { get; }
+        long DecisionRequirementsKey { get; }
 
         /// <returns>
         /// the output of the evaluated decision
         /// </returns>
-        string GetDecisionOutput { get; }
+        string DecisionOutput { get; }
 
         /// <returns>
         /// a list of decisions that were evaluated within the requested decision evaluation
         /// </returns>
-        IList<IEvaluatedDecision> GetEvaluatedDecisions { get; }
+        IList<IEvaluatedDecision> EvaluatedDecisions { get; }
 
         /// <returns>
         /// a string indicating the ID of the decision which failed during evaluation
         /// </returns>
-        string GetFailedDecisionId { get; }
+        string FailedDecisionId { get; }
 
         /// <returns>
         /// a message describing why the decision which was evaluated failed
         /// </returns>
-        string GetFailureMessage { get; }
+        string FailureMessage { get; }
     }
 }

@@ -20,15 +20,15 @@ public interface IEvaluatedDecisionInput
     /// <returns>
     /// the id of the evaluated decision input
     /// </returns>
-    string GetInputId { get; }
+    string InputId { get; }
 
     /// <returns>
     /// the name of the evaluated decision input
     /// </returns>
-    string GetInputName { get; }
+    string InputName { get; }
 
     /// <returns>
     /// the value of the evaluated decision input
     /// </returns>
-    string GetInputValue { get; }
+    string InputValue { get; }
 }
