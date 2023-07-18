@@ -1,12 +1,12 @@
-// 
+//
 //     Copyright (c) 2021 camunda services GmbH (info@camunda.com)
-// 
+//
 //     Licensed under the Apache License, Version 2.0 (the "License");
 //     you may not use this file except in compliance with the License.
 //     You may obtain a copy of the License at
-// 
+//
 //         http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 //     Unless required by applicable law or agreed to in writing, software
 //     distributed under the License is distributed on an "AS IS" BASIS,
 //     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,6 +19,8 @@ using System.Threading.Tasks;
 using GatewayProtocol;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Misc;
+using Zeebe.Client.Api.Responses;
+using Zeebe.Client.Impl.Responses;
 
 namespace Zeebe.Client.Impl.Commands;
 
@@ -46,14 +48,12 @@ public class EvaluateDecisionCommand : IEvaluateDecisionCommandStep1, IEvaluateD
         request.DecisionKey = decisionKey;
         return this;
     }
-    
-    
 
     public async Task<IEvaluateDecisionResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         var asyncReply = gatewayClient.EvaluateDecisionAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
-        return new PublishMessageResponse();
+        var response = await asyncReply.ResponseAsync;
+        return new EvaluatedDecisionResponse(response);
     }
 
     public async Task<IEvaluateDecisionResponse> Send(CancellationToken cancellationToken)
