@@ -142,6 +142,11 @@ namespace Zeebe.Client
             return new DeployResourceCommand(gatewayClient, asyncRetryStrategy);
         }
 
+        public IEvaluateDecisionCommandStep1 NewEvaluateDecisionCommand()
+        {
+            return new EvaluateDecisionCommand(gatewayClient, asyncRetryStrategy);
+        }
+
         public ICreateProcessInstanceCommandStep1 NewCreateProcessInstanceCommand()
         {
             return new CreateProcessInstanceCommand(gatewayClient, asyncRetryStrategy);

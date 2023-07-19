@@ -136,6 +136,24 @@ namespace Zeebe.Client
         ///     a builder for the deploy command
         /// </returns>
         IDeployResourceCommandStep1 NewDeployCommand();
+        
+        /// <summary>
+        /// Command to evaluate a decision.
+        /// </summary>
+        ///
+        /// <example>
+        /// <code>
+        ///   zeebeClient
+        ///     .NewEvaluateDecisionCommand()
+        ///     .DecisionKey("my-decision")
+        ///     .Variables(json)
+        ///     .Send();
+        /// </code>
+        /// </example>
+        /// <returns>
+        ///     a builder for the deploy command
+        /// </returns>
+        IEvaluateDecisionCommandStep1 NewEvaluateDecisionCommand();
 
         /// <summary>
         /// Command to create/start a new instance of a process.
