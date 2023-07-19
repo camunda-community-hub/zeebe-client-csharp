@@ -29,8 +29,8 @@ var annotated_dup =
             [ "ICreateProcessInstanceCommandStep2", "df/d4a/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep2.html", "df/d4a/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep2" ],
             [ "ICreateProcessInstanceCommandStep3", "d0/db3/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep3.html", "d0/db3/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep3" ],
             [ "ICreateProcessInstanceWithResultCommandStep1", "dd/dd6/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceWithResultCommandStep1.html", "dd/dd6/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceWithResultCommandStep1" ],
-            [ "IDeployProcessCommandBuilderStep2", "da/d46/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandBuilderStep2.html", null ],
-            [ "IDeployProcessCommandStep1", "d6/db0/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandStep1.html", "d6/db0/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandStep1" ],
+            [ "IDeployResourceCommandBuilderStep2", "d4/d33/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandBuilderStep2.html", null ],
+            [ "IDeployResourceCommandStep1", "d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1.html", "d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1" ],
             [ "IFailJobCommandStep1", "d9/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep1.html", "d9/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep1" ],
             [ "IFailJobCommandStep2", "d5/d66/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep2.html", "d5/d66/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep2" ],
             [ "IFinalCommandStep", "d2/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandStep.html", "d2/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandStep" ],
@@ -55,7 +55,8 @@ var annotated_dup =
             [ "IBrokerInfo", "d7/dce/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IBrokerInfo.html", "d7/dce/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IBrokerInfo" ],
             [ "ICancelProcessInstanceResponse", "d9/d27/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ICancelProcessInstanceResponse.html", null ],
             [ "ICompleteJobResponse", "d3/d3e/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ICompleteJobResponse.html", null ],
-            [ "IDeployResponse", "de/d05/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IDeployResponse.html", "de/d05/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IDeployResponse" ],
+            [ "IDeployResourceResponse", "d2/d2d/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IDeployResourceResponse.html", "d2/d2d/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IDeployResourceResponse" ],
+            [ "IEvaluateDecisionResponse", "d6/d30/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IEvaluateDecisionResponse.html", "d6/d30/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IEvaluateDecisionResponse" ],
             [ "IFailJobResponse", "de/d8a/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IFailJobResponse.html", null ],
             [ "IJob", "dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html", "dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob" ],
             [ "IPartitionInfo", "d7/d34/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IPartitionInfo.html", "d7/d34/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IPartitionInfo" ],
@@ -79,5 +80,12 @@ var annotated_dup =
         ] ],
         [ "IZeebeClient", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient" ]
       ] ]
-    ] ]
+    ] ],
+    [ "IDecisionMetadata", "d8/dc4/interfaceIDecisionMetadata.html", "d8/dc4/interfaceIDecisionMetadata" ],
+    [ "IDecisionRequirementsMetadata", "d0/d12/interfaceIDecisionRequirementsMetadata.html", "d0/d12/interfaceIDecisionRequirementsMetadata" ],
+    [ "IEvaluatedDecision", "d8/d3e/interfaceIEvaluatedDecision.html", "d8/d3e/interfaceIEvaluatedDecision" ],
+    [ "IEvaluatedDecisionInput", "d4/d5a/interfaceIEvaluatedDecisionInput.html", "d4/d5a/interfaceIEvaluatedDecisionInput" ],
+    [ "IEvaluatedDecisionOutput", "d3/df4/interfaceIEvaluatedDecisionOutput.html", "d3/df4/interfaceIEvaluatedDecisionOutput" ],
+    [ "IEvaluateDecisionCommandStep1", "da/d52/interfaceIEvaluateDecisionCommandStep1.html", "da/d52/interfaceIEvaluateDecisionCommandStep1" ],
+    [ "IMatchedDecisionRule", "df/d06/interfaceIMatchedDecisionRule.html", "df/d06/interfaceIMatchedDecisionRule" ]
 ];
