@@ -18,10 +18,11 @@ for more information about the Zeebe project.
 
 ## Requirements
 
- * .net standard 2.0 or higher, which means
-   * .net core 2.1 or higher or
-   * .net framework 4.7.1 or higher
- * latest [Zeebe release](https://github.com/zeebe-io/zeebe/releases/)
+ * [.net 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+ * [Zeebe 8.x release](https://github.com/zeebe-io/zeebe/releases/)*
+
+
+  _*If you use earlier Zeebe versions some commands might be not supported by the Brokers/Gateway and are rejected_
 
 ## How to use
 
