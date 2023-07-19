@@ -6,14 +6,6 @@ using Google.Protobuf;
 using NUnit.Framework;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
-using Zeebe.Client.Impl.Responses;
-using CancelProcessInstanceResponse = GatewayProtocol.CancelProcessInstanceResponse;
-using CompleteJobResponse = GatewayProtocol.CompleteJobResponse;
-using FailJobResponse = GatewayProtocol.FailJobResponse;
-using PublishMessageResponse = GatewayProtocol.PublishMessageResponse;
-using ResolveIncidentResponse = GatewayProtocol.ResolveIncidentResponse;
-using SetVariablesResponse = GatewayProtocol.SetVariablesResponse;
-using ThrowErrorResponse = GatewayProtocol.ThrowErrorResponse;
 
 namespace Zeebe.Client
 {
@@ -140,9 +132,17 @@ namespace Zeebe.Client
                         }
                     }
                 },
-                new GatewayProtocol.DeployResourceResponse(),
+                new DeployResourceResponse(),
                 (RequestCreator<IDeployResourceResponse>)
                 (zeebeClient => zeebeClient.NewDeployCommand().AddResourceFile(DemoProcessPath)));
+            yield return new TestCaseData(
+                new EvaluateDecisionRequest
+                {
+                    DecisionId = "decision"
+                },
+                new EvaluateDecisionResponse(),
+                (RequestCreator<IEvaluateDecisionResponse>)
+                (zeebeClient => zeebeClient.NewEvaluateDecisionCommand().DecisionId("decision")));
         }
     }
 }
