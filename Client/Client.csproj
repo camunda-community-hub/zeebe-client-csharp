@@ -53,7 +53,7 @@ This release is based on the Zeebe 8.2.8 release (https://github.com/zeebe-io/ze
     <PackageReference Include="Grpc" version="2.46.6" />
     <PackageReference Include="Grpc.Auth" Version="2.55.0" />
     <PackageReference Include="Grpc.Net.Client" Version="2.55.0" />
-    <PackageReference Include="Grpc.Tools" version="2.56.0">
+    <PackageReference Include="Grpc.Tools" version="2.56.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
