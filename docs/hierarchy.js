@@ -18,18 +18,28 @@ var hierarchy =
     [ "Zeebe.Client.Api.Responses.ICompleteJobResponse", "d3/d3e/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ICompleteJobResponse.html", null ],
     [ "Zeebe.Client.Api.Commands.ICreateProcessInstanceCommandStep1", "dc/db3/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep1.html", null ],
     [ "Zeebe.Client.Api.Commands.ICreateProcessInstanceCommandStep2", "df/d4a/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep2.html", null ],
-    [ "Zeebe.Client.Api.Commands.IDeployProcessCommandStep1", "d6/db0/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandStep1.html", [
-      [ "Zeebe.Client.Api.Commands.IDeployProcessCommandBuilderStep2", "da/d46/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandBuilderStep2.html", null ]
+    [ "IDecisionMetadata", "d8/dc4/interfaceIDecisionMetadata.html", null ],
+    [ "IDecisionRequirementsMetadata", "d0/d12/interfaceIDecisionRequirementsMetadata.html", null ],
+    [ "Zeebe.Client.Api.Commands.IDeployResourceCommandStep1", "d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1.html", [
+      [ "Zeebe.Client.Api.Commands.IDeployResourceCommandBuilderStep2", "d4/d33/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandBuilderStep2.html", null ]
     ] ],
-    [ "Zeebe.Client.Api.Responses.IDeployResponse", "de/d05/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IDeployResponse.html", null ],
+    [ "Zeebe.Client.Api.Responses.IDeployResourceResponse", "d2/d2d/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IDeployResourceResponse.html", null ],
     [ "IDisposable", null, [
       [ "Zeebe.Client.Api.Worker.IJobWorker", "d1/dfe/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorker.html", null ],
       [ "Zeebe.Client.IZeebeClient", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html", null ]
     ] ],
+    [ "IEvaluatedDecision", "d8/d3e/interfaceIEvaluatedDecision.html", null ],
+    [ "IEvaluatedDecisionInput", "d4/d5a/interfaceIEvaluatedDecisionInput.html", null ],
+    [ "IEvaluatedDecisionOutput", "d3/df4/interfaceIEvaluatedDecisionOutput.html", null ],
+    [ "IEvaluateDecisionCommandStep1", "da/d52/interfaceIEvaluateDecisionCommandStep1.html", null ],
+    [ "Zeebe.Client.Api.Responses.IEvaluateDecisionResponse", "d6/d30/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IEvaluateDecisionResponse.html", null ],
     [ "Zeebe.Client.Api.Commands.IFailJobCommandStep1", "d9/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep1.html", null ],
     [ "Zeebe.Client.Api.Responses.IFailJobResponse", "de/d8a/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IFailJobResponse.html", null ],
     [ "Zeebe.Client.Api.Commands.IFinalCommandStep< T >", "d2/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandStep.html", [
       [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< T >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", null ]
+    ] ],
+    [ "IFinalCommandWithRetryStep", null, [
+      [ "IEvaluateDecisionCommandStep1.IEvaluateDecisionCommandStep2", "d4/d13/interfaceIEvaluateDecisionCommandStep1_1_1IEvaluateDecisionCommandStep2.html", null ]
     ] ],
     [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IActivateJobsResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
       [ "Zeebe.Client.Api.Commands.IActivateJobsCommandStep3", "df/d94/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IActivateJobsCommandStep3.html", null ]
@@ -40,8 +50,8 @@ var hierarchy =
     [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< ICompleteJobResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
       [ "Zeebe.Client.Api.Commands.ICompleteJobCommandStep1", "d2/d53/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICompleteJobCommandStep1.html", null ]
     ] ],
-    [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IDeployResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
-      [ "Zeebe.Client.Api.Commands.IDeployProcessCommandBuilderStep2", "da/d46/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployProcessCommandBuilderStep2.html", null ]
+    [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IDeployResourceResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
+      [ "Zeebe.Client.Api.Commands.IDeployResourceCommandBuilderStep2", "d4/d33/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandBuilderStep2.html", null ]
     ] ],
     [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IFailJobResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
       [ "Zeebe.Client.Api.Commands.IFailJobCommandStep2", "d5/d66/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep2.html", null ]
@@ -77,6 +87,7 @@ var hierarchy =
     [ "Zeebe.Client.Api.Worker.IJobWorkerBuilderStep1", "d5/dc7/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep1.html", null ],
     [ "Zeebe.Client.Api.Worker.IJobWorkerBuilderStep2", "d5/d42/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep2.html", null ],
     [ "Zeebe.Client.Api.Worker.IJobWorkerBuilderStep3", "d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html", null ],
+    [ "IMatchedDecisionRule", "df/d06/interfaceIMatchedDecisionRule.html", null ],
     [ "Zeebe.Client.Api.Responses.IPartitionInfo", "d7/d34/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IPartitionInfo.html", null ],
     [ "Zeebe.Client.Api.Responses.IProcessInstanceResponse", "dd/d46/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IProcessInstanceResponse.html", null ],
     [ "Zeebe.Client.Api.Responses.IProcessInstanceResult", "d0/dd0/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IProcessInstanceResult.html", null ],
