@@ -15,7 +15,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using GatewayProtocol;
@@ -56,7 +58,8 @@ namespace Zeebe.Client
             ChannelCredentials credentials,
             TimeSpan? keepAlive,
             Func<int, TimeSpan> sleepDurationProvider,
-            ILoggerFactory loggerFactory = null)
+            ILoggerFactory loggerFactory = null,
+            X509Certificate2 certificate = null)
         {
             this.loggerFactory = loggerFactory;
             var logger = loggerFactory?.CreateLogger<ZeebeClient>();
@@ -76,6 +79,14 @@ namespace Zeebe.Client
                     KeepAlivePingDelay = TimeSpan.FromSeconds(60),
                     KeepAlivePingTimeout = keepAlive.GetValueOrDefault(DefaultKeepAlive),
                     EnableMultipleHttp2Connections = true,
+                    SslOptions = new SslClientAuthenticationOptions()
+                    {
+                        ClientCertificates = new X509Certificate2Collection(certificate is null ? Array.Empty<X509Certificate2>() : new X509Certificate2[] { certificate}),
+                        RemoteCertificateValidationCallback =
+                            (req, cert, certChain, sslErrors) => cert != null && (sslErrors == SslPolicyErrors.None ||
+                                (sslErrors == SslPolicyErrors.RemoteCertificateChainErrors &&
+                                 cert.Subject.Contains("localhost")))
+                    }
                 },
             });
 

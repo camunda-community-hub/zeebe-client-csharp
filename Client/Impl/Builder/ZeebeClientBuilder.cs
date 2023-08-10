@@ -84,6 +84,7 @@ namespace Zeebe.Client.Impl.Builder
         private readonly ILoggerFactory loggerFactory;
         private TimeSpan? keepAlive;
         private Func<int, TimeSpan> sleepDurationProvider;
+        private X509Certificate2 certificate;
 
         private string Address { get; }
 
@@ -99,8 +100,8 @@ namespace Zeebe.Client.Impl.Builder
 
             Address = address.StartsWith("https") ? address : $"https://{address}";
             this.loggerFactory = loggerFactory;
-            new X509Certificate2(Path.Combine(certificatePath), "1111");
-            Credentials = new SslCredentials(File.ReadAllText(certificatePath));
+            certificate = X509Certificate2.CreateFromPem(File.ReadAllText(certificatePath));
+            Credentials = new SslCredentials();
         }
 
         public ZeebeSecureClientBuilder(string address, ILoggerFactory loggerFactory = null)
@@ -142,7 +143,7 @@ namespace Zeebe.Client.Impl.Builder
 
         public IZeebeClient Build()
         {
-            return new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory);
+            return new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory, certificate);
         }
     }
 }
