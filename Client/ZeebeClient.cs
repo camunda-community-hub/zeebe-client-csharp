@@ -15,8 +15,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 using GatewayProtocol;
 using Grpc.Core;
+using Grpc.Core.Interceptors;
+using Grpc.Net.Client;
 using Microsoft.Extensions.Logging;
 using Zeebe.Client.Api.Builder;
 using Zeebe.Client.Api.Commands;
@@ -38,7 +43,7 @@ namespace Zeebe.Client
             retryAttempt => TimeSpan.FromSeconds(Math.Min(Math.Pow(2, retryAttempt), MaxWaitTimeInSeconds));
         private static readonly TimeSpan DefaultKeepAlive = TimeSpan.FromSeconds(30);
 
-        private readonly Channel channelToGateway;
+        private readonly GrpcChannel channelToGateway;
         private readonly ILoggerFactory loggerFactory;
         private Gateway.GatewayClient gatewayClient;
         private readonly IAsyncRetryStrategy asyncRetryStrategy;
@@ -54,21 +59,28 @@ namespace Zeebe.Client
             ILoggerFactory loggerFactory = null)
         {
             this.loggerFactory = loggerFactory;
-
             var logger = loggerFactory?.CreateLogger<ZeebeClient>();
             logger?.LogDebug("Connect to {Address}", address);
 
-            var channelOptions = new List<ChannelOption>();
-            var clientVersion = typeof(ZeebeClient).Assembly.GetName().Version;
-            var userAgentString = $"zeebe-client-csharp/{clientVersion}";
-            var userAgentOption = new ChannelOption(ChannelOptions.PrimaryUserAgentString, userAgentString);
-            channelOptions.Add(userAgentOption);
+            channelToGateway = GrpcChannel.ForAddress(address, new GrpcChannelOptions
+            {
+                // https://learn.microsoft.com/en-us/dotnet/architecture/grpc-for-wcf-developers/channel-credentials#combine-channelcredentials-and-callcredentials 
+                Credentials = credentials,
+                LoggerFactory = this.loggerFactory,
+                DisposeHttpClient = true,
+                // for keep alive configure sockets http handler
+                // https://learn.microsoft.com/en-us/aspnet/core/grpc/performance?view=aspnetcore-5.0#keep-alive-pings 
+                HttpHandler = new SocketsHttpHandler
+                {
+                    PooledConnectionIdleTimeout = Timeout.InfiniteTimeSpan,
+                    KeepAlivePingDelay = TimeSpan.FromSeconds(60),
+                    KeepAlivePingTimeout = keepAlive.GetValueOrDefault(DefaultKeepAlive),
+                    EnableMultipleHttp2Connections = true,
+                },
+            });
 
-            AddKeepAliveToChannelOptions(channelOptions, keepAlive);
-
-            channelToGateway =
-                new Channel(address, credentials, channelOptions);
-            gatewayClient = new Gateway.GatewayClient(channelToGateway);
+            var callInvoker = channelToGateway.Intercept(new UserAgentInterceptor());
+            gatewayClient = new Gateway.GatewayClient(callInvoker);
 
             asyncRetryStrategy =
                 new TransientGrpcErrorRetryStrategy(sleepDurationProvider ??
