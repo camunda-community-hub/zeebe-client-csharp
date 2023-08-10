@@ -76,6 +76,31 @@ namespace Zeebe.Client
         }
 
         /// <summary>
+        ///     Intercept outgoing call to inject metadata
+        ///     The "user-agent" is already filled by grpc-dotnet
+        ///     typically something like: key=user-agent, value=grpc-dotnet/2.53.0 (.NET 7.0.5; CLR 7.0.5; net7.0; windows; x64)
+        ///     We want to add our version and name. Unfortunately, this will always be appended to the end.
+        /// </summary>
+        private class UserAgentInterceptor : Interceptor
+        {
+            public override AsyncUnaryCall<TResponse> AsyncUnaryCall<TRequest, TResponse>(TRequest request,
+                ClientInterceptorContext<TRequest, TResponse> context,
+                AsyncUnaryCallContinuation<TRequest, TResponse> continuation)
+            {
+                var clientVersion = typeof(ZeebeClient).Assembly.GetName().Version;
+                var userAgentString = $"zeebe-client-csharp/{clientVersion}";
+                var headers = new Metadata
+                {
+                    { "user-agent", userAgentString }
+                };
+                var newOptions = context.Options.WithHeaders(headers);
+                var newContext =
+                    new ClientInterceptorContext<TRequest, TResponse>(context.Method, context.Host, newOptions);
+                return base.AsyncUnaryCall(request, newContext, continuation);
+            }
+        }
+
+        /// <summary>
         /// Adds keepAlive options to the channel options.
         /// </summary>
         /// <param name="channelOptions">the current existing channel options.</param>
