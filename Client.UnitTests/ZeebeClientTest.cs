@@ -71,7 +71,7 @@ namespace Zeebe.Client
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
-            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
+            server.Ports.Add(new ServerPort("localhost", 26505, channelCredentials));
 
             var testService = new GatewayTestService();
             var serviceDefinition = Gateway.BindService(testService);
@@ -80,7 +80,7 @@ namespace Zeebe.Client
 
             // client
             var zeebeClient = ZeebeClient.Builder()
-                    .UseGatewayAddress("0.0.0.0:26505")
+                    .UseGatewayAddress("localhost:26505")
                     .UseTransportEncryption(ClientCertPath)
                     .Build();
 
@@ -107,7 +107,7 @@ namespace Zeebe.Client
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
-            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
+            server.Ports.Add(new ServerPort("localhost", 26505, channelCredentials));
 
             var testService = new GatewayTestService();
             var serviceDefinition = Gateway.BindService(testService);
@@ -116,7 +116,7 @@ namespace Zeebe.Client
 
             // client
             var zeebeClient = ZeebeClient.Builder()
-                .UseGatewayAddress("0.0.0.0:26505")
+                .UseGatewayAddress("localhost:26505")
                 .UseTransportEncryption(ServerCertPath)
                 .Build();
 
@@ -143,16 +143,15 @@ namespace Zeebe.Client
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
-            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
+            server.Ports.Add(new ServerPort("localhost", 26505, channelCredentials));
 
             var testService = new GatewayTestService();
             var serviceDefinition = Gateway.BindService(testService);
             server.Services.Add(serviceDefinition);
             server.Start();
 
-            // client
             var zeebeClient = ZeebeClient.Builder()
-                .UseGatewayAddress("0.0.0.0:26505")
+                .UseGatewayAddress("localhost:26505")
                 .UseTransportEncryption(WrongCertPath)
                 .Build();
 
@@ -185,7 +184,7 @@ namespace Zeebe.Client
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
-            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
+            server.Ports.Add(new ServerPort("localhost", 26505, channelCredentials));
 
             var testService = new GatewayTestService();
             var serviceDefinition = Gateway.BindService(testService);
@@ -194,7 +193,7 @@ namespace Zeebe.Client
 
             // client
             var zeebeClient = ZeebeClient.Builder()
-                .UseGatewayAddress("0.0.0.0:26505")
+                .UseGatewayAddress("localhost:26505")
                 .UseTransportEncryption(ClientCertPath)
                 .UseAccessToken("token")
                 .Build();
@@ -220,7 +219,7 @@ namespace Zeebe.Client
             var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
             var server = new Server();
-            server.Ports.Add(new ServerPort("0.0.0.0", 26505, channelCredentials));
+            server.Ports.Add(new ServerPort("localhost", 26505, channelCredentials));
 
             var testService = new GatewayTestService();
             var serviceDefinition = Gateway.BindService(testService);
@@ -230,7 +229,7 @@ namespace Zeebe.Client
             // client
             var accessTokenSupplier = new SimpleAccessTokenSupplier();
             var zeebeClient = ZeebeClient.Builder()
-                .UseGatewayAddress("0.0.0.0:26505")
+                .UseGatewayAddress("localhost:26505")
                 .UseTransportEncryption(ClientCertPath)
                 .UseAccessTokenSupplier(accessTokenSupplier)
                 .Build();
