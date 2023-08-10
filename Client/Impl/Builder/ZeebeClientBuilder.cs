@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using Google.Protobuf.WellKnownTypes;
+using System.Security.Cryptography.X509Certificates;
 using Grpc.Auth;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
@@ -51,7 +51,13 @@ namespace Zeebe.Client.Impl.Builder
 
         public ZeebePlainClientBuilder(string address, ILoggerFactory loggerFactory = null)
         {
-            Address = address;
+            if (address.StartsWith("https:"))
+            {
+                throw new ArgumentException(
+                    $@"Expected address '{address}' to start with 'http' when using a non secure connection.");
+            }
+
+            Address = address.StartsWith("http") ? address : $"http://{address}";
             this.loggerFactory = loggerFactory;
         }
 
@@ -85,14 +91,27 @@ namespace Zeebe.Client.Impl.Builder
 
         public ZeebeSecureClientBuilder(string address, string certificatePath, ILoggerFactory loggerFactory = null)
         {
-            Address = address;
+            if (address.StartsWith("http:"))
+            {
+                throw new ArgumentException(
+                    $"Expected address '{address}' to start with 'https' when using secure connection.");
+            }
+
+            Address = address.StartsWith("https") ? address : $"https://{address}";
             this.loggerFactory = loggerFactory;
+            new X509Certificate2(Path.Combine(certificatePath), "1111");
             Credentials = new SslCredentials(File.ReadAllText(certificatePath));
         }
 
         public ZeebeSecureClientBuilder(string address, ILoggerFactory loggerFactory = null)
         {
-            Address = address;
+            if (address.StartsWith("http:"))
+            {
+                throw new ArgumentException(
+                    $"Expected address '{address}' to start with 'https' when using secure connection.");
+            }
+
+            Address = address.StartsWith("https") ? address : $"https://{address}";
             this.loggerFactory = loggerFactory;
             Credentials = new SslCredentials();
         }
