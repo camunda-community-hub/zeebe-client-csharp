@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using DotNet.Testcontainers.Builders;
+using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
 using DotNet.Testcontainers.Images;
 using Microsoft.Extensions.Logging;
@@ -21,10 +22,12 @@ namespace Client.IntegrationTests
 
         private readonly string version;
         private int count = 1;
+        public readonly ILoggerFactory LoggerFactory;
 
         private ZeebeIntegrationTestHelper(string version)
         {
             this.version = version;
+            LoggerFactory = new NLogLoggerFactory();
         }
 
         public static ZeebeIntegrationTestHelper Latest()
@@ -45,6 +48,7 @@ namespace Client.IntegrationTests
 
         public async Task<IZeebeClient> SetupIntegrationTest()
         {
+            TestcontainersSettings.Logger = LoggerFactory.CreateLogger<ZeebeIntegrationTestHelper>();
             container = CreateZeebeContainer();
             await container.StartAsync();
 
@@ -72,15 +76,7 @@ namespace Client.IntegrationTests
 
         private IZeebeClient CreateZeebeClient()
         {
-            var loggerFactory = LoggerFactory.Create(loggingBuilder =>
-            {
-                // configure Logging with NLog
-                loggingBuilder.ClearProviders();
-                loggingBuilder.SetMinimumLevel(LogLevel.Trace);
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "NLog.config");
-                loggingBuilder.AddNLog(path);
-            });
-
+            var loggerFactory = LoggerFactory;
             var host = container.Hostname + ":" + container.GetMappedPublicPort(ZeebePort);
 
             return ZeebeClient.Builder()
