@@ -48,7 +48,7 @@ namespace Zeebe.Client
 
         private readonly GrpcChannel channelToGateway;
         private readonly ILoggerFactory loggerFactory;
-        private Gateway.GatewayClient gatewayClient;
+        private volatile Gateway.GatewayClient gatewayClient;
         private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
         internal ZeebeClient(string address, TimeSpan? keepAlive, Func<int, TimeSpan> sleepDurationProvider, ILoggerFactory loggerFactory = null)
