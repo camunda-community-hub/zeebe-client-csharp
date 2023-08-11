@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
@@ -71,6 +72,7 @@ namespace Client.IntegrationTests
                 .WithImage(new DockerImage("camunda", "zeebe", version))
                 .WithPortBinding(ZeebePort, true)
                 .WithEnvironment("ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT", count.ToString())
+                .WithAutoRemove(true)
                 .Build();
         }
 
@@ -88,20 +90,34 @@ namespace Client.IntegrationTests
 
         private async Task AwaitBrokerReadiness()
         {
+            var zeebeClient = (ZeebeClient) client;
+            await zeebeClient.Connect();
+            var topologyErrorLogger = LoggerFactory.CreateLogger<ZeebeIntegrationTestHelper>();
             var ready = false;
+            var retries = 0;
+            var maxCount = 1_000_000;
+            bool continueLoop;
             do
             {
                 try
                 {
-                    var topology = await client.TopologyRequest().Send();
+                    var topology = await client.TopologyRequest().Send(TimeSpan.FromSeconds(1));
                     ready = topology.Brokers[0].Partitions.Count >= count;
+                    topologyErrorLogger.LogInformation("Requested topology [retries {Retries}], got '{Topology}'", retries, topology);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    topologyErrorLogger.LogError(e, "Exception in sending topology");
                     // retry
                 }
+
+                continueLoop = !ready && maxCount > retries++;
+                if (continueLoop)
+                {
+                    await Task.Delay(1 * 1000);
+                }
             }
-            while (!ready);
+            while (continueLoop);
         }
     }
 }
