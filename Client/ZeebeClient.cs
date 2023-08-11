@@ -236,7 +236,7 @@ namespace Zeebe.Client
             }
 
             gatewayClient = new ClosedGatewayClient();
-            channelToGateway.ShutdownAsync().Wait();
+            channelToGateway.Dispose();
         }
 
         /// <summary>
