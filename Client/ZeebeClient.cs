@@ -20,6 +20,7 @@ using System.Net.Http;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
+using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
 using Grpc.Core.Interceptors;
@@ -96,6 +97,11 @@ namespace Zeebe.Client
             asyncRetryStrategy =
                 new TransientGrpcErrorRetryStrategy(sleepDurationProvider ??
                                                     DefaultWaitTimeProvider);
+        }
+
+        public async Task Connect()
+        {
+            await channelToGateway.ConnectAsync();
         }
 
         /// <summary>
