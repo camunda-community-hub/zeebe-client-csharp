@@ -81,10 +81,12 @@ namespace Zeebe.Client.Impl.Builder
 
     internal class ZeebeSecureClientBuilder : IZeebeSecureClientBuilder
     {
+
         private readonly ILoggerFactory loggerFactory;
         private TimeSpan? keepAlive;
         private Func<int, TimeSpan> sleepDurationProvider;
         private X509Certificate2 certificate;
+        private bool allowUntrusted = false;
 
         private string Address { get; }
 
@@ -117,6 +119,12 @@ namespace Zeebe.Client.Impl.Builder
             Credentials = new SslCredentials();
         }
 
+        public IZeebeSecureClientBuilder AllowUntrustedCertificates()
+        {
+            allowUntrusted = true;
+            return this;
+        }
+
         public IZeebeClientFinalBuildStep UseAccessToken(string accessToken)
         {
             Credentials = ChannelCredentials.Create(Credentials, GoogleGrpcCredentials.FromAccessToken(accessToken));
@@ -143,7 +151,7 @@ namespace Zeebe.Client.Impl.Builder
 
         public IZeebeClient Build()
         {
-            return new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory, certificate);
+            return new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory, certificate, allowUntrusted);
         }
     }
 }

@@ -51,6 +51,15 @@ namespace Zeebe.Client.Api.Builder
     public interface IZeebeSecureClientBuilder : IZeebeClientFinalBuildStep
     {
         /// <summary>
+        /// DANGER: This allows untrusted certificates for the gRPC connection with Zeebe.
+        ///
+        /// This setting tells the client to allow to use untrusted certificates in the underlying SocketHttpHandler.
+        /// For further details see https://github.com/dotnet/runtime/issues/42482. This might be useful for testing.
+        /// </summary>
+        /// <returns>the builder to create a secure client</returns>
+        IZeebeSecureClientBuilder AllowUntrustedCertificates();
+
+        /// <summary>
         /// Client should use the given access token to authenticate with.
         /// </summary>
         /// <param name="accessToken">the access token which is used for authentication</param>

@@ -60,11 +60,24 @@ namespace Zeebe.Client
             TimeSpan? keepAlive,
             Func<int, TimeSpan> sleepDurationProvider,
             ILoggerFactory loggerFactory = null,
-            X509Certificate2 certificate = null)
+            X509Certificate2 certificate = null,
+            bool allowUntrusted = false)
         {
             this.loggerFactory = loggerFactory;
             var logger = loggerFactory?.CreateLogger<ZeebeClient>();
             logger?.LogDebug("Connect to {Address}", address);
+
+            var sslOptions = new SslClientAuthenticationOptions()
+            {
+                ClientCertificates = new X509Certificate2Collection(certificate is null ? Array.Empty<X509Certificate2>() : new X509Certificate2[] { certificate })
+            };
+            if (allowUntrusted)
+            {
+                // https://github.com/dotnet/runtime/issues/42482
+                // https://docs.servicestack.net/grpc/csharp#c-protoc-grpc-ssl-example
+                // Allows untrusted certificates, used for testing.
+                sslOptions.RemoteCertificateValidationCallback = (sender, x509Certificate, chain, errors) => true;
+            }
 
             channelToGateway = GrpcChannel.ForAddress(address, new GrpcChannelOptions
             {
@@ -80,14 +93,7 @@ namespace Zeebe.Client
                     KeepAlivePingDelay = TimeSpan.FromSeconds(60),
                     KeepAlivePingTimeout = keepAlive.GetValueOrDefault(DefaultKeepAlive),
                     EnableMultipleHttp2Connections = true,
-                    SslOptions = new SslClientAuthenticationOptions()
-                    {
-                        ClientCertificates = new X509Certificate2Collection(certificate is null ? Array.Empty<X509Certificate2>() : new X509Certificate2[] { certificate}),
-                        RemoteCertificateValidationCallback =
-                            (req, cert, certChain, sslErrors) => cert != null && (sslErrors == SslPolicyErrors.None ||
-                                (sslErrors == SslPolicyErrors.RemoteCertificateChainErrors &&
-                                 cert.Subject.Contains("localhost")))
-                    }
+                    SslOptions = sslOptions
                 },
             });
 
