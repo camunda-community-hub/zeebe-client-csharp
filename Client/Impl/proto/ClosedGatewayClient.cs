@@ -243,5 +243,162 @@ namespace GatewayProtocol
         {
             throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
         }
+
+        public override CreateProcessInstanceWithResultResponse CreateProcessInstanceWithResult(CreateProcessInstanceWithResultRequest request,
+            Metadata headers = null, DateTime? deadline = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override CreateProcessInstanceWithResultResponse CreateProcessInstanceWithResult(CreateProcessInstanceWithResultRequest request,
+            CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(CreateProcessInstanceWithResultRequest request,
+            Metadata headers = null, DateTime? deadline = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(CreateProcessInstanceWithResultRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override EvaluateDecisionResponse EvaluateDecision(EvaluateDecisionRequest request, Metadata headers = null,
+            DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override EvaluateDecisionResponse EvaluateDecision(EvaluateDecisionRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<EvaluateDecisionResponse> EvaluateDecisionAsync(EvaluateDecisionRequest request, Metadata headers = null,
+            DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<EvaluateDecisionResponse> EvaluateDecisionAsync(EvaluateDecisionRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override DeployResourceResponse DeployResource(DeployResourceRequest request, Metadata headers = null, DateTime? deadline = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override DeployResourceResponse DeployResource(DeployResourceRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<DeployResourceResponse> DeployResourceAsync(DeployResourceRequest request, Metadata headers = null, DateTime? deadline = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<DeployResourceResponse> DeployResourceAsync(DeployResourceRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override ThrowErrorResponse ThrowError(ThrowErrorRequest request, Metadata headers = null, DateTime? deadline = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override ThrowErrorResponse ThrowError(ThrowErrorRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<ThrowErrorResponse> ThrowErrorAsync(ThrowErrorRequest request, Metadata headers = null, DateTime? deadline = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<ThrowErrorResponse> ThrowErrorAsync(ThrowErrorRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override ModifyProcessInstanceResponse ModifyProcessInstance(ModifyProcessInstanceRequest request, Metadata headers = null,
+            DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override ModifyProcessInstanceResponse ModifyProcessInstance(ModifyProcessInstanceRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<ModifyProcessInstanceResponse> ModifyProcessInstanceAsync(ModifyProcessInstanceRequest request, Metadata headers = null,
+            DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<ModifyProcessInstanceResponse> ModifyProcessInstanceAsync(ModifyProcessInstanceRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override DeleteResourceResponse DeleteResource(DeleteResourceRequest request, Metadata headers = null, DateTime? deadline = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override DeleteResourceResponse DeleteResource(DeleteResourceRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<DeleteResourceResponse> DeleteResourceAsync(DeleteResourceRequest request, Metadata headers = null, DateTime? deadline = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<DeleteResourceResponse> DeleteResourceAsync(DeleteResourceRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override BroadcastSignalResponse BroadcastSignal(BroadcastSignalRequest request, Metadata headers = null,
+            DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override BroadcastSignalResponse BroadcastSignal(BroadcastSignalRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<BroadcastSignalResponse> BroadcastSignalAsync(BroadcastSignalRequest request, Metadata headers = null, DateTime? deadline = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
+
+        public override AsyncUnaryCall<BroadcastSignalResponse> BroadcastSignalAsync(BroadcastSignalRequest request, CallOptions options)
+        {
+            throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
+        }
     }
 }

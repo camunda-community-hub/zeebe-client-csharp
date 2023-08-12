@@ -21,8 +21,8 @@ namespace Zeebe.Client
             Assert.NotNull(sendMetadata);
 
             var entry = sendMetadata[0];
-            Assert.AreEqual("user-agent", entry.Key);
-            Assert.IsTrue(entry.Value.StartsWith("zeebe-client-csharp/" + typeof(ZeebeClient).Assembly.GetName().Version));
+            Assert.AreEqual("user-agent", entry.Key, $"Expect user agent in metadata '{sendMetadata}'");
+            Assert.IsTrue(entry.Value.Contains("zeebe-client-csharp/" + typeof(ZeebeClient).Assembly.GetName().Version), $"Expect user agent contains zeebe-client-csharp, but was {entry}");
         }
     }
 }

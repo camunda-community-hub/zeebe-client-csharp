@@ -15,8 +15,16 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading;
+using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
+using Grpc.Core.Interceptors;
+using Grpc.Net.Client;
 using Microsoft.Extensions.Logging;
 using Zeebe.Client.Api.Builder;
 using Zeebe.Client.Api.Commands;
@@ -38,9 +46,9 @@ namespace Zeebe.Client
             retryAttempt => TimeSpan.FromSeconds(Math.Min(Math.Pow(2, retryAttempt), MaxWaitTimeInSeconds));
         private static readonly TimeSpan DefaultKeepAlive = TimeSpan.FromSeconds(30);
 
-        private readonly Channel channelToGateway;
+        private readonly GrpcChannel channelToGateway;
         private readonly ILoggerFactory loggerFactory;
-        private Gateway.GatewayClient gatewayClient;
+        private volatile Gateway.GatewayClient gatewayClient;
         private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
         internal ZeebeClient(string address, TimeSpan? keepAlive, Func<int, TimeSpan> sleepDurationProvider, ILoggerFactory loggerFactory = null)
@@ -51,28 +59,80 @@ namespace Zeebe.Client
             ChannelCredentials credentials,
             TimeSpan? keepAlive,
             Func<int, TimeSpan> sleepDurationProvider,
-            ILoggerFactory loggerFactory = null)
+            ILoggerFactory loggerFactory = null,
+            X509Certificate2 certificate = null,
+            bool allowUntrusted = false)
         {
             this.loggerFactory = loggerFactory;
-
             var logger = loggerFactory?.CreateLogger<ZeebeClient>();
             logger?.LogDebug("Connect to {Address}", address);
 
-            var channelOptions = new List<ChannelOption>();
-            var clientVersion = typeof(ZeebeClient).Assembly.GetName().Version;
-            var userAgentString = $"zeebe-client-csharp/{clientVersion}";
-            var userAgentOption = new ChannelOption(ChannelOptions.PrimaryUserAgentString, userAgentString);
-            channelOptions.Add(userAgentOption);
+            var sslOptions = new SslClientAuthenticationOptions()
+            {
+                ClientCertificates = new X509Certificate2Collection(certificate is null ? Array.Empty<X509Certificate2>() : new X509Certificate2[] { certificate })
+            };
+            if (allowUntrusted)
+            {
+                // https://github.com/dotnet/runtime/issues/42482
+                // https://docs.servicestack.net/grpc/csharp#c-protoc-grpc-ssl-example
+                // Allows untrusted certificates, used for testing.
+                sslOptions.RemoteCertificateValidationCallback = (sender, x509Certificate, chain, errors) => true;
+            }
 
-            AddKeepAliveToChannelOptions(channelOptions, keepAlive);
+            channelToGateway = GrpcChannel.ForAddress(address, new GrpcChannelOptions
+            {
+                // https://learn.microsoft.com/en-us/dotnet/architecture/grpc-for-wcf-developers/channel-credentials#combine-channelcredentials-and-callcredentials 
+                Credentials = credentials,
+                LoggerFactory = this.loggerFactory,
+                DisposeHttpClient = true,
+                // for keep alive configure sockets http handler
+                // https://learn.microsoft.com/en-us/aspnet/core/grpc/performance?view=aspnetcore-5.0#keep-alive-pings 
+                HttpHandler = new SocketsHttpHandler
+                {
+                    PooledConnectionIdleTimeout = Timeout.InfiniteTimeSpan,
+                    KeepAlivePingDelay = TimeSpan.FromSeconds(60),
+                    KeepAlivePingTimeout = keepAlive.GetValueOrDefault(DefaultKeepAlive),
+                    EnableMultipleHttp2Connections = true,
+                    SslOptions = sslOptions
+                },
+            });
 
-            channelToGateway =
-                new Channel(address, credentials, channelOptions);
-            gatewayClient = new Gateway.GatewayClient(channelToGateway);
+            var callInvoker = channelToGateway.Intercept(new UserAgentInterceptor());
+            gatewayClient = new Gateway.GatewayClient(callInvoker);
 
             asyncRetryStrategy =
                 new TransientGrpcErrorRetryStrategy(sleepDurationProvider ??
                                                     DefaultWaitTimeProvider);
+        }
+
+        public async Task Connect()
+        {
+            await channelToGateway.ConnectAsync();
+        }
+
+        /// <summary>
+        ///     Intercept outgoing call to inject metadata
+        ///     The "user-agent" is already filled by grpc-dotnet
+        ///     typically something like: key=user-agent, value=grpc-dotnet/2.53.0 (.NET 7.0.5; CLR 7.0.5; net7.0; windows; x64)
+        ///     We want to add our version and name. Unfortunately, this will always be appended to the end.
+        /// </summary>
+        private class UserAgentInterceptor : Interceptor
+        {
+            public override AsyncUnaryCall<TResponse> AsyncUnaryCall<TRequest, TResponse>(TRequest request,
+                ClientInterceptorContext<TRequest, TResponse> context,
+                AsyncUnaryCallContinuation<TRequest, TResponse> continuation)
+            {
+                var clientVersion = typeof(ZeebeClient).Assembly.GetName().Version;
+                var userAgentString = $"zeebe-client-csharp/{clientVersion}";
+                var headers = new Metadata
+                {
+                    { "user-agent", userAgentString }
+                };
+                var newOptions = context.Options.WithHeaders(headers);
+                var newContext =
+                    new ClientInterceptorContext<TRequest, TResponse>(context.Method, context.Host, newOptions);
+                return base.AsyncUnaryCall(request, newContext, continuation);
+            }
         }
 
         /// <summary>
@@ -182,7 +242,7 @@ namespace Zeebe.Client
             }
 
             gatewayClient = new ClosedGatewayClient();
-            channelToGateway.ShutdownAsync().Wait();
+            channelToGateway.Dispose();
         }
 
         /// <summary>
