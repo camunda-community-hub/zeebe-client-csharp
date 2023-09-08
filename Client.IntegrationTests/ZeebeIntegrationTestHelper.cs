@@ -14,7 +14,7 @@ namespace Client.IntegrationTests
 {
     public class ZeebeIntegrationTestHelper
     {
-        public const string LatestVersion = "8.2.11";
+        public const string LatestVersion = "8.2.12";
 
         private const ushort ZeebePort = 26500;
 
