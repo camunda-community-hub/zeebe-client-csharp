@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,20 +13,18 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>2.1.0</AssemblyVersion>
-    <FileVersion>2.1.0</FileVersion>
+    <AssemblyVersion>2.2.0</AssemblyVersion>
+    <FileVersion>2.2.0</FileVersion>
     <PackageReleaseNotes>
 Features:
 
-      * Migration to the Grpc.net.GrpcChannel and away from Grpc.core
-      * New configuration to allow untrusted certificates, useful for testing but dangerous for production (which is why it needs to be configured explicitly)
-      * Improved logging (the underlying GrpcChannel uses now the inserted logger)
+      * Add multi-target support for .net 6.0 and .net 7.0 
 
-      GRPC protocol as generated against Zeebe v8.2.11.
+      GRPC protocol as generated against Zeebe v8.2.12.
 
 -----
 
-This release is based on the Zeebe 8.2.11 release (https://github.com/zeebe-io/zeebe).
+This release is based on the Zeebe 8.2.12 release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -36,9 +34,9 @@ This release is based on the Zeebe 8.2.11 release (https://github.com/zeebe-io/z
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>2.1.0</PackageVersion>
+    <PackageVersion>2.2.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>2.1.0</Title>
+    <Title>2.2.0</Title>
     <LangVersion>default</LangVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
