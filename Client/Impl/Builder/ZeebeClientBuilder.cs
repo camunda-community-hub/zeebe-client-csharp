@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using Google.Protobuf.WellKnownTypes;
+using System.Security.Cryptography.X509Certificates;
 using Grpc.Auth;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
@@ -51,7 +51,13 @@ namespace Zeebe.Client.Impl.Builder
 
         public ZeebePlainClientBuilder(string address, ILoggerFactory loggerFactory = null)
         {
-            Address = address;
+            if (address.StartsWith("https:"))
+            {
+                throw new ArgumentException(
+                    $@"Expected address '{address}' to start with 'http' when using a non secure connection.");
+            }
+
+            Address = address.StartsWith("http") ? address : $"http://{address}";
             this.loggerFactory = loggerFactory;
         }
 
@@ -75,9 +81,12 @@ namespace Zeebe.Client.Impl.Builder
 
     internal class ZeebeSecureClientBuilder : IZeebeSecureClientBuilder
     {
+
         private readonly ILoggerFactory loggerFactory;
         private TimeSpan? keepAlive;
         private Func<int, TimeSpan> sleepDurationProvider;
+        private X509Certificate2 certificate;
+        private bool allowUntrusted = false;
 
         private string Address { get; }
 
@@ -85,16 +94,35 @@ namespace Zeebe.Client.Impl.Builder
 
         public ZeebeSecureClientBuilder(string address, string certificatePath, ILoggerFactory loggerFactory = null)
         {
-            Address = address;
+            if (address.StartsWith("http:"))
+            {
+                throw new ArgumentException(
+                    $"Expected address '{address}' to start with 'https' when using secure connection.");
+            }
+
+            Address = address.StartsWith("https") ? address : $"https://{address}";
             this.loggerFactory = loggerFactory;
-            Credentials = new SslCredentials(File.ReadAllText(certificatePath));
+            certificate = X509Certificate2.CreateFromPem(File.ReadAllText(certificatePath));
+            Credentials = new SslCredentials();
         }
 
         public ZeebeSecureClientBuilder(string address, ILoggerFactory loggerFactory = null)
         {
-            Address = address;
+            if (address.StartsWith("http:"))
+            {
+                throw new ArgumentException(
+                    $"Expected address '{address}' to start with 'https' when using secure connection.");
+            }
+
+            Address = address.StartsWith("https") ? address : $"https://{address}";
             this.loggerFactory = loggerFactory;
             Credentials = new SslCredentials();
+        }
+
+        public IZeebeSecureClientBuilder AllowUntrustedCertificates()
+        {
+            allowUntrusted = true;
+            return this;
         }
 
         public IZeebeClientFinalBuildStep UseAccessToken(string accessToken)
@@ -123,7 +151,7 @@ namespace Zeebe.Client.Impl.Builder
 
         public IZeebeClient Build()
         {
-            return new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory);
+            return new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory, certificate, allowUntrusted);
         }
     }
 }

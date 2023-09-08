@@ -1,0 +1,36 @@
+name: Pull request CI
+on: [ pull_request ]
+jobs:
+  build:
+    name: Build and test PR
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3.2.0
+      with:
+        dotnet-version: 7.x
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: Test
+      run: dotnet test
+  auto-merge:
+    name: Auto-merge dependabot PRs
+    runs-on: ubuntu-latest
+    needs: [ build ]
+    if: github.repository == 'camunda-community-hub/zeebe-client-csharp' && github.actor == 'dependabot[bot]'
+    permissions:
+      checks: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v3
+      - id: metadata
+        name: Fetch dependency metadata
+        uses: dependabot/fetch-metadata@v1.3.6
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - id: merge
+        name: Merge PR
+        run: gh pr merge ${{ github.event.pull_request.number }} --merge
+        env:
+          GITHUB_TOKEN: "${{ secrets.AUTO_MERGE_GITHUB_TOKEN }}"

@@ -18,6 +18,8 @@ using System.Threading;
 using GatewayProtocol;
 using Grpc.Core;
 using Grpc.Core.Logging;
+using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 using NUnit.Framework;
 
 namespace Zeebe.Client
@@ -30,6 +32,7 @@ namespace Zeebe.Client
 
         protected GatewayTestService TestService => testService;
         protected IZeebeClient ZeebeClient => client;
+        public readonly ILoggerFactory LoggerFactory = new NLogLoggerFactory();
 
         [SetUp]
         public void Init()
@@ -45,6 +48,7 @@ namespace Zeebe.Client
 
             client = Client.ZeebeClient
                 .Builder()
+                .UseLoggerFactory(LoggerFactory)
                 .UseGatewayAddress("localhost:26500")
                 .UsePlainText()
                 .UseRetrySleepDurationProvider(retryAttempt => TimeSpan.Zero)

@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.0.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.1.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -109,6 +109,9 @@ Inheritance diagram for Zeebe.Client.Api.Builder.IZeebeSecureClientBuilder:</div
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a35881cce91811891e96bccd21d78ec86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html">IZeebeSecureClientBuilder</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html#a35881cce91811891e96bccd21d78ec86">AllowUntrustedCertificates</a> ()</td></tr>
+<tr class="memdesc:a35881cce91811891e96bccd21d78ec86"><td class="mdescLeft">&#160;</td><td class="mdescRight">DANGER: This allows untrusted certificates for the gRPC connection with <a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a>.  <a href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html#a35881cce91811891e96bccd21d78ec86">More...</a><br /></td></tr>
+<tr class="separator:a35881cce91811891e96bccd21d78ec86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e54e81da971f5555863ef55aa222c5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html#a7e54e81da971f5555863ef55aa222c5f">UseAccessToken</a> (string accessToken)</td></tr>
 <tr class="memdesc:a7e54e81da971f5555863ef55aa222c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a> should use the given access token to authenticate with.   <a href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html#a7e54e81da971f5555863ef55aa222c5f">More...</a><br /></td></tr>
 <tr class="separator:a7e54e81da971f5555863ef55aa222c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +130,26 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3ccb013a123c5515eec311e7b03340d1 inherit pub_methods_interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a35881cce91811891e96bccd21d78ec86" name="a35881cce91811891e96bccd21d78ec86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35881cce91811891e96bccd21d78ec86">&#9670;&#160;</a></span>AllowUntrustedCertificates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html">IZeebeSecureClientBuilder</a> Zeebe.Client.Api.Builder.IZeebeSecureClientBuilder.AllowUntrustedCertificates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>DANGER: This allows untrusted certificates for the gRPC connection with <a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a>. </p>
+<p >This setting tells the client to allow to use untrusted certificates in the underlying SocketHttpHandler. For further details see <a href="https://github.com/dotnet/runtime/issues/42482">https://github.com/dotnet/runtime/issues/42482</a>. This might be useful for testing.  </p><dl class="section return"><dt>Returns</dt><dd>the builder to create a secure client</dd></dl>
+
+</div>
+</div>
 <a id="a7e54e81da971f5555863ef55aa222c5f" name="a7e54e81da971f5555863ef55aa222c5f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7e54e81da971f5555863ef55aa222c5f">&#9670;&#160;</a></span>UseAccessToken()</h2>
 
@@ -190,7 +213,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d5/df7/namespaceZeebe_1_1Client_1_1Api.html">Api</a></li><li class="navelem"><a class="el" href="../../dc/d04/namespaceZeebe_1_1Client_1_1Api_1_1Builder.html">Builder</a></li><li class="navelem"><a class="el" href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html">IZeebeSecureClientBuilder</a></li>
-    <li class="footer">Generated on Wed Jul 19 2023 23:55:01 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sat Aug 12 2023 09:03:55 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
