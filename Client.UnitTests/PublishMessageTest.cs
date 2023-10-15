@@ -14,10 +14,12 @@ namespace Zeebe.Client
         public async Task ShouldSendRequestAsExpected()
         {
             // given
+            const string variables = "{\"foo\":23}";
             var expectedRequest = new PublishMessageRequest
             {
                 CorrelationKey = "p-1",
-                Name = "messageName"
+                Name = "messageName",
+                Variables = variables
             };
 
             // when
@@ -25,6 +27,7 @@ namespace Zeebe.Client
                 .NewPublishMessageCommand()
                 .MessageName("messageName")
                 .CorrelationKey("p-1")
+                .Variables(variables)
                 .Send();
 
             // then
