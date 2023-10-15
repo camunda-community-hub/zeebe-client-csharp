@@ -17,17 +17,20 @@ namespace Zeebe.Client
             const string errorCode = "code 13";
             const string errorMessage = "This is a business error!";
             const int jobKey = 255;
+            const string variables = "{\"foo\":23}";
             var expectedRequest = new ThrowErrorRequest
             {
                 JobKey = jobKey,
                 ErrorCode = errorCode,
                 ErrorMessage = errorMessage,
+                Variables = variables
             };
 
             // when
             await ZeebeClient.NewThrowErrorCommand(jobKey)
                 .ErrorCode("code 13")
                 .ErrorMessage("This is a business error!")
+                .Variables(variables)
                 .Send();
 
             // then

@@ -29,5 +29,13 @@ namespace Zeebe.Client.Api.Commands
         ///     Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it to the broker.
         /// </returns>
         IThrowErrorCommandStep2 ErrorMessage(string errorMessage);
+
+        /// <summary>
+        /// Set the variables to send the error with.
+        /// </summary>
+        /// <param name="variables">the variables (JSON) as String.</param>
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandWithRetryStep{T}.Send"/> to complete the command and send it
+        ///     to the broker.</returns>
+        IThrowErrorCommandStep2 Variables(string variables);
     }
 }

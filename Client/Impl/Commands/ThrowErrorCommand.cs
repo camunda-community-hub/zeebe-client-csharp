@@ -52,6 +52,12 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
+        public IThrowErrorCommandStep2 Variables(string variables)
+        {
+            request.Variables = variables;
+            return this;
+        }
+
         public async Task<IThrowErrorResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
             var asyncReply = gatewayClient.ThrowErrorAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
