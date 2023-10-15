@@ -50,6 +50,10 @@ namespace GatewayProtocol {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GatewayProtocol.ActivateJobsResponse> __Marshaller_gateway_protocol_ActivateJobsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ActivateJobsResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.StreamActivatedJobsRequest> __Marshaller_gateway_protocol_StreamActivatedJobsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.StreamActivatedJobsRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.ActivatedJob> __Marshaller_gateway_protocol_ActivatedJob = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ActivatedJob.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GatewayProtocol.CancelProcessInstanceRequest> __Marshaller_gateway_protocol_CancelProcessInstanceRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CancelProcessInstanceRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GatewayProtocol.CancelProcessInstanceResponse> __Marshaller_gateway_protocol_CancelProcessInstanceResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.CancelProcessInstanceResponse.Parser));
@@ -125,6 +129,14 @@ namespace GatewayProtocol {
         "ActivateJobs",
         __Marshaller_gateway_protocol_ActivateJobsRequest,
         __Marshaller_gateway_protocol_ActivateJobsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GatewayProtocol.StreamActivatedJobsRequest, global::GatewayProtocol.ActivatedJob> __Method_StreamActivatedJobs = new grpc::Method<global::GatewayProtocol.StreamActivatedJobsRequest, global::GatewayProtocol.ActivatedJob>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "StreamActivatedJobs",
+        __Marshaller_gateway_protocol_StreamActivatedJobsRequest,
+        __Marshaller_gateway_protocol_ActivatedJob);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.CancelProcessInstanceRequest, global::GatewayProtocol.CancelProcessInstanceResponse> __Method_CancelProcessInstance = new grpc::Method<global::GatewayProtocol.CancelProcessInstanceRequest, global::GatewayProtocol.CancelProcessInstanceResponse>(
@@ -296,6 +308,26 @@ namespace GatewayProtocol {
 
       /// <summary>
       ///
+      ///Registers client to a job stream that will stream jobs back to the client as
+      ///they become activatable.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- type is blank (empty string, null)
+      ///- timeout less than 1
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task StreamActivatedJobs(global::GatewayProtocol.StreamActivatedJobsRequest request, grpc::IServerStreamWriter<global::GatewayProtocol.ActivatedJob> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
       ///Cancels a running process instance
       ///
       ///Errors:
@@ -426,11 +458,17 @@ namespace GatewayProtocol {
       ///Note that this is an atomic call, i.e. either all resources are deployed, or none of them are.
       ///
       ///Errors:
+      ///PERMISSION_DENIED:
+      ///- if a deployment to an unauthorized tenant is performed
       ///INVALID_ARGUMENT:
       ///- no resources given.
       ///- if at least one resource is invalid. A resource is considered invalid if:
       ///- the content is not deserializable (e.g. detected as BPMN, but it's broken XML)
       ///- the content is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      ///- if multi-tenancy is enabled, and:
+      ///- a tenant id is not provided
+      ///- a tenant id with an invalid format is provided
+      ///- if multi-tenancy is disabled and a tenant id is provided
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -715,6 +753,44 @@ namespace GatewayProtocol {
       public virtual grpc::AsyncServerStreamingCall<global::GatewayProtocol.ActivateJobsResponse> ActivateJobs(global::GatewayProtocol.ActivateJobsRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_ActivateJobs, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Registers client to a job stream that will stream jobs back to the client as
+      ///they become activatable.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- type is blank (empty string, null)
+      ///- timeout less than 1
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::GatewayProtocol.ActivatedJob> StreamActivatedJobs(global::GatewayProtocol.StreamActivatedJobsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return StreamActivatedJobs(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Registers client to a job stream that will stream jobs back to the client as
+      ///they become activatable.
+      ///
+      ///Errors:
+      ///INVALID_ARGUMENT:
+      ///- type is blank (empty string, null)
+      ///- timeout less than 1
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::GatewayProtocol.ActivatedJob> StreamActivatedJobs(global::GatewayProtocol.StreamActivatedJobsRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_StreamActivatedJobs, null, options, request);
       }
       /// <summary>
       ///
@@ -1226,11 +1302,17 @@ namespace GatewayProtocol {
       ///Note that this is an atomic call, i.e. either all resources are deployed, or none of them are.
       ///
       ///Errors:
+      ///PERMISSION_DENIED:
+      ///- if a deployment to an unauthorized tenant is performed
       ///INVALID_ARGUMENT:
       ///- no resources given.
       ///- if at least one resource is invalid. A resource is considered invalid if:
       ///- the content is not deserializable (e.g. detected as BPMN, but it's broken XML)
       ///- the content is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      ///- if multi-tenancy is enabled, and:
+      ///- a tenant id is not provided
+      ///- a tenant id with an invalid format is provided
+      ///- if multi-tenancy is disabled and a tenant id is provided
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -1248,11 +1330,17 @@ namespace GatewayProtocol {
       ///Note that this is an atomic call, i.e. either all resources are deployed, or none of them are.
       ///
       ///Errors:
+      ///PERMISSION_DENIED:
+      ///- if a deployment to an unauthorized tenant is performed
       ///INVALID_ARGUMENT:
       ///- no resources given.
       ///- if at least one resource is invalid. A resource is considered invalid if:
       ///- the content is not deserializable (e.g. detected as BPMN, but it's broken XML)
       ///- the content is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      ///- if multi-tenancy is enabled, and:
+      ///- a tenant id is not provided
+      ///- a tenant id with an invalid format is provided
+      ///- if multi-tenancy is disabled and a tenant id is provided
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -1268,11 +1356,17 @@ namespace GatewayProtocol {
       ///Note that this is an atomic call, i.e. either all resources are deployed, or none of them are.
       ///
       ///Errors:
+      ///PERMISSION_DENIED:
+      ///- if a deployment to an unauthorized tenant is performed
       ///INVALID_ARGUMENT:
       ///- no resources given.
       ///- if at least one resource is invalid. A resource is considered invalid if:
       ///- the content is not deserializable (e.g. detected as BPMN, but it's broken XML)
       ///- the content is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      ///- if multi-tenancy is enabled, and:
+      ///- a tenant id is not provided
+      ///- a tenant id with an invalid format is provided
+      ///- if multi-tenancy is disabled and a tenant id is provided
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -1290,11 +1384,17 @@ namespace GatewayProtocol {
       ///Note that this is an atomic call, i.e. either all resources are deployed, or none of them are.
       ///
       ///Errors:
+      ///PERMISSION_DENIED:
+      ///- if a deployment to an unauthorized tenant is performed
       ///INVALID_ARGUMENT:
       ///- no resources given.
       ///- if at least one resource is invalid. A resource is considered invalid if:
       ///- the content is not deserializable (e.g. detected as BPMN, but it's broken XML)
       ///- the content is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
+      ///- if multi-tenancy is enabled, and:
+      ///- a tenant id is not provided
+      ///- a tenant id with an invalid format is provided
+      ///- if multi-tenancy is disabled and a tenant id is provided
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -2135,6 +2235,7 @@ namespace GatewayProtocol {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_ActivateJobs, serviceImpl.ActivateJobs)
+          .AddMethod(__Method_StreamActivatedJobs, serviceImpl.StreamActivatedJobs)
           .AddMethod(__Method_CancelProcessInstance, serviceImpl.CancelProcessInstance)
           .AddMethod(__Method_CompleteJob, serviceImpl.CompleteJob)
           .AddMethod(__Method_CreateProcessInstance, serviceImpl.CreateProcessInstance)
@@ -2162,6 +2263,7 @@ namespace GatewayProtocol {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, GatewayBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_ActivateJobs, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::GatewayProtocol.ActivateJobsRequest, global::GatewayProtocol.ActivateJobsResponse>(serviceImpl.ActivateJobs));
+      serviceBinder.AddMethod(__Method_StreamActivatedJobs, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::GatewayProtocol.StreamActivatedJobsRequest, global::GatewayProtocol.ActivatedJob>(serviceImpl.StreamActivatedJobs));
       serviceBinder.AddMethod(__Method_CancelProcessInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CancelProcessInstanceRequest, global::GatewayProtocol.CancelProcessInstanceResponse>(serviceImpl.CancelProcessInstance));
       serviceBinder.AddMethod(__Method_CompleteJob, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CompleteJobRequest, global::GatewayProtocol.CompleteJobResponse>(serviceImpl.CompleteJob));
       serviceBinder.AddMethod(__Method_CreateProcessInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.CreateProcessInstanceRequest, global::GatewayProtocol.CreateProcessInstanceResponse>(serviceImpl.CreateProcessInstance));
