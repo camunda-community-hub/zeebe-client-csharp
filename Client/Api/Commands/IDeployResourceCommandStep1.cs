@@ -18,7 +18,7 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
 {
-    public interface IDeployResourceCommandStep1
+    public interface IDeployResourceCommandStep1 : ITenantIdCommandStep<IDeployResourceCommandBuilderStep2>
     {
         /// <summary>
         /// Add the given resource to the deployment.

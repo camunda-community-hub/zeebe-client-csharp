@@ -339,5 +339,31 @@ namespace Zeebe.Client
             Assert.AreEqual("nameRequirement", decisionRequirementsMetadata.DmnDecisionRequirementsName);
             Assert.AreEqual("id", decisionRequirementsMetadata.DmnDecisionRequirementsId);
         }
+
+        [Test]
+        public async Task ShouldSetTenantIdAsExpected()
+        {
+            // given
+            var expectedRequest = new DeployResourceRequest
+            {
+                TenantId = "1234",
+                Resources =
+                {
+                    new Resource
+                    {
+                        Content = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
+                        Name = _demoProcessPath
+                    }
+                }
+            };
+
+            // when
+            await ZeebeClient.NewDeployCommand().AddTenantId("1234").AddResourceFile(_demoProcessPath).Send();
+
+            // then
+            var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
+
+            Assert.AreEqual(expectedRequest, actualRequest);
+        }
     }
 }
