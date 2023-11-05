@@ -18,7 +18,7 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
 {
-    public interface IActivateJobsCommandStep1
+    public interface IActivateJobsCommandStep1 : ITenantIdsCommandStep<IActivateJobsCommandStep1>
     {
         /// <summary>
         /// Set the type of jobs to work on.
@@ -28,7 +28,7 @@ namespace Zeebe.Client.Api.Commands
         IActivateJobsCommandStep2 JobType(string jobType);
     }
 
-    public interface IActivateJobsCommandStep2
+    public interface IActivateJobsCommandStep2 
     {
         /// <summary>
         /// Set the maximum of jobs to activate. If less jobs are available for activation the

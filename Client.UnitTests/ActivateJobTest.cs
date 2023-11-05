@@ -163,5 +163,44 @@ namespace Zeebe.Client
             AssertJob(receivedJobs[1], 2);
             AssertJob(receivedJobs[2], 3);
         }
+
+        [Test]
+        public async Task ShouldSendRequestWithTenantIdsListReceiveResponseAsExpected()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Type = "foo",
+                Worker = "jobWorker",
+                Timeout = 10_000L,
+                MaxJobsToActivate = 1,
+                RequestTimeout = 5_000L,
+                TenantIds = { "1234", "5678" }
+            };
+
+            IList<string> tenantIds = new List<string> { "1234", "5678" };
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), _ => CreateExpectedResponse());
+
+            // when
+            var response = await ZeebeClient.NewActivateJobsCommand()
+                .AddTenantIds(tenantIds)
+                .JobType("foo")
+                .MaxJobsToActivate(1)
+                .Timeout(TimeSpan.FromSeconds(10))
+                .WorkerName("jobWorker")
+                .PollingTimeout(TimeSpan.FromSeconds(5))
+                .Send();
+
+            // then
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
+            Assert.AreEqual(expectedRequest, actualRequest);
+
+            var receivedJobs = response.Jobs;
+            Assert.AreEqual(receivedJobs.Count, 3);
+
+            AssertJob(receivedJobs[0], 1);
+            AssertJob(receivedJobs[1], 2);
+            AssertJob(receivedJobs[2], 3);
+        }
     }
 }

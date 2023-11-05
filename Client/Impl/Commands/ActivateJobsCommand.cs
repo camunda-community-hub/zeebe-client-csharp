@@ -29,6 +29,20 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
+        public IActivateJobsCommandStep1 AddTenantIds(IList<string> tenantIds)
+        {
+            Request.TenantIds.AddRange(tenantIds);
+
+            return this;
+        }
+
+        public IActivateJobsCommandStep1 AddTenantIds(params string[] tenantIds)
+        {
+            Request.TenantIds.AddRange(tenantIds);
+
+            return this;
+         }
+
         public IActivateJobsCommandStep3 MaxJobsToActivate(int maxJobsToActivate)
         {
             Request.MaxJobsToActivate = maxJobsToActivate;
