@@ -358,7 +358,7 @@ namespace Zeebe.Client
             };
 
             // when
-            await ZeebeClient.NewDeployCommand().AddTenantId("1234").AddResourceFile(_demoProcessPath).Send();
+            await ZeebeClient.NewDeployCommand().AddResourceFile(_demoProcessPath).AddTenantId("1234").Send();
 
             // then
             var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];

@@ -18,7 +18,7 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
 {
-    public interface IDeployResourceCommandStep1 : ITenantIdCommandStep<IDeployResourceCommandBuilderStep2>
+    public interface IDeployResourceCommandStep1
     {
         /// <summary>
         /// Add the given resource to the deployment.
@@ -70,7 +70,7 @@ namespace Zeebe.Client.Api.Commands
         IDeployResourceCommandBuilderStep2 AddResourceFile(string filename);
     }
 
-    public interface IDeployResourceCommandBuilderStep2 : IDeployResourceCommandStep1, IFinalCommandWithRetryStep<IDeployResourceResponse>
+    public interface IDeployResourceCommandBuilderStep2 : IDeployResourceCommandStep1, ITenantIdCommandStep<IDeployResourceCommandBuilderStep2>, IFinalCommandWithRetryStep<IDeployResourceResponse>
     {
         // the place for new optional parameters
     }
