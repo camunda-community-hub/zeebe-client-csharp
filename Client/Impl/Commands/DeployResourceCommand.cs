@@ -73,6 +73,12 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
+        public IDeployResourceCommandBuilderStep2 AddTenantId(string tenantId)
+        {
+            request.TenantId = tenantId;
+            return this;
+        }
+
         public async Task<IDeployResourceResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
             var asyncReply = gatewayClient.DeployResourceAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
