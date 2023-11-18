@@ -10,7 +10,7 @@ namespace Zeebe.Client.Api.Commands
         /// <param name="tenantIds">the tenant to associate to this resource.</param>
         /// <returns>The builder for this command.  Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
-        T AddTenantIds(IList<string> tenantIds);
+        T TenantIds(IList<string> tenantIds);
 
         /// <summary>
         /// Set a list of tenantIds to associate to this resource.
@@ -18,6 +18,6 @@ namespace Zeebe.Client.Api.Commands
         /// <param name="tenantIds">the tenant to associate to this resource.</param>
         /// <returns>The builder for this command.  Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
-        T AddTenantIds(params string[] tenantIds);
+        T TenantIds(params string[] tenantIds);
     }
 }

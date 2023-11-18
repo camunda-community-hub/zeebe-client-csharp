@@ -183,12 +183,12 @@ namespace Zeebe.Client
 
             // when
             var response = await ZeebeClient.NewActivateJobsCommand()
-                .AddTenantIds(tenantIds)
                 .JobType("foo")
                 .MaxJobsToActivate(1)
                 .Timeout(TimeSpan.FromSeconds(10))
                 .WorkerName("jobWorker")
                 .PollingTimeout(TimeSpan.FromSeconds(5))
+                .TenantIds(tenantIds)
                 .Send();
 
             // then

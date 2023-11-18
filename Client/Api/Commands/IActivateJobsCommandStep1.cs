@@ -18,7 +18,7 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Commands
 {
-    public interface IActivateJobsCommandStep1 : ITenantIdsCommandStep<IActivateJobsCommandStep1>
+    public interface IActivateJobsCommandStep1
     {
         /// <summary>
         /// Set the type of jobs to work on.
@@ -39,7 +39,7 @@ namespace Zeebe.Client.Api.Commands
         IActivateJobsCommandStep3 MaxJobsToActivate(int maxJobsToActivate);
     }
 
-    public interface IActivateJobsCommandStep3 : IFinalCommandWithRetryStep<IActivateJobsResponse>
+    public interface IActivateJobsCommandStep3 : ITenantIdsCommandStep<IActivateJobsCommandStep3>, IFinalCommandWithRetryStep<IActivateJobsResponse>
     {
         /// <summary>
         /// Set the time for how long a job is exclusively assigned for this subscription.
