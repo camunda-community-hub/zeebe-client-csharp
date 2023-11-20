@@ -1,7 +1,7 @@
 ﻿FROM mcr.microsoft.com/dotnet/core/runtime:2.1 AS base
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /src
 COPY ["Client.Cloud.Example.csproj", "Client.Cloud.Example/"]
 RUN dotnet restore "Client.Cloud.Example/Client.Cloud.Example.csproj"
