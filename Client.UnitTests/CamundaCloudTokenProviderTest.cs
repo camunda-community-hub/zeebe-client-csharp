@@ -7,9 +7,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using NLog;
 using NUnit.Framework;
 using Zeebe.Client.Impl.Builder;
+using Zeebe.Client.Impl.Misc;
 
 namespace Zeebe.Client
 {
@@ -128,7 +128,7 @@ namespace Zeebe.Client
             Assert.AreEqual(1, files.Length);
             var tokenFile = files[0];
             var content = File.ReadAllText(tokenFile);
-            var credentials = JsonConvert.DeserializeObject<Dictionary<string, CamundaCloudTokenProvider.AccessToken>>(content);
+            var credentials = JsonConvert.DeserializeObject<Dictionary<string, AccessToken>>(content);
             Assert.AreEqual(credentials["AUDIENCE"].Token, token);
         }
 
@@ -156,7 +156,7 @@ namespace Zeebe.Client
             Assert.AreEqual(1, files.Length);
             var tokenFile = files[0];
             var content = File.ReadAllText(tokenFile);
-            var credentials = JsonConvert.DeserializeObject<Dictionary<string, CamundaCloudTokenProvider.AccessToken>>(content);
+            var credentials = JsonConvert.DeserializeObject<Dictionary<string, AccessToken>>(content);
 
             Assert.AreEqual(credentials.Count, 2);
             Assert.AreEqual(token, credentials["OTHER_AUDIENCE"].Token);
