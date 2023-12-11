@@ -246,6 +246,26 @@ namespace Zeebe.Client
         IPublishMessageCommandStep1 NewPublishMessageCommand();
 
         /// <summary>
+        /// Command to modify a process which can be correlated to a process instance.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// zeebeClient
+        ///  .NewModifyProcessInstanceCommand(processInstanceKey)
+        ///  .AddInstructionToActivate(long elementInstanceKey)
+        ///  .AddInstructionToTerminate(string elementId, long ancestorElementInstanceKey = 0)
+        ///  .Send();
+        /// </code>
+        /// </example>
+        /// <param name="processInstanceKey">
+        ///     processInstanceKey the key which identifies the corresponding process instance.
+        /// </param>
+        /// <returns>
+        ///     a builder for the command.
+        /// </returns>
+        IModifyProcessInstanceCommandStep1 NewModifyProcessInstanceCommand(long processInstanceKey);
+
+        /// <summary>
         /// Request the current cluster topology. Can be used to inspect which brokers are available at
         /// which endpoint and which broker is the leader of which partition.
         /// </summary>
