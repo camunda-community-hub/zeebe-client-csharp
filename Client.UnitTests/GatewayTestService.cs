@@ -62,6 +62,7 @@ namespace Zeebe.Client
             typedRequestHandler.Add(typeof(ResolveIncidentRequest), request => new ResolveIncidentResponse());
             typedRequestHandler.Add(typeof(CreateProcessInstanceWithResultRequest), request => new CreateProcessInstanceWithResultResponse());
             typedRequestHandler.Add(typeof(EvaluateDecisionRequest), request => new EvaluateDecisionResponse());
+            typedRequestHandler.Add(typeof(ModifyProcessInstanceRequest), request => new ModifyProcessInstanceResponse());
 
             foreach (var pair in typedRequestHandler)
             {
@@ -148,6 +149,11 @@ namespace Zeebe.Client
         public override Task<EvaluateDecisionResponse> EvaluateDecision(EvaluateDecisionRequest request, ServerCallContext context)
         {
             return Task.FromResult((EvaluateDecisionResponse)HandleRequest(request, context));
+        }
+
+        public override Task<ModifyProcessInstanceResponse> ModifyProcessInstance(ModifyProcessInstanceRequest request, ServerCallContext context)
+        {
+            return Task.FromResult((ModifyProcessInstanceResponse)HandleRequest(request, context));
         }
 
         public delegate void ConsumeMetadata(Metadata metadata);
