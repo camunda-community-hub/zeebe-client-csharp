@@ -1,7 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -14,9 +14,6 @@ namespace Zeebe.Client.Impl.Builder
     {
         private static readonly string ZeebeRootPath =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
-
-        private const string JsonContent =
-            "{{\"client_id\":\"{0}\",\"client_secret\":\"{1}\",\"audience\":\"{2}\",\"grant_type\":\"client_credentials\"}}";
 
         private readonly ILogger<CamundaCloudTokenProvider> logger;
         private readonly string authServer;
@@ -57,13 +54,19 @@ namespace Zeebe.Client.Impl.Builder
 
         private async Task<AccessToken> FetchAccessToken()
         {
-            var json = string.Format(JsonContent, clientId, clientSecret, audience);
-
             // Requesting the token is similar to this:
+            // curl -X POST https://login.cloud.ultrawombat.com/oauth/token \
+            //   -H "Content-Type: application/x-www-form-urlencoded"  \
+            //   -d "client_id=213131&client_secret=12-23~oU.321&audience=zeebe.ultrawombat.com&grant_type=client_credentials"
+            //
+            // alternative is json
             //        curl --request POST \
             //        --url https://login.cloud.[ultrawombat.com | camunda.io]/oauth/token \
             //        --header 'content-type: application/json' \
             //        --data '{"client_id":"${clientId}","client_secret":"${clientSecret}","audience":"${audience}","grant_type":"client_credentials"}'
+
+            var formContent = BuildRequestAccessTokenContent();
+            var httpResponseMessage = await httpClient.PostAsync(authServer, formContent);
 
             // Code expects the following result:
             //
@@ -76,13 +79,22 @@ namespace Zeebe.Client.Impl.Builder
             //        }
             //
             // Defined here https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/
-            using var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var httpResponseMessage = await httpClient.PostAsync(authServer, content);
-
             var result = await httpResponseMessage.Content.ReadAsStringAsync();
             var token = AccessToken.FromJson(result);
             logger?.LogDebug("Received access token for {Audience}", audience);
             return token;
+        }
+
+        private FormUrlEncodedContent BuildRequestAccessTokenContent()
+        {
+            var formContent = new FormUrlEncodedContent(new[]
+            {
+                new KeyValuePair<string, string>("client_id", clientId),
+                new KeyValuePair<string, string>("client_secret", clientSecret),
+                new KeyValuePair<string, string>("audience", audience),
+                new KeyValuePair<string, string>("grant_type", "client_credentials")
+            });
+            return formContent;
         }
 
         public void Dispose()

@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
@@ -63,10 +64,10 @@ namespace Zeebe.Client.Impl.Builder
                 CheckDisposed();
                 Assert.AreEqual(request.RequestUri, _requestUri);
                 var content = await request.Content.ReadAsStringAsync();
-                var jsonObject = JObject.Parse(content);
-                Assert.AreEqual((string)jsonObject["client_id"], _clientId);
-                Assert.AreEqual((string)jsonObject["client_secret"], _clientSecret);
-                Assert.AreEqual((string)jsonObject["audience"], _audience);
+                var queryString = HttpUtility.ParseQueryString(content);
+                Assert.AreEqual((string)queryString["client_id"], _clientId);
+                Assert.AreEqual((string)queryString["client_secret"], _clientSecret);
+                Assert.AreEqual((string)queryString["audience"], _audience);
 
                 RequestCount++;
                 var responseMessage = new HttpResponseMessage(HttpStatusCode.OK)
