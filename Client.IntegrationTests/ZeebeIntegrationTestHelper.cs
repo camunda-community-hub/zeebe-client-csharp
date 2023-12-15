@@ -20,6 +20,8 @@ namespace Client.IntegrationTests
         public const string LatestVersion = "8.3.0";
 
         private const ushort ZeebePort = 26500;
+        private const ushort KeycloakPort = 8080;
+        private const ushort IdentityPort = 8084;
 
 
         private IContainer zeebeContainer;
@@ -170,9 +172,8 @@ namespace Client.IntegrationTests
             var containerBuilder = new ContainerBuilder()
                 .WithImage(new DockerImage("camunda", "identity", version)) // identity and zeebe will have the same version
                 .WithName("integration-identity")
-                .WithExposedPort("8084")
-                .WithPortBinding("8084", "8084")
-                .WithEnvironment("SERVER_PORT", "8084")
+                .WithPortBinding(IdentityPort, true)
+                .WithEnvironment("SERVER_PORT", IdentityPort.ToString())
                 .WithEnvironment("IDENTITY_RETRY_DELAY_SECONDS", "30")
                 .WithEnvironment("KEYCLOAK_URL", "http://integration-keycloak:8080/auth")
                 .WithEnvironment("IDENTITY_AUTH_PROVIDER_BACKEND_URL",
@@ -203,7 +204,7 @@ namespace Client.IntegrationTests
             var containerBuilder = new ContainerBuilder()
                 .WithImage(new DockerImage("bitnami", "keycloak", "21.1.2"))
                 .WithName("integration-keycloak")
-                .WithPortBinding("18080", "8080")
+                .WithPortBinding("8080", true)
                 .WithEnvironment("KEYCLOAK_HTTP_RELATIVE_PATH", "/auth")
                 .WithEnvironment("KEYCLOAK_DATABASE_HOST", "integration-postgres")
                 .WithEnvironment("KEYCLOAK_DATABASE_PASSWORD", "#3]O?4RGj)DE7Z!9SA5")
@@ -243,7 +244,7 @@ namespace Client.IntegrationTests
                 .AllowUntrustedCertificates()
                 .UseAccessTokenSupplier(
                     new CamundaCloudTokenProviderBuilder()
-                        .UseAuthServer($"http://{keycloakContainer.Hostname}:{keycloakContainer.GetMappedPublicPort(8080)}/auth/realms/camunda-platform/protocol/openid-connect/token")
+                        .UseAuthServer($"http://{keycloakContainer.Hostname}:{keycloakContainer.GetMappedPublicPort(KeycloakPort)}/auth/realms/camunda-platform/protocol/openid-connect/token")
                         .UseClientId("zeebe")
                         .UseClientSecret("sddh123865WUS)(1%!")
                         .UseAudience(audience).Build()).Build();
