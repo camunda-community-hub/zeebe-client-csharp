@@ -59,10 +59,7 @@ public class PersistedAccessTokenCacheTest
         // given
         int fetchCounter = 0;
         var accessTokenCache = new PersistedAccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
-            () =>
-            {
-                return Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds()));
-            });
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds())));
 
         // when
         await accessTokenCache.Get("test");
@@ -71,5 +68,145 @@ public class PersistedAccessTokenCacheTest
         // then
         Assert.AreEqual("token-0", token);
         Assert.AreEqual(1, fetchCounter);
+    }
+
+    [Test]
+    public async Task ShouldCacheTokenForDifferentAudience()
+    {
+        // given
+        int fetchCounter = 0;
+        var accessTokenCache = new PersistedAccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds())));
+
+        // when
+        var firstToken = await accessTokenCache.Get("first");
+        var secondToken = await accessTokenCache.Get("second");
+
+        // then
+        Assert.AreEqual("token-0", firstToken);
+        Assert.AreEqual("token-1", secondToken);
+        Assert.AreEqual(2, fetchCounter);
+    }
+
+    [Test]
+    public async Task ShouldResolveNewTokenAfterExpiry()
+    {
+        // given
+        int fetchCounter = 0;
+        var accessTokenCache = new PersistedAccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
+
+        // when
+        await accessTokenCache.Get("test");
+        var token = await accessTokenCache.Get("test");
+
+        // then
+        Assert.AreEqual("token-1", token);
+        Assert.AreEqual(2, fetchCounter);
+    }
+
+
+    [Test]
+    public async Task ShouldReflectTokenOnDiskAfterExpiry()
+    {
+        // given
+        var audience = "test";
+        int fetchCounter = 0;
+        var path = Path.Combine(tempPath, TestContext.CurrentContext.Test.Name);
+        var accessTokenCache = new PersistedAccessTokenCache(path,
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
+        var firstToken = await accessTokenCache.Get(audience);
+
+        var credentials = await File.ReadAllTextAsync(Directory.GetFiles(path)[0]);
+        Assert.That(credentials, Does.Contain(firstToken));
+        Assert.That(credentials, Does.Contain(audience));
+
+        // when
+        var secondToken = await accessTokenCache.Get(audience);
+
+        // then
+        Assert.AreNotEqual(secondToken, firstToken);
+        Assert.AreEqual("token-1", secondToken);
+        Assert.AreEqual(2, fetchCounter);
+
+        credentials = await File.ReadAllTextAsync(Directory.GetFiles(path)[0]);
+        Assert.That(credentials, Does.Contain(secondToken));
+        Assert.That(credentials, Does.Contain(audience));
+    }
+
+    [Test]
+    public async Task ShouldPersistTokenToDisk()
+    {
+        // given
+        var audience = "test";
+        int fetchCounter = 0;
+        var path = Path.Combine(tempPath, TestContext.CurrentContext.Test.Name);
+        var accessTokenCache = new PersistedAccessTokenCache(path,
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
+
+        // when
+        var token = await accessTokenCache.Get(audience);
+
+        // then
+        var fileNames = Directory.GetFiles(path);
+        Assert.AreEqual(1, fileNames.Length);
+        var content = await File.ReadAllTextAsync(fileNames[0]);
+        Assert.That(content, Does.Contain(token));
+        Assert.That(content, Does.Contain(audience));
+    }
+
+    
+    [Test]
+    public async Task ShouldPersistMultipleTokenToDisk()
+    {
+        // given
+        int fetchCounter = 0;
+        var path = Path.Combine(tempPath, TestContext.CurrentContext.Test.Name);
+        var accessTokenCache = new PersistedAccessTokenCache(path,
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
+
+        // when
+        var firstToken = await accessTokenCache.Get("first");
+        var secondToken = await accessTokenCache.Get("second");
+
+        // then
+        Assert.AreEqual("token-0", firstToken);
+        Assert.AreEqual("token-1", secondToken);
+        Assert.AreEqual(2, fetchCounter);
+
+        var fileNames = Directory.GetFiles(path);
+        Assert.AreEqual(1, fileNames.Length);
+        var content = await File.ReadAllTextAsync(fileNames[0]);
+        Assert.That(content, Does.Contain(firstToken));
+        Assert.That(content, Does.Contain("first"));
+
+
+        Assert.That(content, Does.Contain(secondToken));
+        Assert.That(content, Does.Contain("second"));
+    }
+
+    [Test]
+    public async Task ShouldFetchNewTokenWhenPersistTokenGotLost()
+    {
+        // given
+        var audience = "test";
+        int fetchCounter = 0;
+        var path = Path.Combine(tempPath, TestContext.CurrentContext.Test.Name);
+        var accessTokenCache = new PersistedAccessTokenCache(path,
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
+        await accessTokenCache.Get(audience);
+        File.Delete(Directory.GetFiles(path)[0]);
+
+        // when
+        var token = await accessTokenCache.Get(audience);
+
+        // then
+        Assert.AreEqual("token-1", token);
+        Assert.AreEqual(2, fetchCounter);
+        var fileNames = Directory.GetFiles(path);
+        Assert.AreEqual(1, fileNames.Length);
+        var content = await File.ReadAllTextAsync(fileNames[0]);
+        Assert.That(content, Does.Contain(token));
+        Assert.That(content, Does.Contain(audience));
     }
 }
