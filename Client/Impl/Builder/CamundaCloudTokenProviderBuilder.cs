@@ -18,6 +18,7 @@ namespace Zeebe.Client.Impl.Builder
         private string authServer = "https://login.cloud.camunda.io/oauth/token";
         private string clientId;
         private string clientSecret;
+        private string path;
 
         /// <inheritdoc/>
         public ICamundaCloudTokenProviderBuilder UseLoggerFactory(ILoggerFactory loggerFactory)
@@ -74,6 +75,17 @@ namespace Zeebe.Client.Impl.Builder
             return this;
         }
 
+        public ICamundaCloudTokenProviderBuilderFinalStep UsePath(string path)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
+            this.path = path;
+            return this;
+        }
+
         /// <inheritdoc/>
         public CamundaCloudTokenProvider Build()
         {
@@ -82,7 +94,8 @@ namespace Zeebe.Client.Impl.Builder
                 clientId,
                 clientSecret,
                 audience,
-                loggerFactory?.CreateLogger<CamundaCloudTokenProvider>());
+                path,
+                loggerFactory);
         }
     }
 }
