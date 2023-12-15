@@ -4,8 +4,8 @@ on:
     branches: main
   workflow_dispatch: { }
 jobs:
-  build:
-    name: Build and test
+  unit-test:
+    name: Run unit tests
     runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@v4
@@ -16,4 +16,17 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release
     - name: Test
-      run: dotnet test
+      run: dotnet test Client.UnitTests
+  integration-test:
+    name: Run integration tests
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3.2.0
+      with:
+        dotnet-version: 7.x
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: Test
+      run: dotnet test Client.IntegrationTests
