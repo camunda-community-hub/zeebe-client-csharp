@@ -10,7 +10,7 @@ namespace Zeebe.Client.Impl.Builder
 {
     public class OAuth2TokenProvider : BaseTokenProvider, IDisposable
     {
-        private readonly ILogger<CamundaCloudTokenProvider> logger;
+        private readonly ILogger<OAuth2TokenProvider> logger;
         private readonly string authServer;
         private readonly string clientId;
         private readonly string clientSecret;
@@ -23,7 +23,7 @@ namespace Zeebe.Client.Impl.Builder
             string clientId,
             string clientSecret,
             string audience,
-            ILogger<CamundaCloudTokenProvider> logger = null) : base("oauth2_credentials", audience)
+            ILogger<OAuth2TokenProvider> logger = null) : base("oauth2_credentials", audience, logger)
         {
             this.logger = logger;
             this.authServer = authServer;

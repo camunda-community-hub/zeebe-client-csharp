@@ -59,6 +59,6 @@ public class OAuth2TokenProviderBuilder : IOAuth2TokenProviderBuilder,
             clientId,
             clientSecret,
             audience,
-            loggerFactory?.CreateLogger<CamundaCloudTokenProvider>());
+            loggerFactory?.CreateLogger<OAuth2TokenProvider>());
     }
 }
