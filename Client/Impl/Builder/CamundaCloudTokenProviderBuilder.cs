@@ -95,7 +95,7 @@ namespace Zeebe.Client.Impl.Builder
                 clientSecret,
                 audience,
                 path,
-                loggerFactory?.CreateLogger<CamundaCloudTokenProvider>());
+                loggerFactory);
         }
     }
 }

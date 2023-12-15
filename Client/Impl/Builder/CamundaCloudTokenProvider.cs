@@ -30,10 +30,10 @@ namespace Zeebe.Client.Impl.Builder
             string clientSecret,
             string audience,
             string path = null,
-            ILogger<CamundaCloudTokenProvider> logger = null)
+            ILoggerFactory loggerFactory = null)
         {
-            persistedAccessTokenCache = new PersistedAccessTokenCache(path ?? ZeebeRootPath, FetchAccessToken);
-            this.logger = logger;
+            persistedAccessTokenCache = new PersistedAccessTokenCache(path ?? ZeebeRootPath, FetchAccessToken, loggerFactory?.CreateLogger<PersistedAccessTokenCache>());
+            this.logger = loggerFactory?.CreateLogger<CamundaCloudTokenProvider>();
             this.authServer = authServer;
             this.clientId = clientId;
             this.clientSecret = clientSecret;
