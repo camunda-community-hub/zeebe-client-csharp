@@ -41,6 +41,7 @@ var annotated_dup =
             [ "IResolveIncidentCommandStep1", "d0/d39/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IResolveIncidentCommandStep1.html", null ],
             [ "ISetVariablesCommandStep1", "d2/d5d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep1.html", "d2/d5d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep1" ],
             [ "ISetVariablesCommandStep2", "de/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep2.html", "de/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep2" ],
+            [ "ITenantIdCommandStep", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep" ],
             [ "IThrowErrorCommandStep1", "d4/d22/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep1.html", "d4/d22/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep1" ],
             [ "IThrowErrorCommandStep2", "d3/d85/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep2.html", "d3/d85/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep2" ],
             [ "ITopologyRequestStep1", "d5/dae/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITopologyRequestStep1.html", null ],

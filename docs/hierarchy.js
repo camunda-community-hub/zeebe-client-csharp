@@ -98,6 +98,10 @@ var hierarchy =
     [ "Zeebe.Client.Api.Responses.IResolveIncidentResponse", "de/df8/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IResolveIncidentResponse.html", null ],
     [ "Zeebe.Client.Api.Commands.ISetVariablesCommandStep1", "d2/d5d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep1.html", null ],
     [ "Zeebe.Client.Api.Responses.ISetVariablesResponse", "d7/d1a/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ISetVariablesResponse.html", null ],
+    [ "Zeebe.Client.Api.Commands.ITenantIdCommandStep< out T >", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html", null ],
+    [ "Zeebe.Client.Api.Commands.ITenantIdCommandStep< IDeployResourceCommandBuilderStep2 >", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html", [
+      [ "Zeebe.Client.Api.Commands.IDeployResourceCommandBuilderStep2", "d4/d33/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandBuilderStep2.html", null ]
+    ] ],
     [ "Zeebe.Client.Api.Commands.IThrowErrorCommandStep1", "d4/d22/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep1.html", null ],
     [ "Zeebe.Client.Api.Responses.IThrowErrorResponse", "d7/d26/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IThrowErrorResponse.html", null ],
     [ "ITokenAccess", null, [
