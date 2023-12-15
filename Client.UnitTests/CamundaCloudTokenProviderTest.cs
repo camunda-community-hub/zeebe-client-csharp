@@ -34,17 +34,17 @@ namespace Zeebe.Client
             _clientId = "ID";
             _clientSecret = "SECRET";
             _audience = "AUDIENCE";
+            TokenStoragePath = Path.GetTempPath() + ".zeebe/";
             TokenProvider = new CamundaCloudTokenProviderBuilder()
                 .UseAuthServer(_requestUri)
                 .UseClientId(_clientId)
                 .UseClientSecret(_clientSecret)
                 .UseAudience(_audience)
+                .UsePath(TokenStoragePath)
                 .Build();
 
             MessageHandlerStub = new HttpMessageHandlerStub();
             TokenProvider.SetHttpMessageHandler(MessageHandlerStub);
-            TokenStoragePath = Path.GetTempPath() + ".zeebe/";
-            TokenProvider.TokenStoragePath = TokenStoragePath;
             ExpiresIn = 3600;
             Token = "REQUESTED_TOKEN";
         }
@@ -142,9 +142,9 @@ namespace Zeebe.Client
                 .UseClientId(_clientId = "OTHERID")
                 .UseClientSecret(_clientSecret = "OTHERSECRET")
                 .UseAudience(_audience = "OTHER_AUDIENCE")
+                .UsePath(TokenStoragePath)
                 .Build();
             otherProvider.SetHttpMessageHandler(MessageHandlerStub);
-            otherProvider.TokenStoragePath = TokenStoragePath;
             Token = "OTHER_TOKEN";
 
             // when
@@ -254,7 +254,6 @@ namespace Zeebe.Client
                 .UseAudience(_audience = "OTHER_AUDIENCE")
                 .Build();
             otherProvider.SetHttpMessageHandler(MessageHandlerStub);
-            otherProvider.TokenStoragePath = TokenStoragePath;
             Token = "OTHER_TOKEN";
 
             // when

@@ -58,6 +58,15 @@ namespace Zeebe.Client.Api.Builder
 
     public interface ICamundaCloudTokenProviderBuilderFinalStep
     {
+
+        /// <summary>
+        /// Use given path to store credentials on disk.
+        /// </summary>
+        /// Per default credentials are stored in the home directory.
+        /// <param name="path">The path were to store the credentials.</param>
+        /// <returns>The final step in building a CamundaCloudTokenProvider.</returns>
+        ICamundaCloudTokenProviderBuilderFinalStep UsePath(string path);
+
         /// <summary>
         /// Builds the CamundaCloudTokenProvider, which can be used by the ZeebeClient to
         /// communicate with the Camunda Cloud.
