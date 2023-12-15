@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="NLog.Extensions.Logging" Version="5.3.7" />
-    <PackageReference Include="zb-client" Version="2.3.0" />
+    <PackageReference Include="zb-client" Version="2.4.0" />
   </ItemGroup>
 
   <ItemGroup>
