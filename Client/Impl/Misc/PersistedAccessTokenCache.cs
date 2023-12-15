@@ -9,7 +9,7 @@ using Zeebe.Client.Api.Builder;
 
 namespace Zeebe.Client.Impl.Misc;
 
-public class AccessTokenCache
+public class PersistedAccessTokenCache : IAccessTokenCache
 {
     private static string ZeebeTokenFileName => "credentials";
     private Dictionary<string, AccessToken> CachedCredentials { get; set; }
@@ -17,13 +17,13 @@ public class AccessTokenCache
     // private static readonly string ZeebeRootPath =
     //     Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
 
-    private readonly ILogger<AccessTokenCache> logger;
-    private readonly AccessTokenResolverAsync accessTokenFetcherAsync;
+    private readonly ILogger<PersistedAccessTokenCache> logger;
+    private readonly IAccessTokenCache.AccessTokenResolverAsync accessTokenFetcherAsync;
 
     private readonly string tokenStoragePath;
     private string TokenFileName => Path.Combine(tokenStoragePath, ZeebeTokenFileName);
 
-    public AccessTokenCache(string path, AccessTokenResolverAsync fetcherAsync, ILogger<AccessTokenCache> logger = null)
+    public PersistedAccessTokenCache(string path, IAccessTokenCache.AccessTokenResolverAsync fetcherAsync, ILogger<PersistedAccessTokenCache> logger = null)
     {
         var directoryInfo = Directory.CreateDirectory(path);
         if (!directoryInfo.Exists)
@@ -94,11 +94,4 @@ public class AccessTokenCache
     {
         File.WriteAllText(TokenFileName, JsonConvert.SerializeObject(CachedCredentials));
     }
-
-    /// <summary>
-    /// An asynchronous access token resolver, which is used to fill the cache, when
-    /// token can't be found.
-    /// </summary>
-    /// <returns>The new access token.</returns>
-    public delegate Task<AccessToken> AccessTokenResolverAsync();
 }

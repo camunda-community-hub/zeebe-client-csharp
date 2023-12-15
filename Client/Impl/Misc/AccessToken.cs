@@ -3,6 +3,9 @@ using Newtonsoft.Json.Linq;
 
 namespace Zeebe.Client.Impl.Misc;
 
+/// <summary>
+/// AccessToken, which consist of an token and a dueDate (expiryDate).
+/// </summary>
 public class AccessToken
 {
     public string Token { get; set; }

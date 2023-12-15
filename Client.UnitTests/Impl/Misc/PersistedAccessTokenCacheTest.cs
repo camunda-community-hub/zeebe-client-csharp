@@ -21,7 +21,7 @@ using NUnit.Framework;
 namespace Zeebe.Client.Impl.Misc;
 
 [TestFixture]
-public class AccessTokenCacheTest
+public class PersistedAccessTokenCacheTest
 {
     private string tempPath;
 
@@ -42,7 +42,7 @@ public class AccessTokenCacheTest
     public async Task ShouldGetToken()
     {
         // given
-        var accessTokenCache = new AccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
+        var accessTokenCache = new PersistedAccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
             () =>
                 Task.FromResult(new AccessToken("token", DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds())));
 
@@ -58,7 +58,7 @@ public class AccessTokenCacheTest
     {
         // given
         int fetchCounter = 0;
-        var accessTokenCache = new AccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
+        var accessTokenCache = new PersistedAccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
             () =>
             {
                 return Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds()));
