@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
@@ -26,24 +27,23 @@ namespace Client.IntegrationTests
 
         private readonly string version;
         private readonly string audience;
-        private readonly bool withIdentity;
+        private bool withIdentity;
         private int count = 1;
         public readonly ILoggerFactory LoggerFactory;
         private IContainer postgresContainer;
         private IContainer keycloakContainer;
         private IContainer identityContainer;
 
-        private ZeebeIntegrationTestHelper(string version, bool withIdentity = false)
+        private ZeebeIntegrationTestHelper(string version)
         {
             this.version = version;
-            this.withIdentity = withIdentity;
             audience = Guid.NewGuid().ToString();
             LoggerFactory = new NLogLoggerFactory();
         }
 
-        public static ZeebeIntegrationTestHelper Latest(bool withIdentity = false)
+        public static ZeebeIntegrationTestHelper Latest()
         {
-            return new ZeebeIntegrationTestHelper(LatestVersion, withIdentity);
+            return new ZeebeIntegrationTestHelper(LatestVersion);
         }
 
         public ZeebeIntegrationTestHelper WithPartitionCount(int count)
@@ -55,6 +55,12 @@ namespace Client.IntegrationTests
         public static ZeebeIntegrationTestHelper OfVersion(string version)
         {
             return new ZeebeIntegrationTestHelper(version);
+        }
+
+        public ZeebeIntegrationTestHelper WithIdentity()
+        {
+            withIdentity = true;
+            return this;
         }
 
         public async Task<IZeebeClient> SetupIntegrationTest()
@@ -74,11 +80,11 @@ namespace Client.IntegrationTests
 
                 identityContainer = CreateIdentityContainer(network);
                 await identityContainer.StartAsync();
-                zeebeContainer = CreateZeebeContainer(true, network);
+                zeebeContainer = CreateZeebeContainer(network);
             }
             else
             {
-                zeebeContainer = CreateZeebeContainer(false);
+                zeebeContainer = CreateZeebeContainer();
             }
 
             await zeebeContainer.StartAsync();
@@ -114,14 +120,15 @@ namespace Client.IntegrationTests
             zeebeContainer = null;
         }
 
-        private IContainer CreateZeebeContainer(bool withKeycloak, INetwork network = null)
+        private IContainer CreateZeebeContainer(INetwork network = null)
         {
             var containerBuilder = new ContainerBuilder()
                 .WithImage(new DockerImage("camunda", "zeebe", version))
                 .WithPortBinding(ZeebePort, true)
+                .WithOutputConsumer(Consume.RedirectStdoutAndStderrToConsole())
                 .WithEnvironment("ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT", count.ToString());
 
-            if (withKeycloak)
+            if (withIdentity)
             {
                 containerBuilder = containerBuilder.WithEnvironment("ZEEBE_BROKER_GATEWAY_SECURITY_AUTHENTICATION_MODE",
                         "identity")
@@ -152,6 +159,7 @@ namespace Client.IntegrationTests
                 .WithEnvironment("POSTGRES_PASSWORD", "#3]O?4RGj)DE7Z!9SA5")
                 .WithNetwork(network)
                 .WithAutoRemove(true)
+                .WithOutputConsumer(Consume.RedirectStdoutAndStderrToConsole())
                 .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(5432));
 
             return containerBuilder.Build();
@@ -160,7 +168,7 @@ namespace Client.IntegrationTests
         private IContainer CreateIdentityContainer(INetwork network)
         {
             var containerBuilder = new ContainerBuilder()
-                .WithImage(new DockerImage("camunda", "identity", "8.3.0"))
+                .WithImage(new DockerImage("camunda", "identity", version)) // identity and zeebe will have the same version
                 .WithName("integration-identity")
                 .WithExposedPort("8084")
                 .WithPortBinding("8084", "8084")
@@ -183,6 +191,7 @@ namespace Client.IntegrationTests
                 .WithEnvironment("KEYCLOAK_CLIENTS_0_PERMISSIONS_0_DEFINITION", "write:*")
                 .WithEnvironment("RESOURCE_PERMISSIONS_ENABLED", "false")
                 .WithAutoRemove(true)
+                .WithOutputConsumer(Consume.RedirectStdoutAndStderrToConsole())
                 .WithNetwork(network);
 
 
@@ -202,6 +211,7 @@ namespace Client.IntegrationTests
                 .WithEnvironment("KEYCLOAK_ADMIN_PASSWORD", "admin")
                 .WithNetwork(network)
                 .WithAutoRemove(true)
+                .WithOutputConsumer(Consume.RedirectStdoutAndStderrToConsole())
                 .WithWaitStrategy(Wait.ForUnixContainer().UntilHttpRequestIsSucceeded(request =>
                     request.ForPort(8080).ForPath("/auth").ForStatusCode(HttpStatusCode.OK)));
 
@@ -231,9 +241,12 @@ namespace Client.IntegrationTests
                 .UseGatewayAddress(host)
                 .UseTransportEncryption()
                 .AllowUntrustedCertificates()
-                .UseAccessTokenSupplier(new OAuth2TokenProvider(
-                    $"http://{keycloakContainer.Hostname}:{keycloakContainer.GetMappedPublicPort(8080)}/auth/realms/camunda-platform/protocol/openid-connect/token",
-                    "zeebe", "sddh123865WUS)(1%!", audience)).Build();
+                .UseAccessTokenSupplier(
+                    new CamundaCloudTokenProviderBuilder()
+                        .UseAuthServer($"http://{keycloakContainer.Hostname}:{keycloakContainer.GetMappedPublicPort(8080)}/auth/realms/camunda-platform/protocol/openid-connect/token")
+                        .UseClientId("zeebe")
+                        .UseClientSecret("sddh123865WUS)(1%!")
+                        .UseAudience(audience).Build()).Build();
         }
 
         private async Task AwaitBrokerReadiness()
@@ -249,7 +262,7 @@ namespace Client.IntegrationTests
             {
                 try
                 {
-                    var topology = await client.TopologyRequest().Send(TimeSpan.FromSeconds(1));
+                    var topology = await zeebeClient.TopologyRequest().Send(TimeSpan.FromSeconds(1));
                     ready = topology.Brokers[0].Partitions.Count >= count;
                     topologyErrorLogger.LogInformation("Requested topology [retries {Retries}], got '{Topology}'", retries, topology);
                 }
