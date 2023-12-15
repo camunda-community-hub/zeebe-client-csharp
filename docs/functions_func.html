@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.3.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.4.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>AddResourceStream()&#160;:&#160;<a class="el" href="d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1.html#a9f8d67444f5159f9eaaeaec32ccbb8ab">Zeebe.Client.Api.Commands.IDeployResourceCommandStep1</a></li>
 <li>AddResourceString()&#160;:&#160;<a class="el" href="d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1.html#a2bcfd242fef2565c77895ee1e795a161">Zeebe.Client.Api.Commands.IDeployResourceCommandStep1</a></li>
 <li>AddResourceStringUtf8()&#160;:&#160;<a class="el" href="d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1.html#ad42f6150a4bc210139c5a33573759548">Zeebe.Client.Api.Commands.IDeployResourceCommandStep1</a></li>
+<li>AddTenantId()&#160;:&#160;<a class="el" href="da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html#a98067193e5fb0bb6b7e8966397997510">Zeebe.Client.Api.Commands.ITenantIdCommandStep&lt; out T &gt;</a></li>
 <li>AllowUntrustedCertificates()&#160;:&#160;<a class="el" href="d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html#a35881cce91811891e96bccd21d78ec86">Zeebe.Client.Api.Builder.IZeebeSecureClientBuilder</a></li>
 <li>AutoCompletion()&#160;:&#160;<a class="el" href="d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html#ab5b0887bb1bb8afd2d1259b5c690205a">Zeebe.Client.Api.Worker.IJobWorkerBuilderStep3</a></li>
 </ul>
@@ -225,6 +226,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>UseGatewayAddress()&#160;:&#160;<a class="el" href="d2/d7d/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientBuilder.html#a8d021cf10ce6004fc755a6693c5ef314">Zeebe.Client.Api.Builder.IZeebeClientBuilder</a></li>
 <li>UseKeepAlive()&#160;:&#160;<a class="el" href="d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html#a6b4cee13545ef76638772add30fbd65d">Zeebe.Client.Api.Builder.IZeebeClientFinalBuildStep</a></li>
 <li>UseLoggerFactory()&#160;:&#160;<a class="el" href="d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html#a674598084fe70a2550d667b5e3ae1c98">Zeebe.Client.Api.Builder.ICamundaCloudClientBuilderFinalStep</a>, <a class="el" href="d3/d08/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilder.html#a4e6552c929a81840d3e003a685b9f4fd">Zeebe.Client.Api.Builder.ICamundaCloudTokenProviderBuilder</a>, <a class="el" href="d2/d7d/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientBuilder.html#a9b06024e5747fb5133fed380ca82f42e">Zeebe.Client.Api.Builder.IZeebeClientBuilder</a></li>
+<li>UsePath()&#160;:&#160;<a class="el" href="d6/dd9/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderFinalStep.html#a271abbe17b8ff356a947780d4178c132">Zeebe.Client.Api.Builder.ICamundaCloudTokenProviderBuilderFinalStep</a></li>
 <li>UsePlainText()&#160;:&#160;<a class="el" href="d2/df5/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientTransportBuilder.html#ac26cfa775cbfd651109c526d47f317a6">Zeebe.Client.Api.Builder.IZeebeClientTransportBuilder</a></li>
 <li>UseRetrySleepDurationProvider()&#160;:&#160;<a class="el" href="d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html#a9277829317816183d43b78a2505a6140">Zeebe.Client.Api.Builder.IZeebeClientFinalBuildStep</a></li>
 <li>UseTransportEncryption()&#160;:&#160;<a class="el" href="d2/df5/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientTransportBuilder.html#ad7318e868930ee33862721399242783f">Zeebe.Client.Api.Builder.IZeebeClientTransportBuilder</a></li>
@@ -246,7 +248,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Oct 15 2023 12:48:11 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Fri Dec 15 2023 17:11:57 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
