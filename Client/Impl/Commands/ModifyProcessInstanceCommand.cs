@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
+using Google.Protobuf.Collections;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
@@ -45,14 +47,57 @@ internal class ModifyProcessInstanceCommand : IModifyProcessInstanceCommandStep1
         return this;
     }
 
+    public IModifyProcessInstanceCommandStep1 AddInstructionToActivate(string elementId)
+    {
+        var activateInstruction = new ModifyProcessInstanceRequest.Types.ActivateInstruction
+        {
+            ElementId = elementId,
+            AncestorElementInstanceKey = 0
+        };
+
+        activateInstructions.Add(activateInstruction);
+        return this;
+    }
+
     public IModifyProcessInstanceCommandStep1 AddInstructionToActivate(
         string elementId,
-        long ancestorElementInstanceKey = 0)
+        long ancestorElementInstanceKey)
     {
         var activateInstruction = new ModifyProcessInstanceRequest.Types.ActivateInstruction
         {
             ElementId = elementId,
             AncestorElementInstanceKey = ancestorElementInstanceKey
+        };
+
+        activateInstructions.Add(activateInstruction);
+        return this;
+    }
+
+    public IModifyProcessInstanceCommandStep1 AddInstructionToActivate(
+        string elementId,
+        IEnumerable<ModifyProcessInstanceRequest.Types.VariableInstruction> variableInstructions)
+    {
+        var activateInstruction = new ModifyProcessInstanceRequest.Types.ActivateInstruction
+        {
+            ElementId = elementId,
+            AncestorElementInstanceKey = 0,
+            VariableInstructions = { variableInstructions }
+        };
+
+        activateInstructions.Add(activateInstruction);
+        return this;
+    }
+
+    public IModifyProcessInstanceCommandStep1 AddInstructionToActivate(
+        string elementId,
+        long ancestorElementInstanceKey,
+        IEnumerable<ModifyProcessInstanceRequest.Types.VariableInstruction> variableInstructions)
+    {
+        var activateInstruction = new ModifyProcessInstanceRequest.Types.ActivateInstruction
+        {
+            ElementId = elementId,
+            AncestorElementInstanceKey = ancestorElementInstanceKey,
+            VariableInstructions = { variableInstructions }
         };
 
         activateInstructions.Add(activateInstruction);
