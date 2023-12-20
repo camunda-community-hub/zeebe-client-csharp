@@ -253,7 +253,7 @@ namespace Zeebe.Client
         /// zeebeClient
         ///  .NewModifyProcessInstanceCommand(processInstanceKey)
         ///  .AddInstructionToActivate(long elementInstanceKey)
-        ///  .AddInstructionToTerminate(string elementId, long ancestorElementInstanceKey = 0)
+        ///  .AddInstructionToTerminate(string elementId, long ancestorElementInstanceKey)
         ///  .Send();
         /// </code>
         /// </example>
