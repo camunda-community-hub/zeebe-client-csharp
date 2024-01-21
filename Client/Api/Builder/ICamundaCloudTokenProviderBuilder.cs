@@ -63,7 +63,7 @@ namespace Zeebe.Client.Api.Builder
         /// Use given path to store credentials on disk.
         /// </summary>
         /// Per default credentials are stored in the home directory.
-        /// <param name="path">The path were to store the credentials.</param>
+        /// <param name="path">The path where to store the credentials.</param>
         /// <returns>The final step in building a CamundaCloudTokenProvider.</returns>
         ICamundaCloudTokenProviderBuilderFinalStep UsePath(string path);
 
