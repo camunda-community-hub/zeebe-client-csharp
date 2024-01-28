@@ -15,7 +15,7 @@ public interface IModifyProcessInstanceCommandStep1
     /// </summary>
     /// <param name="elementId">The id of the element to activate.</param>
     /// <returns>The builder for this command.</returns>
-    IModifyProcessInstanceCommandStep1 ActivateElement(string elementId);
+    IModifyProcessInstanceCommandStep3 ActivateElement(string elementId);
 
     /// <summary>
     /// Create an activate Instruction
@@ -25,7 +25,7 @@ public interface IModifyProcessInstanceCommandStep1
     /// <param name="elementId">The id of the element to activate.</param>
     /// <param name="ancestorElementInstanceKey">The element instance key in which the element will be created.</param>
     /// <returns>The builder for this command.</returns>
-    IModifyProcessInstanceCommandStep1 ActivateElement(string elementId, long ancestorElementInstanceKey);
+    IModifyProcessInstanceCommandStep3 ActivateElement(string elementId, long ancestorElementInstanceKey);
 
 
     /// <summary>
