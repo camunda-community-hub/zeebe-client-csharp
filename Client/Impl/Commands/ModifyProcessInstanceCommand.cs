@@ -1,32 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
-using Google.Protobuf.Collections;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
-
 using static GatewayProtocol.Gateway;
+using ModifyProcessInstanceResponse = Zeebe.Client.Impl.Responses.ModifyProcessInstanceResponse;
 
 namespace Zeebe.Client.Impl.Commands;
 
-internal class ModifyProcessInstanceCommand : IModifyProcessInstanceCommandStep1
+internal class ModifyProcessInstanceCommand : IModifyProcessInstanceCommandStep1, IModifyProcessInstanceCommandStep2,
+    IModifyProcessInstanceCommandStep3
 {
     private readonly ModifyProcessInstanceRequest request;
     private readonly GatewayClient client;
     private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-    private readonly IList<ModifyProcessInstanceRequest.Types.TerminateInstruction> terminateInstructions;
-    private readonly IList<ModifyProcessInstanceRequest.Types.ActivateInstruction> activateInstructions;
+    private ModifyProcessInstanceRequest.Types.ActivateInstruction currentActivateInstruction;
 
-    public ModifyProcessInstanceCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long processInstanceKey)
+    public ModifyProcessInstanceCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy,
+        long processInstanceKey)
     {
-        terminateInstructions = new List<ModifyProcessInstanceRequest.Types.TerminateInstruction>();
-        activateInstructions = new List<ModifyProcessInstanceRequest.Types.ActivateInstruction>();
-
         this.asyncRetryStrategy = asyncRetryStrategy;
         this.client = client;
 
@@ -36,82 +31,88 @@ internal class ModifyProcessInstanceCommand : IModifyProcessInstanceCommandStep1
         };
     }
 
-    public IModifyProcessInstanceCommandStep1 AddInstructionToTerminate(long elementInstanceKey)
+    public IModifyProcessInstanceCommandStep3 ActivateElement(string elementId)
     {
-        var terminateInstruction = new ModifyProcessInstanceRequest.Types.TerminateInstruction
-        {
-            ElementInstanceKey = elementInstanceKey
-        };
-
-        terminateInstructions.Add(terminateInstruction);
-        return this;
-    }
-
-    public IModifyProcessInstanceCommandStep1 AddInstructionToActivate(string elementId)
-    {
-        var activateInstruction = new ModifyProcessInstanceRequest.Types.ActivateInstruction
+        currentActivateInstruction = new ModifyProcessInstanceRequest.Types.ActivateInstruction
         {
             ElementId = elementId,
             AncestorElementInstanceKey = 0
         };
-
-        activateInstructions.Add(activateInstruction);
         return this;
     }
 
-    public IModifyProcessInstanceCommandStep1 AddInstructionToActivate(
-        string elementId,
-        long ancestorElementInstanceKey)
+    public IModifyProcessInstanceCommandStep3 ActivateElement(string elementId, long ancestorElementInstanceKey)
     {
-        var activateInstruction = new ModifyProcessInstanceRequest.Types.ActivateInstruction
+        currentActivateInstruction = new ModifyProcessInstanceRequest.Types.ActivateInstruction
         {
             ElementId = elementId,
             AncestorElementInstanceKey = ancestorElementInstanceKey
         };
-
-        activateInstructions.Add(activateInstruction);
         return this;
     }
 
-    public IModifyProcessInstanceCommandStep1 AddInstructionToActivate(
-        string elementId,
-        IEnumerable<ModifyProcessInstanceRequest.Types.VariableInstruction> variableInstructions)
+    public IModifyProcessInstanceCommandStep2 TerminateElement(long elementInstanceKey)
     {
-        var activateInstruction = new ModifyProcessInstanceRequest.Types.ActivateInstruction
+        request.TerminateInstructions.Add(new ModifyProcessInstanceRequest.Types.TerminateInstruction
         {
-            ElementId = elementId,
-            AncestorElementInstanceKey = 0,
-            VariableInstructions = { variableInstructions }
-        };
-
-        activateInstructions.Add(activateInstruction);
+            ElementInstanceKey = elementInstanceKey
+        });
         return this;
     }
 
-    public IModifyProcessInstanceCommandStep1 AddInstructionToActivate(
-        string elementId,
-        long ancestorElementInstanceKey,
-        IEnumerable<ModifyProcessInstanceRequest.Types.VariableInstruction> variableInstructions)
+    public IModifyProcessInstanceCommandStep1 And()
     {
-        var activateInstruction = new ModifyProcessInstanceRequest.Types.ActivateInstruction
-        {
-            ElementId = elementId,
-            AncestorElementInstanceKey = ancestorElementInstanceKey,
-            VariableInstructions = { variableInstructions }
-        };
-
-        activateInstructions.Add(activateInstruction);
+        AddCurrentActivateInstruction();
         return this;
+    }
+
+    public IModifyProcessInstanceCommandStep3 WithVariables(string variables)
+    {
+        currentActivateInstruction.VariableInstructions.Add(new ModifyProcessInstanceRequest.Types.VariableInstruction
+        {
+            Variables = variables
+        });
+        return this;
+    }
+
+    public IModifyProcessInstanceCommandStep3 WithVariables(string variables, string scopeId)
+    {
+        currentActivateInstruction.VariableInstructions.Add(new ModifyProcessInstanceRequest.Types.VariableInstruction
+        {
+            Variables = variables,
+            ScopeId = scopeId
+        });
+        return this;
+    }
+
+    public IModifyProcessInstanceCommandStep1 AddInstructionToTerminate(long elementInstanceKey)
+    {
+        request.TerminateInstructions.Add(new ModifyProcessInstanceRequest.Types.TerminateInstruction
+        {
+            ElementInstanceKey = elementInstanceKey
+        });
+        return this;
+    }
+
+
+    private void AddCurrentActivateInstruction()
+    {
+        if (currentActivateInstruction == null)
+        {
+            return;
+        }
+
+        request.ActivateInstructions.Add(currentActivateInstruction);
+        currentActivateInstruction = null;
     }
 
     public async Task<IModifyProcessInstanceResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        request.TerminateInstructions.AddRange(terminateInstructions);
-        request.ActivateInstructions.AddRange(activateInstructions);
+        AddCurrentActivateInstruction();
 
         var asyncReply = client.ModifyProcessInstanceAsync(request, cancellationToken: token);
         await asyncReply.ResponseAsync;
-        return new Responses.ModifyProcessInstanceResponse();
+        return new ModifyProcessInstanceResponse();
     }
 
     public async Task<IModifyProcessInstanceResponse> Send(CancellationToken cancellationToken)
@@ -119,7 +120,8 @@ internal class ModifyProcessInstanceCommand : IModifyProcessInstanceCommandStep1
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IModifyProcessInstanceResponse> SendWithRetry(TimeSpan? timeout = null, CancellationToken token = default)
+    public async Task<IModifyProcessInstanceResponse> SendWithRetry(TimeSpan? timeout = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timeout, token));
     }
