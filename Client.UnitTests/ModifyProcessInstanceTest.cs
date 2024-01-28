@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using NUnit.Framework;
@@ -9,41 +8,33 @@ namespace Zeebe.Client;
 [TestFixture]
 public class ModifyProcessInstanceTest : BaseZeebeTest
 {
-    private readonly long testProcessInstanceKey = 1234567890;
-    private readonly long testAncestorElementInstanceKey = 2345678900;
-    private readonly long testElementInstanceKey = 3456789000;
-    private readonly string testElementId = "element1";
-    private readonly string testVariables = "variable1";
-    private readonly string testScopeId = "scope1";
+    private const long TestProcessInstanceKey = 1234567890;
+    private const long TestAncestorElementInstanceKey = 2345678900;
+    private const long TestElementInstanceKey = 3456789000;
+    private const string TestElementId = "element1";
+    private const string TestVariables = "variable1";
+    private const string TestScopeId = "scope1";
 
     [Test]
-    public async Task ShouldSendRequestAsExpectedWithElementIdOnly()
+    public async Task ShouldSendRequestAsExpectedWithActivateElement()
     {
         // given
         var expectedRequest = new ModifyProcessInstanceRequest
         {
-            ProcessInstanceKey = testProcessInstanceKey,
+            ProcessInstanceKey = TestProcessInstanceKey,
             ActivateInstructions =
             {
                 new ModifyProcessInstanceRequest.Types.ActivateInstruction
                 {
-                    ElementId = testElementId,
+                    ElementId = TestElementId,
                     AncestorElementInstanceKey = 0
                 }
-            },
-            TerminateInstructions =
-            {
-                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
-                {
-                    ElementInstanceKey = testElementInstanceKey
-                }
             }
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: testProcessInstanceKey)
-            .AddInstructionToActivate(elementId: testElementId)
-            .AddInstructionToTerminate(elementInstanceKey: testElementInstanceKey)
+        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
+            .ActivateElement(elementId: TestElementId)
             .Send();
 
         // then
@@ -54,33 +45,25 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
     }
 
     [Test]
-    public async Task ShouldSendRequestAsExpectedWithElementIdAndAncestorElementInstanceKey()
+    public async Task ShouldSendRequestAsExpectedWithActivateElementWithAncestor()
     {
         // given
         var expectedRequest = new ModifyProcessInstanceRequest
         {
-            ProcessInstanceKey = testProcessInstanceKey,
+            ProcessInstanceKey = TestProcessInstanceKey,
             ActivateInstructions =
             {
                 new ModifyProcessInstanceRequest.Types.ActivateInstruction
                 {
-                    ElementId = testElementId,
-                    AncestorElementInstanceKey = testAncestorElementInstanceKey
-                }
-            },
-            TerminateInstructions =
-            {
-                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
-                {
-                    ElementInstanceKey = testElementInstanceKey
+                    ElementId = TestElementId,
+                    AncestorElementInstanceKey = TestAncestorElementInstanceKey
                 }
             }
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: testProcessInstanceKey)
-            .AddInstructionToActivate(elementId: testElementId, ancestorElementInstanceKey: testAncestorElementInstanceKey)
-            .AddInstructionToTerminate(elementInstanceKey: testElementInstanceKey)
+        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
+            .ActivateElement(elementId: TestElementId, ancestorElementInstanceKey: TestAncestorElementInstanceKey)
             .Send();
 
         // then
@@ -91,39 +74,151 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
     }
 
     [Test]
-    public async Task ShouldSendRequestAsExpectedWithElementIdAndVariableInstructions()
+    public async Task ShouldSendRequestAsExpectedWithTerminateElement()
     {
         // given
-        var variableInstructions = new List<ModifyProcessInstanceRequest.Types.VariableInstruction>
-        {
-            new () { Variables = testVariables, ScopeId = testScopeId }
-        };
-
         var expectedRequest = new ModifyProcessInstanceRequest
         {
-            ProcessInstanceKey = testProcessInstanceKey,
+            ProcessInstanceKey = TestProcessInstanceKey,
+            TerminateInstructions =
+            {
+                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
+                {
+                    ElementInstanceKey = TestElementInstanceKey
+                }
+            }
+        };
+
+        // when
+        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
+            .TerminateElement(TestElementInstanceKey)
+            .Send();
+
+        // then
+        var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
+        var typedRequest = request as ModifyProcessInstanceRequest;
+        Assert.NotNull(typedRequest);
+        Assert.AreEqual(expectedRequest, typedRequest);
+    }
+
+    [Test]
+    public async Task ShouldSendRequestWithActivateAndTerminate()
+    {
+        // given
+        var expectedRequest = new ModifyProcessInstanceRequest
+        {
+            ProcessInstanceKey = TestProcessInstanceKey,
             ActivateInstructions =
             {
                 new ModifyProcessInstanceRequest.Types.ActivateInstruction
                 {
-                    ElementId = testElementId,
+                    ElementId = TestElementId,
+                    AncestorElementInstanceKey = TestAncestorElementInstanceKey
+                }
+            },
+            TerminateInstructions =
+            {
+                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
+                {
+                    ElementInstanceKey = TestElementInstanceKey
+                }
+            }
+        };
+
+        // when
+        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
+            .ActivateElement(elementId: TestElementId, ancestorElementInstanceKey: TestAncestorElementInstanceKey)
+            .And()
+            .TerminateElement(elementInstanceKey: TestElementInstanceKey)
+            .Send();
+
+        // then
+        var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
+        var typedRequest = request as ModifyProcessInstanceRequest;
+        Assert.NotNull(typedRequest);
+        Assert.AreEqual(expectedRequest, typedRequest);
+    }
+
+    [Test]
+    public async Task ShouldSendRequestWithActivateAndTerminateMultiple()
+    {
+        // given
+        var expectedRequest = new ModifyProcessInstanceRequest
+        {
+            ProcessInstanceKey = TestProcessInstanceKey,
+            ActivateInstructions =
+            {
+                new ModifyProcessInstanceRequest.Types.ActivateInstruction
+                {
+                    ElementId = TestElementId,
+                    AncestorElementInstanceKey = TestAncestorElementInstanceKey
+                },
+                new ModifyProcessInstanceRequest.Types.ActivateInstruction
+                {
+                    ElementId = TestElementId + "2",
+                    AncestorElementInstanceKey = TestAncestorElementInstanceKey + 1
+                }
+            },
+            TerminateInstructions =
+            {
+                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
+                {
+                    ElementInstanceKey = TestElementInstanceKey
+                },
+                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
+                {
+                    ElementInstanceKey = TestElementInstanceKey + 1
+                }
+            }
+        };
+
+        // when
+        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
+            .ActivateElement(elementId: TestElementId, ancestorElementInstanceKey: TestAncestorElementInstanceKey)
+            .And()
+            .TerminateElement(elementInstanceKey: TestElementInstanceKey)
+            .And()
+            .ActivateElement(elementId: TestElementId + "2",
+                ancestorElementInstanceKey: TestAncestorElementInstanceKey + 1)
+            .And()
+            .TerminateElement(TestElementInstanceKey + 1)
+            .Send();
+
+        // then
+        var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
+        var typedRequest = request as ModifyProcessInstanceRequest;
+        Assert.NotNull(typedRequest);
+        Assert.AreEqual(expectedRequest, typedRequest);
+    }
+
+    [Test]
+    public async Task ShouldSendRequestWithActivateElementIdAndVariableInstructions()
+    {
+        // given
+        var expectedRequest = new ModifyProcessInstanceRequest
+        {
+            ProcessInstanceKey = TestProcessInstanceKey,
+            ActivateInstructions =
+            {
+                new ModifyProcessInstanceRequest.Types.ActivateInstruction
+                {
+                    ElementId = TestElementId,
                     AncestorElementInstanceKey = 0,
-                    VariableInstructions = { variableInstructions }
-                }
-            },
-            TerminateInstructions =
-            {
-                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
-                {
-                    ElementInstanceKey = testElementInstanceKey
+                    VariableInstructions =
+                    {
+                        new List<ModifyProcessInstanceRequest.Types.VariableInstruction>
+                        {
+                            new () { Variables = TestVariables, ScopeId = TestScopeId }
+                        }
+                    }
                 }
             }
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: testProcessInstanceKey)
-            .AddInstructionToActivate(elementId: testElementId, variableInstructions: variableInstructions)
-            .AddInstructionToTerminate(elementInstanceKey: testElementInstanceKey)
+        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
+            .ActivateElement(elementId: TestElementId)
+            .WithVariables(TestVariables, TestScopeId)
             .Send();
 
         // then
@@ -134,42 +229,42 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
     }
 
     [Test]
-    public async Task ShouldSendRequestAsExpectedWithElementIdAndAncestorElementInstanceKeyAndVariableInstructions()
+    public async Task ShouldSendRequestWithActivateElementIdVariableAndTerminateInstructions()
     {
         // given
-        var variableInstructions = new List<ModifyProcessInstanceRequest.Types.VariableInstruction>
-        {
-            new () { Variables = testVariables, ScopeId = testScopeId }
-        };
-
         var expectedRequest = new ModifyProcessInstanceRequest
         {
-            ProcessInstanceKey = testProcessInstanceKey,
+            ProcessInstanceKey = TestProcessInstanceKey,
             ActivateInstructions =
             {
                 new ModifyProcessInstanceRequest.Types.ActivateInstruction
                 {
-                    ElementId = testElementId,
-                    AncestorElementInstanceKey = testAncestorElementInstanceKey,
-                    VariableInstructions = { variableInstructions }
+                    ElementId = TestElementId,
+                    AncestorElementInstanceKey = TestAncestorElementInstanceKey,
+                    VariableInstructions =
+                    {
+                        new List<ModifyProcessInstanceRequest.Types.VariableInstruction>
+                        {
+                            new () { Variables = TestVariables, ScopeId = TestScopeId }
+                        }
+                    }
                 }
             },
             TerminateInstructions =
             {
                 new ModifyProcessInstanceRequest.Types.TerminateInstruction()
                 {
-                     ElementInstanceKey = testElementInstanceKey
+                    ElementInstanceKey = TestElementInstanceKey
                 }
             }
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: testProcessInstanceKey)
-            .AddInstructionToActivate(
-                elementId: testElementId,
-                ancestorElementInstanceKey: testAncestorElementInstanceKey,
-                variableInstructions: variableInstructions)
-            .AddInstructionToTerminate(elementInstanceKey: testElementInstanceKey)
+        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
+            .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
+            .WithVariables(TestVariables, TestScopeId)
+            .And()
+            .TerminateElement(elementInstanceKey: TestElementInstanceKey)
             .Send();
 
         // then
@@ -177,16 +272,5 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         var typedRequest = request as ModifyProcessInstanceRequest;
         Assert.NotNull(typedRequest);
         Assert.AreEqual(expectedRequest, typedRequest);
-    }
-
-    [Test]
-    public async Task ShouldReceiveResponseAsExpected()
-    {
-        // when
-        var modifyProcessInstanceResponse = await ZeebeClient.NewModifyProcessInstanceCommand(0)
-            .Send();
-
-        // then
-        Assert.IsNotNull(modifyProcessInstanceResponse);
     }
 }
