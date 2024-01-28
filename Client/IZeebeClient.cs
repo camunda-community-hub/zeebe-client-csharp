@@ -246,23 +246,25 @@ namespace Zeebe.Client
         IPublishMessageCommandStep1 NewPublishMessageCommand();
 
         /// <summary>
-        /// Command to modify a process which can be correlated to a process instance.
+        /// Command to modify a process instance.
         /// </summary>
         /// <example>
         /// <code>
         /// zeebeClient
-        ///  .NewModifyProcessInstanceCommand(processInstanceKey)
-        ///  .AddInstructionToActivate(long elementInstanceKey)
-        ///  .AddInstructionToTerminate(string elementId, long ancestorElementInstanceKey)
-        ///  .Send();
+        ///     .NewModifyProcessInstanceCommand(processInstanceKey)
+        ///     .ActivateElement("element1")
+        ///     .And()
+        ///     .ActivateElement("element2")
+        ///     .WithVariables(globalScopedVariables)
+        ///     .WithVariables(localScopedVariables, "element2")
+        ///     .And()
+        ///     .TerminateElement("element3")
+        ///     .SendWithRetry();
         /// </code>
         /// </example>
-        /// <param name="processInstanceKey">
-        ///     processInstanceKey the key which identifies the corresponding process instance.
+        /// <param name="processInstanceKey">The key which identifies the corresponding process instance.
         /// </param>
-        /// <returns>
-        ///     a builder for the command.
-        /// </returns>
+        /// <returns> a builder for the command.</returns>
         IModifyProcessInstanceCommandStep1 NewModifyProcessInstanceCommand(long processInstanceKey);
 
         /// <summary>
