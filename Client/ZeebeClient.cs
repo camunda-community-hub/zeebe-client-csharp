@@ -232,6 +232,11 @@ namespace Zeebe.Client
             return new PublishMessageCommand(gatewayClient, asyncRetryStrategy);
         }
 
+        public IModifyProcessInstanceCommandStep1 NewModifyProcessInstanceCommand(long processInstanceKey)
+        {
+            return new ModifyProcessInstanceCommand(gatewayClient, asyncRetryStrategy, processInstanceKey);
+        }
+
         public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient, asyncRetryStrategy);
 
         public void Dispose()
