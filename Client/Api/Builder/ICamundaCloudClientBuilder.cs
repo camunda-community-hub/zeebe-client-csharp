@@ -77,6 +77,13 @@ namespace Zeebe.Client.Api.Builder
         ICamundaCloudClientBuilderFinalStep UseAuthServer(string url);
 
         /// <summary>
+        /// Sets the given path to store credentials on disk.
+        /// </summary>
+        /// <param name="path">the path where to store the credentials.</param>
+        /// <returns>the fluent ICamundaCloudClientBuilderFinalStep.</returns>
+        ICamundaCloudClientBuilderFinalStep UsePersistedStoragePath(string path);
+
+        /// <summary>
         /// The IZeebeClient, which is setup entirely to talk with the defined Camunda Cloud cluster.
         /// </summary>
         /// <returns>the IZeebeClient</returns>
