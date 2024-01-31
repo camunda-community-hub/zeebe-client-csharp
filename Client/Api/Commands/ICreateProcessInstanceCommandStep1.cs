@@ -43,7 +43,7 @@ namespace Zeebe.Client.Api.Commands
         ICreateProcessInstanceCommandStep3 LatestVersion();
     }
 
-    public interface ICreateProcessInstanceCommandStep3 : IFinalCommandWithRetryStep<IProcessInstanceResponse>
+    public interface ICreateProcessInstanceCommandStep3 : IFinalCommandWithRetryStep<IProcessInstanceResponse>, ITenantIdCommandStep<ICreateProcessInstanceCommandStep3>
     {
         /// <summary>
         /// Set the initial variables of the process instance.
