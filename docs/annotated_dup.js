@@ -42,6 +42,7 @@ var annotated_dup =
             [ "ISetVariablesCommandStep1", "d2/d5d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep1.html", "d2/d5d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep1" ],
             [ "ISetVariablesCommandStep2", "de/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep2.html", "de/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep2" ],
             [ "ITenantIdCommandStep", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep" ],
+            [ "ITenantIdsCommandStep", "d3/da8/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdsCommandStep.html", "d3/da8/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdsCommandStep" ],
             [ "IThrowErrorCommandStep1", "d4/d22/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep1.html", "d4/d22/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep1" ],
             [ "IThrowErrorCommandStep2", "d3/d85/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep2.html", "d3/d85/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep2" ],
             [ "ITopologyRequestStep1", "d5/dae/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITopologyRequestStep1.html", null ],
@@ -88,5 +89,9 @@ var annotated_dup =
     [ "IEvaluatedDecisionInput", "d4/d5a/interfaceIEvaluatedDecisionInput.html", "d4/d5a/interfaceIEvaluatedDecisionInput" ],
     [ "IEvaluatedDecisionOutput", "d3/df4/interfaceIEvaluatedDecisionOutput.html", "d3/df4/interfaceIEvaluatedDecisionOutput" ],
     [ "IEvaluateDecisionCommandStep1", "da/d52/interfaceIEvaluateDecisionCommandStep1.html", "da/d52/interfaceIEvaluateDecisionCommandStep1" ],
-    [ "IMatchedDecisionRule", "df/d06/interfaceIMatchedDecisionRule.html", "df/d06/interfaceIMatchedDecisionRule" ]
+    [ "IMatchedDecisionRule", "df/d06/interfaceIMatchedDecisionRule.html", "df/d06/interfaceIMatchedDecisionRule" ],
+    [ "IModifyProcessInstanceCommandStep1", "dd/d24/interfaceIModifyProcessInstanceCommandStep1.html", "dd/d24/interfaceIModifyProcessInstanceCommandStep1" ],
+    [ "IModifyProcessInstanceCommandStep2", "df/db2/interfaceIModifyProcessInstanceCommandStep2.html", "df/db2/interfaceIModifyProcessInstanceCommandStep2" ],
+    [ "IModifyProcessInstanceCommandStep3", "d0/d4b/interfaceIModifyProcessInstanceCommandStep3.html", "d0/d4b/interfaceIModifyProcessInstanceCommandStep3" ],
+    [ "IModifyProcessInstanceResponse", "d8/dae/interfaceIModifyProcessInstanceResponse.html", null ]
 ];

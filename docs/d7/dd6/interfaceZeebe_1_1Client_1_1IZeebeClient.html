@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.4.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.5.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -142,6 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab8ab0c28694249cc682e32a24cc7889a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d8d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep1.html">IPublishMessageCommandStep1</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ab8ab0c28694249cc682e32a24cc7889a">NewPublishMessageCommand</a> ()</td></tr>
 <tr class="memdesc:ab8ab0c28694249cc682e32a24cc7889a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command to publish a message which can be correlated to a process instance.   <a href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ab8ab0c28694249cc682e32a24cc7889a">More...</a><br /></td></tr>
 <tr class="separator:ab8ab0c28694249cc682e32a24cc7889a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23db90ff51873442dc60bf6f94057cd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d24/interfaceIModifyProcessInstanceCommandStep1.html">IModifyProcessInstanceCommandStep1</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a23db90ff51873442dc60bf6f94057cd9">NewModifyProcessInstanceCommand</a> (long processInstanceKey)</td></tr>
+<tr class="memdesc:a23db90ff51873442dc60bf6f94057cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command to modify a process instance.   <a href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a23db90ff51873442dc60bf6f94057cd9">More...</a><br /></td></tr>
+<tr class="separator:a23db90ff51873442dc60bf6f94057cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04edceb7abb5195c0c35efa0de843236"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/dae/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITopologyRequestStep1.html">ITopologyRequestStep1</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a04edceb7abb5195c0c35efa0de843236">TopologyRequest</a> ()</td></tr>
 <tr class="memdesc:a04edceb7abb5195c0c35efa0de843236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request the current cluster topology. Can be used to inspect which brokers are available at which endpoint and which broker is the leader of which partition.   <a href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a04edceb7abb5195c0c35efa0de843236">More...</a><br /></td></tr>
 <tr class="separator:a04edceb7abb5195c0c35efa0de843236"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -294,6 +297,43 @@ Public Member Functions</h2></td></tr>
 <div class="line">  .Variables(json)</div>
 <div class="line">  .Send();</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>a builder for the deploy command </dd></dl>
+
+</div>
+</div>
+<a id="a23db90ff51873442dc60bf6f94057cd9" name="a23db90ff51873442dc60bf6f94057cd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23db90ff51873442dc60bf6f94057cd9">&#9670;&#160;</a></span>NewModifyProcessInstanceCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d24/interfaceIModifyProcessInstanceCommandStep1.html">IModifyProcessInstanceCommandStep1</a> Zeebe.Client.IZeebeClient.NewModifyProcessInstanceCommand </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>processInstanceKey</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Command to modify a process instance.  </p>
+<div class="fragment"><div class="line">zeebeClient</div>
+<div class="line">    .NewModifyProcessInstanceCommand(processInstanceKey)</div>
+<div class="line">    .ActivateElement(<span class="stringliteral">&quot;element1&quot;</span>)</div>
+<div class="line">    .And()</div>
+<div class="line">    .ActivateElement(<span class="stringliteral">&quot;element2&quot;</span>)</div>
+<div class="line">    .WithVariables(globalScopedVariables)</div>
+<div class="line">    .WithVariables(localScopedVariables, <span class="stringliteral">&quot;element2&quot;</span>)</div>
+<div class="line">    .And()</div>
+<div class="line">    .TerminateElement(<span class="stringliteral">&quot;element3&quot;</span>)</div>
+<div class="line">    .SendWithRetry();</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">processInstanceKey</td><td>The key which identifies the corresponding process instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a builder for the command.</dd></dl>
 
 </div>
 </div>
@@ -490,7 +530,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html">IZeebeClient</a></li>
-    <li class="footer">Generated on Fri Dec 15 2023 17:11:57 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Thu Feb 1 2024 15:47:54 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
