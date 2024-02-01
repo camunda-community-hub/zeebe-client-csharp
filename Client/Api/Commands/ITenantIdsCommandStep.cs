@@ -5,7 +5,7 @@ namespace Zeebe.Client.Api.Commands
     public interface ITenantIdsCommandStep<out T>
     {
         /// <summary>
-        /// Set a list of tenantIds to associate with this resource.
+        /// Specifies the tenants that may own any entities (e.g. process definition, process instances, etc.) resulting from this command.
         /// </summary>
         /// 
         /// This can be useful when requesting jobs for multiple tenants at once. Each of the activated 
