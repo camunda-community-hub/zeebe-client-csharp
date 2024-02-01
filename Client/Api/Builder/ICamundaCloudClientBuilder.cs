@@ -72,14 +72,14 @@ namespace Zeebe.Client.Api.Builder
         /// <summary>
         /// Defines the authorization server, from which the access token should be requested.
         /// </summary>
-        /// <param name="url">an url, which points to the authorization server</param>
+        /// <param name="url">an url, which points to the authorization server, if null it uses the default https://login.cloud.camunda.io/oauth/token.</param>
         /// <returns>the next step in building a ICamundaCloudClient</returns>
         ICamundaCloudClientBuilderFinalStep UseAuthServer(string url);
 
         /// <summary>
         /// Sets the given path to store credentials on disk.
         /// </summary>
-        /// <param name="path">the path where to store the credentials.</param>
+        /// <param name="path">the path where to store the credentials, if null it uses the default "~/.zeebe" .</param>
         /// <returns>the fluent ICamundaCloudClientBuilderFinalStep.</returns>
         ICamundaCloudClientBuilderFinalStep UsePersistedStoragePath(string path);
 
