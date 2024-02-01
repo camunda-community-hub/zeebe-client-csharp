@@ -18,6 +18,9 @@ namespace Zeebe.Client.Api.Commands
         /// <summary>
         /// Specifies the tenants that may own any entities (e.g. process definition, process instances, etc.) resulting from this command.
         /// </summary>
+        /// 
+        /// This can be useful when requesting jobs for multiple tenants at once. Each of the activated 
+        /// jobs will be owned by the tenant that owns the corresponding process instance.
         /// <param name="tenantIds">the tenant to associate to this resource.</param>
         /// <returns>The builder for this command.  Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
         ///     to the broker.</returns>
