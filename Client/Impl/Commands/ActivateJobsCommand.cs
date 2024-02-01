@@ -65,6 +65,20 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
+        public IActivateJobsCommandStep3 TenantIds(IList<string> tenantIds)
+        {
+            Request.TenantIds.AddRange(tenantIds);
+
+            return this;
+        }
+
+        public IActivateJobsCommandStep3 TenantIds(params string[] tenantIds)
+        {
+            Request.TenantIds.AddRange(tenantIds);
+
+            return this;
+        }
+
         public async Task<IActivateJobsResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
             var activateJobsResponses = new Responses.ActivateJobsResponses();
