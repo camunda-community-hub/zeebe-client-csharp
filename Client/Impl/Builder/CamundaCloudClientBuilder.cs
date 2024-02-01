@@ -75,6 +75,18 @@ namespace Zeebe.Client.Impl.Builder
             return this;
         }
 
+        public ICamundaCloudClientBuilderFinalStep UsePersistedStoragePath(string path)
+        {
+            if (path is null)
+            {
+                // use default
+                return this;
+            }
+
+            camundaCloudTokenProviderBuilder.UsePath(path);
+            return this;
+        }
+
         private string GetFromEnv(string key)
         {
             char[] charsToTrim = { ' ', '\'' };
