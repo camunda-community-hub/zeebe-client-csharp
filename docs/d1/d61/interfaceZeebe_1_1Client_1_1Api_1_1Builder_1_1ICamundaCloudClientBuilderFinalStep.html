@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.4.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.5.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -106,6 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab969cc775e9253e23bf870ae99fa2ae8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html">ICamundaCloudClientBuilderFinalStep</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html#ab969cc775e9253e23bf870ae99fa2ae8">UseAuthServer</a> (string url)</td></tr>
 <tr class="memdesc:ab969cc775e9253e23bf870ae99fa2ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the authorization server, from which the access token should be requested.   <a href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html#ab969cc775e9253e23bf870ae99fa2ae8">More...</a><br /></td></tr>
 <tr class="separator:ab969cc775e9253e23bf870ae99fa2ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73d1752b26ea18eaa345857a91fcb452"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html">ICamundaCloudClientBuilderFinalStep</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html#a73d1752b26ea18eaa345857a91fcb452">UsePersistedStoragePath</a> (string path)</td></tr>
+<tr class="memdesc:a73d1752b26ea18eaa345857a91fcb452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the given path to store credentials on disk.   <a href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html#a73d1752b26ea18eaa345857a91fcb452">More...</a><br /></td></tr>
+<tr class="separator:a73d1752b26ea18eaa345857a91fcb452"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8de8d1febe93685c220a9b7e381e529e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html">IZeebeClient</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html#a8de8d1febe93685c220a9b7e381e529e">Build</a> ()</td></tr>
 <tr class="memdesc:a8de8d1febe93685c220a9b7e381e529e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html" title="The client to communicate with a Zeebe gateway/cluster.">IZeebeClient</a>, which is setup entirely to talk with the defined Camunda Cloud cluster.   <a href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html#a8de8d1febe93685c220a9b7e381e529e">More...</a><br /></td></tr>
 <tr class="separator:a8de8d1febe93685c220a9b7e381e529e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,7 +153,7 @@ Public Member Functions</h2></td></tr>
 <p>Defines the authorization server, from which the access token should be requested.  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">url</td><td>an url, which points to the authorization server</td></tr>
+    <tr><td class="paramname">url</td><td>an url, which points to the authorization server, if null it uses the default <a href="https://login.cloud.camunda.io/oauth/token">https://login.cloud.camunda.io/oauth/token</a>.</td></tr>
   </table>
   </dd>
 </dl>
@@ -185,6 +188,33 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a73d1752b26ea18eaa345857a91fcb452" name="a73d1752b26ea18eaa345857a91fcb452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d1752b26ea18eaa345857a91fcb452">&#9670;&#160;</a></span>UsePersistedStoragePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html">ICamundaCloudClientBuilderFinalStep</a> Zeebe.Client.Api.Builder.ICamundaCloudClientBuilderFinalStep.UsePersistedStoragePath </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the given path to store credentials on disk.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>the path where to store the credentials, if null it uses the default "~/.zeebe" .</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the fluent <a class="el" href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html">ICamundaCloudClientBuilderFinalStep</a>.</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
 <li>Client/Api/Builder/ICamundaCloudClientBuilder.cs</li>
 </ul>
@@ -194,7 +224,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d5/df7/namespaceZeebe_1_1Client_1_1Api.html">Api</a></li><li class="navelem"><a class="el" href="../../dc/d04/namespaceZeebe_1_1Client_1_1Api_1_1Builder.html">Builder</a></li><li class="navelem"><a class="el" href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html">ICamundaCloudClientBuilderFinalStep</a></li>
-    <li class="footer">Generated on Fri Dec 15 2023 17:11:57 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Thu Feb 1 2024 15:47:54 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>

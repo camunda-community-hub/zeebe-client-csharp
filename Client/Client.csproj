@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-    <Version>2.4.0</Version>
+    <Version>2.5.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,23 +13,13 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>2.4.0</AssemblyVersion>
-    <FileVersion>2.4.0</FileVersion>
+    <AssemblyVersion>2.5.0</AssemblyVersion>
+    <FileVersion>2.5.0</FileVersion>
     <PackageReleaseNotes>
-Features:
 
-      * Improve CamundaCloudTokenProvider to work with self-managed
-      * Add first tenant support to DeploymentResource
+      See release notes https://github.com/camunda-community-hub/zeebe-client-csharp/releases
 
-Dependencies:
-     * Several dependencies have been upgraded
-
-
-GRPC protocol as generated against Zeebe v8.3.0
-
------
-
-This release is based on the Zeebe 8.3.0 release (https://github.com/zeebe-io/zeebe).
+This release is based on the Zeebe 8.4.1 release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -39,9 +29,9 @@ This release is based on the Zeebe 8.3.0 release (https://github.com/zeebe-io/ze
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>2.4.0</PackageVersion>
+    <PackageVersion>2.5.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>2.4.0</Title>
+    <Title>2.5.0</Title>
     <LangVersion>default</LangVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>

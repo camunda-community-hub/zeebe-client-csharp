@@ -114,6 +114,14 @@ namespace GatewayProtocol {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GatewayProtocol.ModifyProcessInstanceResponse> __Marshaller_gateway_protocol_ModifyProcessInstanceResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.ModifyProcessInstanceResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.MigrateProcessInstanceRequest> __Marshaller_gateway_protocol_MigrateProcessInstanceRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.MigrateProcessInstanceRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.MigrateProcessInstanceResponse> __Marshaller_gateway_protocol_MigrateProcessInstanceResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.MigrateProcessInstanceResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobTimeoutRequest> __Marshaller_gateway_protocol_UpdateJobTimeoutRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.UpdateJobTimeoutRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GatewayProtocol.UpdateJobTimeoutResponse> __Marshaller_gateway_protocol_UpdateJobTimeoutResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.UpdateJobTimeoutResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GatewayProtocol.DeleteResourceRequest> __Marshaller_gateway_protocol_DeleteResourceRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.DeleteResourceRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GatewayProtocol.DeleteResourceResponse> __Marshaller_gateway_protocol_DeleteResourceResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GatewayProtocol.DeleteResourceResponse.Parser));
@@ -257,6 +265,22 @@ namespace GatewayProtocol {
         "ModifyProcessInstance",
         __Marshaller_gateway_protocol_ModifyProcessInstanceRequest,
         __Marshaller_gateway_protocol_ModifyProcessInstanceResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GatewayProtocol.MigrateProcessInstanceRequest, global::GatewayProtocol.MigrateProcessInstanceResponse> __Method_MigrateProcessInstance = new grpc::Method<global::GatewayProtocol.MigrateProcessInstanceRequest, global::GatewayProtocol.MigrateProcessInstanceResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "MigrateProcessInstance",
+        __Marshaller_gateway_protocol_MigrateProcessInstanceRequest,
+        __Marshaller_gateway_protocol_MigrateProcessInstanceResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GatewayProtocol.UpdateJobTimeoutRequest, global::GatewayProtocol.UpdateJobTimeoutResponse> __Method_UpdateJobTimeout = new grpc::Method<global::GatewayProtocol.UpdateJobTimeoutRequest, global::GatewayProtocol.UpdateJobTimeoutResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpdateJobTimeout",
+        __Marshaller_gateway_protocol_UpdateJobTimeoutRequest,
+        __Marshaller_gateway_protocol_UpdateJobTimeoutResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GatewayProtocol.DeleteResourceRequest, global::GatewayProtocol.DeleteResourceResponse> __Method_DeleteResource = new grpc::Method<global::GatewayProtocol.DeleteResourceRequest, global::GatewayProtocol.DeleteResourceResponse>(
@@ -636,6 +660,60 @@ namespace GatewayProtocol {
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.ModifyProcessInstanceResponse> ModifyProcessInstance(global::GatewayProtocol.ModifyProcessInstanceRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Migrates the process instance to the specified process definition.
+      ///In simple terms, this is handled by updating the active element's process.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no process instance exists with the given key, or it is not active
+      ///- no process definition exists with the given target definition key
+      ///- no process instance exists with the given key for the tenants the user is authorized to work with.
+      ///
+      ///FAILED_PRECONDITION:
+      ///- not all active elements in the given process instance are mapped to the elements in the target process definition
+      ///- a mapping instruction changes the type of an element or event
+      ///- a mapping instruction refers to an unsupported element (i.e. some elements will be supported later on)
+      ///- a mapping instruction refers to element in unsupported scenarios.
+      ///(i.e. migration is not supported when process instance or target process elements contains event subscriptions)
+      ///
+      ///INVALID_ARGUMENT:
+      ///- A `sourceElementId` does not refer to an element in the process instance's process definition
+      ///- A `targetElementId` does not refer to an element in the target process definition
+      ///- A `sourceElementId` is mapped by multiple mapping instructions.
+      ///For example, the engine cannot determine how to migrate a process instance when the instructions are: [A->B, A->C].
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.MigrateProcessInstanceResponse> MigrateProcessInstance(global::GatewayProtocol.MigrateProcessInstanceRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      ///
+      ///Updates the deadline of a job using the timeout (in ms) provided. This can be used
+      ///for extending or shortening the job deadline.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given key
+      ///
+      ///INVALID_STATE:
+      ///- no deadline exists for the given job key
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::GatewayProtocol.UpdateJobTimeoutResponse> UpdateJobTimeout(global::GatewayProtocol.UpdateJobTimeoutRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -2050,6 +2128,222 @@ namespace GatewayProtocol {
       }
       /// <summary>
       ///
+      ///Migrates the process instance to the specified process definition.
+      ///In simple terms, this is handled by updating the active element's process.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no process instance exists with the given key, or it is not active
+      ///- no process definition exists with the given target definition key
+      ///- no process instance exists with the given key for the tenants the user is authorized to work with.
+      ///
+      ///FAILED_PRECONDITION:
+      ///- not all active elements in the given process instance are mapped to the elements in the target process definition
+      ///- a mapping instruction changes the type of an element or event
+      ///- a mapping instruction refers to an unsupported element (i.e. some elements will be supported later on)
+      ///- a mapping instruction refers to element in unsupported scenarios.
+      ///(i.e. migration is not supported when process instance or target process elements contains event subscriptions)
+      ///
+      ///INVALID_ARGUMENT:
+      ///- A `sourceElementId` does not refer to an element in the process instance's process definition
+      ///- A `targetElementId` does not refer to an element in the target process definition
+      ///- A `sourceElementId` is mapped by multiple mapping instructions.
+      ///For example, the engine cannot determine how to migrate a process instance when the instructions are: [A->B, A->C].
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GatewayProtocol.MigrateProcessInstanceResponse MigrateProcessInstance(global::GatewayProtocol.MigrateProcessInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return MigrateProcessInstance(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Migrates the process instance to the specified process definition.
+      ///In simple terms, this is handled by updating the active element's process.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no process instance exists with the given key, or it is not active
+      ///- no process definition exists with the given target definition key
+      ///- no process instance exists with the given key for the tenants the user is authorized to work with.
+      ///
+      ///FAILED_PRECONDITION:
+      ///- not all active elements in the given process instance are mapped to the elements in the target process definition
+      ///- a mapping instruction changes the type of an element or event
+      ///- a mapping instruction refers to an unsupported element (i.e. some elements will be supported later on)
+      ///- a mapping instruction refers to element in unsupported scenarios.
+      ///(i.e. migration is not supported when process instance or target process elements contains event subscriptions)
+      ///
+      ///INVALID_ARGUMENT:
+      ///- A `sourceElementId` does not refer to an element in the process instance's process definition
+      ///- A `targetElementId` does not refer to an element in the target process definition
+      ///- A `sourceElementId` is mapped by multiple mapping instructions.
+      ///For example, the engine cannot determine how to migrate a process instance when the instructions are: [A->B, A->C].
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GatewayProtocol.MigrateProcessInstanceResponse MigrateProcessInstance(global::GatewayProtocol.MigrateProcessInstanceRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_MigrateProcessInstance, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Migrates the process instance to the specified process definition.
+      ///In simple terms, this is handled by updating the active element's process.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no process instance exists with the given key, or it is not active
+      ///- no process definition exists with the given target definition key
+      ///- no process instance exists with the given key for the tenants the user is authorized to work with.
+      ///
+      ///FAILED_PRECONDITION:
+      ///- not all active elements in the given process instance are mapped to the elements in the target process definition
+      ///- a mapping instruction changes the type of an element or event
+      ///- a mapping instruction refers to an unsupported element (i.e. some elements will be supported later on)
+      ///- a mapping instruction refers to element in unsupported scenarios.
+      ///(i.e. migration is not supported when process instance or target process elements contains event subscriptions)
+      ///
+      ///INVALID_ARGUMENT:
+      ///- A `sourceElementId` does not refer to an element in the process instance's process definition
+      ///- A `targetElementId` does not refer to an element in the target process definition
+      ///- A `sourceElementId` is mapped by multiple mapping instructions.
+      ///For example, the engine cannot determine how to migrate a process instance when the instructions are: [A->B, A->C].
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.MigrateProcessInstanceResponse> MigrateProcessInstanceAsync(global::GatewayProtocol.MigrateProcessInstanceRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return MigrateProcessInstanceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Migrates the process instance to the specified process definition.
+      ///In simple terms, this is handled by updating the active element's process.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no process instance exists with the given key, or it is not active
+      ///- no process definition exists with the given target definition key
+      ///- no process instance exists with the given key for the tenants the user is authorized to work with.
+      ///
+      ///FAILED_PRECONDITION:
+      ///- not all active elements in the given process instance are mapped to the elements in the target process definition
+      ///- a mapping instruction changes the type of an element or event
+      ///- a mapping instruction refers to an unsupported element (i.e. some elements will be supported later on)
+      ///- a mapping instruction refers to element in unsupported scenarios.
+      ///(i.e. migration is not supported when process instance or target process elements contains event subscriptions)
+      ///
+      ///INVALID_ARGUMENT:
+      ///- A `sourceElementId` does not refer to an element in the process instance's process definition
+      ///- A `targetElementId` does not refer to an element in the target process definition
+      ///- A `sourceElementId` is mapped by multiple mapping instructions.
+      ///For example, the engine cannot determine how to migrate a process instance when the instructions are: [A->B, A->C].
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.MigrateProcessInstanceResponse> MigrateProcessInstanceAsync(global::GatewayProtocol.MigrateProcessInstanceRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_MigrateProcessInstance, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Updates the deadline of a job using the timeout (in ms) provided. This can be used
+      ///for extending or shortening the job deadline.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given key
+      ///
+      ///INVALID_STATE:
+      ///- no deadline exists for the given job key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GatewayProtocol.UpdateJobTimeoutResponse UpdateJobTimeout(global::GatewayProtocol.UpdateJobTimeoutRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateJobTimeout(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Updates the deadline of a job using the timeout (in ms) provided. This can be used
+      ///for extending or shortening the job deadline.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given key
+      ///
+      ///INVALID_STATE:
+      ///- no deadline exists for the given job key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GatewayProtocol.UpdateJobTimeoutResponse UpdateJobTimeout(global::GatewayProtocol.UpdateJobTimeoutRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpdateJobTimeout, null, options, request);
+      }
+      /// <summary>
+      ///
+      ///Updates the deadline of a job using the timeout (in ms) provided. This can be used
+      ///for extending or shortening the job deadline.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given key
+      ///
+      ///INVALID_STATE:
+      ///- no deadline exists for the given job key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateJobTimeoutResponse> UpdateJobTimeoutAsync(global::GatewayProtocol.UpdateJobTimeoutRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateJobTimeoutAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///
+      ///Updates the deadline of a job using the timeout (in ms) provided. This can be used
+      ///for extending or shortening the job deadline.
+      ///
+      ///Errors:
+      ///NOT_FOUND:
+      ///- no job exists with the given key
+      ///
+      ///INVALID_STATE:
+      ///- no deadline exists for the given job key
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GatewayProtocol.UpdateJobTimeoutResponse> UpdateJobTimeoutAsync(global::GatewayProtocol.UpdateJobTimeoutRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpdateJobTimeout, null, options, request);
+      }
+      /// <summary>
+      ///
       ///Deletes a resource from the state. Once a resource has been deleted it cannot
       ///be recovered. If the resource needs to be available again, a new deployment
       ///of the resource is required.
@@ -2251,6 +2545,8 @@ namespace GatewayProtocol {
           .AddMethod(__Method_Topology, serviceImpl.Topology)
           .AddMethod(__Method_UpdateJobRetries, serviceImpl.UpdateJobRetries)
           .AddMethod(__Method_ModifyProcessInstance, serviceImpl.ModifyProcessInstance)
+          .AddMethod(__Method_MigrateProcessInstance, serviceImpl.MigrateProcessInstance)
+          .AddMethod(__Method_UpdateJobTimeout, serviceImpl.UpdateJobTimeout)
           .AddMethod(__Method_DeleteResource, serviceImpl.DeleteResource)
           .AddMethod(__Method_BroadcastSignal, serviceImpl.BroadcastSignal).Build();
     }
@@ -2279,6 +2575,8 @@ namespace GatewayProtocol {
       serviceBinder.AddMethod(__Method_Topology, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.TopologyRequest, global::GatewayProtocol.TopologyResponse>(serviceImpl.Topology));
       serviceBinder.AddMethod(__Method_UpdateJobRetries, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.UpdateJobRetriesRequest, global::GatewayProtocol.UpdateJobRetriesResponse>(serviceImpl.UpdateJobRetries));
       serviceBinder.AddMethod(__Method_ModifyProcessInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.ModifyProcessInstanceRequest, global::GatewayProtocol.ModifyProcessInstanceResponse>(serviceImpl.ModifyProcessInstance));
+      serviceBinder.AddMethod(__Method_MigrateProcessInstance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.MigrateProcessInstanceRequest, global::GatewayProtocol.MigrateProcessInstanceResponse>(serviceImpl.MigrateProcessInstance));
+      serviceBinder.AddMethod(__Method_UpdateJobTimeout, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.UpdateJobTimeoutRequest, global::GatewayProtocol.UpdateJobTimeoutResponse>(serviceImpl.UpdateJobTimeout));
       serviceBinder.AddMethod(__Method_DeleteResource, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.DeleteResourceRequest, global::GatewayProtocol.DeleteResourceResponse>(serviceImpl.DeleteResource));
       serviceBinder.AddMethod(__Method_BroadcastSignal, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GatewayProtocol.BroadcastSignalRequest, global::GatewayProtocol.BroadcastSignalResponse>(serviceImpl.BroadcastSignal));
     }

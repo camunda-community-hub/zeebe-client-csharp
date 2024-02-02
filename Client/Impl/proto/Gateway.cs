@@ -141,67 +141,84 @@ namespace GatewayProtocol {
             "dGl0aW9uQnJva2VySGVhbHRoEgsKB0hFQUxUSFkQABINCglVTkhFQUxUSFkQ",
             "ARIICgRERUFEEAIiOgoXVXBkYXRlSm9iUmV0cmllc1JlcXVlc3QSDgoGam9i",
             "S2V5GAEgASgDEg8KB3JldHJpZXMYAiABKAUiGgoYVXBkYXRlSm9iUmV0cmll",
-            "c1Jlc3BvbnNlIlMKE1NldFZhcmlhYmxlc1JlcXVlc3QSGgoSZWxlbWVudElu",
-            "c3RhbmNlS2V5GAEgASgDEhEKCXZhcmlhYmxlcxgCIAEoCRINCgVsb2NhbBgD",
-            "IAEoCCIjChRTZXRWYXJpYWJsZXNSZXNwb25zZRILCgNrZXkYASABKAMioAQK",
-            "HE1vZGlmeVByb2Nlc3NJbnN0YW5jZVJlcXVlc3QSGgoScHJvY2Vzc0luc3Rh",
-            "bmNlS2V5GAEgASgDEmAKFGFjdGl2YXRlSW5zdHJ1Y3Rpb25zGAIgAygLMkIu",
-            "Z2F0ZXdheV9wcm90b2NvbC5Nb2RpZnlQcm9jZXNzSW5zdGFuY2VSZXF1ZXN0",
-            "LkFjdGl2YXRlSW5zdHJ1Y3Rpb24SYgoVdGVybWluYXRlSW5zdHJ1Y3Rpb25z",
-            "GAMgAygLMkMuZ2F0ZXdheV9wcm90b2NvbC5Nb2RpZnlQcm9jZXNzSW5zdGFu",
-            "Y2VSZXF1ZXN0LlRlcm1pbmF0ZUluc3RydWN0aW9uGq4BChNBY3RpdmF0ZUlu",
-            "c3RydWN0aW9uEhEKCWVsZW1lbnRJZBgBIAEoCRIiChphbmNlc3RvckVsZW1l",
-            "bnRJbnN0YW5jZUtleRgCIAEoAxJgChR2YXJpYWJsZUluc3RydWN0aW9ucxgD",
-            "IAMoCzJCLmdhdGV3YXlfcHJvdG9jb2wuTW9kaWZ5UHJvY2Vzc0luc3RhbmNl",
-            "UmVxdWVzdC5WYXJpYWJsZUluc3RydWN0aW9uGjkKE1ZhcmlhYmxlSW5zdHJ1",
-            "Y3Rpb24SEQoJdmFyaWFibGVzGAEgASgJEg8KB3Njb3BlSWQYAiABKAkaMgoU",
-            "VGVybWluYXRlSW5zdHJ1Y3Rpb24SGgoSZWxlbWVudEluc3RhbmNlS2V5GAEg",
-            "ASgDIh8KHU1vZGlmeVByb2Nlc3NJbnN0YW5jZVJlc3BvbnNlIiwKFURlbGV0",
-            "ZVJlc291cmNlUmVxdWVzdBITCgtyZXNvdXJjZUtleRgBIAEoAyIYChZEZWxl",
-            "dGVSZXNvdXJjZVJlc3BvbnNlIj8KFkJyb2FkY2FzdFNpZ25hbFJlcXVlc3QS",
-            "EgoKc2lnbmFsTmFtZRgBIAEoCRIRCgl2YXJpYWJsZXMYAiABKAkiJgoXQnJv",
-            "YWRjYXN0U2lnbmFsUmVzcG9uc2USCwoDa2V5GAEgASgDMu8PCgdHYXRld2F5",
-            "EmEKDEFjdGl2YXRlSm9icxIlLmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVK",
-            "b2JzUmVxdWVzdBomLmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVz",
-            "cG9uc2UiADABEmcKE1N0cmVhbUFjdGl2YXRlZEpvYnMSLC5nYXRld2F5X3By",
-            "b3RvY29sLlN0cmVhbUFjdGl2YXRlZEpvYnNSZXF1ZXN0Gh4uZ2F0ZXdheV9w",
-            "cm90b2NvbC5BY3RpdmF0ZWRKb2IiADABEnoKFUNhbmNlbFByb2Nlc3NJbnN0",
-            "YW5jZRIuLmdhdGV3YXlfcHJvdG9jb2wuQ2FuY2VsUHJvY2Vzc0luc3RhbmNl",
-            "UmVxdWVzdBovLmdhdGV3YXlfcHJvdG9jb2wuQ2FuY2VsUHJvY2Vzc0luc3Rh",
-            "bmNlUmVzcG9uc2UiABJcCgtDb21wbGV0ZUpvYhIkLmdhdGV3YXlfcHJvdG9j",
-            "b2wuQ29tcGxldGVKb2JSZXF1ZXN0GiUuZ2F0ZXdheV9wcm90b2NvbC5Db21w",
-            "bGV0ZUpvYlJlc3BvbnNlIgASegoVQ3JlYXRlUHJvY2Vzc0luc3RhbmNlEi4u",
-            "Z2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQcm9jZXNzSW5zdGFuY2VSZXF1ZXN0",
-            "Gi8uZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQcm9jZXNzSW5zdGFuY2VSZXNw",
-            "b25zZSIAEpgBCh9DcmVhdGVQcm9jZXNzSW5zdGFuY2VXaXRoUmVzdWx0Ejgu",
-            "Z2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQcm9jZXNzSW5zdGFuY2VXaXRoUmVz",
-            "dWx0UmVxdWVzdBo5LmdhdGV3YXlfcHJvdG9jb2wuQ3JlYXRlUHJvY2Vzc0lu",
-            "c3RhbmNlV2l0aFJlc3VsdFJlc3BvbnNlIgASawoQRXZhbHVhdGVEZWNpc2lv",
-            "bhIpLmdhdGV3YXlfcHJvdG9jb2wuRXZhbHVhdGVEZWNpc2lvblJlcXVlc3Qa",
-            "Ki5nYXRld2F5X3Byb3RvY29sLkV2YWx1YXRlRGVjaXNpb25SZXNwb25zZSIA",
-            "EmUKDURlcGxveVByb2Nlc3MSJi5nYXRld2F5X3Byb3RvY29sLkRlcGxveVBy",
-            "b2Nlc3NSZXF1ZXN0GicuZ2F0ZXdheV9wcm90b2NvbC5EZXBsb3lQcm9jZXNz",
-            "UmVzcG9uc2UiA4gCARJlCg5EZXBsb3lSZXNvdXJjZRInLmdhdGV3YXlfcHJv",
-            "dG9jb2wuRGVwbG95UmVzb3VyY2VSZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2Nv",
-            "bC5EZXBsb3lSZXNvdXJjZVJlc3BvbnNlIgASUAoHRmFpbEpvYhIgLmdhdGV3",
-            "YXlfcHJvdG9jb2wuRmFpbEpvYlJlcXVlc3QaIS5nYXRld2F5X3Byb3RvY29s",
-            "LkZhaWxKb2JSZXNwb25zZSIAElkKClRocm93RXJyb3ISIy5nYXRld2F5X3By",
-            "b3RvY29sLlRocm93RXJyb3JSZXF1ZXN0GiQuZ2F0ZXdheV9wcm90b2NvbC5U",
-            "aHJvd0Vycm9yUmVzcG9uc2UiABJlCg5QdWJsaXNoTWVzc2FnZRInLmdhdGV3",
-            "YXlfcHJvdG9jb2wuUHVibGlzaE1lc3NhZ2VSZXF1ZXN0GiguZ2F0ZXdheV9w",
-            "cm90b2NvbC5QdWJsaXNoTWVzc2FnZVJlc3BvbnNlIgASaAoPUmVzb2x2ZUlu",
-            "Y2lkZW50EiguZ2F0ZXdheV9wcm90b2NvbC5SZXNvbHZlSW5jaWRlbnRSZXF1",
-            "ZXN0GikuZ2F0ZXdheV9wcm90b2NvbC5SZXNvbHZlSW5jaWRlbnRSZXNwb25z",
-            "ZSIAEl8KDFNldFZhcmlhYmxlcxIlLmdhdGV3YXlfcHJvdG9jb2wuU2V0VmFy",
-            "aWFibGVzUmVxdWVzdBomLmdhdGV3YXlfcHJvdG9jb2wuU2V0VmFyaWFibGVz",
-            "UmVzcG9uc2UiABJTCghUb3BvbG9neRIhLmdhdGV3YXlfcHJvdG9jb2wuVG9w",
-            "b2xvZ3lSZXF1ZXN0GiIuZ2F0ZXdheV9wcm90b2NvbC5Ub3BvbG9neVJlc3Bv",
-            "bnNlIgASawoQVXBkYXRlSm9iUmV0cmllcxIpLmdhdGV3YXlfcHJvdG9jb2wu",
-            "VXBkYXRlSm9iUmV0cmllc1JlcXVlc3QaKi5nYXRld2F5X3Byb3RvY29sLlVw",
-            "ZGF0ZUpvYlJldHJpZXNSZXNwb25zZSIAEnoKFU1vZGlmeVByb2Nlc3NJbnN0",
-            "YW5jZRIuLmdhdGV3YXlfcHJvdG9jb2wuTW9kaWZ5UHJvY2Vzc0luc3RhbmNl",
-            "UmVxdWVzdBovLmdhdGV3YXlfcHJvdG9jb2wuTW9kaWZ5UHJvY2Vzc0luc3Rh",
-            "bmNlUmVzcG9uc2UiABJlCg5EZWxldGVSZXNvdXJjZRInLmdhdGV3YXlfcHJv",
+            "c1Jlc3BvbnNlIjoKF1VwZGF0ZUpvYlRpbWVvdXRSZXF1ZXN0Eg4KBmpvYktl",
+            "eRgBIAEoAxIPCgd0aW1lb3V0GAIgASgDIhoKGFVwZGF0ZUpvYlRpbWVvdXRS",
+            "ZXNwb25zZSJTChNTZXRWYXJpYWJsZXNSZXF1ZXN0EhoKEmVsZW1lbnRJbnN0",
+            "YW5jZUtleRgBIAEoAxIRCgl2YXJpYWJsZXMYAiABKAkSDQoFbG9jYWwYAyAB",
+            "KAgiIwoUU2V0VmFyaWFibGVzUmVzcG9uc2USCwoDa2V5GAEgASgDIqAEChxN",
+            "b2RpZnlQcm9jZXNzSW5zdGFuY2VSZXF1ZXN0EhoKEnByb2Nlc3NJbnN0YW5j",
+            "ZUtleRgBIAEoAxJgChRhY3RpdmF0ZUluc3RydWN0aW9ucxgCIAMoCzJCLmdh",
+            "dGV3YXlfcHJvdG9jb2wuTW9kaWZ5UHJvY2Vzc0luc3RhbmNlUmVxdWVzdC5B",
+            "Y3RpdmF0ZUluc3RydWN0aW9uEmIKFXRlcm1pbmF0ZUluc3RydWN0aW9ucxgD",
+            "IAMoCzJDLmdhdGV3YXlfcHJvdG9jb2wuTW9kaWZ5UHJvY2Vzc0luc3RhbmNl",
+            "UmVxdWVzdC5UZXJtaW5hdGVJbnN0cnVjdGlvbhquAQoTQWN0aXZhdGVJbnN0",
+            "cnVjdGlvbhIRCgllbGVtZW50SWQYASABKAkSIgoaYW5jZXN0b3JFbGVtZW50",
+            "SW5zdGFuY2VLZXkYAiABKAMSYAoUdmFyaWFibGVJbnN0cnVjdGlvbnMYAyAD",
+            "KAsyQi5nYXRld2F5X3Byb3RvY29sLk1vZGlmeVByb2Nlc3NJbnN0YW5jZVJl",
+            "cXVlc3QuVmFyaWFibGVJbnN0cnVjdGlvbho5ChNWYXJpYWJsZUluc3RydWN0",
+            "aW9uEhEKCXZhcmlhYmxlcxgBIAEoCRIPCgdzY29wZUlkGAIgASgJGjIKFFRl",
+            "cm1pbmF0ZUluc3RydWN0aW9uEhoKEmVsZW1lbnRJbnN0YW5jZUtleRgBIAEo",
+            "AyIfCh1Nb2RpZnlQcm9jZXNzSW5zdGFuY2VSZXNwb25zZSLwAgodTWlncmF0",
+            "ZVByb2Nlc3NJbnN0YW5jZVJlcXVlc3QSGgoScHJvY2Vzc0luc3RhbmNlS2V5",
+            "GAEgASgDElQKDW1pZ3JhdGlvblBsYW4YAiABKAsyPS5nYXRld2F5X3Byb3Rv",
+            "Y29sLk1pZ3JhdGVQcm9jZXNzSW5zdGFuY2VSZXF1ZXN0Lk1pZ3JhdGlvblBs",
+            "YW4alAEKDU1pZ3JhdGlvblBsYW4SIgoadGFyZ2V0UHJvY2Vzc0RlZmluaXRp",
+            "b25LZXkYASABKAMSXwoTbWFwcGluZ0luc3RydWN0aW9ucxgCIAMoCzJCLmdh",
+            "dGV3YXlfcHJvdG9jb2wuTWlncmF0ZVByb2Nlc3NJbnN0YW5jZVJlcXVlc3Qu",
+            "TWFwcGluZ0luc3RydWN0aW9uGkYKEk1hcHBpbmdJbnN0cnVjdGlvbhIXCg9z",
+            "b3VyY2VFbGVtZW50SWQYASABKAkSFwoPdGFyZ2V0RWxlbWVudElkGAIgASgJ",
+            "IiAKHk1pZ3JhdGVQcm9jZXNzSW5zdGFuY2VSZXNwb25zZSIsChVEZWxldGVS",
+            "ZXNvdXJjZVJlcXVlc3QSEwoLcmVzb3VyY2VLZXkYASABKAMiGAoWRGVsZXRl",
+            "UmVzb3VyY2VSZXNwb25zZSJRChZCcm9hZGNhc3RTaWduYWxSZXF1ZXN0EhIK",
+            "CnNpZ25hbE5hbWUYASABKAkSEQoJdmFyaWFibGVzGAIgASgJEhAKCHRlbmFu",
+            "dElkGAMgASgJIjgKF0Jyb2FkY2FzdFNpZ25hbFJlc3BvbnNlEgsKA2tleRgB",
+            "IAEoAxIQCgh0ZW5hbnRJZBgCIAEoCTLbEQoHR2F0ZXdheRJhCgxBY3RpdmF0",
+            "ZUpvYnMSJS5nYXRld2F5X3Byb3RvY29sLkFjdGl2YXRlSm9ic1JlcXVlc3Qa",
+            "Ji5nYXRld2F5X3Byb3RvY29sLkFjdGl2YXRlSm9ic1Jlc3BvbnNlIgAwARJn",
+            "ChNTdHJlYW1BY3RpdmF0ZWRKb2JzEiwuZ2F0ZXdheV9wcm90b2NvbC5TdHJl",
+            "YW1BY3RpdmF0ZWRKb2JzUmVxdWVzdBoeLmdhdGV3YXlfcHJvdG9jb2wuQWN0",
+            "aXZhdGVkSm9iIgAwARJ6ChVDYW5jZWxQcm9jZXNzSW5zdGFuY2USLi5nYXRl",
+            "d2F5X3Byb3RvY29sLkNhbmNlbFByb2Nlc3NJbnN0YW5jZVJlcXVlc3QaLy5n",
+            "YXRld2F5X3Byb3RvY29sLkNhbmNlbFByb2Nlc3NJbnN0YW5jZVJlc3BvbnNl",
+            "IgASXAoLQ29tcGxldGVKb2ISJC5nYXRld2F5X3Byb3RvY29sLkNvbXBsZXRl",
+            "Sm9iUmVxdWVzdBolLmdhdGV3YXlfcHJvdG9jb2wuQ29tcGxldGVKb2JSZXNw",
+            "b25zZSIAEnoKFUNyZWF0ZVByb2Nlc3NJbnN0YW5jZRIuLmdhdGV3YXlfcHJv",
+            "dG9jb2wuQ3JlYXRlUHJvY2Vzc0luc3RhbmNlUmVxdWVzdBovLmdhdGV3YXlf",
+            "cHJvdG9jb2wuQ3JlYXRlUHJvY2Vzc0luc3RhbmNlUmVzcG9uc2UiABKYAQof",
+            "Q3JlYXRlUHJvY2Vzc0luc3RhbmNlV2l0aFJlc3VsdBI4LmdhdGV3YXlfcHJv",
+            "dG9jb2wuQ3JlYXRlUHJvY2Vzc0luc3RhbmNlV2l0aFJlc3VsdFJlcXVlc3Qa",
+            "OS5nYXRld2F5X3Byb3RvY29sLkNyZWF0ZVByb2Nlc3NJbnN0YW5jZVdpdGhS",
+            "ZXN1bHRSZXNwb25zZSIAEmsKEEV2YWx1YXRlRGVjaXNpb24SKS5nYXRld2F5",
+            "X3Byb3RvY29sLkV2YWx1YXRlRGVjaXNpb25SZXF1ZXN0GiouZ2F0ZXdheV9w",
+            "cm90b2NvbC5FdmFsdWF0ZURlY2lzaW9uUmVzcG9uc2UiABJlCg1EZXBsb3lQ",
+            "cm9jZXNzEiYuZ2F0ZXdheV9wcm90b2NvbC5EZXBsb3lQcm9jZXNzUmVxdWVz",
+            "dBonLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95UHJvY2Vzc1Jlc3BvbnNlIgOI",
+            "AgESZQoORGVwbG95UmVzb3VyY2USJy5nYXRld2F5X3Byb3RvY29sLkRlcGxv",
+            "eVJlc291cmNlUmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95UmVz",
+            "b3VyY2VSZXNwb25zZSIAElAKB0ZhaWxKb2ISIC5nYXRld2F5X3Byb3RvY29s",
+            "LkZhaWxKb2JSZXF1ZXN0GiEuZ2F0ZXdheV9wcm90b2NvbC5GYWlsSm9iUmVz",
+            "cG9uc2UiABJZCgpUaHJvd0Vycm9yEiMuZ2F0ZXdheV9wcm90b2NvbC5UaHJv",
+            "d0Vycm9yUmVxdWVzdBokLmdhdGV3YXlfcHJvdG9jb2wuVGhyb3dFcnJvclJl",
+            "c3BvbnNlIgASZQoOUHVibGlzaE1lc3NhZ2USJy5nYXRld2F5X3Byb3RvY29s",
+            "LlB1Ymxpc2hNZXNzYWdlUmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuUHVi",
+            "bGlzaE1lc3NhZ2VSZXNwb25zZSIAEmgKD1Jlc29sdmVJbmNpZGVudBIoLmdh",
+            "dGV3YXlfcHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVxdWVzdBopLmdhdGV3",
+            "YXlfcHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiABJfCgxTZXRW",
+            "YXJpYWJsZXMSJS5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1JlcXVl",
+            "c3QaJi5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1Jlc3BvbnNlIgAS",
+            "UwoIVG9wb2xvZ3kSIS5nYXRld2F5X3Byb3RvY29sLlRvcG9sb2d5UmVxdWVz",
+            "dBoiLmdhdGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXNwb25zZSIAEmsKEFVw",
+            "ZGF0ZUpvYlJldHJpZXMSKS5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJl",
+            "dHJpZXNSZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVKb2JSZXRy",
+            "aWVzUmVzcG9uc2UiABJ6ChVNb2RpZnlQcm9jZXNzSW5zdGFuY2USLi5nYXRl",
+            "d2F5X3Byb3RvY29sLk1vZGlmeVByb2Nlc3NJbnN0YW5jZVJlcXVlc3QaLy5n",
+            "YXRld2F5X3Byb3RvY29sLk1vZGlmeVByb2Nlc3NJbnN0YW5jZVJlc3BvbnNl",
+            "IgASfQoWTWlncmF0ZVByb2Nlc3NJbnN0YW5jZRIvLmdhdGV3YXlfcHJvdG9j",
+            "b2wuTWlncmF0ZVByb2Nlc3NJbnN0YW5jZVJlcXVlc3QaMC5nYXRld2F5X3By",
+            "b3RvY29sLk1pZ3JhdGVQcm9jZXNzSW5zdGFuY2VSZXNwb25zZSIAEmsKEFVw",
+            "ZGF0ZUpvYlRpbWVvdXQSKS5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlRp",
+            "bWVvdXRSZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVKb2JUaW1l",
+            "b3V0UmVzcG9uc2UiABJlCg5EZWxldGVSZXNvdXJjZRInLmdhdGV3YXlfcHJv",
             "dG9jb2wuRGVsZXRlUmVzb3VyY2VSZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2Nv",
             "bC5EZWxldGVSZXNvdXJjZVJlc3BvbnNlIgASaAoPQnJvYWRjYXN0U2lnbmFs",
             "EiguZ2F0ZXdheV9wcm90b2NvbC5Ccm9hZGNhc3RTaWduYWxSZXF1ZXN0Giku",
@@ -255,16 +272,21 @@ namespace GatewayProtocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.Partition), global::GatewayProtocol.Partition.Parser, new[]{ "PartitionId", "Role", "Health" }, null, new[]{ typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerRole), typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerHealth) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesRequest), global::GatewayProtocol.UpdateJobRetriesRequest.Parser, new[]{ "JobKey", "Retries" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesResponse), global::GatewayProtocol.UpdateJobRetriesResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobTimeoutRequest), global::GatewayProtocol.UpdateJobTimeoutRequest.Parser, new[]{ "JobKey", "Timeout" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobTimeoutResponse), global::GatewayProtocol.UpdateJobTimeoutResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesRequest), global::GatewayProtocol.SetVariablesRequest.Parser, new[]{ "ElementInstanceKey", "Variables", "Local" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesResponse), global::GatewayProtocol.SetVariablesResponse.Parser, new[]{ "Key" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceRequest), global::GatewayProtocol.ModifyProcessInstanceRequest.Parser, new[]{ "ProcessInstanceKey", "ActivateInstructions", "TerminateInstructions" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceRequest.Types.ActivateInstruction), global::GatewayProtocol.ModifyProcessInstanceRequest.Types.ActivateInstruction.Parser, new[]{ "ElementId", "AncestorElementInstanceKey", "VariableInstructions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceRequest.Types.VariableInstruction), global::GatewayProtocol.ModifyProcessInstanceRequest.Types.VariableInstruction.Parser, new[]{ "Variables", "ScopeId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceRequest.Types.TerminateInstruction), global::GatewayProtocol.ModifyProcessInstanceRequest.Types.TerminateInstruction.Parser, new[]{ "ElementInstanceKey" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceResponse), global::GatewayProtocol.ModifyProcessInstanceResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.MigrateProcessInstanceRequest), global::GatewayProtocol.MigrateProcessInstanceRequest.Parser, new[]{ "ProcessInstanceKey", "MigrationPlan" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan), global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan.Parser, new[]{ "TargetProcessDefinitionKey", "MappingInstructions" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MappingInstruction), global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MappingInstruction.Parser, new[]{ "SourceElementId", "TargetElementId" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.MigrateProcessInstanceResponse), global::GatewayProtocol.MigrateProcessInstanceResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeleteResourceRequest), global::GatewayProtocol.DeleteResourceRequest.Parser, new[]{ "ResourceKey" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeleteResourceResponse), global::GatewayProtocol.DeleteResourceResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BroadcastSignalRequest), global::GatewayProtocol.BroadcastSignalRequest.Parser, new[]{ "SignalName", "Variables" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BroadcastSignalResponse), global::GatewayProtocol.BroadcastSignalResponse.Parser, new[]{ "Key" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BroadcastSignalRequest), global::GatewayProtocol.BroadcastSignalRequest.Parser, new[]{ "SignalName", "Variables", "TenantId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BroadcastSignalResponse), global::GatewayProtocol.BroadcastSignalResponse.Parser, new[]{ "Key", "TenantId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1459,7 +1481,7 @@ namespace GatewayProtocol {
     public const int TenantIdFieldNumber = 14;
     private string tenantId_ = "";
     /// <summary>
-    /// // the id of the tenant that owns the job
+    /// the id of the tenant that owns the job
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -13203,6 +13225,390 @@ namespace GatewayProtocol {
 
   }
 
+  public sealed partial class UpdateJobTimeoutRequest : pb::IMessage<UpdateJobTimeoutRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UpdateJobTimeoutRequest> _parser = new pb::MessageParser<UpdateJobTimeoutRequest>(() => new UpdateJobTimeoutRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UpdateJobTimeoutRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[44]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateJobTimeoutRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateJobTimeoutRequest(UpdateJobTimeoutRequest other) : this() {
+      jobKey_ = other.jobKey_;
+      timeout_ = other.timeout_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateJobTimeoutRequest Clone() {
+      return new UpdateJobTimeoutRequest(this);
+    }
+
+    /// <summary>Field number for the "jobKey" field.</summary>
+    public const int JobKeyFieldNumber = 1;
+    private long jobKey_;
+    /// <summary>
+    /// the unique job identifier, as obtained from ActivateJobsResponse
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long JobKey {
+      get { return jobKey_; }
+      set {
+        jobKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "timeout" field.</summary>
+    public const int TimeoutFieldNumber = 2;
+    private long timeout_;
+    /// <summary>
+    /// the duration of the new timeout in ms, starting from the current moment
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long Timeout {
+      get { return timeout_; }
+      set {
+        timeout_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateJobTimeoutRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UpdateJobTimeoutRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (JobKey != other.JobKey) return false;
+      if (Timeout != other.Timeout) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (JobKey != 0L) hash ^= JobKey.GetHashCode();
+      if (Timeout != 0L) hash ^= Timeout.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (JobKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(JobKey);
+      }
+      if (Timeout != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Timeout);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (JobKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(JobKey);
+      }
+      if (Timeout != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Timeout);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (JobKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(JobKey);
+      }
+      if (Timeout != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Timeout);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UpdateJobTimeoutRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.JobKey != 0L) {
+        JobKey = other.JobKey;
+      }
+      if (other.Timeout != 0L) {
+        Timeout = other.Timeout;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            JobKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Timeout = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            JobKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            Timeout = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class UpdateJobTimeoutResponse : pb::IMessage<UpdateJobTimeoutResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UpdateJobTimeoutResponse> _parser = new pb::MessageParser<UpdateJobTimeoutResponse>(() => new UpdateJobTimeoutResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UpdateJobTimeoutResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[45]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateJobTimeoutResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateJobTimeoutResponse(UpdateJobTimeoutResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateJobTimeoutResponse Clone() {
+      return new UpdateJobTimeoutResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateJobTimeoutResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UpdateJobTimeoutResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UpdateJobTimeoutResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class SetVariablesRequest : pb::IMessage<SetVariablesRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13217,7 +13623,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[44]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[46]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13498,7 +13904,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[45]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[47]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13690,7 +14096,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[46]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[48]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14641,7 +15047,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[47]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[49]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14779,6 +15185,860 @@ namespace GatewayProtocol {
 
   }
 
+  public sealed partial class MigrateProcessInstanceRequest : pb::IMessage<MigrateProcessInstanceRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<MigrateProcessInstanceRequest> _parser = new pb::MessageParser<MigrateProcessInstanceRequest>(() => new MigrateProcessInstanceRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<MigrateProcessInstanceRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[50]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MigrateProcessInstanceRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MigrateProcessInstanceRequest(MigrateProcessInstanceRequest other) : this() {
+      processInstanceKey_ = other.processInstanceKey_;
+      migrationPlan_ = other.migrationPlan_ != null ? other.migrationPlan_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MigrateProcessInstanceRequest Clone() {
+      return new MigrateProcessInstanceRequest(this);
+    }
+
+    /// <summary>Field number for the "processInstanceKey" field.</summary>
+    public const int ProcessInstanceKeyFieldNumber = 1;
+    private long processInstanceKey_;
+    /// <summary>
+    /// key of the process instance to migrate
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long ProcessInstanceKey {
+      get { return processInstanceKey_; }
+      set {
+        processInstanceKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "migrationPlan" field.</summary>
+    public const int MigrationPlanFieldNumber = 2;
+    private global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan migrationPlan_;
+    /// <summary>
+    /// the migration plan that defines target process and element mappings
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan MigrationPlan {
+      get { return migrationPlan_; }
+      set {
+        migrationPlan_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as MigrateProcessInstanceRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(MigrateProcessInstanceRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ProcessInstanceKey != other.ProcessInstanceKey) return false;
+      if (!object.Equals(MigrationPlan, other.MigrationPlan)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ProcessInstanceKey != 0L) hash ^= ProcessInstanceKey.GetHashCode();
+      if (migrationPlan_ != null) hash ^= MigrationPlan.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ProcessInstanceKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ProcessInstanceKey);
+      }
+      if (migrationPlan_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(MigrationPlan);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ProcessInstanceKey != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ProcessInstanceKey);
+      }
+      if (migrationPlan_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(MigrationPlan);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ProcessInstanceKey != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessInstanceKey);
+      }
+      if (migrationPlan_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MigrationPlan);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(MigrateProcessInstanceRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ProcessInstanceKey != 0L) {
+        ProcessInstanceKey = other.ProcessInstanceKey;
+      }
+      if (other.migrationPlan_ != null) {
+        if (migrationPlan_ == null) {
+          MigrationPlan = new global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan();
+        }
+        MigrationPlan.MergeFrom(other.MigrationPlan);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ProcessInstanceKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            if (migrationPlan_ == null) {
+              MigrationPlan = new global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan();
+            }
+            input.ReadMessage(MigrationPlan);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ProcessInstanceKey = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            if (migrationPlan_ == null) {
+              MigrationPlan = new global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan();
+            }
+            input.ReadMessage(MigrationPlan);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the MigrateProcessInstanceRequest message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static partial class Types {
+      public sealed partial class MigrationPlan : pb::IMessage<MigrationPlan>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<MigrationPlan> _parser = new pb::MessageParser<MigrationPlan>(() => new MigrationPlan());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pb::MessageParser<MigrationPlan> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::GatewayProtocol.MigrateProcessInstanceRequest.Descriptor.NestedTypes[0]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public MigrationPlan() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public MigrationPlan(MigrationPlan other) : this() {
+          targetProcessDefinitionKey_ = other.targetProcessDefinitionKey_;
+          mappingInstructions_ = other.mappingInstructions_.Clone();
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public MigrationPlan Clone() {
+          return new MigrationPlan(this);
+        }
+
+        /// <summary>Field number for the "targetProcessDefinitionKey" field.</summary>
+        public const int TargetProcessDefinitionKeyFieldNumber = 1;
+        private long targetProcessDefinitionKey_;
+        /// <summary>
+        /// the key of process definition to migrate the process instance to
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public long TargetProcessDefinitionKey {
+          get { return targetProcessDefinitionKey_; }
+          set {
+            targetProcessDefinitionKey_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "mappingInstructions" field.</summary>
+        public const int MappingInstructionsFieldNumber = 2;
+        private static readonly pb::FieldCodec<global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MappingInstruction> _repeated_mappingInstructions_codec
+            = pb::FieldCodec.ForMessage(18, global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MappingInstruction.Parser);
+        private readonly pbc::RepeatedField<global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MappingInstruction> mappingInstructions_ = new pbc::RepeatedField<global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MappingInstruction>();
+        /// <summary>
+        /// the mapping instructions describe how to map elements from the source process definition to the target process definition
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public pbc::RepeatedField<global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MappingInstruction> MappingInstructions {
+          get { return mappingInstructions_; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override bool Equals(object other) {
+          return Equals(other as MigrationPlan);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Equals(MigrationPlan other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (TargetProcessDefinitionKey != other.TargetProcessDefinitionKey) return false;
+          if(!mappingInstructions_.Equals(other.mappingInstructions_)) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (TargetProcessDefinitionKey != 0L) hash ^= TargetProcessDefinitionKey.GetHashCode();
+          hash ^= mappingInstructions_.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (TargetProcessDefinitionKey != 0L) {
+            output.WriteRawTag(8);
+            output.WriteInt64(TargetProcessDefinitionKey);
+          }
+          mappingInstructions_.WriteTo(output, _repeated_mappingInstructions_codec);
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (TargetProcessDefinitionKey != 0L) {
+            output.WriteRawTag(8);
+            output.WriteInt64(TargetProcessDefinitionKey);
+          }
+          mappingInstructions_.WriteTo(ref output, _repeated_mappingInstructions_codec);
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int CalculateSize() {
+          int size = 0;
+          if (TargetProcessDefinitionKey != 0L) {
+            size += 1 + pb::CodedOutputStream.ComputeInt64Size(TargetProcessDefinitionKey);
+          }
+          size += mappingInstructions_.CalculateSize(_repeated_mappingInstructions_codec);
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(MigrationPlan other) {
+          if (other == null) {
+            return;
+          }
+          if (other.TargetProcessDefinitionKey != 0L) {
+            TargetProcessDefinitionKey = other.TargetProcessDefinitionKey;
+          }
+          mappingInstructions_.Add(other.mappingInstructions_);
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 8: {
+                TargetProcessDefinitionKey = input.ReadInt64();
+                break;
+              }
+              case 18: {
+                mappingInstructions_.AddEntriesFrom(input, _repeated_mappingInstructions_codec);
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 8: {
+                TargetProcessDefinitionKey = input.ReadInt64();
+                break;
+              }
+              case 18: {
+                mappingInstructions_.AddEntriesFrom(ref input, _repeated_mappingInstructions_codec);
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
+      public sealed partial class MappingInstruction : pb::IMessage<MappingInstruction>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<MappingInstruction> _parser = new pb::MessageParser<MappingInstruction>(() => new MappingInstruction());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pb::MessageParser<MappingInstruction> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::GatewayProtocol.MigrateProcessInstanceRequest.Descriptor.NestedTypes[1]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public MappingInstruction() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public MappingInstruction(MappingInstruction other) : this() {
+          sourceElementId_ = other.sourceElementId_;
+          targetElementId_ = other.targetElementId_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public MappingInstruction Clone() {
+          return new MappingInstruction(this);
+        }
+
+        /// <summary>Field number for the "sourceElementId" field.</summary>
+        public const int SourceElementIdFieldNumber = 1;
+        private string sourceElementId_ = "";
+        /// <summary>
+        /// the element id to migrate from
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string SourceElementId {
+          get { return sourceElementId_; }
+          set {
+            sourceElementId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        /// <summary>Field number for the "targetElementId" field.</summary>
+        public const int TargetElementIdFieldNumber = 2;
+        private string targetElementId_ = "";
+        /// <summary>
+        /// the element id to migrate into
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public string TargetElementId {
+          get { return targetElementId_; }
+          set {
+            targetElementId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override bool Equals(object other) {
+          return Equals(other as MappingInstruction);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Equals(MappingInstruction other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (SourceElementId != other.SourceElementId) return false;
+          if (TargetElementId != other.TargetElementId) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (SourceElementId.Length != 0) hash ^= SourceElementId.GetHashCode();
+          if (TargetElementId.Length != 0) hash ^= TargetElementId.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (SourceElementId.Length != 0) {
+            output.WriteRawTag(10);
+            output.WriteString(SourceElementId);
+          }
+          if (TargetElementId.Length != 0) {
+            output.WriteRawTag(18);
+            output.WriteString(TargetElementId);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (SourceElementId.Length != 0) {
+            output.WriteRawTag(10);
+            output.WriteString(SourceElementId);
+          }
+          if (TargetElementId.Length != 0) {
+            output.WriteRawTag(18);
+            output.WriteString(TargetElementId);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int CalculateSize() {
+          int size = 0;
+          if (SourceElementId.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(SourceElementId);
+          }
+          if (TargetElementId.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(TargetElementId);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(MappingInstruction other) {
+          if (other == null) {
+            return;
+          }
+          if (other.SourceElementId.Length != 0) {
+            SourceElementId = other.SourceElementId;
+          }
+          if (other.TargetElementId.Length != 0) {
+            TargetElementId = other.TargetElementId;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 10: {
+                SourceElementId = input.ReadString();
+                break;
+              }
+              case 18: {
+                TargetElementId = input.ReadString();
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                SourceElementId = input.ReadString();
+                break;
+              }
+              case 18: {
+                TargetElementId = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
+    }
+    #endregion
+
+  }
+
+  public sealed partial class MigrateProcessInstanceResponse : pb::IMessage<MigrateProcessInstanceResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<MigrateProcessInstanceResponse> _parser = new pb::MessageParser<MigrateProcessInstanceResponse>(() => new MigrateProcessInstanceResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<MigrateProcessInstanceResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[51]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MigrateProcessInstanceResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MigrateProcessInstanceResponse(MigrateProcessInstanceResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MigrateProcessInstanceResponse Clone() {
+      return new MigrateProcessInstanceResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as MigrateProcessInstanceResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(MigrateProcessInstanceResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(MigrateProcessInstanceResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class DeleteResourceRequest : pb::IMessage<DeleteResourceRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14793,7 +16053,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[48]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[52]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14828,7 +16088,7 @@ namespace GatewayProtocol {
     private long resourceKey_;
     /// <summary>
     /// The key of the resource that should be deleted. This can either be the key
-    /// of a process definition, or the key of a decision requirements definition.
+    /// of a process definition, the key of a decision requirements definition or the key of a form.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -14986,7 +16246,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[49]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[53]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15138,7 +16398,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[50]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[54]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15160,6 +16420,7 @@ namespace GatewayProtocol {
     public BroadcastSignalRequest(BroadcastSignalRequest other) : this() {
       signalName_ = other.signalName_;
       variables_ = other.variables_;
+      tenantId_ = other.tenantId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -15200,6 +16461,21 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "tenantId" field.</summary>
+    public const int TenantIdFieldNumber = 3;
+    private string tenantId_ = "";
+    /// <summary>
+    /// the id of the tenant that owns the signal.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TenantId {
+      get { return tenantId_; }
+      set {
+        tenantId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -15217,6 +16493,7 @@ namespace GatewayProtocol {
       }
       if (SignalName != other.SignalName) return false;
       if (Variables != other.Variables) return false;
+      if (TenantId != other.TenantId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -15226,6 +16503,7 @@ namespace GatewayProtocol {
       int hash = 1;
       if (SignalName.Length != 0) hash ^= SignalName.GetHashCode();
       if (Variables.Length != 0) hash ^= Variables.GetHashCode();
+      if (TenantId.Length != 0) hash ^= TenantId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -15252,6 +16530,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(18);
         output.WriteString(Variables);
       }
+      if (TenantId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(TenantId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -15270,6 +16552,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(18);
         output.WriteString(Variables);
       }
+      if (TenantId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(TenantId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -15285,6 +16571,9 @@ namespace GatewayProtocol {
       }
       if (Variables.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Variables);
+      }
+      if (TenantId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TenantId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -15303,6 +16592,9 @@ namespace GatewayProtocol {
       }
       if (other.Variables.Length != 0) {
         Variables = other.Variables;
+      }
+      if (other.TenantId.Length != 0) {
+        TenantId = other.TenantId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -15325,6 +16617,10 @@ namespace GatewayProtocol {
           }
           case 18: {
             Variables = input.ReadString();
+            break;
+          }
+          case 26: {
+            TenantId = input.ReadString();
             break;
           }
         }
@@ -15350,6 +16646,10 @@ namespace GatewayProtocol {
             Variables = input.ReadString();
             break;
           }
+          case 26: {
+            TenantId = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -15371,7 +16671,7 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[51]; }
+      get { return global::GatewayProtocol.GatewayReflection.Descriptor.MessageTypes[55]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15392,6 +16692,7 @@ namespace GatewayProtocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public BroadcastSignalResponse(BroadcastSignalResponse other) : this() {
       key_ = other.key_;
+      tenantId_ = other.tenantId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -15416,6 +16717,21 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "tenantId" field.</summary>
+    public const int TenantIdFieldNumber = 2;
+    private string tenantId_ = "";
+    /// <summary>
+    /// the tenant id of the signal that was broadcasted.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TenantId {
+      get { return tenantId_; }
+      set {
+        tenantId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -15432,6 +16748,7 @@ namespace GatewayProtocol {
         return true;
       }
       if (Key != other.Key) return false;
+      if (TenantId != other.TenantId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -15440,6 +16757,7 @@ namespace GatewayProtocol {
     public override int GetHashCode() {
       int hash = 1;
       if (Key != 0L) hash ^= Key.GetHashCode();
+      if (TenantId.Length != 0) hash ^= TenantId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -15462,6 +16780,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt64(Key);
       }
+      if (TenantId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(TenantId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -15476,6 +16798,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt64(Key);
       }
+      if (TenantId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(TenantId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -15488,6 +16814,9 @@ namespace GatewayProtocol {
       int size = 0;
       if (Key != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Key);
+      }
+      if (TenantId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TenantId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -15503,6 +16832,9 @@ namespace GatewayProtocol {
       }
       if (other.Key != 0L) {
         Key = other.Key;
+      }
+      if (other.TenantId.Length != 0) {
+        TenantId = other.TenantId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -15523,6 +16855,10 @@ namespace GatewayProtocol {
             Key = input.ReadInt64();
             break;
           }
+          case 18: {
+            TenantId = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -15540,6 +16876,10 @@ namespace GatewayProtocol {
             break;
           case 8: {
             Key = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            TenantId = input.ReadString();
             break;
           }
         }
