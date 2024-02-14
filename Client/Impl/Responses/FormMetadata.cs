@@ -8,6 +8,7 @@ public class FormMetadata : IFormMetadata
     public int Version { get; }
     public long FormKey { get; }
     public string ResourceName { get; }
+    public string TenantId { get; }
 
     public FormMetadata(GatewayProtocol.FormMetadata metadata)
     {
@@ -15,5 +16,6 @@ public class FormMetadata : IFormMetadata
         Version = metadata.Version;
         FormKey = metadata.FormKey;
         ResourceName = metadata.ResourceName;
+        TenantId = metadata.TenantId;
     }
 }

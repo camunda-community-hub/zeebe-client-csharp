@@ -13,4 +13,7 @@ public interface IFormMetadata
 
     /// <returns>the name of the deployment resource which contains the form.</returns>
     string ResourceName { get; }
+
+    /// <returns>the tenant ID of the deployed form.</returns>
+    string TenantId { get; }
 }
