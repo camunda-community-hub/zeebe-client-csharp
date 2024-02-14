@@ -58,6 +58,12 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
+        public ICreateProcessInstanceCommandStep3 AddTenantId(string tenantId)
+        {
+            request.TenantId = tenantId;
+            return this;
+        }
+
         public ICreateProcessInstanceWithResultCommandStep1 WithResult()
         {
             return new CreateProcessInstanceCommandWithResult(client, asyncRetryStrategy, request);
