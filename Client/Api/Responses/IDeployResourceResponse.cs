@@ -15,5 +15,8 @@ namespace Zeebe.Client.Api.Responses
 
         /// <returns>the decision requirements which are deployed </returns>
         IList<IDecisionRequirementsMetadata> DecisionRequirements { get; }
+
+        /// <returns>the forms which are deployed</returns>
+        IList<IFormMetadata> Forms { get; }
     }
 }
