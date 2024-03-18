@@ -87,6 +87,11 @@ namespace Zeebe.Client.Impl.Worker
             return !isRunning;
         }
 
+        public void StopPooling()
+        {
+            source.Cancel();
+        }
+
         /// <summary>
         /// Opens the configured JobWorker to activate jobs in the given poll interval
         /// and handle with the given handler.

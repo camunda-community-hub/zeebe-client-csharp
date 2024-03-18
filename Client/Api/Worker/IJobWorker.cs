@@ -28,5 +28,7 @@ namespace Zeebe.Client.Api.Worker
 
         /// <returns>true if this registration is not open and is not in the process of opening or closing</returns>
         bool IsClosed();
+
+        void StopPooling();
     }
 }
