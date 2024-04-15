@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
@@ -19,11 +20,14 @@ public class PersistedAccessTokenCache : IAccessTokenCache
 
     private readonly ILogger<PersistedAccessTokenCache> logger;
     private readonly IAccessTokenCache.AccessTokenResolverAsync accessTokenFetcherAsync;
+    private readonly ConcurrentDictionary<string, SemaphoreSlim> tokenLocks = new ();
+    private readonly SemaphoreSlim semaphore;
 
     private readonly string tokenStoragePath;
     private string TokenFileName => Path.Combine(tokenStoragePath, ZeebeTokenFileName);
 
-    public PersistedAccessTokenCache(string path, IAccessTokenCache.AccessTokenResolverAsync fetcherAsync, ILogger<PersistedAccessTokenCache> logger = null)
+    public PersistedAccessTokenCache(string path, IAccessTokenCache.AccessTokenResolverAsync fetcherAsync,
+        ILogger<PersistedAccessTokenCache> logger = null)
     {
         var directoryInfo = Directory.CreateDirectory(path);
         if (!directoryInfo.Exists)
@@ -35,6 +39,7 @@ public class PersistedAccessTokenCache : IAccessTokenCache
         this.logger = logger;
         accessTokenFetcherAsync = fetcherAsync;
         CachedCredentials = new Dictionary<string, AccessToken>();
+        semaphore = tokenLocks.GetOrAdd("credentials_lock", new SemaphoreSlim(1, 1));
     }
 
     public async Task<string> Get(string audience)
@@ -61,6 +66,12 @@ public class PersistedAccessTokenCache : IAccessTokenCache
             }
         }
 
+        if (semaphore.CurrentCount == 0)
+        {
+            logger?.LogTrace("Semaphore is locked, but there is no token in memory or file");
+            return null;
+        }
+
         // fetch new token
         var newAccessToken = await FetchNewAccessToken(audience);
         return newAccessToken.Token;
@@ -70,10 +81,24 @@ public class PersistedAccessTokenCache : IAccessTokenCache
     {
         var now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
         var dueDate = currentAccessToken.DueDate;
-        if (now < dueDate)
+
+        if (now < dueDate - 15000) // Adding 15 sec buffer to update the token before it really expires.
         {
             // still valid
             return currentAccessToken.Token;
+        }
+
+        // token is still valid, but will expire soon
+        if (now < dueDate)
+        {
+            if (semaphore.CurrentCount == 0)
+            {
+                Console.WriteLine("Semaphore is locked, using existing token...");
+                return currentAccessToken.Token;
+            }
+
+            var updatedAccessToken = await FetchNewAccessToken(audience);
+            return updatedAccessToken.Token;
         }
 
         logger?.LogTrace("Access token is no longer valid (now: {Now} > dueTime: {DueTime}), request new one", now,
@@ -86,7 +111,17 @@ public class PersistedAccessTokenCache : IAccessTokenCache
     {
         var newAccessToken = await accessTokenFetcherAsync();
         CachedCredentials[audience] = newAccessToken;
-        WriteCredentials();
+
+        await semaphore.WaitAsync();
+        try
+        {
+            WriteCredentials();
+        }
+        finally
+        {
+            semaphore.Release();
+        }
+
         return newAccessToken;
     }
 
