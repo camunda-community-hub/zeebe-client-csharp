@@ -59,6 +59,12 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
+        public IFailJobCommandStep2 Variables(string variables)
+        {
+            request.Variables = variables;
+            return this;
+        }
+
         public async Task<IFailJobResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
             var asyncReply = gatewayClient.FailJobAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);

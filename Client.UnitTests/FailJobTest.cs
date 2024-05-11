@@ -16,12 +16,14 @@ namespace Zeebe.Client
             // given
             const string errorMessage = "This job failed!";
             const int jobKey = 255;
+            const string variables = "{\"foo\":23}";
             var expectedRequest = new FailJobRequest
             {
                 JobKey = jobKey,
                 ErrorMessage = errorMessage,
                 Retries = 2,
-                RetryBackOff = 1562
+                RetryBackOff = 1562,
+                Variables = variables
             };
 
             // when
@@ -29,6 +31,7 @@ namespace Zeebe.Client
                 .Retries(2)
                 .ErrorMessage("This job failed!")
                 .RetryBackOff(TimeSpan.FromMilliseconds(1562.5))
+                .Variables(variables)
                 .Send();
 
             // then
