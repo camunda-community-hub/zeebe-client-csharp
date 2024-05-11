@@ -3,7 +3,7 @@
 ## Building the C# client from source
 
 The core functionality and API lies in the `Client` project sub folder.
-Simply open the solution with one of your prefered IDE's (like VS Studio, Rider or Mono).
+Simply open the solution with one of your preferred IDE's (like VS Studio, Rider or Mono).
 It should also be possible to build the solution via `msbuild`.
 
 The `Client-test` project contains as the name states the tests of the Client API.
