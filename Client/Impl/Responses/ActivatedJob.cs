@@ -42,6 +42,7 @@ namespace Zeebe.Client.Impl.Responses
             Deadline = FromUTCTimestamp(activatedJob.Deadline);
             Variables = activatedJob.Variables;
             CustomHeaders = activatedJob.CustomHeaders;
+            TenantId = activatedJob.TenantId;
         }
 
         public long Key { get; }
@@ -70,15 +71,17 @@ namespace Zeebe.Client.Impl.Responses
 
         public string CustomHeaders { get; }
 
+        public string TenantId { get; }
+
         public override string ToString()
         {
             return
-                $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(ProcessInstanceKey)}: {ProcessInstanceKey}, {nameof(BpmnProcessId)}: {BpmnProcessId}, {nameof(ProcessDefinitionVersion)}: {ProcessDefinitionVersion}, {nameof(ProcessDefinitionKey)}: {ProcessDefinitionKey}, {nameof(ElementId)}: {ElementId}, {nameof(ElementInstanceKey)}: {ElementInstanceKey}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}, {nameof(CustomHeaders)}: {CustomHeaders}";
+                $"{nameof(Key)}: {Key}, {nameof(Type)}: {Type}, {nameof(TenantId)}: {TenantId}, {nameof(ProcessInstanceKey)}: {ProcessInstanceKey}, {nameof(BpmnProcessId)}: {BpmnProcessId}, {nameof(ProcessDefinitionVersion)}: {ProcessDefinitionVersion}, {nameof(ProcessDefinitionKey)}: {ProcessDefinitionKey}, {nameof(ElementId)}: {ElementId}, {nameof(ElementInstanceKey)}: {ElementInstanceKey}, {nameof(Worker)}: {Worker}, {nameof(Retries)}: {Retries}, {nameof(Deadline)}: {Deadline}, {nameof(Variables)}: {Variables}, {nameof(CustomHeaders)}: {CustomHeaders}";
         }
 
         protected bool Equals(ActivatedJob other)
         {
-            return Key == other.Key && Type == other.Type && ProcessInstanceKey == other.ProcessInstanceKey &&
+            return Key == other.Key && Type == other.Type && ProcessInstanceKey == other.ProcessInstanceKey && TenantId == other.TenantId &&
                    BpmnProcessId == other.BpmnProcessId &&
                    ProcessDefinitionVersion == other.ProcessDefinitionVersion && ProcessDefinitionKey == other.ProcessDefinitionKey &&
                    ElementId == other.ElementId && ElementInstanceKey == other.ElementInstanceKey &&
@@ -112,6 +115,7 @@ namespace Zeebe.Client.Impl.Responses
             {
                 var hashCode = Key.GetHashCode();
                 hashCode = (hashCode * 397) ^ (Type != null ? Type.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (TenantId != null ? TenantId.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ ProcessInstanceKey.GetHashCode();
                 hashCode = (hashCode * 397) ^ (BpmnProcessId != null ? BpmnProcessId.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ ProcessDefinitionVersion;

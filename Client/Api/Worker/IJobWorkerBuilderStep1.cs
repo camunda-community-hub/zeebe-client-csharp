@@ -15,6 +15,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Api.Worker
@@ -103,7 +104,7 @@ namespace Zeebe.Client.Api.Worker
         IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler);
     }
 
-    public interface IJobWorkerBuilderStep3
+    public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilderStep3>
     {
         /// <summary>
         /// Set the time for how long a job is exclusively assigned for this worker.

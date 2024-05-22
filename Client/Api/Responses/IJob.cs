@@ -61,5 +61,8 @@ namespace Zeebe.Client.Api.Responses
 
         /// <returns> JSON-formatted Custom Headers </returns>
         string CustomHeaders { get; }
+
+        /// <returns> tenant ID of the process </returns>
+        string TenantId { get; }
     }
 }
