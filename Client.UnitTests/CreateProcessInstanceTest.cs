@@ -150,6 +150,27 @@ namespace Zeebe.Client
         }
 
         [Test]
+        public async Task ShouldSendRequestWithTenantIdAsExpected()
+        {
+            // given
+            var expectedRequest = new CreateProcessInstanceRequest
+            {
+                ProcessDefinitionKey = 1,
+                TenantId = "tenant1"
+            };
+
+            // when
+            await ZeebeClient.NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(1)
+                .AddTenantId("tenant1")
+                .Send();
+
+            // then
+            var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
+            Assert.AreEqual(expectedRequest, request);
+        }
+
+        [Test]
         public async Task ShouldReceiveResponseAsExpected()
         {
             // given

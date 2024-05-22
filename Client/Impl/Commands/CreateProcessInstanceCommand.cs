@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
@@ -55,6 +54,12 @@ namespace Zeebe.Client.Impl.Commands
         public ICreateProcessInstanceCommandStep3 Variables(string variables)
         {
             request.Variables = variables;
+            return this;
+        }
+
+        public ICreateProcessInstanceCommandStep3 AddTenantId(string tenantId)
+        {
+            request.TenantId = tenantId;
             return this;
         }
 

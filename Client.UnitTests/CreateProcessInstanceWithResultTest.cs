@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
 using NUnit.Framework;
-using Type = Google.Protobuf.WellKnownTypes.Type;
 
 namespace Zeebe.Client
 {
@@ -207,6 +205,32 @@ namespace Zeebe.Client
                 .BpmnProcessId("process")
                 .LatestVersion()
                 .Variables("{\"foo\":1}")
+                .WithResult()
+                .Send();
+
+            // then
+            var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
+            Assert.AreEqual(expectedRequest, request);
+        }
+
+        [Test]
+        public async Task ShouldSendRequestWithTenantIdAsExpected()
+        {
+            // given
+            var expectedRequest = new CreateProcessInstanceWithResultRequest
+            {
+                Request = new CreateProcessInstanceRequest
+                {
+                    ProcessDefinitionKey = 1,
+                    TenantId = "tenant1"
+                },
+                RequestTimeout = 20 * 1000
+            };
+
+            // when
+            await ZeebeClient.NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(1)
+                .AddTenantId("tenant1")
                 .WithResult()
                 .Send();
 
