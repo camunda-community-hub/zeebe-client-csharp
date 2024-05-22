@@ -143,6 +143,15 @@ namespace Zeebe.Client
                 new EvaluateDecisionResponse(),
                 (RequestCreator<IEvaluateDecisionResponse>)
                 (zeebeClient => zeebeClient.NewEvaluateDecisionCommand().DecisionId("decision")));
+            yield return new TestCaseData(
+                new UpdateJobTimeoutRequest()
+                {
+                    JobKey = 12113L,
+                    Timeout = 20000
+                }, new UpdateJobTimeoutResponse(),
+                (RequestCreator<IUpdateJobTimeoutResponse>)
+                (zeebeClient => zeebeClient.NewUpdateJobTimeoutCommand(12113L)
+                    .Timeout(new TimeSpan(0, 0, 0, 20))));
         }
     }
 }

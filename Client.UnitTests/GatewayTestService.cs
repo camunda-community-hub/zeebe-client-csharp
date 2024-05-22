@@ -53,6 +53,7 @@ namespace Zeebe.Client
             typedRequestHandler.Add(typeof(CompleteJobRequest), request => new CompleteJobResponse());
             typedRequestHandler.Add(typeof(FailJobRequest), request => new FailJobResponse());
             typedRequestHandler.Add(typeof(UpdateJobRetriesRequest), request => new UpdateJobRetriesResponse());
+            typedRequestHandler.Add(typeof(UpdateJobTimeoutRequest), request => new UpdateJobTimeoutResponse());
             typedRequestHandler.Add(typeof(ThrowErrorRequest), request => new ThrowErrorResponse());
 
             typedRequestHandler.Add(typeof(DeployResourceRequest), request => new DeployResourceResponse());
@@ -104,6 +105,11 @@ namespace Zeebe.Client
         public override Task<UpdateJobRetriesResponse> UpdateJobRetries(UpdateJobRetriesRequest request, ServerCallContext context)
         {
             return Task.FromResult((UpdateJobRetriesResponse)HandleRequest(request, context));
+        }
+
+        public override Task<UpdateJobTimeoutResponse> UpdateJobTimeout(UpdateJobTimeoutRequest request, ServerCallContext context)
+        {
+            return Task.FromResult((UpdateJobTimeoutResponse)HandleRequest(request, context));
         }
 
         public override Task<ThrowErrorResponse> ThrowError(ThrowErrorRequest request, ServerCallContext context)
