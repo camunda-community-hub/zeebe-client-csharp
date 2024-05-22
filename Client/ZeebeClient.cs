@@ -188,6 +188,11 @@ namespace Zeebe.Client
             return new UpdateRetriesCommand(gatewayClient, asyncRetryStrategy, jobKey);
         }
 
+        public IUpdateJobTimeoutCommandStep1 NewUpdateJobTimeoutCommand(long jobKey)
+        {
+            return new UpdateJobTimeoutCommand(gatewayClient, asyncRetryStrategy, jobKey);
+        }
+
         public IThrowErrorCommandStep1 NewThrowErrorCommand(long jobKey)
         {
             return new ThrowErrorCommand(gatewayClient, asyncRetryStrategy, jobKey);
