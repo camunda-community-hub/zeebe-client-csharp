@@ -1,0 +1,23 @@
+{
+  "components": [
+    {
+      "label": "Demo checkbox",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_0b67lfv",
+        "columns": null
+      },
+      "id": "Field_18jrp23",
+      "key": "demoCheckbox"
+    }
+  ],
+  "type": "default",
+  "id": "demoForm",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.19.0"
+  },
+  "schemaVersion": 14
+}

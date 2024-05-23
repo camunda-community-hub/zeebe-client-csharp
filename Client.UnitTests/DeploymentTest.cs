@@ -14,6 +14,7 @@ namespace Zeebe.Client
     public class DeploymentTest : BaseZeebeTest
     {
         private readonly string _demoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-process.bpmn");
+        private readonly string _demoFormPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "demo-form.form");
 
         [Test]
         public async Task ShouldSendDeployResourceFileAsExpected()
@@ -240,8 +241,8 @@ namespace Zeebe.Client
                     },
                     new Resource
                     {
-                        Content = ByteString.FromStream(File.OpenRead(_demoProcessPath)),
-                        Name = _demoProcessPath,
+                        Content = ByteString.FromStream(File.OpenRead(_demoFormPath)),
+                        Name = _demoFormPath,
                     }
                 }
             };
@@ -249,7 +250,7 @@ namespace Zeebe.Client
             // when
             await ZeebeClient.NewDeployCommand()
                 .AddResourceFile(_demoProcessPath)
-                .AddResourceStream(File.OpenRead(_demoProcessPath), _demoProcessPath)
+                .AddResourceStream(File.OpenRead(_demoFormPath), _demoFormPath)
                 .Send();
 
             // then
@@ -299,6 +300,17 @@ namespace Zeebe.Client
                             DmnDecisionRequirementsId = "id",
                             DmnDecisionRequirementsName = "nameRequirement"
                         }
+                    },
+                    new Deployment
+                    {
+                        Form = new FormMetadata
+                        {
+                            FormKey = 3,
+                            Version = 1,
+                            ResourceName = "form",
+                            FormId = "demoForm",
+                            TenantId = "formTenantId"
+                        }
                     }
                 }
             };
@@ -306,10 +318,10 @@ namespace Zeebe.Client
             TestService.AddRequestHandler(typeof(DeployResourceRequest), request => expectedResponse);
 
             // when
-            var fileContent = File.ReadAllText(_demoProcessPath);
+            var processFileContent = await File.ReadAllTextAsync(_demoProcessPath);
             var deployProcessResponse = await ZeebeClient.NewDeployCommand()
-                .AddResourceFile(_demoProcessPath)
-                .AddResourceString(fileContent, Encoding.UTF8, _demoProcessPath)
+                .AddResourceString(processFileContent, Encoding.UTF8, _demoProcessPath)
+                .AddResourceFile(_demoFormPath)
                 .Send();
 
             // then
@@ -317,6 +329,7 @@ namespace Zeebe.Client
             Assert.AreEqual(1, deployProcessResponse.Processes.Count);
             Assert.AreEqual(1, deployProcessResponse.Decisions.Count);
             Assert.AreEqual(1, deployProcessResponse.DecisionRequirements.Count);
+            Assert.AreEqual(1, deployProcessResponse.Forms.Count);
 
             var processMetadata = deployProcessResponse.Processes[0];
             Assert.AreEqual("process", processMetadata.BpmnProcessId);
@@ -338,6 +351,13 @@ namespace Zeebe.Client
             Assert.AreEqual("requirement", decisionRequirementsMetadata.ResourceName);
             Assert.AreEqual("nameRequirement", decisionRequirementsMetadata.DmnDecisionRequirementsName);
             Assert.AreEqual("id", decisionRequirementsMetadata.DmnDecisionRequirementsId);
+
+            var formMetadata = deployProcessResponse.Forms[0];
+            Assert.AreEqual(3, formMetadata.FormKey);
+            Assert.AreEqual(1, formMetadata.Version);
+            Assert.AreEqual("form", formMetadata.ResourceName);
+            Assert.AreEqual("demoForm", formMetadata.FormId);
+            Assert.AreEqual("formTenantId", formMetadata.TenantId);
         }
 
         [Test]
