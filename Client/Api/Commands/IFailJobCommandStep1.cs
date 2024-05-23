@@ -59,5 +59,13 @@ namespace Zeebe.Client.Api.Commands
         ///     to the broker.
         /// </returns>
         IFailJobCommandStep2 RetryBackOff(TimeSpan retryBackOff);
+
+        /// <summary>
+        /// Set the variables to fail the job with.
+        /// </summary>
+        /// <param name="variables">the variables (JSON) as String.</param>
+        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
+        ///     to the broker.
+        IFailJobCommandStep2 Variables(string variables);
     }
 }
