@@ -10,7 +10,7 @@ public interface IUpdateJobTimeoutCommandStep1
     /// </summary>
     ///
     /// <para>
-    ///   If the job's timeout is set to zero, the job will be retried.
+    ///   If the job's timeout is set to zero, the job will be directly retried.
     /// </para>
     /// <param name="timeout">The duration of the new timeout as a TimeSpan, starting from the current moment.</param>
     /// <returns>
