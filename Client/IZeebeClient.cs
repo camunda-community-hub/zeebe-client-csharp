@@ -133,7 +133,7 @@ namespace Zeebe.Client
         /// </example>
         ///
         /// <para>
-        ///   If the job's timeout is zero, the job will be retried.
+        ///   If the job's timeout is zero, the job will be directly retried.
         /// </para>
         /// <param name="jobKey">
         ///     the key of the job to update
