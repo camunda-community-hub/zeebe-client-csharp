@@ -81,6 +81,59 @@ namespace Zeebe.Client
         }
 
         [Test]
+        public void ShouldSendRequestWithTenantIdsListReceiveResponseAsExpected()
+        {
+            // given
+            var expectedRequest = new ActivateJobsRequest
+            {
+                Timeout = 123_000L,
+                MaxJobsToActivate = 3,
+                Type = "foo",
+                Worker = "jobWorker",
+                RequestTimeout = 5_000L,
+                TenantIds = { "1234", "5678", "91011" }
+            };
+
+            TestService.AddRequestHandler(typeof(ActivateJobsRequest), _ => CreateExpectedResponse());
+
+            // when
+            var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
+            var receivedJobs = new List<IJob>();
+            using (var jobWorker = ZeebeClient.NewWorker()
+                       .JobType("foo")
+                       .Handler((_, job) =>
+                       {
+                           receivedJobs.Add(job);
+                           if (receivedJobs.Count == 3)
+                           {
+                               signal.Set();
+                           }
+                       })
+                       .MaxJobsActive(3)
+                       .Name("jobWorker")
+                       .Timeout(TimeSpan.FromSeconds(123L))
+                       .PollInterval(TimeSpan.FromMilliseconds(100))
+                       .PollingTimeout(TimeSpan.FromSeconds(5L))
+                       .TenantIds("1234", "5678")
+                       .TenantIds("91011")
+                       .Open())
+            {
+                Assert.True(jobWorker.IsOpen());
+                signal.WaitOne();
+            }
+
+            // then
+            var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
+            Assert.AreEqual(expectedRequest, actualRequest);
+
+            Assert.AreEqual(receivedJobs.Count, 3);
+
+            AssertJob(receivedJobs[0], 1);
+            AssertJob(receivedJobs[1], 2);
+            AssertJob(receivedJobs[2], 3);
+        }
+
+        [Test]
         public void ShouldFailWithZeroThreadCount()
         {
             // expected

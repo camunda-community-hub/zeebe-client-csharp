@@ -15,6 +15,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Microsoft.Extensions.Logging;
@@ -62,6 +63,17 @@ namespace Zeebe.Client.Impl.Worker
         {
             this.asyncJobHandler = handler;
             return this;
+        }
+
+        public IJobWorkerBuilderStep3 TenantIds(IList<string> tenantIds)
+        {
+            Request.TenantIds.AddRange(tenantIds);
+            return this;
+        }
+
+        public IJobWorkerBuilderStep3 TenantIds(params string[] tenantIds)
+        {
+            return TenantIds(tenantIds.ToList());
         }
 
         internal AsyncJobHandler Handler()
