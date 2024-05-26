@@ -27,7 +27,7 @@ public class UpdateJobTimeoutCommand : IUpdateJobTimeoutCommandStep1, IUpdateJob
 
     public IUpdateJobTimeoutCommandStep2 Timeout(TimeSpan timeout)
     {
-        request.Timeout = Convert.ToInt32(timeout.TotalMilliseconds);
+        request.Timeout = (long)timeout.TotalMilliseconds;
         return this;
     }
 
