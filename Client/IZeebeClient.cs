@@ -119,6 +119,31 @@ namespace Zeebe.Client
         IUpdateRetriesCommandStep1 NewUpdateRetriesCommand(long jobKey);
 
         /// <summary>
+        /// Command to update the timeout of a job.
+        /// </summary>
+        /// <example>
+        /// <code>
+        /// long jobKey = ..;
+        ///
+        /// zeebeClient
+        ///  .NewUpdateJobTimeoutCommand(jobKey)
+        ///  .Timeout(new TimeSpan(0, 0, 0, 10))
+        ///  .Send();
+        /// </code>
+        /// </example>
+        ///
+        /// <para>
+        ///   If the job's timeout is zero, the job will be directly retried.
+        /// </para>
+        /// <param name="jobKey">
+        ///     the key of the job to update
+        /// </param>
+        /// <returns>
+        ///     a builder for the command
+        /// </returns>
+        IUpdateJobTimeoutCommandStep1 NewUpdateJobTimeoutCommand(long jobKey);
+        
+        /// <summary>
         /// Command to deploy new resources, i.e. BPMN process models and DMN decision models.
         /// </summary>
         ///
