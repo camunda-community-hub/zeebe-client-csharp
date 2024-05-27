@@ -2,12 +2,14 @@
 set -euxo pipefail
 
 os=linux_x64
-grpcVersion=2.51.0
+grpcVersion=2.64.0
 packagePath=~/.nuget/packages/grpc.tools/${grpcVersion}/tools/${os}/
-zeebeVersion='8.4.1'
+zeebeVersion='8.5.1'
 protoFile=gateway.proto
 gwProtoPath=./
 genPath=Client/Impl/proto
+
+url="https://raw.githubusercontent.com/camunda/camunda/${zeebeVersion}/zeebe/gateway-protocol/src/main/proto/${protoFile}"
 
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -22,8 +24,8 @@ echo -e "nuget restore Zeebe.sln\n"
 dotnet restore Zeebe.sln
 
 # get gatway proto file
-echo -e "curl -X GET https://raw.githubusercontent.com/zeebe-io/zeebe/${zeebeVersion}/gateway-protocol/src/main/proto/gateway.proto > ${protoFile}\n"
-curl -X GET https://raw.githubusercontent.com/zeebe-io/zeebe/${zeebeVersion}/gateway-protocol/src/main/proto/${protoFile} > ${protoFile}
+echo -e "curl -X GET $url > ${protoFile}\n"
+curl -X GET "$url" > ${protoFile}
 
 
 # generate gRPC

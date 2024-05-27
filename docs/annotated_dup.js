@@ -70,6 +70,7 @@ var annotated_dup =
             [ "ISetVariablesResponse", "d7/d1a/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ISetVariablesResponse.html", "d7/d1a/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ISetVariablesResponse" ],
             [ "IThrowErrorResponse", "d7/d26/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IThrowErrorResponse.html", null ],
             [ "ITopology", "df/d68/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ITopology.html", "df/d68/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ITopology" ],
+            [ "IUpdateJobTimeoutResponse", "d2/d26/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IUpdateJobTimeoutResponse.html", null ],
             [ "IUpdateRetriesResponse", "d7/df3/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IUpdateRetriesResponse.html", null ]
           ] ],
           [ "Worker", "db/d2d/namespaceZeebe_1_1Client_1_1Api_1_1Worker.html", [
@@ -89,9 +90,12 @@ var annotated_dup =
     [ "IEvaluatedDecisionInput", "d4/d5a/interfaceIEvaluatedDecisionInput.html", "d4/d5a/interfaceIEvaluatedDecisionInput" ],
     [ "IEvaluatedDecisionOutput", "d3/df4/interfaceIEvaluatedDecisionOutput.html", "d3/df4/interfaceIEvaluatedDecisionOutput" ],
     [ "IEvaluateDecisionCommandStep1", "da/d52/interfaceIEvaluateDecisionCommandStep1.html", "da/d52/interfaceIEvaluateDecisionCommandStep1" ],
+    [ "IFormMetadata", "da/d8f/interfaceIFormMetadata.html", "da/d8f/interfaceIFormMetadata" ],
     [ "IMatchedDecisionRule", "df/d06/interfaceIMatchedDecisionRule.html", "df/d06/interfaceIMatchedDecisionRule" ],
     [ "IModifyProcessInstanceCommandStep1", "dd/d24/interfaceIModifyProcessInstanceCommandStep1.html", "dd/d24/interfaceIModifyProcessInstanceCommandStep1" ],
     [ "IModifyProcessInstanceCommandStep2", "df/db2/interfaceIModifyProcessInstanceCommandStep2.html", "df/db2/interfaceIModifyProcessInstanceCommandStep2" ],
     [ "IModifyProcessInstanceCommandStep3", "d0/d4b/interfaceIModifyProcessInstanceCommandStep3.html", "d0/d4b/interfaceIModifyProcessInstanceCommandStep3" ],
-    [ "IModifyProcessInstanceResponse", "d8/dae/interfaceIModifyProcessInstanceResponse.html", null ]
+    [ "IModifyProcessInstanceResponse", "d8/dae/interfaceIModifyProcessInstanceResponse.html", null ],
+    [ "IUpdateJobTimeoutCommandStep1", "d9/d86/interfaceIUpdateJobTimeoutCommandStep1.html", "d9/d86/interfaceIUpdateJobTimeoutCommandStep1" ],
+    [ "IUpdateJobTimeoutCommandStep2", "da/dc5/interfaceIUpdateJobTimeoutCommandStep2.html", null ]
 ];

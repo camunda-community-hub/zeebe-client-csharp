@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.5.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.6.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -121,6 +121,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a83b77ca41cbde1947a976fa1193ded4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d9d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IUpdateRetriesCommandStep1.html">IUpdateRetriesCommandStep1</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a83b77ca41cbde1947a976fa1193ded4a">NewUpdateRetriesCommand</a> (long jobKey)</td></tr>
 <tr class="memdesc:a83b77ca41cbde1947a976fa1193ded4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command to update the retries of a job.   <a href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a83b77ca41cbde1947a976fa1193ded4a">More...</a><br /></td></tr>
 <tr class="separator:a83b77ca41cbde1947a976fa1193ded4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac186c2640bdca544a9b3c5920b522dbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d86/interfaceIUpdateJobTimeoutCommandStep1.html">IUpdateJobTimeoutCommandStep1</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ac186c2640bdca544a9b3c5920b522dbe">NewUpdateJobTimeoutCommand</a> (long jobKey)</td></tr>
+<tr class="memdesc:ac186c2640bdca544a9b3c5920b522dbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command to update the timeout of a job.   <a href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ac186c2640bdca544a9b3c5920b522dbe">More...</a><br /></td></tr>
+<tr class="separator:ac186c2640bdca544a9b3c5920b522dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb0cb5ee8719edc5cfa63ff99b8b5b19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1.html">IDeployResourceCommandStep1</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#adb0cb5ee8719edc5cfa63ff99b8b5b19">NewDeployCommand</a> ()</td></tr>
 <tr class="memdesc:adb0cb5ee8719edc5cfa63ff99b8b5b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command to deploy new resources, i.e. BPMN process models and DMN decision models.   <a href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#adb0cb5ee8719edc5cfa63ff99b8b5b19">More...</a><br /></td></tr>
 <tr class="separator:adb0cb5ee8719edc5cfa63ff99b8b5b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -424,6 +427,40 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac186c2640bdca544a9b3c5920b522dbe" name="ac186c2640bdca544a9b3c5920b522dbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac186c2640bdca544a9b3c5920b522dbe">&#9670;&#160;</a></span>NewUpdateJobTimeoutCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d86/interfaceIUpdateJobTimeoutCommandStep1.html">IUpdateJobTimeoutCommandStep1</a> Zeebe.Client.IZeebeClient.NewUpdateJobTimeoutCommand </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>jobKey</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Command to update the timeout of a job.  </p>
+<div class="fragment"><div class="line"><span class="keywordtype">long</span> jobKey = ..;</div>
+<div class="line"> </div>
+<div class="line">zeebeClient</div>
+<div class="line"> .NewUpdateJobTimeoutCommand(jobKey)</div>
+<div class="line"> .Timeout(<span class="keyword">new</span> TimeSpan(0, 0, 0, 10))</div>
+<div class="line"> .Send();</div>
+</div><!-- fragment --> <p >If the job's timeout is zero, the job will be directly retried. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jobKey</td><td>the key of the job to update </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a builder for the command </dd></dl>
+
+</div>
+</div>
 <a id="a83b77ca41cbde1947a976fa1193ded4a" name="a83b77ca41cbde1947a976fa1193ded4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a83b77ca41cbde1947a976fa1193ded4a">&#9670;&#160;</a></span>NewUpdateRetriesCommand()</h2>
 
@@ -530,7 +567,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html">IZeebeClient</a></li>
-    <li class="footer">Generated on Thu Feb 1 2024 15:47:54 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Mon May 27 2024 08:34:47 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
