@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-    <Version>2.5.0</Version>
+    <Version>2.6.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company />
     <Description>
@@ -13,8 +13,8 @@ For more information about the zeebe project please visit http://zeebe.io</Descr
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>2.5.0</AssemblyVersion>
-    <FileVersion>2.5.0</FileVersion>
+    <AssemblyVersion>2.6.0</AssemblyVersion>
+    <FileVersion>2.6.0</FileVersion>
     <PackageReleaseNotes>
 
       See release notes https://github.com/camunda-community-hub/zeebe-client-csharp/releases
@@ -29,9 +29,9 @@ This release is based on the Zeebe 8.4.1 release (https://github.com/zeebe-io/ze
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>2.5.0</PackageVersion>
+    <PackageVersion>2.6.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>2.5.0</Title>
+    <Title>2.6.0</Title>
     <LangVersion>default</LangVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
