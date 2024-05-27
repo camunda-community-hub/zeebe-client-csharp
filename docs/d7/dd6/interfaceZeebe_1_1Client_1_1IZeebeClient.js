@@ -9,6 +9,7 @@ var interfaceZeebe_1_1Client_1_1IZeebeClient =
     [ "NewPublishMessageCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ab8ab0c28694249cc682e32a24cc7889a", null ],
     [ "NewResolveIncidentCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ad551d03f526c8694b2a0be7f8dc26bab", null ],
     [ "NewSetVariablesCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a715622caf01c5e5b92bea55df0aefe95", null ],
+    [ "NewUpdateJobTimeoutCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ac186c2640bdca544a9b3c5920b522dbe", null ],
     [ "NewUpdateRetriesCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a83b77ca41cbde1947a976fa1193ded4a", null ],
     [ "NewWorker", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a10370b9ac0ebd7feca4d63e638ddd14c", null ],
     [ "TopologyRequest", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a04edceb7abb5195c0c35efa0de843236", null ]

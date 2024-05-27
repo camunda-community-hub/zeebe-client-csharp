@@ -17,6 +17,7 @@ var namespaceZeebe_1_1Client_1_1Api_1_1Responses =
     [ "ISetVariablesResponse", "d7/d1a/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ISetVariablesResponse.html", "d7/d1a/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ISetVariablesResponse" ],
     [ "IThrowErrorResponse", "d7/d26/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IThrowErrorResponse.html", null ],
     [ "ITopology", "df/d68/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ITopology.html", "df/d68/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ITopology" ],
+    [ "IUpdateJobTimeoutResponse", "d2/d26/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IUpdateJobTimeoutResponse.html", null ],
     [ "IUpdateRetriesResponse", "d7/df3/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IUpdateRetriesResponse.html", null ],
     [ "PartitionBrokerRole", "dd/db3/namespaceZeebe_1_1Client_1_1Api_1_1Responses.html#a1a9e862a4c86d9647570967f6001b9a2", null ]
 ];

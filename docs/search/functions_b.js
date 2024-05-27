@@ -13,6 +13,7 @@ var searchData=
   ['newresolveincidentcommand_10',['NewResolveIncidentCommand',['../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ad551d03f526c8694b2a0be7f8dc26bab',1,'Zeebe::Client::IZeebeClient']]],
   ['newsetvariablescommand_11',['NewSetVariablesCommand',['../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a715622caf01c5e5b92bea55df0aefe95',1,'Zeebe::Client::IZeebeClient']]],
   ['newthrowerrorcommand_12',['NewThrowErrorCommand',['../df/d67/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient.html#a59b44132084c211cbae9d81ff99804ca',1,'Zeebe::Client::Api::Worker::IJobClient']]],
-  ['newupdateretriescommand_13',['NewUpdateRetriesCommand',['../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a83b77ca41cbde1947a976fa1193ded4a',1,'Zeebe::Client::IZeebeClient']]],
-  ['newworker_14',['NewWorker',['../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a10370b9ac0ebd7feca4d63e638ddd14c',1,'Zeebe::Client::IZeebeClient']]]
+  ['newupdatejobtimeoutcommand_13',['NewUpdateJobTimeoutCommand',['../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ac186c2640bdca544a9b3c5920b522dbe',1,'Zeebe::Client::IZeebeClient']]],
+  ['newupdateretriescommand_14',['NewUpdateRetriesCommand',['../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a83b77ca41cbde1947a976fa1193ded4a',1,'Zeebe::Client::IZeebeClient']]],
+  ['newworker_15',['NewWorker',['../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a10370b9ac0ebd7feca4d63e638ddd14c',1,'Zeebe::Client::IZeebeClient']]]
 ];
