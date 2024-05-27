@@ -25,7 +25,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(SetVariablesRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+            Assert.Equals(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
+            Assert.Equals(StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(SetVariablesRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -95,7 +95,7 @@ namespace Zeebe.Client
             var response = await ZeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}").Local().Send();
 
             // then
-            Assert.AreEqual(12, response.Key);
+            Assert.Equals(12, response.Key);
         }
     }
 }

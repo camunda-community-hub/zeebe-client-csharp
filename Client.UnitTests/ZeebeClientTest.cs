@@ -36,11 +36,11 @@ namespace Zeebe.Client
             var aggregateException = Assert.Throws<AggregateException>(
                 () => zeebeClient.TopologyRequest().Send().Wait());
 
-            Assert.AreEqual(1, aggregateException.InnerExceptions.Count);
+            Assert.Equals(1, aggregateException.InnerExceptions.Count);
 
             var catchedExceptions = aggregateException.InnerExceptions[0];
-            Assert.IsTrue(catchedExceptions.Message.Contains("ZeebeClient was already disposed."));
-            Assert.IsInstanceOf(typeof(ObjectDisposedException), catchedExceptions);
+            Assert.That(catchedExceptions.Message.Contains("ZeebeClient was already disposed."), Is.True);
+            Assert.That(catchedExceptions, Is.InstanceOf(typeof(ObjectDisposedException)));
         }
 
         [Test]
@@ -70,7 +70,7 @@ namespace Zeebe.Client
             var secondSpan = defaultWaitTimeProvider.Invoke(2);
 
             // then
-            Assert.Greater(secondSpan, firstSpan);
+            Assert.That(secondSpan, Is.GreaterThan(firstSpan));
         }
 
         [Test]
@@ -83,7 +83,7 @@ namespace Zeebe.Client
             var maxTime = defaultWaitTimeProvider.Invoke(100);
 
             // then
-            Assert.AreEqual(TimeSpan.FromSeconds(ZeebeClient.MaxWaitTimeInSeconds), maxTime);
+            Assert.Equals(TimeSpan.FromSeconds(ZeebeClient.MaxWaitTimeInSeconds), maxTime);
         }
     }
 }

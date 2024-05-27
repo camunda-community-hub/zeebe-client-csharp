@@ -59,11 +59,11 @@ public class EvaluateDecisionTest
             .Send();
 
         // then
-        Assert.AreEqual(evaluateDecisionResponse.DecisionVersion, 1);
-        Assert.AreEqual(decisionKey, evaluateDecisionResponse.DecisionKey);
-        Assert.AreEqual("dish", evaluateDecisionResponse.DecisionId);
-        Assert.Greater(evaluateDecisionResponse.DecisionKey, 1);
+        Assert.Equals(evaluateDecisionResponse.DecisionVersion, 1);
+        Assert.Equals(decisionKey, evaluateDecisionResponse.DecisionKey);
+        Assert.Equals("dish", evaluateDecisionResponse.DecisionId);
+        Assert.That(evaluateDecisionResponse.DecisionKey, Is.GreaterThan(1));
         // right now it seems the DMN engine returns an double quated string
-        Assert.AreEqual("\"Stew\"", evaluateDecisionResponse.DecisionOutput);
+        Assert.Equals("\"Stew\"", evaluateDecisionResponse.DecisionOutput);
     }
 }

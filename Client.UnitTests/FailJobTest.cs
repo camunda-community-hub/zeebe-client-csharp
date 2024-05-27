@@ -37,7 +37,7 @@ namespace Zeebe.Client
             // then
             var actualRequest = TestService.Requests[typeof(FailJobRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
         }
 
         [Test]
@@ -56,7 +56,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+            Assert.Equals(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
+            Assert.Equals(StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
     }
 }

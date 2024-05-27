@@ -32,7 +32,7 @@ namespace Zeebe.Client
             });
 
             // then
-            Assert.AreEqual(3, result);
+            Assert.Equals(3, result);
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace Zeebe.Client
             });
 
             // then
-            Assert.AreEqual(3, result);
+            Assert.Equals(3, result);
         }
 
         [Test]
@@ -83,8 +83,8 @@ namespace Zeebe.Client
             });
 
             // then
-            Assert.AreEqual(3, result);
-            CollectionAssert.AreEqual(new List<int> { 1, 2, 3 }, values);
+            Assert.Equals(3, result);
+            Assert.That(values, Is.EqualTo(new List<long> { 1, 2, 3 }));
         }
 
         [Test]
@@ -110,8 +110,8 @@ namespace Zeebe.Client
             countdownEvent.Wait(TimeSpan.FromMilliseconds(10));
 
             // then
-            Assert.AreEqual(countdownEvent.CurrentCount, 1);
-            Assert.AreEqual(retries, 1);
+            Assert.Equals(countdownEvent.CurrentCount, 1);
+            Assert.Equals(retries, 1);
         }
 
         [Test]
@@ -136,7 +136,7 @@ namespace Zeebe.Client
             // then
             var aggregateException = Assert.Throws<AggregateException>(() => resultTask.Wait());
             var rpcException = (RpcException) aggregateException.InnerExceptions[0];
-            Assert.AreEqual(StatusCode.Unknown, rpcException.Status.StatusCode);
+            Assert.Equals(StatusCode.Unknown, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -161,7 +161,7 @@ namespace Zeebe.Client
             // then
             var aggregateException = Assert.Throws<AggregateException>(() => resultTask.Wait());
             var exception = aggregateException.InnerExceptions[0];
-            Assert.AreEqual("exception", exception.Message);
+            Assert.Equals("exception", exception.Message);
         }
     }
 }

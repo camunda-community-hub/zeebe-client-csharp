@@ -35,15 +35,15 @@ namespace Zeebe.Client
             countdownEvent.Wait(TimeSpan.FromSeconds(10));
 
             // then
-            Assert.AreEqual(0, countdownEvent.CurrentCount);
+            Assert.Equals(0, countdownEvent.CurrentCount);
             TestService.AddRequestHandler(typeof(TReq), req => response);
             await resultTask;
 
             var request = TestService.Requests[typeof(TReq)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
 
             var requestCount = TestService.Requests[typeof(TReq)].Count;
-            Assert.GreaterOrEqual(requestCount, 5);
+            Assert.That(requestCount, Is.GreaterThanOrEqualTo(5));
         }
 
         [Test, TestCaseSource(typeof(TestDataProvider), "Provider")]
@@ -67,15 +67,15 @@ namespace Zeebe.Client
             countdownEvent.Wait(TimeSpan.FromSeconds(10));
 
             // then
-            Assert.AreEqual(0, countdownEvent.CurrentCount);
+            Assert.Equals(0, countdownEvent.CurrentCount);
             TestService.AddRequestHandler(typeof(TReq), req => response);
             await resultTask;
 
             var request = TestService.Requests[typeof(TReq)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
 
             var requestCount = TestService.Requests[typeof(TReq)].Count;
-            Assert.GreaterOrEqual(requestCount, 5);
+            Assert.That(requestCount, Is.GreaterThanOrEqualTo(5));
         }
 
         [Test, TestCaseSource(typeof(TestDataProvider), "Provider")]
@@ -98,7 +98,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException) aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(StatusCode.Internal, rpcException.Status.StatusCode);
+            Assert.Equals(StatusCode.Internal, rpcException.Status.StatusCode);
         }
     }
 }

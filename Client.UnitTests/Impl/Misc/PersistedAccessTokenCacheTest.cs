@@ -50,7 +50,7 @@ public class PersistedAccessTokenCacheTest
         var token = await accessTokenCache.Get("test");
 
         // then
-        Assert.AreEqual("token", token);
+        Assert.Equals("token", token);
     }
 
     [Test]
@@ -66,8 +66,8 @@ public class PersistedAccessTokenCacheTest
         var token = await accessTokenCache.Get("test");
 
         // then
-        Assert.AreEqual("token-0", token);
-        Assert.AreEqual(1, fetchCounter);
+        Assert.Equals("token-0", token);
+        Assert.Equals(1, fetchCounter);
     }
 
     [Test]
@@ -83,9 +83,9 @@ public class PersistedAccessTokenCacheTest
         var secondToken = await accessTokenCache.Get("second");
 
         // then
-        Assert.AreEqual("token-0", firstToken);
-        Assert.AreEqual("token-1", secondToken);
-        Assert.AreEqual(2, fetchCounter);
+        Assert.Equals("token-0", firstToken);
+        Assert.Equals("token-1", secondToken);
+        Assert.Equals(2, fetchCounter);
     }
 
     [Test]
@@ -101,8 +101,8 @@ public class PersistedAccessTokenCacheTest
         var token = await accessTokenCache.Get("test");
 
         // then
-        Assert.AreEqual("token-1", token);
-        Assert.AreEqual(2, fetchCounter);
+        Assert.Equals("token-1", token);
+        Assert.Equals(2, fetchCounter);
     }
 
 
@@ -125,9 +125,9 @@ public class PersistedAccessTokenCacheTest
         var secondToken = await accessTokenCache.Get(audience);
 
         // then
-        Assert.AreNotEqual(secondToken, firstToken);
-        Assert.AreEqual("token-1", secondToken);
-        Assert.AreEqual(2, fetchCounter);
+        Assert.That(secondToken, Is.Not.EqualTo(firstToken));
+        Assert.Equals("token-1", secondToken);
+        Assert.Equals(2, fetchCounter);
 
         credentials = await File.ReadAllTextAsync(Directory.GetFiles(path)[0]);
         Assert.That(credentials, Does.Contain(secondToken));
@@ -149,7 +149,7 @@ public class PersistedAccessTokenCacheTest
 
         // then
         var fileNames = Directory.GetFiles(path);
-        Assert.AreEqual(1, fileNames.Length);
+        Assert.Equals(1, fileNames.Length);
         var content = await File.ReadAllTextAsync(fileNames[0]);
         Assert.That(content, Does.Contain(token));
         Assert.That(content, Does.Contain(audience));
@@ -170,12 +170,12 @@ public class PersistedAccessTokenCacheTest
         var secondToken = await accessTokenCache.Get("second");
 
         // then
-        Assert.AreEqual("token-0", firstToken);
-        Assert.AreEqual("token-1", secondToken);
-        Assert.AreEqual(2, fetchCounter);
+        Assert.Equals("token-0", firstToken);
+        Assert.Equals("token-1", secondToken);
+        Assert.Equals(2, fetchCounter);
 
         var fileNames = Directory.GetFiles(path);
-        Assert.AreEqual(1, fileNames.Length);
+        Assert.Equals(1, fileNames.Length);
         var content = await File.ReadAllTextAsync(fileNames[0]);
         Assert.That(content, Does.Contain(firstToken));
         Assert.That(content, Does.Contain("first"));
@@ -201,10 +201,10 @@ public class PersistedAccessTokenCacheTest
         var token = await accessTokenCache.Get(audience);
 
         // then
-        Assert.AreEqual("token-1", token);
-        Assert.AreEqual(2, fetchCounter);
+        Assert.Equals("token-1", token);
+        Assert.Equals(2, fetchCounter);
         var fileNames = Directory.GetFiles(path);
-        Assert.AreEqual(1, fileNames.Length);
+        Assert.Equals(1, fileNames.Length);
         var content = await File.ReadAllTextAsync(fileNames[0]);
         Assert.That(content, Does.Contain(token));
         Assert.That(content, Does.Contain(audience));

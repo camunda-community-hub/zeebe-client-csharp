@@ -40,8 +40,8 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
         var typedRequest = request as ModifyProcessInstanceRequest;
-        Assert.NotNull(typedRequest);
-        Assert.AreEqual(expectedRequest, typedRequest);
+        Assert.That(typedRequest, Is.Not.Null);
+        Assert.Equals(expectedRequest, typedRequest);
     }
 
     [Test]
@@ -69,8 +69,8 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
         var typedRequest = request as ModifyProcessInstanceRequest;
-        Assert.NotNull(typedRequest);
-        Assert.AreEqual(expectedRequest, typedRequest);
+        Assert.That(typedRequest, Is.Not.Null);
+        Assert.Equals(expectedRequest, typedRequest);
     }
 
     [Test]
@@ -97,8 +97,8 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
         var typedRequest = request as ModifyProcessInstanceRequest;
-        Assert.NotNull(typedRequest);
-        Assert.AreEqual(expectedRequest, typedRequest);
+        Assert.That(typedRequest, Is.Not.Null);
+        Assert.Equals(expectedRequest, typedRequest);
     }
 
     [Test]
@@ -135,8 +135,8 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
         var typedRequest = request as ModifyProcessInstanceRequest;
-        Assert.NotNull(typedRequest);
-        Assert.AreEqual(expectedRequest, typedRequest);
+        Assert.That(typedRequest, Is.Not.Null);
+        Assert.Equals(expectedRequest, typedRequest);
     }
 
     [Test]
@@ -187,8 +187,8 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
         var typedRequest = request as ModifyProcessInstanceRequest;
-        Assert.NotNull(typedRequest);
-        Assert.AreEqual(expectedRequest, typedRequest);
+        Assert.That(typedRequest, Is.Not.Null);
+        Assert.Equals(expectedRequest, typedRequest);
     }
 
     [Test]
@@ -224,8 +224,8 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
         var typedRequest = request as ModifyProcessInstanceRequest;
-        Assert.NotNull(typedRequest);
-        Assert.AreEqual(expectedRequest, typedRequest);
+        Assert.That(typedRequest, Is.Not.Null);
+        Assert.Equals(expectedRequest, typedRequest);
     }
 
     [Test]
@@ -270,7 +270,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
         var typedRequest = request as ModifyProcessInstanceRequest;
-        Assert.NotNull(typedRequest);
-        Assert.AreEqual(expectedRequest, typedRequest);
+        Assert.That(typedRequest, Is.Not.Null);
+        Assert.Equals(expectedRequest, typedRequest);
     }
 }
