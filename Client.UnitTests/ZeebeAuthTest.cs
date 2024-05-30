@@ -107,7 +107,7 @@ public class ZeebeAuthTest
     class MyInterceptor : Interceptor { }
 
     [Test]
-    public async Task ShouldUseTransportEncryptionWithServerCer2t()
+    public async Task ShouldUseTransportEncryptionWithServerCertAndNewInterceptor()
     {
         // given
         var zeebeClient = ZeebeClient.Builder()
