@@ -107,6 +107,8 @@ namespace Zeebe.Client
 
         public void AddInterceptor(params Interceptor[] interceptors)
         {
+            if (interceptors == null || !interceptors.Any()) return;
+
             List<Interceptor> list = new List<Interceptor>(interceptors)
             {
                 new UserAgentInterceptor()
