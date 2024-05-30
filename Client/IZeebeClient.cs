@@ -12,6 +12,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+using Grpc.Core.Interceptors;
 using System;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Worker;
@@ -306,5 +307,11 @@ namespace Zeebe.Client
         ///     the request where you must call <see cref="IFinalCommandStep{T}.Send"/>
         /// </returns>
         ITopologyRequestStep1 TopologyRequest();
+
+        /// <summary>
+        /// Add user intereceptors to channel grpc 
+        /// </summary>
+        /// <param name="interceptors">Interceptors</param>
+        void AddInterceptor(params Interceptor[] interceptors);
     }
 }

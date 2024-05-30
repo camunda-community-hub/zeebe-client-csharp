@@ -1,8 +1,10 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Grpc.Auth;
 using Grpc.Core;
+using Grpc.Core.Interceptors;
 using Microsoft.Extensions.Logging;
 using Zeebe.Client.Api.Builder;
 
@@ -87,6 +89,7 @@ namespace Zeebe.Client.Impl.Builder
         private Func<int, TimeSpan> sleepDurationProvider;
         private X509Certificate2 certificate;
         private bool allowUntrusted = false;
+        private Interceptor[] interceptors;
 
         private string Address { get; }
 
@@ -125,6 +128,13 @@ namespace Zeebe.Client.Impl.Builder
             return this;
         }
 
+        public IZeebeSecureClientBuilder UseInterceptors(params Interceptor[] interceptors)
+        {
+            this.interceptors = interceptors;
+            return this;
+        }
+
+
         public IZeebeClientFinalBuildStep UseAccessToken(string accessToken)
         {
             Credentials = ChannelCredentials.Create(Credentials, GoogleGrpcCredentials.FromAccessToken(accessToken));
@@ -151,7 +161,10 @@ namespace Zeebe.Client.Impl.Builder
 
         public IZeebeClient Build()
         {
-            return new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory, certificate, allowUntrusted);
+            var client = new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory, certificate, allowUntrusted);
+            if (interceptors != null && interceptors.Any())
+                client.AddInterceptor(this.interceptors);
+            return client;
         }
     }
 }

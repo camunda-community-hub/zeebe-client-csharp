@@ -20,6 +20,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Grpc.Core;
+using Grpc.Core.Interceptors;
 using Grpc.Core.Logging;
 using NUnit.Framework;
 using Zeebe.Client.Api.Builder;
@@ -90,6 +91,30 @@ public class ZeebeAuthTest
             .UseGatewayAddress("localhost:26505")
             .UseTransportEncryption(ServerCertPath)
             .AllowUntrustedCertificates()
+            .Build();
+
+        // when
+        var publishMessageResponse = await zeebeClient
+            .NewPublishMessageCommand()
+            .MessageName("messageName")
+            .CorrelationKey("p-1")
+            .Send();
+
+        // then
+        Assert.NotNull(publishMessageResponse);
+    }
+
+    class MyInterceptor : Interceptor { }
+
+    [Test]
+    public async Task ShouldUseTransportEncryptionWithServerCer2t()
+    {
+        // given
+        var zeebeClient = ZeebeClient.Builder()
+            .UseGatewayAddress("localhost:26505")
+            .UseTransportEncryption(ServerCertPath)
+            .AllowUntrustedCertificates()
+            .UseInterceptors(new MyInterceptor())
             .Build();
 
         // when
