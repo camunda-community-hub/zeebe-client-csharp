@@ -27,7 +27,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(EvaluateDecisionRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -43,7 +43,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+            Assert.Equals(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(Grpc.Core.StatusCode.Cancelled, rpcException.Status.StatusCode);
+            Assert.Equals(Grpc.Core.StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(EvaluateDecisionRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -99,7 +99,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(EvaluateDecisionRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -120,7 +120,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(EvaluateDecisionRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -198,60 +198,60 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            Assert.AreEqual("decision", evaluatedDecisionResponse.DecisionId);
-            Assert.AreEqual(123, evaluatedDecisionResponse.DecisionKey);
-            Assert.AreEqual("decision-123", evaluatedDecisionResponse.DecisionName);
-            Assert.AreEqual("1", evaluatedDecisionResponse.DecisionOutput);
-            Assert.AreEqual(2, evaluatedDecisionResponse.DecisionVersion);
-            Assert.AreEqual("", evaluatedDecisionResponse.FailureMessage);
-            Assert.AreEqual("", evaluatedDecisionResponse.FailedDecisionId);
-            Assert.AreEqual("12", evaluatedDecisionResponse.DecisionRequirementsId);
-            Assert.AreEqual(1234, evaluatedDecisionResponse.DecisionRequirementsKey);
+            Assert.Equals("decision", evaluatedDecisionResponse.DecisionId);
+            Assert.Equals(123, evaluatedDecisionResponse.DecisionKey);
+            Assert.Equals("decision-123", evaluatedDecisionResponse.DecisionName);
+            Assert.Equals("1", evaluatedDecisionResponse.DecisionOutput);
+            Assert.Equals(2, evaluatedDecisionResponse.DecisionVersion);
+            Assert.Equals("", evaluatedDecisionResponse.FailureMessage);
+            Assert.Equals("", evaluatedDecisionResponse.FailedDecisionId);
+            Assert.Equals("12", evaluatedDecisionResponse.DecisionRequirementsId);
+            Assert.Equals(1234, evaluatedDecisionResponse.DecisionRequirementsKey);
 
             var evaluatedDecisions = evaluatedDecisionResponse.EvaluatedDecisions;
-            Assert.AreEqual(1, evaluatedDecisions.Count);
+            Assert.Equals(1, evaluatedDecisions.Count);
 
             var decision = evaluatedDecisions[0];
-            Assert.AreEqual("decision", decision.DecisionId);
-            Assert.AreEqual(123, decision.DecisionKey);
-            Assert.AreEqual("decision-123", decision.DecisionName);
-            Assert.AreEqual("1", decision.DecisionOutput);
-            Assert.AreEqual(2, decision.DecisionVersion);
-            Assert.AreEqual("noop", decision.DecisionType);
+            Assert.Equals("decision", decision.DecisionId);
+            Assert.Equals(123, decision.DecisionKey);
+            Assert.Equals("decision-123", decision.DecisionName);
+            Assert.Equals("1", decision.DecisionOutput);
+            Assert.Equals(2, decision.DecisionVersion);
+            Assert.Equals("noop", decision.DecisionType);
 
             var decisionEvaluatedInputs = decision.EvaluatedInputs;
-            Assert.AreEqual(2, decisionEvaluatedInputs.Count);
+            Assert.Equals(2, decisionEvaluatedInputs.Count);
 
             var decisionEvaluatedInput = decisionEvaluatedInputs[0];
-            Assert.AreEqual("moep", decisionEvaluatedInput.InputId);
-            Assert.AreEqual("moepmoep", decisionEvaluatedInput.InputName);
-            Assert.AreEqual("boom", decisionEvaluatedInput.InputValue);
+            Assert.Equals("moep", decisionEvaluatedInput.InputId);
+            Assert.Equals("moepmoep", decisionEvaluatedInput.InputName);
+            Assert.Equals("boom", decisionEvaluatedInput.InputValue);
 
             decisionEvaluatedInput = decisionEvaluatedInputs[1];
-            Assert.AreEqual("moeb", decisionEvaluatedInput.InputId);
-            Assert.AreEqual("moebmoeb", decisionEvaluatedInput.InputName);
-            Assert.AreEqual("boom", decisionEvaluatedInput.InputValue);
+            Assert.Equals("moeb", decisionEvaluatedInput.InputId);
+            Assert.Equals("moebmoeb", decisionEvaluatedInput.InputName);
+            Assert.Equals("boom", decisionEvaluatedInput.InputValue);
 
 
             var decisionMatchedRules = decision.MatchedRules;
-            Assert.AreEqual(1, decisionMatchedRules.Count);
+            Assert.Equals(1, decisionMatchedRules.Count);
             var decisionMatchedRule = decisionMatchedRules[0];
 
-            Assert.AreEqual("ruleid", decisionMatchedRule.RuleId);
-            Assert.AreEqual(1, decisionMatchedRule.RuleIndex);
+            Assert.Equals("ruleid", decisionMatchedRule.RuleId);
+            Assert.Equals(1, decisionMatchedRule.RuleIndex);
 
             var evaluatedDecisionOutputs = decisionMatchedRule.EvaluatedOutputs;
-            Assert.AreEqual(2, evaluatedDecisionOutputs.Count);
+            Assert.Equals(2, evaluatedDecisionOutputs.Count);
 
             var evaluatedDecisionOutput = evaluatedDecisionOutputs[0];
-            Assert.AreEqual("outputId", evaluatedDecisionOutput.OutputId);
-            Assert.AreEqual("output", evaluatedDecisionOutput.OutputName);
-            Assert.AreEqual("val", evaluatedDecisionOutput.OutputValue);
+            Assert.Equals("outputId", evaluatedDecisionOutput.OutputId);
+            Assert.Equals("output", evaluatedDecisionOutput.OutputName);
+            Assert.Equals("val", evaluatedDecisionOutput.OutputValue);
 
             evaluatedDecisionOutput = evaluatedDecisionOutputs[1];
-            Assert.AreEqual("outputId2", evaluatedDecisionOutput.OutputId);
-            Assert.AreEqual("output2", evaluatedDecisionOutput.OutputName);
-            Assert.AreEqual("val2", evaluatedDecisionOutput.OutputValue);
+            Assert.Equals("outputId2", evaluatedDecisionOutput.OutputId);
+            Assert.Equals("output2", evaluatedDecisionOutput.OutputName);
+            Assert.Equals("val2", evaluatedDecisionOutput.OutputValue);
         }
     }
 }

@@ -79,7 +79,7 @@ public class ZeebeAuthTest
             .Send();
 
         // then
-        Assert.NotNull(publishMessageResponse);
+        Assert.That(publishMessageResponse, Is.Not.Null);
     }
 
     [Test]
@@ -100,7 +100,7 @@ public class ZeebeAuthTest
             .Send();
 
         // then
-        Assert.NotNull(publishMessageResponse);
+        Assert.That(publishMessageResponse, Is.Not.Null);
     }
 
     [Test]
@@ -125,7 +125,7 @@ public class ZeebeAuthTest
         catch (RpcException rpcException)
         {
             // expected
-            Assert.AreEqual(rpcException.Status.StatusCode, StatusCode.Internal);
+            Assert.Equals(rpcException.Status.StatusCode, StatusCode.Internal);
         }
     }
 
@@ -146,7 +146,7 @@ public class ZeebeAuthTest
         var topology = await zeebeClient.TopologyRequest().Send();
 
         // then
-        Assert.NotNull(topology);
+        Assert.That(topology, Is.Not.Null);
     }
 
     [Test]
@@ -167,8 +167,8 @@ public class ZeebeAuthTest
         var topology = await zeebeClient.TopologyRequest().Send();
 
         // then
-        Assert.NotNull(topology);
-        Assert.AreEqual(3, accessTokenSupplier.Count);
+        Assert.That(topology, Is.Not.Null);
+        Assert.Equals(3, accessTokenSupplier.Count);
     }
 
     private class SimpleAccessTokenSupplier : IAccessTokenSupplier

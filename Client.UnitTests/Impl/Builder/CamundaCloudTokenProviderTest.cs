@@ -62,12 +62,12 @@ namespace Zeebe.Client.Impl.Builder
                 CancellationToken cancellationToken)
             {
                 CheckDisposed();
-                Assert.AreEqual(request.RequestUri, _requestUri);
+                Assert.Equals(request.RequestUri, _requestUri);
                 var content = await request.Content.ReadAsStringAsync();
                 var queryString = HttpUtility.ParseQueryString(content);
-                Assert.AreEqual((string)queryString["client_id"], _clientId);
-                Assert.AreEqual((string)queryString["client_secret"], _clientSecret);
-                Assert.AreEqual((string)queryString["audience"], _audience);
+                Assert.Equals((string)queryString["client_id"], _clientId);
+                Assert.Equals((string)queryString["client_secret"], _clientSecret);
+                Assert.Equals((string)queryString["audience"], _audience);
 
                 RequestCount++;
                 var responseMessage = new HttpResponseMessage(HttpStatusCode.OK)
@@ -107,8 +107,8 @@ namespace Zeebe.Client.Impl.Builder
             var token = await TokenProvider.GetAccessTokenForRequestAsync();
 
             // then
-            Assert.AreEqual("REQUESTED_TOKEN", token);
-            Assert.AreEqual(1, MessageHandlerStub.RequestCount);
+            Assert.Equals("REQUESTED_TOKEN", token);
+            Assert.Equals(1, MessageHandlerStub.RequestCount);
         }
 
         [Test]
@@ -122,7 +122,7 @@ namespace Zeebe.Client.Impl.Builder
             Assert.DoesNotThrowAsync(async () => await TokenProvider.GetAccessTokenForRequestAsync());
 
             // then
-            Assert.AreEqual(2, MessageHandlerStub.RequestCount);
+            Assert.Equals(2, MessageHandlerStub.RequestCount);
         }
     }
 }

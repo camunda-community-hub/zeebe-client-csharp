@@ -38,7 +38,7 @@ namespace Zeebe.Client
             // then
             var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+            Assert.Equals(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -72,7 +72,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
+            Assert.Equals(StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -100,7 +100,7 @@ namespace Zeebe.Client
             // then
             var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
         }
 
         [Test]
@@ -128,7 +128,7 @@ namespace Zeebe.Client
             // then
             var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
         }
 
         [Test]
@@ -156,7 +156,7 @@ namespace Zeebe.Client
             // then
             var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
         }
 
         [Test]
@@ -183,7 +183,7 @@ namespace Zeebe.Client
             // then
             var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
         }
 
         [Test]
@@ -216,14 +216,14 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            Assert.AreEqual(1, deployProcessResponse.Key);
-            Assert.AreEqual(1, deployProcessResponse.Processes.Count);
+            Assert.Equals(1, deployProcessResponse.Key);
+            Assert.Equals(1, deployProcessResponse.Processes.Count);
 
             var processMetadata = deployProcessResponse.Processes[0];
-            Assert.AreEqual("process", processMetadata.BpmnProcessId);
-            Assert.AreEqual(1, processMetadata.Version);
-            Assert.AreEqual(_demoProcessPath, processMetadata.ResourceName);
-            Assert.AreEqual(2, processMetadata.ProcessDefinitionKey);
+            Assert.Equals("process", processMetadata.BpmnProcessId);
+            Assert.Equals(1, processMetadata.Version);
+            Assert.Equals(_demoProcessPath, processMetadata.ResourceName);
+            Assert.Equals(2, processMetadata.ProcessDefinitionKey);
         }
 
         [Test]
@@ -256,7 +256,7 @@ namespace Zeebe.Client
             // then
             var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
         }
 
         [Test]
@@ -325,39 +325,39 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            Assert.AreEqual(1, deployProcessResponse.Key);
-            Assert.AreEqual(1, deployProcessResponse.Processes.Count);
-            Assert.AreEqual(1, deployProcessResponse.Decisions.Count);
-            Assert.AreEqual(1, deployProcessResponse.DecisionRequirements.Count);
-            Assert.AreEqual(1, deployProcessResponse.Forms.Count);
+            Assert.Equals(1, deployProcessResponse.Key);
+            Assert.Equals(1, deployProcessResponse.Processes.Count);
+            Assert.Equals(1, deployProcessResponse.Decisions.Count);
+            Assert.Equals(1, deployProcessResponse.DecisionRequirements.Count);
+            Assert.Equals(1, deployProcessResponse.Forms.Count);
 
             var processMetadata = deployProcessResponse.Processes[0];
-            Assert.AreEqual("process", processMetadata.BpmnProcessId);
-            Assert.AreEqual(1, processMetadata.Version);
-            Assert.AreEqual(_demoProcessPath, processMetadata.ResourceName);
-            Assert.AreEqual(2, processMetadata.ProcessDefinitionKey);
+            Assert.Equals("process", processMetadata.BpmnProcessId);
+            Assert.Equals(1, processMetadata.Version);
+            Assert.Equals(_demoProcessPath, processMetadata.ResourceName);
+            Assert.Equals(2, processMetadata.ProcessDefinitionKey);
 
             var decisionMetadata = deployProcessResponse.Decisions[0];
-            Assert.AreEqual(1, decisionMetadata.DecisionKey);
-            Assert.AreEqual(2, decisionMetadata.DecisionRequirementsKey);
-            Assert.AreEqual(3, decisionMetadata.Version);
-            Assert.AreEqual("decisionId", decisionMetadata.DmnDecisionId);
-            Assert.AreEqual("decisionName", decisionMetadata.DmnDecisionName);
-            Assert.AreEqual("idk", decisionMetadata.DmnDecisionRequirementsId);
+            Assert.Equals(1, decisionMetadata.DecisionKey);
+            Assert.Equals(2, decisionMetadata.DecisionRequirementsKey);
+            Assert.Equals(3, decisionMetadata.Version);
+            Assert.Equals("decisionId", decisionMetadata.DmnDecisionId);
+            Assert.Equals("decisionName", decisionMetadata.DmnDecisionName);
+            Assert.Equals("idk", decisionMetadata.DmnDecisionRequirementsId);
 
             var decisionRequirementsMetadata = deployProcessResponse.DecisionRequirements[0];
-            Assert.AreEqual(2, decisionRequirementsMetadata.DecisionRequirementsKey);
-            Assert.AreEqual(1, decisionRequirementsMetadata.Version);
-            Assert.AreEqual("requirement", decisionRequirementsMetadata.ResourceName);
-            Assert.AreEqual("nameRequirement", decisionRequirementsMetadata.DmnDecisionRequirementsName);
-            Assert.AreEqual("id", decisionRequirementsMetadata.DmnDecisionRequirementsId);
+            Assert.Equals(2, decisionRequirementsMetadata.DecisionRequirementsKey);
+            Assert.Equals(1, decisionRequirementsMetadata.Version);
+            Assert.Equals("requirement", decisionRequirementsMetadata.ResourceName);
+            Assert.Equals("nameRequirement", decisionRequirementsMetadata.DmnDecisionRequirementsName);
+            Assert.Equals("id", decisionRequirementsMetadata.DmnDecisionRequirementsId);
 
             var formMetadata = deployProcessResponse.Forms[0];
-            Assert.AreEqual(3, formMetadata.FormKey);
-            Assert.AreEqual(1, formMetadata.Version);
-            Assert.AreEqual("form", formMetadata.ResourceName);
-            Assert.AreEqual("demoForm", formMetadata.FormId);
-            Assert.AreEqual("formTenantId", formMetadata.TenantId);
+            Assert.Equals(3, formMetadata.FormKey);
+            Assert.Equals(1, formMetadata.Version);
+            Assert.Equals("form", formMetadata.ResourceName);
+            Assert.Equals("demoForm", formMetadata.FormId);
+            Assert.Equals("formTenantId", formMetadata.TenantId);
         }
 
         [Test]
@@ -383,7 +383,7 @@ namespace Zeebe.Client
             // then
             var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
         }
     }
 }

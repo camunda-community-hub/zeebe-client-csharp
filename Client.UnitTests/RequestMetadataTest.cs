@@ -18,11 +18,11 @@ namespace Zeebe.Client
             await ZeebeClient.TopologyRequest().Send();
 
             // then
-            Assert.NotNull(sendMetadata);
+            Assert.That(sendMetadata, Is.Not.Null);
 
             var entry = sendMetadata[0];
-            Assert.AreEqual("user-agent", entry.Key, $"Expect user agent in metadata '{sendMetadata}'");
-            Assert.IsTrue(entry.Value.Contains("zeebe-client-csharp/" + typeof(ZeebeClient).Assembly.GetName().Version), $"Expect user agent contains zeebe-client-csharp, but was {entry}");
+            Assert.That(entry.Key, Is.EqualTo("user-agent"), $"Expect user agent in metadata '{sendMetadata}'");
+            Assert.That(entry.Value.Contains("zeebe-client-csharp/" + typeof(ZeebeClient).Assembly.GetName().Version), Is.True, $"Expect user agent contains zeebe-client-csharp, but was {entry}");
         }
     }
 }

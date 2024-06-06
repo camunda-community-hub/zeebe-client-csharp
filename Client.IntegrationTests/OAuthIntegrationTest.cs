@@ -27,13 +27,13 @@ public class OAuthIntegrationTest
         var authenticatedZeebeClient = testHelper.CreateAuthenticatedZeebeClient();
         var topology = await authenticatedZeebeClient.TopologyRequest().Send();
         var gatewayVersion = topology.GatewayVersion;
-        Assert.AreEqual(ZeebeIntegrationTestHelper.LatestVersion, gatewayVersion);
+        Assert.Equals(ZeebeIntegrationTestHelper.LatestVersion, gatewayVersion);
 
         var topologyBrokers = topology.Brokers;
-        Assert.AreEqual(1, topologyBrokers.Count);
+        Assert.Equals(1, topologyBrokers.Count);
 
         var topologyBroker = topologyBrokers[0];
-        Assert.AreEqual(0, topologyBroker.NodeId);
+        Assert.Equals(0, topologyBroker.NodeId);
     }
 
     [Test]

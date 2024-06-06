@@ -60,12 +60,12 @@ namespace Client.IntegrationTests
                     .Send();
 
                 // then process was completed
-                Assert.AreEqual(1, handledJobs.Count, "Jobs handled");
+                Assert.Equals(handledJobs.Count, 1);
 
-                Assert.AreEqual(processInstance.Version, 1);
-                Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
-                Assert.AreEqual("oneTaskProcess", processInstance.BpmnProcessId);
-                Assert.Greater(processInstance.ProcessInstanceKey, 1);
+                Assert.Equals(processInstance.Version, 1);
+                Assert.Equals(processDefinitionKey, processInstance.ProcessDefinitionKey);
+                Assert.Equals("oneTaskProcess", processInstance.BpmnProcessId);
+                Assert.That(processInstance.ProcessInstanceKey, Is.GreaterThan(1));
             }
         }
 
@@ -93,12 +93,12 @@ namespace Client.IntegrationTests
                     .Send();
 
                 // then process was completed
-                Assert.AreEqual(1, handledJobs.Count);
+                Assert.Equals(1, handledJobs.Count);
 
-                Assert.AreEqual(processInstance.Version, 1);
-                Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
-                Assert.AreEqual("oneTaskProcess", processInstance.BpmnProcessId);
-                Assert.Greater(processInstance.ProcessInstanceKey, 1);
+                Assert.Equals(processInstance.Version, 1);
+                Assert.Equals(processDefinitionKey, processInstance.ProcessDefinitionKey);
+                Assert.Equals("oneTaskProcess", processInstance.BpmnProcessId);
+                Assert.That(processInstance.ProcessInstanceKey, Is.GreaterThan(1));
             }
         }
     }

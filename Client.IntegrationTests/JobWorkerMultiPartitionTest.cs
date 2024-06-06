@@ -71,7 +71,7 @@ namespace Client.IntegrationTests
                 }
             }
 
-            Assert.AreEqual(3, handledJobs.Count);
+            Assert.Equals(3, handledJobs.Count);
         }
 
         [Test]
@@ -93,7 +93,7 @@ namespace Client.IntegrationTests
                 .Timeout(TimeSpan.FromHours(10))
                 .Send();
 
-            Assert.AreEqual(3, activateJobsResponse.Jobs.Count);
+            Assert.Equals(3, activateJobsResponse.Jobs.Count);
         }
     }
 }

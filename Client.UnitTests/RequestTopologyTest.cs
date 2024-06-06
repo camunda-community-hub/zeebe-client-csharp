@@ -38,7 +38,7 @@ namespace Zeebe.Client
             // then
             var actualRequest = TestService.Requests[typeof(TopologyRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
         }
 
         [Test]
@@ -54,7 +54,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException) aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+            Assert.Equals(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -70,7 +70,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
+            Assert.Equals(StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -88,28 +88,28 @@ namespace Zeebe.Client
 
             // then
             IBrokerInfo firstBroker = response.Brokers[0];
-            Assert.AreEqual("host0:26501", firstBroker.Address);
-            Assert.AreEqual(0, firstBroker.NodeId);
+            Assert.Equals("host0:26501", firstBroker.Address);
+            Assert.Equals(0, firstBroker.NodeId);
 
             IPartitionInfo firstPartition = firstBroker.Partitions[0];
-            Assert.AreEqual(0, firstPartition.PartitionId);
-            Assert.AreEqual(PartitionBrokerRole.LEADER, firstPartition.Role);
+            Assert.Equals(0, firstPartition.PartitionId);
+            Assert.Equals(PartitionBrokerRole.LEADER, firstPartition.Role);
 
             IBrokerInfo secondBroker = response.Brokers[1];
-            Assert.AreEqual("host1:26501", secondBroker.Address);
-            Assert.AreEqual(1, secondBroker.NodeId);
+            Assert.Equals("host1:26501", secondBroker.Address);
+            Assert.Equals(1, secondBroker.NodeId);
 
             firstPartition = secondBroker.Partitions[0];
-            Assert.AreEqual(0, firstPartition.PartitionId);
-            Assert.AreEqual(PartitionBrokerRole.FOLLOWER, firstPartition.Role);
+            Assert.Equals(0, firstPartition.PartitionId);
+            Assert.Equals(PartitionBrokerRole.FOLLOWER, firstPartition.Role);
 
             IBrokerInfo thirdBroker = response.Brokers[2];
-            Assert.AreEqual("host2:26501", thirdBroker.Address);
-            Assert.AreEqual(2, thirdBroker.NodeId);
+            Assert.Equals("host2:26501", thirdBroker.Address);
+            Assert.Equals(2, thirdBroker.NodeId);
 
             firstPartition = thirdBroker.Partitions[0];
-            Assert.AreEqual(0, firstPartition.PartitionId);
-            Assert.AreEqual(PartitionBrokerRole.FOLLOWER, firstPartition.Role);
+            Assert.Equals(0, firstPartition.PartitionId);
+            Assert.Equals(PartitionBrokerRole.FOLLOWER, firstPartition.Role);
         }
 
         private BrokerInfo CreateBrokerInfo(int nodeId, string host, int port, int partitionId, bool leader)

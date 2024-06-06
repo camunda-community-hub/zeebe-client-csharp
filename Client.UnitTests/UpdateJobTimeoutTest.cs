@@ -28,7 +28,7 @@ public class UpdateJobTimeoutTest : BaseZeebeTest
 
         // then
         var request = TestService.Requests[typeof(UpdateJobTimeoutRequest)][0];
-        Assert.AreEqual(expectedRequest, request);
+        Assert.Equals(expectedRequest, request);
     }
 
     [Test]
@@ -45,7 +45,7 @@ public class UpdateJobTimeoutTest : BaseZeebeTest
         var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
         // then
-        Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+        Assert.Equals(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
     }
 
     [Test]
@@ -62,6 +62,6 @@ public class UpdateJobTimeoutTest : BaseZeebeTest
         var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
         // then
-        Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
+        Assert.Equals(StatusCode.Cancelled, rpcException.Status.StatusCode);
     }
 }

@@ -28,7 +28,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -45,7 +45,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+            Assert.Equals(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(Grpc.Core.StatusCode.Cancelled, rpcException.Status.StatusCode);
+            Assert.Equals(Grpc.Core.StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -83,7 +83,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -102,7 +102,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -123,7 +123,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -146,7 +146,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -167,7 +167,7 @@ namespace Zeebe.Client
 
             // then
             var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
+            Assert.Equals(expectedRequest, request);
         }
 
         [Test]
@@ -191,10 +191,10 @@ namespace Zeebe.Client
                 .Send();
 
             // then
-            Assert.AreEqual(2, processInstanceResponse.ProcessDefinitionKey);
-            Assert.AreEqual(1, processInstanceResponse.Version);
-            Assert.AreEqual(121, processInstanceResponse.ProcessInstanceKey);
-            Assert.AreEqual("process", processInstanceResponse.BpmnProcessId);
+            Assert.Equals(2, processInstanceResponse.ProcessDefinitionKey);
+            Assert.Equals(1, processInstanceResponse.Version);
+            Assert.Equals(121, processInstanceResponse.ProcessInstanceKey);
+            Assert.Equals("process", processInstanceResponse.BpmnProcessId);
         }
     }
 }

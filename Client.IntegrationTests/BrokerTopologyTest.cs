@@ -36,24 +36,24 @@ namespace Client.IntegrationTests
             Console.WriteLine(topology);
 
             var gatewayVersion = topology.GatewayVersion;
-            Assert.AreEqual(ZeebeIntegrationTestHelper.LatestVersion, gatewayVersion);
+            Assert.Equals(ZeebeIntegrationTestHelper.LatestVersion, gatewayVersion);
 
             var topologyBrokers = topology.Brokers;
-            Assert.AreEqual(1, topologyBrokers.Count);
+            Assert.Equals(1, topologyBrokers.Count);
 
             var topologyBroker = topologyBrokers[0];
-            Assert.AreEqual(0, topologyBroker.NodeId);
+            Assert.Equals(0, topologyBroker.NodeId);
 
             // assert host and port ?!
-            // Assert.AreEqual(container.GetMappedPort(26500), topologyBroker.Port);
+            // Assert.Equals(container.GetMappedPort(26500), topologyBroker.Port);
 
             var partitions = topologyBroker.Partitions;
-            Assert.AreEqual(1, partitions.Count);
+            Assert.Equals(1, partitions.Count);
 
             var partitionInfo = partitions[0];
-            Assert.AreEqual(PartitionBrokerRole.LEADER, partitionInfo.Role);
-            Assert.AreEqual(true, partitionInfo.IsLeader);
-            Assert.AreEqual(1, partitionInfo.PartitionId);
+            Assert.Equals(PartitionBrokerRole.LEADER, partitionInfo.Role);
+            Assert.Equals(true, partitionInfo.IsLeader);
+            Assert.Equals(1, partitionInfo.PartitionId);
         }
     }
 }

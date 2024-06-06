@@ -47,10 +47,10 @@ namespace Client.IntegrationTests
                 .Send();
 
             // then
-            Assert.AreEqual(processInstance.Version, 1);
-            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
-            Assert.AreEqual("oneTaskProcess", processInstance.BpmnProcessId);
-            Assert.Greater(processInstance.ProcessInstanceKey, 1);
+            Assert.Equals(processInstance.Version, 1);
+            Assert.Equals(processDefinitionKey, processInstance.ProcessDefinitionKey);
+            Assert.Equals("oneTaskProcess", processInstance.BpmnProcessId);
+            Assert.That(processInstance.ProcessInstanceKey, Is.GreaterThan(1));
         }
 
         [Test]
@@ -67,7 +67,7 @@ namespace Client.IntegrationTests
 
             // then
             var rpcException = (RpcException) aggregateException.InnerExceptions[0];
-            Assert.AreEqual(StatusCode.NotFound, rpcException.Status.StatusCode);
+            Assert.Equals(StatusCode.NotFound, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -88,14 +88,14 @@ namespace Client.IntegrationTests
                 .Send();
 
             // then
-            Assert.AreEqual(processInstance.Version, 1);
-            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
-            Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
-            Assert.Greater(processInstance.ProcessInstanceKey, 1);
+            Assert.Equals(processInstance.Version, 1);
+            Assert.Equals(processDefinitionKey, processInstance.ProcessDefinitionKey);
+            Assert.Equals("simpleProcess", processInstance.BpmnProcessId);
+            Assert.That(processInstance.ProcessInstanceKey, Is.GreaterThan(1));
 
             var expectedJson = JObject.Parse(ProcessInstanceVariables);
             var actualJson = JObject.Parse(processInstance.Variables);
-            Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
+            Assert.That(JToken.DeepEquals(expectedJson, actualJson), Is.True);
         }
 
         [Test]
@@ -117,14 +117,14 @@ namespace Client.IntegrationTests
                 .Send();
 
             // then
-            Assert.AreEqual(processInstance.Version, 1);
-            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
-            Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
-            Assert.Greater(processInstance.ProcessInstanceKey, 1);
+            Assert.Equals(processInstance.Version, 1);
+            Assert.Equals(processDefinitionKey, processInstance.ProcessDefinitionKey);
+            Assert.Equals("simpleProcess", processInstance.BpmnProcessId);
+            Assert.That(processInstance.ProcessInstanceKey, Is.GreaterThan(1));
 
             var expectedJson = new JObject { { "b", true } };
             var actualJson = JObject.Parse(processInstance.Variables);
-            Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
+            Assert.That(JToken.DeepEquals(expectedJson, actualJson), Is.True);
         }
 
         [Test]
@@ -146,14 +146,14 @@ namespace Client.IntegrationTests
                 .Send();
 
             // then
-            Assert.AreEqual(processInstance.Version, 1);
-            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
-            Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
-            Assert.Greater(processInstance.ProcessInstanceKey, 1);
+            Assert.Equals(processInstance.Version, 1);
+            Assert.Equals(processDefinitionKey, processInstance.ProcessDefinitionKey);
+            Assert.Equals("simpleProcess", processInstance.BpmnProcessId);
+            Assert.That(processInstance.ProcessInstanceKey, Is.GreaterThan(1));
 
             var expectedJson = new JObject();
             var actualJson = JObject.Parse(processInstance.Variables);
-            Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
+            Assert.That(JToken.DeepEquals(expectedJson, actualJson), Is.True);
         }
     }
 }

@@ -38,10 +38,10 @@ namespace Zeebe.Client
 
             // then
             var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
 
             var receivedJobs = response.Jobs;
-            Assert.AreEqual(receivedJobs.Count, 3);
+            Assert.Equals(receivedJobs.Count, 3);
 
             AssertJob(receivedJobs[0], 1);
             AssertJob(receivedJobs[1], 2);
@@ -65,7 +65,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+            Assert.Equals(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace Zeebe.Client
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
             // then
-            Assert.AreEqual(Grpc.Core.StatusCode.Cancelled, rpcException.Status.StatusCode);
+            Assert.Equals(Grpc.Core.StatusCode.Cancelled, rpcException.Status.StatusCode);
         }
 
         [Test]
@@ -116,10 +116,10 @@ namespace Zeebe.Client
 
             // then
             var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
 
             var receivedJobs = response.Jobs;
-            Assert.AreEqual(receivedJobs.Count, 3);
+            Assert.Equals(receivedJobs.Count, 3);
 
             AssertJob(receivedJobs[0], 1);
             AssertJob(receivedJobs[1], 2);
@@ -154,10 +154,10 @@ namespace Zeebe.Client
 
             // then
             var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
 
             var receivedJobs = response.Jobs;
-            Assert.AreEqual(receivedJobs.Count, 3);
+            Assert.Equals(receivedJobs.Count, 3);
 
             AssertJob(receivedJobs[0], 1);
             AssertJob(receivedJobs[1], 2);
@@ -193,10 +193,10 @@ namespace Zeebe.Client
 
             // then
             var actualRequest = TestService.Requests[typeof(ActivateJobsRequest)][0];
-            Assert.AreEqual(expectedRequest, actualRequest);
+            Assert.Equals(expectedRequest, actualRequest);
 
             var receivedJobs = response.Jobs;
-            Assert.AreEqual(receivedJobs.Count, 3);
+            Assert.Equals(receivedJobs.Count, 3);
 
             AssertJob(receivedJobs[0], 1);
             AssertJob(receivedJobs[1], 2);

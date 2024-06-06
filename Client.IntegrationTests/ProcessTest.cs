@@ -37,15 +37,16 @@ namespace Client.IntegrationTests
                 .Send();
 
             // then
-            Assert.Greater(deployResponse.Key, 0);
+            Assert.That(deployResponse.Key, Is.GreaterThan(0));
 
             var deployedProcesses = deployResponse.Processes;
-            Assert.AreEqual(1, deployedProcesses.Count);
+            Assert.Equals(1, deployedProcesses.Count);
 
-            Assert.AreEqual(1, deployedProcesses[0].Version);
-            Assert.Greater(deployedProcesses[0].ProcessDefinitionKey, 1);
-            Assert.AreEqual("simpleProcess", deployedProcesses[0].BpmnProcessId);
-            Assert.AreEqual(DemoProcessPath, deployedProcesses[0].ResourceName);
+            Assert.Equals(1, deployedProcesses[0].Version);
+            Assert.That(deployedProcesses[0].ProcessDefinitionKey, Is.GreaterThan(1));
+
+            Assert.Equals("simpleProcess", deployedProcesses[0].BpmnProcessId);
+            Assert.Equals(DemoProcessPath, deployedProcesses[0].ResourceName);
         }
     }
 }
