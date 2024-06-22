@@ -36,6 +36,12 @@ public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asy
         return this;
     }
 
+    public IPublishMessageCommandStep3 AddTenantId(string tenantId)
+    {
+        request.TenantId = tenantId;
+        return this;
+    }
+
     public IPublishMessageCommandStep3 MessageId(string messageId)
     {
         request.MessageId = messageId;
