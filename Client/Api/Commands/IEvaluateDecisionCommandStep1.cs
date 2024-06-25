@@ -40,7 +40,7 @@ public interface IEvaluateDecisionCommandStep1
   ///     it to the broker.</returns>
   IEvaluateDecisionCommandStep2 DecisionKey(long decisionKey);
 
-  public interface IEvaluateDecisionCommandStep2 : IFinalCommandWithRetryStep<IEvaluateDecisionResponse>
+  public interface IEvaluateDecisionCommandStep2 : IFinalCommandWithRetryStep<IEvaluateDecisionResponse>, ITenantIdCommandStep<IEvaluateDecisionCommandStep2>
   {
       /// <summary>
       /// Set the variables for the decision evaluation.
