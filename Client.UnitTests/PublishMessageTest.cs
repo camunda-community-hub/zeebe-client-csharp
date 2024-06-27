@@ -120,5 +120,28 @@ namespace Zeebe.Client
             var request = TestService.Requests[typeof(PublishMessageRequest)][0];
             Assert.AreEqual(expectedRequest, request);
         }
+
+        [Test]
+        public async Task ShouldSendRequestWithTenantIdAsExpected()
+        {
+            // given
+            var expectedRequest = new PublishMessageRequest
+            {
+                Name = "test",
+                CorrelationKey = "123",
+                TenantId = "tenant1"
+            };
+
+            // when
+            await ZeebeClient.NewPublishMessageCommand()
+                .MessageName("test")
+                .CorrelationKey("123")
+                .AddTenantId("tenant1")
+                .Send();
+
+            // then
+            var request = TestService.Requests[typeof(PublishMessageRequest)][0];
+            Assert.AreEqual(expectedRequest, request);
+        }
     }
 }
