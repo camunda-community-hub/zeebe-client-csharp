@@ -11,10 +11,14 @@ var namespaceZeebe_1_1Client_1_1Api_1_1Commands =
     [ "ICreateProcessInstanceWithResultCommandStep1", "dd/dd6/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceWithResultCommandStep1.html", "dd/dd6/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceWithResultCommandStep1" ],
     [ "IDeployResourceCommandBuilderStep2", "d4/d33/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandBuilderStep2.html", null ],
     [ "IDeployResourceCommandStep1", "d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1.html", "d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1" ],
+    [ "IEvaluateDecisionCommandStep1", "d8/dda/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IEvaluateDecisionCommandStep1.html", "d8/dda/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IEvaluateDecisionCommandStep1" ],
     [ "IFailJobCommandStep1", "d9/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep1.html", "d9/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep1" ],
     [ "IFailJobCommandStep2", "d5/d66/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep2.html", "d5/d66/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFailJobCommandStep2" ],
     [ "IFinalCommandStep", "d2/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandStep.html", "d2/de4/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandStep" ],
     [ "IFinalCommandWithRetryStep", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep" ],
+    [ "IModifyProcessInstanceCommandStep1", "d8/dbb/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IModifyProcessInstanceCommandStep1.html", "d8/dbb/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IModifyProcessInstanceCommandStep1" ],
+    [ "IModifyProcessInstanceCommandStep2", "d3/d74/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IModifyProcessInstanceCommandStep2.html", "d3/d74/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IModifyProcessInstanceCommandStep2" ],
+    [ "IModifyProcessInstanceCommandStep3", "da/d1e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IModifyProcessInstanceCommandStep3.html", "da/d1e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IModifyProcessInstanceCommandStep3" ],
     [ "IPublishMessageCommandStep1", "d8/d8d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep1.html", "d8/d8d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep1" ],
     [ "IPublishMessageCommandStep2", "d9/d49/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep2.html", "d9/d49/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep2" ],
     [ "IPublishMessageCommandStep3", "d5/d02/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep3.html", "d5/d02/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep3" ],
@@ -26,6 +30,8 @@ var namespaceZeebe_1_1Client_1_1Api_1_1Commands =
     [ "IThrowErrorCommandStep1", "d4/d22/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep1.html", "d4/d22/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep1" ],
     [ "IThrowErrorCommandStep2", "d3/d85/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep2.html", "d3/d85/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IThrowErrorCommandStep2" ],
     [ "ITopologyRequestStep1", "d5/dae/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITopologyRequestStep1.html", null ],
+    [ "IUpdateJobTimeoutCommandStep1", "de/de1/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IUpdateJobTimeoutCommandStep1.html", "de/de1/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IUpdateJobTimeoutCommandStep1" ],
+    [ "IUpdateJobTimeoutCommandStep2", "d0/d99/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IUpdateJobTimeoutCommandStep2.html", null ],
     [ "IUpdateRetriesCommandStep1", "da/d9d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IUpdateRetriesCommandStep1.html", "da/d9d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IUpdateRetriesCommandStep1" ],
     [ "IUpdateRetriesCommandStep2", "dd/dec/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IUpdateRetriesCommandStep2.html", null ]
 ];

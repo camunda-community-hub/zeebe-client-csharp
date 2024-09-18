@@ -25,11 +25,7 @@
 var NAVTREE =
 [
   [ "Zeebe C# Client", "index.html", [
-    [ "The Zeebe C# client documentation", "index.html", [
-      [ "API documentation", "index.html#API", null ],
-      [ "Cloud-Example", "index.html#Cloud-Example", null ],
-      [ "Example", "index.html#Example", null ]
-    ] ],
+    [ "The Zeebe C# client documentation", "index.html", "index" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -54,8 +50,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d7/d12/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderStep1.html",
-"df/d68/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ITopology.html#a096a4c7fd0b404a311dee2ad7ec93536"
+"d7/d02/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilder.html#a5aa016e383cdfb542d3e3c6367ef1aeb",
+"dd/dd6/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceWithResultCommandStep1.html#a543b15d86a55a05375d4b9f04fee0326"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
