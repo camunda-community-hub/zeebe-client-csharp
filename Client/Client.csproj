@@ -39,8 +39,8 @@ This release is based on the Zeebe 8.5.6 release (https://github.com/zeebe-io/ze
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" version="3.28.2" />
     <PackageReference Include="Grpc" version="2.46.6" />
-    <PackageReference Include="Grpc.Auth" Version="2.63.0" />
-    <PackageReference Include="Grpc.Net.Client" Version="2.63.0" />
+    <PackageReference Include="Grpc.Auth" Version="2.66.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.66.0" />
     <PackageReference Include="Grpc.Tools" version="2.66.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
