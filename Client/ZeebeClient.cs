@@ -105,6 +105,20 @@ namespace Zeebe.Client
                                                     DefaultWaitTimeProvider);
         }
 
+        public void AddInterceptor(params Interceptor[] interceptors)
+        {
+            if (interceptors == null || !interceptors.Any()) return;
+
+            List<Interceptor> list = new List<Interceptor>(interceptors)
+            {
+                new UserAgentInterceptor()
+            };
+
+            var callInvoker = channelToGateway.Intercept([.. list]);
+            gatewayClient = new Gateway.GatewayClient(callInvoker);
+        } 
+
+
         public async Task Connect()
         {
             await channelToGateway.ConnectAsync();
