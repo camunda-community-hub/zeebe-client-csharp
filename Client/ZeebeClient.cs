@@ -135,28 +135,9 @@ namespace Zeebe.Client
             }
         }
 
-        /// <summary>
-        /// Adds keepAlive options to the channel options.
-        /// </summary>
-        /// <param name="channelOptions">the current existing channel options.</param>
-        private void AddKeepAliveToChannelOptions(List<ChannelOption> channelOptions, TimeSpan? keepAlive)
-        {
-            // GRPC_ARG_KEEPALIVE_PERMIT_WITHOUT_CALLS
-            // This channel argument if set to 1 (0 : false; 1 : true), allows keepalive pings to be sent even if there are no calls in flight.
-            // channelOptions.Add(new ChannelOption("grpc.keepalive_permit_without_calls", "1"));
-            // this will increase load on the system and also increase used resources
-            // we should prefer idleTimeout setting
-            // https://stackoverflow.com/questions/57930529/grpc-connection-use-keepalive-or-idletimeout
-
-            // GRPC_ARG_KEEPALIVE_TIME_MS
-            // This channel argument controls the period (in milliseconds) after which a keepalive ping is sent on the transport.
-            var actualKeepAlive = keepAlive.GetValueOrDefault(DefaultKeepAlive);
-            channelOptions.Add(new ChannelOption("grpc.keepalive_time_ms", (int) actualKeepAlive.TotalMilliseconds));
-        }
-
-        ////////////////////////////////////////////////////////////////////////
-        ///////////////////////////// JOBS /////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ///////////////////////////// JOBS /////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
 
         public IJobWorkerBuilderStep1 NewWorker()
         {
