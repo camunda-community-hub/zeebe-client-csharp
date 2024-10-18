@@ -10,26 +10,19 @@ using ModifyProcessInstanceResponse = Zeebe.Client.Impl.Responses.ModifyProcessI
 
 namespace Zeebe.Client.Impl.Commands;
 
-internal class ModifyProcessInstanceCommand : IModifyProcessInstanceCommandStep1, IModifyProcessInstanceCommandStep2,
-    IModifyProcessInstanceCommandStep3
+internal class ModifyProcessInstanceCommand(
+    GatewayClient client,
+    IAsyncRetryStrategy asyncRetryStrategy,
+    long processInstanceKey)
+    : IModifyProcessInstanceCommandStep1,
+        IModifyProcessInstanceCommandStep3
 {
-    private readonly ModifyProcessInstanceRequest request;
-    private readonly GatewayClient client;
-    private readonly IAsyncRetryStrategy asyncRetryStrategy;
+    private readonly ModifyProcessInstanceRequest request = new()
+    {
+        ProcessInstanceKey = processInstanceKey
+    };
 
     private ModifyProcessInstanceRequest.Types.ActivateInstruction currentActivateInstruction;
-
-    public ModifyProcessInstanceCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy,
-        long processInstanceKey)
-    {
-        this.asyncRetryStrategy = asyncRetryStrategy;
-        this.client = client;
-
-        request = new ModifyProcessInstanceRequest
-        {
-            ProcessInstanceKey = processInstanceKey
-        };
-    }
 
     public IModifyProcessInstanceCommandStep3 ActivateElement(string elementId)
     {

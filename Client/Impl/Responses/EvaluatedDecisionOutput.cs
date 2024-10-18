@@ -17,16 +17,10 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Impl.Responses;
 
-public class EvaluatedDecisionOutput : IEvaluatedDecisionOutput
+public class EvaluatedDecisionOutput(GatewayProtocol.EvaluatedDecisionOutput evaluatedDecisionOutput)
+    : IEvaluatedDecisionOutput
 {
-    public string OutputId { get; }
-    public string OutputName { get; }
-    public string OutputValue { get; }
-
-    public EvaluatedDecisionOutput(GatewayProtocol.EvaluatedDecisionOutput evaluatedDecisionOutput)
-    {
-        OutputId = evaluatedDecisionOutput.OutputId;
-        OutputName = evaluatedDecisionOutput.OutputName;
-        OutputValue = evaluatedDecisionOutput.OutputValue;
-    }
+    public string OutputId { get; } = evaluatedDecisionOutput.OutputId;
+    public string OutputName { get; } = evaluatedDecisionOutput.OutputName;
+    public string OutputValue { get; } = evaluatedDecisionOutput.OutputValue;
 }

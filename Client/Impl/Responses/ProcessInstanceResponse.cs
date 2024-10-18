@@ -1,25 +1,19 @@
 using GatewayProtocol;
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Impl.Responses
-{
-    public class ProcessInstanceResponse : IProcessInstanceResponse
-    {
-        /// <inheritdoc/>
-        public long ProcessDefinitionKey { get; }
-        /// <inheritdoc/>
-        public string BpmnProcessId { get; }
-        /// <inheritdoc/>
-        public int Version { get; }
-        /// <inheritdoc/>
-        public long ProcessInstanceKey { get; }
+namespace Zeebe.Client.Impl.Responses;
 
-        public ProcessInstanceResponse(CreateProcessInstanceResponse response)
-        {
-            ProcessDefinitionKey = response.ProcessDefinitionKey;
-            BpmnProcessId = response.BpmnProcessId;
-            Version = response.Version;
-            ProcessInstanceKey = response.ProcessInstanceKey;
-        }
-    }
+public class ProcessInstanceResponse(CreateProcessInstanceResponse response) : IProcessInstanceResponse
+{
+    /// <inheritdoc/>
+    public long ProcessDefinitionKey { get; } = response.ProcessDefinitionKey;
+
+    /// <inheritdoc/>
+    public string BpmnProcessId { get; } = response.BpmnProcessId;
+
+    /// <inheritdoc/>
+    public int Version { get; } = response.Version;
+
+    /// <inheritdoc/>
+    public long ProcessInstanceKey { get; } = response.ProcessInstanceKey;
 }

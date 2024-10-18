@@ -24,18 +24,10 @@ using Zeebe.Client.Impl.Responses;
 
 namespace Zeebe.Client.Impl.Commands;
 
-public class EvaluateDecisionCommand : IEvaluateDecisionCommandStep1, IEvaluateDecisionCommandStep1.IEvaluateDecisionCommandStep2
+public class EvaluateDecisionCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
+    : IEvaluateDecisionCommandStep1, IEvaluateDecisionCommandStep1.IEvaluateDecisionCommandStep2
 {
-    private readonly EvaluateDecisionRequest request;
-    private readonly Gateway.GatewayClient gatewayClient;
-    private readonly IAsyncRetryStrategy asyncRetryStrategy;
-
-    public EvaluateDecisionCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
-    {
-        gatewayClient = client;
-        request = new EvaluateDecisionRequest();
-        this.asyncRetryStrategy = asyncRetryStrategy;
-    }
+    private readonly EvaluateDecisionRequest request = new ();
 
     public IEvaluateDecisionCommandStep1.IEvaluateDecisionCommandStep2 DecisionId(string decisionId)
     {
@@ -51,7 +43,7 @@ public class EvaluateDecisionCommand : IEvaluateDecisionCommandStep1, IEvaluateD
 
     public async Task<IEvaluateDecisionResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = gatewayClient.EvaluateDecisionAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        var asyncReply = client.EvaluateDecisionAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
         var response = await asyncReply.ResponseAsync;
         return new EvaluatedDecisionResponse(response);
     }

@@ -6,16 +6,10 @@ namespace Zeebe.Client.Impl.Misc;
 /// <summary>
 /// AccessToken, which consist of an token and a dueDate (expiryDate).
 /// </summary>
-public class AccessToken
+public class AccessToken(string token, long dueDate)
 {
-    public string Token { get; set; }
-    public long DueDate { get; set; }
-
-    public AccessToken(string token, long dueDate)
-    {
-        Token = token;
-        DueDate = dueDate;
-    }
+    public string Token { get; set; } = token;
+    public long DueDate { get; set; } = dueDate;
 
     public override string ToString()
     {
