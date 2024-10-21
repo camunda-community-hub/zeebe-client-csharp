@@ -14,26 +14,18 @@
 //    limitations under the License.
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Impl.Responses
+namespace Zeebe.Client.Impl.Responses;
+
+public class PartitionInfo(GatewayProtocol.Partition partition) : IPartitionInfo
 {
-    public class PartitionInfo : IPartitionInfo
+    public int PartitionId { get; } = partition.PartitionId;
+    public bool IsLeader { get; } = partition.Role == GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader;
+    public PartitionBrokerRole Role { get; } = partition.Role == GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader ? PartitionBrokerRole.LEADER : PartitionBrokerRole.FOLLOWER;
+
+    public override string ToString()
     {
-        public int PartitionId { get; }
-        public bool IsLeader { get; }
-        public PartitionBrokerRole Role { get; }
-
-        public PartitionInfo(GatewayProtocol.Partition partition)
-        {
-            PartitionId = partition.PartitionId;
-            IsLeader = partition.Role == GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader;
-            Role = partition.Role == GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader ? PartitionBrokerRole.LEADER : PartitionBrokerRole.FOLLOWER;
-        }
-
-        public override string ToString()
-        {
-            return $"  {nameof(PartitionId)}: {PartitionId}," +
-                   $"\n  {nameof(IsLeader)}: {IsLeader}," +
-                   $"\n  {nameof(Role)}: {Role}";
-        }
+        return $"  {nameof(PartitionId)}: {PartitionId}," +
+               $"\n  {nameof(IsLeader)}: {IsLeader}," +
+               $"\n  {nameof(Role)}: {Role}";
     }
 }
