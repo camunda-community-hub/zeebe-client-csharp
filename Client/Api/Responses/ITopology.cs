@@ -14,18 +14,17 @@
 //    limitations under the License.
 using System.Collections.Generic;
 
-namespace Zeebe.Client.Api.Responses
-{
-    public interface ITopology
-    {
-        /// <returns>
-        /// All (known) brokers of the cluster
-        /// </returns>
-        IList<IBrokerInfo> Brokers { get; }
+namespace Zeebe.Client.Api.Responses;
 
-        /// <returns>
-        /// The gateway version or 'lower then 0.23' if none was found.
-        /// </returns>
-        string GatewayVersion { get; }
-    }
+public interface ITopology
+{
+    /// <returns>
+    /// All (known) brokers of the cluster
+    /// </returns>
+    IList<IBrokerInfo> Brokers { get; }
+
+    /// <returns>
+    /// The gateway version or 'lower then 0.23' if none was found.
+    /// </returns>
+    string GatewayVersion { get; }
 }
