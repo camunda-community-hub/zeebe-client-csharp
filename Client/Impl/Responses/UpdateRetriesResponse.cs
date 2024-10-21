@@ -1,8 +1,5 @@
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Impl.Responses
-{
-    public class UpdateRetriesResponse : IUpdateRetriesResponse
-    {
-    }
-}
+namespace Zeebe.Client.Impl.Responses;
+
+public class UpdateRetriesResponse : IUpdateRetriesResponse;

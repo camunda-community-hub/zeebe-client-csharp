@@ -40,10 +40,10 @@ public class EvaluatedDecisionResponse : IEvaluateDecisionResponse
         DecisionRequirementsId = response.DecisionRequirementsId;
         DecisionRequirementsKey = response.DecisionRequirementsKey;
         DecisionOutput = response.DecisionOutput;
-        this.EvaluatedDecisions = new List<IEvaluatedDecision>();
+        EvaluatedDecisions = new List<IEvaluatedDecision>();
         foreach (var decision in response.EvaluatedDecisions)
         {
-            this.EvaluatedDecisions.Add(new EvaluatedDecision(decision));
+            EvaluatedDecisions.Add(new EvaluatedDecision(decision));
         }
 
         FailedDecisionId = response.FailedDecisionId;

@@ -17,27 +17,17 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Impl.Responses;
 
-public class DecisionMetadata : IDecisionMetadata
+public class DecisionMetadata(GatewayProtocol.DecisionMetadata metadata) : IDecisionMetadata
 {
-    public string DmnDecisionId { get; }
+    public string DmnDecisionId { get; } = metadata.DmnDecisionId;
 
-    public string DmnDecisionName { get; }
+    public string DmnDecisionName { get; } = metadata.DmnDecisionName;
 
-    public int Version { get; }
+    public int Version { get; } = metadata.Version;
 
-    public long DecisionKey { get; }
+    public long DecisionKey { get; } = metadata.DecisionKey;
 
-    public string DmnDecisionRequirementsId { get; }
+    public string DmnDecisionRequirementsId { get; } = metadata.DmnDecisionRequirementsId;
 
-    public long DecisionRequirementsKey { get; }
-
-    public DecisionMetadata(GatewayProtocol.DecisionMetadata metadata)
-    {
-        DmnDecisionId = metadata.DmnDecisionId;
-        DmnDecisionName = metadata.DmnDecisionName;
-        Version = metadata.Version;
-        DecisionKey = metadata.DecisionKey;
-        DmnDecisionRequirementsId = metadata.DmnDecisionRequirementsId;
-        DecisionRequirementsKey = metadata.DecisionRequirementsKey;
-    }
+    public long DecisionRequirementsKey { get; } = metadata.DecisionRequirementsKey;
 }

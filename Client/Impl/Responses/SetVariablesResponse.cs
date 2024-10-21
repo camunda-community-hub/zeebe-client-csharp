@@ -1,14 +1,8 @@
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Impl.Responses
-{
-    public class SetVariablesResponse : ISetVariablesResponse
-    {
-        public long Key { get; }
+namespace Zeebe.Client.Impl.Responses;
 
-        public SetVariablesResponse(GatewayProtocol.SetVariablesResponse response)
-        {
-            Key = response.Key;
-        }
-    }
+public class SetVariablesResponse(GatewayProtocol.SetVariablesResponse response) : ISetVariablesResponse
+{
+    public long Key { get; } = response.Key;
 }
