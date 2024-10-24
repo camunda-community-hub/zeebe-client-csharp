@@ -14,7 +14,9 @@ public interface IUpdateJobTimeoutCommandStep1
     /// </para>
     /// <param name="timeout">The duration of the new timeout as a TimeSpan, starting from the current moment.</param>
     /// <returns>
-    ///   The builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it to the broker.
+    ///   The builder for this command.
+    /// Call <see cref="IFinalCommandStep{T}.Send(System.TimeSpan?,System.Threading.CancellationToken)"/> to complete
+    /// the command and send it to the broker.
     /// </returns>
     IUpdateJobTimeoutCommandStep2 Timeout(TimeSpan timeout);
 }

@@ -27,7 +27,6 @@ public interface IModifyProcessInstanceCommandStep1
     /// <returns>The builder for this command.</returns>
     IModifyProcessInstanceCommandStep3 ActivateElement(string elementId, long ancestorElementInstanceKey);
 
-
     /// <summary>
     /// Create a terminate instruction for the given element id.
     /// </summary>

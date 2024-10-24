@@ -14,16 +14,15 @@
 //    limitations under the License.
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Api.Commands
+namespace Zeebe.Client.Api.Commands;
+
+public interface ICompleteJobCommandStep1 : IFinalCommandWithRetryStep<ICompleteJobResponse>
 {
-    public interface ICompleteJobCommandStep1 : IFinalCommandWithRetryStep<ICompleteJobResponse>
-    {
-        /// <summary>
-        /// Set the variables to complete the job with.
-        /// </summary>
-        /// <param name="variables">the variables (JSON) as String.</param>
-        /// <returns>the builder for this command. Call <see cref="IFinalCommandWithRetryStep{T}.Send"/> to complete the command and send it
-        ///     to the broker.</returns>
-        ICompleteJobCommandStep1 Variables(string variables);
-    }
+    /// <summary>
+    /// Set the variables to complete the job with.
+    /// </summary>
+    /// <param name="variables">the variables (JSON) as String.</param>
+    /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send(System.TimeSpan?,System.Threading.CancellationToken)"/> to complete the command and send it
+    ///     to the broker.</returns>
+    ICompleteJobCommandStep1 Variables(string variables);
 }

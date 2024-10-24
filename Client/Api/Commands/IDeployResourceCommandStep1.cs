@@ -16,62 +16,67 @@ using System.IO;
 using System.Text;
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Api.Commands
+namespace Zeebe.Client.Api.Commands;
+
+public interface IDeployResourceCommandStep1
 {
-    public interface IDeployResourceCommandStep1
-    {
-        /// <summary>
-        /// Add the given resource to the deployment.
-        /// </summary>
-        /// <param name="resourceBytes">the resource as byte array</param>
-        /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
-        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
-        ///     to the broker.</returns>
-        IDeployResourceCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName);
+    /// <summary>
+    /// Add the given resource to the deployment.
+    /// </summary>
+    /// <param name="resourceBytes">the resource as byte array.</param>
+    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn").</param>
+    /// <returns>the builder for this command.
+    /// Call <see cref="IFinalCommandStep{T}.Send(System.TimeSpan?,System.Threading.CancellationToken)"/> to complete
+    /// the command and send it to the broker.</returns>
+    IDeployResourceCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName);
 
-        /// <summary>
-        /// Add the given resource to the deployment.
-        /// </summary>
-        /// <param name="resourceString">the resource as String</param>
-        /// <param name="encoding">the charset of the String</param>
-        /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
-        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
-        ///     to the broker.</returns>
-        IDeployResourceCommandBuilderStep2 AddResourceString(
-            string resourceString, Encoding encoding, string resourceName);
+    /// <summary>
+    /// Add the given resource to the deployment.
+    /// </summary>
+    /// <param name="resourceString">the resource as String.</param>
+    /// <param name="encoding">the charset of the String.</param>
+    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn").</param>
+    /// <returns>the builder for this command.
+    /// Call <see cref="IFinalCommandStep{T}.Send(System.TimeSpan?,System.Threading.CancellationToken)"/> to complete
+    /// the command and send it to the broker.</returns>
+    IDeployResourceCommandBuilderStep2 AddResourceString(
+        string resourceString, Encoding encoding, string resourceName);
 
-        /// <summary>
-        /// Add the given resource to the deployment.
-        /// </summary>
-        /// <param name="resourceString">the resource as UTF-8-encoded String</param>
-        /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
-        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
-        ///     to the broker.</returns>
-        IDeployResourceCommandBuilderStep2 AddResourceStringUtf8(
-            string resourceString, string resourceName);
+    /// <summary>
+    /// Add the given resource to the deployment.
+    /// </summary>
+    /// <param name="resourceString">the resource as UTF-8-encoded String.</param>
+    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn").</param>
+    /// <returns>the builder for this command.
+    /// Call <see cref="IFinalCommandStep{T}.Send(System.TimeSpan?,System.Threading.CancellationToken)"/> to complete
+    /// the command and send it to the broker.</returns>
+    IDeployResourceCommandBuilderStep2 AddResourceStringUtf8(
+        string resourceString, string resourceName);
 
-        /// <summary>
-        /// Add the given resource to the deployment.
-        /// </summary>
-        /// <param name="resourceStream">the resource as stream</param>
-        /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
-        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
-        ///     to the broker.
-        /// </returns>
-        IDeployResourceCommandBuilderStep2 AddResourceStream(
-            Stream resourceStream, string resourceName);
+    /// <summary>
+    /// Add the given resource to the deployment.
+    /// </summary>
+    /// <param name="resourceStream">the resource as stream.</param>
+    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn").</param>
+    /// <returns>the builder for this command.
+    /// Call <see cref="IFinalCommandStep{T}.Send(System.TimeSpan?,System.Threading.CancellationToken)"/> to complete
+    /// the command and send it to the broker.
+    /// </returns>
+    IDeployResourceCommandBuilderStep2 AddResourceStream(
+        Stream resourceStream, string resourceName);
 
-        /// <summary>
-        /// Add the given resource to the deployment.
-        /// </summary>
-        /// <param name="filename">the absolute path of the resource (e.g. "~/wf/process.bpmn")</param>
-        /// <returns>the builder for this command. Call <see cref="IFinalCommandStep{T}.Send"/> to complete the command and send it
-        ///     to the broker.</returns>
-        IDeployResourceCommandBuilderStep2 AddResourceFile(string filename);
-    }
+    /// <summary>
+    /// Add the given resource to the deployment.
+    /// </summary>
+    /// <param name="filename">the absolute path of the resource (e.g. "~/wf/process.bpmn").</param>
+    /// <returns>the builder for this command.
+    /// Call <see cref="IFinalCommandStep{T}.Send(System.TimeSpan?,System.Threading.CancellationToken)"/> to complete
+    /// the command and send it to the broker.</returns>
+    IDeployResourceCommandBuilderStep2 AddResourceFile(string filename);
+}
 
-    public interface IDeployResourceCommandBuilderStep2 : IDeployResourceCommandStep1, ITenantIdCommandStep<IDeployResourceCommandBuilderStep2>, IFinalCommandWithRetryStep<IDeployResourceResponse>
-    {
-        // the place for new optional parameters
-    }
+public interface IDeployResourceCommandBuilderStep2 : IDeployResourceCommandStep1,
+    ITenantIdCommandStep<IDeployResourceCommandBuilderStep2>, IFinalCommandWithRetryStep<IDeployResourceResponse>
+{
+    // the place for new optional parameters
 }
