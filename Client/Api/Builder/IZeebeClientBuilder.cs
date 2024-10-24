@@ -1,4 +1,6 @@
 using System;
+using System.Runtime.CompilerServices;
+using Grpc.Core.Interceptors;
 using Microsoft.Extensions.Logging;
 
 namespace Zeebe.Client.Api.Builder
@@ -50,6 +52,8 @@ namespace Zeebe.Client.Api.Builder
 
     public interface IZeebeSecureClientBuilder : IZeebeClientFinalBuildStep
     {
+        IZeebeSecureClientBuilder UseInterceptors(params Interceptor[] interceptors);
+
         /// <summary>
         /// DANGER: This allows untrusted certificates for the gRPC connection with Zeebe.
         ///
