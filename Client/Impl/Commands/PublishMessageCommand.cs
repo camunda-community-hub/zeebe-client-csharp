@@ -62,6 +62,12 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
+        public IPublishMessageCommandStep3 AddTenantId(string tenantId)
+        {
+            request.TenantId = tenantId;
+            return this;
+        }
+
         public IPublishMessageCommandStep3 TimeToLive(TimeSpan timeToLive)
         {
             request.TimeToLive = (long)timeToLive.TotalMilliseconds;
