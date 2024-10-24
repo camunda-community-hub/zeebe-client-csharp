@@ -12,15 +12,15 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using System.Collections.Generic;
 
-namespace Zeebe.Client.Api.Responses
+namespace Zeebe.Client.Api.Responses;
+
+public interface IActivateJobsResponse
 {
-    public interface IActivateJobsResponse
-    {
-        /// <returns>
-        /// the list of activated jobs
-        /// </returns>
-        IList<IJob> Jobs { get; }
-    }
+    /// <returns>
+    /// the list of activated jobs.
+    /// </returns>
+    IList<IJob> Jobs { get; }
 }

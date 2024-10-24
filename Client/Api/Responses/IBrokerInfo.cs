@@ -12,25 +12,25 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using System.Collections.Generic;
 
-namespace Zeebe.Client.Api.Responses
+namespace Zeebe.Client.Api.Responses;
+
+public interface IBrokerInfo
 {
-    public interface IBrokerInfo
-    {
-        /// <returns>the node if of the broker </returns>
-        int NodeId { get; }
+    /// <returns>the node if of the broker.</returns>
+    int NodeId { get; }
 
-        /// <returns>the address host of the broker </returns>
-        string Host { get; }
+    /// <returns>the address host of the broker.</returns>
+    string Host { get; }
 
-        /// <returns>the address port of the broker </returns>
-        int Port { get; }
+    /// <returns>the address port of the broker.</returns>
+    int Port { get; }
 
-        /// <returns>the address (host+port) of the broker separated by a ':'</returns>
-        string Address { get; }
+    /// <returns>the address (host+port) of the broker separated by a ':'.</returns>
+    string Address { get; }
 
-        /// <returns>all partitions of the broker </returns>
-        IList<IPartitionInfo> Partitions { get; }
-    }
+    /// <returns>all partitions of the broker.</returns>
+    IList<IPartitionInfo> Partitions { get; }
 }
