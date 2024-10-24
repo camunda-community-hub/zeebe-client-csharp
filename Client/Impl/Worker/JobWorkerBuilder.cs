@@ -13,151 +13,129 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+#nullable enable
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Microsoft.Extensions.Logging;
-using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Worker;
 using Zeebe.Client.Impl.Commands;
 
-namespace Zeebe.Client.Impl.Worker
+namespace Zeebe.Client.Impl.Worker;
+
+public class JobWorkerBuilder(
+    IZeebeClient zeebeClient,
+    Gateway.GatewayClient gatewayClient,
+    ILoggerFactory? loggerFactory = null)
+    : IJobWorkerBuilderStep1, IJobWorkerBuilderStep2, IJobWorkerBuilderStep3
 {
-    public class JobWorkerBuilder : IJobWorkerBuilderStep1, IJobWorkerBuilderStep2, IJobWorkerBuilderStep3
+    internal TimeSpan PollingInterval { get; private set; }
+    internal AsyncJobHandler? JobHandler { get; private set; }
+    internal bool AutoCompletionEnabled { get; private set; }
+    internal JobActivator Activator { get; } = new (gatewayClient);
+    internal ActivateJobsRequest Request { get; } = new ();
+    internal byte ThreadCount { get; set; } = 1;
+    internal ILoggerFactory? LoggerFactory { get; } = loggerFactory;
+    internal IJobClient JobClient { get; } = zeebeClient;
+
+    public IJobWorkerBuilderStep2 JobType(string type)
     {
-        private TimeSpan pollInterval;
-        private AsyncJobHandler asyncJobHandler;
-        private bool autoCompletion;
-        internal JobActivator Activator { get; }
-        internal ActivateJobsRequest Request { get; }
-        internal byte ThreadCount { get; set; }
-        internal ILoggerFactory LoggerFactory { get; }
-        internal IJobClient JobClient { get; }
+        Request.Type = type;
+        return this;
+    }
 
-        public JobWorkerBuilder(IZeebeClient zeebeClient,
-            Gateway.GatewayClient gatewayClient,
-            ILoggerFactory loggerFactory = null)
+    public IJobWorkerBuilderStep3 Handler(JobHandler handler)
+    {
+        JobHandler = (c, j) => Task.Run(() => handler.Invoke(c, j));
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler)
+    {
+        JobHandler = handler;
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 TenantIds(IList<string> tenantIds)
+    {
+        Request.TenantIds.AddRange(tenantIds);
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 TenantIds(params string[] tenantIds)
+    {
+        return TenantIds(tenantIds.ToList());
+    }
+
+    public IJobWorkerBuilderStep3 Timeout(TimeSpan timeout)
+    {
+        Request.Timeout = (long) timeout.TotalMilliseconds;
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 Name(string workerName)
+    {
+        Request.Worker = workerName;
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 MaxJobsActive(int maxJobsActive)
+    {
+        Request.MaxJobsToActivate = maxJobsActive;
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 FetchVariables(IList<string> fetchVariables)
+    {
+        Request.FetchVariable.AddRange(fetchVariables);
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 FetchVariables(params string[] fetchVariables)
+    {
+        Request.FetchVariable.AddRange(fetchVariables);
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 PollInterval(TimeSpan pollInterval)
+    {
+        PollingInterval = pollInterval;
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 PollingTimeout(TimeSpan pollingTimeout)
+    {
+        Request.RequestTimeout = (long) pollingTimeout.TotalMilliseconds;
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 AutoCompletion()
+    {
+        AutoCompletionEnabled = true;
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 HandlerThreads(byte threadCount)
+    {
+        if (threadCount <= 0)
         {
-            LoggerFactory = loggerFactory;
-            Activator = new JobActivator(gatewayClient);
-            Request = new ActivateJobsRequest();
-            JobClient = zeebeClient;
-            ThreadCount = 1;
+            var errorMsg = $"Expected an handler thread count larger then zero, but got {threadCount}.";
+            throw new ArgumentOutOfRangeException(errorMsg);
         }
 
-        public IJobWorkerBuilderStep2 JobType(string type)
-        {
-            Request.Type = type;
-            return this;
-        }
+        ThreadCount = threadCount;
+        return this;
+    }
 
-        public IJobWorkerBuilderStep3 Handler(JobHandler handler)
-        {
-            this.asyncJobHandler = (c, j) => Task.Run(() => handler.Invoke(c, j));
-            return this;
-        }
+    public IJobWorker Open()
+    {
+        var worker = new JobWorker(this);
 
-        public IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler)
-        {
-            this.asyncJobHandler = handler;
-            return this;
-        }
+        worker.Open();
 
-        public IJobWorkerBuilderStep3 TenantIds(IList<string> tenantIds)
-        {
-            Request.TenantIds.AddRange(tenantIds);
-            return this;
-        }
-
-        public IJobWorkerBuilderStep3 TenantIds(params string[] tenantIds)
-        {
-            return TenantIds(tenantIds.ToList());
-        }
-
-        internal AsyncJobHandler Handler()
-        {
-            return asyncJobHandler;
-        }
-
-        public IJobWorkerBuilderStep3 Timeout(TimeSpan timeout)
-        {
-            Request.Timeout = (long) timeout.TotalMilliseconds;
-            return this;
-        }
-
-        public IJobWorkerBuilderStep3 Name(string workerName)
-        {
-            Request.Worker = workerName;
-            return this;
-        }
-
-        public IJobWorkerBuilderStep3 MaxJobsActive(int maxJobsActive)
-        {
-            Request.MaxJobsToActivate = maxJobsActive;
-            return this;
-        }
-
-        public IJobWorkerBuilderStep3 FetchVariables(IList<string> fetchVariables)
-        {
-            Request.FetchVariable.AddRange(fetchVariables);
-            return this;
-        }
-
-        public IJobWorkerBuilderStep3 FetchVariables(params string[] fetchVariables)
-        {
-            Request.FetchVariable.AddRange(fetchVariables);
-            return this;
-        }
-
-        public IJobWorkerBuilderStep3 PollInterval(TimeSpan pollInterval)
-        {
-            this.pollInterval = pollInterval;
-            return this;
-        }
-
-        internal TimeSpan PollInterval()
-        {
-            return pollInterval;
-        }
-
-        public IJobWorkerBuilderStep3 PollingTimeout(TimeSpan pollingTimeout)
-        {
-            Request.RequestTimeout = (long) pollingTimeout.TotalMilliseconds;
-            return this;
-        }
-
-        public IJobWorkerBuilderStep3 AutoCompletion()
-        {
-            autoCompletion = true;
-            return this;
-        }
-
-        public IJobWorkerBuilderStep3 HandlerThreads(byte threadCount)
-        {
-            if (threadCount <= 0)
-            {
-                var errorMsg = $"Expected an handler thread count larger then zero, but got {threadCount}.";
-                throw new ArgumentOutOfRangeException(errorMsg);
-            }
-
-            this.ThreadCount = threadCount;
-            return this;
-        }
-
-        internal bool AutoCompletionEnabled()
-        {
-            return autoCompletion;
-        }
-
-        public IJobWorker Open()
-        {
-            var worker = new JobWorker(this);
-
-            worker.Open();
-
-            return worker;
-        }
+        return worker;
     }
 }
