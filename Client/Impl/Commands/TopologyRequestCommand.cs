@@ -22,36 +22,28 @@ using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Impl.Responses;
 
-namespace Zeebe.Client.Impl.Commands
+namespace Zeebe.Client.Impl.Commands;
+
+public class TopologyRequestCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
+    : ITopologyRequestStep1
 {
-    public class TopologyRequestCommand : ITopologyRequestStep1
+    private readonly TopologyRequest request = new ();
+
+    public async Task<ITopology> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        private readonly Gateway.GatewayClient gatewayClient;
-        private readonly TopologyRequest request = new TopologyRequest();
-        private readonly IAsyncRetryStrategy asyncRetryStrategy;
+        var asyncReply = client.TopologyAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        var response = await asyncReply.ResponseAsync;
 
-        public TopologyRequestCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
-        {
-            gatewayClient = client;
-            this.asyncRetryStrategy = asyncRetryStrategy;
-        }
+        return new Topology(response);
+    }
 
-        public async Task<ITopology> Send(TimeSpan? timeout = null, CancellationToken token = default)
-        {
-            var asyncReply = gatewayClient.TopologyAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-            var response = await asyncReply.ResponseAsync;
+    public async Task<ITopology> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    {
+        return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
+    }
 
-            return new Topology(response);
-        }
-
-        public async Task<ITopology> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
-        {
-            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
-        }
-
-        public async Task<ITopology> Send(CancellationToken cancellationToken)
-        {
-            return await Send(token: cancellationToken);
-        }
+    public async Task<ITopology> Send(CancellationToken cancellationToken)
+    {
+        return await Send(token: cancellationToken);
     }
 }

@@ -22,45 +22,36 @@ using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
 
-namespace Zeebe.Client.Impl.Commands
+namespace Zeebe.Client.Impl.Commands;
+
+internal class CompleteJobCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
+    : ICompleteJobCommandStep1
 {
-    internal class CompleteJobCommand : ICompleteJobCommandStep1
+    private readonly CompleteJobRequest request = new()
     {
-        private readonly CompleteJobRequest request;
-        private readonly GatewayClient gatewayClient;
-        private readonly IAsyncRetryStrategy asyncRetryStrategy;
+        JobKey = jobKey
+    };
 
-        public CompleteJobCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
-        {
-            gatewayClient = client;
-            request = new CompleteJobRequest
-            {
-                JobKey = jobKey
-            };
-            this.asyncRetryStrategy = asyncRetryStrategy;
-        }
+    public ICompleteJobCommandStep1 Variables(string variables)
+    {
+        request.Variables = variables;
+        return this;
+    }
 
-        public ICompleteJobCommandStep1 Variables(string variables)
-        {
-            request.Variables = variables;
-            return this;
-        }
+    public async Task<ICompleteJobResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
+    {
+        var asyncReply = client.CompleteJobAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        await asyncReply.ResponseAsync;
+        return new Responses.CompleteJobResponse();
+    }
 
-        public async Task<ICompleteJobResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
-        {
-            var asyncReply = gatewayClient.CompleteJobAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-            await asyncReply.ResponseAsync;
-            return new Responses.CompleteJobResponse();
-        }
+    public async Task<ICompleteJobResponse> Send(CancellationToken cancellationToken)
+    {
+        return await Send(token: cancellationToken);
+    }
 
-        public async Task<ICompleteJobResponse> Send(CancellationToken cancellationToken)
-        {
-            return await Send(token: cancellationToken);
-        }
-
-        public async Task<ICompleteJobResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
-        {
-            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
-        }
+    public async Task<ICompleteJobResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    {
+        return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }
 }
