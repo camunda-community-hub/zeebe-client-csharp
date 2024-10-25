@@ -1,20 +1,11 @@
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Impl.Responses
-{
-    public class ProcessMetadata : IProcessMetadata
-    {
-        public string BpmnProcessId { get; }
-        public int Version { get; }
-        public long ProcessDefinitionKey { get; }
-        public string ResourceName { get; }
+namespace Zeebe.Client.Impl.Responses;
 
-        public ProcessMetadata(GatewayProtocol.ProcessMetadata metadata)
-        {
-            BpmnProcessId = metadata.BpmnProcessId;
-            Version = metadata.Version;
-            ProcessDefinitionKey = metadata.ProcessDefinitionKey;
-            ResourceName = metadata.ResourceName;
-        }
-    }
+public class ProcessMetadata(GatewayProtocol.ProcessMetadata metadata) : IProcessMetadata
+{
+    public string BpmnProcessId { get; } = metadata.BpmnProcessId;
+    public int Version { get; } = metadata.Version;
+    public long ProcessDefinitionKey { get; } = metadata.ProcessDefinitionKey;
+    public string ResourceName { get; } = metadata.ResourceName;
 }

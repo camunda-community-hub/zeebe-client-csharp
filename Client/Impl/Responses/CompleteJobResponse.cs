@@ -14,9 +14,6 @@
 //    limitations under the License.
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Impl.Responses
-{
-    internal class CompleteJobResponse : ICompleteJobResponse
-    {
-    }
-}
+namespace Zeebe.Client.Impl.Responses;
+
+internal class CompleteJobResponse : ICompleteJobResponse;
