@@ -68,6 +68,12 @@ namespace Zeebe.Client.Impl.Commands
             return this;
         }
 
+        public IPublishMessageCommandStep3 AddTenantId(string tenantId)
+        {
+            request.TenantId = tenantId;
+            return this;
+        }
+        
         public async Task<IPublishMessageResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
         {
             var asyncReply = gatewayClient.PublishMessageAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
