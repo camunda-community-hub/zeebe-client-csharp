@@ -4,40 +4,32 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Zeebe.Client.Api.Misc;
 
-namespace Zeebe.Client.Impl.Misc
+namespace Zeebe.Client.Impl.Misc;
+
+public class TransientGrpcErrorRetryStrategy(Func<int, TimeSpan> waitTimeProvider) : IAsyncRetryStrategy
 {
-    public class TransientGrpcErrorRetryStrategy : IAsyncRetryStrategy
+    private static readonly StatusCode[] RetrieableCodes = [StatusCode.Unavailable, StatusCode.ResourceExhausted];
+
+    public async Task<TResult> DoWithRetry<TResult>(Func<Task<TResult>> action)
     {
-        private static readonly StatusCode[] RetrieableCodes = { StatusCode.Unavailable, StatusCode.ResourceExhausted };
-
-        private readonly Func<int, TimeSpan> waitTimeProvider;
-
-        public TransientGrpcErrorRetryStrategy(Func<int, TimeSpan> waitTimeProvider)
+        var retries = 0;
+        while (true)
         {
-            this.waitTimeProvider = waitTimeProvider;
-        }
-
-        public async Task<TResult> DoWithRetry<TResult>(Func<Task<TResult>> action)
-        {
-            var retries = 0;
-            while (true)
+            try
             {
-                try
+                var result = await action.Invoke();
+                return result;
+            }
+            catch (RpcException exception)
+            {
+                if (RetrieableCodes.Contains(exception.StatusCode))
                 {
-                    var result = await action.Invoke();
-                    return result;
+                    var waitTime = waitTimeProvider.Invoke(++retries);
+                    await Task.Delay(waitTime);
                 }
-                catch (RpcException exception)
+                else
                 {
-                    if (RetrieableCodes.Contains(exception.StatusCode))
-                    {
-                        var waitTime = waitTimeProvider.Invoke(++retries);
-                        await Task.Delay(waitTime);
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
             }
         }
