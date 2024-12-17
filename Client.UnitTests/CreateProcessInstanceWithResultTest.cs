@@ -27,10 +27,34 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
 
         // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
-        .BpmnProcessId("process")
-        .LatestVersion()
-        .WithResult()
-        .Send();
+            .BpmnProcessId("process")
+            .LatestVersion()
+            .WithResult()
+            .Send();
+
+        // then
+        var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
+        Assert.AreEqual(expectedRequest, request);
+    }
+
+    [Test]
+    public async Task ShouldSendRequestWithStartInstructionAsExpected()
+    {
+        // given
+        var expectedRequest = new CreateProcessInstanceWithResultRequest
+        {
+            Request = new CreateProcessInstanceRequest
+            {
+                StartInstructions = { new ProcessInstanceCreationStartInstruction { ElementId = "StartHere" } }
+            },
+            RequestTimeout = 20 * 1000
+        };
+
+        // when
+        await ZeebeClient.NewCreateProcessInstanceCommand()
+            .AddStartInstruction("StartHere")
+            .WithResult()
+            .Send();
 
         // then
         var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];

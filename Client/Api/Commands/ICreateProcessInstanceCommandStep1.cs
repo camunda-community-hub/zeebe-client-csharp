@@ -14,11 +14,18 @@ public interface ICreateProcessInstanceCommandStep1
     ICreateProcessInstanceCommandStep2 BpmnProcessId(string bpmnProcessId);
 
     /// <summary>
-    ///     Set the key of the process to create an instance of. The key is assigned by the broker while
-    ///     deploying the process. It can be picked from the deployment or process event.
+    /// Sets optional start instruction when process instance is created
     /// </summary>
-    /// <param name="processDefinitionKey">the key of the process.</param>
-    /// <returns>the builder for this command.</returns>
+    /// <param name="elementId">the BPMN element id from the process</param>
+    /// <returns>the builder for this command</returns>
+    ICreateProcessInstanceCommandStep3 AddStartInstruction(string elementId);
+
+    /// <summary>
+    /// Set the key of the process to create an instance of. The key is assigned by the broker while
+    /// deploying the process. It can be picked from the deployment or process event.
+    /// </summary>
+    /// <param name="processDefinitionKey">the key of the process</param>
+    /// <returns>the builder for this command</returns>
     ICreateProcessInstanceCommandStep3 ProcessDefinitionKey(long processDefinitionKey);
 }
 
