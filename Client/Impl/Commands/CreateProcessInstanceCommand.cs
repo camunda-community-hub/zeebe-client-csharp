@@ -54,6 +54,12 @@ public class CreateProcessInstanceCommand(Gateway.GatewayClient client, IAsyncRe
         return this;
     }
 
+    public ICreateProcessInstanceCommandStep3 AddStartInstruction(string elementId)
+    {
+        request.StartInstructions.Add(new ProcessInstanceCreationStartInstruction { ElementId = elementId });
+        return this;
+    }
+
     public ICreateProcessInstanceWithResultCommandStep1 WithResult()
     {
         return new CreateProcessInstanceCommandWithResult(client, asyncRetryStrategy, request);
