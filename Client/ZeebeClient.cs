@@ -229,6 +229,11 @@ public sealed class ZeebeClient : IZeebeClient
         return new ModifyProcessInstanceCommand(gatewayClient, asyncRetryStrategy, processInstanceKey);
     }
 
+    public IBroadcastSignalCommandStep1 NewBroadcastSignalCommand()
+    {
+        return new BroadcastSignalCommand(gatewayClient, asyncRetryStrategy);
+    }
+
     public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient, asyncRetryStrategy);
 
     public void Dispose()
