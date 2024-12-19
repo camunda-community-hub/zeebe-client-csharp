@@ -14,6 +14,13 @@ namespace Zeebe.Client.Api.Commands
         ICreateProcessInstanceCommandStep2 BpmnProcessId(string bpmnProcessId);
 
         /// <summary>
+        /// Sets optional start instruction when process instance is created
+        /// </summary>
+        /// <param name="elementId">the BPMN element id from the process</param>
+        /// <returns>the builder for this command</returns>
+        ICreateProcessInstanceCommandStep3 AddStartInstruction(string elementId);
+
+        /// <summary>
         /// Set the key of the process to create an instance of. The key is assigned by the broker while
         /// deploying the process. It can be picked from the deployment or process event.
         /// </summary>
