@@ -306,4 +306,21 @@ public interface IZeebeClient : IJobClient, IDisposable
     ///     the request where you must call <see cref="IFinalCommandStep{T}.Send(System.TimeSpan?,System.Threading.CancellationToken)"/>.
     /// </returns>
     ITopologyRequestStep1 TopologyRequest();
+
+    /// <summary>
+    /// Command to broadcast a signal which will trigger all process instances waiting for this signal.
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// zeebeClient
+    ///  .NewBroadcastSignalCommand()
+    ///  .SignalName("order canceled")
+    ///  .Variables(json)
+    ///  .Send();
+    /// </code>
+    /// </example>
+    /// <returns>
+    ///     a builder for the command.
+    /// </returns>
+    IBroadcastSignalCommandStep1 NewBroadcastSignalCommand();
 }
