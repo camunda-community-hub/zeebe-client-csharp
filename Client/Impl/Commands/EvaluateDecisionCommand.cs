@@ -41,6 +41,12 @@ public class EvaluateDecisionCommand(Gateway.GatewayClient client, IAsyncRetrySt
         return this;
     }
 
+    public IEvaluateDecisionCommandStep1.IEvaluateDecisionCommandStep2 AddTenantId(string tenantId)
+    {
+        request.TenantId = tenantId;
+        return this;
+    }
+
     public async Task<IEvaluateDecisionResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         var asyncReply = client.EvaluateDecisionAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
