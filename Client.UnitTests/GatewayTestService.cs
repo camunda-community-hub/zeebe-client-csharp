@@ -177,11 +177,16 @@ public class GatewayTestService : Gateway.GatewayBase
     {
         return Task.FromResult((ModifyProcessInstanceResponse)HandleRequest(request, context));
     }
-
+ 
     public override Task<BroadcastSignalResponse> BroadcastSignal(BroadcastSignalRequest request,
         ServerCallContext context)
     {
         return Task.FromResult((BroadcastSignalResponse)HandleRequest(request, context));
+    }
+
+    public override Task<DeleteResourceResponse> DeleteResource(DeleteResourceRequest request, ServerCallContext context)
+    {
+         return Task.FromResult((DeleteResourceResponse)HandleRequest(request, context));
     }
 
     public void ConsumeRequestHeaders(ConsumeMetadata consumer)

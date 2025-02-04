@@ -217,6 +217,11 @@ public sealed class ZeebeClient : IZeebeClient
         return new TopologyRequestCommand(gatewayClient, asyncRetryStrategy);
     }
 
+    public IDeleteResourceCommandStep1 NewDeleteResourceCommand(long resourceKey)
+    {
+        return new DeleteResourceCommand(gatewayClient, asyncRetryStrategy, resourceKey);
+    }
+
     public void Dispose()
     {
         if (gatewayClient is ClosedGatewayClient)

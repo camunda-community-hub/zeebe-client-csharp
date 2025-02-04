@@ -315,4 +315,20 @@ public interface IZeebeClient : IJobClient, IDisposable
     ///     a builder for the command.
     /// </returns>
     IBroadcastSignalCommandStep1 NewBroadcastSignalCommand();
+    
+    /// <summary>
+    /// Command to delete a resource.
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// zeebeClient
+    ///  .NewDeleteResourceCommand(resourceKey)
+    ///  .Send();
+    /// </code>
+    /// </example>
+    /// <param name="resourceKey"></param>
+    /// <returns>
+    ///     a builder for the command.
+    /// </returns>
+    IDeleteResourceCommandStep1 NewDeleteResourceCommand(long resourceKey);
 }
