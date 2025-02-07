@@ -22,7 +22,7 @@ public class PublishMessageTest : BaseZeebeTest
             Variables = variables
         };
 
-    // when
+        // when
         _ = await ZeebeClient
         .NewPublishMessageCommand()
         .MessageName("messageName")
@@ -82,7 +82,7 @@ public class PublishMessageTest : BaseZeebeTest
             TimeToLive = 10_000
         };
 
-    // when
+        // when
         _ = await ZeebeClient
         .NewPublishMessageCommand()
         .MessageName("messageName")
@@ -107,7 +107,7 @@ public class PublishMessageTest : BaseZeebeTest
             TimeToLive = 10_000
         };
 
-    // when
+        // when
         _ = await ZeebeClient
         .NewPublishMessageCommand()
         .MessageName("messageName")
@@ -115,6 +115,29 @@ public class PublishMessageTest : BaseZeebeTest
         .MessageId("id")
         .TimeToLive(TimeSpan.FromSeconds(10))
         .Send();
+
+        // then
+        var request = TestService.Requests[typeof(PublishMessageRequest)][0];
+        Assert.AreEqual(expectedRequest, request);
+    }
+ 
+    [Test]
+    public async Task ShouldSendRequestWithTenantIdAsExpected()
+    {
+        // given
+        var expectedRequest = new PublishMessageRequest
+        {
+            Name = "test",
+            CorrelationKey = "123",
+            TenantId = "tenant1"
+        };
+
+        // when
+        await ZeebeClient.NewPublishMessageCommand()
+            .MessageName("test")
+            .CorrelationKey("123")
+            .AddTenantId("tenant1")
+            .Send();
 
         // then
         var request = TestService.Requests[typeof(PublishMessageRequest)][0];

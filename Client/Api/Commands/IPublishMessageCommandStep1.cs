@@ -40,7 +40,8 @@ public interface IPublishMessageCommandStep2
     IPublishMessageCommandStep3 CorrelationKey(string correlationKey);
 }
 
-public interface IPublishMessageCommandStep3 : IFinalCommandWithRetryStep<IPublishMessageResponse>
+public interface IPublishMessageCommandStep3 : IFinalCommandWithRetryStep<IPublishMessageResponse>,
+    ITenantIdCommandStep<IPublishMessageCommandStep3>
 {
     /// <summary>
     ///     Set the id of the message. The message is rejected if another message is already published

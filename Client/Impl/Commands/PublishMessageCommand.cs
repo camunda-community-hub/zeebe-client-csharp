@@ -60,6 +60,12 @@ public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asy
         return this;
     }
 
+    public IPublishMessageCommandStep3 AddTenantId(string tenantId)
+    {
+        request.TenantId = tenantId;
+        return this;
+    }
+        
     public async Task<IPublishMessageResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         var asyncReply = client.PublishMessageAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
