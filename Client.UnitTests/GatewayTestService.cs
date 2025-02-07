@@ -66,10 +66,10 @@ public class GatewayTestService : Gateway.GatewayBase
         typedRequestHandler.Add(typeof(BroadcastSignalRequest), request => new BroadcastSignalResponse());
 
         foreach (var pair in typedRequestHandler)
-    {
-      Requests.Add(pair.Key, new List<IMessage>());
+        {
+            Requests.Add(pair.Key, new List<IMessage>());
+        }
     }
-  }
 
     public IDictionary<Type, IList<IMessage>> Requests { get; } = new ConcurrentDictionary<Type, IList<IMessage>>();
 

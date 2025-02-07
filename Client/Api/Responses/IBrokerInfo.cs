@@ -19,18 +19,18 @@ namespace Zeebe.Client.Api.Responses;
 
 public interface IBrokerInfo
 {
-    /// <returns>the node if of the broker </returns>
+    /// <returns>the node if of the broker. </returns>
     int NodeId { get; }
 
-    /// <returns>the address host of the broker </returns>
+    /// <returns>the address host of the broker. </returns>
     string Host { get; }
 
-    /// <returns>the address port of the broker </returns>
+    /// <returns>the address port of the broker. </returns>
     int Port { get; }
 
-    /// <returns>the address (host+port) of the broker separated by a ':'</returns>
+    /// <returns>the address (host+port) of the broker separated by a ':'.</returns>
     string Address { get; }
 
-    /// <returns>all partitions of the broker </returns>
+    /// <returns>all partitions of the broker. </returns>
     IList<IPartitionInfo> Partitions { get; }
 }

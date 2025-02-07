@@ -72,28 +72,28 @@ internal class Program
 
         for (var i = 0; i < WorkCount; i++)
         {
-      _ = await client
-          .NewCreateProcessInstanceCommand()
-          .ProcessDefinitionKey(processDefinitionKey)
-          .Variables(ProcessInstanceVariables)
-          .Send();
+            _ = await client
+                .NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(processDefinitionKey)
+                .Variables(ProcessInstanceVariables)
+                .Send();
         }
 
         // open job worker
         using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
         {
-      _ = client.NewWorker()
-          .JobType(JobType)
-          .Handler(HandleJob)
-          .MaxJobsActive(5)
-          .Name(WorkerName)
-          .AutoCompletion()
-          .PollInterval(TimeSpan.FromSeconds(1))
-          .Timeout(TimeSpan.FromSeconds(10))
-          .Open();
+            _ = client.NewWorker()
+                .JobType(JobType)
+                .Handler(HandleJob)
+                .MaxJobsActive(5)
+                .Name(WorkerName)
+                .AutoCompletion()
+                .PollInterval(TimeSpan.FromSeconds(1))
+                .Timeout(TimeSpan.FromSeconds(10))
+                .Open();
 
-      // blocks main thread, so that worker can run
-      _ = signal.WaitOne();
+            // blocks main thread, so that worker can run
+            _ = signal.WaitOne();
         }
     }
 
@@ -105,21 +105,22 @@ internal class Program
 
         if (jobKey % 3 == 0)
         {
-      _ = jobClient.NewCompleteJobCommand(jobKey)
-          .Variables("{\"foo\":2}")
-          .Send()
-          .GetAwaiter()
-          .GetResult();
+            _ = jobClient.NewCompleteJobCommand(jobKey)
+                .Variables("{\"foo\":2}")
+                .Send()
+                .GetAwaiter()
+                .GetResult();
         }
         else if (jobKey % 2 == 0)
         {
-      _ = jobClient.NewFailCommand(jobKey)
-          .Retries(job.Retries - 1)
-          .ErrorMessage("Example fail")
-          .Send()
-          .GetAwaiter()
-          .GetResult();
+            _ = jobClient.NewFailCommand(jobKey)
+                .Retries(job.Retries - 1)
+                .ErrorMessage("Example fail")
+                .Send()
+                .GetAwaiter()
+                .GetResult();
         }
+
         // auto completion
     }
 }

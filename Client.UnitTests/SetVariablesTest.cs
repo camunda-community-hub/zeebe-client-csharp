@@ -20,7 +20,7 @@ public class SetVariablesTest : BaseZeebeTest
             Variables = "{\"foo\":\"bar\"}"
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}").Send();
 
         // then
@@ -73,7 +73,7 @@ public class SetVariablesTest : BaseZeebeTest
             Local = true
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewSetVariablesCommand(2123).Variables("{\"foo\":\"bar\"}").Local().Send();
 
         // then

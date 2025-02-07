@@ -54,7 +54,7 @@ public class JobWorkerTest : BaseZeebeTest
                        receivedJobs.Add(job);
                        if (receivedJobs.Count == 3)
                        {
-                       _ = signal.Set();
+                           _ = signal.Set();
                        }
                    })
                    .MaxJobsActive(3)
@@ -105,7 +105,7 @@ public class JobWorkerTest : BaseZeebeTest
                        receivedJobs.Add(job);
                        if (receivedJobs.Count == 3)
                        {
-                         signal.Set();
+                           signal.Set();
                        }
                    })
                    .MaxJobsActive(3)
@@ -139,10 +139,10 @@ public class JobWorkerTest : BaseZeebeTest
         var aggregateException = Assert.Throws<ArgumentOutOfRangeException>(
             () =>
             {
-              _ = ZeebeClient.NewWorker()
-                  .JobType("foo")
-                  .Handler((jobClient, job) => { })
-                  .HandlerThreads(0);
+                _ = ZeebeClient.NewWorker()
+                    .JobType("foo")
+                    .Handler((jobClient, job) => { })
+                    .HandlerThreads(0);
             });
         StringAssert.Contains("Expected an handler thread count larger then zero, but got 0.",
             aggregateException.Message);
@@ -170,11 +170,11 @@ public class JobWorkerTest : BaseZeebeTest
                    .JobType("foo")
                    .Handler(async (jobClient, job) =>
                    {
-                     _ = await jobClient.NewCompleteJobCommand(job).Send();
-                     completedJobs.Add(job);
-                     if (completedJobs.Count == 3)
+                       _ = await jobClient.NewCompleteJobCommand(job).Send();
+                       completedJobs.Add(job);
+                       if (completedJobs.Count == 3)
                        {
-                       _ = signal.Set();
+                           _ = signal.Set();
                        }
                    })
                    .MaxJobsActive(3)
@@ -223,11 +223,11 @@ public class JobWorkerTest : BaseZeebeTest
                    .JobType("foo")
                    .Handler(async (jobClient, job) =>
                    {
-                     _ = await jobClient.NewCompleteJobCommand(job).Send();
-                     _ = completedJobs.TryAdd(job.Key, job);
-                     if (completedJobs.Count == 3)
+                       _ = await jobClient.NewCompleteJobCommand(job).Send();
+                       _ = completedJobs.TryAdd(job.Key, job);
+                       if (completedJobs.Count == 3)
                        {
-                       _ = signal.Set();
+                           _ = signal.Set();
                        }
                    })
                    .MaxJobsActive(3)
@@ -274,11 +274,11 @@ public class JobWorkerTest : BaseZeebeTest
                    .JobType("foo")
                    .Handler((jobClient, job) =>
                    {
-                     _ = jobClient.NewCompleteJobCommand(job).Send();
-                     completedJobs.Add(job);
-                     if (completedJobs.Count == 3)
+                       _ = jobClient.NewCompleteJobCommand(job).Send();
+                       completedJobs.Add(job);
+                       if (completedJobs.Count == 3)
                        {
-                       _ = signal.Set();
+                           _ = signal.Set();
                        }
                    })
                    .MaxJobsActive(3)
@@ -298,7 +298,7 @@ public class JobWorkerTest : BaseZeebeTest
 
         var completeRequests = TestService.Requests[typeof(CompleteJobRequest)];
         while (completeRequests.Count != 3)
-            // busy loop to await 3 requests
+        // busy loop to await 3 requests
         {
             completeRequests = TestService.Requests[typeof(CompleteJobRequest)];
         }
@@ -346,7 +346,7 @@ public class JobWorkerTest : BaseZeebeTest
                        {
                            using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
                            {
-                         _ = signal.WaitOne();
+                               _ = signal.WaitOne();
                            }
                        }
                    })
@@ -396,7 +396,7 @@ public class JobWorkerTest : BaseZeebeTest
                        receivedJobs.Add(job);
                        if (receivedJobs.Count == 3)
                        {
-                       _ = signal.Set();
+                           _ = signal.Set();
                        }
                    })
                    .MaxJobsActive(1)
@@ -446,7 +446,7 @@ public class JobWorkerTest : BaseZeebeTest
                        receivedJobs.Add(job);
                        if (receivedJobs.Count == 3)
                        {
-                       _ = signal.Set();
+                           _ = signal.Set();
                        }
                    })
                    .MaxJobsActive(1)
@@ -496,7 +496,7 @@ public class JobWorkerTest : BaseZeebeTest
                        receivedJobs.Add(job);
                        if (receivedJobs.Count == 3)
                        {
-                       _ = signal.Set();
+                           _ = signal.Set();
                        }
                    })
                    .MaxJobsActive(1)
@@ -585,9 +585,9 @@ public class JobWorkerTest : BaseZeebeTest
                    .Handler(async (jobClient, job) =>
                    {
                        if (job.Key == 2)
-                     {
-                       throw new Exception("Fail");
-                     }
+                       {
+                           throw new Exception("Fail");
+                       }
 
                        _ = await jobClient.NewCompleteJobCommand(job).Send();
                    })

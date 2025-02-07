@@ -24,9 +24,9 @@ namespace Zeebe.Client.Api.Worker;
 /// </summary>
 public interface IJobWorker : IDisposable
 {
-    /// <returns>true if this registration is currently active and work items are being received for it</returns>
+    /// <returns>true if this registration is currently active and work items are being received for it.</returns>
     bool IsOpen();
 
-    /// <returns>true if this registration is not open and is not in the process of opening or closing</returns>
+    /// <returns>true if this registration is not open and is not in the process of opening or closing.</returns>
     bool IsClosed();
 }

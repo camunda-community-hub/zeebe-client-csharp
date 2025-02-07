@@ -36,7 +36,7 @@ public interface IPublishMessageCommandStep2
     ///     to find matching message subscriptions.
     /// </summary>
     /// <param name="correlationKey">the correlation key value of the message.</param>
-    /// <returns>the builder for this command</returns>
+    /// <returns>the builder for this command.</returns>
     IPublishMessageCommandStep3 CorrelationKey(string correlationKey);
 }
 
@@ -62,7 +62,7 @@ public interface IPublishMessageCommandStep3 : IFinalCommandWithRetryStep<IPubli
     ///         subscriptions (e.g. to an entered message catch event).
     ///     </para>
     /// </summary>
-    /// <param name="timeToLive">the time-to-live of the message</param>
+    /// <param name="timeToLive">the time-to-live of the message.</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send
     ///     it to the broker.

@@ -19,7 +19,7 @@ public class EvaluateDecisionTest : BaseZeebeTest
             DecisionId = "decision"
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewEvaluateDecisionCommand()
         .DecisionId("decision")
         .Send();
@@ -70,7 +70,7 @@ public class EvaluateDecisionTest : BaseZeebeTest
             DecisionKey = 12
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewEvaluateDecisionCommand()
         .DecisionKey(12)
         .Send();
@@ -90,7 +90,7 @@ public class EvaluateDecisionTest : BaseZeebeTest
             Variables = "{\"foo\":1}"
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewEvaluateDecisionCommand()
         .DecisionKey(12)
         .Variables("{\"foo\":1}")

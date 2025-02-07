@@ -20,7 +20,7 @@ namespace Zeebe.Client.Api.Responses;
 public interface IActivateJobsResponse
 {
     /// <returns>
-    ///     the list of activated jobs
+    ///     the list of activated jobs.
     /// </returns>
     IList<IJob> Jobs { get; }
 }

@@ -32,7 +32,7 @@ public class RequestTopologyTest : BaseZeebeTest
         // given
         var expectedRequest = new TopologyRequest();
 
-    // when
+        // when
         _ = await ZeebeClient.TopologyRequest().Send();
 
         // then

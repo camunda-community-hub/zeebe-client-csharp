@@ -19,7 +19,7 @@ public class ResolveIncidentTest : BaseZeebeTest
             IncidentKey = 1201321
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewResolveIncidentCommand(1201321).Send();
 
         // then

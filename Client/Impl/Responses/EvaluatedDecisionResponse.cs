@@ -32,9 +32,9 @@ public class EvaluatedDecisionResponse : IEvaluateDecisionResponse
         DecisionOutput = response.DecisionOutput;
         EvaluatedDecisions = new List<IEvaluatedDecision>();
         foreach (var decision in response.EvaluatedDecisions)
-    {
-      EvaluatedDecisions.Add(new EvaluatedDecision(decision));
-    }
+        {
+            EvaluatedDecisions.Add(new EvaluatedDecision(decision));
+        }
 
         FailedDecisionId = response.FailedDecisionId;
         FailureMessage = response.FailureMessage;

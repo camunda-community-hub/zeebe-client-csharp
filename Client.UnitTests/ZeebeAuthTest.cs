@@ -115,12 +115,12 @@ public class ZeebeAuthTest
         // when
         try
         {
-      _ = await zeebeClient
-          .NewPublishMessageCommand()
-          .MessageName("messageName")
-          .CorrelationKey("p-1")
-          .Send();
-      Assert.Fail();
+            _ = await zeebeClient
+                .NewPublishMessageCommand()
+                .MessageName("messageName")
+                .CorrelationKey("p-1")
+                .Send();
+            Assert.Fail();
         }
         catch (RpcException rpcException)
         {
@@ -140,7 +140,7 @@ public class ZeebeAuthTest
             .UseAccessToken("token")
             .Build();
 
-    // when
+        // when
         _ = await zeebeClient.TopologyRequest().Send();
         _ = await zeebeClient.TopologyRequest().Send();
         var topology = await zeebeClient.TopologyRequest().Send();
@@ -161,7 +161,7 @@ public class ZeebeAuthTest
             .UseAccessTokenSupplier(accessTokenSupplier)
             .Build();
 
-    // when
+        // when
         _ = await zeebeClient.TopologyRequest().Send();
         _ = await zeebeClient.TopologyRequest().Send();
         var topology = await zeebeClient.TopologyRequest().Send();

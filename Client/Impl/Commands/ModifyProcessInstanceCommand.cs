@@ -110,9 +110,9 @@ internal class ModifyProcessInstanceCommand(
     private void AddCurrentActivateInstruction()
     {
         if (currentActivateInstruction == null)
-    {
-      return;
-    }
+        {
+            return;
+        }
 
         request.ActivateInstructions.Add(currentActivateInstruction);
         currentActivateInstruction = null;

@@ -43,9 +43,9 @@ public class JobWorkerMultiPartitionTest
         var handledJobs = new List<IJob>();
         foreach (var i in Enumerable.Range(1, 3))
         {
-      _ = await zeebeClient.NewCreateProcessInstanceCommand()
-          .ProcessDefinitionKey(processDefinitionKey)
-          .Send();
+            _ = await zeebeClient.NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(processDefinitionKey)
+                .Send();
         }
 
         // when
@@ -55,12 +55,12 @@ public class JobWorkerMultiPartitionTest
                        .JobType("oneTask")
                        .Handler(async (jobClient, job) =>
                        {
-                         _ = await jobClient.NewCompleteJobCommand(job).Send();
-                         handledJobs.Add(job);
-                         if (handledJobs.Count >= 3)
-                         {
-                           _ = signal.Set();
-                         }
+                           _ = await jobClient.NewCompleteJobCommand(job).Send();
+                           handledJobs.Add(job);
+                           if (handledJobs.Count >= 3)
+                           {
+                               _ = signal.Set();
+                           }
                        })
                        .MaxJobsActive(5)
                        .Name("csharpWorker")
@@ -68,7 +68,7 @@ public class JobWorkerMultiPartitionTest
                        .PollInterval(TimeSpan.FromSeconds(5))
                        .Open())
             {
-        _ = signal.WaitOne(TimeSpan.FromSeconds(5));
+                _ = signal.WaitOne(TimeSpan.FromSeconds(5));
             }
         }
 
@@ -81,9 +81,9 @@ public class JobWorkerMultiPartitionTest
         // given
         foreach (var i in Enumerable.Range(1, 3))
         {
-      _ = await zeebeClient.NewCreateProcessInstanceCommand()
-          .ProcessDefinitionKey(processDefinitionKey)
-          .Send();
+            _ = await zeebeClient.NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(processDefinitionKey)
+                .Send();
         }
 
         // when

@@ -9,8 +9,8 @@ public interface ICreateProcessInstanceCommandStep1
     ///     Set the BPMN process id of the process to create an instance of. This is the static id of the
     ///     process in the BPMN XML (i.e. "&#60;bpmn:process id='my-process'&#62;").
     /// </summary>
-    /// <param name="bpmnProcessId">the BPMN process id of the process</param>
-    /// <returns>the builder for this command</returns>
+    /// <param name="bpmnProcessId">the BPMN process id of the process.</param>
+    /// <returns>the builder for this command.</returns>
     ICreateProcessInstanceCommandStep2 BpmnProcessId(string bpmnProcessId);
 
     /// <summary>
@@ -24,8 +24,8 @@ public interface ICreateProcessInstanceCommandStep1
     ///     Set the key of the process to create an instance of. The key is assigned by the broker while
     ///     deploying the process. It can be picked from the deployment or process event.
     /// </summary>
-    /// <param name="processDefinitionKey">the key of the process</param>
-    /// <returns>the builder for this command</returns>
+    /// <param name="processDefinitionKey">the key of the process.</param>
+    /// <returns>the builder for this command.</returns>
     ICreateProcessInstanceCommandStep3 ProcessDefinitionKey(long processDefinitionKey);
 }
 
@@ -35,8 +35,8 @@ public interface ICreateProcessInstanceCommandStep2
     ///     Set the version of the process to create an instance of. The version is assigned by the
     ///     broker while deploying the process. It can be picked from the deployment or process event.
     /// </summary>
-    /// <param name="version">the version of the process</param>
-    /// <returns>the builder for this command</returns>
+    /// <param name="version">the version of the process.</param>
+    /// <returns>the builder for this command.</returns>
     ICreateProcessInstanceCommandStep3 Version(int version);
 
     /// <summary>
@@ -46,7 +46,7 @@ public interface ICreateProcessInstanceCommandStep2
     ///         instance is created of the previous version.
     ///     </para>
     /// </summary>
-    /// <returns>the builder for this command</returns>
+    /// <returns>the builder for this command.</returns>
     ICreateProcessInstanceCommandStep3 LatestVersion();
 }
 
@@ -56,7 +56,7 @@ public interface ICreateProcessInstanceCommandStep3 : IFinalCommandWithRetryStep
     /// <summary>
     ///     Set the initial variables of the process instance.
     /// </summary>
-    /// <param name="variables">the variables (JSON) as String</param>
+    /// <param name="variables">the variables (JSON) as String.</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandWithRetryStep{T}.Send" /> to complete the command and
     ///     send
@@ -70,7 +70,7 @@ public interface ICreateProcessInstanceCommandStep3 : IFinalCommandWithRetryStep
     /// </summary>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send
-    ///     it to the broker
+    ///     it to the broker.
     /// </returns>
     ICreateProcessInstanceWithResultCommandStep1 WithResult();
 }
@@ -81,20 +81,20 @@ public interface ICreateProcessInstanceWithResultCommandStep1
     /// <summary>
     ///     Set a list of variables names which should be fetched in the response.
     /// </summary>
-    /// <param name="fetchVariables">set of names of variables to be included in the response</param>
+    /// <param name="fetchVariables">set of names of variables to be included in the response.</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send
-    ///     it to the broker
+    ///     it to the broker.
     /// </returns>
     ICreateProcessInstanceWithResultCommandStep1 FetchVariables(IList<string> fetchVariables);
 
     /// <summary>
     ///     Set a list of variables names which should be fetched in the response.
     /// </summary>
-    /// <param name="fetchVariables">set of names of variables to be included in the response</param>
+    /// <param name="fetchVariables">set of names of variables to be included in the response.</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send
-    ///     it to the broker
+    ///     it to the broker.
     /// </returns>
     ICreateProcessInstanceWithResultCommandStep1 FetchVariables(params string[] fetchVariables);
 }

@@ -20,7 +20,7 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             Version = -1
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .BpmnProcessId("process")
         .LatestVersion()
@@ -75,7 +75,7 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             Version = 1
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .BpmnProcessId("process")
         .Version(1)
@@ -95,7 +95,7 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             ProcessDefinitionKey = 1
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .ProcessDefinitionKey(1)
         .Send();
@@ -115,7 +115,7 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             Variables = "{\"foo\":1}"
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .ProcessDefinitionKey(1)
         .Variables("{\"foo\":1}")
@@ -137,7 +137,7 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             Variables = "{\"foo\":1}"
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .BpmnProcessId("process")
         .LatestVersion()
@@ -159,7 +159,7 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             TenantId = "tenant1"
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .ProcessDefinitionKey(1)
         .AddTenantId("tenant1")

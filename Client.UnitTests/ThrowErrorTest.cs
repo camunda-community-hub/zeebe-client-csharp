@@ -26,7 +26,7 @@ public class ThrowErrorTest : BaseZeebeTest
             Variables = variables
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewThrowErrorCommand(jobKey)
         .ErrorCode("code 13")
         .ErrorMessage("This is a business error!")

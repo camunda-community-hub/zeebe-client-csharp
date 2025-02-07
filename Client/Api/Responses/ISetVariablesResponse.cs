@@ -5,6 +5,6 @@ namespace Zeebe.Client.Api.Responses;
 /// </summary>
 public interface ISetVariablesResponse
 {
-    /// <returns> The unique key of the command</returns>
+    /// <returns> The unique key of the command.</returns>
     long Key { get; }
 }

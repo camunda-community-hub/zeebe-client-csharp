@@ -19,24 +19,24 @@ public interface IDecisionRequirementsMetadata
 {
     /// <returns>
     ///     the dmn decision requirements ID, as parsed during deployment; together with the
-    ///     versions forms a unique identifier for a specific decision
+    ///     versions forms a unique identifier for a specific decision.
     /// </returns>
     string DmnDecisionRequirementsId { get; }
 
-    /// <returns>the dmn name of the decision requirements, as parsed during deployment</returns>
+    /// <returns>the dmn name of the decision requirements, as parsed during deployment.</returns>
     string DmnDecisionRequirementsName { get; }
 
-    /// <returns>the assigned decision requirements version</returns>
+    /// <returns>the assigned decision requirements version.</returns>
     int Version { get; }
 
     /// <returns>
     ///     the assigned decision requirements key, which acts as a unique identifier for this
-    ///     decision requirements
+    ///     decision requirements.
     /// </returns>
     long DecisionRequirementsKey { get; }
 
     /// <returns>
-    ///     the resource name (i.e. filename) from which this decision requirements was parsed
+    ///     the resource name (i.e. filename) from which this decision requirements was parsed.
     /// </returns>
     string ResourceName { get; }
 }
