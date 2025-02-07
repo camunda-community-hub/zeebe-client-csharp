@@ -33,8 +33,8 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
-            .ActivateElement(elementId: TestElementId)
+        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+            .ActivateElement(TestElementId)
             .Send();
 
         // then
@@ -62,8 +62,8 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
-            .ActivateElement(elementId: TestElementId, ancestorElementInstanceKey: TestAncestorElementInstanceKey)
+        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+            .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
             .Send();
 
         // then
@@ -82,7 +82,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             ProcessInstanceKey = TestProcessInstanceKey,
             TerminateInstructions =
             {
-                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
+                new ModifyProcessInstanceRequest.Types.TerminateInstruction
                 {
                     ElementInstanceKey = TestElementInstanceKey
                 }
@@ -90,7 +90,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
+        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
             .TerminateElement(TestElementInstanceKey)
             .Send();
 
@@ -118,7 +118,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             },
             TerminateInstructions =
             {
-                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
+                new ModifyProcessInstanceRequest.Types.TerminateInstruction
                 {
                     ElementInstanceKey = TestElementInstanceKey
                 }
@@ -126,10 +126,10 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
-            .ActivateElement(elementId: TestElementId, ancestorElementInstanceKey: TestAncestorElementInstanceKey)
+        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+            .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
             .And()
-            .TerminateElement(elementInstanceKey: TestElementInstanceKey)
+            .TerminateElement(TestElementInstanceKey)
             .Send();
 
         // then
@@ -161,11 +161,11 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             },
             TerminateInstructions =
             {
-                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
+                new ModifyProcessInstanceRequest.Types.TerminateInstruction
                 {
                     ElementInstanceKey = TestElementInstanceKey
                 },
-                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
+                new ModifyProcessInstanceRequest.Types.TerminateInstruction
                 {
                     ElementInstanceKey = TestElementInstanceKey + 1
                 }
@@ -173,13 +173,13 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
-            .ActivateElement(elementId: TestElementId, ancestorElementInstanceKey: TestAncestorElementInstanceKey)
+        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+            .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
             .And()
-            .TerminateElement(elementInstanceKey: TestElementInstanceKey)
+            .TerminateElement(TestElementInstanceKey)
             .And()
-            .ActivateElement(elementId: TestElementId + "2",
-                ancestorElementInstanceKey: TestAncestorElementInstanceKey + 1)
+            .ActivateElement(TestElementId + "2",
+                TestAncestorElementInstanceKey + 1)
             .And()
             .TerminateElement(TestElementInstanceKey + 1)
             .Send();
@@ -208,7 +208,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
                     {
                         new List<ModifyProcessInstanceRequest.Types.VariableInstruction>
                         {
-                            new () { Variables = TestVariables, ScopeId = TestScopeId }
+                            new() { Variables = TestVariables, ScopeId = TestScopeId }
                         }
                     }
                 }
@@ -216,8 +216,8 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
-            .ActivateElement(elementId: TestElementId)
+        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+            .ActivateElement(TestElementId)
             .WithVariables(TestVariables, TestScopeId)
             .Send();
 
@@ -245,14 +245,14 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
                     {
                         new List<ModifyProcessInstanceRequest.Types.VariableInstruction>
                         {
-                            new () { Variables = TestVariables, ScopeId = TestScopeId }
+                            new() { Variables = TestVariables, ScopeId = TestScopeId }
                         }
                     }
                 }
             },
             TerminateInstructions =
             {
-                new ModifyProcessInstanceRequest.Types.TerminateInstruction()
+                new ModifyProcessInstanceRequest.Types.TerminateInstruction
                 {
                     ElementInstanceKey = TestElementInstanceKey
                 }
@@ -260,11 +260,11 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
         };
 
         // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(processInstanceKey: TestProcessInstanceKey)
+        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
             .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
             .WithVariables(TestVariables, TestScopeId)
             .And()
-            .TerminateElement(elementInstanceKey: TestElementInstanceKey)
+            .TerminateElement(TestElementInstanceKey)
             .Send();
 
         // then

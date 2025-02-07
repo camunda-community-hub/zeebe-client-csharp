@@ -30,7 +30,7 @@ namespace Zeebe.Client.Impl.Commands;
 public class DeployResourceCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
     : IDeployResourceCommandBuilderStep2
 {
-    private readonly DeployResourceRequest request = new ();
+    private readonly DeployResourceRequest request = new();
 
     public IDeployResourceCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName)
     {
@@ -52,7 +52,8 @@ public class DeployResourceCommand(Gateway.GatewayClient client, IAsyncRetryStra
         return this;
     }
 
-    public IDeployResourceCommandBuilderStep2 AddResourceString(string resourceString, Encoding encoding, string resourceName)
+    public IDeployResourceCommandBuilderStep2 AddResourceString(string resourceString, Encoding encoding,
+        string resourceName)
     {
         AddResource(ByteString.CopyFrom(resourceString, encoding), resourceName);
         return this;
@@ -82,7 +83,8 @@ public class DeployResourceCommand(Gateway.GatewayClient client, IAsyncRetryStra
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IDeployResourceResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<IDeployResourceResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

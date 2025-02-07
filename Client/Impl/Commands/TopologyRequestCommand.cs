@@ -27,7 +27,7 @@ namespace Zeebe.Client.Impl.Commands;
 public class TopologyRequestCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
     : ITopologyRequestStep1
 {
-    private readonly TopologyRequest request = new ();
+    private readonly TopologyRequest request = new();
 
     public async Task<ITopology> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {

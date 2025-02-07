@@ -12,14 +12,15 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using System;
 
 namespace Zeebe.Client.Api.Worker;
 
 /// <summary>
-/// Represents an job worker that performs jobs of a certain type. While a registration is
-/// open, the worker continuously receives jobs from the broker and hands them to a registered
-/// <see cref="JobHandler"/>.
+///     Represents an job worker that performs jobs of a certain type. While a registration is
+///     open, the worker continuously receives jobs from the broker and hands them to a registered
+///     <see cref="JobHandler" />.
 /// </summary>
 public interface IJobWorker : IDisposable
 {

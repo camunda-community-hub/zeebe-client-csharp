@@ -5,15 +5,15 @@ namespace Zeebe.Client.Impl.Responses;
 
 public class ProcessInstanceResponse(CreateProcessInstanceResponse response) : IProcessInstanceResponse
 {
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public long ProcessDefinitionKey { get; } = response.ProcessDefinitionKey;
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public string BpmnProcessId { get; } = response.BpmnProcessId;
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public int Version { get; } = response.Version;
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public long ProcessInstanceKey { get; } = response.ProcessInstanceKey;
 }

@@ -12,11 +12,11 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Api.Commands
+namespace Zeebe.Client.Api.Commands;
+
+public interface ITopologyRequestStep1 : IFinalCommandWithRetryStep<ITopology>
 {
-    public interface ITopologyRequestStep1 : IFinalCommandWithRetryStep<ITopology>
-    {
-    }
 }

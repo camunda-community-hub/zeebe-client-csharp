@@ -29,18 +29,6 @@ namespace Zeebe.Client;
 [TestFixture]
 public class ZeebeAuthTest
 {
-    private static readonly string ServerCertPath =
-        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
-
-    private static readonly string ClientCertPath =
-        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
-
-    private static readonly string ServerKeyPath =
-        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "private.key.pem");
-
-    private static readonly string WrongCertPath =
-        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "server.crt");
-
     [SetUp]
     public void Setup()
     {
@@ -60,6 +48,18 @@ public class ZeebeAuthTest
         server.Services.Add(serviceDefinition);
         server.Start();
     }
+
+    private static readonly string ServerCertPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
+
+    private static readonly string ClientCertPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "chain.cert.pem");
+
+    private static readonly string ServerKeyPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "private.key.pem");
+
+    private static readonly string WrongCertPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "server.crt");
 
     [Test]
     public async Task ShouldUseTransportEncryption()
@@ -177,7 +177,7 @@ public class ZeebeAuthTest
 
         public Task<string> GetAccessTokenForRequestAsync(
             string authUri = null,
-            CancellationToken cancellationToken = default(CancellationToken))
+            CancellationToken cancellationToken = default)
         {
             Count++;
             return Task.FromResult("token");

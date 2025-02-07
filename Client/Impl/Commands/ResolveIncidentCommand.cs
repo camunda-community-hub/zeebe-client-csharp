@@ -22,7 +22,8 @@ public class ResolveIncidentCommand(
 
     public async Task<IResolveIncidentResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.ResolveIncidentAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        var asyncReply =
+            client.ResolveIncidentAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
         await asyncReply.ResponseAsync;
         return new ResolveIncidentResponse();
     }
@@ -32,7 +33,8 @@ public class ResolveIncidentCommand(
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IResolveIncidentResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<IResolveIncidentResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

@@ -22,31 +22,33 @@ public class CreateProcessInstanceCommandWithResult(
 
     private readonly CreateProcessInstanceWithResultRequest createWithResultRequest = new() { Request = createRequest };
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public ICreateProcessInstanceWithResultCommandStep1 FetchVariables(IList<string> fetchVariables)
     {
         createWithResultRequest.FetchVariables.AddRange(fetchVariables);
         return this;
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public ICreateProcessInstanceWithResultCommandStep1 FetchVariables(params string[] fetchVariables)
     {
         createWithResultRequest.FetchVariables.AddRange(fetchVariables);
         return this;
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public async Task<IProcessInstanceResult> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         // this timeout will be used for the Gateway-Broker communication
-        createWithResultRequest.RequestTimeout = (long)(timeout?.TotalMilliseconds ?? DefaultGatewayBrokerTimeoutMillisecond);
+        createWithResultRequest.RequestTimeout =
+            (long)(timeout?.TotalMilliseconds ?? DefaultGatewayBrokerTimeoutMillisecond);
 
         // this is the timeout between client and gateway
         var clientDeadline = TimeSpan.FromMilliseconds(createWithResultRequest.RequestTimeout +
                                                        DefaultTimeoutAdditionMillisecond).FromUtcNow();
 
-        var asyncReply = client.CreateProcessInstanceWithResultAsync(createWithResultRequest, deadline: clientDeadline, cancellationToken: token);
+        var asyncReply = client.CreateProcessInstanceWithResultAsync(createWithResultRequest, deadline: clientDeadline,
+            cancellationToken: token);
         var response = await asyncReply.ResponseAsync;
         return new ProcessInstanceResultResponse(response);
     }
@@ -56,7 +58,8 @@ public class CreateProcessInstanceCommandWithResult(
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IProcessInstanceResult> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<IProcessInstanceResult> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

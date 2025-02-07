@@ -16,7 +16,7 @@ public class CreateProcessInstanceCommand(Gateway.GatewayClient client, IAsyncRe
 {
     private const int LatestVersionValue = -1;
 
-    private readonly CreateProcessInstanceRequest request = new ();
+    private readonly CreateProcessInstanceRequest request = new();
 
     public ICreateProcessInstanceCommandStep2 BpmnProcessId(string bpmnProcessId)
     {
@@ -67,7 +67,8 @@ public class CreateProcessInstanceCommand(Gateway.GatewayClient client, IAsyncRe
 
     public async Task<IProcessInstanceResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.CreateProcessInstanceAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        var asyncReply =
+            client.CreateProcessInstanceAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
         var response = await asyncReply.ResponseAsync;
         return new ProcessInstanceResponse(response);
     }
@@ -77,7 +78,8 @@ public class CreateProcessInstanceCommand(Gateway.GatewayClient client, IAsyncRe
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IProcessInstanceResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<IProcessInstanceResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

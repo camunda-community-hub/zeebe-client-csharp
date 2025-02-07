@@ -6,154 +6,157 @@ using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using Zeebe.Client;
 
-namespace Client.IntegrationTests
+namespace Client.IntegrationTests;
+
+[TestFixture]
+public class ProcessInstanceTest
 {
-    [TestFixture]
-    public class ProcessInstanceTest
+    [OneTimeSetUp]
+    public async Task Setup()
     {
-        private static readonly string OneTaskProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "oneTaskProcess.bpmn");
-        private static readonly string SimpleProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "simpleProcess.bpmn");
-        private static readonly string ProcessInstanceVariables = "{\"a\":123, \"b\":true}";
+        zeebeClient = await testHelper.SetupIntegrationTest();
+    }
 
-        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
-        private IZeebeClient zeebeClient;
+    [OneTimeTearDown]
+    public async Task Stop()
+    {
+        await testHelper.TearDownIntegrationTest();
+    }
 
-        [OneTimeSetUp]
-        public async Task Setup()
-        {
-            zeebeClient = await testHelper.SetupIntegrationTest();
-        }
+    private static readonly string OneTaskProcessPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "oneTaskProcess.bpmn");
 
-        [OneTimeTearDown]
-        public async Task Stop()
-        {
-            await testHelper.TearDownIntegrationTest();
-        }
+    private static readonly string SimpleProcessPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "simpleProcess.bpmn");
 
-        [Test]
-        public async Task ShouldCreateProcessInstance()
-        {
-            // given
-            var deployResponse = await zeebeClient.NewDeployCommand()
-                .AddResourceFile(OneTaskProcessPath)
-                .Send();
-            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
+    private static readonly string ProcessInstanceVariables = "{\"a\":123, \"b\":true}";
 
-            // when
-            var processInstance = await zeebeClient
-                .NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(processDefinitionKey)
-                .Variables(ProcessInstanceVariables)
-                .Send();
+    private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
+    private IZeebeClient zeebeClient;
 
-            // then
-            Assert.AreEqual(processInstance.Version, 1);
-            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
-            Assert.AreEqual("oneTaskProcess", processInstance.BpmnProcessId);
-            Assert.Greater(processInstance.ProcessInstanceKey, 1);
-        }
+    [Test]
+    public async Task ShouldCreateProcessInstance()
+    {
+        // given
+        var deployResponse = await zeebeClient.NewDeployCommand()
+            .AddResourceFile(OneTaskProcessPath)
+            .Send();
+        var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
 
-        [Test]
-        public void ShouldNotCreateProcessInstanceWithoutDeployment()
-        {
-            // given
+        // when
+        var processInstance = await zeebeClient
+            .NewCreateProcessInstanceCommand()
+            .ProcessDefinitionKey(processDefinitionKey)
+            .Variables(ProcessInstanceVariables)
+            .Send();
 
-            // when
-            var aggregateException = Assert.Throws<AggregateException>(() => zeebeClient
-                .NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(1)
-                .Variables(ProcessInstanceVariables)
-                .Send().Wait());
+        // then
+        Assert.AreEqual(processInstance.Version, 1);
+        Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
+        Assert.AreEqual("oneTaskProcess", processInstance.BpmnProcessId);
+        Assert.Greater(processInstance.ProcessInstanceKey, 1);
+    }
 
-            // then
-            var rpcException = (RpcException) aggregateException.InnerExceptions[0];
-            Assert.AreEqual(StatusCode.NotFound, rpcException.Status.StatusCode);
-        }
+    [Test]
+    public void ShouldNotCreateProcessInstanceWithoutDeployment()
+    {
+        // given
 
-        [Test]
-        public async Task ShouldGetResultAfterCreateProcessInstance()
-        {
-            // given
-            var deployResponse = await zeebeClient.NewDeployCommand()
-                .AddResourceFile(SimpleProcessPath)
-                .Send();
-            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
+        // when
+        var aggregateException = Assert.Throws<AggregateException>(() => zeebeClient
+            .NewCreateProcessInstanceCommand()
+            .ProcessDefinitionKey(1)
+            .Variables(ProcessInstanceVariables)
+            .Send().Wait());
 
-            // when
-            var processInstance = await zeebeClient
-                .NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(processDefinitionKey)
-                .Variables(ProcessInstanceVariables)
-                .WithResult()
-                .Send();
+        // then
+        var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+        Assert.AreEqual(StatusCode.NotFound, rpcException.Status.StatusCode);
+    }
 
-            // then
-            Assert.AreEqual(processInstance.Version, 1);
-            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
-            Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
-            Assert.Greater(processInstance.ProcessInstanceKey, 1);
+    [Test]
+    public async Task ShouldGetResultAfterCreateProcessInstance()
+    {
+        // given
+        var deployResponse = await zeebeClient.NewDeployCommand()
+            .AddResourceFile(SimpleProcessPath)
+            .Send();
+        var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
 
-            var expectedJson = JObject.Parse(ProcessInstanceVariables);
-            var actualJson = JObject.Parse(processInstance.Variables);
-            Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
-        }
+        // when
+        var processInstance = await zeebeClient
+            .NewCreateProcessInstanceCommand()
+            .ProcessDefinitionKey(processDefinitionKey)
+            .Variables(ProcessInstanceVariables)
+            .WithResult()
+            .Send();
 
-        [Test]
-        public async Task ShouldFetchVariablesOfResult()
-        {
-            // given
-            var deployResponse = await zeebeClient.NewDeployCommand()
-                .AddResourceFile(SimpleProcessPath)
-                .Send();
-            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
+        // then
+        Assert.AreEqual(processInstance.Version, 1);
+        Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
+        Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
+        Assert.Greater(processInstance.ProcessInstanceKey, 1);
 
-            // when
-            var processInstance = await zeebeClient
-                .NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(processDefinitionKey)
-                .Variables(ProcessInstanceVariables)
-                .WithResult()
-                .FetchVariables("b")
-                .Send();
+        var expectedJson = JObject.Parse(ProcessInstanceVariables);
+        var actualJson = JObject.Parse(processInstance.Variables);
+        Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
+    }
 
-            // then
-            Assert.AreEqual(processInstance.Version, 1);
-            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
-            Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
-            Assert.Greater(processInstance.ProcessInstanceKey, 1);
+    [Test]
+    public async Task ShouldFetchVariablesOfResult()
+    {
+        // given
+        var deployResponse = await zeebeClient.NewDeployCommand()
+            .AddResourceFile(SimpleProcessPath)
+            .Send();
+        var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
 
-            var expectedJson = new JObject { { "b", true } };
-            var actualJson = JObject.Parse(processInstance.Variables);
-            Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
-        }
+        // when
+        var processInstance = await zeebeClient
+            .NewCreateProcessInstanceCommand()
+            .ProcessDefinitionKey(processDefinitionKey)
+            .Variables(ProcessInstanceVariables)
+            .WithResult()
+            .FetchVariables("b")
+            .Send();
 
-        [Test]
-        public async Task ShouldFetchNoVariablesOfResult()
-        {
-            // given
-            var deployResponse = await zeebeClient.NewDeployCommand()
-                .AddResourceFile(SimpleProcessPath)
-                .Send();
-            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
+        // then
+        Assert.AreEqual(processInstance.Version, 1);
+        Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
+        Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
+        Assert.Greater(processInstance.ProcessInstanceKey, 1);
 
-            // when
-            var processInstance = await zeebeClient
-                .NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(processDefinitionKey)
-                .Variables(ProcessInstanceVariables)
-                .WithResult()
-                .FetchVariables("c")
-                .Send();
+        var expectedJson = new JObject { { "b", true } };
+        var actualJson = JObject.Parse(processInstance.Variables);
+        Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
+    }
 
-            // then
-            Assert.AreEqual(processInstance.Version, 1);
-            Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
-            Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
-            Assert.Greater(processInstance.ProcessInstanceKey, 1);
+    [Test]
+    public async Task ShouldFetchNoVariablesOfResult()
+    {
+        // given
+        var deployResponse = await zeebeClient.NewDeployCommand()
+            .AddResourceFile(SimpleProcessPath)
+            .Send();
+        var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
 
-            var expectedJson = new JObject();
-            var actualJson = JObject.Parse(processInstance.Variables);
-            Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
-        }
+        // when
+        var processInstance = await zeebeClient
+            .NewCreateProcessInstanceCommand()
+            .ProcessDefinitionKey(processDefinitionKey)
+            .Variables(ProcessInstanceVariables)
+            .WithResult()
+            .FetchVariables("c")
+            .Send();
+
+        // then
+        Assert.AreEqual(processInstance.Version, 1);
+        Assert.AreEqual(processDefinitionKey, processInstance.ProcessDefinitionKey);
+        Assert.AreEqual("simpleProcess", processInstance.BpmnProcessId);
+        Assert.Greater(processInstance.ProcessInstanceKey, 1);
+
+        var expectedJson = new JObject();
+        var actualJson = JObject.Parse(processInstance.Variables);
+        Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
     }
 }
