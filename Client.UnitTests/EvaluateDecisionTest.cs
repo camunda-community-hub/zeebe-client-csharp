@@ -111,7 +111,7 @@ public class EvaluateDecisionTest : BaseZeebeTest
             Variables = "{\"foo\":1}"
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewEvaluateDecisionCommand()
         .DecisionId("decision")
         .Variables("{\"foo\":1}")
@@ -262,7 +262,7 @@ public class EvaluateDecisionTest : BaseZeebeTest
             TenantId = "tenant1"
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewEvaluateDecisionCommand()
         .DecisionId("decision")
         .AddTenantId("tenant1")
