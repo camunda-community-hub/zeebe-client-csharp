@@ -37,7 +37,7 @@ namespace Zeebe.Client
 
             // when
             var task = ZeebeClient.NewEvaluateDecisionCommand()
-                    .DecisionId("decision")
+                .DecisionId("decision")
                 .Send(TimeSpan.Zero);
             var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
             var rpcException = (RpcException)aggregateException.InnerExceptions[0];
@@ -253,8 +253,26 @@ namespace Zeebe.Client
             Assert.AreEqual("output2", evaluatedDecisionOutput.OutputName);
             Assert.AreEqual("val2", evaluatedDecisionOutput.OutputValue);
         }
+
+        [Test]
+        public async Task ShouldSendRequestWithTenantIdAsExpected()
+        {
+            // given
+            var expectedRequest = new EvaluateDecisionRequest
+            {
+                DecisionId = "decision",
+                TenantId = "tenant1"
+            };
+
+            // when
+            await ZeebeClient.NewEvaluateDecisionCommand()
+                .DecisionId("decision")
+                .AddTenantId("tenant1")
+                .Send();
+
+            // then
+            var request = TestService.Requests[typeof(EvaluateDecisionRequest)][0];
+            Assert.AreEqual(expectedRequest, request);
+        }
     }
 }
-
-
-
