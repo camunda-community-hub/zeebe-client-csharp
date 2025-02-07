@@ -35,7 +35,7 @@ public class DeploymentTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewDeployCommand().AddResourceFile(_demoProcessPath).Send();
 
         // then
@@ -178,7 +178,7 @@ public class DeploymentTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewDeployCommand()
         .AddResourceStream(File.OpenRead(_demoProcessPath), _demoProcessPath)
         .Send();
@@ -250,7 +250,7 @@ public class DeploymentTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewDeployCommand()
         .AddResourceFile(_demoProcessPath)
         .AddResourceStream(File.OpenRead(_demoFormPath), _demoFormPath)
@@ -380,7 +380,7 @@ public class DeploymentTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewDeployCommand().AddResourceFile(_demoProcessPath).AddTenantId("1234").Send();
 
         // then

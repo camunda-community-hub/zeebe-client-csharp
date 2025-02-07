@@ -43,9 +43,9 @@ internal class JobActivator(GatewayClient client)
         CancellationToken? cancellationToken = null)
     {
         if (cancellationToken.HasValue)
-    {
-      return await stream.MoveNext(cancellationToken.Value);
-    }
+        {
+            return await stream.MoveNext(cancellationToken.Value);
+        }
 
         return await stream.MoveNext();
     }

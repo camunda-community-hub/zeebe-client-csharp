@@ -18,17 +18,17 @@ namespace Zeebe.Client.Api.Responses;
 public interface IEvaluatedDecisionOutput
 {
     /// <returns>
-    ///     the id of the evaluated decision output
+    ///     the id of the evaluated decision output.
     /// </returns>
     string OutputId { get; }
 
     /// <returns>
-    ///     the name of the evaluated decision output
+    ///     the name of the evaluated decision output.
     /// </returns>
     string OutputName { get; }
 
     /// <returns>
-    ///     the value of the evaluated decision output
+    ///     the value of the evaluated decision output.
     /// </returns>
     string OutputValue { get; }
 }

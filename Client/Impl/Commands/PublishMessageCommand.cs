@@ -65,7 +65,7 @@ public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asy
         request.TenantId = tenantId;
         return this;
     }
-        
+
     public async Task<IPublishMessageResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         var asyncReply = client.PublishMessageAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);

@@ -26,7 +26,7 @@ public class FailJobTest : BaseZeebeTest
             Variables = variables
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewFailCommand(jobKey)
         .Retries(2)
         .ErrorMessage("This job failed!")

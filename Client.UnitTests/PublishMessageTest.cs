@@ -120,7 +120,7 @@ public class PublishMessageTest : BaseZeebeTest
         var request = TestService.Requests[typeof(PublishMessageRequest)][0];
         Assert.AreEqual(expectedRequest, request);
     }
- 
+
     [Test]
     public async Task ShouldSendRequestWithTenantIdAsExpected()
     {

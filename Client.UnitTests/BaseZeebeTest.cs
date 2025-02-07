@@ -24,7 +24,7 @@ using NUnit.Framework;
 
 namespace Zeebe.Client;
 
-public class BaseZeebeTest
+public class BaseZeebeTest : IDisposable
 {
     public readonly ILoggerFactory LoggerFactory = new NLogLoggerFactory();
     private Server server;
@@ -57,19 +57,24 @@ public class BaseZeebeTest
     [TearDown]
     public void Stop()
     {
-        ZeebeClient.Dispose();
-        server.ShutdownAsync().Wait();
+        server.ShutdownAsync();//.Wait();
         TestService.Requests.Clear();
-        TestService = null;
-        server = null;
-        ZeebeClient = null;
     }
 
     public void AwaitRequestCount(Type type, int requestCount)
     {
         while (TestService.Requests[type].Count < requestCount)
-    {
-      Thread.Sleep(TimeSpan.FromMilliseconds(100));
+        {
+            Thread.Sleep(TimeSpan.FromMilliseconds(100));
+        }
     }
-  }
+
+    public void Dispose()
+    {
+        Stop();
+        ZeebeClient.Dispose();
+        TestService = null;
+        server = null;
+        ZeebeClient = null;
+    }
 }

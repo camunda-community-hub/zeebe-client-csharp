@@ -22,8 +22,8 @@ public class SendWithRetryParameterizedTest : BaseZeebeTest
         TestService.AddRequestHandler(typeof(TReq),
             req =>
             {
-              _ = countdownEvent.Signal();
-              throw new RpcException(new Status(StatusCode.ResourceExhausted, "exhausted"));
+                _ = countdownEvent.Signal();
+                throw new RpcException(new Status(StatusCode.ResourceExhausted, "exhausted"));
             });
 
         // when
@@ -55,8 +55,8 @@ public class SendWithRetryParameterizedTest : BaseZeebeTest
             typeof(TReq),
             req =>
             {
-              _ = countdownEvent.Signal();
-              throw new RpcException(new Status(StatusCode.Unavailable, "exhausted"));
+                _ = countdownEvent.Signal();
+                throw new RpcException(new Status(StatusCode.Unavailable, "exhausted"));
             });
 
         // when

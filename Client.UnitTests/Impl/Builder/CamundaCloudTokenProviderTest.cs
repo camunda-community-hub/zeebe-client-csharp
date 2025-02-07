@@ -91,10 +91,10 @@ public class CamundaCloudTokenProviderTest
         private void CheckDisposed()
         {
             if (_disposed)
-      {
-        throw new ObjectDisposedException("HttpMessageHandlerStub");
-      }
-    }
+            {
+                throw new ObjectDisposedException("HttpMessageHandlerStub");
+            }
+        }
     }
 
     [Test]

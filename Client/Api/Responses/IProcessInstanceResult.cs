@@ -25,6 +25,6 @@ public interface IProcessInstanceResult
     /// </returns>
     long ProcessInstanceKey { get; }
 
-    /// <returns> JSON-formatted variables </returns>
+    /// <returns> JSON-formatted variables. </returns>
     string Variables { get; }
 }

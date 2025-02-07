@@ -26,23 +26,23 @@ public interface IJobWorkerBuilderStep1
     /// <summary>
     ///     Set the type of jobs to work on.
     /// </summary>
-    /// <param name="type">the type of jobs (e.g. "payment")</param>
-    /// <returns>the builder for this worker</returns>
+    /// <param name="type">the type of jobs (e.g. "payment").</param>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep2 JobType(string type);
 }
 
 /// <summary>
 ///     The job handler which contains the business logic.
 /// </summary>
-/// <param name="client">the job client to complete or fail the job</param>
-/// <param name="activatedJob">the job, which was activated by the worker</param>
+/// <param name="client">the job client to complete or fail the job.</param>
+/// <param name="activatedJob">the job, which was activated by the worker.</param>
 public delegate void JobHandler(IJobClient client, IJob activatedJob);
 
 /// <summary>
 ///     The asynchronous job handler which contains the business logic.
 /// </summary>
-/// <param name="client">the job client to complete or fail the job</param>
-/// <param name="activatedJob">the job, which was activated by the worker</param>
+/// <param name="client">the job client to complete or fail the job.</param>
+/// <param name="activatedJob">the job, which was activated by the worker.</param>
 /// <returns>A <see cref="Task" /> representing the asynchronous operation.</returns>
 public delegate Task AsyncJobHandler(IJobClient client, IJob activatedJob);
 
@@ -70,8 +70,8 @@ public interface IJobWorkerBuilderStep2
     /// </code>
     /// </example>
     /// The handler must be thread-safe.
-    /// <param name="handler">the handle to process the jobs</param>
-    /// <returns>the builder for this worker</returns>
+    /// <param name="handler">the handle to process the jobs.</param>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 Handler(JobHandler handler);
 
     /// <summary>
@@ -96,8 +96,8 @@ public interface IJobWorkerBuilderStep2
     /// </code>
     /// </example>
     /// The handler must be thread-safe.
-    /// <param name="handler">the handle to process the jobs</param>
-    /// <returns>the builder for this worker</returns>
+    /// <param name="handler">the handle to process the jobs.</param>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler);
 }
 
@@ -111,8 +111,8 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     ///     work on the job. When the time is over then the job can be assigned again by this or other
     ///     worker if it's not completed yet.
     /// </para>
-    /// <param name="timeout">the time as time span (e.g. "TimeSpan.FromMinutes(10)")</param>
-    /// <returns>the builder for this worker</returns>
+    /// <param name="timeout">the time as time span (e.g. "TimeSpan.FromMinutes(10)").</param>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 Timeout(TimeSpan timeout);
 
     /// <summary>
@@ -121,8 +121,8 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     /// <para>
     ///     This name is used to identify the worker to which a job is exclusively assigned to.
     /// </para>
-    /// <param name="workerName">the name of the worker (e.g. "payment-service")</param>
-    /// <returns>the builder for this worker</returns>
+    /// <param name="workerName">the name of the worker (e.g. "payment-service").</param>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 Name(string workerName);
 
     /// <summary>
@@ -135,7 +135,7 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     ///     workers the chance to work on the jobs. The worker will try to activate new jobs again when
     ///     jobs are completed (or marked as failed).
     /// </para>
-    /// <para>Considerations:</para>
+    /// <para>Considerations:.</para>
     /// <list type="number">
     ///     <item>
     ///         A greater value can avoid situations in which the client waits idle for the broker to
@@ -154,8 +154,8 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     ///         </example>
     ///     </item>
     /// </list>
-    /// <param name="maxJobsActive">the maximum jobs active by this worker</param>
-    /// <returns>the builder for this worker</returns>
+    /// <param name="maxJobsActive">the maximum jobs active by this worker.</param>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 MaxJobsActive(int maxJobsActive);
 
     /// <summary>
@@ -167,8 +167,8 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     /// <para>
     ///     This can be used to limit the number of variables of the activated jobs.
     /// </para>
-    /// <param name="fetchVariables">list of variables names to fetch on activation</param>
-    /// <returns>the builder for this worker</returns>
+    /// <param name="fetchVariables">list of variables names to fetch on activation.</param>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 FetchVariables(IList<string> fetchVariables);
 
     /// <summary>
@@ -180,8 +180,8 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     /// <para>
     ///     This can be used to limit the number of variables of the activated jobs.
     /// </para>
-    /// <param name="fetchVariables">list of variables names to fetch on activation</param>
-    /// <returns>the builder for this worker</returns>
+    /// <param name="fetchVariables">list of variables names to fetch on activation.</param>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 FetchVariables(params string[] fetchVariables);
 
     /// <summary>
@@ -191,8 +191,8 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     ///     A job worker will automatically try to always activate new jobs after completing jobs. If
     ///     no jobs can be activated after completing the worker will periodically poll for new jobs.
     /// </para>
-    /// <param name="pollInterval">the maximal interval to check for new jobs</param>
-    /// <returns>the builder for this worker</returns>
+    /// <param name="pollInterval">the maximal interval to check for new jobs.</param>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 PollInterval(TimeSpan pollInterval);
 
     /// <summary>
@@ -202,9 +202,9 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     ///     The activate jobs request will be completed when at least one job is activated or after the given requestTimeout.
     /// </para>
     /// <param name="pollingTimeout">
-    ///     the polling timeout (e.g. "TimeSpan.FromMinutes(10)")
+    ///     the polling timeout (e.g. "TimeSpan.FromMinutes(10)").
     /// </param>
-    /// <returns>the builder for this worker</returns>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 PollingTimeout(TimeSpan pollingTimeout);
 
     /// <summary>
@@ -214,7 +214,7 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     ///     This means if the user does not complete or fails the activated job by himself
     ///     then the worker will do it.
     /// </para>
-    /// <returns>the builder for this worker</returns>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 AutoCompletion();
 
     /// <summary>
@@ -226,13 +226,13 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     ///     This means the job handler implementation needs to be thread safe.
     /// </para>
     /// <para>Note: Job polling is done by a separate thread.</para>
-    /// <param name="threadCount">handler thread count, needs to be larger then zero</param>
-    /// <returns>the builder for this worker</returns>
+    /// <param name="threadCount">handler thread count, needs to be larger then zero.</param>
+    /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 HandlerThreads(byte threadCount);
 
     /// <summary>
     ///     Open the worker and start to work on available tasks.
     /// </summary>
-    /// <returns>the worker</returns>
+    /// <returns>the worker.</returns>
     IJobWorker Open();
 }

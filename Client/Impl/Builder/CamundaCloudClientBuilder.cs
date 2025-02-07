@@ -23,17 +23,17 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
 
     public ICamundaCloudClientBuilderStep1 UseClientId(string clientId)
     {
-    _ = camundaCloudTokenProviderBuilder.UseClientId(clientId);
-    return this;
+        _ = camundaCloudTokenProviderBuilder.UseClientId(clientId);
+        return this;
     }
 
     public ICamundaCloudClientBuilderFinalStep FromEnv()
     {
-    _ = UseClientId(GetFromEnv(ZeebeClientIdEnvVar))
-        .UseClientSecret(GetFromEnv(ZeebeClientSecretEnvVar))
-        .UseContactPoint(GetFromEnv(ZeebeAddressEnvVar))
-        .UseAuthServer(GetFromEnv(ZeebeAuthServerEnvVar));
-    return this;
+        _ = UseClientId(GetFromEnv(ZeebeClientIdEnvVar))
+            .UseClientSecret(GetFromEnv(ZeebeClientSecretEnvVar))
+            .UseContactPoint(GetFromEnv(ZeebeAddressEnvVar))
+            .UseAuthServer(GetFromEnv(ZeebeAuthServerEnvVar));
+        return this;
     }
 
     public ICamundaCloudClientBuilderFinalStep UseLoggerFactory(ILoggerFactory loggerFactory)
@@ -47,8 +47,8 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
     {
         if (url is null)
         {
-          // use default
-          return this;
+            // use default
+            return this;
         }
 
         _ = camundaCloudTokenProviderBuilder.UseAuthServer(url);
@@ -59,8 +59,8 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
     {
         if (path is null)
         {
-          // use default
-          return this;
+            // use default
+            return this;
         }
 
         _ = camundaCloudTokenProviderBuilder.UsePath(path);
@@ -79,8 +79,8 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
 
     public ICamundaCloudClientBuilderStep2 UseClientSecret(string clientSecret)
     {
-    _ = camundaCloudTokenProviderBuilder.UseClientSecret(clientSecret);
-    return this;
+        _ = camundaCloudTokenProviderBuilder.UseClientSecret(clientSecret);
+        return this;
     }
 
     public ICamundaCloudClientBuilderFinalStep UseContactPoint(string contactPoint)

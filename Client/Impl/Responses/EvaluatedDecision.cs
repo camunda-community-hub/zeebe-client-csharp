@@ -31,16 +31,16 @@ public class EvaluatedDecision : IEvaluatedDecision
 
         EvaluatedInputs = new List<IEvaluatedDecisionInput>();
         foreach (var input in evaluatedDecision.EvaluatedInputs)
-    {
-      EvaluatedInputs.Add(new EvaluatedDecisionInput(input));
-    }
+        {
+            EvaluatedInputs.Add(new EvaluatedDecisionInput(input));
+        }
 
         MatchedRules = new List<IMatchedDecisionRule>();
         foreach (var matchedRule in evaluatedDecision.MatchedRules)
-    {
-      MatchedRules.Add(new MatchedDecisionRule(matchedRule));
+        {
+            MatchedRules.Add(new MatchedDecisionRule(matchedRule));
+        }
     }
-  }
 
     public string DecisionId { get; }
     public int DecisionVersion { get; }

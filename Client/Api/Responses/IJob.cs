@@ -19,34 +19,34 @@ namespace Zeebe.Client.Api.Responses;
 
 public interface IJob
 {
-    /// <returns> The unique key of the job </returns>
+    /// <returns> The unique key of the job. </returns>
     long Key { get; }
 
-    /// <returns> The type of the job </returns>
+    /// <returns> The type of the job. </returns>
     string Type { get; }
 
-    /// <returns> Key of the process instance </summary>
+    /// <returns> Key of the process instance. </summary>
     long ProcessInstanceKey { get; }
 
-    /// <returns> BPMN process id of the process </summary>
+    /// <returns> BPMN process id of the process. </summary>
     string BpmnProcessId { get; }
 
-    /// <returns> Version of the process </returns>
+    /// <returns> Version of the process. </returns>
     int ProcessDefinitionVersion { get; }
 
-    /// <returns> Key of the process </returns>
+    /// <returns> Key of the process. </returns>
     long ProcessDefinitionKey { get; }
 
-    /// <returns> Id of the process element </returns>
+    /// <returns> Id of the process element. </returns>
     string ElementId { get; }
 
-    /// <returns> Key of the element instance </returns>
+    /// <returns> Key of the element instance. </returns>
     long ElementInstanceKey { get; }
 
-    /// <returns>the assigned worker to complete the job </returns>
+    /// <returns>the assigned worker to complete the job. </returns>
     string Worker { get; }
 
-    /// <returns>remaining retries </returns>
+    /// <returns>remaining retries. </returns>
     int Retries { get; }
 
     /// <returns>
@@ -56,12 +56,12 @@ public interface IJob
     /// </returns>
     DateTime Deadline { get; }
 
-    /// <returns> JSON-formatted variables </returns>
+    /// <returns> JSON-formatted variables. </returns>
     string Variables { get; }
 
-    /// <returns> JSON-formatted Custom Headers </returns>
+    /// <returns> JSON-formatted Custom Headers. </returns>
     string CustomHeaders { get; }
 
-    /// <returns> tenant ID of the process </returns>
+    /// <returns> tenant ID of the process. </returns>
     string TenantId { get; }
 }

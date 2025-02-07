@@ -64,12 +64,12 @@ public sealed class JobWorker : IJobWorker
     public void Dispose()
     {
         source.Cancel();
-    // delay disposing, since poll and handler take some time to close
+        // delay disposing, since poll and handler take some time to close
         _ = Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
         .ContinueWith(t =>
         {
-          logger?.LogError("Dispose source");
-          source.Dispose();
+            logger?.LogError("Dispose source");
+            source.Dispose();
         });
         isRunning = false;
     }
@@ -107,7 +107,7 @@ public sealed class JobWorker : IJobWorker
         _ = input.LinkTo(transformer);
         _ = transformer.LinkTo(output);
 
-    // Start polling
+        // Start polling
         _ = Task.Run(async () => await PollJobs(input, cancellationToken),
         cancellationToken).ContinueWith(
         t => logger?.LogError(t.Exception, "Job polling failed."),
@@ -178,8 +178,8 @@ public sealed class JobWorker : IJobWorker
 
         foreach (var job in response.Jobs)
         {
-      _ = await input.SendAsync(job);
-      _ = Interlocked.Increment(ref currentJobsActive);
+            _ = await input.SendAsync(job);
+            _ = Interlocked.Increment(ref currentJobsActive);
         }
     }
 
@@ -248,7 +248,7 @@ public sealed class JobWorker : IJobWorker
                 {
                     if (task.IsFaulted)
                     {
-                      logger?.LogWarning(task.Exception, "Problem on failing job occured.");
+                        logger?.LogWarning(task.Exception, "Problem on failing job occured.");
                     }
                 }, cancellationToken);
     }
