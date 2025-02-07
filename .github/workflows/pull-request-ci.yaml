@@ -13,7 +13,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release
     - name: Test
-      run: dotnet test Client.UnitTests
+      run: dotnet test Client.UnitTests --configuration Release
   integration-test:
     name: Run integration tests
     runs-on: ubuntu-latest    
