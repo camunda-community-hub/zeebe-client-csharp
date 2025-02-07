@@ -12,6 +12,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using System.Collections.Generic;
 using System.Linq;
 using Zeebe.Client.Api.Responses;
@@ -21,12 +22,6 @@ namespace Zeebe.Client.Impl.Responses;
 public class BrokerInfo : IBrokerInfo
 {
     private const char AddressSeparator = ':';
-
-    public string Address { get; }
-    public string Host { get; }
-    public int NodeId { get; }
-    public int Port { get; }
-    public IList<IPartitionInfo> Partitions { get; }
 
     public BrokerInfo(GatewayProtocol.BrokerInfo brokerInfo)
     {
@@ -40,6 +35,12 @@ public class BrokerInfo : IBrokerInfo
             .Cast<IPartitionInfo>()
             .ToList();
     }
+
+    public string Address { get; }
+    public string Host { get; }
+    public int NodeId { get; }
+    public int Port { get; }
+    public IList<IPartitionInfo> Partitions { get; }
 
     public override string ToString()
     {

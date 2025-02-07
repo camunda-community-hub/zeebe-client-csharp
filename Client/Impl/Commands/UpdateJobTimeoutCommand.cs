@@ -12,7 +12,7 @@ namespace Zeebe.Client.Impl.Commands;
 public class UpdateJobTimeoutCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
     : IUpdateJobTimeoutCommandStep1, IUpdateJobTimeoutCommandStep2
 {
-    private readonly UpdateJobTimeoutRequest request = new()
+    private readonly UpdateJobTimeoutRequest request = new ()
     {
         JobKey = jobKey
     };
@@ -25,8 +25,9 @@ public class UpdateJobTimeoutCommand(Gateway.GatewayClient client, IAsyncRetrySt
 
     public async Task<IUpdateJobTimeoutResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.UpdateJobTimeoutAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        var asyncReply =
+            client.UpdateJobTimeoutAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        _ = await asyncReply.ResponseAsync;
         return new UpdateJobTimeoutResponse();
     }
 
@@ -35,7 +36,8 @@ public class UpdateJobTimeoutCommand(Gateway.GatewayClient client, IAsyncRetrySt
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IUpdateJobTimeoutResponse> SendWithRetry(TimeSpan? timeout = null, CancellationToken token = default)
+    public async Task<IUpdateJobTimeoutResponse> SendWithRetry(TimeSpan? timeout = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timeout, token));
     }

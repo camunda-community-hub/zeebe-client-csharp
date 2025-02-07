@@ -30,6 +30,12 @@ public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asy
 {
     private readonly PublishMessageRequest request = new ();
 
+    public IPublishMessageCommandStep2 MessageName(string messageName)
+    {
+        request.Name = messageName;
+        return this;
+    }
+
     public IPublishMessageCommandStep3 CorrelationKey(string correlationKey)
     {
         request.CorrelationKey = correlationKey;
@@ -39,12 +45,6 @@ public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asy
     public IPublishMessageCommandStep3 MessageId(string messageId)
     {
         request.MessageId = messageId;
-        return this;
-    }
-
-    public IPublishMessageCommandStep2 MessageName(string messageName)
-    {
-        request.Name = messageName;
         return this;
     }
 
@@ -63,7 +63,7 @@ public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asy
     public async Task<IPublishMessageResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         var asyncReply = client.PublishMessageAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        _ = await asyncReply.ResponseAsync;
         return new PublishMessageResponse();
     }
 
@@ -72,7 +72,8 @@ public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asy
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IPublishMessageResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<IPublishMessageResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

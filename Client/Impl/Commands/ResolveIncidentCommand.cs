@@ -15,15 +15,16 @@ public class ResolveIncidentCommand(
     long incidentKey)
     : IResolveIncidentCommandStep1
 {
-    private readonly ResolveIncidentRequest request = new()
+    private readonly ResolveIncidentRequest request = new ()
     {
         IncidentKey = incidentKey
     };
 
     public async Task<IResolveIncidentResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.ResolveIncidentAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        var asyncReply =
+            client.ResolveIncidentAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        _ = await asyncReply.ResponseAsync;
         return new ResolveIncidentResponse();
     }
 
@@ -32,7 +33,8 @@ public class ResolveIncidentCommand(
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IResolveIncidentResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<IResolveIncidentResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

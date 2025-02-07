@@ -19,20 +19,20 @@ using Zeebe.Client.Api.Responses;
 namespace Zeebe.Client.Api.Worker;
 
 /// <summary>
-/// A client with access to all job-related operation:
-/// <list type="bullet">
-///   <item>complete a job</item>
-///   <item> mark a job as failed</item>
-///   <item> update the retries of a job</item>
-/// </list>
+///     A client with access to all job-related operation:
+///     <list type="bullet">
+///         <item>complete a job</item>
+///         <item> mark a job as failed</item>
+///         <item> update the retries of a job</item>
+///     </list>
 /// </summary>
 public interface IJobClient
 {
     /// <summary>
-    /// Command to complete a job.
+    ///     Command to complete a job.
     /// </summary>
     /// <example>
-    /// <code>
+    ///     <code>
     /// long jobKey = ..;
     ///
     /// jobClient
@@ -41,22 +41,19 @@ public interface IJobClient
     ///      .Send();
     /// </code>
     /// </example>
-    ///
     /// <para>
     ///     The job is linked to a process instance, which means this command will complete the related
     ///     activity and continue the flow.
     /// </para>
-    ///
     /// <param name="jobKey">the key which identifies the job</param>
     /// <returns>a builder for the command</returns>
     ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey);
 
     /// <summary>
-    /// Command to complete a job.
+    ///     Command to complete a job.
     /// </summary>
-    ///
     /// <example>
-    /// <code>
+    ///     <code>
     /// IJob activatedJob = ..;
     ///
     /// jobClient
@@ -65,22 +62,19 @@ public interface IJobClient
     ///      .Send();
     /// </code>
     /// </example>
-    ///
     /// <para>
     ///     The job is linked to a process instance, which means this command will complete the related
     ///     activity and continue the flow.
     /// </para>
-    ///
     /// <param name="activatedJob">the job, which should be completed</param>
     /// <returns>a builder for the command</returns>
     ICompleteJobCommandStep1 NewCompleteJobCommand(IJob activatedJob);
 
     /// <summary>
-    /// Command to mark a job as failed.
+    ///     Command to mark a job as failed.
     /// </summary>
-    ///
     /// <example>
-    /// <code>
+    ///     <code>
     /// long jobKey = ..;
     ///
     /// jobClient
@@ -89,7 +83,6 @@ public interface IJobClient
     ///      .Send();
     /// </code>
     /// </example>
-    ///
     /// <para>
     ///     If the given retries are greater than zero then this job will be picked up again by a job
     ///     worker. Otherwise, an incident is created for this job.
@@ -99,10 +92,10 @@ public interface IJobClient
     IFailJobCommandStep1 NewFailCommand(long jobKey);
 
     /// <summary>
-    /// Command to report a business error (i.e. non-technical) that occurs while processing a job.
+    ///     Command to report a business error (i.e. non-technical) that occurs while processing a job.
     /// </summary>
     /// <example>
-    /// <code>
+    ///     <code>
     ///  long jobKey = ...;
     ///  string code = ...;
     ///  jobClient

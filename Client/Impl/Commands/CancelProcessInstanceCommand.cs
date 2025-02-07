@@ -15,15 +15,16 @@ public class CancelProcessInstanceCommand(
     long processInstanceKey)
     : ICancelProcessInstanceCommandStep1
 {
-    private readonly CancelProcessInstanceRequest request = new()
+    private readonly CancelProcessInstanceRequest request = new ()
     {
         ProcessInstanceKey = processInstanceKey
     };
 
     public async Task<ICancelProcessInstanceResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.CancelProcessInstanceAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        var asyncReply =
+            client.CancelProcessInstanceAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        _ = await asyncReply.ResponseAsync;
         return new CancelProcessInstanceResponse();
     }
 
@@ -32,7 +33,8 @@ public class CancelProcessInstanceCommand(
         return await Send(token: cancellationToken);
     }
 
-    public async Task<ICancelProcessInstanceResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<ICancelProcessInstanceResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

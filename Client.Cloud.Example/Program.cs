@@ -18,23 +18,22 @@ using System.Threading.Tasks;
 using NLog.Extensions.Logging;
 using Zeebe.Client.Impl.Builder;
 
-namespace Client.Cloud.Example
+namespace Client.Cloud.Example;
+
+public class Program
 {
-    public class Program
+    public static async Task Main(string[] args)
     {
-        public static async Task Main(string[] args)
-        {
-            var zeebeClient =
-                    CamundaCloudClientBuilder.Builder()
-                        .UseClientId("ZEEBE_CLIENT_ID")
-                        .UseClientSecret("ZEEBE_CLIENT_SECRET")
-                        .UseContactPoint("ZEEBE_ADDRESS")
-                    .UseLoggerFactory(new NLogLoggerFactory()) // optional
-                    .Build();
+        var zeebeClient =
+            CamundaCloudClientBuilder.Builder()
+                .UseClientId("ZEEBE_CLIENT_ID")
+                .UseClientSecret("ZEEBE_CLIENT_SECRET")
+                .UseContactPoint("ZEEBE_ADDRESS")
+                .UseLoggerFactory(new NLogLoggerFactory()) // optional
+                .Build();
 
-            var topology = await zeebeClient.TopologyRequest().Send();
+        var topology = await zeebeClient.TopologyRequest().Send();
 
-            Console.WriteLine("Hello: " + topology);
-        }
+        Console.WriteLine("Hello: " + topology);
     }
 }

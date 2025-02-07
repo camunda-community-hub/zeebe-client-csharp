@@ -8,7 +8,7 @@ namespace Zeebe.Client.Impl.Misc;
 
 public class TransientGrpcErrorRetryStrategy(Func<int, TimeSpan> waitTimeProvider) : IAsyncRetryStrategy
 {
-    private static readonly StatusCode[] RetrieableCodes = [StatusCode.Unavailable, StatusCode.ResourceExhausted];
+    private static readonly StatusCode[] RetrieableCodes =[StatusCode.Unavailable, StatusCode.ResourceExhausted];
 
     public async Task<TResult> DoWithRetry<TResult>(Func<Task<TResult>> action)
     {

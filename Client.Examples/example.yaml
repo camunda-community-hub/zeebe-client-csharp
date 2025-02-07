@@ -15,11 +15,11 @@ spec:
         app: client-example
     spec:
       containers:
-      - name: client-example
-        image: gcr.io/zeebe-io/zeebe-client-csharp-example:latest
-        imagePullPolicy: Always
-
-        resources:
-          requests:
-            cpu: 2
-            memory: 512Mi
+        - name: client-example
+          image: gcr.io/zeebe-io/zeebe-client-csharp-example:latest
+          imagePullPolicy: Always
+          
+          resources:
+            requests:
+              cpu: 2
+              memory: 512Mi

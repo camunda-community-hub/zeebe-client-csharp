@@ -1,4 +1,5 @@
 ## Camunda Cloud Worker Example
+
 In the following you see an example of how to use the Zeebe C# client job worker with the CamundaCloud.
 
 We have a separate thread which outputs how many jobs with worker has completed in a second.
@@ -36,7 +37,7 @@ namespace Client.Examples
         public static async Task Main(string[] args)
         {
             // create zeebe client
-            var client = 
+            var client =
                 CamundaCloudClientBuilder.Builder()
                     .FromEnv()
                     .UseLoggerFactory(new NLogLoggerFactory())

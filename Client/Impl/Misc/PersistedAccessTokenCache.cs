@@ -9,19 +9,17 @@ namespace Zeebe.Client.Impl.Misc;
 
 public class PersistedAccessTokenCache : IAccessTokenCache
 {
-    private static string ZeebeTokenFileName => "credentials";
-    private Dictionary<string, AccessToken> CachedCredentials { get; set; }
+    private readonly IAccessTokenCache.AccessTokenResolverAsync accessTokenFetcherAsync;
 
     // private static readonly string ZeebeRootPath =
     //     Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
 
     private readonly ILogger<PersistedAccessTokenCache> logger;
-    private readonly IAccessTokenCache.AccessTokenResolverAsync accessTokenFetcherAsync;
 
     private readonly string tokenStoragePath;
-    private string TokenFileName => Path.Combine(tokenStoragePath, ZeebeTokenFileName);
 
-    public PersistedAccessTokenCache(string path, IAccessTokenCache.AccessTokenResolverAsync fetcherAsync, ILogger<PersistedAccessTokenCache> logger = null)
+    public PersistedAccessTokenCache(string path, IAccessTokenCache.AccessTokenResolverAsync fetcherAsync,
+        ILogger<PersistedAccessTokenCache> logger = null)
     {
         var directoryInfo = Directory.CreateDirectory(path);
         if (!directoryInfo.Exists)
@@ -34,6 +32,10 @@ public class PersistedAccessTokenCache : IAccessTokenCache
         accessTokenFetcherAsync = fetcherAsync;
         CachedCredentials = new Dictionary<string, AccessToken>();
     }
+
+    private static string ZeebeTokenFileName => "credentials";
+    private Dictionary<string, AccessToken> CachedCredentials { get; set; }
+    private string TokenFileName => Path.Combine(tokenStoragePath, ZeebeTokenFileName);
 
     public async Task<string> Get(string audience)
     {

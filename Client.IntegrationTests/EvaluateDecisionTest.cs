@@ -1,12 +1,12 @@
-// 
+//
 //     Copyright (c) 2021 camunda services GmbH (info@camunda.com)
-// 
+//
 //     Licensed under the Apache License, Version 2.0 (the "License");
 //     you may not use this file except in compliance with the License.
 //     You may obtain a copy of the License at
-// 
+//
 //         http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 //     Unless required by applicable law or agreed to in writing, software
 //     distributed under the License is distributed on an "AS IS" BASIS,
 //     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -24,12 +24,6 @@ namespace Client.IntegrationTests;
 [TestFixture]
 public class EvaluateDecisionTest
 {
-    private static readonly string DecisionPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "dinnerDecisions.dmn");
-    private static readonly string DevisionEvaluationVariables = "{\"season\":\"Fall\", \"guestCount\":12}";
-
-    private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
-    private IZeebeClient zeebeClient;
-
     [OneTimeSetUp]
     public async Task Setup()
     {
@@ -41,6 +35,14 @@ public class EvaluateDecisionTest
     {
         await testHelper.TearDownIntegrationTest();
     }
+
+    private static readonly string DecisionPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "dinnerDecisions.dmn");
+
+    private static readonly string DevisionEvaluationVariables = "{\"season\":\"Fall\", \"guestCount\":12}";
+
+    private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
+    private IZeebeClient zeebeClient;
 
     [Test]
     public async Task ShouldEvaluateDecision()

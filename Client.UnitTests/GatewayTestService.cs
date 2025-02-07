@@ -23,173 +23,186 @@ using Google.Protobuf;
 using Grpc.Core;
 using NLog;
 
-namespace Zeebe.Client
+namespace Zeebe.Client;
+
+public delegate IMessage RequestHandler(IMessage request);
+
+public class GatewayTestService : Gateway.GatewayBase
 {
-    public delegate IMessage RequestHandler(IMessage request);
+    public delegate void ConsumeMetadata(Metadata metadata);
 
-    public class GatewayTestService : Gateway.GatewayBase
+    private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+    /// <summary>
+    ///     Contains the request handler, which return the specific response, for each specific type of request.
+    ///     Per default the response for a specific type are an empty response.
+    /// </summary>
+    private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new ();
+
+    private ConsumeMetadata metadataConsumer;
+
+    public GatewayTestService()
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        private readonly IDictionary<Type, IList<IMessage>> requests = new ConcurrentDictionary<Type, IList<IMessage>>();
+        typedRequestHandler.Add(typeof(TopologyRequest), request => new TopologyResponse());
 
-        /// <summary>
-        /// Contains the request handler, which return the specific response, for each specific type of request.
-        ///
-        /// Per default the response for a specific type are an empty response.
-        /// </summary>
-        private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new Dictionary<Type, RequestHandler>();
+        typedRequestHandler.Add(typeof(PublishMessageRequest), request => new PublishMessageResponse());
 
-        private ConsumeMetadata metadataConsumer;
+        typedRequestHandler.Add(typeof(ActivateJobsRequest), request => new ActivateJobsResponse());
+        typedRequestHandler.Add(typeof(CompleteJobRequest), request => new CompleteJobResponse());
+        typedRequestHandler.Add(typeof(FailJobRequest), request => new FailJobResponse());
+        typedRequestHandler.Add(typeof(UpdateJobRetriesRequest), request => new UpdateJobRetriesResponse());
+        typedRequestHandler.Add(typeof(UpdateJobTimeoutRequest), request => new UpdateJobTimeoutResponse());
+        typedRequestHandler.Add(typeof(ThrowErrorRequest), request => new ThrowErrorResponse());
 
-        public IDictionary<Type, IList<IMessage>> Requests => requests;
+        typedRequestHandler.Add(typeof(DeployResourceRequest), request => new DeployResourceResponse());
+        typedRequestHandler.Add(typeof(CreateProcessInstanceRequest), request => new CreateProcessInstanceResponse());
+        typedRequestHandler.Add(typeof(CancelProcessInstanceRequest), request => new CancelProcessInstanceResponse());
+        typedRequestHandler.Add(typeof(SetVariablesRequest), request => new SetVariablesResponse());
+        typedRequestHandler.Add(typeof(ResolveIncidentRequest), request => new ResolveIncidentResponse());
+        typedRequestHandler.Add(typeof(CreateProcessInstanceWithResultRequest),
+            request => new CreateProcessInstanceWithResultResponse());
+        typedRequestHandler.Add(typeof(EvaluateDecisionRequest), request => new EvaluateDecisionResponse());
+        typedRequestHandler.Add(typeof(ModifyProcessInstanceRequest), request => new ModifyProcessInstanceResponse());
+        typedRequestHandler.Add(typeof(BroadcastSignalRequest), request => new BroadcastSignalResponse());
 
-        public GatewayTestService()
+        foreach (var pair in typedRequestHandler)
+    {
+      Requests.Add(pair.Key, new List<IMessage>());
+    }
+  }
+
+    public IDictionary<Type, IList<IMessage>> Requests { get; } = new ConcurrentDictionary<Type, IList<IMessage>>();
+
+    public void AddRequestHandler(Type requestType, RequestHandler requestHandler)
+    {
+        typedRequestHandler[requestType] = requestHandler;
+    }
+
+    //
+    // overwrite base methods to handle requests
+    //
+
+    public override Task<TopologyResponse> Topology(TopologyRequest request, ServerCallContext context)
+    {
+        return Task.FromResult((TopologyResponse)HandleRequest(request, context));
+    }
+
+    public override Task<PublishMessageResponse> PublishMessage(PublishMessageRequest request,
+        ServerCallContext context)
+    {
+        return Task.FromResult((PublishMessageResponse)HandleRequest(request, context));
+    }
+
+    public override async Task ActivateJobs(ActivateJobsRequest request,
+        IServerStreamWriter<ActivateJobsResponse> responseStream, ServerCallContext context)
+    {
+        await responseStream.WriteAsync((ActivateJobsResponse)HandleRequest(request, context));
+    }
+
+    public override Task<CompleteJobResponse> CompleteJob(CompleteJobRequest request, ServerCallContext context)
+    {
+        return Task.FromResult((CompleteJobResponse)HandleRequest(request, context));
+    }
+
+    public override Task<FailJobResponse> FailJob(FailJobRequest request, ServerCallContext context)
+    {
+        return Task.FromResult((FailJobResponse)HandleRequest(request, context));
+    }
+
+    public override Task<UpdateJobRetriesResponse> UpdateJobRetries(UpdateJobRetriesRequest request,
+        ServerCallContext context)
+    {
+        return Task.FromResult((UpdateJobRetriesResponse)HandleRequest(request, context));
+    }
+
+    public override Task<UpdateJobTimeoutResponse> UpdateJobTimeout(UpdateJobTimeoutRequest request,
+        ServerCallContext context)
+    {
+        return Task.FromResult((UpdateJobTimeoutResponse)HandleRequest(request, context));
+    }
+
+    public override Task<ThrowErrorResponse> ThrowError(ThrowErrorRequest request, ServerCallContext context)
+    {
+        return Task.FromResult((ThrowErrorResponse)HandleRequest(request, context));
+    }
+
+    public override Task<DeployProcessResponse> DeployProcess(DeployProcessRequest request, ServerCallContext context)
+    {
+        return Task.FromResult((DeployProcessResponse)HandleRequest(request, context));
+    }
+
+    public override Task<CreateProcessInstanceResponse> CreateProcessInstance(CreateProcessInstanceRequest request,
+        ServerCallContext context)
+    {
+        return Task.FromResult((CreateProcessInstanceResponse)HandleRequest(request, context));
+    }
+
+    public override Task<CancelProcessInstanceResponse> CancelProcessInstance(CancelProcessInstanceRequest request,
+        ServerCallContext context)
+    {
+        return Task.FromResult((CancelProcessInstanceResponse)HandleRequest(request, context));
+    }
+
+    public override Task<SetVariablesResponse> SetVariables(SetVariablesRequest request, ServerCallContext context)
+    {
+        return Task.FromResult((SetVariablesResponse)HandleRequest(request, context));
+    }
+
+    public override Task<ResolveIncidentResponse> ResolveIncident(ResolveIncidentRequest request,
+        ServerCallContext context)
+    {
+        return Task.FromResult((ResolveIncidentResponse)HandleRequest(request, context));
+    }
+
+    public override Task<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResult(
+        CreateProcessInstanceWithResultRequest request, ServerCallContext context)
+    {
+        return Task.FromResult((CreateProcessInstanceWithResultResponse)HandleRequest(request, context));
+    }
+
+    public override Task<DeployResourceResponse> DeployResource(DeployResourceRequest request,
+        ServerCallContext context)
+    {
+        return Task.FromResult((DeployResourceResponse)HandleRequest(request, context));
+    }
+
+    public override Task<EvaluateDecisionResponse> EvaluateDecision(EvaluateDecisionRequest request,
+        ServerCallContext context)
+    {
+        return Task.FromResult((EvaluateDecisionResponse)HandleRequest(request, context));
+    }
+
+    public override Task<ModifyProcessInstanceResponse> ModifyProcessInstance(ModifyProcessInstanceRequest request,
+        ServerCallContext context)
+    {
+        return Task.FromResult((ModifyProcessInstanceResponse)HandleRequest(request, context));
+    }
+
+    public override Task<BroadcastSignalResponse> BroadcastSignal(BroadcastSignalRequest request,
+        ServerCallContext context)
+    {
+        return Task.FromResult((BroadcastSignalResponse)HandleRequest(request, context));
+    }
+
+    public void ConsumeRequestHeaders(ConsumeMetadata consumer)
+    {
+        metadataConsumer = consumer;
+    }
+
+    private IMessage HandleRequest(IMessage request, ServerCallContext context)
+    {
+        metadataConsumer?.Invoke(context.RequestHeaders);
+        if ((context.Deadline - DateTime.UtcNow).Milliseconds <= 1000)
         {
-            typedRequestHandler.Add(typeof(TopologyRequest), request => new TopologyResponse());
-
-            typedRequestHandler.Add(typeof(PublishMessageRequest), request => new PublishMessageResponse());
-
-            typedRequestHandler.Add(typeof(ActivateJobsRequest), request => new ActivateJobsResponse());
-            typedRequestHandler.Add(typeof(CompleteJobRequest), request => new CompleteJobResponse());
-            typedRequestHandler.Add(typeof(FailJobRequest), request => new FailJobResponse());
-            typedRequestHandler.Add(typeof(UpdateJobRetriesRequest), request => new UpdateJobRetriesResponse());
-            typedRequestHandler.Add(typeof(UpdateJobTimeoutRequest), request => new UpdateJobTimeoutResponse());
-            typedRequestHandler.Add(typeof(ThrowErrorRequest), request => new ThrowErrorResponse());
-
-            typedRequestHandler.Add(typeof(DeployResourceRequest), request => new DeployResourceResponse());
-            typedRequestHandler.Add(typeof(CreateProcessInstanceRequest), request => new CreateProcessInstanceResponse());
-            typedRequestHandler.Add(typeof(CancelProcessInstanceRequest), request => new CancelProcessInstanceResponse());
-            typedRequestHandler.Add(typeof(SetVariablesRequest), request => new SetVariablesResponse());
-            typedRequestHandler.Add(typeof(ResolveIncidentRequest), request => new ResolveIncidentResponse());
-            typedRequestHandler.Add(typeof(CreateProcessInstanceWithResultRequest), request => new CreateProcessInstanceWithResultResponse());
-            typedRequestHandler.Add(typeof(EvaluateDecisionRequest), request => new EvaluateDecisionResponse());
-            typedRequestHandler.Add(typeof(ModifyProcessInstanceRequest), request => new ModifyProcessInstanceResponse());
-            typedRequestHandler.Add(typeof(BroadcastSignalRequest), request => new BroadcastSignalResponse());
-
-            foreach (var pair in typedRequestHandler)
-            {
-                requests.Add(pair.Key, new List<IMessage>());
-            }
+            // when we have set a timeout in the test we want to GRPC to exceed the deadline
+            var contextDeadline = DateTime.UtcNow - context.Deadline;
+            Thread.Sleep(contextDeadline.Milliseconds + 1000);
         }
 
-        public void AddRequestHandler(Type requestType, RequestHandler requestHandler) => typedRequestHandler[requestType] = requestHandler;
+        Logger.Debug("Received request '{0}'", request.GetType());
+        Requests[request.GetType()].Add(request);
 
-        //
-        // overwrite base methods to handle requests
-        //
-
-        public override Task<TopologyResponse> Topology(TopologyRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((TopologyResponse)HandleRequest(request, context));
-        }
-
-        public override Task<PublishMessageResponse> PublishMessage(PublishMessageRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((PublishMessageResponse)HandleRequest(request, context));
-        }
-
-        public override async Task ActivateJobs(ActivateJobsRequest request, IServerStreamWriter<ActivateJobsResponse> responseStream, ServerCallContext context)
-        {
-            await responseStream.WriteAsync((ActivateJobsResponse)HandleRequest(request, context));
-        }
-
-        public override Task<CompleteJobResponse> CompleteJob(CompleteJobRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((CompleteJobResponse)HandleRequest(request, context));
-        }
-
-        public override Task<FailJobResponse> FailJob(FailJobRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((FailJobResponse)HandleRequest(request, context));
-        }
-
-        public override Task<UpdateJobRetriesResponse> UpdateJobRetries(UpdateJobRetriesRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((UpdateJobRetriesResponse)HandleRequest(request, context));
-        }
-
-        public override Task<UpdateJobTimeoutResponse> UpdateJobTimeout(UpdateJobTimeoutRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((UpdateJobTimeoutResponse)HandleRequest(request, context));
-        }
-
-        public override Task<ThrowErrorResponse> ThrowError(ThrowErrorRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((ThrowErrorResponse)HandleRequest(request, context));
-        }
-
-        public override Task<DeployProcessResponse> DeployProcess(DeployProcessRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((DeployProcessResponse)HandleRequest(request, context));
-        }
-
-        public override Task<CreateProcessInstanceResponse> CreateProcessInstance(CreateProcessInstanceRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((CreateProcessInstanceResponse)HandleRequest(request, context));
-        }
-
-        public override Task<CancelProcessInstanceResponse> CancelProcessInstance(CancelProcessInstanceRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((CancelProcessInstanceResponse)HandleRequest(request, context));
-        }
-
-        public override Task<SetVariablesResponse> SetVariables(SetVariablesRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((SetVariablesResponse)HandleRequest(request, context));
-        }
-
-        public override Task<ResolveIncidentResponse> ResolveIncident(ResolveIncidentRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((ResolveIncidentResponse)HandleRequest(request, context));
-        }
-
-        public override Task<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResult(CreateProcessInstanceWithResultRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((CreateProcessInstanceWithResultResponse)HandleRequest(request, context));
-        }
-
-        public override Task<DeployResourceResponse> DeployResource(DeployResourceRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((DeployResourceResponse)HandleRequest(request, context));
-        }
-
-        public override Task<EvaluateDecisionResponse> EvaluateDecision(EvaluateDecisionRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((EvaluateDecisionResponse)HandleRequest(request, context));
-        }
-
-        public override Task<ModifyProcessInstanceResponse> ModifyProcessInstance(ModifyProcessInstanceRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((ModifyProcessInstanceResponse)HandleRequest(request, context));
-        }
-
-        public override Task<BroadcastSignalResponse> BroadcastSignal(BroadcastSignalRequest request, ServerCallContext context)
-        {
-            return Task.FromResult((BroadcastSignalResponse)HandleRequest(request, context));
-        }
-
-        public delegate void ConsumeMetadata(Metadata metadata);
-
-        public void ConsumeRequestHeaders(ConsumeMetadata consumer)
-        {
-            metadataConsumer = consumer;
-        }
-
-        private IMessage HandleRequest(IMessage request, ServerCallContext context)
-        {
-            metadataConsumer?.Invoke(context.RequestHeaders);
-            if ((context.Deadline - DateTime.UtcNow).Milliseconds <= 1000)
-            {
-                // when we have set a timeout in the test we want to GRPC to exceed the deadline
-                var contextDeadline = DateTime.UtcNow - context.Deadline;
-                Thread.Sleep(contextDeadline.Milliseconds + 1000);
-            }
-
-            Logger.Debug("Received request '{0}'", request.GetType());
-            requests[request.GetType()].Add(request);
-
-            var handler = typedRequestHandler[request.GetType()];
-            return handler.Invoke(request);
-        }
+        var handler = typedRequestHandler[request.GetType()];
+        return handler.Invoke(request);
     }
 }

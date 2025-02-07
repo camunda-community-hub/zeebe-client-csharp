@@ -15,7 +15,7 @@ public class SetVariablesCommand(
     long elementInstanceKey)
     : ISetVariablesCommandStep1, ISetVariablesCommandStep2
 {
-    private readonly SetVariablesRequest request = new()
+    private readonly SetVariablesRequest request = new ()
     {
         ElementInstanceKey = elementInstanceKey
     };

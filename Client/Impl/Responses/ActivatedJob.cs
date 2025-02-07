@@ -20,13 +20,6 @@ namespace Zeebe.Client.Impl.Responses;
 
 public class ActivatedJob(GatewayProtocol.ActivatedJob activatedJob) : IJob
 {
-    private static DateTime FromUTCTimestamp(long milliseconds)
-    {
-        var dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-        dtDateTime = dtDateTime.AddMilliseconds(milliseconds).ToLocalTime();
-        return dtDateTime;
-    }
-
     public long Key { get; } = activatedJob.Key;
 
     public string Type { get; } = activatedJob.Type;
@@ -55,6 +48,13 @@ public class ActivatedJob(GatewayProtocol.ActivatedJob activatedJob) : IJob
 
     public string TenantId { get; } = activatedJob.TenantId;
 
+    private static DateTime FromUTCTimestamp(long milliseconds)
+    {
+        var dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+        dtDateTime = dtDateTime.AddMilliseconds(milliseconds).ToLocalTime();
+        return dtDateTime;
+    }
+
     public override string ToString()
     {
         return
@@ -63,9 +63,11 @@ public class ActivatedJob(GatewayProtocol.ActivatedJob activatedJob) : IJob
 
     protected bool Equals(ActivatedJob other)
     {
-        return Key == other.Key && Type == other.Type && ProcessInstanceKey == other.ProcessInstanceKey && TenantId == other.TenantId &&
+        return Key == other.Key && Type == other.Type && ProcessInstanceKey == other.ProcessInstanceKey &&
+               TenantId == other.TenantId &&
                BpmnProcessId == other.BpmnProcessId &&
-               ProcessDefinitionVersion == other.ProcessDefinitionVersion && ProcessDefinitionKey == other.ProcessDefinitionKey &&
+               ProcessDefinitionVersion == other.ProcessDefinitionVersion &&
+               ProcessDefinitionKey == other.ProcessDefinitionKey &&
                ElementId == other.ElementId && ElementInstanceKey == other.ElementInstanceKey &&
                Worker == other.Worker && Retries == other.Retries && Deadline.Equals(other.Deadline) &&
                Variables == other.Variables && CustomHeaders == other.CustomHeaders;
@@ -74,21 +76,21 @@ public class ActivatedJob(GatewayProtocol.ActivatedJob activatedJob) : IJob
     public override bool Equals(object obj)
     {
         if (ReferenceEquals(null, obj))
-        {
-            return false;
-        }
+    {
+      return false;
+    }
 
         if (ReferenceEquals(this, obj))
-        {
-            return true;
-        }
+    {
+      return true;
+    }
 
         if (obj.GetType() != GetType())
-        {
-            return false;
-        }
+    {
+      return false;
+    }
 
-        return Equals((ActivatedJob) obj);
+        return Equals((ActivatedJob)obj);
     }
 
     public override int GetHashCode()

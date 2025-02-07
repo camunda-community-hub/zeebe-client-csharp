@@ -1,9 +1,8 @@
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Api.Commands
+namespace Zeebe.Client.Api.Commands;
+
+public interface ICancelProcessInstanceCommandStep1 : IFinalCommandWithRetryStep<ICancelProcessInstanceResponse>
 {
-    public interface ICancelProcessInstanceCommandStep1 : IFinalCommandWithRetryStep<ICancelProcessInstanceResponse>
-    {
-        // the place for new optional parameters
-    }
+    // the place for new optional parameters
 }

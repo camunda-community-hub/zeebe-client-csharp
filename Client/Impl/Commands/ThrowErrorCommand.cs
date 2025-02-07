@@ -21,13 +21,14 @@ using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
+using ThrowErrorResponse = Zeebe.Client.Impl.Responses.ThrowErrorResponse;
 
 namespace Zeebe.Client.Impl.Commands;
 
 public class ThrowErrorCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
     : IThrowErrorCommandStep1, IThrowErrorCommandStep2
 {
-    private readonly ThrowErrorRequest request = new()
+    private readonly ThrowErrorRequest request = new ()
     {
         JobKey = jobKey
     };
@@ -53,8 +54,8 @@ public class ThrowErrorCommand(GatewayClient client, IAsyncRetryStrategy asyncRe
     public async Task<IThrowErrorResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         var asyncReply = client.ThrowErrorAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
-        return new Responses.ThrowErrorResponse();
+        _ = await asyncReply.ResponseAsync;
+        return new ThrowErrorResponse();
     }
 
     public async Task<IThrowErrorResponse> Send(CancellationToken cancellationToken)

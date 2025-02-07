@@ -41,19 +41,24 @@ namespace Zeebe.Client;
 public sealed class ZeebeClient : IZeebeClient
 {
     internal static readonly int MaxWaitTimeInSeconds = 60;
+
     internal static readonly Func<int, TimeSpan> DefaultWaitTimeProvider =
         retryAttempt => TimeSpan.FromSeconds(Math.Min(Math.Pow(2, retryAttempt), MaxWaitTimeInSeconds));
+
     private static readonly TimeSpan DefaultKeepAlive = TimeSpan.FromSeconds(30);
+    private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
     private readonly GrpcChannel channelToGateway;
     private readonly ILoggerFactory? loggerFactory;
     private volatile Gateway.GatewayClient gatewayClient;
-    private readonly IAsyncRetryStrategy asyncRetryStrategy;
 
-    internal ZeebeClient(string address, TimeSpan? keepAlive, Func<int, TimeSpan> sleepDurationProvider, ILoggerFactory? loggerFactory = null,
+    internal ZeebeClient(string address, TimeSpan? keepAlive, Func<int, TimeSpan> sleepDurationProvider,
+        ILoggerFactory? loggerFactory = null,
         GrpcChannel? grpcChannel = null)
-        : this(address, ChannelCredentials.Insecure, keepAlive, sleepDurationProvider, loggerFactory, grpcChannel: grpcChannel)
-    { }
+        : this(address, ChannelCredentials.Insecure, keepAlive, sleepDurationProvider, loggerFactory,
+            grpcChannel: grpcChannel)
+    {
+    }
 
     internal ZeebeClient(string address,
         ChannelCredentials credentials,
@@ -70,15 +75,18 @@ public sealed class ZeebeClient : IZeebeClient
 
         var sslOptions = new SslClientAuthenticationOptions
         {
-            ClientCertificates = new X509Certificate2Collection(certificate is null ? Array.Empty<X509Certificate2>() : new X509Certificate2[] { certificate })
+            ClientCertificates =
+                new X509Certificate2Collection(certificate is null
+                    ? Array.Empty<X509Certificate2>()
+                    : new[] { certificate })
         };
         if (allowUntrusted)
-        {
-            // https://github.com/dotnet/runtime/issues/42482
-            // https://docs.servicestack.net/grpc/csharp#c-protoc-grpc-ssl-example
-            // Allows untrusted certificates, used for testing.
-            sslOptions.RemoteCertificateValidationCallback = (_, _, _, _) => true;
-        }
+    {
+      // https://github.com/dotnet/runtime/issues/42482
+      // https://docs.servicestack.net/grpc/csharp#c-protoc-grpc-ssl-example
+      // Allows untrusted certificates, used for testing.
+      sslOptions.RemoteCertificateValidationCallback = (_, _, _, _) => true;
+    }
 
         channelToGateway = grpcChannel ?? BuildChannelToGateway();
 
@@ -106,38 +114,8 @@ public sealed class ZeebeClient : IZeebeClient
                     KeepAlivePingTimeout = keepAlive.GetValueOrDefault(DefaultKeepAlive),
                     EnableMultipleHttp2Connections = true,
                     SslOptions = sslOptions
-                },
+                }
             });
-        }
-    }
-
-    public async Task Connect()
-    {
-        await channelToGateway.ConnectAsync();
-    }
-
-    /// <summary>
-    ///     Intercept outgoing call to inject metadata
-    ///     The "user-agent" is already filled by grpc-dotnet
-    ///     typically something like: key=user-agent, value=grpc-dotnet/2.53.0 (.NET 7.0.5; CLR 7.0.5; net7.0; windows; x64)
-    ///     We want to add our version and name. Unfortunately, this will always be appended to the end.
-    /// </summary>
-    private class UserAgentInterceptor : Interceptor
-    {
-        public override AsyncUnaryCall<TResponse> AsyncUnaryCall<TRequest, TResponse>(TRequest request,
-            ClientInterceptorContext<TRequest, TResponse> context,
-            AsyncUnaryCallContinuation<TRequest, TResponse> continuation)
-        {
-            var clientVersion = typeof(ZeebeClient).Assembly.GetName().Version;
-            var userAgentString = $"zeebe-client-csharp/{clientVersion}";
-            var headers = new Metadata
-            {
-                { "user-agent", userAgentString }
-            };
-            var newOptions = context.Options.WithHeaders(headers);
-            var newContext =
-                new ClientInterceptorContext<TRequest, TResponse>(context.Method, context.Host, newOptions);
-            return base.AsyncUnaryCall(request, newContext, continuation);
         }
     }
 
@@ -234,26 +212,59 @@ public sealed class ZeebeClient : IZeebeClient
         return new BroadcastSignalCommand(gatewayClient, asyncRetryStrategy);
     }
 
-    public ITopologyRequestStep1 TopologyRequest() => new TopologyRequestCommand(gatewayClient, asyncRetryStrategy);
+    public ITopologyRequestStep1 TopologyRequest()
+    {
+        return new TopologyRequestCommand(gatewayClient, asyncRetryStrategy);
+    }
 
     public void Dispose()
     {
         if (gatewayClient is ClosedGatewayClient)
-        {
-            return;
-        }
+    {
+      return;
+    }
 
         gatewayClient = new ClosedGatewayClient();
         channelToGateway.Dispose();
     }
 
+    public async Task Connect()
+    {
+        await channelToGateway.ConnectAsync();
+    }
+
     /// <summary>
-    /// Creates an new IZeebeClientBuilder. This builder need to be used to construct
-    /// a ZeebeClient.
+    ///     Creates an new IZeebeClientBuilder. This builder need to be used to construct
+    ///     a ZeebeClient.
     /// </summary>
     /// <returns>an builder to construct an ZeebeClient.</returns>
     public static IZeebeClientBuilder Builder()
     {
         return new ZeebeClientBuilder();
+    }
+
+    /// <summary>
+    ///     Intercept outgoing call to inject metadata
+    ///     The "user-agent" is already filled by grpc-dotnet
+    ///     typically something like: key=user-agent, value=grpc-dotnet/2.53.0 (.NET 7.0.5; CLR 7.0.5; net7.0; windows; x64)
+    ///     We want to add our version and name. Unfortunately, this will always be appended to the end.
+    /// </summary>
+    private class UserAgentInterceptor : Interceptor
+    {
+        public override AsyncUnaryCall<TResponse> AsyncUnaryCall<TRequest, TResponse>(TRequest request,
+            ClientInterceptorContext<TRequest, TResponse> context,
+            AsyncUnaryCallContinuation<TRequest, TResponse> continuation)
+        {
+            var clientVersion = typeof(ZeebeClient).Assembly.GetName().Version;
+            var userAgentString = $"zeebe-client-csharp/{clientVersion}";
+            var headers = new Metadata
+            {
+                { "user-agent", userAgentString }
+            };
+            var newOptions = context.Options.WithHeaders(headers);
+            var newContext =
+                new ClientInterceptorContext<TRequest, TResponse>(context.Method, context.Host, newOptions);
+            return base.AsyncUnaryCall(request, newContext, continuation);
+        }
     }
 }

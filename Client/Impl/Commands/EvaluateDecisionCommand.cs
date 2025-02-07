@@ -49,7 +49,8 @@ public class EvaluateDecisionCommand(Gateway.GatewayClient client, IAsyncRetrySt
 
     public async Task<IEvaluateDecisionResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.EvaluateDecisionAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        var asyncReply =
+            client.EvaluateDecisionAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
         var response = await asyncReply.ResponseAsync;
         return new EvaluatedDecisionResponse(response);
     }
@@ -59,7 +60,8 @@ public class EvaluateDecisionCommand(Gateway.GatewayClient client, IAsyncRetrySt
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IEvaluateDecisionResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<IEvaluateDecisionResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

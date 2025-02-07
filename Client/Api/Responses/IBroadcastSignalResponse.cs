@@ -1,6 +1,8 @@
 ﻿namespace Zeebe.Client.Api.Responses;
 
 /// <summary>
-/// Response for broadcasting a signal.
+///     Response for broadcasting a signal.
 /// </summary>
-public interface IBroadcastSignalResponse;
+public interface IBroadcastSignalResponse
+{
+}

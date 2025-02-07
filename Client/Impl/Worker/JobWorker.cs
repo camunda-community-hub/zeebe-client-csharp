@@ -31,15 +31,16 @@ public sealed class JobWorker : IJobWorker
     private const string JobFailMessage =
         "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
 
-    private readonly CancellationTokenSource source;
-    private readonly ILogger<JobWorker> logger;
-    private readonly JobWorkerBuilder jobWorkerBuilder;
     private readonly ActivateJobsRequest activateJobsRequest;
-    private readonly JobActivator jobActivator;
-    private readonly int maxJobsActive;
-    private readonly AsyncJobHandler jobHandler;
     private readonly bool autoCompletion;
+    private readonly JobActivator jobActivator;
+    private readonly AsyncJobHandler jobHandler;
+    private readonly JobWorkerBuilder jobWorkerBuilder;
+    private readonly ILogger<JobWorker> logger;
+    private readonly int maxJobsActive;
     private readonly TimeSpan pollInterval;
+
+    private readonly CancellationTokenSource source;
     private readonly double thresholdJobsActivation;
 
     private int currentJobsActive;
@@ -59,35 +60,35 @@ public sealed class JobWorker : IJobWorker
         thresholdJobsActivation = maxJobsActive * 0.6;
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public void Dispose()
     {
         source.Cancel();
-        // delay disposing, since poll and handler take some time to close
-        Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
-            .ContinueWith(t =>
-            {
-                logger?.LogError("Dispose source");
-                source.Dispose();
-            });
+    // delay disposing, since poll and handler take some time to close
+        _ = Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
+        .ContinueWith(t =>
+        {
+          logger?.LogError("Dispose source");
+          source.Dispose();
+        });
         isRunning = false;
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public bool IsOpen()
     {
         return isRunning;
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public bool IsClosed()
     {
         return !isRunning;
     }
 
     /// <summary>
-    /// Opens the configured JobWorker to activate jobs in the given poll interval
-    /// and handle with the given handler.
+    ///     Opens the configured JobWorker to activate jobs in the given poll interval
+    ///     and handle with the given handler.
     /// </summary>
     internal void Open()
     {
@@ -97,22 +98,20 @@ public sealed class JobWorker : IJobWorker
         var executionOptions = CreateExecutionOptions(cancellationToken);
 
         var input = new BufferBlock<IJob>(bufferOptions);
-        var transformer = new TransformBlock<IJob, IJob>(async activatedJob => await HandleActivatedJob(activatedJob, cancellationToken),
+        var transformer = new TransformBlock<IJob, IJob>(
+            async activatedJob => await HandleActivatedJob(activatedJob, cancellationToken),
             executionOptions);
-        var output = new ActionBlock<IJob>(activatedJob =>
-            {
-                Interlocked.Decrement(ref currentJobsActive);
-            },
+        var output = new ActionBlock<IJob>(activatedJob => { _ = Interlocked.Decrement(ref currentJobsActive); },
             executionOptions);
 
-        input.LinkTo(transformer);
-        transformer.LinkTo(output);
+        _ = input.LinkTo(transformer);
+        _ = transformer.LinkTo(output);
 
-        // Start polling
-        Task.Run(async () => await PollJobs(input, cancellationToken),
-            cancellationToken).ContinueWith(
-            t => logger?.LogError(t.Exception, "Job polling failed."),
-            TaskContinuationOptions.OnlyOnFaulted);
+    // Start polling
+        _ = Task.Run(async () => await PollJobs(input, cancellationToken),
+        cancellationToken).ContinueWith(
+        t => logger?.LogError(t.Exception, "Job polling failed."),
+        TaskContinuationOptions.OnlyOnFaulted);
 
         logger?.LogDebug(
             "Job worker ({worker}) for job type {type} has been opened.",
@@ -179,8 +178,8 @@ public sealed class JobWorker : IJobWorker
 
         foreach (var job in response.Jobs)
         {
-            await input.SendAsync(job);
-            Interlocked.Increment(ref currentJobsActive);
+      _ = await input.SendAsync(job);
+      _ = Interlocked.Increment(ref currentJobsActive);
         }
     }
 
@@ -207,7 +206,7 @@ public sealed class JobWorker : IJobWorker
 
     private void LogRpcException(RpcException rpcException)
     {
-        LogLevel logLevel = rpcException.StatusCode switch
+        var logLevel = rpcException.StatusCode switch
         {
             StatusCode.DeadlineExceeded or StatusCode.Cancelled or StatusCode.ResourceExhausted => LogLevel.Trace,
             _ => LogLevel.Error
@@ -225,12 +224,13 @@ public sealed class JobWorker : IJobWorker
                 "Job worker ({worker}) will auto complete job with key '{key}'",
                 activateJobsRequest.Worker,
                 activatedJob.Key);
-            await jobClient.NewCompleteJobCommand(activatedJob)
-                .Send(cancellationToken);
+            _ = await jobClient.NewCompleteJobCommand(activatedJob)
+          .Send(cancellationToken);
         }
     }
 
-    private Task FailActivatedJob(JobClientWrapper jobClient, IJob activatedJob, CancellationToken cancellationToken, Exception exception)
+    private Task FailActivatedJob(JobClientWrapper jobClient, IJob activatedJob, CancellationToken cancellationToken,
+        Exception exception)
     {
         var errorMessage = string.Format(
             JobFailMessage,
@@ -248,7 +248,7 @@ public sealed class JobWorker : IJobWorker
                 {
                     if (task.IsFaulted)
                     {
-                        logger?.LogError("Problem on failing job occured.", task.Exception);
+                      logger?.LogWarning(task.Exception, "Problem on failing job occured.");
                     }
                 }, cancellationToken);
     }

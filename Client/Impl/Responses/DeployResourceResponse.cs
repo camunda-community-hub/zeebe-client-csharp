@@ -7,12 +7,6 @@ namespace Zeebe.Client.Impl.Responses;
 
 public class DeployResourceResponse : IDeployResourceResponse
 {
-    public long Key { get; }
-    public IList<IProcessMetadata> Processes { get; }
-    public IList<IDecisionMetadata> Decisions { get; }
-    public IList<IDecisionRequirementsMetadata> DecisionRequirements { get; }
-    public IList<IFormMetadata> Forms { get; }
-
     public DeployResourceResponse(GatewayProtocol.DeployResourceResponse response)
     {
         Key = response.Key;
@@ -43,4 +37,10 @@ public class DeployResourceResponse : IDeployResourceResponse
             }
         }
     }
+
+    public long Key { get; }
+    public IList<IProcessMetadata> Processes { get; }
+    public IList<IDecisionMetadata> Decisions { get; }
+    public IList<IDecisionRequirementsMetadata> DecisionRequirements { get; }
+    public IList<IFormMetadata> Forms { get; }
 }

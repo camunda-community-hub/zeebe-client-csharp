@@ -14,17 +14,17 @@ public class UpdateJobTimeoutTest : BaseZeebeTest
     public async Task ShouldSendRequestAsExpected()
     {
         // given
-        var expectedRequest = new UpdateJobTimeoutRequest()
+        var expectedRequest = new UpdateJobTimeoutRequest
         {
             JobKey = 1024,
             Timeout = 2000
         };
 
         // when
-        await ZeebeClient
-            .NewUpdateJobTimeoutCommand(1024)
-            .Timeout(new TimeSpan(0, 0, 2))
-            .Send();
+        _ = await ZeebeClient
+        .NewUpdateJobTimeoutCommand(1024)
+        .Timeout(new TimeSpan(0, 0, 2))
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(UpdateJobTimeoutRequest)][0];
