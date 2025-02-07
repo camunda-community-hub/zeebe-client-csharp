@@ -7,18 +7,18 @@ namespace Zeebe.Client.Impl.Responses;
 public class ProcessInstanceResultResponse(CreateProcessInstanceWithResultResponse response)
     : IProcessInstanceResult
 {
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public long ProcessDefinitionKey { get; } = response.ProcessDefinitionKey;
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public string BpmnProcessId { get; } = response.BpmnProcessId;
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public int Version { get; } = response.Version;
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public long ProcessInstanceKey { get; } = response.ProcessInstanceKey;
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public string Variables { get; } = response.Variables;
 }

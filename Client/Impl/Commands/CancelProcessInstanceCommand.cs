@@ -22,7 +22,8 @@ public class CancelProcessInstanceCommand(
 
     public async Task<ICancelProcessInstanceResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.CancelProcessInstanceAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        var asyncReply =
+            client.CancelProcessInstanceAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
         await asyncReply.ResponseAsync;
         return new CancelProcessInstanceResponse();
     }
@@ -32,7 +33,8 @@ public class CancelProcessInstanceCommand(
         return await Send(token: cancellationToken);
     }
 
-    public async Task<ICancelProcessInstanceResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<ICancelProcessInstanceResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

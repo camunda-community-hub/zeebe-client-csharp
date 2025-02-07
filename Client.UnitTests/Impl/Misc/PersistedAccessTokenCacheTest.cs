@@ -23,8 +23,6 @@ namespace Zeebe.Client.Impl.Misc;
 [TestFixture]
 public class PersistedAccessTokenCacheTest
 {
-    private string tempPath;
-
     [SetUp]
     public void Init()
     {
@@ -38,11 +36,14 @@ public class PersistedAccessTokenCacheTest
         Directory.Delete(tempPath, true);
     }
 
+    private string tempPath;
+
     [Test]
     public async Task ShouldGetToken()
     {
         // given
-        var accessTokenCache = new PersistedAccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
+        var accessTokenCache = new PersistedAccessTokenCache(
+            Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
             () =>
                 Task.FromResult(new AccessToken("token", DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds())));
 
@@ -57,9 +58,11 @@ public class PersistedAccessTokenCacheTest
     public async Task ShouldCacheToken()
     {
         // given
-        int fetchCounter = 0;
-        var accessTokenCache = new PersistedAccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
-            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds())));
+        var fetchCounter = 0;
+        var accessTokenCache = new PersistedAccessTokenCache(
+            Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
+                DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds())));
 
         // when
         await accessTokenCache.Get("test");
@@ -74,9 +77,11 @@ public class PersistedAccessTokenCacheTest
     public async Task ShouldCacheTokenForDifferentAudience()
     {
         // given
-        int fetchCounter = 0;
-        var accessTokenCache = new PersistedAccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
-            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds())));
+        var fetchCounter = 0;
+        var accessTokenCache = new PersistedAccessTokenCache(
+            Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
+                DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds())));
 
         // when
         var firstToken = await accessTokenCache.Get("first");
@@ -92,9 +97,11 @@ public class PersistedAccessTokenCacheTest
     public async Task ShouldResolveNewTokenAfterExpiry()
     {
         // given
-        int fetchCounter = 0;
-        var accessTokenCache = new PersistedAccessTokenCache(Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
-            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
+        var fetchCounter = 0;
+        var accessTokenCache = new PersistedAccessTokenCache(
+            Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
+                DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
 
         // when
         await accessTokenCache.Get("test");
@@ -111,10 +118,11 @@ public class PersistedAccessTokenCacheTest
     {
         // given
         var audience = "test";
-        int fetchCounter = 0;
+        var fetchCounter = 0;
         var path = Path.Combine(tempPath, TestContext.CurrentContext.Test.Name);
         var accessTokenCache = new PersistedAccessTokenCache(path,
-            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
+                DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
         var firstToken = await accessTokenCache.Get(audience);
 
         var credentials = await File.ReadAllTextAsync(Directory.GetFiles(path)[0]);
@@ -139,10 +147,11 @@ public class PersistedAccessTokenCacheTest
     {
         // given
         var audience = "test";
-        int fetchCounter = 0;
+        var fetchCounter = 0;
         var path = Path.Combine(tempPath, TestContext.CurrentContext.Test.Name);
         var accessTokenCache = new PersistedAccessTokenCache(path,
-            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
+                DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
 
         // when
         var token = await accessTokenCache.Get(audience);
@@ -155,15 +164,16 @@ public class PersistedAccessTokenCacheTest
         Assert.That(content, Does.Contain(audience));
     }
 
-    
+
     [Test]
     public async Task ShouldPersistMultipleTokenToDisk()
     {
         // given
-        int fetchCounter = 0;
+        var fetchCounter = 0;
         var path = Path.Combine(tempPath, TestContext.CurrentContext.Test.Name);
         var accessTokenCache = new PersistedAccessTokenCache(path,
-            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
+                DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
 
         // when
         var firstToken = await accessTokenCache.Get("first");
@@ -190,10 +200,11 @@ public class PersistedAccessTokenCacheTest
     {
         // given
         var audience = "test";
-        int fetchCounter = 0;
+        var fetchCounter = 0;
         var path = Path.Combine(tempPath, TestContext.CurrentContext.Test.Name);
         var accessTokenCache = new PersistedAccessTokenCache(path,
-            () => Task.FromResult(new AccessToken("token-" + fetchCounter++, DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
+                DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
         await accessTokenCache.Get(audience);
         File.Delete(Directory.GetFiles(path)[0]);
 

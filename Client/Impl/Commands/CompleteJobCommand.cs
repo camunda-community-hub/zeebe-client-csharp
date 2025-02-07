@@ -21,6 +21,7 @@ using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
+using CompleteJobResponse = Zeebe.Client.Impl.Responses.CompleteJobResponse;
 
 namespace Zeebe.Client.Impl.Commands;
 
@@ -42,7 +43,7 @@ internal class CompleteJobCommand(GatewayClient client, IAsyncRetryStrategy asyn
     {
         var asyncReply = client.CompleteJobAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
         await asyncReply.ResponseAsync;
-        return new Responses.CompleteJobResponse();
+        return new CompleteJobResponse();
     }
 
     public async Task<ICompleteJobResponse> Send(CancellationToken cancellationToken)

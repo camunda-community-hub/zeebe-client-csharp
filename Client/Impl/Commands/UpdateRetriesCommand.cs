@@ -25,7 +25,8 @@ public class UpdateRetriesCommand(Gateway.GatewayClient client, IAsyncRetryStrat
 
     public async Task<IUpdateRetriesResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.UpdateJobRetriesAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        var asyncReply =
+            client.UpdateJobRetriesAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
         await asyncReply.ResponseAsync;
         return new UpdateRetriesResponse();
     }

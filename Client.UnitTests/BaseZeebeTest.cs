@@ -22,56 +22,51 @@ using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using NUnit.Framework;
 
-namespace Zeebe.Client
+namespace Zeebe.Client;
+
+public class BaseZeebeTest
 {
-    public class BaseZeebeTest
+    public readonly ILoggerFactory LoggerFactory = new NLogLoggerFactory();
+    private Server server;
+
+    protected GatewayTestService TestService { get; private set; }
+
+    protected IZeebeClient ZeebeClient { get; private set; }
+
+    [SetUp]
+    public void Init()
     {
-        private Server server;
-        private GatewayTestService testService;
-        private IZeebeClient client;
+        GrpcEnvironment.SetLogger(new ConsoleLogger());
+        server = new Server();
+        server.Ports.Add(new ServerPort("localhost", 26500, ServerCredentials.Insecure));
 
-        protected GatewayTestService TestService => testService;
-        protected IZeebeClient ZeebeClient => client;
-        public readonly ILoggerFactory LoggerFactory = new NLogLoggerFactory();
+        TestService = new GatewayTestService();
+        var serviceDefinition = Gateway.BindService(TestService);
+        server.Services.Add(serviceDefinition);
+        server.Start();
 
-        [SetUp]
-        public void Init()
-        {
-            GrpcEnvironment.SetLogger(new ConsoleLogger());
-            server = new Server();
-            server.Ports.Add(new ServerPort("localhost", 26500, ServerCredentials.Insecure));
+        ZeebeClient = Client.ZeebeClient
+            .Builder()
+            .UseLoggerFactory(LoggerFactory)
+            .UseGatewayAddress("localhost:26500")
+            .UsePlainText()
+            .UseRetrySleepDurationProvider(retryAttempt => TimeSpan.Zero)
+            .Build();
+    }
 
-            testService = new GatewayTestService();
-            var serviceDefinition = Gateway.BindService(testService);
-            server.Services.Add(serviceDefinition);
-            server.Start();
+    [TearDown]
+    public void Stop()
+    {
+        ZeebeClient.Dispose();
+        server.ShutdownAsync().Wait();
+        TestService.Requests.Clear();
+        TestService = null;
+        server = null;
+        ZeebeClient = null;
+    }
 
-            client = Client.ZeebeClient
-                .Builder()
-                .UseLoggerFactory(LoggerFactory)
-                .UseGatewayAddress("localhost:26500")
-                .UsePlainText()
-                .UseRetrySleepDurationProvider(retryAttempt => TimeSpan.Zero)
-                .Build();
-        }
-
-        [TearDown]
-        public void Stop()
-        {
-            client.Dispose();
-            server.ShutdownAsync().Wait();
-            testService.Requests.Clear();
-            testService = null;
-            server = null;
-            client = null;
-        }
-
-        public void AwaitRequestCount(Type type, int requestCount)
-        {
-            while (TestService.Requests[type].Count < requestCount)
-            {
-                Thread.Sleep(TimeSpan.FromMilliseconds(100));
-            }
-        }
+    public void AwaitRequestCount(Type type, int requestCount)
+    {
+        while (TestService.Requests[type].Count < requestCount) Thread.Sleep(TimeSpan.FromMilliseconds(100));
     }
 }

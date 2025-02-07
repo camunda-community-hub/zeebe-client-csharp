@@ -7,8 +7,6 @@ namespace Zeebe.Client.Impl.Responses;
 
 public class ActivateJobsResponses : IActivateJobsResponse
 {
-    public IList<IJob> Jobs { get; set; }
-
     public ActivateJobsResponses()
     {
         Jobs = new List<IJob>();
@@ -19,9 +17,11 @@ public class ActivateJobsResponses : IActivateJobsResponse
         Jobs = ConvertToList(jobsResponse);
     }
 
+    public IList<IJob> Jobs { get; set; }
+
     public void Add(IActivateJobsResponse jobsResponse)
     {
-        ((List<IJob>) Jobs).AddRange(jobsResponse.Jobs);
+        ((List<IJob>)Jobs).AddRange(jobsResponse.Jobs);
     }
 
     private static List<IJob> ConvertToList(ActivateJobsResponse jobsResponse)

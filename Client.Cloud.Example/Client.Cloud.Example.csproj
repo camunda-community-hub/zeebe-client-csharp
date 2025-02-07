@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NLog.Extensions.Logging" Version="5.3.15" />
-    <PackageReference Include="zb-client" Version="2.7.0" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.3.15"/>
+    <PackageReference Include="zb-client" Version="2.7.0"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="StyleCop.Analyzers" Version="1.1.118" />
+    <PackageReference Update="StyleCop.Analyzers" Version="1.1.118"/>
   </ItemGroup>
 
 </Project>

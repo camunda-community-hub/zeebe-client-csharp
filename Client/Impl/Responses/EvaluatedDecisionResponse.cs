@@ -14,12 +14,29 @@
 //     limitations under the License.
 
 using System.Collections.Generic;
+using GatewayProtocol;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Impl.Responses;
 
 public class EvaluatedDecisionResponse : IEvaluateDecisionResponse
 {
+    public EvaluatedDecisionResponse(EvaluateDecisionResponse response)
+    {
+        DecisionId = response.DecisionId;
+        DecisionVersion = response.DecisionVersion;
+        DecisionKey = response.DecisionKey;
+        DecisionName = response.DecisionName;
+        DecisionRequirementsId = response.DecisionRequirementsId;
+        DecisionRequirementsKey = response.DecisionRequirementsKey;
+        DecisionOutput = response.DecisionOutput;
+        EvaluatedDecisions = new List<IEvaluatedDecision>();
+        foreach (var decision in response.EvaluatedDecisions) EvaluatedDecisions.Add(new EvaluatedDecision(decision));
+
+        FailedDecisionId = response.FailedDecisionId;
+        FailureMessage = response.FailureMessage;
+    }
+
     public string DecisionId { get; }
     public int DecisionVersion { get; }
     public long DecisionKey { get; }
@@ -30,23 +47,4 @@ public class EvaluatedDecisionResponse : IEvaluateDecisionResponse
     public IList<IEvaluatedDecision> EvaluatedDecisions { get; }
     public string FailedDecisionId { get; }
     public string FailureMessage { get; }
-
-    public EvaluatedDecisionResponse(GatewayProtocol.EvaluateDecisionResponse response)
-    {
-        DecisionId = response.DecisionId;
-        DecisionVersion = response.DecisionVersion;
-        DecisionKey = response.DecisionKey;
-        DecisionName = response.DecisionName;
-        DecisionRequirementsId = response.DecisionRequirementsId;
-        DecisionRequirementsKey = response.DecisionRequirementsKey;
-        DecisionOutput = response.DecisionOutput;
-        EvaluatedDecisions = new List<IEvaluatedDecision>();
-        foreach (var decision in response.EvaluatedDecisions)
-        {
-            EvaluatedDecisions.Add(new EvaluatedDecision(decision));
-        }
-
-        FailedDecisionId = response.FailedDecisionId;
-        FailureMessage = response.FailureMessage;
-    }
 }

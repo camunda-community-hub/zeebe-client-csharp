@@ -20,10 +20,6 @@ namespace Zeebe.Client.Impl.Responses;
 
 public class MatchedDecisionRule : IMatchedDecisionRule
 {
-    public string RuleId { get; }
-    public int RuleIndex { get; }
-    public IList<IEvaluatedDecisionOutput> EvaluatedOutputs { get; }
-
     public MatchedDecisionRule(GatewayProtocol.MatchedDecisionRule matchedDecisionRule)
     {
         RuleId = matchedDecisionRule.RuleId;
@@ -31,8 +27,10 @@ public class MatchedDecisionRule : IMatchedDecisionRule
 
         EvaluatedOutputs = new List<IEvaluatedDecisionOutput>();
         foreach (var evaluatedOutput in matchedDecisionRule.EvaluatedOutputs)
-        {
             EvaluatedOutputs.Add(new EvaluatedDecisionOutput(evaluatedOutput));
-        }
     }
+
+    public string RuleId { get; }
+    public int RuleIndex { get; }
+    public IList<IEvaluatedDecisionOutput> EvaluatedOutputs { get; }
 }

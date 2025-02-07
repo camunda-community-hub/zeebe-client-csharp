@@ -18,26 +18,24 @@ using System.Threading.Tasks;
 namespace Zeebe.Client.Impl.Misc;
 
 /// <summary>
-/// <see cref="AccessToken"/> cache, which allows to cache tokens per audience.
+///     <see cref="AccessToken" /> cache, which allows to cache tokens per audience.
 /// </summary>
 public interface IAccessTokenCache
 {
     /// <summary>
-    /// A valid token, which is related to the given audience.
+    ///     An asynchronous access token resolver, which is used to fill the cache, when
+    ///     token can't be found.
     /// </summary>
-    ///
+    /// Resolver should be given to the cache, on creation time.
+    /// <returns>The new access token.</returns>
+    public delegate Task<AccessToken> AccessTokenResolverAsync();
+
+    /// <summary>
+    ///     A valid token, which is related to the given audience.
+    /// </summary>
     /// The token may be cached, or new resolved if there was no token corresponding
     /// to the audience stored yet, or if the token has been expired.
     /// <param name="audience">The audience which corresponds to the token.</param>
     /// <returns>A valid token for the audience.</returns>
     Task<string> Get(string audience);
-
-    /// <summary>
-    /// An asynchronous access token resolver, which is used to fill the cache, when
-    /// token can't be found.
-    /// </summary>
-    ///
-    /// Resolver should be given to the cache, on creation time.
-    /// <returns>The new access token.</returns>
-    public delegate Task<AccessToken> AccessTokenResolverAsync();
 }

@@ -7,7 +7,7 @@ namespace Zeebe.Client;
 public static class ServiceCollectionExtensions
 {
     /// <summary>
-    /// Adds the Zeebe builders to the IServiceCollection
+    ///     Adds the Zeebe builders to the IServiceCollection
     /// </summary>
     /// <param name="services">the collection where the zeebe services are appended</param>
     /// <returns>the service collection</returns>

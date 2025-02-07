@@ -30,11 +30,11 @@ public class JobWorkerBuilder(
     ILoggerFactory loggerFactory = null)
     : IJobWorkerBuilderStep1, IJobWorkerBuilderStep2, IJobWorkerBuilderStep3
 {
-    private TimeSpan pollInterval;
     private AsyncJobHandler asyncJobHandler;
     private bool autoCompletion;
-    internal JobActivator Activator { get; } = new (gatewayClient);
-    internal ActivateJobsRequest Request { get; } = new ();
+    private TimeSpan pollInterval;
+    internal JobActivator Activator { get; } = new(gatewayClient);
+    internal ActivateJobsRequest Request { get; } = new();
     internal byte ThreadCount { get; set; } = 1;
     internal ILoggerFactory LoggerFactory { get; } = loggerFactory;
     internal IJobClient JobClient { get; } = zeebeClient;
@@ -68,14 +68,9 @@ public class JobWorkerBuilder(
         return TenantIds(tenantIds.ToList());
     }
 
-    internal AsyncJobHandler Handler()
-    {
-        return asyncJobHandler;
-    }
-
     public IJobWorkerBuilderStep3 Timeout(TimeSpan timeout)
     {
-        Request.Timeout = (long) timeout.TotalMilliseconds;
+        Request.Timeout = (long)timeout.TotalMilliseconds;
         return this;
     }
 
@@ -109,14 +104,9 @@ public class JobWorkerBuilder(
         return this;
     }
 
-    internal TimeSpan PollInterval()
-    {
-        return pollInterval;
-    }
-
     public IJobWorkerBuilderStep3 PollingTimeout(TimeSpan pollingTimeout)
     {
-        Request.RequestTimeout = (long) pollingTimeout.TotalMilliseconds;
+        Request.RequestTimeout = (long)pollingTimeout.TotalMilliseconds;
         return this;
     }
 
@@ -138,11 +128,6 @@ public class JobWorkerBuilder(
         return this;
     }
 
-    internal bool AutoCompletionEnabled()
-    {
-        return autoCompletion;
-    }
-
     public IJobWorker Open()
     {
         var worker = new JobWorker(this);
@@ -150,5 +135,20 @@ public class JobWorkerBuilder(
         worker.Open();
 
         return worker;
+    }
+
+    internal AsyncJobHandler Handler()
+    {
+        return asyncJobHandler;
+    }
+
+    internal TimeSpan PollInterval()
+    {
+        return pollInterval;
+    }
+
+    internal bool AutoCompletionEnabled()
+    {
+        return autoCompletion;
     }
 }

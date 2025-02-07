@@ -14,24 +14,23 @@
 //     limitations under the License.
 
 using System.Collections.Generic;
-using GatewayProtocol;
 
 namespace Zeebe.Client.Api.Responses;
 
 public interface IMatchedDecisionRule
 {
     /// <returns>
-    /// the id of the matched rule
+    ///     the id of the matched rule
     /// </returns>
     string RuleId { get; }
 
     /// <returns>
-    /// the index of the matched rule
+    ///     the index of the matched rule
     /// </returns>
     int RuleIndex { get; }
 
     /// <returns>
-    /// the evaluated decision outputs
+    ///     the evaluated decision outputs
     /// </returns>
     IList<IEvaluatedDecisionOutput> EvaluatedOutputs { get; }
 }

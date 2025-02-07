@@ -24,12 +24,6 @@ namespace Client.IntegrationTests;
 [TestFixture]
 public class EvaluateDecisionTest
 {
-    private static readonly string DecisionPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "dinnerDecisions.dmn");
-    private static readonly string DevisionEvaluationVariables = "{\"season\":\"Fall\", \"guestCount\":12}";
-
-    private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
-    private IZeebeClient zeebeClient;
-
     [OneTimeSetUp]
     public async Task Setup()
     {
@@ -41,6 +35,14 @@ public class EvaluateDecisionTest
     {
         await testHelper.TearDownIntegrationTest();
     }
+
+    private static readonly string DecisionPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "dinnerDecisions.dmn");
+
+    private static readonly string DevisionEvaluationVariables = "{\"season\":\"Fall\", \"guestCount\":12}";
+
+    private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest();
+    private IZeebeClient zeebeClient;
 
     [Test]
     public async Task ShouldEvaluateDecision()

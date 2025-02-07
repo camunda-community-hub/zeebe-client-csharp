@@ -12,6 +12,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,11 +22,14 @@ using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
 using BroadcastSignalResponse = Zeebe.Client.Impl.Responses.BroadcastSignalResponse;
+
 namespace Zeebe.Client.Impl.Commands;
+
 public class BroadcastSignalCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
     : IBroadcastSignalCommandStep1, IBroadcastSignalCommandStep2
 {
-    private readonly BroadcastSignalRequest request = new ();
+    private readonly BroadcastSignalRequest request = new();
+
     public IBroadcastSignalCommandStep2 SignalName(string signalName)
     {
         request.SignalName = signalName;
@@ -40,7 +44,8 @@ public class BroadcastSignalCommand(GatewayClient client, IAsyncRetryStrategy as
 
     public async Task<IBroadcastSignalResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.BroadcastSignalAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        var asyncReply =
+            client.BroadcastSignalAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
         await asyncReply.ResponseAsync;
         return new BroadcastSignalResponse();
     }
@@ -50,7 +55,8 @@ public class BroadcastSignalCommand(GatewayClient client, IAsyncRetryStrategy as
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IBroadcastSignalResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<IBroadcastSignalResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

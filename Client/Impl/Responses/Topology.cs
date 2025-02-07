@@ -25,14 +25,14 @@ public class Topology : ITopology
 {
     private const string FallbackVersion = "lower then 0.23";
 
-    public IList<IBrokerInfo> Brokers { get; }
-    public string GatewayVersion { get; }
-
     public Topology(TopologyResponse response)
     {
         Brokers = response.Brokers.Select(broker => new BrokerInfo(broker)).Cast<IBrokerInfo>().ToList();
         GatewayVersion = string.IsNullOrEmpty(response.GatewayVersion) ? FallbackVersion : response.GatewayVersion;
     }
+
+    public IList<IBrokerInfo> Brokers { get; }
+    public string GatewayVersion { get; }
 
     public override string ToString()
     {

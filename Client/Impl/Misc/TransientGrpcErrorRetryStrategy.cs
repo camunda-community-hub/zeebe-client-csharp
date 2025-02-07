@@ -14,7 +14,6 @@ public class TransientGrpcErrorRetryStrategy(Func<int, TimeSpan> waitTimeProvide
     {
         var retries = 0;
         while (true)
-        {
             try
             {
                 var result = await action.Invoke();
@@ -32,6 +31,5 @@ public class TransientGrpcErrorRetryStrategy(Func<int, TimeSpan> waitTimeProvide
                     throw;
                 }
             }
-        }
     }
 }

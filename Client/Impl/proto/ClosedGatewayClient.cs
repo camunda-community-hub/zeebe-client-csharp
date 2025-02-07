@@ -8,40 +8,47 @@ public class ClosedGatewayClient : Gateway.GatewayClient
 {
     private const string ZeebeClientWasAlreadyDisposed = "ZeebeClient was already disposed.";
 
-    public override AsyncServerStreamingCall<ActivateJobsResponse> ActivateJobs(ActivateJobsRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncServerStreamingCall<ActivateJobsResponse> ActivateJobs(ActivateJobsRequest request,
+        Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncServerStreamingCall<ActivateJobsResponse> ActivateJobs(ActivateJobsRequest request, CallOptions options)
+    public override AsyncServerStreamingCall<ActivateJobsResponse> ActivateJobs(ActivateJobsRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override CancelProcessInstanceResponse CancelProcessInstance(CancelProcessInstanceRequest request, Metadata headers = null,
+    public override CancelProcessInstanceResponse CancelProcessInstance(CancelProcessInstanceRequest request,
+        Metadata headers = null,
         DateTime? deadline = null, CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override CancelProcessInstanceResponse CancelProcessInstance(CancelProcessInstanceRequest request, CallOptions options)
+    public override CancelProcessInstanceResponse CancelProcessInstance(CancelProcessInstanceRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<CancelProcessInstanceResponse> CancelProcessInstanceAsync(CancelProcessInstanceRequest request, Metadata headers = null,
+    public override AsyncUnaryCall<CancelProcessInstanceResponse> CancelProcessInstanceAsync(
+        CancelProcessInstanceRequest request, Metadata headers = null,
         DateTime? deadline = null, CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<CancelProcessInstanceResponse> CancelProcessInstanceAsync(CancelProcessInstanceRequest request, CallOptions options)
+    public override AsyncUnaryCall<CancelProcessInstanceResponse> CancelProcessInstanceAsync(
+        CancelProcessInstanceRequest request, CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override CompleteJobResponse CompleteJob(CompleteJobRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override CompleteJobResponse CompleteJob(CompleteJobRequest request, Metadata headers = null,
+        DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -52,40 +59,47 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<CompleteJobResponse> CompleteJobAsync(CompleteJobRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<CompleteJobResponse> CompleteJobAsync(CompleteJobRequest request,
+        Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<CompleteJobResponse> CompleteJobAsync(CompleteJobRequest request, CallOptions options)
+    public override AsyncUnaryCall<CompleteJobResponse> CompleteJobAsync(CompleteJobRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override CreateProcessInstanceResponse CreateProcessInstance(CreateProcessInstanceRequest request, Metadata headers = null,
+    public override CreateProcessInstanceResponse CreateProcessInstance(CreateProcessInstanceRequest request,
+        Metadata headers = null,
         DateTime? deadline = null, CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override CreateProcessInstanceResponse CreateProcessInstance(CreateProcessInstanceRequest request, CallOptions options)
+    public override CreateProcessInstanceResponse CreateProcessInstance(CreateProcessInstanceRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<CreateProcessInstanceResponse> CreateProcessInstanceAsync(CreateProcessInstanceRequest request, Metadata headers = null,
+    public override AsyncUnaryCall<CreateProcessInstanceResponse> CreateProcessInstanceAsync(
+        CreateProcessInstanceRequest request, Metadata headers = null,
         DateTime? deadline = null, CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<CreateProcessInstanceResponse> CreateProcessInstanceAsync(CreateProcessInstanceRequest request, CallOptions options)
+    public override AsyncUnaryCall<CreateProcessInstanceResponse> CreateProcessInstanceAsync(
+        CreateProcessInstanceRequest request, CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override DeployProcessResponse DeployProcess(DeployProcessRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override DeployProcessResponse DeployProcess(DeployProcessRequest request, Metadata headers = null,
+        DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -96,13 +110,15 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<DeployProcessResponse> DeployProcessAsync(DeployProcessRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<DeployProcessResponse> DeployProcessAsync(DeployProcessRequest request,
+        Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<DeployProcessResponse> DeployProcessAsync(DeployProcessRequest request, CallOptions options)
+    public override AsyncUnaryCall<DeployProcessResponse> DeployProcessAsync(DeployProcessRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
@@ -118,7 +134,8 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<FailJobResponse> FailJobAsync(FailJobRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<FailJobResponse> FailJobAsync(FailJobRequest request, Metadata headers = null,
+        DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -129,7 +146,8 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override PublishMessageResponse PublishMessage(PublishMessageRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override PublishMessageResponse PublishMessage(PublishMessageRequest request, Metadata headers = null,
+        DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -140,13 +158,15 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<PublishMessageResponse> PublishMessageAsync(PublishMessageRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<PublishMessageResponse> PublishMessageAsync(PublishMessageRequest request,
+        Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<PublishMessageResponse> PublishMessageAsync(PublishMessageRequest request, CallOptions options)
+    public override AsyncUnaryCall<PublishMessageResponse> PublishMessageAsync(PublishMessageRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
@@ -162,18 +182,21 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<ResolveIncidentResponse> ResolveIncidentAsync(ResolveIncidentRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<ResolveIncidentResponse> ResolveIncidentAsync(ResolveIncidentRequest request,
+        Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<ResolveIncidentResponse> ResolveIncidentAsync(ResolveIncidentRequest request, CallOptions options)
+    public override AsyncUnaryCall<ResolveIncidentResponse> ResolveIncidentAsync(ResolveIncidentRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override SetVariablesResponse SetVariables(SetVariablesRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override SetVariablesResponse SetVariables(SetVariablesRequest request, Metadata headers = null,
+        DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -184,18 +207,21 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<SetVariablesResponse> SetVariablesAsync(SetVariablesRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<SetVariablesResponse> SetVariablesAsync(SetVariablesRequest request,
+        Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<SetVariablesResponse> SetVariablesAsync(SetVariablesRequest request, CallOptions options)
+    public override AsyncUnaryCall<SetVariablesResponse> SetVariablesAsync(SetVariablesRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override TopologyResponse Topology(TopologyRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override TopologyResponse Topology(TopologyRequest request, Metadata headers = null,
+        DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -206,7 +232,8 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<TopologyResponse> TopologyAsync(TopologyRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<TopologyResponse> TopologyAsync(TopologyRequest request, Metadata headers = null,
+        DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -228,13 +255,15 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<UpdateJobRetriesResponse> UpdateJobRetriesAsync(UpdateJobRetriesRequest request, Metadata headers = null,
+    public override AsyncUnaryCall<UpdateJobRetriesResponse> UpdateJobRetriesAsync(UpdateJobRetriesRequest request,
+        Metadata headers = null,
         DateTime? deadline = null, CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<UpdateJobRetriesResponse> UpdateJobRetriesAsync(UpdateJobRetriesRequest request, CallOptions options)
+    public override AsyncUnaryCall<UpdateJobRetriesResponse> UpdateJobRetriesAsync(UpdateJobRetriesRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
@@ -244,27 +273,31 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override CreateProcessInstanceWithResultResponse CreateProcessInstanceWithResult(CreateProcessInstanceWithResultRequest request,
+    public override CreateProcessInstanceWithResultResponse CreateProcessInstanceWithResult(
+        CreateProcessInstanceWithResultRequest request,
         Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override CreateProcessInstanceWithResultResponse CreateProcessInstanceWithResult(CreateProcessInstanceWithResultRequest request,
+    public override CreateProcessInstanceWithResultResponse CreateProcessInstanceWithResult(
+        CreateProcessInstanceWithResultRequest request,
         CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(CreateProcessInstanceWithResultRequest request,
+    public override AsyncUnaryCall<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(
+        CreateProcessInstanceWithResultRequest request,
         Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(CreateProcessInstanceWithResultRequest request, CallOptions options)
+    public override AsyncUnaryCall<CreateProcessInstanceWithResultResponse> CreateProcessInstanceWithResultAsync(
+        CreateProcessInstanceWithResultRequest request, CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
@@ -280,18 +313,21 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<EvaluateDecisionResponse> EvaluateDecisionAsync(EvaluateDecisionRequest request, Metadata headers = null,
+    public override AsyncUnaryCall<EvaluateDecisionResponse> EvaluateDecisionAsync(EvaluateDecisionRequest request,
+        Metadata headers = null,
         DateTime? deadline = null, CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<EvaluateDecisionResponse> EvaluateDecisionAsync(EvaluateDecisionRequest request, CallOptions options)
+    public override AsyncUnaryCall<EvaluateDecisionResponse> EvaluateDecisionAsync(EvaluateDecisionRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override DeployResourceResponse DeployResource(DeployResourceRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override DeployResourceResponse DeployResource(DeployResourceRequest request, Metadata headers = null,
+        DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -302,18 +338,21 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<DeployResourceResponse> DeployResourceAsync(DeployResourceRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<DeployResourceResponse> DeployResourceAsync(DeployResourceRequest request,
+        Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<DeployResourceResponse> DeployResourceAsync(DeployResourceRequest request, CallOptions options)
+    public override AsyncUnaryCall<DeployResourceResponse> DeployResourceAsync(DeployResourceRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override ThrowErrorResponse ThrowError(ThrowErrorRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override ThrowErrorResponse ThrowError(ThrowErrorRequest request, Metadata headers = null,
+        DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -324,7 +363,8 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<ThrowErrorResponse> ThrowErrorAsync(ThrowErrorRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<ThrowErrorResponse> ThrowErrorAsync(ThrowErrorRequest request,
+        Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -335,29 +375,34 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override ModifyProcessInstanceResponse ModifyProcessInstance(ModifyProcessInstanceRequest request, Metadata headers = null,
+    public override ModifyProcessInstanceResponse ModifyProcessInstance(ModifyProcessInstanceRequest request,
+        Metadata headers = null,
         DateTime? deadline = null, CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override ModifyProcessInstanceResponse ModifyProcessInstance(ModifyProcessInstanceRequest request, CallOptions options)
+    public override ModifyProcessInstanceResponse ModifyProcessInstance(ModifyProcessInstanceRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<ModifyProcessInstanceResponse> ModifyProcessInstanceAsync(ModifyProcessInstanceRequest request, Metadata headers = null,
+    public override AsyncUnaryCall<ModifyProcessInstanceResponse> ModifyProcessInstanceAsync(
+        ModifyProcessInstanceRequest request, Metadata headers = null,
         DateTime? deadline = null, CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<ModifyProcessInstanceResponse> ModifyProcessInstanceAsync(ModifyProcessInstanceRequest request, CallOptions options)
+    public override AsyncUnaryCall<ModifyProcessInstanceResponse> ModifyProcessInstanceAsync(
+        ModifyProcessInstanceRequest request, CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override DeleteResourceResponse DeleteResource(DeleteResourceRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override DeleteResourceResponse DeleteResource(DeleteResourceRequest request, Metadata headers = null,
+        DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
@@ -368,13 +413,15 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<DeleteResourceResponse> DeleteResourceAsync(DeleteResourceRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<DeleteResourceResponse> DeleteResourceAsync(DeleteResourceRequest request,
+        Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<DeleteResourceResponse> DeleteResourceAsync(DeleteResourceRequest request, CallOptions options)
+    public override AsyncUnaryCall<DeleteResourceResponse> DeleteResourceAsync(DeleteResourceRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
@@ -390,13 +437,15 @@ public class ClosedGatewayClient : Gateway.GatewayClient
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<BroadcastSignalResponse> BroadcastSignalAsync(BroadcastSignalRequest request, Metadata headers = null, DateTime? deadline = null,
+    public override AsyncUnaryCall<BroadcastSignalResponse> BroadcastSignalAsync(BroadcastSignalRequest request,
+        Metadata headers = null, DateTime? deadline = null,
         CancellationToken cancellationToken = default)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }
 
-    public override AsyncUnaryCall<BroadcastSignalResponse> BroadcastSignalAsync(BroadcastSignalRequest request, CallOptions options)
+    public override AsyncUnaryCall<BroadcastSignalResponse> BroadcastSignalAsync(BroadcastSignalRequest request,
+        CallOptions options)
     {
         throw new ObjectDisposedException(ZeebeClientWasAlreadyDisposed);
     }

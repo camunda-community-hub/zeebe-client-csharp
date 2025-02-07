@@ -20,15 +20,6 @@ namespace Zeebe.Client.Impl.Responses;
 
 public class EvaluatedDecision : IEvaluatedDecision
 {
-    public string DecisionId { get; }
-    public int DecisionVersion { get; }
-    public long DecisionKey { get; }
-    public string DecisionName { get; }
-    public string DecisionType { get; }
-    public string DecisionOutput { get; }
-    public IList<IEvaluatedDecisionInput> EvaluatedInputs { get; }
-    public IList<IMatchedDecisionRule> MatchedRules { get; }
-
     public EvaluatedDecision(GatewayProtocol.EvaluatedDecision evaluatedDecision)
     {
         DecisionId = evaluatedDecision.DecisionId;
@@ -39,15 +30,19 @@ public class EvaluatedDecision : IEvaluatedDecision
         DecisionOutput = evaluatedDecision.DecisionOutput;
 
         EvaluatedInputs = new List<IEvaluatedDecisionInput>();
-        foreach (var input in evaluatedDecision.EvaluatedInputs)
-        {
-            EvaluatedInputs.Add(new EvaluatedDecisionInput(input));
-        }
+        foreach (var input in evaluatedDecision.EvaluatedInputs) EvaluatedInputs.Add(new EvaluatedDecisionInput(input));
 
         MatchedRules = new List<IMatchedDecisionRule>();
         foreach (var matchedRule in evaluatedDecision.MatchedRules)
-        {
             MatchedRules.Add(new MatchedDecisionRule(matchedRule));
-        }
     }
+
+    public string DecisionId { get; }
+    public int DecisionVersion { get; }
+    public long DecisionKey { get; }
+    public string DecisionName { get; }
+    public string DecisionType { get; }
+    public string DecisionOutput { get; }
+    public IList<IEvaluatedDecisionInput> EvaluatedInputs { get; }
+    public IList<IMatchedDecisionRule> MatchedRules { get; }
 }

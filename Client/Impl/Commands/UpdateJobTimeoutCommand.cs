@@ -25,7 +25,8 @@ public class UpdateJobTimeoutCommand(Gateway.GatewayClient client, IAsyncRetrySt
 
     public async Task<IUpdateJobTimeoutResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.UpdateJobTimeoutAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        var asyncReply =
+            client.UpdateJobTimeoutAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
         await asyncReply.ResponseAsync;
         return new UpdateJobTimeoutResponse();
     }
@@ -35,7 +36,8 @@ public class UpdateJobTimeoutCommand(Gateway.GatewayClient client, IAsyncRetrySt
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IUpdateJobTimeoutResponse> SendWithRetry(TimeSpan? timeout = null, CancellationToken token = default)
+    public async Task<IUpdateJobTimeoutResponse> SendWithRetry(TimeSpan? timeout = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timeout, token));
     }

@@ -8,92 +8,85 @@ using NUnit.Framework;
 using Zeebe.Client;
 using Zeebe.Client.Api.Responses;
 
-namespace Client.IntegrationTests
+namespace Client.IntegrationTests;
+
+[TestFixture]
+public class JobWorkerMultiPartitionTest
 {
-    [TestFixture]
-    public class JobWorkerMultiPartitionTest
+    [OneTimeSetUp]
+    public async Task Setup()
     {
-        private static readonly string DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "oneTaskProcess.bpmn");
+        zeebeClient = await testHelper.SetupIntegrationTest();
+        var deployResponse = await zeebeClient.NewDeployCommand()
+            .AddResourceFile(DemoProcessPath)
+            .Send();
+        processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
+    }
 
-        private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest().WithPartitionCount(3);
-        private IZeebeClient zeebeClient;
-        private long processDefinitionKey;
+    [OneTimeTearDown]
+    public async Task Stop()
+    {
+        await testHelper.TearDownIntegrationTest();
+    }
 
-        [OneTimeSetUp]
-        public async Task Setup()
-        {
-            zeebeClient = await testHelper.SetupIntegrationTest();
-            var deployResponse = await zeebeClient.NewDeployCommand()
-                .AddResourceFile(DemoProcessPath)
-                .Send();
-            processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;
-        }
+    private static readonly string DemoProcessPath =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "oneTaskProcess.bpmn");
 
-        [OneTimeTearDown]
-        public async Task Stop()
-        {
-            await testHelper.TearDownIntegrationTest();
-        }
+    private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest().WithPartitionCount(3);
+    private IZeebeClient zeebeClient;
+    private long processDefinitionKey;
 
-        [Test]
-        public async Task ShouldHandleAllJobs()
-        {
-            // given
-            var handledJobs = new List<IJob>();
-            foreach (int i in Enumerable.Range(1, 3))
-            {
-                await zeebeClient.NewCreateProcessInstanceCommand()
+    [Test]
+    public async Task ShouldHandleAllJobs()
+    {
+        // given
+        var handledJobs = new List<IJob>();
+        foreach (var i in Enumerable.Range(1, 3))
+            await zeebeClient.NewCreateProcessInstanceCommand()
                 .ProcessDefinitionKey(processDefinitionKey)
                 .Send();
-            }
 
-            // when
-            using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
+        // when
+        using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
+        {
+            using (zeebeClient.NewWorker()
+                       .JobType("oneTask")
+                       .Handler(async (jobClient, job) =>
+                       {
+                           await jobClient.NewCompleteJobCommand(job).Send();
+                           handledJobs.Add(job);
+                           if (handledJobs.Count >= 3) signal.Set();
+                       })
+                       .MaxJobsActive(5)
+                       .Name("csharpWorker")
+                       .Timeout(TimeSpan.FromHours(10))
+                       .PollInterval(TimeSpan.FromSeconds(5))
+                       .Open())
             {
-                using (zeebeClient.NewWorker()
-                    .JobType("oneTask")
-                    .Handler(async (jobClient, job) =>
-                    {
-                        await jobClient.NewCompleteJobCommand(job).Send();
-                        handledJobs.Add(job);
-                        if (handledJobs.Count >= 3)
-                        {
-                            signal.Set();
-                        }
-                    })
-                    .MaxJobsActive(5)
-                    .Name("csharpWorker")
-                    .Timeout(TimeSpan.FromHours(10))
-                    .PollInterval(TimeSpan.FromSeconds(5))
-                    .Open())
-                {
-                        signal.WaitOne(TimeSpan.FromSeconds(5));
-                }
+                signal.WaitOne(TimeSpan.FromSeconds(5));
             }
-
-            Assert.AreEqual(3, handledJobs.Count);
         }
 
-        [Test]
-        public async Task ShouldActivateAllJobs()
-        {
-            // given
-            foreach (int i in Enumerable.Range(1, 3))
-            {
-                await zeebeClient.NewCreateProcessInstanceCommand()
-                    .ProcessDefinitionKey(processDefinitionKey)
-                    .Send();
-            }
+        Assert.AreEqual(3, handledJobs.Count);
+    }
 
-            // when
-            var activateJobsResponse = await zeebeClient.NewActivateJobsCommand()
-                .JobType("oneTask")
-                .MaxJobsToActivate(5)
-                .WorkerName("csharpWorker")
-                .Timeout(TimeSpan.FromHours(10))
+    [Test]
+    public async Task ShouldActivateAllJobs()
+    {
+        // given
+        foreach (var i in Enumerable.Range(1, 3))
+            await zeebeClient.NewCreateProcessInstanceCommand()
+                .ProcessDefinitionKey(processDefinitionKey)
                 .Send();
 
-            Assert.AreEqual(3, activateJobsResponse.Jobs.Count);
-        }
+        // when
+        var activateJobsResponse = await zeebeClient.NewActivateJobsCommand()
+            .JobType("oneTask")
+            .MaxJobsToActivate(5)
+            .WorkerName("csharpWorker")
+            .Timeout(TimeSpan.FromHours(10))
+            .Send();
+
+        Assert.AreEqual(3, activateJobsResponse.Jobs.Count);
     }
 }

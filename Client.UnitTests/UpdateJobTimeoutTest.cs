@@ -14,7 +14,7 @@ public class UpdateJobTimeoutTest : BaseZeebeTest
     public async Task ShouldSendRequestAsExpected()
     {
         // given
-        var expectedRequest = new UpdateJobTimeoutRequest()
+        var expectedRequest = new UpdateJobTimeoutRequest
         {
             JobKey = 1024,
             Timeout = 2000

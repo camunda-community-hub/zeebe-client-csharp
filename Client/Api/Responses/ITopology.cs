@@ -12,6 +12,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using System.Collections.Generic;
 
 namespace Zeebe.Client.Api.Responses;
@@ -19,12 +20,12 @@ namespace Zeebe.Client.Api.Responses;
 public interface ITopology
 {
     /// <returns>
-    /// All (known) brokers of the cluster
+    ///     All (known) brokers of the cluster
     /// </returns>
     IList<IBrokerInfo> Brokers { get; }
 
     /// <returns>
-    /// The gateway version or 'lower then 0.23' if none was found.
+    ///     The gateway version or 'lower then 0.23' if none was found.
     /// </returns>
     string GatewayVersion { get; }
 }

@@ -31,15 +31,16 @@ public sealed class JobWorker : IJobWorker
     private const string JobFailMessage =
         "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
 
-    private readonly CancellationTokenSource source;
-    private readonly ILogger<JobWorker> logger;
-    private readonly JobWorkerBuilder jobWorkerBuilder;
     private readonly ActivateJobsRequest activateJobsRequest;
-    private readonly JobActivator jobActivator;
-    private readonly int maxJobsActive;
-    private readonly AsyncJobHandler jobHandler;
     private readonly bool autoCompletion;
+    private readonly JobActivator jobActivator;
+    private readonly AsyncJobHandler jobHandler;
+    private readonly JobWorkerBuilder jobWorkerBuilder;
+    private readonly ILogger<JobWorker> logger;
+    private readonly int maxJobsActive;
     private readonly TimeSpan pollInterval;
+
+    private readonly CancellationTokenSource source;
     private readonly double thresholdJobsActivation;
 
     private int currentJobsActive;
@@ -59,7 +60,7 @@ public sealed class JobWorker : IJobWorker
         thresholdJobsActivation = maxJobsActive * 0.6;
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public void Dispose()
     {
         source.Cancel();
@@ -73,21 +74,21 @@ public sealed class JobWorker : IJobWorker
         isRunning = false;
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public bool IsOpen()
     {
         return isRunning;
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public bool IsClosed()
     {
         return !isRunning;
     }
 
     /// <summary>
-    /// Opens the configured JobWorker to activate jobs in the given poll interval
-    /// and handle with the given handler.
+    ///     Opens the configured JobWorker to activate jobs in the given poll interval
+    ///     and handle with the given handler.
     /// </summary>
     internal void Open()
     {
@@ -97,12 +98,10 @@ public sealed class JobWorker : IJobWorker
         var executionOptions = CreateExecutionOptions(cancellationToken);
 
         var input = new BufferBlock<IJob>(bufferOptions);
-        var transformer = new TransformBlock<IJob, IJob>(async activatedJob => await HandleActivatedJob(activatedJob, cancellationToken),
+        var transformer = new TransformBlock<IJob, IJob>(
+            async activatedJob => await HandleActivatedJob(activatedJob, cancellationToken),
             executionOptions);
-        var output = new ActionBlock<IJob>(activatedJob =>
-            {
-                Interlocked.Decrement(ref currentJobsActive);
-            },
+        var output = new ActionBlock<IJob>(activatedJob => { Interlocked.Decrement(ref currentJobsActive); },
             executionOptions);
 
         input.LinkTo(transformer);
@@ -207,7 +206,7 @@ public sealed class JobWorker : IJobWorker
 
     private void LogRpcException(RpcException rpcException)
     {
-        LogLevel logLevel = rpcException.StatusCode switch
+        var logLevel = rpcException.StatusCode switch
         {
             StatusCode.DeadlineExceeded or StatusCode.Cancelled or StatusCode.ResourceExhausted => LogLevel.Trace,
             _ => LogLevel.Error
@@ -230,7 +229,8 @@ public sealed class JobWorker : IJobWorker
         }
     }
 
-    private Task FailActivatedJob(JobClientWrapper jobClient, IJob activatedJob, CancellationToken cancellationToken, Exception exception)
+    private Task FailActivatedJob(JobClientWrapper jobClient, IJob activatedJob, CancellationToken cancellationToken,
+        Exception exception)
     {
         var errorMessage = string.Format(
             JobFailMessage,
@@ -246,10 +246,7 @@ public sealed class JobWorker : IJobWorker
             .ContinueWith(
                 task =>
                 {
-                    if (task.IsFaulted)
-                    {
-                        logger?.LogError("Problem on failing job occured.", task.Exception);
-                    }
+                    if (task.IsFaulted) logger?.LogError("Problem on failing job occured.", task.Exception);
                 }, cancellationToken);
     }
 }

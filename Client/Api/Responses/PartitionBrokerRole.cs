@@ -12,10 +12,11 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 namespace Zeebe.Client.Api.Responses;
 
 /// <summary>
-/// The RAFT role of the broker either LEADER or FOLLOWER.
+///     The RAFT role of the broker either LEADER or FOLLOWER.
 /// </summary>
 public enum PartitionBrokerRole
 {

@@ -28,7 +28,13 @@ namespace Zeebe.Client.Impl.Commands;
 public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
     : IPublishMessageCommandStep1, IPublishMessageCommandStep2, IPublishMessageCommandStep3
 {
-    private readonly PublishMessageRequest request = new ();
+    private readonly PublishMessageRequest request = new();
+
+    public IPublishMessageCommandStep2 MessageName(string messageName)
+    {
+        request.Name = messageName;
+        return this;
+    }
 
     public IPublishMessageCommandStep3 CorrelationKey(string correlationKey)
     {
@@ -39,12 +45,6 @@ public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asy
     public IPublishMessageCommandStep3 MessageId(string messageId)
     {
         request.MessageId = messageId;
-        return this;
-    }
-
-    public IPublishMessageCommandStep2 MessageName(string messageName)
-    {
-        request.Name = messageName;
         return this;
     }
 
@@ -72,7 +72,8 @@ public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asy
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IPublishMessageResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    public async Task<IPublishMessageResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }

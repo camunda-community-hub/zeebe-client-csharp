@@ -18,8 +18,8 @@ namespace Zeebe.Client.Api.Responses;
 public interface IDecisionMetadata
 {
     /// <returns>
-    /// the dmn decision ID, as parsed during deployment; together with the versions forms a
-    /// unique identifier for a specific decision
+    ///     the dmn decision ID, as parsed during deployment; together with the versions forms a
+    ///     unique identifier for a specific decision
     /// </returns>
     string DmnDecisionId { get; }
 
@@ -33,8 +33,8 @@ public interface IDecisionMetadata
     long DecisionKey { get; }
 
     /// <returns>
-    /// the dmn ID of the decision requirements graph that this decision is part of, as parsed
-    /// during deployment
+    ///     the dmn ID of the decision requirements graph that this decision is part of, as parsed
+    ///     during deployment
     /// </returns>
     string DmnDecisionRequirementsId { get; }
 

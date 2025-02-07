@@ -15,14 +15,15 @@ public class CamundaCloudTokenProvider : IAccessTokenSupplier, IDisposable
     private static readonly string ZeebeRootPath =
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".zeebe");
 
-    private readonly ILogger<CamundaCloudTokenProvider> logger;
+    private readonly string audience;
     private readonly string authServer;
     private readonly string clientId;
     private readonly string clientSecret;
-    private readonly string audience;
+
+    private readonly ILogger<CamundaCloudTokenProvider> logger;
+    private readonly PersistedAccessTokenCache persistedAccessTokenCache;
     private HttpClient httpClient;
     private HttpMessageHandler httpMessageHandler;
-    private readonly PersistedAccessTokenCache persistedAccessTokenCache;
 
     internal CamundaCloudTokenProvider(
         string authServer,
@@ -32,13 +33,26 @@ public class CamundaCloudTokenProvider : IAccessTokenSupplier, IDisposable
         string path = null,
         ILoggerFactory loggerFactory = null)
     {
-        persistedAccessTokenCache = new PersistedAccessTokenCache(path ?? ZeebeRootPath, FetchAccessToken, loggerFactory?.CreateLogger<PersistedAccessTokenCache>());
+        persistedAccessTokenCache = new PersistedAccessTokenCache(path ?? ZeebeRootPath, FetchAccessToken,
+            loggerFactory?.CreateLogger<PersistedAccessTokenCache>());
         logger = loggerFactory?.CreateLogger<CamundaCloudTokenProvider>();
         this.authServer = authServer;
         this.clientId = clientId;
         this.clientSecret = clientSecret;
         this.audience = audience;
-        httpClient = new HttpClient(new HttpClientHandler(), disposeHandler: false);
+        httpClient = new HttpClient(new HttpClientHandler(), false);
+    }
+
+    public async Task<string> GetAccessTokenForRequestAsync(string authUri = null,
+        CancellationToken cancellationToken = default)
+    {
+        return await persistedAccessTokenCache.Get(audience);
+    }
+
+    public void Dispose()
+    {
+        httpClient.Dispose();
+        httpMessageHandler.Dispose();
     }
 
     public static CamundaCloudTokenProviderBuilder Builder()
@@ -95,17 +109,5 @@ public class CamundaCloudTokenProvider : IAccessTokenSupplier, IDisposable
             new KeyValuePair<string, string>("grant_type", "client_credentials")
         });
         return formContent;
-    }
-
-    public void Dispose()
-    {
-        httpClient.Dispose();
-        httpMessageHandler.Dispose();
-    }
-
-    public async Task<string> GetAccessTokenForRequestAsync(string authUri = null,
-        CancellationToken cancellationToken = default(CancellationToken))
-    {
-        return await persistedAccessTokenCache.Get(audience);
     }
 }

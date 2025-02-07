@@ -12,15 +12,20 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
+using GatewayProtocol;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Impl.Responses;
 
-public class PartitionInfo(GatewayProtocol.Partition partition) : IPartitionInfo
+public class PartitionInfo(Partition partition) : IPartitionInfo
 {
     public int PartitionId { get; } = partition.PartitionId;
-    public bool IsLeader { get; } = partition.Role == GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader;
-    public PartitionBrokerRole Role { get; } = partition.Role == GatewayProtocol.Partition.Types.PartitionBrokerRole.Leader ? PartitionBrokerRole.LEADER : PartitionBrokerRole.FOLLOWER;
+    public bool IsLeader { get; } = partition.Role == Partition.Types.PartitionBrokerRole.Leader;
+
+    public PartitionBrokerRole Role { get; } = partition.Role == Partition.Types.PartitionBrokerRole.Leader
+        ? PartitionBrokerRole.LEADER
+        : PartitionBrokerRole.FOLLOWER;
 
     public override string ToString()
     {

@@ -12,12 +12,12 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-namespace Zeebe.Client.Api.Responses
+
+namespace Zeebe.Client.Api.Responses;
+
+/// <summary>
+///     Represents an response for an job complete command request.
+/// </summary>
+public interface ICompleteJobResponse
 {
-    /// <summary>
-    /// Represents an response for an job complete command request.
-    /// </summary>
-    public interface ICompleteJobResponse
-    {
-    }
 }

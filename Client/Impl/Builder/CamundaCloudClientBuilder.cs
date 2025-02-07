@@ -4,7 +4,8 @@ using Zeebe.Client.Api.Builder;
 
 namespace Zeebe.Client.Impl.Builder;
 
-public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaCloudClientBuilderStep1, ICamundaCloudClientBuilderStep2, ICamundaCloudClientBuilderFinalStep
+public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaCloudClientBuilderStep1,
+    ICamundaCloudClientBuilderStep2, ICamundaCloudClientBuilderFinalStep
 {
     private const string ZeebeAddressEnvVar = "ZEEBE_ADDRESS";
     private const string ZeebeClientIdEnvVar = "ZEEBE_CLIENT_ID";
@@ -20,15 +21,56 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
         camundaCloudTokenProviderBuilder = CamundaCloudTokenProvider.Builder();
     }
 
-    public static ICamundaCloudClientBuilder Builder()
-    {
-        return new CamundaCloudClientBuilder();
-    }
-
     public ICamundaCloudClientBuilderStep1 UseClientId(string clientId)
     {
         camundaCloudTokenProviderBuilder.UseClientId(clientId);
         return this;
+    }
+
+    public ICamundaCloudClientBuilderFinalStep FromEnv()
+    {
+        UseClientId(GetFromEnv(ZeebeClientIdEnvVar))
+            .UseClientSecret(GetFromEnv(ZeebeClientSecretEnvVar))
+            .UseContactPoint(GetFromEnv(ZeebeAddressEnvVar))
+            .UseAuthServer(GetFromEnv(ZeebeAuthServerEnvVar));
+        return this;
+    }
+
+    public ICamundaCloudClientBuilderFinalStep UseLoggerFactory(ILoggerFactory loggerFactory)
+    {
+        this.loggerFactory = loggerFactory;
+        camundaCloudTokenProviderBuilder.UseLoggerFactory(this.loggerFactory);
+        return this;
+    }
+
+    public ICamundaCloudClientBuilderFinalStep UseAuthServer(string url)
+    {
+        if (url is null)
+            // use default
+            return this;
+
+        camundaCloudTokenProviderBuilder.UseAuthServer(url);
+        return this;
+    }
+
+    public ICamundaCloudClientBuilderFinalStep UsePersistedStoragePath(string path)
+    {
+        if (path is null)
+            // use default
+            return this;
+
+        camundaCloudTokenProviderBuilder.UsePath(path);
+        return this;
+    }
+
+    public IZeebeClient Build()
+    {
+        return ZeebeClient.Builder()
+            .UseLoggerFactory(loggerFactory)
+            .UseGatewayAddress(gatewayAddress)
+            .UseTransportEncryption()
+            .UseAccessTokenSupplier(camundaCloudTokenProviderBuilder.Build())
+            .Build();
     }
 
     public ICamundaCloudClientBuilderStep2 UseClientSecret(string clientSecret)
@@ -55,59 +97,14 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
         return this;
     }
 
-    public ICamundaCloudClientBuilderFinalStep UseLoggerFactory(ILoggerFactory loggerFactory)
+    public static ICamundaCloudClientBuilder Builder()
     {
-        this.loggerFactory = loggerFactory;
-        camundaCloudTokenProviderBuilder.UseLoggerFactory(this.loggerFactory);
-        return this;
-    }
-
-    public ICamundaCloudClientBuilderFinalStep UseAuthServer(string url)
-    {
-        if (url is null)
-        {
-            // use default
-            return this;
-        }
-
-        camundaCloudTokenProviderBuilder.UseAuthServer(url);
-        return this;
-    }
-
-    public ICamundaCloudClientBuilderFinalStep UsePersistedStoragePath(string path)
-    {
-        if (path is null)
-        {
-            // use default
-            return this;
-        }
-
-        camundaCloudTokenProviderBuilder.UsePath(path);
-        return this;
+        return new CamundaCloudClientBuilder();
     }
 
     private string GetFromEnv(string key)
     {
         char[] charsToTrim = [' ', '\''];
         return Environment.GetEnvironmentVariable(key)?.Trim(charsToTrim);
-    }
-
-    public ICamundaCloudClientBuilderFinalStep FromEnv()
-    {
-        UseClientId(GetFromEnv(ZeebeClientIdEnvVar))
-            .UseClientSecret(GetFromEnv(ZeebeClientSecretEnvVar))
-            .UseContactPoint(GetFromEnv(ZeebeAddressEnvVar))
-            .UseAuthServer(GetFromEnv(ZeebeAuthServerEnvVar));
-        return this;
-    }
-
-    public IZeebeClient Build()
-    {
-        return ZeebeClient.Builder()
-            .UseLoggerFactory(loggerFactory)
-            .UseGatewayAddress(gatewayAddress)
-            .UseTransportEncryption()
-            .UseAccessTokenSupplier(camundaCloudTokenProviderBuilder.Build())
-            .Build();
     }
 }
