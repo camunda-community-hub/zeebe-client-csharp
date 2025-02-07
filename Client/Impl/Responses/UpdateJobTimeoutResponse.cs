@@ -4,5 +4,4 @@ namespace Zeebe.Client.Impl.Responses;
 
 public class UpdateJobTimeoutResponse : IUpdateJobTimeoutResponse
 {
-    
 }

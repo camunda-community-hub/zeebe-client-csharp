@@ -1,9 +1,8 @@
-namespace Zeebe.Client.Api.Responses
+namespace Zeebe.Client.Api.Responses;
+
+/// <summary>
+///     Response for publishing a message.
+/// </summary>
+public interface IPublishMessageResponse
 {
-    /// <summary>
-    /// Response for publishing a message.
-    /// </summary>
-    public interface IPublishMessageResponse
-    {
-    }
 }

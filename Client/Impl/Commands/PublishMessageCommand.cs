@@ -23,72 +23,64 @@ using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
 using PublishMessageResponse = Zeebe.Client.Impl.Responses.PublishMessageResponse;
 
-namespace Zeebe.Client.Impl.Commands
+namespace Zeebe.Client.Impl.Commands;
+
+public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
+    : IPublishMessageCommandStep1, IPublishMessageCommandStep2, IPublishMessageCommandStep3
 {
-    public class PublishMessageCommand : IPublishMessageCommandStep1, IPublishMessageCommandStep2, IPublishMessageCommandStep3
+    private readonly PublishMessageRequest request = new ();
+
+    public IPublishMessageCommandStep2 MessageName(string messageName)
     {
-        private readonly PublishMessageRequest request;
-        private readonly GatewayClient gatewayClient;
-        private readonly IAsyncRetryStrategy asyncRetryStrategy;
+        request.Name = messageName;
+        return this;
+    }
 
-        public PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
-        {
-            gatewayClient = client;
-            request = new PublishMessageRequest();
-            this.asyncRetryStrategy = asyncRetryStrategy;
-        }
+    public IPublishMessageCommandStep3 CorrelationKey(string correlationKey)
+    {
+        request.CorrelationKey = correlationKey;
+        return this;
+    }
 
-        public IPublishMessageCommandStep3 CorrelationKey(string correlationKey)
-        {
-            request.CorrelationKey = correlationKey;
-            return this;
-        }
+    public IPublishMessageCommandStep3 MessageId(string messageId)
+    {
+        request.MessageId = messageId;
+        return this;
+    }
 
-        public IPublishMessageCommandStep3 MessageId(string messageId)
-        {
-            request.MessageId = messageId;
-            return this;
-        }
+    public IPublishMessageCommandStep3 Variables(string variables)
+    {
+        request.Variables = variables;
+        return this;
+    }
 
-        public IPublishMessageCommandStep2 MessageName(string messageName)
-        {
-            request.Name = messageName;
-            return this;
-        }
+    public IPublishMessageCommandStep3 TimeToLive(TimeSpan timeToLive)
+    {
+        request.TimeToLive = (long)timeToLive.TotalMilliseconds;
+        return this;
+    }
 
-        public IPublishMessageCommandStep3 Variables(string variables)
-        {
-            request.Variables = variables;
-            return this;
-        }
-
-        public IPublishMessageCommandStep3 TimeToLive(TimeSpan timeToLive)
-        {
-            request.TimeToLive = (long)timeToLive.TotalMilliseconds;
-            return this;
-        }
-
-        public IPublishMessageCommandStep3 AddTenantId(string tenantId)
-        {
-            request.TenantId = tenantId;
-            return this;
-        }
+    public IPublishMessageCommandStep3 AddTenantId(string tenantId)
+    {
+        request.TenantId = tenantId;
+        return this;
+    }
         
-        public async Task<IPublishMessageResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
-        {
-            var asyncReply = gatewayClient.PublishMessageAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-            await asyncReply.ResponseAsync;
-            return new PublishMessageResponse();
-        }
+    public async Task<IPublishMessageResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
+    {
+        var asyncReply = client.PublishMessageAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        _ = await asyncReply.ResponseAsync;
+        return new PublishMessageResponse();
+    }
 
-        public async Task<IPublishMessageResponse> Send(CancellationToken cancellationToken)
-        {
-            return await Send(token: cancellationToken);
-        }
+    public async Task<IPublishMessageResponse> Send(CancellationToken cancellationToken)
+    {
+        return await Send(token: cancellationToken);
+    }
 
-        public async Task<IPublishMessageResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
-        {
-            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
-        }
+    public async Task<IPublishMessageResponse> SendWithRetry(TimeSpan? timespan = null,
+        CancellationToken token = default)
+    {
+        return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }
 }

@@ -10,26 +10,19 @@ using ModifyProcessInstanceResponse = Zeebe.Client.Impl.Responses.ModifyProcessI
 
 namespace Zeebe.Client.Impl.Commands;
 
-internal class ModifyProcessInstanceCommand : IModifyProcessInstanceCommandStep1, IModifyProcessInstanceCommandStep2,
-    IModifyProcessInstanceCommandStep3
+internal class ModifyProcessInstanceCommand(
+    GatewayClient client,
+    IAsyncRetryStrategy asyncRetryStrategy,
+    long processInstanceKey)
+    : IModifyProcessInstanceCommandStep1,
+        IModifyProcessInstanceCommandStep3
 {
-    private readonly ModifyProcessInstanceRequest request;
-    private readonly GatewayClient client;
-    private readonly IAsyncRetryStrategy asyncRetryStrategy;
+    private readonly ModifyProcessInstanceRequest request = new ()
+    {
+        ProcessInstanceKey = processInstanceKey
+    };
 
     private ModifyProcessInstanceRequest.Types.ActivateInstruction currentActivateInstruction;
-
-    public ModifyProcessInstanceCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy,
-        long processInstanceKey)
-    {
-        this.asyncRetryStrategy = asyncRetryStrategy;
-        this.client = client;
-
-        request = new ModifyProcessInstanceRequest
-        {
-            ProcessInstanceKey = processInstanceKey
-        };
-    }
 
     public IModifyProcessInstanceCommandStep3 ActivateElement(string elementId)
     {
@@ -85,33 +78,12 @@ internal class ModifyProcessInstanceCommand : IModifyProcessInstanceCommandStep1
         return this;
     }
 
-    public IModifyProcessInstanceCommandStep1 AddInstructionToTerminate(long elementInstanceKey)
-    {
-        request.TerminateInstructions.Add(new ModifyProcessInstanceRequest.Types.TerminateInstruction
-        {
-            ElementInstanceKey = elementInstanceKey
-        });
-        return this;
-    }
-
-
-    private void AddCurrentActivateInstruction()
-    {
-        if (currentActivateInstruction == null)
-        {
-            return;
-        }
-
-        request.ActivateInstructions.Add(currentActivateInstruction);
-        currentActivateInstruction = null;
-    }
-
     public async Task<IModifyProcessInstanceResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         AddCurrentActivateInstruction();
 
         var asyncReply = client.ModifyProcessInstanceAsync(request, cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        _ = await asyncReply.ResponseAsync;
         return new ModifyProcessInstanceResponse();
     }
 
@@ -124,5 +96,25 @@ internal class ModifyProcessInstanceCommand : IModifyProcessInstanceCommandStep1
         CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timeout, token));
+    }
+
+    public IModifyProcessInstanceCommandStep1 AddInstructionToTerminate(long elementInstanceKey)
+    {
+        request.TerminateInstructions.Add(new ModifyProcessInstanceRequest.Types.TerminateInstruction
+        {
+            ElementInstanceKey = elementInstanceKey
+        });
+        return this;
+    }
+
+    private void AddCurrentActivateInstruction()
+    {
+        if (currentActivateInstruction == null)
+    {
+      return;
+    }
+
+        request.ActivateInstructions.Add(currentActivateInstruction);
+        currentActivateInstruction = null;
     }
 }

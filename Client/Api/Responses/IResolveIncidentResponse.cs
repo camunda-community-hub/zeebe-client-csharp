@@ -1,9 +1,8 @@
-namespace Zeebe.Client.Api.Responses
+namespace Zeebe.Client.Api.Responses;
+
+/// <summary>
+///     Response for an resolve incident request.
+/// </summary>
+public interface IResolveIncidentResponse
 {
-    /// <summary>
-    /// Response for an resolve incident request.
-    /// </summary>
-    public interface IResolveIncidentResponse
-    {
-    }
 }

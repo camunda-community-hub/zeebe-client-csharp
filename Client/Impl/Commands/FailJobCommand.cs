@@ -23,63 +23,54 @@ using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
 using FailJobResponse = Zeebe.Client.Impl.Responses.FailJobResponse;
 
-namespace Zeebe.Client.Impl.Commands
+namespace Zeebe.Client.Impl.Commands;
+
+public class FailJobCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
+    : IFailJobCommandStep1, IFailJobCommandStep2
 {
-    public class FailJobCommand : IFailJobCommandStep1, IFailJobCommandStep2
+    private readonly FailJobRequest request = new ()
     {
-        private readonly FailJobRequest request;
-        private readonly GatewayClient gatewayClient;
-        private readonly IAsyncRetryStrategy asyncRetryStrategy;
+        JobKey = jobKey
+    };
 
-        public FailJobCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
-        {
-            gatewayClient = client;
-            this.asyncRetryStrategy = asyncRetryStrategy;
-            request = new FailJobRequest
-            {
-                JobKey = jobKey
-            };
-        }
+    public IFailJobCommandStep2 Retries(int remainingRetries)
+    {
+        request.Retries = remainingRetries;
+        return this;
+    }
 
-        public IFailJobCommandStep2 Retries(int remainingRetries)
-        {
-            request.Retries = remainingRetries;
-            return this;
-        }
+    public IFailJobCommandStep2 ErrorMessage(string errorMsg)
+    {
+        request.ErrorMessage = errorMsg;
+        return this;
+    }
 
-        public IFailJobCommandStep2 ErrorMessage(string errorMsg)
-        {
-            request.ErrorMessage = errorMsg;
-            return this;
-        }
+    public IFailJobCommandStep2 RetryBackOff(TimeSpan retryBackOff)
+    {
+        request.RetryBackOff = (long)retryBackOff.TotalMilliseconds;
+        return this;
+    }
 
-        public IFailJobCommandStep2 RetryBackOff(TimeSpan retryBackOff)
-        {
-            request.RetryBackOff = (long)retryBackOff.TotalMilliseconds;
-            return this;
-        }
+    public IFailJobCommandStep2 Variables(string variables)
+    {
+        request.Variables = variables;
+        return this;
+    }
 
-        public IFailJobCommandStep2 Variables(string variables)
-        {
-            request.Variables = variables;
-            return this;
-        }
+    public async Task<IFailJobResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
+    {
+        var asyncReply = client.FailJobAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        _ = await asyncReply.ResponseAsync;
+        return new FailJobResponse();
+    }
 
-        public async Task<IFailJobResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
-        {
-            var asyncReply = gatewayClient.FailJobAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-            await asyncReply.ResponseAsync;
-            return new FailJobResponse();
-        }
+    public async Task<IFailJobResponse> Send(CancellationToken cancellationToken)
+    {
+        return await Send(token: cancellationToken);
+    }
 
-        public async Task<IFailJobResponse> Send(CancellationToken cancellationToken)
-        {
-            return await Send(token: cancellationToken);
-        }
-
-        public async Task<IFailJobResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
-        {
-            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
-        }
+    public async Task<IFailJobResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    {
+        return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }
 }

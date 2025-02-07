@@ -7,12 +7,10 @@ namespace Client.IntegrationTests;
 [TestFixture]
 public class OAuthIntegrationTest
 {
-    private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest().WithIdentity();
-
     [OneTimeSetUp]
     public async Task Setup()
     {
-        await testHelper.SetupIntegrationTest();
+    _ = await testHelper.SetupIntegrationTest();
     }
 
     [OneTimeTearDown]
@@ -20,6 +18,8 @@ public class OAuthIntegrationTest
     {
         await testHelper.TearDownIntegrationTest();
     }
+
+    private readonly ZeebeIntegrationTestHelper testHelper = ZeebeIntegrationTestHelper.Latest().WithIdentity();
 
     [Test]
     public async Task ShouldSendRequestAndNotFailingWithAuthenticatedClient()
@@ -39,10 +39,10 @@ public class OAuthIntegrationTest
     [Test]
     public Task ShouldFailWithUnauthenticatedClient()
     {
-        Assert.ThrowsAsync<RpcException>(code: async () =>
-        {
-            await testHelper.CreateZeebeClient().TopologyRequest().Send();
-        });
-        return Task.CompletedTask;
+    _ = Assert.ThrowsAsync<RpcException>(async () =>
+    {
+      _ = await testHelper.CreateZeebeClient().TopologyRequest().Send();
+    });
+    return Task.CompletedTask;
     }
 }

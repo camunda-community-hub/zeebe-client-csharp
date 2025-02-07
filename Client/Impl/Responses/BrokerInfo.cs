@@ -12,42 +12,42 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using System.Collections.Generic;
 using System.Linq;
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Impl.Responses
+namespace Zeebe.Client.Impl.Responses;
+
+public class BrokerInfo : IBrokerInfo
 {
-    public class BrokerInfo : IBrokerInfo
+    private const char AddressSeparator = ':';
+
+    public BrokerInfo(GatewayProtocol.BrokerInfo brokerInfo)
     {
-        private const char AddressSeparator = ':';
+        Address = brokerInfo.Host + AddressSeparator + brokerInfo.Port;
+        Host = brokerInfo.Host;
+        NodeId = brokerInfo.NodeId;
+        Port = brokerInfo.Port;
 
-        public string Address { get; }
-        public string Host { get; }
-        public int NodeId { get; }
-        public int Port { get; }
-        public IList<IPartitionInfo> Partitions { get; }
+        Partitions = brokerInfo.Partitions
+            .Select(partition => new PartitionInfo(partition))
+            .Cast<IPartitionInfo>()
+            .ToList();
+    }
 
-        public BrokerInfo(GatewayProtocol.BrokerInfo brokerInfo)
-        {
-            Address = brokerInfo.Host + AddressSeparator + brokerInfo.Port;
-            Host = brokerInfo.Host;
-            NodeId = brokerInfo.NodeId;
-            Port = brokerInfo.Port;
+    public string Address { get; }
+    public string Host { get; }
+    public int NodeId { get; }
+    public int Port { get; }
+    public IList<IPartitionInfo> Partitions { get; }
 
-            Partitions = brokerInfo.Partitions
-                .Select(partition => new PartitionInfo(partition))
-                .Cast<IPartitionInfo>()
-                .ToList();
-        }
-
-        public override string ToString()
-        {
-            return $"\n {nameof(Address)}: {Address}," +
-                   $"\n {nameof(Host)}: {Host}," +
-                   $"\n {nameof(NodeId)}: {NodeId}," +
-                   $"\n {nameof(Port)}: {Port}," +
-                   "\n Partitions:\n" + string.Join(", ", Partitions);
-        }
+    public override string ToString()
+    {
+        return $"\n {nameof(Address)}: {Address}," +
+               $"\n {nameof(Host)}: {Host}," +
+               $"\n {nameof(NodeId)}: {NodeId}," +
+               $"\n {nameof(Port)}: {Port}," +
+               "\n Partitions:\n" + string.Join(", ", Partitions);
     }
 }

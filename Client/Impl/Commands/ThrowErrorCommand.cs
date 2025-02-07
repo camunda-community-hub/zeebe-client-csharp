@@ -21,58 +21,50 @@ using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Misc;
 using Zeebe.Client.Api.Responses;
 using static GatewayProtocol.Gateway;
+using ThrowErrorResponse = Zeebe.Client.Impl.Responses.ThrowErrorResponse;
 
-namespace Zeebe.Client.Impl.Commands
+namespace Zeebe.Client.Impl.Commands;
+
+public class ThrowErrorCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
+    : IThrowErrorCommandStep1, IThrowErrorCommandStep2
 {
-    public class ThrowErrorCommand : IThrowErrorCommandStep1, IThrowErrorCommandStep2
+    private readonly ThrowErrorRequest request = new ()
     {
-        private readonly ThrowErrorRequest request;
-        private readonly GatewayClient gatewayClient;
-        private readonly IAsyncRetryStrategy asyncRetryStrategy;
+        JobKey = jobKey
+    };
 
-        public ThrowErrorCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
-        {
-            gatewayClient = client;
-            this.asyncRetryStrategy = asyncRetryStrategy;
-            request = new ThrowErrorRequest
-            {
-                JobKey = jobKey
-            };
-        }
+    public IThrowErrorCommandStep2 ErrorCode(string errorCode)
+    {
+        request.ErrorCode = errorCode;
+        return this;
+    }
 
-        public IThrowErrorCommandStep2 ErrorCode(string errorCode)
-        {
-            request.ErrorCode = errorCode;
-            return this;
-        }
+    public IThrowErrorCommandStep2 ErrorMessage(string errorMessage)
+    {
+        request.ErrorMessage = errorMessage;
+        return this;
+    }
 
-        public IThrowErrorCommandStep2 ErrorMessage(string errorMessage)
-        {
-            request.ErrorMessage = errorMessage;
-            return this;
-        }
+    public IThrowErrorCommandStep2 Variables(string variables)
+    {
+        request.Variables = variables;
+        return this;
+    }
 
-        public IThrowErrorCommandStep2 Variables(string variables)
-        {
-            request.Variables = variables;
-            return this;
-        }
+    public async Task<IThrowErrorResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
+    {
+        var asyncReply = client.ThrowErrorAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        _ = await asyncReply.ResponseAsync;
+        return new ThrowErrorResponse();
+    }
 
-        public async Task<IThrowErrorResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
-        {
-            var asyncReply = gatewayClient.ThrowErrorAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-            await asyncReply.ResponseAsync;
-            return new Responses.ThrowErrorResponse();
-        }
+    public async Task<IThrowErrorResponse> Send(CancellationToken cancellationToken)
+    {
+        return await Send(token: cancellationToken);
+    }
 
-        public async Task<IThrowErrorResponse> Send(CancellationToken cancellationToken)
-        {
-            return await Send(token: cancellationToken);
-        }
-
-        public async Task<IThrowErrorResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
-        {
-            return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
-        }
+    public async Task<IThrowErrorResponse> SendWithRetry(TimeSpan? timespan = null, CancellationToken token = default)
+    {
+        return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }
 }

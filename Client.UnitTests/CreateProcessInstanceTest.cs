@@ -5,196 +5,195 @@ using GatewayProtocol;
 using Grpc.Core;
 using NUnit.Framework;
 
-namespace Zeebe.Client
+namespace Zeebe.Client;
+
+[TestFixture]
+public class CreateProcessInstanceTest : BaseZeebeTest
 {
-    [TestFixture]
-    public class CreateProcessInstanceTest : BaseZeebeTest
+    [Test]
+    public async Task ShouldSendRequestAsExpected()
     {
-        [Test]
-        public async Task ShouldSendRequestAsExpected()
+        // given
+        var expectedRequest = new CreateProcessInstanceRequest
         {
-            // given
-            var expectedRequest = new CreateProcessInstanceRequest
-            {
-                BpmnProcessId = "process",
-                Version = -1
-            };
+            BpmnProcessId = "process",
+            Version = -1
+        };
 
-            // when
-            await ZeebeClient.NewCreateProcessInstanceCommand()
-                .BpmnProcessId("process")
-                .LatestVersion()
-                .Send();
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .BpmnProcessId("process")
+        .LatestVersion()
+        .Send();
 
-            // then
-            var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
-        }
+        // then
+        var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
+        Assert.AreEqual(expectedRequest, request);
+    }
 
-        [Test]
-        public void ShouldTimeoutRequest()
+    [Test]
+    public void ShouldTimeoutRequest()
+    {
+        // given
+
+        // when
+        var task = ZeebeClient.NewCreateProcessInstanceCommand()
+            .BpmnProcessId("process")
+            .LatestVersion()
+            .Send(TimeSpan.Zero);
+        var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+        var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+
+        // then
+        Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+    }
+
+    [Test]
+    public void ShouldCancelRequest()
+    {
+        // given
+
+        // when
+        var task = ZeebeClient.NewCreateProcessInstanceCommand()
+            .BpmnProcessId("process")
+            .LatestVersion()
+            .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
+        var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+        var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+
+        // then
+        Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
+    }
+
+    [Test]
+    public async Task ShouldSendRequestWithVersionAsExpected()
+    {
+        // given
+        var expectedRequest = new CreateProcessInstanceRequest
         {
-            // given
+            BpmnProcessId = "process",
+            Version = 1
+        };
 
-            // when
-            var task = ZeebeClient.NewCreateProcessInstanceCommand()
-                .BpmnProcessId("process")
-                .LatestVersion()
-                .Send(TimeSpan.Zero);
-            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .BpmnProcessId("process")
+        .Version(1)
+        .Send();
 
-            // then
-            Assert.AreEqual(Grpc.Core.StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
-        }
+        // then
+        var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
+        Assert.AreEqual(expectedRequest, request);
+    }
 
-        [Test]
-        public void ShouldCancelRequest()
+    [Test]
+    public async Task ShouldSendRequestWithProcessDefinitionKeyAsExpected()
+    {
+        // given
+        var expectedRequest = new CreateProcessInstanceRequest
         {
-            // given
+            ProcessDefinitionKey = 1
+        };
 
-            // when
-            var task = ZeebeClient.NewCreateProcessInstanceCommand()
-                .BpmnProcessId("process")
-                .LatestVersion()
-                .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
-            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .ProcessDefinitionKey(1)
+        .Send();
 
-            // then
-            Assert.AreEqual(Grpc.Core.StatusCode.Cancelled, rpcException.Status.StatusCode);
-        }
+        // then
+        var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
+        Assert.AreEqual(expectedRequest, request);
+    }
 
-        [Test]
-        public async Task ShouldSendRequestWithVersionAsExpected()
+    [Test]
+    public async Task ShouldSendRequestWithVariablesAsExpected()
+    {
+        // given
+        var expectedRequest = new CreateProcessInstanceRequest
         {
-            // given
-            var expectedRequest = new CreateProcessInstanceRequest
-            {
-                BpmnProcessId = "process",
-                Version = 1
-            };
+            ProcessDefinitionKey = 1,
+            Variables = "{\"foo\":1}"
+        };
 
-            // when
-            await ZeebeClient.NewCreateProcessInstanceCommand()
-                .BpmnProcessId("process")
-                .Version(1)
-                .Send();
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .ProcessDefinitionKey(1)
+        .Variables("{\"foo\":1}")
+        .Send();
 
-            // then
-            var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
-        }
+        // then
+        var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
+        Assert.AreEqual(expectedRequest, request);
+    }
 
-        [Test]
-        public async Task ShouldSendRequestWithProcessDefinitionKeyAsExpected()
+    [Test]
+    public async Task ShouldSendRequestWithVariablesAndProcessIdAsExpected()
+    {
+        // given
+        var expectedRequest = new CreateProcessInstanceRequest
         {
-            // given
-            var expectedRequest = new CreateProcessInstanceRequest
-            {
-                ProcessDefinitionKey = 1
-            };
+            BpmnProcessId = "process",
+            Version = -1,
+            Variables = "{\"foo\":1}"
+        };
 
-            // when
-            await ZeebeClient.NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(1)
-                .Send();
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .BpmnProcessId("process")
+        .LatestVersion()
+        .Variables("{\"foo\":1}")
+        .Send();
 
-            // then
-            var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
-        }
+        // then
+        var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
+        Assert.AreEqual(expectedRequest, request);
+    }
 
-        [Test]
-        public async Task ShouldSendRequestWithVariablesAsExpected()
+    [Test]
+    public async Task ShouldSendRequestWithTenantIdAsExpected()
+    {
+        // given
+        var expectedRequest = new CreateProcessInstanceRequest
         {
-            // given
-            var expectedRequest = new CreateProcessInstanceRequest
-            {
-                ProcessDefinitionKey = 1,
-                Variables = "{\"foo\":1}"
-            };
+            ProcessDefinitionKey = 1,
+            TenantId = "tenant1"
+        };
 
-            // when
-            await ZeebeClient.NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(1)
-                .Variables("{\"foo\":1}")
-                .Send();
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .ProcessDefinitionKey(1)
+        .AddTenantId("tenant1")
+        .Send();
 
-            // then
-            var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
-        }
+        // then
+        var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
+        Assert.AreEqual(expectedRequest, request);
+    }
 
-        [Test]
-        public async Task ShouldSendRequestWithVariablesAndProcessIdAsExpected()
+    [Test]
+    public async Task ShouldReceiveResponseAsExpected()
+    {
+        // given
+        var expectedResponse = new CreateProcessInstanceResponse
         {
-            // given
-            var expectedRequest = new CreateProcessInstanceRequest
-            {
-                BpmnProcessId = "process",
-                Version = -1,
-                Variables = "{\"foo\":1}"
-            };
+            BpmnProcessId = "process",
+            Version = 1,
+            ProcessDefinitionKey = 2,
+            ProcessInstanceKey = 121
+        };
 
-            // when
-            await ZeebeClient.NewCreateProcessInstanceCommand()
-                .BpmnProcessId("process")
-                .LatestVersion()
-                .Variables("{\"foo\":1}")
-                .Send();
+        TestService.AddRequestHandler(typeof(CreateProcessInstanceRequest), request => expectedResponse);
 
-            // then
-            var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
-        }
+        // when
+        var processInstanceResponse = await ZeebeClient.NewCreateProcessInstanceCommand()
+            .BpmnProcessId("process")
+            .LatestVersion()
+            .Send();
 
-        [Test]
-        public async Task ShouldSendRequestWithTenantIdAsExpected()
-        {
-            // given
-            var expectedRequest = new CreateProcessInstanceRequest
-            {
-                ProcessDefinitionKey = 1,
-                TenantId = "tenant1"
-            };
-
-            // when
-            await ZeebeClient.NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(1)
-                .AddTenantId("tenant1")
-                .Send();
-
-            // then
-            var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
-            Assert.AreEqual(expectedRequest, request);
-        }
-
-        [Test]
-        public async Task ShouldReceiveResponseAsExpected()
-        {
-            // given
-            var expectedResponse = new CreateProcessInstanceResponse
-            {
-                BpmnProcessId = "process",
-                Version = 1,
-                ProcessDefinitionKey = 2,
-                ProcessInstanceKey = 121
-            };
-
-            TestService.AddRequestHandler(typeof(CreateProcessInstanceRequest), request => expectedResponse);
-
-            // when
-            var processInstanceResponse = await ZeebeClient.NewCreateProcessInstanceCommand()
-                .BpmnProcessId("process")
-                .LatestVersion()
-                .Send();
-
-            // then
-            Assert.AreEqual(2, processInstanceResponse.ProcessDefinitionKey);
-            Assert.AreEqual(1, processInstanceResponse.Version);
-            Assert.AreEqual(121, processInstanceResponse.ProcessInstanceKey);
-            Assert.AreEqual("process", processInstanceResponse.BpmnProcessId);
-        }
+        // then
+        Assert.AreEqual(2, processInstanceResponse.ProcessDefinitionKey);
+        Assert.AreEqual(1, processInstanceResponse.Version);
+        Assert.AreEqual(121, processInstanceResponse.ProcessInstanceKey);
+        Assert.AreEqual("process", processInstanceResponse.BpmnProcessId);
     }
 }

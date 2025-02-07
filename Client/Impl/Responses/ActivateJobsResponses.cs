@@ -3,33 +3,32 @@ using System.Linq;
 using GatewayProtocol;
 using Zeebe.Client.Api.Responses;
 
-namespace Zeebe.Client.Impl.Responses
+namespace Zeebe.Client.Impl.Responses;
+
+public class ActivateJobsResponses : IActivateJobsResponse
 {
-    public class ActivateJobsResponses : IActivateJobsResponse
+    public ActivateJobsResponses()
     {
-        public IList<IJob> Jobs { get; set; }
+        Jobs = new List<IJob>();
+    }
 
-        public ActivateJobsResponses()
-        {
-            Jobs = new List<IJob>();
-        }
+    public ActivateJobsResponses(ActivateJobsResponse jobsResponse)
+    {
+        Jobs = ConvertToList(jobsResponse);
+    }
 
-        public ActivateJobsResponses(GatewayProtocol.ActivateJobsResponse jobsResponse)
-        {
-            Jobs = ConvertToList(jobsResponse);
-        }
+    public IList<IJob> Jobs { get; set; }
 
-        public void Add(IActivateJobsResponse jobsResponse)
-        {
-            ((List<IJob>) Jobs).AddRange(jobsResponse.Jobs);
-        }
+    public void Add(IActivateJobsResponse jobsResponse)
+    {
+        ((List<IJob>)Jobs).AddRange(jobsResponse.Jobs);
+    }
 
-        private static List<IJob> ConvertToList(ActivateJobsResponse jobsResponse)
-        {
-            return jobsResponse.Jobs
-                .Select(job => new ActivatedJob(job))
-                .Cast<IJob>()
-                .ToList();
-        }
+    private static List<IJob> ConvertToList(ActivateJobsResponse jobsResponse)
+    {
+        return jobsResponse.Jobs
+            .Select(job => new ActivatedJob(job))
+            .Cast<IJob>()
+            .ToList();
     }
 }

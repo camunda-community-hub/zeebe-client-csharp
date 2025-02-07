@@ -1,9 +1,8 @@
-namespace Zeebe.Client.Api.Responses
+namespace Zeebe.Client.Api.Responses;
+
+/// <summary>
+///     Response for an update job timeout request.
+/// </summary>
+public interface IUpdateJobTimeoutResponse
 {
-    /// <summary>
-    /// Response for an update job timeout request.
-    /// </summary>
-    public interface IUpdateJobTimeoutResponse
-    {
-    }
 }

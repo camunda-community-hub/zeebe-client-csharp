@@ -7,51 +7,46 @@ using Zeebe.Client.Api.Responses;
 using Zeebe.Client.Impl.Responses;
 using static GatewayProtocol.Gateway;
 
-namespace Zeebe.Client.Impl.Commands
+namespace Zeebe.Client.Impl.Commands;
+
+public delegate Task ConsumeJob(IActivateJobsResponse response);
+
+internal class JobActivator(GatewayClient client)
 {
-    public delegate Task ConsumeJob(IActivateJobsResponse response);
-    internal class JobActivator
+    public async Task SendActivateRequest(ActivateJobsRequest request, ConsumeJob consumer,
+        DateTime? requestTimeout = null, CancellationToken? cancellationToken = null)
     {
-        private readonly GatewayClient client;
-
-        public JobActivator(GatewayClient client)
+        var activateRequestTimeout = requestTimeout ?? CalculateRequestTimeout(request);
+        using (var stream = client.ActivateJobs(request, deadline: activateRequestTimeout))
         {
-            this.client = client;
-        }
+            var responseStream = stream.ResponseStream;
 
-        public async Task SendActivateRequest(ActivateJobsRequest request, ConsumeJob consumer, DateTime? requestTimeout = null, CancellationToken? cancellationToken = null)
-        {
-            var activateRequestTimeout = requestTimeout ?? CalculateRequestTimeout(request);
-            using (var stream = client.ActivateJobs(request, deadline: activateRequestTimeout))
+            while (await MoveNext(responseStream, cancellationToken))
             {
-                var responseStream = stream.ResponseStream;
-
-                while (await MoveNext(responseStream, cancellationToken))
-                {
-                    var currentResponse = responseStream.Current;
-                    var response = new ActivateJobsResponses(currentResponse);
-                    await consumer.Invoke(response);
-                }
+                var currentResponse = responseStream.Current;
+                var response = new ActivateJobsResponses(currentResponse);
+                await consumer.Invoke(response);
             }
         }
+    }
 
-        private static DateTime CalculateRequestTimeout(ActivateJobsRequest request)
-        {
-            // we need a higher request deadline then the long polling request timeout
-            var longPollingTimeout = request.RequestTimeout;
-            return longPollingTimeout <= 0
-                ? TimeSpan.FromSeconds(10).FromUtcNow()
-                : TimeSpan.FromSeconds((longPollingTimeout / 1000f) + 10).FromUtcNow();
-        }
+    private static DateTime CalculateRequestTimeout(ActivateJobsRequest request)
+    {
+        // we need a higher request deadline then the long polling request timeout
+        var longPollingTimeout = request.RequestTimeout;
+        return longPollingTimeout <= 0
+            ? TimeSpan.FromSeconds(10).FromUtcNow()
+            : TimeSpan.FromSeconds(longPollingTimeout / 1000f + 10).FromUtcNow();
+    }
 
-        private static async Task<bool> MoveNext(IAsyncStreamReader<ActivateJobsResponse> stream, CancellationToken? cancellationToken = null)
-        {
-            if (cancellationToken.HasValue)
-            {
-                return await stream.MoveNext(cancellationToken.Value);
-            }
+    private static async Task<bool> MoveNext(IAsyncStreamReader<ActivateJobsResponse> stream,
+        CancellationToken? cancellationToken = null)
+    {
+        if (cancellationToken.HasValue)
+    {
+      return await stream.MoveNext(cancellationToken.Value);
+    }
 
-            return await stream.MoveNext();
-        }
+        return await stream.MoveNext();
     }
 }

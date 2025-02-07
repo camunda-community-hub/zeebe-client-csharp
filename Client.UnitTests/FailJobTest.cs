@@ -5,77 +5,76 @@ using GatewayProtocol;
 using Grpc.Core;
 using NUnit.Framework;
 
-namespace Zeebe.Client
+namespace Zeebe.Client;
+
+[TestFixture]
+public class FailJobTest : BaseZeebeTest
 {
-    [TestFixture]
-    public class FailJobTest : BaseZeebeTest
+    [Test]
+    public async Task ShouldSendRequestAsExpected()
     {
-        [Test]
-        public async Task ShouldSendRequestAsExpected()
+        // given
+        const string errorMessage = "This job failed!";
+        const int jobKey = 255;
+        const string variables = "{\"foo\":23}";
+        var expectedRequest = new FailJobRequest
         {
-            // given
-            const string errorMessage = "This job failed!";
-            const int jobKey = 255;
-            const string variables = "{\"foo\":23}";
-            var expectedRequest = new FailJobRequest
-            {
-                JobKey = jobKey,
-                ErrorMessage = errorMessage,
-                Retries = 2,
-                RetryBackOff = 1562,
-                Variables = variables
-            };
+            JobKey = jobKey,
+            ErrorMessage = errorMessage,
+            Retries = 2,
+            RetryBackOff = 1562,
+            Variables = variables
+        };
 
-            // when
-            await ZeebeClient.NewFailCommand(jobKey)
-                .Retries(2)
-                .ErrorMessage("This job failed!")
-                .RetryBackOff(TimeSpan.FromMilliseconds(1562.5))
-                .Variables(variables)
-                .Send();
+    // when
+        _ = await ZeebeClient.NewFailCommand(jobKey)
+        .Retries(2)
+        .ErrorMessage("This job failed!")
+        .RetryBackOff(TimeSpan.FromMilliseconds(1562.5))
+        .Variables(variables)
+        .Send();
 
-            // then
-            var actualRequest = TestService.Requests[typeof(FailJobRequest)][0];
+        // then
+        var actualRequest = TestService.Requests[typeof(FailJobRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
-        }
+        Assert.AreEqual(expectedRequest, actualRequest);
+    }
 
-        [Test]
-        public void ShouldTimeoutRequest()
-        {
-            // given
-            const int jobKey = 255;
+    [Test]
+    public void ShouldTimeoutRequest()
+    {
+        // given
+        const int jobKey = 255;
 
-            // when
-            var task = ZeebeClient
-                .NewFailCommand(jobKey)
-                .Retries(2)
-                .ErrorMessage("This job failed!")
-                .Send(TimeSpan.Zero);
-            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+        // when
+        var task = ZeebeClient
+            .NewFailCommand(jobKey)
+            .Retries(2)
+            .ErrorMessage("This job failed!")
+            .Send(TimeSpan.Zero);
+        var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+        var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
-            // then
-            Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
-        }
+        // then
+        Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+    }
 
-        [Test]
-        public void ShouldCancelRequest()
-        {
-            // given
-            const int jobKey = 255;
+    [Test]
+    public void ShouldCancelRequest()
+    {
+        // given
+        const int jobKey = 255;
 
-            // when
-            var task = ZeebeClient
-                .NewFailCommand(jobKey)
-                .Retries(2)
-                .ErrorMessage("This job failed!")
-                .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
-            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+        // when
+        var task = ZeebeClient
+            .NewFailCommand(jobKey)
+            .Retries(2)
+            .ErrorMessage("This job failed!")
+            .Send(new CancellationTokenSource(TimeSpan.Zero).Token);
+        var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+        var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
-            // then
-            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
-        }
+        // then
+        Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
     }
 }

@@ -9,21 +9,13 @@ using UpdateJobTimeoutResponse = Zeebe.Client.Impl.Responses.UpdateJobTimeoutRes
 
 namespace Zeebe.Client.Impl.Commands;
 
-public class UpdateJobTimeoutCommand : IUpdateJobTimeoutCommandStep1, IUpdateJobTimeoutCommandStep2
+public class UpdateJobTimeoutCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
+    : IUpdateJobTimeoutCommandStep1, IUpdateJobTimeoutCommandStep2
 {
-    private readonly UpdateJobTimeoutRequest request;
-    private readonly Gateway.GatewayClient client;
-    private readonly IAsyncRetryStrategy asyncRetryStrategy;
-
-    public UpdateJobTimeoutCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
+    private readonly UpdateJobTimeoutRequest request = new ()
     {
-        request = new UpdateJobTimeoutRequest()
-        {
-            JobKey = jobKey
-        };
-        this.client = client;
-        this.asyncRetryStrategy = asyncRetryStrategy;
-    }
+        JobKey = jobKey
+    };
 
     public IUpdateJobTimeoutCommandStep2 Timeout(TimeSpan timeout)
     {
@@ -33,8 +25,9 @@ public class UpdateJobTimeoutCommand : IUpdateJobTimeoutCommandStep1, IUpdateJob
 
     public async Task<IUpdateJobTimeoutResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
-        var asyncReply = client.UpdateJobTimeoutAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        var asyncReply =
+            client.UpdateJobTimeoutAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
+        _ = await asyncReply.ResponseAsync;
         return new UpdateJobTimeoutResponse();
     }
 
@@ -43,7 +36,8 @@ public class UpdateJobTimeoutCommand : IUpdateJobTimeoutCommandStep1, IUpdateJob
         return await Send(token: cancellationToken);
     }
 
-    public async Task<IUpdateJobTimeoutResponse> SendWithRetry(TimeSpan? timeout = null, CancellationToken token = default)
+    public async Task<IUpdateJobTimeoutResponse> SendWithRetry(TimeSpan? timeout = null,
+        CancellationToken token = default)
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timeout, token));
     }
