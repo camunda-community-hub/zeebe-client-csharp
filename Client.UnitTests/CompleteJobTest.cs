@@ -37,8 +37,8 @@ public class CompleteJobTest : BaseZeebeTest
             Variables = variables
         };
 
-        // when
-        await ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables).Send();
+    // when
+        _ = await ZeebeClient.NewCompleteJobCommand(jobKey).Variables(variables).Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(CompleteJobRequest)][0];
@@ -95,8 +95,8 @@ public class CompleteJobTest : BaseZeebeTest
             Variables = variables
         };
 
-        // when
-        await ZeebeClient.NewCompleteJobCommand(activatedJob).Variables(variables).Send();
+    // when
+        _ = await ZeebeClient.NewCompleteJobCommand(activatedJob).Variables(variables).Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(CompleteJobRequest)][0];

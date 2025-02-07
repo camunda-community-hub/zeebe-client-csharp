@@ -42,7 +42,10 @@ internal class JobActivator(GatewayClient client)
     private static async Task<bool> MoveNext(IAsyncStreamReader<ActivateJobsResponse> stream,
         CancellationToken? cancellationToken = null)
     {
-        if (cancellationToken.HasValue) return await stream.MoveNext(cancellationToken.Value);
+        if (cancellationToken.HasValue)
+    {
+      return await stream.MoveNext(cancellationToken.Value);
+    }
 
         return await stream.MoveNext();
     }

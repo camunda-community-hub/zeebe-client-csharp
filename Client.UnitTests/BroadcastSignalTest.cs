@@ -20,12 +20,12 @@ public class BroadcastSignalTest : BaseZeebeTest
             SignalName = "signalName",
             Variables = variables
         };
-        // when
-        await ZeebeClient
-            .NewBroadcastSignalCommand()
-            .SignalName("signalName")
-            .Variables(variables)
-            .Send();
+    // when
+        _ = await ZeebeClient
+        .NewBroadcastSignalCommand()
+        .SignalName("signalName")
+        .Variables(variables)
+        .Send();
         // then
         var request = TestService.Requests[typeof(BroadcastSignalRequest)][0];
         Assert.AreEqual(expectedRequest, request);

@@ -32,7 +32,6 @@ public class ZeebeIntegrationTestHelper
     private IContainer postgresContainer;
     private bool withIdentity;
 
-
     private IContainer zeebeContainer;
 
     private ZeebeIntegrationTestHelper(string version)
@@ -91,9 +90,13 @@ public class ZeebeIntegrationTestHelper
         await zeebeContainer.StartAsync();
 
         if (withIdentity)
+        {
             client = CreateAuthenticatedZeebeClient();
+        }
         else
+        {
             client = CreateZeebeClient();
+        }
 
         await AwaitBrokerReadiness();
         return client;
@@ -126,6 +129,7 @@ public class ZeebeIntegrationTestHelper
             .WithEnvironment("ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT", count.ToString());
 
         if (withIdentity)
+        {
             containerBuilder = containerBuilder.WithEnvironment("ZEEBE_BROKER_GATEWAY_SECURITY_AUTHENTICATION_MODE",
                     "identity")
                 .WithEnvironment(
@@ -138,6 +142,7 @@ public class ZeebeIntegrationTestHelper
                 .WithEnvironment("ZEEBE_BROKER_GATEWAY_SECURITY_PRIVATEKEYPATH", "/security/private.key.pem")
                 .WithResourceMapping(new DirectoryInfo("./Resources/Broker"), "/security")
                 .WithNetwork(network);
+        }
 
         containerBuilder = containerBuilder.WithAutoRemove(true);
         return containerBuilder.Build();
@@ -188,7 +193,6 @@ public class ZeebeIntegrationTestHelper
             .WithOutputConsumer(Consume.RedirectStdoutAndStderrToConsole())
             .WithNetwork(network);
 
-
         return containerBuilder.Build();
     }
 
@@ -208,7 +212,6 @@ public class ZeebeIntegrationTestHelper
             .WithOutputConsumer(Consume.RedirectStdoutAndStderrToConsole())
             .WithWaitStrategy(Wait.ForUnixContainer().UntilHttpRequestIsSucceeded(request =>
                 request.ForPort(8080).ForPath("/auth").ForStatusCode(HttpStatusCode.OK)));
-
 
         return containerBuilder.Build();
     }
@@ -269,7 +272,11 @@ public class ZeebeIntegrationTestHelper
             }
 
             continueLoop = !ready && maxCount > retries++;
-            if (continueLoop) await Task.Delay(1 * 1000);
-        } while (continueLoop);
+            if (continueLoop)
+            {
+                await Task.Delay(1 * 1000);
+            }
+        }
+        while (continueLoop);
     }
 }

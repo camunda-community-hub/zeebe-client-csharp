@@ -14,8 +14,8 @@ namespace Zeebe.Client.Impl.Commands;
 internal class ActivateJobsCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
     : IActivateJobsCommandStep1, IActivateJobsCommandStep2, IActivateJobsCommandStep3
 {
-    private readonly JobActivator activator = new(client);
-    public ActivateJobsRequest Request { get; } = new();
+    private readonly JobActivator activator = new (client);
+    public ActivateJobsRequest Request { get; } = new ();
 
     public IActivateJobsCommandStep2 JobType(string jobType)
     {

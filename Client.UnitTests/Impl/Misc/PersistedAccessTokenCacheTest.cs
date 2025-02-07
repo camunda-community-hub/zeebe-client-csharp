@@ -1,12 +1,12 @@
-// 
+//
 //     Copyright (c) 2021 camunda services GmbH (info@camunda.com)
-// 
+//
 //     Licensed under the Apache License, Version 2.0 (the "License");
 //     you may not use this file except in compliance with the License.
 //     You may obtain a copy of the License at
-// 
+//
 //         http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 //     Unless required by applicable law or agreed to in writing, software
 //     distributed under the License is distributed on an "AS IS" BASIS,
 //     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -27,7 +27,7 @@ public class PersistedAccessTokenCacheTest
     public void Init()
     {
         tempPath = Path.GetTempPath() + ".zeebe/";
-        Directory.CreateDirectory(tempPath);
+        _ = Directory.CreateDirectory(tempPath);
     }
 
     [TearDown]
@@ -64,8 +64,8 @@ public class PersistedAccessTokenCacheTest
             () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
                 DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds())));
 
-        // when
-        await accessTokenCache.Get("test");
+    // when
+        _ = await accessTokenCache.Get("test");
         var token = await accessTokenCache.Get("test");
 
         // then
@@ -103,15 +103,14 @@ public class PersistedAccessTokenCacheTest
             () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
                 DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
 
-        // when
-        await accessTokenCache.Get("test");
+    // when
+        _ = await accessTokenCache.Get("test");
         var token = await accessTokenCache.Get("test");
 
         // then
         Assert.AreEqual("token-1", token);
         Assert.AreEqual(2, fetchCounter);
     }
-
 
     [Test]
     public async Task ShouldReflectTokenOnDiskAfterExpiry()
@@ -164,7 +163,6 @@ public class PersistedAccessTokenCacheTest
         Assert.That(content, Does.Contain(audience));
     }
 
-
     [Test]
     public async Task ShouldPersistMultipleTokenToDisk()
     {
@@ -190,7 +188,6 @@ public class PersistedAccessTokenCacheTest
         Assert.That(content, Does.Contain(firstToken));
         Assert.That(content, Does.Contain("first"));
 
-
         Assert.That(content, Does.Contain(secondToken));
         Assert.That(content, Does.Contain("second"));
     }
@@ -205,7 +202,7 @@ public class PersistedAccessTokenCacheTest
         var accessTokenCache = new PersistedAccessTokenCache(path,
             () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
                 DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
-        await accessTokenCache.Get(audience);
+        _ = await accessTokenCache.Get(audience);
         File.Delete(Directory.GetFiles(path)[0]);
 
         // when

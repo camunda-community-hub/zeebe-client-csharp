@@ -81,10 +81,12 @@ public sealed class ZeebeClient : IZeebeClient
                     : new[] { certificate })
         };
         if (allowUntrusted)
-            // https://github.com/dotnet/runtime/issues/42482
-            // https://docs.servicestack.net/grpc/csharp#c-protoc-grpc-ssl-example
-            // Allows untrusted certificates, used for testing.
-            sslOptions.RemoteCertificateValidationCallback = (_, _, _, _) => true;
+    {
+      // https://github.com/dotnet/runtime/issues/42482
+      // https://docs.servicestack.net/grpc/csharp#c-protoc-grpc-ssl-example
+      // Allows untrusted certificates, used for testing.
+      sslOptions.RemoteCertificateValidationCallback = (_, _, _, _) => true;
+    }
 
         channelToGateway = grpcChannel ?? BuildChannelToGateway();
 
@@ -217,7 +219,10 @@ public sealed class ZeebeClient : IZeebeClient
 
     public void Dispose()
     {
-        if (gatewayClient is ClosedGatewayClient) return;
+        if (gatewayClient is ClosedGatewayClient)
+    {
+      return;
+    }
 
         gatewayClient = new ClosedGatewayClient();
         channelToGateway.Dispose();

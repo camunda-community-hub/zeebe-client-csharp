@@ -22,13 +22,13 @@ public class PublishMessageTest : BaseZeebeTest
             Variables = variables
         };
 
-        // when
-        await ZeebeClient
-            .NewPublishMessageCommand()
-            .MessageName("messageName")
-            .CorrelationKey("p-1")
-            .Variables(variables)
-            .Send();
+    // when
+        _ = await ZeebeClient
+        .NewPublishMessageCommand()
+        .MessageName("messageName")
+        .CorrelationKey("p-1")
+        .Variables(variables)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(PublishMessageRequest)][0];
@@ -82,13 +82,13 @@ public class PublishMessageTest : BaseZeebeTest
             TimeToLive = 10_000
         };
 
-        // when
-        await ZeebeClient
-            .NewPublishMessageCommand()
-            .MessageName("messageName")
-            .CorrelationKey("p-1")
-            .TimeToLive(TimeSpan.FromSeconds(10))
-            .Send();
+    // when
+        _ = await ZeebeClient
+        .NewPublishMessageCommand()
+        .MessageName("messageName")
+        .CorrelationKey("p-1")
+        .TimeToLive(TimeSpan.FromSeconds(10))
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(PublishMessageRequest)][0];
@@ -107,14 +107,14 @@ public class PublishMessageTest : BaseZeebeTest
             TimeToLive = 10_000
         };
 
-        // when
-        await ZeebeClient
-            .NewPublishMessageCommand()
-            .MessageName("messageName")
-            .CorrelationKey("p-1")
-            .MessageId("id")
-            .TimeToLive(TimeSpan.FromSeconds(10))
-            .Send();
+    // when
+        _ = await ZeebeClient
+        .NewPublishMessageCommand()
+        .MessageName("messageName")
+        .CorrelationKey("p-1")
+        .MessageId("id")
+        .TimeToLive(TimeSpan.FromSeconds(10))
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(PublishMessageRequest)][0];

@@ -28,7 +28,7 @@ namespace Zeebe.Client.Impl.Commands;
 public class FailJobCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
     : IFailJobCommandStep1, IFailJobCommandStep2
 {
-    private readonly FailJobRequest request = new()
+    private readonly FailJobRequest request = new ()
     {
         JobKey = jobKey
     };
@@ -60,7 +60,7 @@ public class FailJobCommand(GatewayClient client, IAsyncRetryStrategy asyncRetry
     public async Task<IFailJobResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         var asyncReply = client.FailJobAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        _ = await asyncReply.ResponseAsync;
         return new FailJobResponse();
     }
 

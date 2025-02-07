@@ -37,7 +37,7 @@ namespace Client.Examples
         public static async Task Main(string[] args)
         {
             // create zeebe client
-            var client = 
+            var client =
                 CamundaCloudClientBuilder.Builder()
                     .FromEnv()
                     .UseLoggerFactory(new NLogLoggerFactory())

@@ -30,7 +30,7 @@ namespace Zeebe.Client.Impl.Commands;
 public class DeployResourceCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
     : IDeployResourceCommandBuilderStep2
 {
-    private readonly DeployResourceRequest request = new();
+    private readonly DeployResourceRequest request = new ();
 
     public IDeployResourceCommandBuilderStep2 AddResourceBytes(byte[] resourceBytes, string resourceName)
     {
@@ -42,7 +42,7 @@ public class DeployResourceCommand(Gateway.GatewayClient client, IAsyncRetryStra
     public IDeployResourceCommandBuilderStep2 AddResourceFile(string filename)
     {
         var text = File.ReadAllText(filename);
-        AddResourceStringUtf8(text, filename);
+        _ = AddResourceStringUtf8(text, filename);
         return this;
     }
 

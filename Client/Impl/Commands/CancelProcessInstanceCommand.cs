@@ -15,7 +15,7 @@ public class CancelProcessInstanceCommand(
     long processInstanceKey)
     : ICancelProcessInstanceCommandStep1
 {
-    private readonly CancelProcessInstanceRequest request = new()
+    private readonly CancelProcessInstanceRequest request = new ()
     {
         ProcessInstanceKey = processInstanceKey
     };
@@ -24,7 +24,7 @@ public class CancelProcessInstanceCommand(
     {
         var asyncReply =
             client.CancelProcessInstanceAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        _ = await asyncReply.ResponseAsync;
         return new CancelProcessInstanceResponse();
     }
 

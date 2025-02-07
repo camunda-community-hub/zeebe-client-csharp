@@ -32,10 +32,10 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-        // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
-            .ActivateElement(TestElementId)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+        .ActivateElement(TestElementId)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
@@ -61,10 +61,10 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-        // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
-            .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+        .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
@@ -89,10 +89,10 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-        // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
-            .TerminateElement(TestElementInstanceKey)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+        .TerminateElement(TestElementInstanceKey)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
@@ -125,12 +125,12 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-        // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
-            .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
-            .And()
-            .TerminateElement(TestElementInstanceKey)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+        .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
+        .And()
+        .TerminateElement(TestElementInstanceKey)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
@@ -172,17 +172,17 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-        // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
-            .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
-            .And()
-            .TerminateElement(TestElementInstanceKey)
-            .And()
-            .ActivateElement(TestElementId + "2",
-                TestAncestorElementInstanceKey + 1)
-            .And()
-            .TerminateElement(TestElementInstanceKey + 1)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+        .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
+        .And()
+        .TerminateElement(TestElementInstanceKey)
+        .And()
+        .ActivateElement(TestElementId + "2",
+            TestAncestorElementInstanceKey + 1)
+        .And()
+        .TerminateElement(TestElementInstanceKey + 1)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
@@ -208,18 +208,18 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
                     {
                         new List<ModifyProcessInstanceRequest.Types.VariableInstruction>
                         {
-                            new() { Variables = TestVariables, ScopeId = TestScopeId }
+                            new () { Variables = TestVariables, ScopeId = TestScopeId }
                         }
                     }
                 }
             }
         };
 
-        // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
-            .ActivateElement(TestElementId)
-            .WithVariables(TestVariables, TestScopeId)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+        .ActivateElement(TestElementId)
+        .WithVariables(TestVariables, TestScopeId)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];
@@ -245,7 +245,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
                     {
                         new List<ModifyProcessInstanceRequest.Types.VariableInstruction>
                         {
-                            new() { Variables = TestVariables, ScopeId = TestScopeId }
+                            new () { Variables = TestVariables, ScopeId = TestScopeId }
                         }
                     }
                 }
@@ -259,13 +259,13 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-        // when
-        await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
-            .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
-            .WithVariables(TestVariables, TestScopeId)
-            .And()
-            .TerminateElement(TestElementInstanceKey)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
+        .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
+        .WithVariables(TestVariables, TestScopeId)
+        .And()
+        .TerminateElement(TestElementInstanceKey)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(ModifyProcessInstanceRequest)][0];

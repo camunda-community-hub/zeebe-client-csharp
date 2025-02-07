@@ -26,12 +26,12 @@ public class ThrowErrorTest : BaseZeebeTest
             Variables = variables
         };
 
-        // when
-        await ZeebeClient.NewThrowErrorCommand(jobKey)
-            .ErrorCode("code 13")
-            .ErrorMessage("This is a business error!")
-            .Variables(variables)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewThrowErrorCommand(jobKey)
+        .ErrorCode("code 13")
+        .ErrorMessage("This is a business error!")
+        .Variables(variables)
+        .Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(ThrowErrorRequest)][0];

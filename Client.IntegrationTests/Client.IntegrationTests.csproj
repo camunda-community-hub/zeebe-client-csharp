@@ -47,4 +47,8 @@
     <ProjectReference Include="..\Client\Client.csproj"/>
   </ItemGroup>
 
+  <PropertyGroup>
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+  </PropertyGroup>
+
 </Project>

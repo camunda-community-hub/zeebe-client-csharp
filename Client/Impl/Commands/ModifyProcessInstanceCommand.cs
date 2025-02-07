@@ -17,7 +17,7 @@ internal class ModifyProcessInstanceCommand(
     : IModifyProcessInstanceCommandStep1,
         IModifyProcessInstanceCommandStep3
 {
-    private readonly ModifyProcessInstanceRequest request = new()
+    private readonly ModifyProcessInstanceRequest request = new ()
     {
         ProcessInstanceKey = processInstanceKey
     };
@@ -83,7 +83,7 @@ internal class ModifyProcessInstanceCommand(
         AddCurrentActivateInstruction();
 
         var asyncReply = client.ModifyProcessInstanceAsync(request, cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        _ = await asyncReply.ResponseAsync;
         return new ModifyProcessInstanceResponse();
     }
 
@@ -107,10 +107,12 @@ internal class ModifyProcessInstanceCommand(
         return this;
     }
 
-
     private void AddCurrentActivateInstruction()
     {
-        if (currentActivateInstruction == null) return;
+        if (currentActivateInstruction == null)
+    {
+      return;
+    }
 
         request.ActivateInstructions.Add(currentActivateInstruction);
         currentActivateInstruction = null;

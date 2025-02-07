@@ -33,8 +33,8 @@ public class JobWorkerBuilder(
     private AsyncJobHandler asyncJobHandler;
     private bool autoCompletion;
     private TimeSpan pollInterval;
-    internal JobActivator Activator { get; } = new(gatewayClient);
-    internal ActivateJobsRequest Request { get; } = new();
+    internal JobActivator Activator { get; } = new (gatewayClient);
+    internal ActivateJobsRequest Request { get; } = new ();
     internal byte ThreadCount { get; set; } = 1;
     internal ILoggerFactory LoggerFactory { get; } = loggerFactory;
     internal IJobClient JobClient { get; } = zeebeClient;

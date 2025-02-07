@@ -50,8 +50,10 @@ internal class ZeebePlainClientBuilder : IZeebeClientFinalBuildStep
     public ZeebePlainClientBuilder(string address, ILoggerFactory loggerFactory = null)
     {
         if (address.StartsWith("https:"))
+        {
             throw new ArgumentException(
                 $@"Expected address '{address}' to start with 'http' when using a non secure connection.");
+        }
 
         Address = address.StartsWith("http") ? address : $"http://{address}";
         this.loggerFactory = loggerFactory;
@@ -79,17 +81,19 @@ internal class ZeebePlainClientBuilder : IZeebeClientFinalBuildStep
 
 internal class ZeebeSecureClientBuilder : IZeebeSecureClientBuilder
 {
+    private readonly X509Certificate2 certificate;
     private readonly ILoggerFactory loggerFactory;
     private bool allowUntrusted;
-    private readonly X509Certificate2 certificate;
     private TimeSpan? keepAlive;
     private Func<int, TimeSpan> sleepDurationProvider;
 
     public ZeebeSecureClientBuilder(string address, string certificatePath, ILoggerFactory loggerFactory = null)
     {
         if (address.StartsWith("http:"))
+        {
             throw new ArgumentException(
                 $"Expected address '{address}' to start with 'https' when using secure connection.");
+        }
 
         Address = address.StartsWith("https") ? address : $"https://{address}";
         this.loggerFactory = loggerFactory;
@@ -100,8 +104,10 @@ internal class ZeebeSecureClientBuilder : IZeebeSecureClientBuilder
     public ZeebeSecureClientBuilder(string address, ILoggerFactory loggerFactory = null)
     {
         if (address.StartsWith("http:"))
+        {
             throw new ArgumentException(
                 $"Expected address '{address}' to start with 'https' when using secure connection.");
+        }
 
         Address = address.StartsWith("https") ? address : $"https://{address}";
         this.loggerFactory = loggerFactory;

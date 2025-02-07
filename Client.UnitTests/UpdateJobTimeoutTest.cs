@@ -21,10 +21,10 @@ public class UpdateJobTimeoutTest : BaseZeebeTest
         };
 
         // when
-        await ZeebeClient
-            .NewUpdateJobTimeoutCommand(1024)
-            .Timeout(new TimeSpan(0, 0, 2))
-            .Send();
+        _ = await ZeebeClient
+        .NewUpdateJobTimeoutCommand(1024)
+        .Timeout(new TimeSpan(0, 0, 2))
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(UpdateJobTimeoutRequest)][0];

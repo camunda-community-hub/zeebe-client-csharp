@@ -32,8 +32,8 @@ public class RequestTopologyTest : BaseZeebeTest
         // given
         var expectedRequest = new TopologyRequest();
 
-        // when
-        await ZeebeClient.TopologyRequest().Send();
+    // when
+        _ = await ZeebeClient.TopologyRequest().Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(TopologyRequest)][0];

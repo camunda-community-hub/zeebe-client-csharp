@@ -42,9 +42,11 @@ public class JobWorkerMultiPartitionTest
         // given
         var handledJobs = new List<IJob>();
         foreach (var i in Enumerable.Range(1, 3))
-            await zeebeClient.NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(processDefinitionKey)
-                .Send();
+        {
+      _ = await zeebeClient.NewCreateProcessInstanceCommand()
+          .ProcessDefinitionKey(processDefinitionKey)
+          .Send();
+        }
 
         // when
         using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
@@ -53,9 +55,12 @@ public class JobWorkerMultiPartitionTest
                        .JobType("oneTask")
                        .Handler(async (jobClient, job) =>
                        {
-                           await jobClient.NewCompleteJobCommand(job).Send();
-                           handledJobs.Add(job);
-                           if (handledJobs.Count >= 3) signal.Set();
+                         _ = await jobClient.NewCompleteJobCommand(job).Send();
+                         handledJobs.Add(job);
+                         if (handledJobs.Count >= 3)
+                         {
+                           _ = signal.Set();
+                         }
                        })
                        .MaxJobsActive(5)
                        .Name("csharpWorker")
@@ -63,7 +68,7 @@ public class JobWorkerMultiPartitionTest
                        .PollInterval(TimeSpan.FromSeconds(5))
                        .Open())
             {
-                signal.WaitOne(TimeSpan.FromSeconds(5));
+        _ = signal.WaitOne(TimeSpan.FromSeconds(5));
             }
         }
 
@@ -75,9 +80,11 @@ public class JobWorkerMultiPartitionTest
     {
         // given
         foreach (var i in Enumerable.Range(1, 3))
-            await zeebeClient.NewCreateProcessInstanceCommand()
-                .ProcessDefinitionKey(processDefinitionKey)
-                .Send();
+        {
+      _ = await zeebeClient.NewCreateProcessInstanceCommand()
+          .ProcessDefinitionKey(processDefinitionKey)
+          .Send();
+        }
 
         // when
         var activateJobsResponse = await zeebeClient.NewActivateJobsCommand()

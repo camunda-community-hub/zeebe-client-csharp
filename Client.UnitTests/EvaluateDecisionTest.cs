@@ -19,10 +19,10 @@ public class EvaluateDecisionTest : BaseZeebeTest
             DecisionId = "decision"
         };
 
-        // when
-        await ZeebeClient.NewEvaluateDecisionCommand()
-            .DecisionId("decision")
-            .Send();
+    // when
+        _ = await ZeebeClient.NewEvaluateDecisionCommand()
+        .DecisionId("decision")
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(EvaluateDecisionRequest)][0];
@@ -70,10 +70,10 @@ public class EvaluateDecisionTest : BaseZeebeTest
             DecisionKey = 12
         };
 
-        // when
-        await ZeebeClient.NewEvaluateDecisionCommand()
-            .DecisionKey(12)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewEvaluateDecisionCommand()
+        .DecisionKey(12)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(EvaluateDecisionRequest)][0];
@@ -90,11 +90,11 @@ public class EvaluateDecisionTest : BaseZeebeTest
             Variables = "{\"foo\":1}"
         };
 
-        // when
-        await ZeebeClient.NewEvaluateDecisionCommand()
-            .DecisionKey(12)
-            .Variables("{\"foo\":1}")
-            .Send();
+    // when
+        _ = await ZeebeClient.NewEvaluateDecisionCommand()
+        .DecisionKey(12)
+        .Variables("{\"foo\":1}")
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(EvaluateDecisionRequest)][0];
@@ -111,11 +111,11 @@ public class EvaluateDecisionTest : BaseZeebeTest
             Variables = "{\"foo\":1}"
         };
 
-        // when
-        await ZeebeClient.NewEvaluateDecisionCommand()
-            .DecisionId("decision")
-            .Variables("{\"foo\":1}")
-            .Send();
+    // when
+        _ = await ZeebeClient.NewEvaluateDecisionCommand()
+        .DecisionId("decision")
+        .Variables("{\"foo\":1}")
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(EvaluateDecisionRequest)][0];
@@ -231,7 +231,6 @@ public class EvaluateDecisionTest : BaseZeebeTest
         Assert.AreEqual("moebmoeb", decisionEvaluatedInput.InputName);
         Assert.AreEqual("boom", decisionEvaluatedInput.InputValue);
 
-
         var decisionMatchedRules = decision.MatchedRules;
         Assert.AreEqual(1, decisionMatchedRules.Count);
         var decisionMatchedRule = decisionMatchedRules[0];
@@ -263,11 +262,11 @@ public class EvaluateDecisionTest : BaseZeebeTest
             TenantId = "tenant1"
         };
 
-        // when
-        await ZeebeClient.NewEvaluateDecisionCommand()
-            .DecisionId("decision")
-            .AddTenantId("tenant1")
-            .Send();
+    // when
+        _ = await ZeebeClient.NewEvaluateDecisionCommand()
+        .DecisionId("decision")
+        .AddTenantId("tenant1")
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(EvaluateDecisionRequest)][0];

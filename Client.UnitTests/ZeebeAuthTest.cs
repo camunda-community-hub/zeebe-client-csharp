@@ -1,12 +1,12 @@
-// 
+//
 //     Copyright (c) 2021 camunda services GmbH (info@camunda.com)
-// 
+//
 //     Licensed under the Apache License, Version 2.0 (the "License");
 //     you may not use this file except in compliance with the License.
 //     You may obtain a copy of the License at
-// 
+//
 //         http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 //     Unless required by applicable law or agreed to in writing, software
 //     distributed under the License is distributed on an "AS IS" BASIS,
 //     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -41,7 +41,7 @@ public class ZeebeAuthTest
         var channelCredentials = new SslServerCredentials(keyCertificatePairs);
 
         var server = new Server();
-        server.Ports.Add(new ServerPort("localhost", 26505, channelCredentials));
+        _ = server.Ports.Add(new ServerPort("localhost", 26505, channelCredentials));
 
         var testService = new GatewayTestService();
         var serviceDefinition = Gateway.BindService(testService);
@@ -115,12 +115,12 @@ public class ZeebeAuthTest
         // when
         try
         {
-            await zeebeClient
-                .NewPublishMessageCommand()
-                .MessageName("messageName")
-                .CorrelationKey("p-1")
-                .Send();
-            Assert.Fail();
+      _ = await zeebeClient
+          .NewPublishMessageCommand()
+          .MessageName("messageName")
+          .CorrelationKey("p-1")
+          .Send();
+      Assert.Fail();
         }
         catch (RpcException rpcException)
         {
@@ -140,9 +140,9 @@ public class ZeebeAuthTest
             .UseAccessToken("token")
             .Build();
 
-        // when
-        await zeebeClient.TopologyRequest().Send();
-        await zeebeClient.TopologyRequest().Send();
+    // when
+        _ = await zeebeClient.TopologyRequest().Send();
+        _ = await zeebeClient.TopologyRequest().Send();
         var topology = await zeebeClient.TopologyRequest().Send();
 
         // then
@@ -161,9 +161,9 @@ public class ZeebeAuthTest
             .UseAccessTokenSupplier(accessTokenSupplier)
             .Build();
 
-        // when
-        await zeebeClient.TopologyRequest().Send();
-        await zeebeClient.TopologyRequest().Send();
+    // when
+        _ = await zeebeClient.TopologyRequest().Send();
+        _ = await zeebeClient.TopologyRequest().Send();
         var topology = await zeebeClient.TopologyRequest().Send();
 
         // then

@@ -17,4 +17,6 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Impl.Responses;
 
-public class FailJobResponse : IFailJobResponse;
+public class FailJobResponse : IFailJobResponse
+{
+}

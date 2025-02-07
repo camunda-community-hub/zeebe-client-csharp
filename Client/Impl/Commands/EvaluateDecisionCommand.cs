@@ -27,7 +27,7 @@ namespace Zeebe.Client.Impl.Commands;
 public class EvaluateDecisionCommand(Gateway.GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
     : IEvaluateDecisionCommandStep1, IEvaluateDecisionCommandStep1.IEvaluateDecisionCommandStep2
 {
-    private readonly EvaluateDecisionRequest request = new();
+    private readonly EvaluateDecisionRequest request = new ();
 
     public IEvaluateDecisionCommandStep1.IEvaluateDecisionCommandStep2 DecisionId(string decisionId)
     {

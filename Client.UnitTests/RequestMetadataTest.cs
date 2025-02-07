@@ -14,8 +14,8 @@ public class RequestMetadataTest : BaseZeebeTest
         Metadata sendMetadata = null;
         TestService.ConsumeRequestHeaders(metadata => { sendMetadata = metadata; });
 
-        // when
-        await ZeebeClient.TopologyRequest().Send();
+    // when
+        _ = await ZeebeClient.TopologyRequest().Send();
 
         // then
         Assert.NotNull(sendMetadata);
