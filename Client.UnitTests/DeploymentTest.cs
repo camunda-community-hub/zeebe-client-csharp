@@ -35,8 +35,8 @@ public class DeploymentTest : BaseZeebeTest
             }
         };
 
-        // when
-        await ZeebeClient.NewDeployCommand().AddResourceFile(_demoProcessPath).Send();
+    // when
+        _ = await ZeebeClient.NewDeployCommand().AddResourceFile(_demoProcessPath).Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
@@ -96,9 +96,9 @@ public class DeploymentTest : BaseZeebeTest
 
         // when
         var fileContent = File.ReadAllText(_demoProcessPath);
-        await ZeebeClient.NewDeployCommand()
-            .AddResourceString(fileContent, Encoding.UTF8, _demoProcessPath)
-            .Send();
+        _ = await ZeebeClient.NewDeployCommand()
+        .AddResourceString(fileContent, Encoding.UTF8, _demoProcessPath)
+        .Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
@@ -124,9 +124,9 @@ public class DeploymentTest : BaseZeebeTest
 
         // when
         var fileContent = File.ReadAllText(_demoProcessPath);
-        await ZeebeClient.NewDeployCommand()
-            .AddResourceStringUtf8(fileContent, _demoProcessPath)
-            .Send();
+        _ = await ZeebeClient.NewDeployCommand()
+        .AddResourceStringUtf8(fileContent, _demoProcessPath)
+        .Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
@@ -152,9 +152,9 @@ public class DeploymentTest : BaseZeebeTest
 
         // when
         var fileContent = File.ReadAllText(_demoProcessPath);
-        await ZeebeClient.NewDeployCommand()
-            .AddResourceBytes(Encoding.UTF8.GetBytes(fileContent), _demoProcessPath)
-            .Send();
+        _ = await ZeebeClient.NewDeployCommand()
+        .AddResourceBytes(Encoding.UTF8.GetBytes(fileContent), _demoProcessPath)
+        .Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
@@ -178,10 +178,10 @@ public class DeploymentTest : BaseZeebeTest
             }
         };
 
-        // when
-        await ZeebeClient.NewDeployCommand()
-            .AddResourceStream(File.OpenRead(_demoProcessPath), _demoProcessPath)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewDeployCommand()
+        .AddResourceStream(File.OpenRead(_demoProcessPath), _demoProcessPath)
+        .Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
@@ -250,11 +250,11 @@ public class DeploymentTest : BaseZeebeTest
             }
         };
 
-        // when
-        await ZeebeClient.NewDeployCommand()
-            .AddResourceFile(_demoProcessPath)
-            .AddResourceStream(File.OpenRead(_demoFormPath), _demoFormPath)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewDeployCommand()
+        .AddResourceFile(_demoProcessPath)
+        .AddResourceStream(File.OpenRead(_demoFormPath), _demoFormPath)
+        .Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];
@@ -380,8 +380,8 @@ public class DeploymentTest : BaseZeebeTest
             }
         };
 
-        // when
-        await ZeebeClient.NewDeployCommand().AddResourceFile(_demoProcessPath).AddTenantId("1234").Send();
+    // when
+        _ = await ZeebeClient.NewDeployCommand().AddResourceFile(_demoProcessPath).AddTenantId("1234").Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(DeployResourceRequest)][0];

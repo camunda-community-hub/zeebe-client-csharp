@@ -20,7 +20,7 @@ public class CreateProcessInstanceCommandWithResult(
     private static readonly long DefaultGatewayBrokerTimeoutMillisecond = 20 * 1000;
     private static readonly long DefaultTimeoutAdditionMillisecond = 10 * 1000;
 
-    private readonly CreateProcessInstanceWithResultRequest createWithResultRequest = new() { Request = createRequest };
+    private readonly CreateProcessInstanceWithResultRequest createWithResultRequest = new () { Request = createRequest };
 
     /// <inheritdoc />
     public ICreateProcessInstanceWithResultCommandStep1 FetchVariables(IList<string> fetchVariables)

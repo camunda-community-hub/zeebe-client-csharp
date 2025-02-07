@@ -61,7 +61,7 @@ public interface IJobWorkerBuilderStep2
     ///   {
     ///     String json = job.Variables;
     ///     // modify variables
-    /// 
+    ///
     ///     client
     ///          .CompleteCommand(job.Key)
     ///          .Variables(json)
@@ -87,7 +87,7 @@ public interface IJobWorkerBuilderStep2
     ///   {
     ///     String json = job.Variables;
     ///     // modify variables
-    /// 
+    ///
     ///     await client
     ///          .CompleteCommand(job.Key)
     ///          .Variables(json)

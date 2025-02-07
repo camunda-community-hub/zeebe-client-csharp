@@ -8,7 +8,7 @@ public interface ITenantIdsCommandStep<out T>
     ///     Specifies the tenants that may own any entities (e.g. process definition, process instances, etc.) resulting from
     ///     this command.
     /// </summary>
-    /// This can be useful when requesting jobs for multiple tenants at once. Each of the activated 
+    /// This can be useful when requesting jobs for multiple tenants at once. Each of the activated
     /// jobs will be owned by the tenant that owns the corresponding process instance.
     /// <param name="tenantIds">the identifiers of the tenants to specify for this command, e.g. ["ACME", "OTHER"]</param>
     /// <returns>
@@ -21,7 +21,7 @@ public interface ITenantIdsCommandStep<out T>
     ///     Specifies the tenants that may own any entities (e.g. process definition, process instances, etc.) resulting from
     ///     this command.
     /// </summary>
-    /// This can be useful when requesting jobs for multiple tenants at once. Each of the activated 
+    /// This can be useful when requesting jobs for multiple tenants at once. Each of the activated
     /// jobs will be owned by the tenant that owns the corresponding process instance.
     /// <param name="tenantIds">the identifiers of the tenants to specify for this command, e.g. ["ACME", "OTHER"]</param>
     /// <returns>

@@ -16,7 +16,7 @@ public class CreateProcessInstanceCommand(Gateway.GatewayClient client, IAsyncRe
 {
     private const int LatestVersionValue = -1;
 
-    private readonly CreateProcessInstanceRequest request = new();
+    private readonly CreateProcessInstanceRequest request = new ();
 
     public ICreateProcessInstanceCommandStep2 BpmnProcessId(string bpmnProcessId)
     {

@@ -26,13 +26,13 @@ public class FailJobTest : BaseZeebeTest
             Variables = variables
         };
 
-        // when
-        await ZeebeClient.NewFailCommand(jobKey)
-            .Retries(2)
-            .ErrorMessage("This job failed!")
-            .RetryBackOff(TimeSpan.FromMilliseconds(1562.5))
-            .Variables(variables)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewFailCommand(jobKey)
+        .Retries(2)
+        .ErrorMessage("This job failed!")
+        .RetryBackOff(TimeSpan.FromMilliseconds(1562.5))
+        .Variables(variables)
+        .Send();
 
         // then
         var actualRequest = TestService.Requests[typeof(FailJobRequest)][0];

@@ -1,17 +1,16 @@
+// Copyright (c) 2021 camunda services GmbH (info@camunda.com)
 //
-//    Copyright (c) 2018 camunda services GmbH (info@camunda.com)
+//     Licensed under the Apache License, Version 2.0 (the "License");
+//     you may not use this file except in compliance with the License.
+//     You may obtain a copy of the License at
 //
-//    Licensed under the Apache License, Version 2.0 (the "License");
-//    you may not use this file except in compliance with the License.
-//    You may obtain a copy of the License at
+//         http://www.apache.org/licenses/LICENSE-2.0
 //
-//        http://www.apache.org/licenses/LICENSE-2.0
-//
-//    Unless required by applicable law or agreed to in writing, software
-//    distributed under the License is distributed on an "AS IS" BASIS,
-//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//    See the License for the specific language governing permissions and
-//    limitations under the License.
+//     Unless required by applicable law or agreed to in writing, software
+//     distributed under the License is distributed on an "AS IS" BASIS,
+//     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//     See the License for the specific language governing permissions and
+//     limitations under the License.
 
 using System;
 using System.Collections.Concurrent;
@@ -53,7 +52,10 @@ public class JobWorkerTest : BaseZeebeTest
                    .Handler((jobClient, job) =>
                    {
                        receivedJobs.Add(job);
-                       if (receivedJobs.Count == 3) signal.Set();
+                       if (receivedJobs.Count == 3)
+                       {
+                       _ = signal.Set();
+                       }
                    })
                    .MaxJobsActive(3)
                    .Name("jobWorker")
@@ -63,7 +65,7 @@ public class JobWorkerTest : BaseZeebeTest
                    .Open())
         {
             Assert.True(jobWorker.IsOpen());
-            signal.WaitOne();
+            _ = signal.WaitOne();
         }
 
         // then
@@ -101,7 +103,10 @@ public class JobWorkerTest : BaseZeebeTest
                    .Handler((_, job) =>
                    {
                        receivedJobs.Add(job);
-                       if (receivedJobs.Count == 3) signal.Set();
+                       if (receivedJobs.Count == 3)
+                       {
+                         signal.Set();
+                       }
                    })
                    .MaxJobsActive(3)
                    .Name("jobWorker")
@@ -113,7 +118,7 @@ public class JobWorkerTest : BaseZeebeTest
                    .Open())
         {
             Assert.True(jobWorker.IsOpen());
-            signal.WaitOne();
+            _ = signal.WaitOne();
         }
 
         // then
@@ -134,10 +139,10 @@ public class JobWorkerTest : BaseZeebeTest
         var aggregateException = Assert.Throws<ArgumentOutOfRangeException>(
             () =>
             {
-                ZeebeClient.NewWorker()
-                    .JobType("foo")
-                    .Handler((jobClient, job) => { })
-                    .HandlerThreads(0);
+              _ = ZeebeClient.NewWorker()
+                  .JobType("foo")
+                  .Handler((jobClient, job) => { })
+                  .HandlerThreads(0);
             });
         StringAssert.Contains("Expected an handler thread count larger then zero, but got 0.",
             aggregateException.Message);
@@ -165,9 +170,12 @@ public class JobWorkerTest : BaseZeebeTest
                    .JobType("foo")
                    .Handler(async (jobClient, job) =>
                    {
-                       await jobClient.NewCompleteJobCommand(job).Send();
-                       completedJobs.Add(job);
-                       if (completedJobs.Count == 3) signal.Set();
+                     _ = await jobClient.NewCompleteJobCommand(job).Send();
+                     completedJobs.Add(job);
+                     if (completedJobs.Count == 3)
+                       {
+                       _ = signal.Set();
+                       }
                    })
                    .MaxJobsActive(3)
                    .Name("jobWorker")
@@ -178,7 +186,7 @@ public class JobWorkerTest : BaseZeebeTest
                    .Open())
         {
             Assert.True(jobWorker.IsOpen());
-            signal.WaitOne();
+            _ = signal.WaitOne();
         }
 
         // then
@@ -215,9 +223,12 @@ public class JobWorkerTest : BaseZeebeTest
                    .JobType("foo")
                    .Handler(async (jobClient, job) =>
                    {
-                       await jobClient.NewCompleteJobCommand(job).Send();
-                       completedJobs.TryAdd(job.Key, job);
-                       if (completedJobs.Count == 3) signal.Set();
+                     _ = await jobClient.NewCompleteJobCommand(job).Send();
+                     _ = completedJobs.TryAdd(job.Key, job);
+                     if (completedJobs.Count == 3)
+                       {
+                       _ = signal.Set();
+                       }
                    })
                    .MaxJobsActive(3)
                    .Name("jobWorker")
@@ -228,7 +239,7 @@ public class JobWorkerTest : BaseZeebeTest
                    .Open())
         {
             Assert.True(jobWorker.IsOpen());
-            signal.WaitOne();
+            _ = signal.WaitOne();
         }
 
         // then
@@ -263,9 +274,12 @@ public class JobWorkerTest : BaseZeebeTest
                    .JobType("foo")
                    .Handler((jobClient, job) =>
                    {
-                       jobClient.NewCompleteJobCommand(job).Send();
-                       completedJobs.Add(job);
-                       if (completedJobs.Count == 3) signal.Set();
+                     _ = jobClient.NewCompleteJobCommand(job).Send();
+                     completedJobs.Add(job);
+                     if (completedJobs.Count == 3)
+                       {
+                       _ = signal.Set();
+                       }
                    })
                    .MaxJobsActive(3)
                    .Name("jobWorker")
@@ -275,7 +289,7 @@ public class JobWorkerTest : BaseZeebeTest
                    .Open())
         {
             Assert.True(jobWorker.IsOpen());
-            signal.WaitOne();
+            _ = signal.WaitOne();
         }
 
         // then
@@ -285,7 +299,9 @@ public class JobWorkerTest : BaseZeebeTest
         var completeRequests = TestService.Requests[typeof(CompleteJobRequest)];
         while (completeRequests.Count != 3)
             // busy loop to await 3 requests
+        {
             completeRequests = TestService.Requests[typeof(CompleteJobRequest)];
+        }
 
         Assert.GreaterOrEqual(completeRequests.Count, 3);
         Assert.GreaterOrEqual(completedJobs.Count, 3);
@@ -327,10 +343,12 @@ public class JobWorkerTest : BaseZeebeTest
                        // block job handling
                        receivedJobs.Add(job);
                        if (receivedJobs.Count == 2)
+                       {
                            using (var signal = new EventWaitHandle(false, EventResetMode.AutoReset))
                            {
-                               signal.WaitOne();
+                         _ = signal.WaitOne();
                            }
+                       }
                    })
                    .MaxJobsActive(4)
                    .Name("jobWorker")
@@ -376,7 +394,10 @@ public class JobWorkerTest : BaseZeebeTest
                    .Handler((jobClient, job) =>
                    {
                        receivedJobs.Add(job);
-                       if (receivedJobs.Count == 3) signal.Set();
+                       if (receivedJobs.Count == 3)
+                       {
+                       _ = signal.Set();
+                       }
                    })
                    .MaxJobsActive(1)
                    .Name("jobWorker")
@@ -386,7 +407,7 @@ public class JobWorkerTest : BaseZeebeTest
                    .Open())
         {
             Assert.True(jobWorker.IsOpen());
-            signal.WaitOne();
+            _ = signal.WaitOne();
         }
 
         // then
@@ -423,7 +444,10 @@ public class JobWorkerTest : BaseZeebeTest
                    .Handler((jobClient, job) =>
                    {
                        receivedJobs.Add(job);
-                       if (receivedJobs.Count == 3) signal.Set();
+                       if (receivedJobs.Count == 3)
+                       {
+                       _ = signal.Set();
+                       }
                    })
                    .MaxJobsActive(1)
                    .Name("jobWorker")
@@ -433,7 +457,7 @@ public class JobWorkerTest : BaseZeebeTest
                    .Open())
         {
             Assert.True(jobWorker.IsOpen());
-            signal.WaitOne();
+            _ = signal.WaitOne();
         }
 
         // then
@@ -470,7 +494,10 @@ public class JobWorkerTest : BaseZeebeTest
                    .Handler((jobClient, job) =>
                    {
                        receivedJobs.Add(job);
-                       if (receivedJobs.Count == 3) signal.Set();
+                       if (receivedJobs.Count == 3)
+                       {
+                       _ = signal.Set();
+                       }
                    })
                    .MaxJobsActive(1)
                    .Name("jobWorker")
@@ -480,7 +507,7 @@ public class JobWorkerTest : BaseZeebeTest
                    .Open())
         {
             Assert.True(jobWorker.IsOpen());
-            signal.WaitOne();
+            _ = signal.WaitOne();
         }
 
         // then
@@ -520,7 +547,10 @@ public class JobWorkerTest : BaseZeebeTest
                    .JobType("foo")
                    .Handler((jobClient, job) =>
                    {
-                       if (job.Key == 1) throw new Exception("Fail");
+                       if (job.Key == 1)
+                       {
+                           throw new Exception("Fail");
+                       }
                    })
                    .MaxJobsActive(1)
                    .Name("jobWorker")
@@ -554,9 +584,12 @@ public class JobWorkerTest : BaseZeebeTest
                    .JobType("foo")
                    .Handler(async (jobClient, job) =>
                    {
-                       if (job.Key == 2) throw new Exception("Fail");
+                       if (job.Key == 2)
+                     {
+                       throw new Exception("Fail");
+                     }
 
-                       await jobClient.NewCompleteJobCommand(job).Send();
+                       _ = await jobClient.NewCompleteJobCommand(job).Send();
                    })
                    .MaxJobsActive(3)
                    .Name("jobWorker")

@@ -20,11 +20,11 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             Version = -1
         };
 
-        // when
-        await ZeebeClient.NewCreateProcessInstanceCommand()
-            .BpmnProcessId("process")
-            .LatestVersion()
-            .Send();
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .BpmnProcessId("process")
+        .LatestVersion()
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
@@ -75,11 +75,11 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             Version = 1
         };
 
-        // when
-        await ZeebeClient.NewCreateProcessInstanceCommand()
-            .BpmnProcessId("process")
-            .Version(1)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .BpmnProcessId("process")
+        .Version(1)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
@@ -95,10 +95,10 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             ProcessDefinitionKey = 1
         };
 
-        // when
-        await ZeebeClient.NewCreateProcessInstanceCommand()
-            .ProcessDefinitionKey(1)
-            .Send();
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .ProcessDefinitionKey(1)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
@@ -115,11 +115,11 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             Variables = "{\"foo\":1}"
         };
 
-        // when
-        await ZeebeClient.NewCreateProcessInstanceCommand()
-            .ProcessDefinitionKey(1)
-            .Variables("{\"foo\":1}")
-            .Send();
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .ProcessDefinitionKey(1)
+        .Variables("{\"foo\":1}")
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
@@ -137,12 +137,12 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             Variables = "{\"foo\":1}"
         };
 
-        // when
-        await ZeebeClient.NewCreateProcessInstanceCommand()
-            .BpmnProcessId("process")
-            .LatestVersion()
-            .Variables("{\"foo\":1}")
-            .Send();
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .BpmnProcessId("process")
+        .LatestVersion()
+        .Variables("{\"foo\":1}")
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];
@@ -159,11 +159,11 @@ public class CreateProcessInstanceTest : BaseZeebeTest
             TenantId = "tenant1"
         };
 
-        // when
-        await ZeebeClient.NewCreateProcessInstanceCommand()
-            .ProcessDefinitionKey(1)
-            .AddTenantId("tenant1")
-            .Send();
+    // when
+        _ = await ZeebeClient.NewCreateProcessInstanceCommand()
+        .ProcessDefinitionKey(1)
+        .AddTenantId("tenant1")
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(CreateProcessInstanceRequest)][0];

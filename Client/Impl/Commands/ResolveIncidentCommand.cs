@@ -15,7 +15,7 @@ public class ResolveIncidentCommand(
     long incidentKey)
     : IResolveIncidentCommandStep1
 {
-    private readonly ResolveIncidentRequest request = new()
+    private readonly ResolveIncidentRequest request = new ()
     {
         IncidentKey = incidentKey
     };
@@ -24,7 +24,7 @@ public class ResolveIncidentCommand(
     {
         var asyncReply =
             client.ResolveIncidentAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        _ = await asyncReply.ResponseAsync;
         return new ResolveIncidentResponse();
     }
 

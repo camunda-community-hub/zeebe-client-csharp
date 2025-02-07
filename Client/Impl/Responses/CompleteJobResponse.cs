@@ -17,4 +17,6 @@ using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client.Impl.Responses;
 
-internal class CompleteJobResponse : ICompleteJobResponse;
+internal class CompleteJobResponse : ICompleteJobResponse
+{
+}

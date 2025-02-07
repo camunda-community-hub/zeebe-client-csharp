@@ -64,13 +64,13 @@ public sealed class JobWorker : IJobWorker
     public void Dispose()
     {
         source.Cancel();
-        // delay disposing, since poll and handler take some time to close
-        Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
-            .ContinueWith(t =>
-            {
-                logger?.LogError("Dispose source");
-                source.Dispose();
-            });
+    // delay disposing, since poll and handler take some time to close
+        _ = Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
+        .ContinueWith(t =>
+        {
+          logger?.LogError("Dispose source");
+          source.Dispose();
+        });
         isRunning = false;
     }
 
@@ -101,17 +101,17 @@ public sealed class JobWorker : IJobWorker
         var transformer = new TransformBlock<IJob, IJob>(
             async activatedJob => await HandleActivatedJob(activatedJob, cancellationToken),
             executionOptions);
-        var output = new ActionBlock<IJob>(activatedJob => { Interlocked.Decrement(ref currentJobsActive); },
+        var output = new ActionBlock<IJob>(activatedJob => { _ = Interlocked.Decrement(ref currentJobsActive); },
             executionOptions);
 
-        input.LinkTo(transformer);
-        transformer.LinkTo(output);
+        _ = input.LinkTo(transformer);
+        _ = transformer.LinkTo(output);
 
-        // Start polling
-        Task.Run(async () => await PollJobs(input, cancellationToken),
-            cancellationToken).ContinueWith(
-            t => logger?.LogError(t.Exception, "Job polling failed."),
-            TaskContinuationOptions.OnlyOnFaulted);
+    // Start polling
+        _ = Task.Run(async () => await PollJobs(input, cancellationToken),
+        cancellationToken).ContinueWith(
+        t => logger?.LogError(t.Exception, "Job polling failed."),
+        TaskContinuationOptions.OnlyOnFaulted);
 
         logger?.LogDebug(
             "Job worker ({worker}) for job type {type} has been opened.",
@@ -178,8 +178,8 @@ public sealed class JobWorker : IJobWorker
 
         foreach (var job in response.Jobs)
         {
-            await input.SendAsync(job);
-            Interlocked.Increment(ref currentJobsActive);
+      _ = await input.SendAsync(job);
+      _ = Interlocked.Increment(ref currentJobsActive);
         }
     }
 
@@ -224,8 +224,8 @@ public sealed class JobWorker : IJobWorker
                 "Job worker ({worker}) will auto complete job with key '{key}'",
                 activateJobsRequest.Worker,
                 activatedJob.Key);
-            await jobClient.NewCompleteJobCommand(activatedJob)
-                .Send(cancellationToken);
+            _ = await jobClient.NewCompleteJobCommand(activatedJob)
+          .Send(cancellationToken);
         }
     }
 
@@ -246,7 +246,10 @@ public sealed class JobWorker : IJobWorker
             .ContinueWith(
                 task =>
                 {
-                    if (task.IsFaulted) logger?.LogError("Problem on failing job occured.", task.Exception);
+                    if (task.IsFaulted)
+                    {
+                      logger?.LogWarning(task.Exception, "Problem on failing job occured.");
+                    }
                 }, cancellationToken);
     }
 }

@@ -19,8 +19,8 @@ public class CancelProcessInstanceTest : BaseZeebeTest
             ProcessInstanceKey = 12113
         };
 
-        // when
-        await ZeebeClient.NewCancelInstanceCommand(12113).Send();
+    // when
+        _ = await ZeebeClient.NewCancelInstanceCommand(12113).Send();
 
         // then
         var request = TestService.Requests[typeof(CancelProcessInstanceRequest)][0];

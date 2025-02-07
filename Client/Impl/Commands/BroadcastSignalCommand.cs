@@ -28,7 +28,7 @@ namespace Zeebe.Client.Impl.Commands;
 public class BroadcastSignalCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
     : IBroadcastSignalCommandStep1, IBroadcastSignalCommandStep2
 {
-    private readonly BroadcastSignalRequest request = new();
+    private readonly BroadcastSignalRequest request = new ();
 
     public IBroadcastSignalCommandStep2 SignalName(string signalName)
     {
@@ -46,7 +46,7 @@ public class BroadcastSignalCommand(GatewayClient client, IAsyncRetryStrategy as
     {
         var asyncReply =
             client.BroadcastSignalAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        _ = await asyncReply.ResponseAsync;
         return new BroadcastSignalResponse();
     }
 

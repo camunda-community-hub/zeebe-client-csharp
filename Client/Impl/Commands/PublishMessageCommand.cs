@@ -28,7 +28,7 @@ namespace Zeebe.Client.Impl.Commands;
 public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy)
     : IPublishMessageCommandStep1, IPublishMessageCommandStep2, IPublishMessageCommandStep3
 {
-    private readonly PublishMessageRequest request = new();
+    private readonly PublishMessageRequest request = new ();
 
     public IPublishMessageCommandStep2 MessageName(string messageName)
     {
@@ -63,7 +63,7 @@ public class PublishMessageCommand(GatewayClient client, IAsyncRetryStrategy asy
     public async Task<IPublishMessageResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         var asyncReply = client.PublishMessageAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        _ = await asyncReply.ResponseAsync;
         return new PublishMessageResponse();
     }
 

@@ -28,7 +28,7 @@ namespace Zeebe.Client.Impl.Commands;
 internal class CompleteJobCommand(GatewayClient client, IAsyncRetryStrategy asyncRetryStrategy, long jobKey)
     : ICompleteJobCommandStep1
 {
-    private readonly CompleteJobRequest request = new()
+    private readonly CompleteJobRequest request = new ()
     {
         JobKey = jobKey
     };
@@ -42,7 +42,7 @@ internal class CompleteJobCommand(GatewayClient client, IAsyncRetryStrategy asyn
     public async Task<ICompleteJobResponse> Send(TimeSpan? timeout = null, CancellationToken token = default)
     {
         var asyncReply = client.CompleteJobAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        await asyncReply.ResponseAsync;
+        _ = await asyncReply.ResponseAsync;
         return new CompleteJobResponse();
     }
 

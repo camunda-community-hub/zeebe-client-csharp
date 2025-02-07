@@ -23,43 +23,47 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
 
     public ICamundaCloudClientBuilderStep1 UseClientId(string clientId)
     {
-        camundaCloudTokenProviderBuilder.UseClientId(clientId);
-        return this;
+    _ = camundaCloudTokenProviderBuilder.UseClientId(clientId);
+    return this;
     }
 
     public ICamundaCloudClientBuilderFinalStep FromEnv()
     {
-        UseClientId(GetFromEnv(ZeebeClientIdEnvVar))
-            .UseClientSecret(GetFromEnv(ZeebeClientSecretEnvVar))
-            .UseContactPoint(GetFromEnv(ZeebeAddressEnvVar))
-            .UseAuthServer(GetFromEnv(ZeebeAuthServerEnvVar));
-        return this;
+    _ = UseClientId(GetFromEnv(ZeebeClientIdEnvVar))
+        .UseClientSecret(GetFromEnv(ZeebeClientSecretEnvVar))
+        .UseContactPoint(GetFromEnv(ZeebeAddressEnvVar))
+        .UseAuthServer(GetFromEnv(ZeebeAuthServerEnvVar));
+    return this;
     }
 
     public ICamundaCloudClientBuilderFinalStep UseLoggerFactory(ILoggerFactory loggerFactory)
     {
         this.loggerFactory = loggerFactory;
-        camundaCloudTokenProviderBuilder.UseLoggerFactory(this.loggerFactory);
+        _ = camundaCloudTokenProviderBuilder.UseLoggerFactory(this.loggerFactory);
         return this;
     }
 
     public ICamundaCloudClientBuilderFinalStep UseAuthServer(string url)
     {
         if (url is null)
-            // use default
-            return this;
+        {
+          // use default
+          return this;
+        }
 
-        camundaCloudTokenProviderBuilder.UseAuthServer(url);
+        _ = camundaCloudTokenProviderBuilder.UseAuthServer(url);
         return this;
     }
 
     public ICamundaCloudClientBuilderFinalStep UsePersistedStoragePath(string path)
     {
         if (path is null)
-            // use default
-            return this;
+        {
+          // use default
+          return this;
+        }
 
-        camundaCloudTokenProviderBuilder.UsePath(path);
+        _ = camundaCloudTokenProviderBuilder.UsePath(path);
         return this;
     }
 
@@ -75,8 +79,8 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
 
     public ICamundaCloudClientBuilderStep2 UseClientSecret(string clientSecret)
     {
-        camundaCloudTokenProviderBuilder.UseClientSecret(clientSecret);
-        return this;
+    _ = camundaCloudTokenProviderBuilder.UseClientSecret(clientSecret);
+    return this;
     }
 
     public ICamundaCloudClientBuilderFinalStep UseContactPoint(string contactPoint)
@@ -86,12 +90,12 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
         if (!contactPoint.EndsWith(":443"))
         {
             gatewayAddress = contactPoint + ":443";
-            camundaCloudTokenProviderBuilder.UseAudience(contactPoint);
+            _ = camundaCloudTokenProviderBuilder.UseAudience(contactPoint);
         }
         else
         {
             gatewayAddress = contactPoint;
-            camundaCloudTokenProviderBuilder.UseAudience(contactPoint.Replace(":443", ""));
+            _ = camundaCloudTokenProviderBuilder.UseAudience(contactPoint.Replace(":443", ""));
         }
 
         return this;
@@ -104,7 +108,7 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
 
     private string GetFromEnv(string key)
     {
-        char[] charsToTrim = [' ', '\''];
+        char[] charsToTrim =[' ', '\''];
         return Environment.GetEnvironmentVariable(key)?.Trim(charsToTrim);
     }
 }

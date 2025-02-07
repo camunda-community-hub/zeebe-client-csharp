@@ -46,7 +46,7 @@ public class JobWorkerTest
                    .Handler(async (jobClient, job) =>
                    {
                        handledJobs.Add(job);
-                       await jobClient.NewCompleteJobCommand(job).Send();
+                       _ = await jobClient.NewCompleteJobCommand(job).Send();
                    })
                    .MaxJobsActive(1)
                    .Name("ShouldCompleteProcess")

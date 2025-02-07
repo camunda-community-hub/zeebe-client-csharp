@@ -22,18 +22,18 @@ public class SendWithRetryParameterizedTest : BaseZeebeTest
         TestService.AddRequestHandler(typeof(TReq),
             req =>
             {
-                countdownEvent.Signal();
-                throw new RpcException(new Status(StatusCode.ResourceExhausted, "exhausted"));
+              _ = countdownEvent.Signal();
+              throw new RpcException(new Status(StatusCode.ResourceExhausted, "exhausted"));
             });
 
         // when
         var resultTask = requestCreator(ZeebeClient).SendWithRetry();
-        countdownEvent.Wait(TimeSpan.FromSeconds(10));
+        _ = countdownEvent.Wait(TimeSpan.FromSeconds(10));
 
         // then
         Assert.AreEqual(0, countdownEvent.CurrentCount);
         TestService.AddRequestHandler(typeof(TReq), req => response);
-        await resultTask;
+        _ = await resultTask;
 
         var request = TestService.Requests[typeof(TReq)][0];
         Assert.AreEqual(expectedRequest, request);
@@ -55,18 +55,18 @@ public class SendWithRetryParameterizedTest : BaseZeebeTest
             typeof(TReq),
             req =>
             {
-                countdownEvent.Signal();
-                throw new RpcException(new Status(StatusCode.Unavailable, "exhausted"));
+              _ = countdownEvent.Signal();
+              throw new RpcException(new Status(StatusCode.Unavailable, "exhausted"));
             });
 
         // when
         var resultTask = requestCreator(ZeebeClient).SendWithRetry();
-        countdownEvent.Wait(TimeSpan.FromSeconds(10));
+        _ = countdownEvent.Wait(TimeSpan.FromSeconds(10));
 
         // then
         Assert.AreEqual(0, countdownEvent.CurrentCount);
         TestService.AddRequestHandler(typeof(TReq), req => response);
-        await resultTask;
+        _ = await resultTask;
 
         var request = TestService.Requests[typeof(TReq)][0];
         Assert.AreEqual(expectedRequest, request);

@@ -90,8 +90,11 @@ public class CamundaCloudTokenProviderTest
 
         private void CheckDisposed()
         {
-            if (_disposed) throw new ObjectDisposedException("HttpMessageHandlerStub");
-        }
+            if (_disposed)
+      {
+        throw new ObjectDisposedException("HttpMessageHandlerStub");
+      }
+    }
     }
 
     [Test]
@@ -112,7 +115,7 @@ public class CamundaCloudTokenProviderTest
     {
         // given
         ExpiresIn = 0;
-        await TokenProvider.GetAccessTokenForRequestAsync();
+        _ = await TokenProvider.GetAccessTokenForRequestAsync();
 
         // when
         Assert.DoesNotThrowAsync(async () => await TokenProvider.GetAccessTokenForRequestAsync());

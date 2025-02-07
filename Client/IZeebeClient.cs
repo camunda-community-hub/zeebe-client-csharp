@@ -49,7 +49,7 @@ public interface IZeebeClient : IJobClient, IDisposable
     ///   {
     ///     String json = job.Variables;
     ///     // modify variables
-    /// 
+    ///
     ///     client
     ///      .CompleteCommand(job.Key)
     ///      .Variables(json)
@@ -93,7 +93,7 @@ public interface IZeebeClient : IJobClient, IDisposable
     /// <example>
     ///     <code>
     /// long jobKey = ..;
-    /// 
+    ///
     /// zeebeClient
     ///  .NewUpdateRetriesCommand(jobKey)
     ///  .Retries(3)
@@ -118,7 +118,7 @@ public interface IZeebeClient : IJobClient, IDisposable
     /// <example>
     ///     <code>
     /// long jobKey = ..;
-    /// 
+    ///
     /// zeebeClient
     ///  .NewUpdateJobTimeoutCommand(jobKey)
     ///  .Timeout(new TimeSpan(0, 0, 0, 10))

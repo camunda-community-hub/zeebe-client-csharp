@@ -37,7 +37,7 @@ public class GatewayTestService : Gateway.GatewayBase
     ///     Contains the request handler, which return the specific response, for each specific type of request.
     ///     Per default the response for a specific type are an empty response.
     /// </summary>
-    private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new();
+    private readonly Dictionary<Type, RequestHandler> typedRequestHandler = new ();
 
     private ConsumeMetadata metadataConsumer;
 
@@ -65,8 +65,11 @@ public class GatewayTestService : Gateway.GatewayBase
         typedRequestHandler.Add(typeof(ModifyProcessInstanceRequest), request => new ModifyProcessInstanceResponse());
         typedRequestHandler.Add(typeof(BroadcastSignalRequest), request => new BroadcastSignalResponse());
 
-        foreach (var pair in typedRequestHandler) Requests.Add(pair.Key, new List<IMessage>());
+        foreach (var pair in typedRequestHandler)
+    {
+      Requests.Add(pair.Key, new List<IMessage>());
     }
+  }
 
     public IDictionary<Type, IList<IMessage>> Requests { get; } = new ConcurrentDictionary<Type, IList<IMessage>>();
 

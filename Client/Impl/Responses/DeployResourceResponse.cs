@@ -16,6 +16,7 @@ public class DeployResourceResponse : IDeployResourceResponse
         Forms = new List<IFormMetadata>();
 
         foreach (var deployment in response.Deployments)
+        {
             switch (deployment.MetadataCase)
             {
                 case Deployment.MetadataOneofCase.Process:
@@ -34,6 +35,7 @@ public class DeployResourceResponse : IDeployResourceResponse
                     throw new NotImplementedException("Got deployment response for unexpected type: " +
                                                       deployment.MetadataCase);
             }
+        }
     }
 
     public long Key { get; }

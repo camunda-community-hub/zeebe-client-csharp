@@ -13,16 +13,16 @@ public static class ServiceCollectionExtensions
     /// <returns>the service collection</returns>
     public static IServiceCollection AddZeebeBuilders(this IServiceCollection services)
     {
-        services.AddTransient(serviceProvider =>
-        {
-            var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
-            return ZeebeClient.Builder().UseLoggerFactory(loggerFactory);
-        });
-        services.AddTransient(serviceProvider =>
-        {
-            var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
-            return CamundaCloudTokenProvider.Builder().UseLoggerFactory(loggerFactory);
-        });
-        return services;
+    _ = services.AddTransient(serviceProvider =>
+    {
+      var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
+      return ZeebeClient.Builder().UseLoggerFactory(loggerFactory);
+    });
+    _ = services.AddTransient(serviceProvider =>
+    {
+      var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
+      return CamundaCloudTokenProvider.Builder().UseLoggerFactory(loggerFactory);
+    });
+    return services;
     }
 }

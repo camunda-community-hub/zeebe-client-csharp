@@ -21,7 +21,10 @@ public class TransientGrpcErrorRetryStrategyTest
         // when
         var result = await strategy.DoWithRetry(() =>
         {
-            if (retries == 3) return Task.FromResult(retries);
+            if (retries == 3)
+            {
+                return Task.FromResult(retries);
+            }
 
             retries++;
             throw new RpcException(new Status(StatusCode.ResourceExhausted, "resourceExhausted"));
@@ -41,7 +44,10 @@ public class TransientGrpcErrorRetryStrategyTest
         // when
         var result = await strategy.DoWithRetry(() =>
         {
-            if (retries == 3) return Task.FromResult(retries);
+            if (retries == 3)
+            {
+                return Task.FromResult(retries);
+            }
 
             retries++;
             throw new RpcException(new Status(StatusCode.Unavailable, "resourceExhausted"));
@@ -66,7 +72,10 @@ public class TransientGrpcErrorRetryStrategyTest
         // when
         var result = await strategy.DoWithRetry(() =>
         {
-            if (retries == 3) return Task.FromResult(retries);
+            if (retries == 3)
+            {
+                return Task.FromResult(retries);
+            }
 
             retries++;
             throw new RpcException(new Status(StatusCode.ResourceExhausted, "resourceExhausted"));
@@ -85,16 +94,19 @@ public class TransientGrpcErrorRetryStrategyTest
         var countdownEvent = new CountdownEvent(2);
         var strategy = new TransientGrpcErrorRetryStrategy(retry => TimeSpan.FromSeconds(1));
 
-        // when
-        strategy.DoWithRetry(() =>
-        {
-            countdownEvent.Signal();
-            if (retries == 3) return Task.FromResult(retries);
+    // when
+        _ = strategy.DoWithRetry(() =>
+    {
+      _ = countdownEvent.Signal();
+      if (retries == 3)
+      {
+        return Task.FromResult(retries);
+      }
 
-            retries++;
-            throw new RpcException(new Status(StatusCode.ResourceExhausted, "resourceExhausted"));
-        });
-        countdownEvent.Wait(TimeSpan.FromMilliseconds(10));
+      retries++;
+      throw new RpcException(new Status(StatusCode.ResourceExhausted, "resourceExhausted"));
+    });
+        _ = countdownEvent.Wait(TimeSpan.FromMilliseconds(10));
 
         // then
         Assert.AreEqual(countdownEvent.CurrentCount, 1);
@@ -111,7 +123,10 @@ public class TransientGrpcErrorRetryStrategyTest
         // when
         var resultTask = strategy.DoWithRetry(() =>
         {
-            if (retries == 3) return Task.FromResult(retries);
+            if (retries == 3)
+            {
+                return Task.FromResult(retries);
+            }
 
             retries++;
             throw new RpcException(new Status(StatusCode.Unknown, "idk"));
@@ -133,7 +148,10 @@ public class TransientGrpcErrorRetryStrategyTest
         // when
         var resultTask = strategy.DoWithRetry(() =>
         {
-            if (retries == 3) return Task.FromResult(retries);
+            if (retries == 3)
+            {
+                return Task.FromResult(retries);
+            }
 
             retries++;
             throw new Exception("exception");

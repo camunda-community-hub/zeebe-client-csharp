@@ -2,4 +2,6 @@
 
 namespace Zeebe.Client.Impl.Responses;
 
-public class ModifyProcessInstanceResponse : IModifyProcessInstanceResponse;
+public class ModifyProcessInstanceResponse : IModifyProcessInstanceResponse
+{
+}

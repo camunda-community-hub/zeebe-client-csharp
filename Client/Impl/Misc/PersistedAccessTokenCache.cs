@@ -23,7 +23,9 @@ public class PersistedAccessTokenCache : IAccessTokenCache
     {
         var directoryInfo = Directory.CreateDirectory(path);
         if (!directoryInfo.Exists)
+        {
             throw new IOException("Expected to create '~/.zeebe/' directory, but failed to do so.");
+        }
 
         tokenStoragePath = path;
         this.logger = logger;
@@ -69,8 +71,10 @@ public class PersistedAccessTokenCache : IAccessTokenCache
         var now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
         var dueDate = currentAccessToken.DueDate;
         if (now < dueDate)
+        {
             // still valid
             return currentAccessToken.Token;
+        }
 
         logger?.LogTrace("Access token is no longer valid (now: {Now} > dueTime: {DueTime}), request new one", now,
             dueDate);

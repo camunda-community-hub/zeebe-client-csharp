@@ -2,4 +2,6 @@
 
 namespace Zeebe.Client.Impl.Responses;
 
-public class BroadcastSignalResponse : IBroadcastSignalResponse;
+public class BroadcastSignalResponse : IBroadcastSignalResponse
+{
+}

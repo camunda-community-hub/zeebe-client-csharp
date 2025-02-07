@@ -21,10 +21,10 @@ public class UpdateRetriesTest : BaseZeebeTest
         };
 
         // when
-        await ZeebeClient
-            .NewUpdateRetriesCommand(1024)
-            .Retries(223)
-            .Send();
+        _ = await ZeebeClient
+        .NewUpdateRetriesCommand(1024)
+        .Retries(223)
+        .Send();
 
         // then
         var request = TestService.Requests[typeof(UpdateJobRetriesRequest)][0];

@@ -34,7 +34,7 @@ public interface IJobClient
     /// <example>
     ///     <code>
     /// long jobKey = ..;
-    /// 
+    ///
     /// jobClient
     ///      .NewCompleteJobCommand(jobKey)
     ///      .Variables(json)
@@ -55,7 +55,7 @@ public interface IJobClient
     /// <example>
     ///     <code>
     /// IJob activatedJob = ..;
-    /// 
+    ///
     /// jobClient
     ///      .NewCompleteJobCommand(activatedJob)
     ///      .Variables(json)
@@ -76,7 +76,7 @@ public interface IJobClient
     /// <example>
     ///     <code>
     /// long jobKey = ..;
-    /// 
+    ///
     /// jobClient
     ///      .NewFailCommand(jobKey)
     ///      .Retries(3)

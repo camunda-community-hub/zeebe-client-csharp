@@ -38,7 +38,7 @@ public class BaseZeebeTest
     {
         GrpcEnvironment.SetLogger(new ConsoleLogger());
         server = new Server();
-        server.Ports.Add(new ServerPort("localhost", 26500, ServerCredentials.Insecure));
+        _ = server.Ports.Add(new ServerPort("localhost", 26500, ServerCredentials.Insecure));
 
         TestService = new GatewayTestService();
         var serviceDefinition = Gateway.BindService(TestService);
@@ -67,6 +67,9 @@ public class BaseZeebeTest
 
     public void AwaitRequestCount(Type type, int requestCount)
     {
-        while (TestService.Requests[type].Count < requestCount) Thread.Sleep(TimeSpan.FromMilliseconds(100));
+        while (TestService.Requests[type].Count < requestCount)
+    {
+      Thread.Sleep(TimeSpan.FromMilliseconds(100));
     }
+  }
 }
