@@ -39,192 +39,203 @@ namespace GatewayProtocol {
             "BiABKAMSEQoJZWxlbWVudElkGAcgASgJEhoKEmVsZW1lbnRJbnN0YW5jZUtl",
             "eRgIIAEoAxIVCg1jdXN0b21IZWFkZXJzGAkgASgJEg4KBndvcmtlchgKIAEo",
             "CRIPCgdyZXRyaWVzGAsgASgFEhAKCGRlYWRsaW5lGAwgASgDEhEKCXZhcmlh",
-            "YmxlcxgNIAEoCRIQCgh0ZW5hbnRJZBgOIAEoCSI6ChxDYW5jZWxQcm9jZXNz",
-            "SW5zdGFuY2VSZXF1ZXN0EhoKEnByb2Nlc3NJbnN0YW5jZUtleRgBIAEoAyIf",
-            "Ch1DYW5jZWxQcm9jZXNzSW5zdGFuY2VSZXNwb25zZSI3ChJDb21wbGV0ZUpv",
-            "YlJlcXVlc3QSDgoGam9iS2V5GAEgASgDEhEKCXZhcmlhYmxlcxgCIAEoCSIV",
-            "ChNDb21wbGV0ZUpvYlJlc3BvbnNlIt8BChxDcmVhdGVQcm9jZXNzSW5zdGFu",
-            "Y2VSZXF1ZXN0EhwKFHByb2Nlc3NEZWZpbml0aW9uS2V5GAEgASgDEhUKDWJw",
-            "bW5Qcm9jZXNzSWQYAiABKAkSDwoHdmVyc2lvbhgDIAEoBRIRCgl2YXJpYWJs",
-            "ZXMYBCABKAkSVAoRc3RhcnRJbnN0cnVjdGlvbnMYBSADKAsyOS5nYXRld2F5",
-            "X3Byb3RvY29sLlByb2Nlc3NJbnN0YW5jZUNyZWF0aW9uU3RhcnRJbnN0cnVj",
-            "dGlvbhIQCgh0ZW5hbnRJZBgGIAEoCSI8CidQcm9jZXNzSW5zdGFuY2VDcmVh",
-            "dGlvblN0YXJ0SW5zdHJ1Y3Rpb24SEQoJZWxlbWVudElkGAEgASgJIpMBCh1D",
-            "cmVhdGVQcm9jZXNzSW5zdGFuY2VSZXNwb25zZRIcChRwcm9jZXNzRGVmaW5p",
-            "dGlvbktleRgBIAEoAxIVCg1icG1uUHJvY2Vzc0lkGAIgASgJEg8KB3ZlcnNp",
-            "b24YAyABKAUSGgoScHJvY2Vzc0luc3RhbmNlS2V5GAQgASgDEhAKCHRlbmFu",
-            "dElkGAUgASgJIpkBCiZDcmVhdGVQcm9jZXNzSW5zdGFuY2VXaXRoUmVzdWx0",
-            "UmVxdWVzdBI/CgdyZXF1ZXN0GAEgASgLMi4uZ2F0ZXdheV9wcm90b2NvbC5D",
-            "cmVhdGVQcm9jZXNzSW5zdGFuY2VSZXF1ZXN0EhYKDnJlcXVlc3RUaW1lb3V0",
-            "GAIgASgDEhYKDmZldGNoVmFyaWFibGVzGAMgAygJIrABCidDcmVhdGVQcm9j",
-            "ZXNzSW5zdGFuY2VXaXRoUmVzdWx0UmVzcG9uc2USHAoUcHJvY2Vzc0RlZmlu",
-            "aXRpb25LZXkYASABKAMSFQoNYnBtblByb2Nlc3NJZBgCIAEoCRIPCgd2ZXJz",
-            "aW9uGAMgASgFEhoKEnByb2Nlc3NJbnN0YW5jZUtleRgEIAEoAxIRCgl2YXJp",
-            "YWJsZXMYBSABKAkSEAoIdGVuYW50SWQYBiABKAkiZwoXRXZhbHVhdGVEZWNp",
-            "c2lvblJlcXVlc3QSEwoLZGVjaXNpb25LZXkYASABKAMSEgoKZGVjaXNpb25J",
-            "ZBgCIAEoCRIRCgl2YXJpYWJsZXMYAyABKAkSEAoIdGVuYW50SWQYBCABKAki",
-            "7QIKGEV2YWx1YXRlRGVjaXNpb25SZXNwb25zZRITCgtkZWNpc2lvbktleRgB",
-            "IAEoAxISCgpkZWNpc2lvbklkGAIgASgJEhQKDGRlY2lzaW9uTmFtZRgDIAEo",
-            "CRIXCg9kZWNpc2lvblZlcnNpb24YBCABKAUSHgoWZGVjaXNpb25SZXF1aXJl",
-            "bWVudHNJZBgFIAEoCRIfChdkZWNpc2lvblJlcXVpcmVtZW50c0tleRgGIAEo",
-            "AxIWCg5kZWNpc2lvbk91dHB1dBgHIAEoCRI/ChJldmFsdWF0ZWREZWNpc2lv",
-            "bnMYCCADKAsyIy5nYXRld2F5X3Byb3RvY29sLkV2YWx1YXRlZERlY2lzaW9u",
-            "EhgKEGZhaWxlZERlY2lzaW9uSWQYCSABKAkSFgoOZmFpbHVyZU1lc3NhZ2UY",
-            "CiABKAkSEAoIdGVuYW50SWQYCyABKAkSGwoTZGVjaXNpb25JbnN0YW5jZUtl",
-            "eRgMIAEoAyKrAgoRRXZhbHVhdGVkRGVjaXNpb24SEwoLZGVjaXNpb25LZXkY",
-            "ASABKAMSEgoKZGVjaXNpb25JZBgCIAEoCRIUCgxkZWNpc2lvbk5hbWUYAyAB",
-            "KAkSFwoPZGVjaXNpb25WZXJzaW9uGAQgASgFEhQKDGRlY2lzaW9uVHlwZRgF",
-            "IAEoCRIWCg5kZWNpc2lvbk91dHB1dBgGIAEoCRI7CgxtYXRjaGVkUnVsZXMY",
-            "ByADKAsyJS5nYXRld2F5X3Byb3RvY29sLk1hdGNoZWREZWNpc2lvblJ1bGUS",
-            "QQoPZXZhbHVhdGVkSW5wdXRzGAggAygLMiguZ2F0ZXdheV9wcm90b2NvbC5F",
-            "dmFsdWF0ZWREZWNpc2lvbklucHV0EhAKCHRlbmFudElkGAkgASgJIlAKFkV2",
-            "YWx1YXRlZERlY2lzaW9uSW5wdXQSDwoHaW5wdXRJZBgBIAEoCRIRCglpbnB1",
-            "dE5hbWUYAiABKAkSEgoKaW5wdXRWYWx1ZRgDIAEoCSJUChdFdmFsdWF0ZWRE",
-            "ZWNpc2lvbk91dHB1dBIQCghvdXRwdXRJZBgBIAEoCRISCgpvdXRwdXROYW1l",
-            "GAIgASgJEhMKC291dHB1dFZhbHVlGAMgASgJIn0KE01hdGNoZWREZWNpc2lv",
-            "blJ1bGUSDgoGcnVsZUlkGAEgASgJEhEKCXJ1bGVJbmRleBgCIAEoBRJDChBl",
-            "dmFsdWF0ZWRPdXRwdXRzGAMgAygLMikuZ2F0ZXdheV9wcm90b2NvbC5FdmFs",
-            "dWF0ZWREZWNpc2lvbk91dHB1dCJVChREZXBsb3lQcm9jZXNzUmVxdWVzdBI5",
-            "Cglwcm9jZXNzZXMYASADKAsyJi5nYXRld2F5X3Byb3RvY29sLlByb2Nlc3NS",
-            "ZXF1ZXN0T2JqZWN0OgIYASI8ChRQcm9jZXNzUmVxdWVzdE9iamVjdBIMCgRu",
-            "YW1lGAEgASgJEhIKCmRlZmluaXRpb24YAiABKAw6AhgBIl4KFURlcGxveVBy",
-            "b2Nlc3NSZXNwb25zZRILCgNrZXkYASABKAMSNAoJcHJvY2Vzc2VzGAIgAygL",
-            "MiEuZ2F0ZXdheV9wcm90b2NvbC5Qcm9jZXNzTWV0YWRhdGE6AhgBIlgKFURl",
-            "cGxveVJlc291cmNlUmVxdWVzdBItCglyZXNvdXJjZXMYASADKAsyGi5nYXRl",
-            "d2F5X3Byb3RvY29sLlJlc291cmNlEhAKCHRlbmFudElkGAIgASgJIikKCFJl",
-            "c291cmNlEgwKBG5hbWUYASABKAkSDwoHY29udGVudBgCIAEoDCJqChZEZXBs",
-            "b3lSZXNvdXJjZVJlc3BvbnNlEgsKA2tleRgBIAEoAxIxCgtkZXBsb3ltZW50",
-            "cxgCIAMoCzIcLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95bWVudBIQCgh0ZW5h",
-            "bnRJZBgDIAEoCSKGAgoKRGVwbG95bWVudBI0Cgdwcm9jZXNzGAEgASgLMiEu",
-            "Z2F0ZXdheV9wcm90b2NvbC5Qcm9jZXNzTWV0YWRhdGFIABI2CghkZWNpc2lv",
-            "bhgCIAEoCzIiLmdhdGV3YXlfcHJvdG9jb2wuRGVjaXNpb25NZXRhZGF0YUgA",
-            "Ek4KFGRlY2lzaW9uUmVxdWlyZW1lbnRzGAMgASgLMi4uZ2F0ZXdheV9wcm90",
-            "b2NvbC5EZWNpc2lvblJlcXVpcmVtZW50c01ldGFkYXRhSAASLgoEZm9ybRgE",
-            "IAEoCzIeLmdhdGV3YXlfcHJvdG9jb2wuRm9ybU1ldGFkYXRhSABCCgoITWV0",
-            "YWRhdGEifwoPUHJvY2Vzc01ldGFkYXRhEhUKDWJwbW5Qcm9jZXNzSWQYASAB",
-            "KAkSDwoHdmVyc2lvbhgCIAEoBRIcChRwcm9jZXNzRGVmaW5pdGlvbktleRgD",
-            "IAEoAxIUCgxyZXNvdXJjZU5hbWUYBCABKAkSEAoIdGVuYW50SWQYBSABKAki",
-            "vgEKEERlY2lzaW9uTWV0YWRhdGESFQoNZG1uRGVjaXNpb25JZBgBIAEoCRIX",
-            "Cg9kbW5EZWNpc2lvbk5hbWUYAiABKAkSDwoHdmVyc2lvbhgDIAEoBRITCgtk",
-            "ZWNpc2lvbktleRgEIAEoAxIhChlkbW5EZWNpc2lvblJlcXVpcmVtZW50c0lk",
-            "GAUgASgJEh8KF2RlY2lzaW9uUmVxdWlyZW1lbnRzS2V5GAYgASgDEhAKCHRl",
-            "bmFudElkGAcgASgJIsABChxEZWNpc2lvblJlcXVpcmVtZW50c01ldGFkYXRh",
-            "EiEKGWRtbkRlY2lzaW9uUmVxdWlyZW1lbnRzSWQYASABKAkSIwobZG1uRGVj",
-            "aXNpb25SZXF1aXJlbWVudHNOYW1lGAIgASgJEg8KB3ZlcnNpb24YAyABKAUS",
-            "HwoXZGVjaXNpb25SZXF1aXJlbWVudHNLZXkYBCABKAMSFAoMcmVzb3VyY2VO",
-            "YW1lGAUgASgJEhAKCHRlbmFudElkGAYgASgJImgKDEZvcm1NZXRhZGF0YRIO",
-            "CgZmb3JtSWQYASABKAkSDwoHdmVyc2lvbhgCIAEoBRIPCgdmb3JtS2V5GAMg",
-            "ASgDEhQKDHJlc291cmNlTmFtZRgEIAEoCRIQCgh0ZW5hbnRJZBgFIAEoCSJw",
-            "Cg5GYWlsSm9iUmVxdWVzdBIOCgZqb2JLZXkYASABKAMSDwoHcmV0cmllcxgC",
-            "IAEoBRIUCgxlcnJvck1lc3NhZ2UYAyABKAkSFAoMcmV0cnlCYWNrT2ZmGAQg",
-            "ASgDEhEKCXZhcmlhYmxlcxgFIAEoCSIRCg9GYWlsSm9iUmVzcG9uc2UiXwoR",
-            "VGhyb3dFcnJvclJlcXVlc3QSDgoGam9iS2V5GAEgASgDEhEKCWVycm9yQ29k",
-            "ZRgCIAEoCRIUCgxlcnJvck1lc3NhZ2UYAyABKAkSEQoJdmFyaWFibGVzGAQg",
-            "ASgJIhQKElRocm93RXJyb3JSZXNwb25zZSKJAQoVUHVibGlzaE1lc3NhZ2VS",
-            "ZXF1ZXN0EgwKBG5hbWUYASABKAkSFgoOY29ycmVsYXRpb25LZXkYAiABKAkS",
-            "EgoKdGltZVRvTGl2ZRgDIAEoAxIRCgltZXNzYWdlSWQYBCABKAkSEQoJdmFy",
-            "aWFibGVzGAUgASgJEhAKCHRlbmFudElkGAYgASgJIjcKFlB1Ymxpc2hNZXNz",
-            "YWdlUmVzcG9uc2USCwoDa2V5GAEgASgDEhAKCHRlbmFudElkGAIgASgJIi0K",
-            "FlJlc29sdmVJbmNpZGVudFJlcXVlc3QSEwoLaW5jaWRlbnRLZXkYASABKAMi",
-            "GQoXUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiEQoPVG9wb2xvZ3lSZXF1ZXN0",
-            "IqIBChBUb3BvbG9neVJlc3BvbnNlEi0KB2Jyb2tlcnMYASADKAsyHC5nYXRl",
-            "d2F5X3Byb3RvY29sLkJyb2tlckluZm8SEwoLY2x1c3RlclNpemUYAiABKAUS",
-            "FwoPcGFydGl0aW9uc0NvdW50GAMgASgFEhkKEXJlcGxpY2F0aW9uRmFjdG9y",
-            "GAQgASgFEhYKDmdhdGV3YXlWZXJzaW9uGAUgASgJInoKCkJyb2tlckluZm8S",
-            "DgoGbm9kZUlkGAEgASgFEgwKBGhvc3QYAiABKAkSDAoEcG9ydBgDIAEoBRIv",
-            "CgpwYXJ0aXRpb25zGAQgAygLMhsuZ2F0ZXdheV9wcm90b2NvbC5QYXJ0aXRp",
-            "b24SDwoHdmVyc2lvbhgFIAEoCSKgAgoJUGFydGl0aW9uEhMKC3BhcnRpdGlv",
-            "bklkGAEgASgFEj0KBHJvbGUYAiABKA4yLy5nYXRld2F5X3Byb3RvY29sLlBh",
-            "cnRpdGlvbi5QYXJ0aXRpb25Ccm9rZXJSb2xlEkEKBmhlYWx0aBgDIAEoDjIx",
-            "LmdhdGV3YXlfcHJvdG9jb2wuUGFydGl0aW9uLlBhcnRpdGlvbkJyb2tlckhl",
-            "YWx0aCI9ChNQYXJ0aXRpb25Ccm9rZXJSb2xlEgoKBkxFQURFUhAAEgwKCEZP",
-            "TExPV0VSEAESDAoISU5BQ1RJVkUQAiI9ChVQYXJ0aXRpb25Ccm9rZXJIZWFs",
-            "dGgSCwoHSEVBTFRIWRAAEg0KCVVOSEVBTFRIWRABEggKBERFQUQQAiI6ChdV",
-            "cGRhdGVKb2JSZXRyaWVzUmVxdWVzdBIOCgZqb2JLZXkYASABKAMSDwoHcmV0",
-            "cmllcxgCIAEoBSIaChhVcGRhdGVKb2JSZXRyaWVzUmVzcG9uc2UiOgoXVXBk",
-            "YXRlSm9iVGltZW91dFJlcXVlc3QSDgoGam9iS2V5GAEgASgDEg8KB3RpbWVv",
-            "dXQYAiABKAMiGgoYVXBkYXRlSm9iVGltZW91dFJlc3BvbnNlIlMKE1NldFZh",
-            "cmlhYmxlc1JlcXVlc3QSGgoSZWxlbWVudEluc3RhbmNlS2V5GAEgASgDEhEK",
-            "CXZhcmlhYmxlcxgCIAEoCRINCgVsb2NhbBgDIAEoCCIjChRTZXRWYXJpYWJs",
-            "ZXNSZXNwb25zZRILCgNrZXkYASABKAMioAQKHE1vZGlmeVByb2Nlc3NJbnN0",
-            "YW5jZVJlcXVlc3QSGgoScHJvY2Vzc0luc3RhbmNlS2V5GAEgASgDEmAKFGFj",
-            "dGl2YXRlSW5zdHJ1Y3Rpb25zGAIgAygLMkIuZ2F0ZXdheV9wcm90b2NvbC5N",
-            "b2RpZnlQcm9jZXNzSW5zdGFuY2VSZXF1ZXN0LkFjdGl2YXRlSW5zdHJ1Y3Rp",
-            "b24SYgoVdGVybWluYXRlSW5zdHJ1Y3Rpb25zGAMgAygLMkMuZ2F0ZXdheV9w",
-            "cm90b2NvbC5Nb2RpZnlQcm9jZXNzSW5zdGFuY2VSZXF1ZXN0LlRlcm1pbmF0",
-            "ZUluc3RydWN0aW9uGq4BChNBY3RpdmF0ZUluc3RydWN0aW9uEhEKCWVsZW1l",
-            "bnRJZBgBIAEoCRIiChphbmNlc3RvckVsZW1lbnRJbnN0YW5jZUtleRgCIAEo",
-            "AxJgChR2YXJpYWJsZUluc3RydWN0aW9ucxgDIAMoCzJCLmdhdGV3YXlfcHJv",
-            "dG9jb2wuTW9kaWZ5UHJvY2Vzc0luc3RhbmNlUmVxdWVzdC5WYXJpYWJsZUlu",
-            "c3RydWN0aW9uGjkKE1ZhcmlhYmxlSW5zdHJ1Y3Rpb24SEQoJdmFyaWFibGVz",
-            "GAEgASgJEg8KB3Njb3BlSWQYAiABKAkaMgoUVGVybWluYXRlSW5zdHJ1Y3Rp",
-            "b24SGgoSZWxlbWVudEluc3RhbmNlS2V5GAEgASgDIh8KHU1vZGlmeVByb2Nl",
-            "c3NJbnN0YW5jZVJlc3BvbnNlIvACCh1NaWdyYXRlUHJvY2Vzc0luc3RhbmNl",
-            "UmVxdWVzdBIaChJwcm9jZXNzSW5zdGFuY2VLZXkYASABKAMSVAoNbWlncmF0",
-            "aW9uUGxhbhgCIAEoCzI9LmdhdGV3YXlfcHJvdG9jb2wuTWlncmF0ZVByb2Nl",
-            "c3NJbnN0YW5jZVJlcXVlc3QuTWlncmF0aW9uUGxhbhqUAQoNTWlncmF0aW9u",
-            "UGxhbhIiChp0YXJnZXRQcm9jZXNzRGVmaW5pdGlvbktleRgBIAEoAxJfChNt",
-            "YXBwaW5nSW5zdHJ1Y3Rpb25zGAIgAygLMkIuZ2F0ZXdheV9wcm90b2NvbC5N",
-            "aWdyYXRlUHJvY2Vzc0luc3RhbmNlUmVxdWVzdC5NYXBwaW5nSW5zdHJ1Y3Rp",
-            "b24aRgoSTWFwcGluZ0luc3RydWN0aW9uEhcKD3NvdXJjZUVsZW1lbnRJZBgB",
-            "IAEoCRIXCg90YXJnZXRFbGVtZW50SWQYAiABKAkiIAoeTWlncmF0ZVByb2Nl",
-            "c3NJbnN0YW5jZVJlc3BvbnNlIiwKFURlbGV0ZVJlc291cmNlUmVxdWVzdBIT",
-            "CgtyZXNvdXJjZUtleRgBIAEoAyIYChZEZWxldGVSZXNvdXJjZVJlc3BvbnNl",
-            "IlEKFkJyb2FkY2FzdFNpZ25hbFJlcXVlc3QSEgoKc2lnbmFsTmFtZRgBIAEo",
-            "CRIRCgl2YXJpYWJsZXMYAiABKAkSEAoIdGVuYW50SWQYAyABKAkiOAoXQnJv",
-            "YWRjYXN0U2lnbmFsUmVzcG9uc2USCwoDa2V5GAEgASgDEhAKCHRlbmFudElk",
-            "GAIgASgJMtsRCgdHYXRld2F5EmEKDEFjdGl2YXRlSm9icxIlLmdhdGV3YXlf",
-            "cHJvdG9jb2wuQWN0aXZhdGVKb2JzUmVxdWVzdBomLmdhdGV3YXlfcHJvdG9j",
-            "b2wuQWN0aXZhdGVKb2JzUmVzcG9uc2UiADABEmcKE1N0cmVhbUFjdGl2YXRl",
-            "ZEpvYnMSLC5nYXRld2F5X3Byb3RvY29sLlN0cmVhbUFjdGl2YXRlZEpvYnNS",
-            "ZXF1ZXN0Gh4uZ2F0ZXdheV9wcm90b2NvbC5BY3RpdmF0ZWRKb2IiADABEnoK",
-            "FUNhbmNlbFByb2Nlc3NJbnN0YW5jZRIuLmdhdGV3YXlfcHJvdG9jb2wuQ2Fu",
-            "Y2VsUHJvY2Vzc0luc3RhbmNlUmVxdWVzdBovLmdhdGV3YXlfcHJvdG9jb2wu",
-            "Q2FuY2VsUHJvY2Vzc0luc3RhbmNlUmVzcG9uc2UiABJcCgtDb21wbGV0ZUpv",
-            "YhIkLmdhdGV3YXlfcHJvdG9jb2wuQ29tcGxldGVKb2JSZXF1ZXN0GiUuZ2F0",
-            "ZXdheV9wcm90b2NvbC5Db21wbGV0ZUpvYlJlc3BvbnNlIgASegoVQ3JlYXRl",
-            "UHJvY2Vzc0luc3RhbmNlEi4uZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQcm9j",
-            "ZXNzSW5zdGFuY2VSZXF1ZXN0Gi8uZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQ",
-            "cm9jZXNzSW5zdGFuY2VSZXNwb25zZSIAEpgBCh9DcmVhdGVQcm9jZXNzSW5z",
-            "dGFuY2VXaXRoUmVzdWx0EjguZ2F0ZXdheV9wcm90b2NvbC5DcmVhdGVQcm9j",
-            "ZXNzSW5zdGFuY2VXaXRoUmVzdWx0UmVxdWVzdBo5LmdhdGV3YXlfcHJvdG9j",
-            "b2wuQ3JlYXRlUHJvY2Vzc0luc3RhbmNlV2l0aFJlc3VsdFJlc3BvbnNlIgAS",
-            "awoQRXZhbHVhdGVEZWNpc2lvbhIpLmdhdGV3YXlfcHJvdG9jb2wuRXZhbHVh",
-            "dGVEZWNpc2lvblJlcXVlc3QaKi5nYXRld2F5X3Byb3RvY29sLkV2YWx1YXRl",
-            "RGVjaXNpb25SZXNwb25zZSIAEmUKDURlcGxveVByb2Nlc3MSJi5nYXRld2F5",
-            "X3Byb3RvY29sLkRlcGxveVByb2Nlc3NSZXF1ZXN0GicuZ2F0ZXdheV9wcm90",
-            "b2NvbC5EZXBsb3lQcm9jZXNzUmVzcG9uc2UiA4gCARJlCg5EZXBsb3lSZXNv",
-            "dXJjZRInLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95UmVzb3VyY2VSZXF1ZXN0",
-            "GiguZ2F0ZXdheV9wcm90b2NvbC5EZXBsb3lSZXNvdXJjZVJlc3BvbnNlIgAS",
-            "UAoHRmFpbEpvYhIgLmdhdGV3YXlfcHJvdG9jb2wuRmFpbEpvYlJlcXVlc3Qa",
-            "IS5nYXRld2F5X3Byb3RvY29sLkZhaWxKb2JSZXNwb25zZSIAElkKClRocm93",
-            "RXJyb3ISIy5nYXRld2F5X3Byb3RvY29sLlRocm93RXJyb3JSZXF1ZXN0GiQu",
-            "Z2F0ZXdheV9wcm90b2NvbC5UaHJvd0Vycm9yUmVzcG9uc2UiABJlCg5QdWJs",
-            "aXNoTWVzc2FnZRInLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlzaE1lc3NhZ2VS",
-            "ZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2NvbC5QdWJsaXNoTWVzc2FnZVJlc3Bv",
-            "bnNlIgASaAoPUmVzb2x2ZUluY2lkZW50EiguZ2F0ZXdheV9wcm90b2NvbC5S",
-            "ZXNvbHZlSW5jaWRlbnRSZXF1ZXN0GikuZ2F0ZXdheV9wcm90b2NvbC5SZXNv",
-            "bHZlSW5jaWRlbnRSZXNwb25zZSIAEl8KDFNldFZhcmlhYmxlcxIlLmdhdGV3",
-            "YXlfcHJvdG9jb2wuU2V0VmFyaWFibGVzUmVxdWVzdBomLmdhdGV3YXlfcHJv",
-            "dG9jb2wuU2V0VmFyaWFibGVzUmVzcG9uc2UiABJTCghUb3BvbG9neRIhLmdh",
-            "dGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXF1ZXN0GiIuZ2F0ZXdheV9wcm90",
-            "b2NvbC5Ub3BvbG9neVJlc3BvbnNlIgASawoQVXBkYXRlSm9iUmV0cmllcxIp",
-            "LmdhdGV3YXlfcHJvdG9jb2wuVXBkYXRlSm9iUmV0cmllc1JlcXVlc3QaKi5n",
-            "YXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJldHJpZXNSZXNwb25zZSIAEnoK",
-            "FU1vZGlmeVByb2Nlc3NJbnN0YW5jZRIuLmdhdGV3YXlfcHJvdG9jb2wuTW9k",
-            "aWZ5UHJvY2Vzc0luc3RhbmNlUmVxdWVzdBovLmdhdGV3YXlfcHJvdG9jb2wu",
-            "TW9kaWZ5UHJvY2Vzc0luc3RhbmNlUmVzcG9uc2UiABJ9ChZNaWdyYXRlUHJv",
-            "Y2Vzc0luc3RhbmNlEi8uZ2F0ZXdheV9wcm90b2NvbC5NaWdyYXRlUHJvY2Vz",
-            "c0luc3RhbmNlUmVxdWVzdBowLmdhdGV3YXlfcHJvdG9jb2wuTWlncmF0ZVBy",
-            "b2Nlc3NJbnN0YW5jZVJlc3BvbnNlIgASawoQVXBkYXRlSm9iVGltZW91dBIp",
-            "LmdhdGV3YXlfcHJvdG9jb2wuVXBkYXRlSm9iVGltZW91dFJlcXVlc3QaKi5n",
-            "YXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlRpbWVvdXRSZXNwb25zZSIAEmUK",
-            "DkRlbGV0ZVJlc291cmNlEicuZ2F0ZXdheV9wcm90b2NvbC5EZWxldGVSZXNv",
-            "dXJjZVJlcXVlc3QaKC5nYXRld2F5X3Byb3RvY29sLkRlbGV0ZVJlc291cmNl",
-            "UmVzcG9uc2UiABJoCg9Ccm9hZGNhc3RTaWduYWwSKC5nYXRld2F5X3Byb3Rv",
-            "Y29sLkJyb2FkY2FzdFNpZ25hbFJlcXVlc3QaKS5nYXRld2F5X3Byb3RvY29s",
-            "LkJyb2FkY2FzdFNpZ25hbFJlc3BvbnNlIgBCLAohaW8uY2FtdW5kYS56ZWVi",
-            "ZS5nYXRld2F5LnByb3RvY29sUABaBS4vO3BiYgZwcm90bzM="));
+            "YmxlcxgNIAEoCRIQCgh0ZW5hbnRJZBgOIAEoCSJyChxDYW5jZWxQcm9jZXNz",
+            "SW5zdGFuY2VSZXF1ZXN0EhoKEnByb2Nlc3NJbnN0YW5jZUtleRgBIAEoAxIf",
+            "ChJvcGVyYXRpb25SZWZlcmVuY2UYAiABKARIAIgBAUIVChNfb3BlcmF0aW9u",
+            "UmVmZXJlbmNlIh8KHUNhbmNlbFByb2Nlc3NJbnN0YW5jZVJlc3BvbnNlIjcK",
+            "EkNvbXBsZXRlSm9iUmVxdWVzdBIOCgZqb2JLZXkYASABKAMSEQoJdmFyaWFi",
+            "bGVzGAIgASgJIhUKE0NvbXBsZXRlSm9iUmVzcG9uc2UilwIKHENyZWF0ZVBy",
+            "b2Nlc3NJbnN0YW5jZVJlcXVlc3QSHAoUcHJvY2Vzc0RlZmluaXRpb25LZXkY",
+            "ASABKAMSFQoNYnBtblByb2Nlc3NJZBgCIAEoCRIPCgd2ZXJzaW9uGAMgASgF",
+            "EhEKCXZhcmlhYmxlcxgEIAEoCRJUChFzdGFydEluc3RydWN0aW9ucxgFIAMo",
+            "CzI5LmdhdGV3YXlfcHJvdG9jb2wuUHJvY2Vzc0luc3RhbmNlQ3JlYXRpb25T",
+            "dGFydEluc3RydWN0aW9uEhAKCHRlbmFudElkGAYgASgJEh8KEm9wZXJhdGlv",
+            "blJlZmVyZW5jZRgHIAEoBEgAiAEBQhUKE19vcGVyYXRpb25SZWZlcmVuY2Ui",
+            "PAonUHJvY2Vzc0luc3RhbmNlQ3JlYXRpb25TdGFydEluc3RydWN0aW9uEhEK",
+            "CWVsZW1lbnRJZBgBIAEoCSKTAQodQ3JlYXRlUHJvY2Vzc0luc3RhbmNlUmVz",
+            "cG9uc2USHAoUcHJvY2Vzc0RlZmluaXRpb25LZXkYASABKAMSFQoNYnBtblBy",
+            "b2Nlc3NJZBgCIAEoCRIPCgd2ZXJzaW9uGAMgASgFEhoKEnByb2Nlc3NJbnN0",
+            "YW5jZUtleRgEIAEoAxIQCgh0ZW5hbnRJZBgFIAEoCSKZAQomQ3JlYXRlUHJv",
+            "Y2Vzc0luc3RhbmNlV2l0aFJlc3VsdFJlcXVlc3QSPwoHcmVxdWVzdBgBIAEo",
+            "CzIuLmdhdGV3YXlfcHJvdG9jb2wuQ3JlYXRlUHJvY2Vzc0luc3RhbmNlUmVx",
+            "dWVzdBIWCg5yZXF1ZXN0VGltZW91dBgCIAEoAxIWCg5mZXRjaFZhcmlhYmxl",
+            "cxgDIAMoCSKwAQonQ3JlYXRlUHJvY2Vzc0luc3RhbmNlV2l0aFJlc3VsdFJl",
+            "c3BvbnNlEhwKFHByb2Nlc3NEZWZpbml0aW9uS2V5GAEgASgDEhUKDWJwbW5Q",
+            "cm9jZXNzSWQYAiABKAkSDwoHdmVyc2lvbhgDIAEoBRIaChJwcm9jZXNzSW5z",
+            "dGFuY2VLZXkYBCABKAMSEQoJdmFyaWFibGVzGAUgASgJEhAKCHRlbmFudElk",
+            "GAYgASgJImcKF0V2YWx1YXRlRGVjaXNpb25SZXF1ZXN0EhMKC2RlY2lzaW9u",
+            "S2V5GAEgASgDEhIKCmRlY2lzaW9uSWQYAiABKAkSEQoJdmFyaWFibGVzGAMg",
+            "ASgJEhAKCHRlbmFudElkGAQgASgJIu0CChhFdmFsdWF0ZURlY2lzaW9uUmVz",
+            "cG9uc2USEwoLZGVjaXNpb25LZXkYASABKAMSEgoKZGVjaXNpb25JZBgCIAEo",
+            "CRIUCgxkZWNpc2lvbk5hbWUYAyABKAkSFwoPZGVjaXNpb25WZXJzaW9uGAQg",
+            "ASgFEh4KFmRlY2lzaW9uUmVxdWlyZW1lbnRzSWQYBSABKAkSHwoXZGVjaXNp",
+            "b25SZXF1aXJlbWVudHNLZXkYBiABKAMSFgoOZGVjaXNpb25PdXRwdXQYByAB",
+            "KAkSPwoSZXZhbHVhdGVkRGVjaXNpb25zGAggAygLMiMuZ2F0ZXdheV9wcm90",
+            "b2NvbC5FdmFsdWF0ZWREZWNpc2lvbhIYChBmYWlsZWREZWNpc2lvbklkGAkg",
+            "ASgJEhYKDmZhaWx1cmVNZXNzYWdlGAogASgJEhAKCHRlbmFudElkGAsgASgJ",
+            "EhsKE2RlY2lzaW9uSW5zdGFuY2VLZXkYDCABKAMiqwIKEUV2YWx1YXRlZERl",
+            "Y2lzaW9uEhMKC2RlY2lzaW9uS2V5GAEgASgDEhIKCmRlY2lzaW9uSWQYAiAB",
+            "KAkSFAoMZGVjaXNpb25OYW1lGAMgASgJEhcKD2RlY2lzaW9uVmVyc2lvbhgE",
+            "IAEoBRIUCgxkZWNpc2lvblR5cGUYBSABKAkSFgoOZGVjaXNpb25PdXRwdXQY",
+            "BiABKAkSOwoMbWF0Y2hlZFJ1bGVzGAcgAygLMiUuZ2F0ZXdheV9wcm90b2Nv",
+            "bC5NYXRjaGVkRGVjaXNpb25SdWxlEkEKD2V2YWx1YXRlZElucHV0cxgIIAMo",
+            "CzIoLmdhdGV3YXlfcHJvdG9jb2wuRXZhbHVhdGVkRGVjaXNpb25JbnB1dBIQ",
+            "Cgh0ZW5hbnRJZBgJIAEoCSJQChZFdmFsdWF0ZWREZWNpc2lvbklucHV0Eg8K",
+            "B2lucHV0SWQYASABKAkSEQoJaW5wdXROYW1lGAIgASgJEhIKCmlucHV0VmFs",
+            "dWUYAyABKAkiVAoXRXZhbHVhdGVkRGVjaXNpb25PdXRwdXQSEAoIb3V0cHV0",
+            "SWQYASABKAkSEgoKb3V0cHV0TmFtZRgCIAEoCRITCgtvdXRwdXRWYWx1ZRgD",
+            "IAEoCSJ9ChNNYXRjaGVkRGVjaXNpb25SdWxlEg4KBnJ1bGVJZBgBIAEoCRIR",
+            "CglydWxlSW5kZXgYAiABKAUSQwoQZXZhbHVhdGVkT3V0cHV0cxgDIAMoCzIp",
+            "LmdhdGV3YXlfcHJvdG9jb2wuRXZhbHVhdGVkRGVjaXNpb25PdXRwdXQiVQoU",
+            "RGVwbG95UHJvY2Vzc1JlcXVlc3QSOQoJcHJvY2Vzc2VzGAEgAygLMiYuZ2F0",
+            "ZXdheV9wcm90b2NvbC5Qcm9jZXNzUmVxdWVzdE9iamVjdDoCGAEiPAoUUHJv",
+            "Y2Vzc1JlcXVlc3RPYmplY3QSDAoEbmFtZRgBIAEoCRISCgpkZWZpbml0aW9u",
+            "GAIgASgMOgIYASJeChVEZXBsb3lQcm9jZXNzUmVzcG9uc2USCwoDa2V5GAEg",
+            "ASgDEjQKCXByb2Nlc3NlcxgCIAMoCzIhLmdhdGV3YXlfcHJvdG9jb2wuUHJv",
+            "Y2Vzc01ldGFkYXRhOgIYASJYChVEZXBsb3lSZXNvdXJjZVJlcXVlc3QSLQoJ",
+            "cmVzb3VyY2VzGAEgAygLMhouZ2F0ZXdheV9wcm90b2NvbC5SZXNvdXJjZRIQ",
+            "Cgh0ZW5hbnRJZBgCIAEoCSIpCghSZXNvdXJjZRIMCgRuYW1lGAEgASgJEg8K",
+            "B2NvbnRlbnQYAiABKAwiagoWRGVwbG95UmVzb3VyY2VSZXNwb25zZRILCgNr",
+            "ZXkYASABKAMSMQoLZGVwbG95bWVudHMYAiADKAsyHC5nYXRld2F5X3Byb3Rv",
+            "Y29sLkRlcGxveW1lbnQSEAoIdGVuYW50SWQYAyABKAkihgIKCkRlcGxveW1l",
+            "bnQSNAoHcHJvY2VzcxgBIAEoCzIhLmdhdGV3YXlfcHJvdG9jb2wuUHJvY2Vz",
+            "c01ldGFkYXRhSAASNgoIZGVjaXNpb24YAiABKAsyIi5nYXRld2F5X3Byb3Rv",
+            "Y29sLkRlY2lzaW9uTWV0YWRhdGFIABJOChRkZWNpc2lvblJlcXVpcmVtZW50",
+            "cxgDIAEoCzIuLmdhdGV3YXlfcHJvdG9jb2wuRGVjaXNpb25SZXF1aXJlbWVu",
+            "dHNNZXRhZGF0YUgAEi4KBGZvcm0YBCABKAsyHi5nYXRld2F5X3Byb3RvY29s",
+            "LkZvcm1NZXRhZGF0YUgAQgoKCE1ldGFkYXRhIn8KD1Byb2Nlc3NNZXRhZGF0",
+            "YRIVCg1icG1uUHJvY2Vzc0lkGAEgASgJEg8KB3ZlcnNpb24YAiABKAUSHAoU",
+            "cHJvY2Vzc0RlZmluaXRpb25LZXkYAyABKAMSFAoMcmVzb3VyY2VOYW1lGAQg",
+            "ASgJEhAKCHRlbmFudElkGAUgASgJIr4BChBEZWNpc2lvbk1ldGFkYXRhEhUK",
+            "DWRtbkRlY2lzaW9uSWQYASABKAkSFwoPZG1uRGVjaXNpb25OYW1lGAIgASgJ",
+            "Eg8KB3ZlcnNpb24YAyABKAUSEwoLZGVjaXNpb25LZXkYBCABKAMSIQoZZG1u",
+            "RGVjaXNpb25SZXF1aXJlbWVudHNJZBgFIAEoCRIfChdkZWNpc2lvblJlcXVp",
+            "cmVtZW50c0tleRgGIAEoAxIQCgh0ZW5hbnRJZBgHIAEoCSLAAQocRGVjaXNp",
+            "b25SZXF1aXJlbWVudHNNZXRhZGF0YRIhChlkbW5EZWNpc2lvblJlcXVpcmVt",
+            "ZW50c0lkGAEgASgJEiMKG2RtbkRlY2lzaW9uUmVxdWlyZW1lbnRzTmFtZRgC",
+            "IAEoCRIPCgd2ZXJzaW9uGAMgASgFEh8KF2RlY2lzaW9uUmVxdWlyZW1lbnRz",
+            "S2V5GAQgASgDEhQKDHJlc291cmNlTmFtZRgFIAEoCRIQCgh0ZW5hbnRJZBgG",
+            "IAEoCSJoCgxGb3JtTWV0YWRhdGESDgoGZm9ybUlkGAEgASgJEg8KB3ZlcnNp",
+            "b24YAiABKAUSDwoHZm9ybUtleRgDIAEoAxIUCgxyZXNvdXJjZU5hbWUYBCAB",
+            "KAkSEAoIdGVuYW50SWQYBSABKAkicAoORmFpbEpvYlJlcXVlc3QSDgoGam9i",
+            "S2V5GAEgASgDEg8KB3JldHJpZXMYAiABKAUSFAoMZXJyb3JNZXNzYWdlGAMg",
+            "ASgJEhQKDHJldHJ5QmFja09mZhgEIAEoAxIRCgl2YXJpYWJsZXMYBSABKAki",
+            "EQoPRmFpbEpvYlJlc3BvbnNlIl8KEVRocm93RXJyb3JSZXF1ZXN0Eg4KBmpv",
+            "YktleRgBIAEoAxIRCgllcnJvckNvZGUYAiABKAkSFAoMZXJyb3JNZXNzYWdl",
+            "GAMgASgJEhEKCXZhcmlhYmxlcxgEIAEoCSIUChJUaHJvd0Vycm9yUmVzcG9u",
+            "c2UiiQEKFVB1Ymxpc2hNZXNzYWdlUmVxdWVzdBIMCgRuYW1lGAEgASgJEhYK",
+            "DmNvcnJlbGF0aW9uS2V5GAIgASgJEhIKCnRpbWVUb0xpdmUYAyABKAMSEQoJ",
+            "bWVzc2FnZUlkGAQgASgJEhEKCXZhcmlhYmxlcxgFIAEoCRIQCgh0ZW5hbnRJ",
+            "ZBgGIAEoCSI3ChZQdWJsaXNoTWVzc2FnZVJlc3BvbnNlEgsKA2tleRgBIAEo",
+            "AxIQCgh0ZW5hbnRJZBgCIAEoCSJlChZSZXNvbHZlSW5jaWRlbnRSZXF1ZXN0",
+            "EhMKC2luY2lkZW50S2V5GAEgASgDEh8KEm9wZXJhdGlvblJlZmVyZW5jZRgC",
+            "IAEoBEgAiAEBQhUKE19vcGVyYXRpb25SZWZlcmVuY2UiGQoXUmVzb2x2ZUlu",
+            "Y2lkZW50UmVzcG9uc2UiEQoPVG9wb2xvZ3lSZXF1ZXN0IqIBChBUb3BvbG9n",
+            "eVJlc3BvbnNlEi0KB2Jyb2tlcnMYASADKAsyHC5nYXRld2F5X3Byb3RvY29s",
+            "LkJyb2tlckluZm8SEwoLY2x1c3RlclNpemUYAiABKAUSFwoPcGFydGl0aW9u",
+            "c0NvdW50GAMgASgFEhkKEXJlcGxpY2F0aW9uRmFjdG9yGAQgASgFEhYKDmdh",
+            "dGV3YXlWZXJzaW9uGAUgASgJInoKCkJyb2tlckluZm8SDgoGbm9kZUlkGAEg",
+            "ASgFEgwKBGhvc3QYAiABKAkSDAoEcG9ydBgDIAEoBRIvCgpwYXJ0aXRpb25z",
+            "GAQgAygLMhsuZ2F0ZXdheV9wcm90b2NvbC5QYXJ0aXRpb24SDwoHdmVyc2lv",
+            "bhgFIAEoCSKgAgoJUGFydGl0aW9uEhMKC3BhcnRpdGlvbklkGAEgASgFEj0K",
+            "BHJvbGUYAiABKA4yLy5nYXRld2F5X3Byb3RvY29sLlBhcnRpdGlvbi5QYXJ0",
+            "aXRpb25Ccm9rZXJSb2xlEkEKBmhlYWx0aBgDIAEoDjIxLmdhdGV3YXlfcHJv",
+            "dG9jb2wuUGFydGl0aW9uLlBhcnRpdGlvbkJyb2tlckhlYWx0aCI9ChNQYXJ0",
+            "aXRpb25Ccm9rZXJSb2xlEgoKBkxFQURFUhAAEgwKCEZPTExPV0VSEAESDAoI",
+            "SU5BQ1RJVkUQAiI9ChVQYXJ0aXRpb25Ccm9rZXJIZWFsdGgSCwoHSEVBTFRI",
+            "WRAAEg0KCVVOSEVBTFRIWRABEggKBERFQUQQAiJyChdVcGRhdGVKb2JSZXRy",
+            "aWVzUmVxdWVzdBIOCgZqb2JLZXkYASABKAMSDwoHcmV0cmllcxgCIAEoBRIf",
+            "ChJvcGVyYXRpb25SZWZlcmVuY2UYAyABKARIAIgBAUIVChNfb3BlcmF0aW9u",
+            "UmVmZXJlbmNlIhoKGFVwZGF0ZUpvYlJldHJpZXNSZXNwb25zZSJyChdVcGRh",
+            "dGVKb2JUaW1lb3V0UmVxdWVzdBIOCgZqb2JLZXkYASABKAMSDwoHdGltZW91",
+            "dBgCIAEoAxIfChJvcGVyYXRpb25SZWZlcmVuY2UYAyABKARIAIgBAUIVChNf",
+            "b3BlcmF0aW9uUmVmZXJlbmNlIhoKGFVwZGF0ZUpvYlRpbWVvdXRSZXNwb25z",
+            "ZSKLAQoTU2V0VmFyaWFibGVzUmVxdWVzdBIaChJlbGVtZW50SW5zdGFuY2VL",
+            "ZXkYASABKAMSEQoJdmFyaWFibGVzGAIgASgJEg0KBWxvY2FsGAMgASgIEh8K",
+            "Em9wZXJhdGlvblJlZmVyZW5jZRgEIAEoBEgAiAEBQhUKE19vcGVyYXRpb25S",
+            "ZWZlcmVuY2UiIwoUU2V0VmFyaWFibGVzUmVzcG9uc2USCwoDa2V5GAEgASgD",
+            "ItgEChxNb2RpZnlQcm9jZXNzSW5zdGFuY2VSZXF1ZXN0EhoKEnByb2Nlc3NJ",
+            "bnN0YW5jZUtleRgBIAEoAxJgChRhY3RpdmF0ZUluc3RydWN0aW9ucxgCIAMo",
+            "CzJCLmdhdGV3YXlfcHJvdG9jb2wuTW9kaWZ5UHJvY2Vzc0luc3RhbmNlUmVx",
+            "dWVzdC5BY3RpdmF0ZUluc3RydWN0aW9uEmIKFXRlcm1pbmF0ZUluc3RydWN0",
+            "aW9ucxgDIAMoCzJDLmdhdGV3YXlfcHJvdG9jb2wuTW9kaWZ5UHJvY2Vzc0lu",
+            "c3RhbmNlUmVxdWVzdC5UZXJtaW5hdGVJbnN0cnVjdGlvbhIfChJvcGVyYXRp",
+            "b25SZWZlcmVuY2UYBCABKARIAIgBARquAQoTQWN0aXZhdGVJbnN0cnVjdGlv",
+            "bhIRCgllbGVtZW50SWQYASABKAkSIgoaYW5jZXN0b3JFbGVtZW50SW5zdGFu",
+            "Y2VLZXkYAiABKAMSYAoUdmFyaWFibGVJbnN0cnVjdGlvbnMYAyADKAsyQi5n",
+            "YXRld2F5X3Byb3RvY29sLk1vZGlmeVByb2Nlc3NJbnN0YW5jZVJlcXVlc3Qu",
+            "VmFyaWFibGVJbnN0cnVjdGlvbho5ChNWYXJpYWJsZUluc3RydWN0aW9uEhEK",
+            "CXZhcmlhYmxlcxgBIAEoCRIPCgdzY29wZUlkGAIgASgJGjIKFFRlcm1pbmF0",
+            "ZUluc3RydWN0aW9uEhoKEmVsZW1lbnRJbnN0YW5jZUtleRgBIAEoA0IVChNf",
+            "b3BlcmF0aW9uUmVmZXJlbmNlIh8KHU1vZGlmeVByb2Nlc3NJbnN0YW5jZVJl",
+            "c3BvbnNlIqgDCh1NaWdyYXRlUHJvY2Vzc0luc3RhbmNlUmVxdWVzdBIaChJw",
+            "cm9jZXNzSW5zdGFuY2VLZXkYASABKAMSVAoNbWlncmF0aW9uUGxhbhgCIAEo",
+            "CzI9LmdhdGV3YXlfcHJvdG9jb2wuTWlncmF0ZVByb2Nlc3NJbnN0YW5jZVJl",
+            "cXVlc3QuTWlncmF0aW9uUGxhbhIfChJvcGVyYXRpb25SZWZlcmVuY2UYAyAB",
+            "KARIAIgBARqUAQoNTWlncmF0aW9uUGxhbhIiChp0YXJnZXRQcm9jZXNzRGVm",
+            "aW5pdGlvbktleRgBIAEoAxJfChNtYXBwaW5nSW5zdHJ1Y3Rpb25zGAIgAygL",
+            "MkIuZ2F0ZXdheV9wcm90b2NvbC5NaWdyYXRlUHJvY2Vzc0luc3RhbmNlUmVx",
+            "dWVzdC5NYXBwaW5nSW5zdHJ1Y3Rpb24aRgoSTWFwcGluZ0luc3RydWN0aW9u",
+            "EhcKD3NvdXJjZUVsZW1lbnRJZBgBIAEoCRIXCg90YXJnZXRFbGVtZW50SWQY",
+            "AiABKAlCFQoTX29wZXJhdGlvblJlZmVyZW5jZSIgCh5NaWdyYXRlUHJvY2Vz",
+            "c0luc3RhbmNlUmVzcG9uc2UiZAoVRGVsZXRlUmVzb3VyY2VSZXF1ZXN0EhMK",
+            "C3Jlc291cmNlS2V5GAEgASgDEh8KEm9wZXJhdGlvblJlZmVyZW5jZRgCIAEo",
+            "BEgAiAEBQhUKE19vcGVyYXRpb25SZWZlcmVuY2UiGAoWRGVsZXRlUmVzb3Vy",
+            "Y2VSZXNwb25zZSJRChZCcm9hZGNhc3RTaWduYWxSZXF1ZXN0EhIKCnNpZ25h",
+            "bE5hbWUYASABKAkSEQoJdmFyaWFibGVzGAIgASgJEhAKCHRlbmFudElkGAMg",
+            "ASgJIjgKF0Jyb2FkY2FzdFNpZ25hbFJlc3BvbnNlEgsKA2tleRgBIAEoAxIQ",
+            "Cgh0ZW5hbnRJZBgCIAEoCTLbEQoHR2F0ZXdheRJhCgxBY3RpdmF0ZUpvYnMS",
+            "JS5nYXRld2F5X3Byb3RvY29sLkFjdGl2YXRlSm9ic1JlcXVlc3QaJi5nYXRl",
+            "d2F5X3Byb3RvY29sLkFjdGl2YXRlSm9ic1Jlc3BvbnNlIgAwARJnChNTdHJl",
+            "YW1BY3RpdmF0ZWRKb2JzEiwuZ2F0ZXdheV9wcm90b2NvbC5TdHJlYW1BY3Rp",
+            "dmF0ZWRKb2JzUmVxdWVzdBoeLmdhdGV3YXlfcHJvdG9jb2wuQWN0aXZhdGVk",
+            "Sm9iIgAwARJ6ChVDYW5jZWxQcm9jZXNzSW5zdGFuY2USLi5nYXRld2F5X3By",
+            "b3RvY29sLkNhbmNlbFByb2Nlc3NJbnN0YW5jZVJlcXVlc3QaLy5nYXRld2F5",
+            "X3Byb3RvY29sLkNhbmNlbFByb2Nlc3NJbnN0YW5jZVJlc3BvbnNlIgASXAoL",
+            "Q29tcGxldGVKb2ISJC5nYXRld2F5X3Byb3RvY29sLkNvbXBsZXRlSm9iUmVx",
+            "dWVzdBolLmdhdGV3YXlfcHJvdG9jb2wuQ29tcGxldGVKb2JSZXNwb25zZSIA",
+            "EnoKFUNyZWF0ZVByb2Nlc3NJbnN0YW5jZRIuLmdhdGV3YXlfcHJvdG9jb2wu",
+            "Q3JlYXRlUHJvY2Vzc0luc3RhbmNlUmVxdWVzdBovLmdhdGV3YXlfcHJvdG9j",
+            "b2wuQ3JlYXRlUHJvY2Vzc0luc3RhbmNlUmVzcG9uc2UiABKYAQofQ3JlYXRl",
+            "UHJvY2Vzc0luc3RhbmNlV2l0aFJlc3VsdBI4LmdhdGV3YXlfcHJvdG9jb2wu",
+            "Q3JlYXRlUHJvY2Vzc0luc3RhbmNlV2l0aFJlc3VsdFJlcXVlc3QaOS5nYXRl",
+            "d2F5X3Byb3RvY29sLkNyZWF0ZVByb2Nlc3NJbnN0YW5jZVdpdGhSZXN1bHRS",
+            "ZXNwb25zZSIAEmsKEEV2YWx1YXRlRGVjaXNpb24SKS5nYXRld2F5X3Byb3Rv",
+            "Y29sLkV2YWx1YXRlRGVjaXNpb25SZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2Nv",
+            "bC5FdmFsdWF0ZURlY2lzaW9uUmVzcG9uc2UiABJlCg1EZXBsb3lQcm9jZXNz",
+            "EiYuZ2F0ZXdheV9wcm90b2NvbC5EZXBsb3lQcm9jZXNzUmVxdWVzdBonLmdh",
+            "dGV3YXlfcHJvdG9jb2wuRGVwbG95UHJvY2Vzc1Jlc3BvbnNlIgOIAgESZQoO",
+            "RGVwbG95UmVzb3VyY2USJy5nYXRld2F5X3Byb3RvY29sLkRlcGxveVJlc291",
+            "cmNlUmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuRGVwbG95UmVzb3VyY2VS",
+            "ZXNwb25zZSIAElAKB0ZhaWxKb2ISIC5nYXRld2F5X3Byb3RvY29sLkZhaWxK",
+            "b2JSZXF1ZXN0GiEuZ2F0ZXdheV9wcm90b2NvbC5GYWlsSm9iUmVzcG9uc2Ui",
+            "ABJZCgpUaHJvd0Vycm9yEiMuZ2F0ZXdheV9wcm90b2NvbC5UaHJvd0Vycm9y",
+            "UmVxdWVzdBokLmdhdGV3YXlfcHJvdG9jb2wuVGhyb3dFcnJvclJlc3BvbnNl",
+            "IgASZQoOUHVibGlzaE1lc3NhZ2USJy5nYXRld2F5X3Byb3RvY29sLlB1Ymxp",
+            "c2hNZXNzYWdlUmVxdWVzdBooLmdhdGV3YXlfcHJvdG9jb2wuUHVibGlzaE1l",
+            "c3NhZ2VSZXNwb25zZSIAEmgKD1Jlc29sdmVJbmNpZGVudBIoLmdhdGV3YXlf",
+            "cHJvdG9jb2wuUmVzb2x2ZUluY2lkZW50UmVxdWVzdBopLmdhdGV3YXlfcHJv",
+            "dG9jb2wuUmVzb2x2ZUluY2lkZW50UmVzcG9uc2UiABJfCgxTZXRWYXJpYWJs",
+            "ZXMSJS5nYXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1JlcXVlc3QaJi5n",
+            "YXRld2F5X3Byb3RvY29sLlNldFZhcmlhYmxlc1Jlc3BvbnNlIgASUwoIVG9w",
+            "b2xvZ3kSIS5nYXRld2F5X3Byb3RvY29sLlRvcG9sb2d5UmVxdWVzdBoiLmdh",
+            "dGV3YXlfcHJvdG9jb2wuVG9wb2xvZ3lSZXNwb25zZSIAEmsKEFVwZGF0ZUpv",
+            "YlJldHJpZXMSKS5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlJldHJpZXNS",
+            "ZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVKb2JSZXRyaWVzUmVz",
+            "cG9uc2UiABJ6ChVNb2RpZnlQcm9jZXNzSW5zdGFuY2USLi5nYXRld2F5X3By",
+            "b3RvY29sLk1vZGlmeVByb2Nlc3NJbnN0YW5jZVJlcXVlc3QaLy5nYXRld2F5",
+            "X3Byb3RvY29sLk1vZGlmeVByb2Nlc3NJbnN0YW5jZVJlc3BvbnNlIgASfQoW",
+            "TWlncmF0ZVByb2Nlc3NJbnN0YW5jZRIvLmdhdGV3YXlfcHJvdG9jb2wuTWln",
+            "cmF0ZVByb2Nlc3NJbnN0YW5jZVJlcXVlc3QaMC5nYXRld2F5X3Byb3RvY29s",
+            "Lk1pZ3JhdGVQcm9jZXNzSW5zdGFuY2VSZXNwb25zZSIAEmsKEFVwZGF0ZUpv",
+            "YlRpbWVvdXQSKS5nYXRld2F5X3Byb3RvY29sLlVwZGF0ZUpvYlRpbWVvdXRS",
+            "ZXF1ZXN0GiouZ2F0ZXdheV9wcm90b2NvbC5VcGRhdGVKb2JUaW1lb3V0UmVz",
+            "cG9uc2UiABJlCg5EZWxldGVSZXNvdXJjZRInLmdhdGV3YXlfcHJvdG9jb2wu",
+            "RGVsZXRlUmVzb3VyY2VSZXF1ZXN0GiguZ2F0ZXdheV9wcm90b2NvbC5EZWxl",
+            "dGVSZXNvdXJjZVJlc3BvbnNlIgASaAoPQnJvYWRjYXN0U2lnbmFsEiguZ2F0",
+            "ZXdheV9wcm90b2NvbC5Ccm9hZGNhc3RTaWduYWxSZXF1ZXN0GikuZ2F0ZXdh",
+            "eV9wcm90b2NvbC5Ccm9hZGNhc3RTaWduYWxSZXNwb25zZSIAQiwKIWlvLmNh",
+            "bXVuZGEuemVlYmUuZ2F0ZXdheS5wcm90b2NvbFAAWgUuLztwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -232,11 +243,11 @@ namespace GatewayProtocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsRequest), global::GatewayProtocol.ActivateJobsRequest.Parser, new[]{ "Type", "Worker", "Timeout", "MaxJobsToActivate", "FetchVariable", "RequestTimeout", "TenantIds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivateJobsResponse), global::GatewayProtocol.ActivateJobsResponse.Parser, new[]{ "Jobs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ActivatedJob), global::GatewayProtocol.ActivatedJob.Parser, new[]{ "Key", "Type", "ProcessInstanceKey", "BpmnProcessId", "ProcessDefinitionVersion", "ProcessDefinitionKey", "ElementId", "ElementInstanceKey", "CustomHeaders", "Worker", "Retries", "Deadline", "Variables", "TenantId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelProcessInstanceRequest), global::GatewayProtocol.CancelProcessInstanceRequest.Parser, new[]{ "ProcessInstanceKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelProcessInstanceRequest), global::GatewayProtocol.CancelProcessInstanceRequest.Parser, new[]{ "ProcessInstanceKey", "OperationReference" }, new[]{ "OperationReference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CancelProcessInstanceResponse), global::GatewayProtocol.CancelProcessInstanceResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobRequest), global::GatewayProtocol.CompleteJobRequest.Parser, new[]{ "JobKey", "Variables" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CompleteJobResponse), global::GatewayProtocol.CompleteJobResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateProcessInstanceRequest), global::GatewayProtocol.CreateProcessInstanceRequest.Parser, new[]{ "ProcessDefinitionKey", "BpmnProcessId", "Version", "Variables", "StartInstructions", "TenantId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateProcessInstanceRequest), global::GatewayProtocol.CreateProcessInstanceRequest.Parser, new[]{ "ProcessDefinitionKey", "BpmnProcessId", "Version", "Variables", "StartInstructions", "TenantId", "OperationReference" }, new[]{ "OperationReference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ProcessInstanceCreationStartInstruction), global::GatewayProtocol.ProcessInstanceCreationStartInstruction.Parser, new[]{ "ElementId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateProcessInstanceResponse), global::GatewayProtocol.CreateProcessInstanceResponse.Parser, new[]{ "ProcessDefinitionKey", "BpmnProcessId", "Version", "ProcessInstanceKey", "TenantId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.CreateProcessInstanceWithResultRequest), global::GatewayProtocol.CreateProcessInstanceWithResultRequest.Parser, new[]{ "Request", "RequestTimeout", "FetchVariables" }, null, null, null, null),
@@ -264,26 +275,26 @@ namespace GatewayProtocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ThrowErrorResponse), global::GatewayProtocol.ThrowErrorResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageRequest), global::GatewayProtocol.PublishMessageRequest.Parser, new[]{ "Name", "CorrelationKey", "TimeToLive", "MessageId", "Variables", "TenantId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.PublishMessageResponse), global::GatewayProtocol.PublishMessageResponse.Parser, new[]{ "Key", "TenantId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentRequest), global::GatewayProtocol.ResolveIncidentRequest.Parser, new[]{ "IncidentKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentRequest), global::GatewayProtocol.ResolveIncidentRequest.Parser, new[]{ "IncidentKey", "OperationReference" }, new[]{ "OperationReference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ResolveIncidentResponse), global::GatewayProtocol.ResolveIncidentResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyRequest), global::GatewayProtocol.TopologyRequest.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.TopologyResponse), global::GatewayProtocol.TopologyResponse.Parser, new[]{ "Brokers", "ClusterSize", "PartitionsCount", "ReplicationFactor", "GatewayVersion" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BrokerInfo), global::GatewayProtocol.BrokerInfo.Parser, new[]{ "NodeId", "Host", "Port", "Partitions", "Version" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.Partition), global::GatewayProtocol.Partition.Parser, new[]{ "PartitionId", "Role", "Health" }, null, new[]{ typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerRole), typeof(global::GatewayProtocol.Partition.Types.PartitionBrokerHealth) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesRequest), global::GatewayProtocol.UpdateJobRetriesRequest.Parser, new[]{ "JobKey", "Retries" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesRequest), global::GatewayProtocol.UpdateJobRetriesRequest.Parser, new[]{ "JobKey", "Retries", "OperationReference" }, new[]{ "OperationReference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobRetriesResponse), global::GatewayProtocol.UpdateJobRetriesResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobTimeoutRequest), global::GatewayProtocol.UpdateJobTimeoutRequest.Parser, new[]{ "JobKey", "Timeout" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobTimeoutRequest), global::GatewayProtocol.UpdateJobTimeoutRequest.Parser, new[]{ "JobKey", "Timeout", "OperationReference" }, new[]{ "OperationReference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.UpdateJobTimeoutResponse), global::GatewayProtocol.UpdateJobTimeoutResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesRequest), global::GatewayProtocol.SetVariablesRequest.Parser, new[]{ "ElementInstanceKey", "Variables", "Local" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesRequest), global::GatewayProtocol.SetVariablesRequest.Parser, new[]{ "ElementInstanceKey", "Variables", "Local", "OperationReference" }, new[]{ "OperationReference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.SetVariablesResponse), global::GatewayProtocol.SetVariablesResponse.Parser, new[]{ "Key" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceRequest), global::GatewayProtocol.ModifyProcessInstanceRequest.Parser, new[]{ "ProcessInstanceKey", "ActivateInstructions", "TerminateInstructions" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceRequest.Types.ActivateInstruction), global::GatewayProtocol.ModifyProcessInstanceRequest.Types.ActivateInstruction.Parser, new[]{ "ElementId", "AncestorElementInstanceKey", "VariableInstructions" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceRequest), global::GatewayProtocol.ModifyProcessInstanceRequest.Parser, new[]{ "ProcessInstanceKey", "ActivateInstructions", "TerminateInstructions", "OperationReference" }, new[]{ "OperationReference" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceRequest.Types.ActivateInstruction), global::GatewayProtocol.ModifyProcessInstanceRequest.Types.ActivateInstruction.Parser, new[]{ "ElementId", "AncestorElementInstanceKey", "VariableInstructions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceRequest.Types.VariableInstruction), global::GatewayProtocol.ModifyProcessInstanceRequest.Types.VariableInstruction.Parser, new[]{ "Variables", "ScopeId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceRequest.Types.TerminateInstruction), global::GatewayProtocol.ModifyProcessInstanceRequest.Types.TerminateInstruction.Parser, new[]{ "ElementInstanceKey" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.ModifyProcessInstanceResponse), global::GatewayProtocol.ModifyProcessInstanceResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.MigrateProcessInstanceRequest), global::GatewayProtocol.MigrateProcessInstanceRequest.Parser, new[]{ "ProcessInstanceKey", "MigrationPlan" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan), global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan.Parser, new[]{ "TargetProcessDefinitionKey", "MappingInstructions" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.MigrateProcessInstanceRequest), global::GatewayProtocol.MigrateProcessInstanceRequest.Parser, new[]{ "ProcessInstanceKey", "MigrationPlan", "OperationReference" }, new[]{ "OperationReference" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan), global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan.Parser, new[]{ "TargetProcessDefinitionKey", "MappingInstructions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MappingInstruction), global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MappingInstruction.Parser, new[]{ "SourceElementId", "TargetElementId" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.MigrateProcessInstanceResponse), global::GatewayProtocol.MigrateProcessInstanceResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeleteResourceRequest), global::GatewayProtocol.DeleteResourceRequest.Parser, new[]{ "ResourceKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeleteResourceRequest), global::GatewayProtocol.DeleteResourceRequest.Parser, new[]{ "ResourceKey", "OperationReference" }, new[]{ "OperationReference" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.DeleteResourceResponse), global::GatewayProtocol.DeleteResourceResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BroadcastSignalRequest), global::GatewayProtocol.BroadcastSignalRequest.Parser, new[]{ "SignalName", "Variables", "TenantId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GatewayProtocol.BroadcastSignalResponse), global::GatewayProtocol.BroadcastSignalResponse.Parser, new[]{ "Key", "TenantId" }, null, null, null, null)
@@ -1949,6 +1960,7 @@ namespace GatewayProtocol {
   {
     private static readonly pb::MessageParser<CancelProcessInstanceRequest> _parser = new pb::MessageParser<CancelProcessInstanceRequest>(() => new CancelProcessInstanceRequest());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CancelProcessInstanceRequest> Parser { get { return _parser; } }
@@ -1976,7 +1988,9 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CancelProcessInstanceRequest(CancelProcessInstanceRequest other) : this() {
+      _hasBits0 = other._hasBits0;
       processInstanceKey_ = other.processInstanceKey_;
+      operationReference_ = other.operationReference_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2002,6 +2016,36 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "operationReference" field.</summary>
+    public const int OperationReferenceFieldNumber = 2;
+    private readonly static ulong OperationReferenceDefaultValue = 0UL;
+
+    private ulong operationReference_;
+    /// <summary>
+    /// a reference key chosen by the user and will be part of all records resulted from this operation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationReference {
+      get { if ((_hasBits0 & 1) != 0) { return operationReference_; } else { return OperationReferenceDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        operationReference_ = value;
+      }
+    }
+    /// <summary>Gets whether the "operationReference" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOperationReference {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "operationReference" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOperationReference() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2018,6 +2062,7 @@ namespace GatewayProtocol {
         return true;
       }
       if (ProcessInstanceKey != other.ProcessInstanceKey) return false;
+      if (OperationReference != other.OperationReference) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2026,6 +2071,7 @@ namespace GatewayProtocol {
     public override int GetHashCode() {
       int hash = 1;
       if (ProcessInstanceKey != 0L) hash ^= ProcessInstanceKey.GetHashCode();
+      if (HasOperationReference) hash ^= OperationReference.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2048,6 +2094,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt64(ProcessInstanceKey);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2062,6 +2112,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt64(ProcessInstanceKey);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2074,6 +2128,9 @@ namespace GatewayProtocol {
       int size = 0;
       if (ProcessInstanceKey != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProcessInstanceKey);
+      }
+      if (HasOperationReference) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationReference);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2089,6 +2146,9 @@ namespace GatewayProtocol {
       }
       if (other.ProcessInstanceKey != 0L) {
         ProcessInstanceKey = other.ProcessInstanceKey;
+      }
+      if (other.HasOperationReference) {
+        OperationReference = other.OperationReference;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2109,6 +2169,10 @@ namespace GatewayProtocol {
             ProcessInstanceKey = input.ReadInt64();
             break;
           }
+          case 16: {
+            OperationReference = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -2126,6 +2190,10 @@ namespace GatewayProtocol {
             break;
           case 8: {
             ProcessInstanceKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            OperationReference = input.ReadUInt64();
             break;
           }
         }
@@ -2682,6 +2750,7 @@ namespace GatewayProtocol {
   {
     private static readonly pb::MessageParser<CreateProcessInstanceRequest> _parser = new pb::MessageParser<CreateProcessInstanceRequest>(() => new CreateProcessInstanceRequest());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CreateProcessInstanceRequest> Parser { get { return _parser; } }
@@ -2709,12 +2778,14 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateProcessInstanceRequest(CreateProcessInstanceRequest other) : this() {
+      _hasBits0 = other._hasBits0;
       processDefinitionKey_ = other.processDefinitionKey_;
       bpmnProcessId_ = other.bpmnProcessId_;
       version_ = other.version_;
       variables_ = other.variables_;
       startInstructions_ = other.startInstructions_.Clone();
       tenantId_ = other.tenantId_;
+      operationReference_ = other.operationReference_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2820,6 +2891,36 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "operationReference" field.</summary>
+    public const int OperationReferenceFieldNumber = 7;
+    private readonly static ulong OperationReferenceDefaultValue = 0UL;
+
+    private ulong operationReference_;
+    /// <summary>
+    /// a reference key chosen by the user and will be part of all records resulted from this operation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationReference {
+      get { if ((_hasBits0 & 1) != 0) { return operationReference_; } else { return OperationReferenceDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        operationReference_ = value;
+      }
+    }
+    /// <summary>Gets whether the "operationReference" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOperationReference {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "operationReference" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOperationReference() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2841,6 +2942,7 @@ namespace GatewayProtocol {
       if (Variables != other.Variables) return false;
       if(!startInstructions_.Equals(other.startInstructions_)) return false;
       if (TenantId != other.TenantId) return false;
+      if (OperationReference != other.OperationReference) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2854,6 +2956,7 @@ namespace GatewayProtocol {
       if (Variables.Length != 0) hash ^= Variables.GetHashCode();
       hash ^= startInstructions_.GetHashCode();
       if (TenantId.Length != 0) hash ^= TenantId.GetHashCode();
+      if (HasOperationReference) hash ^= OperationReference.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2893,6 +2996,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(50);
         output.WriteString(TenantId);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(56);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2924,6 +3031,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(50);
         output.WriteString(TenantId);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(56);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2949,6 +3060,9 @@ namespace GatewayProtocol {
       size += startInstructions_.CalculateSize(_repeated_startInstructions_codec);
       if (TenantId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(TenantId);
+      }
+      if (HasOperationReference) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationReference);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2977,6 +3091,9 @@ namespace GatewayProtocol {
       startInstructions_.Add(other.startInstructions_);
       if (other.TenantId.Length != 0) {
         TenantId = other.TenantId;
+      }
+      if (other.HasOperationReference) {
+        OperationReference = other.OperationReference;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3017,6 +3134,10 @@ namespace GatewayProtocol {
             TenantId = input.ReadString();
             break;
           }
+          case 56: {
+            OperationReference = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -3054,6 +3175,10 @@ namespace GatewayProtocol {
           }
           case 50: {
             TenantId = input.ReadString();
+            break;
+          }
+          case 56: {
+            OperationReference = input.ReadUInt64();
             break;
           }
         }
@@ -11449,6 +11574,7 @@ namespace GatewayProtocol {
   {
     private static readonly pb::MessageParser<ResolveIncidentRequest> _parser = new pb::MessageParser<ResolveIncidentRequest>(() => new ResolveIncidentRequest());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ResolveIncidentRequest> Parser { get { return _parser; } }
@@ -11476,7 +11602,9 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ResolveIncidentRequest(ResolveIncidentRequest other) : this() {
+      _hasBits0 = other._hasBits0;
       incidentKey_ = other.incidentKey_;
+      operationReference_ = other.operationReference_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -11501,6 +11629,36 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "operationReference" field.</summary>
+    public const int OperationReferenceFieldNumber = 2;
+    private readonly static ulong OperationReferenceDefaultValue = 0UL;
+
+    private ulong operationReference_;
+    /// <summary>
+    /// a reference key chosen by the user and will be part of all records resulted from this operation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationReference {
+      get { if ((_hasBits0 & 1) != 0) { return operationReference_; } else { return OperationReferenceDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        operationReference_ = value;
+      }
+    }
+    /// <summary>Gets whether the "operationReference" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOperationReference {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "operationReference" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOperationReference() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -11517,6 +11675,7 @@ namespace GatewayProtocol {
         return true;
       }
       if (IncidentKey != other.IncidentKey) return false;
+      if (OperationReference != other.OperationReference) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -11525,6 +11684,7 @@ namespace GatewayProtocol {
     public override int GetHashCode() {
       int hash = 1;
       if (IncidentKey != 0L) hash ^= IncidentKey.GetHashCode();
+      if (HasOperationReference) hash ^= OperationReference.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -11547,6 +11707,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt64(IncidentKey);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -11561,6 +11725,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt64(IncidentKey);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -11573,6 +11741,9 @@ namespace GatewayProtocol {
       int size = 0;
       if (IncidentKey != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IncidentKey);
+      }
+      if (HasOperationReference) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationReference);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -11588,6 +11759,9 @@ namespace GatewayProtocol {
       }
       if (other.IncidentKey != 0L) {
         IncidentKey = other.IncidentKey;
+      }
+      if (other.HasOperationReference) {
+        OperationReference = other.OperationReference;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -11608,6 +11782,10 @@ namespace GatewayProtocol {
             IncidentKey = input.ReadInt64();
             break;
           }
+          case 16: {
+            OperationReference = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -11625,6 +11803,10 @@ namespace GatewayProtocol {
             break;
           case 8: {
             IncidentKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            OperationReference = input.ReadUInt64();
             break;
           }
         }
@@ -12931,6 +13113,7 @@ namespace GatewayProtocol {
   {
     private static readonly pb::MessageParser<UpdateJobRetriesRequest> _parser = new pb::MessageParser<UpdateJobRetriesRequest>(() => new UpdateJobRetriesRequest());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<UpdateJobRetriesRequest> Parser { get { return _parser; } }
@@ -12958,8 +13141,10 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdateJobRetriesRequest(UpdateJobRetriesRequest other) : this() {
+      _hasBits0 = other._hasBits0;
       jobKey_ = other.jobKey_;
       retries_ = other.retries_;
+      operationReference_ = other.operationReference_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -12999,6 +13184,36 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "operationReference" field.</summary>
+    public const int OperationReferenceFieldNumber = 3;
+    private readonly static ulong OperationReferenceDefaultValue = 0UL;
+
+    private ulong operationReference_;
+    /// <summary>
+    /// a reference key chosen by the user and will be part of all records resulted from this operation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationReference {
+      get { if ((_hasBits0 & 1) != 0) { return operationReference_; } else { return OperationReferenceDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        operationReference_ = value;
+      }
+    }
+    /// <summary>Gets whether the "operationReference" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOperationReference {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "operationReference" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOperationReference() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -13016,6 +13231,7 @@ namespace GatewayProtocol {
       }
       if (JobKey != other.JobKey) return false;
       if (Retries != other.Retries) return false;
+      if (OperationReference != other.OperationReference) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -13025,6 +13241,7 @@ namespace GatewayProtocol {
       int hash = 1;
       if (JobKey != 0L) hash ^= JobKey.GetHashCode();
       if (Retries != 0) hash ^= Retries.GetHashCode();
+      if (HasOperationReference) hash ^= OperationReference.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -13051,6 +13268,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(16);
         output.WriteInt32(Retries);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -13069,6 +13290,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(16);
         output.WriteInt32(Retries);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -13084,6 +13309,9 @@ namespace GatewayProtocol {
       }
       if (Retries != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Retries);
+      }
+      if (HasOperationReference) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationReference);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -13102,6 +13330,9 @@ namespace GatewayProtocol {
       }
       if (other.Retries != 0) {
         Retries = other.Retries;
+      }
+      if (other.HasOperationReference) {
+        OperationReference = other.OperationReference;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -13126,6 +13357,10 @@ namespace GatewayProtocol {
             Retries = input.ReadInt32();
             break;
           }
+          case 24: {
+            OperationReference = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -13147,6 +13382,10 @@ namespace GatewayProtocol {
           }
           case 16: {
             Retries = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            OperationReference = input.ReadUInt64();
             break;
           }
         }
@@ -13317,6 +13556,7 @@ namespace GatewayProtocol {
   {
     private static readonly pb::MessageParser<UpdateJobTimeoutRequest> _parser = new pb::MessageParser<UpdateJobTimeoutRequest>(() => new UpdateJobTimeoutRequest());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<UpdateJobTimeoutRequest> Parser { get { return _parser; } }
@@ -13344,8 +13584,10 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdateJobTimeoutRequest(UpdateJobTimeoutRequest other) : this() {
+      _hasBits0 = other._hasBits0;
       jobKey_ = other.jobKey_;
       timeout_ = other.timeout_;
+      operationReference_ = other.operationReference_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -13385,6 +13627,36 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "operationReference" field.</summary>
+    public const int OperationReferenceFieldNumber = 3;
+    private readonly static ulong OperationReferenceDefaultValue = 0UL;
+
+    private ulong operationReference_;
+    /// <summary>
+    /// a reference key chosen by the user and will be part of all records resulted from this operation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationReference {
+      get { if ((_hasBits0 & 1) != 0) { return operationReference_; } else { return OperationReferenceDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        operationReference_ = value;
+      }
+    }
+    /// <summary>Gets whether the "operationReference" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOperationReference {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "operationReference" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOperationReference() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -13402,6 +13674,7 @@ namespace GatewayProtocol {
       }
       if (JobKey != other.JobKey) return false;
       if (Timeout != other.Timeout) return false;
+      if (OperationReference != other.OperationReference) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -13411,6 +13684,7 @@ namespace GatewayProtocol {
       int hash = 1;
       if (JobKey != 0L) hash ^= JobKey.GetHashCode();
       if (Timeout != 0L) hash ^= Timeout.GetHashCode();
+      if (HasOperationReference) hash ^= OperationReference.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -13437,6 +13711,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(16);
         output.WriteInt64(Timeout);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -13455,6 +13733,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(16);
         output.WriteInt64(Timeout);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -13470,6 +13752,9 @@ namespace GatewayProtocol {
       }
       if (Timeout != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Timeout);
+      }
+      if (HasOperationReference) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationReference);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -13488,6 +13773,9 @@ namespace GatewayProtocol {
       }
       if (other.Timeout != 0L) {
         Timeout = other.Timeout;
+      }
+      if (other.HasOperationReference) {
+        OperationReference = other.OperationReference;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -13512,6 +13800,10 @@ namespace GatewayProtocol {
             Timeout = input.ReadInt64();
             break;
           }
+          case 24: {
+            OperationReference = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -13533,6 +13825,10 @@ namespace GatewayProtocol {
           }
           case 16: {
             Timeout = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            OperationReference = input.ReadUInt64();
             break;
           }
         }
@@ -13703,6 +13999,7 @@ namespace GatewayProtocol {
   {
     private static readonly pb::MessageParser<SetVariablesRequest> _parser = new pb::MessageParser<SetVariablesRequest>(() => new SetVariablesRequest());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<SetVariablesRequest> Parser { get { return _parser; } }
@@ -13730,9 +14027,11 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SetVariablesRequest(SetVariablesRequest other) : this() {
+      _hasBits0 = other._hasBits0;
       elementInstanceKey_ = other.elementInstanceKey_;
       variables_ = other.variables_;
       local_ = other.local_;
+      operationReference_ = other.operationReference_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -13796,6 +14095,36 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "operationReference" field.</summary>
+    public const int OperationReferenceFieldNumber = 4;
+    private readonly static ulong OperationReferenceDefaultValue = 0UL;
+
+    private ulong operationReference_;
+    /// <summary>
+    /// a reference key chosen by the user and will be part of all records resulted from this operation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationReference {
+      get { if ((_hasBits0 & 1) != 0) { return operationReference_; } else { return OperationReferenceDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        operationReference_ = value;
+      }
+    }
+    /// <summary>Gets whether the "operationReference" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOperationReference {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "operationReference" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOperationReference() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -13814,6 +14143,7 @@ namespace GatewayProtocol {
       if (ElementInstanceKey != other.ElementInstanceKey) return false;
       if (Variables != other.Variables) return false;
       if (Local != other.Local) return false;
+      if (OperationReference != other.OperationReference) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -13824,6 +14154,7 @@ namespace GatewayProtocol {
       if (ElementInstanceKey != 0L) hash ^= ElementInstanceKey.GetHashCode();
       if (Variables.Length != 0) hash ^= Variables.GetHashCode();
       if (Local != false) hash ^= Local.GetHashCode();
+      if (HasOperationReference) hash ^= OperationReference.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -13854,6 +14185,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(24);
         output.WriteBool(Local);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -13876,6 +14211,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(24);
         output.WriteBool(Local);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -13894,6 +14233,9 @@ namespace GatewayProtocol {
       }
       if (Local != false) {
         size += 1 + 1;
+      }
+      if (HasOperationReference) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationReference);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -13915,6 +14257,9 @@ namespace GatewayProtocol {
       }
       if (other.Local != false) {
         Local = other.Local;
+      }
+      if (other.HasOperationReference) {
+        OperationReference = other.OperationReference;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -13943,6 +14288,10 @@ namespace GatewayProtocol {
             Local = input.ReadBool();
             break;
           }
+          case 32: {
+            OperationReference = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -13968,6 +14317,10 @@ namespace GatewayProtocol {
           }
           case 24: {
             Local = input.ReadBool();
+            break;
+          }
+          case 32: {
+            OperationReference = input.ReadUInt64();
             break;
           }
         }
@@ -14178,6 +14531,7 @@ namespace GatewayProtocol {
   {
     private static readonly pb::MessageParser<ModifyProcessInstanceRequest> _parser = new pb::MessageParser<ModifyProcessInstanceRequest>(() => new ModifyProcessInstanceRequest());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ModifyProcessInstanceRequest> Parser { get { return _parser; } }
@@ -14205,9 +14559,11 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ModifyProcessInstanceRequest(ModifyProcessInstanceRequest other) : this() {
+      _hasBits0 = other._hasBits0;
       processInstanceKey_ = other.processInstanceKey_;
       activateInstructions_ = other.activateInstructions_.Clone();
       terminateInstructions_ = other.terminateInstructions_.Clone();
+      operationReference_ = other.operationReference_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -14261,6 +14617,36 @@ namespace GatewayProtocol {
       get { return terminateInstructions_; }
     }
 
+    /// <summary>Field number for the "operationReference" field.</summary>
+    public const int OperationReferenceFieldNumber = 4;
+    private readonly static ulong OperationReferenceDefaultValue = 0UL;
+
+    private ulong operationReference_;
+    /// <summary>
+    /// a reference key chosen by the user and will be part of all records resulted from this operation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationReference {
+      get { if ((_hasBits0 & 1) != 0) { return operationReference_; } else { return OperationReferenceDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        operationReference_ = value;
+      }
+    }
+    /// <summary>Gets whether the "operationReference" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOperationReference {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "operationReference" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOperationReference() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -14279,6 +14665,7 @@ namespace GatewayProtocol {
       if (ProcessInstanceKey != other.ProcessInstanceKey) return false;
       if(!activateInstructions_.Equals(other.activateInstructions_)) return false;
       if(!terminateInstructions_.Equals(other.terminateInstructions_)) return false;
+      if (OperationReference != other.OperationReference) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -14289,6 +14676,7 @@ namespace GatewayProtocol {
       if (ProcessInstanceKey != 0L) hash ^= ProcessInstanceKey.GetHashCode();
       hash ^= activateInstructions_.GetHashCode();
       hash ^= terminateInstructions_.GetHashCode();
+      if (HasOperationReference) hash ^= OperationReference.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -14313,6 +14701,10 @@ namespace GatewayProtocol {
       }
       activateInstructions_.WriteTo(output, _repeated_activateInstructions_codec);
       terminateInstructions_.WriteTo(output, _repeated_terminateInstructions_codec);
+      if (HasOperationReference) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -14329,6 +14721,10 @@ namespace GatewayProtocol {
       }
       activateInstructions_.WriteTo(ref output, _repeated_activateInstructions_codec);
       terminateInstructions_.WriteTo(ref output, _repeated_terminateInstructions_codec);
+      if (HasOperationReference) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -14344,6 +14740,9 @@ namespace GatewayProtocol {
       }
       size += activateInstructions_.CalculateSize(_repeated_activateInstructions_codec);
       size += terminateInstructions_.CalculateSize(_repeated_terminateInstructions_codec);
+      if (HasOperationReference) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationReference);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -14361,6 +14760,9 @@ namespace GatewayProtocol {
       }
       activateInstructions_.Add(other.activateInstructions_);
       terminateInstructions_.Add(other.terminateInstructions_);
+      if (other.HasOperationReference) {
+        OperationReference = other.OperationReference;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -14388,6 +14790,10 @@ namespace GatewayProtocol {
             terminateInstructions_.AddEntriesFrom(input, _repeated_terminateInstructions_codec);
             break;
           }
+          case 32: {
+            OperationReference = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -14413,6 +14819,10 @@ namespace GatewayProtocol {
           }
           case 26: {
             terminateInstructions_.AddEntriesFrom(ref input, _repeated_terminateInstructions_codec);
+            break;
+          }
+          case 32: {
+            OperationReference = input.ReadUInt64();
             break;
           }
         }
@@ -15286,6 +15696,7 @@ namespace GatewayProtocol {
   {
     private static readonly pb::MessageParser<MigrateProcessInstanceRequest> _parser = new pb::MessageParser<MigrateProcessInstanceRequest>(() => new MigrateProcessInstanceRequest());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<MigrateProcessInstanceRequest> Parser { get { return _parser; } }
@@ -15313,8 +15724,10 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public MigrateProcessInstanceRequest(MigrateProcessInstanceRequest other) : this() {
+      _hasBits0 = other._hasBits0;
       processInstanceKey_ = other.processInstanceKey_;
       migrationPlan_ = other.migrationPlan_ != null ? other.migrationPlan_.Clone() : null;
+      operationReference_ = other.operationReference_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -15354,6 +15767,36 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "operationReference" field.</summary>
+    public const int OperationReferenceFieldNumber = 3;
+    private readonly static ulong OperationReferenceDefaultValue = 0UL;
+
+    private ulong operationReference_;
+    /// <summary>
+    /// a reference key chosen by the user and will be part of all records resulted from this operation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationReference {
+      get { if ((_hasBits0 & 1) != 0) { return operationReference_; } else { return OperationReferenceDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        operationReference_ = value;
+      }
+    }
+    /// <summary>Gets whether the "operationReference" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOperationReference {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "operationReference" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOperationReference() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -15371,6 +15814,7 @@ namespace GatewayProtocol {
       }
       if (ProcessInstanceKey != other.ProcessInstanceKey) return false;
       if (!object.Equals(MigrationPlan, other.MigrationPlan)) return false;
+      if (OperationReference != other.OperationReference) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -15380,6 +15824,7 @@ namespace GatewayProtocol {
       int hash = 1;
       if (ProcessInstanceKey != 0L) hash ^= ProcessInstanceKey.GetHashCode();
       if (migrationPlan_ != null) hash ^= MigrationPlan.GetHashCode();
+      if (HasOperationReference) hash ^= OperationReference.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -15406,6 +15851,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(18);
         output.WriteMessage(MigrationPlan);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -15424,6 +15873,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(18);
         output.WriteMessage(MigrationPlan);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -15439,6 +15892,9 @@ namespace GatewayProtocol {
       }
       if (migrationPlan_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(MigrationPlan);
+      }
+      if (HasOperationReference) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationReference);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -15460,6 +15916,9 @@ namespace GatewayProtocol {
           MigrationPlan = new global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan();
         }
         MigrationPlan.MergeFrom(other.MigrationPlan);
+      }
+      if (other.HasOperationReference) {
+        OperationReference = other.OperationReference;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -15487,6 +15946,10 @@ namespace GatewayProtocol {
             input.ReadMessage(MigrationPlan);
             break;
           }
+          case 24: {
+            OperationReference = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -15511,6 +15974,10 @@ namespace GatewayProtocol {
               MigrationPlan = new global::GatewayProtocol.MigrateProcessInstanceRequest.Types.MigrationPlan();
             }
             input.ReadMessage(MigrationPlan);
+            break;
+          }
+          case 24: {
+            OperationReference = input.ReadUInt64();
             break;
           }
         }
@@ -16144,6 +16611,7 @@ namespace GatewayProtocol {
   {
     private static readonly pb::MessageParser<DeleteResourceRequest> _parser = new pb::MessageParser<DeleteResourceRequest>(() => new DeleteResourceRequest());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<DeleteResourceRequest> Parser { get { return _parser; } }
@@ -16171,7 +16639,9 @@ namespace GatewayProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public DeleteResourceRequest(DeleteResourceRequest other) : this() {
+      _hasBits0 = other._hasBits0;
       resourceKey_ = other.resourceKey_;
+      operationReference_ = other.operationReference_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -16197,6 +16667,36 @@ namespace GatewayProtocol {
       }
     }
 
+    /// <summary>Field number for the "operationReference" field.</summary>
+    public const int OperationReferenceFieldNumber = 2;
+    private readonly static ulong OperationReferenceDefaultValue = 0UL;
+
+    private ulong operationReference_;
+    /// <summary>
+    /// a reference key chosen by the user and will be part of all records resulted from this operation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationReference {
+      get { if ((_hasBits0 & 1) != 0) { return operationReference_; } else { return OperationReferenceDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        operationReference_ = value;
+      }
+    }
+    /// <summary>Gets whether the "operationReference" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOperationReference {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "operationReference" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOperationReference() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -16213,6 +16713,7 @@ namespace GatewayProtocol {
         return true;
       }
       if (ResourceKey != other.ResourceKey) return false;
+      if (OperationReference != other.OperationReference) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -16221,6 +16722,7 @@ namespace GatewayProtocol {
     public override int GetHashCode() {
       int hash = 1;
       if (ResourceKey != 0L) hash ^= ResourceKey.GetHashCode();
+      if (HasOperationReference) hash ^= OperationReference.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -16243,6 +16745,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt64(ResourceKey);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -16257,6 +16763,10 @@ namespace GatewayProtocol {
         output.WriteRawTag(8);
         output.WriteInt64(ResourceKey);
       }
+      if (HasOperationReference) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(OperationReference);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -16269,6 +16779,9 @@ namespace GatewayProtocol {
       int size = 0;
       if (ResourceKey != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(ResourceKey);
+      }
+      if (HasOperationReference) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationReference);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -16284,6 +16797,9 @@ namespace GatewayProtocol {
       }
       if (other.ResourceKey != 0L) {
         ResourceKey = other.ResourceKey;
+      }
+      if (other.HasOperationReference) {
+        OperationReference = other.OperationReference;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -16304,6 +16820,10 @@ namespace GatewayProtocol {
             ResourceKey = input.ReadInt64();
             break;
           }
+          case 16: {
+            OperationReference = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -16321,6 +16841,10 @@ namespace GatewayProtocol {
             break;
           case 8: {
             ResourceKey = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            OperationReference = input.ReadUInt64();
             break;
           }
         }
