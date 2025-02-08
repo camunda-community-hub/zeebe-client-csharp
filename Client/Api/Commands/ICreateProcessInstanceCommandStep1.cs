@@ -15,8 +15,11 @@ public interface ICreateProcessInstanceCommandStep1
 
     /// <summary>
     /// Sets optional start instruction when process instance is created
+    /// Overrides the default start position of the process. Calling this method will make the
+    /// process start at the given {@code elementId}, if possible. This method can be called more
+    /// than once to simultaneously start at different elements in different branches of the process.
     /// </summary>
-    /// <param name="elementId">the BPMN element id from the process</param>
+    /// <param name="elementId">the id of the BPMN element where to start the process instance</param>
     /// <returns>the builder for this command</returns>
     ICreateProcessInstanceCommandStep3 StartBeforeElement(string elementId);
 
