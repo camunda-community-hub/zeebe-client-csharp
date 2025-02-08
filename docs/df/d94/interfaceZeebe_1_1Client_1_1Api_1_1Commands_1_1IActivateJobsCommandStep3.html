@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.7.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.8.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -155,7 +155,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set a list of variable names which should be fetch on job activation. </p>
-<p>The jobs which are activated by this command will only contain variables from this list.</p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>The jobs which are activated by this command will only contain variables from this list. </p>
 <p>This can be used to limit the number of variables of the activated jobs.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -163,7 +164,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this command. Call IFinalCommandStep&lt;T&gt;.Send to complete the command and send it to the broker.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this command. Call IFinalCommandStep&lt;T&gt;.Send to complete the command and send it to the broker. </dd></dl>
 
 </div>
 </div>
@@ -184,7 +185,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set a list of variable names which should be fetch on job activation. </p>
-<p>The jobs which are activated by this command will only contain variables from this list.</p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>The jobs which are activated by this command will only contain variables from this list. </p>
 <p>This can be used to limit the number of variables of the activated jobs.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -213,6 +215,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set the polling timeout. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 <p>The activate jobs request will be completed when at least one job is activated or after the given pollingTimeout.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -220,7 +223,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this command. Call IFinalCommandStep&lt;T&gt;.Send to complete the command and send it to the broker.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this command. Call IFinalCommandStep&lt;T&gt;.Send to complete the command and send it to the broker. </dd></dl>
 
 </div>
 </div>
@@ -241,6 +244,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set the time for how long a job is exclusively assigned for this subscription. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 <p>In this time, the job can not be assigned by other subscriptions to ensure that only one subscription work on the job. When the time is over then the job can be assigned again by this or other subscription if it's not completed yet.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -248,7 +252,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this command. Call IFinalCommandStep&lt;T&gt;.Send to complete the command and send it to the broker.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this command. Call IFinalCommandStep&lt;T&gt;.Send to complete the command and send it to the broker. </dd></dl>
 
 </div>
 </div>
@@ -269,6 +273,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set the name of the job worker. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 <p>This name is used to identify the worker which activated the jobs. Its main purpose is for monitoring and auditing. Commands on activated jobs do not check the worker name, i.e. complete or fail job.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -276,7 +281,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this command. Call IFinalCommandStep&lt;T&gt;.Send to complete the command and send it to the broker.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this command. Call IFinalCommandStep&lt;T&gt;.Send to complete the command and send it to the broker. </dd></dl>
 
 </div>
 </div>
@@ -289,7 +294,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d5/df7/namespaceZeebe_1_1Client_1_1Api.html">Api</a></li><li class="navelem"><a class="el" href="../../d9/def/namespaceZeebe_1_1Client_1_1Api_1_1Commands.html">Commands</a></li><li class="navelem"><a class="el" href="../../df/d94/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IActivateJobsCommandStep3.html">IActivateJobsCommandStep3</a></li>
-    <li class="footer">Generated on Wed Sep 18 2024 18:53:44 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Sat Feb 8 2025 22:47:12 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

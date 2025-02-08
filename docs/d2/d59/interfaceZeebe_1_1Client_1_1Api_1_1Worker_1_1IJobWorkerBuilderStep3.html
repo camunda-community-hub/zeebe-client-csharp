@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.7.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.8.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -165,7 +165,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Enables job worker auto completion. </p>
 <p>This means if the user does not complete or fails the activated job by himself then the worker will do it. </p>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this worker</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
 
 </div>
 </div>
@@ -190,11 +190,11 @@ Public Member Functions</h2></td></tr>
 <p>This can be used to limit the number of variables of the activated jobs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fetchVariables</td><td>list of variables names to fetch on activation</td></tr>
+    <tr><td class="paramname">fetchVariables</td><td>list of variables names to fetch on activation.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this worker</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
 
 </div>
 </div>
@@ -219,11 +219,11 @@ Public Member Functions</h2></td></tr>
 <p>This can be used to limit the number of variables of the activated jobs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fetchVariables</td><td>list of variables names to fetch on activation</td></tr>
+    <tr><td class="paramname">fetchVariables</td><td>list of variables names to fetch on activation.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this worker</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
 
 </div>
 </div>
@@ -248,11 +248,11 @@ Public Member Functions</h2></td></tr>
 <p>Note: Job polling is done by a separate thread.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">threadCount</td><td>handler thread count, needs to be larger then zero</td></tr>
+    <tr><td class="paramname">threadCount</td><td>handler thread count, needs to be larger then zero.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this worker</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
 
 </div>
 </div>
@@ -274,7 +274,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Set the maximum number of jobs which will be exclusively activated for this worker at the same time. </p>
 <p>This is used to control the back pressure of the worker. When the maximum is reached then the worker will stop activating new jobs in order to not overwhelm the client and give other workers the chance to work on the jobs. The worker will try to activate new jobs again when jobs are completed (or marked as failed). </p>
-<p>Considerations:</p>
+<p>Considerations:.</p>
 <ol>
 <li>
 A greater value can avoid situations in which the client waits idle for the broker to provide more jobs. This can improve the worker's throughput.  </li>
@@ -287,11 +287,11 @@ The memory used by the worker is linear with respect to this value.  </li>
 </ol>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">maxJobsActive</td><td>the maximum jobs active by this worker</td></tr>
+    <tr><td class="paramname">maxJobsActive</td><td>the maximum jobs active by this worker.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this worker</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
 
 </div>
 </div>
@@ -315,11 +315,11 @@ The memory used by the worker is linear with respect to this value.  </li>
 <p>This name is used to identify the worker to which a job is exclusively assigned to. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">workerName</td><td>the name of the worker (e.g. "payment-service")</td></tr>
+    <tr><td class="paramname">workerName</td><td>the name of the worker (e.g. "payment-service").</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this worker</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
 
 </div>
 </div>
@@ -339,7 +339,7 @@ The memory used by the worker is linear with respect to this value.  </li>
 </div><div class="memdoc">
 
 <p>Open the worker and start to work on available tasks. </p>
-<dl class="section return"><dt>Returns</dt><dd>the worker</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the worker.</dd></dl>
 
 </div>
 </div>
@@ -363,11 +363,11 @@ The memory used by the worker is linear with respect to this value.  </li>
 <p>The activate jobs request will be completed when at least one job is activated or after the given requestTimeout. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pollingTimeout</td><td>the polling timeout (e.g. "TimeSpan.FromMinutes(10)") </td></tr>
+    <tr><td class="paramname">pollingTimeout</td><td>the polling timeout (e.g. "TimeSpan.FromMinutes(10)"). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this worker</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
 
 </div>
 </div>
@@ -391,11 +391,11 @@ The memory used by the worker is linear with respect to this value.  </li>
 <p>A job worker will automatically try to always activate new jobs after completing jobs. If no jobs can be activated after completing the worker will periodically poll for new jobs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pollInterval</td><td>the maximal interval to check for new jobs</td></tr>
+    <tr><td class="paramname">pollInterval</td><td>the maximal interval to check for new jobs.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this worker</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
 
 </div>
 </div>
@@ -419,11 +419,11 @@ The memory used by the worker is linear with respect to this value.  </li>
 <p>In this time, the job can not be assigned by other workers to ensure that only one worker work on the job. When the time is over then the job can be assigned again by this or other worker if it's not completed yet. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>the time as time span (e.g. "TimeSpan.FromMinutes(10)")</td></tr>
+    <tr><td class="paramname">timeout</td><td>the time as time span (e.g. "TimeSpan.FromMinutes(10)").</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this worker</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
 
 </div>
 </div>
@@ -436,7 +436,7 @@ The memory used by the worker is linear with respect to this value.  </li>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d5/df7/namespaceZeebe_1_1Client_1_1Api.html">Api</a></li><li class="navelem"><a class="el" href="../../db/d2d/namespaceZeebe_1_1Client_1_1Api_1_1Worker.html">Worker</a></li><li class="navelem"><a class="el" href="../../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html">IJobWorkerBuilderStep3</a></li>
-    <li class="footer">Generated on Wed Sep 18 2024 18:53:44 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Sat Feb 8 2025 22:47:12 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

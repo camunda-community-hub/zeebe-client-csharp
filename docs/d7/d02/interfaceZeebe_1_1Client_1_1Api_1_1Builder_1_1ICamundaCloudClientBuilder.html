@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.7.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.8.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -104,10 +104,18 @@ $(document).ready(function(){initNavTree('d7/d02/interfaceZeebe_1_1Client_1_1Api
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7dbd35f00ff05ec985023270d26c9ad4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d12/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderStep1.html">ICamundaCloudClientBuilderStep1</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d02/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilder.html#a7dbd35f00ff05ec985023270d26c9ad4">UseClientId</a> (string clientId)</td></tr>
-<tr class="memdesc:a7dbd35f00ff05ec985023270d26c9ad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the client id, which should be used to communicate with the Camunda Cloud cluster.  <br /></td></tr>
+<tr class="memdesc:a7dbd35f00ff05ec985023270d26c9ad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the client id, which should be used to communicate with the Camunda Cloud cluster. You need to create a client in the Camunda Cloud, after that you can find a newly generated client id there.  <br /></td></tr>
 <tr class="separator:a7dbd35f00ff05ec985023270d26c9ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5aa016e383cdfb542d3e3c6367ef1aeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html">ICamundaCloudClientBuilderFinalStep</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d02/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilder.html#a5aa016e383cdfb542d3e3c6367ef1aeb">FromEnv</a> ()</td></tr>
-<tr class="memdesc:a5aa016e383cdfb542d3e3c6367ef1aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short cut operation. Reads from the environment all necessary information, to communicate with the camunda cloud cluster.  <br /></td></tr>
+<tr class="memdesc:a5aa016e383cdfb542d3e3c6367ef1aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short cut operation. Reads from the environment all necessary information, to communicate with the camunda cloud cluster. Following environment variables are expected: </p><ul>
+<li>
+ZEEBE_ADDRESS </li>
+<li>
+ZEEBE_CLIENT_ID </li>
+<li>
+ZEEBE_CLIENT_SECRET </li>
+</ul>
+<p>Optional the authorization server url can be set via: ZEEBE_AUTHORIZATION_SERVER_URL.  <br /></td></tr>
 <tr class="separator:a5aa016e383cdfb542d3e3c6367ef1aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -128,8 +136,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Short cut operation. Reads from the environment all necessary information, to communicate with the camunda cloud cluster. </p>
-<p>Following environment variables are expected: </p><ul>
+<p>Short cut operation. Reads from the environment all necessary information, to communicate with the camunda cloud cluster. Following environment variables are expected: </p><ul>
 <li>
 ZEEBE_ADDRESS </li>
 <li>
@@ -137,8 +144,8 @@ ZEEBE_CLIENT_ID </li>
 <li>
 ZEEBE_CLIENT_SECRET </li>
 </ul>
-<p>Optional the authorization server url can be set via: ZEEBE_AUTHORIZATION_SERVER_URL</p>
-<dl class="section return"><dt>Returns</dt><dd>the final ICamundaCloudClientBuilder step</dd></dl>
+<p>Optional the authorization server url can be set via: ZEEBE_AUTHORIZATION_SERVER_URL. </p>
+<dl class="section return"><dt>Returns</dt><dd>the final ICamundaCloudClientBuilder step.</dd></dl>
 
 </div>
 </div>
@@ -158,15 +165,14 @@ ZEEBE_CLIENT_SECRET </li>
       </table>
 </div><div class="memdoc">
 
-<p>Defines the client id, which should be used to communicate with the Camunda Cloud cluster. </p>
-<p>You need to create a client in the Camunda Cloud, after that you can find a newly generated client id there.</p>
+<p>Defines the client id, which should be used to communicate with the Camunda Cloud cluster. You need to create a client in the Camunda Cloud, after that you can find a newly generated client id there. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">clientId</td><td>the client id, which is supplied by the Camunda Cloud</td></tr>
+    <tr><td class="paramname">clientId</td><td>the client id, which is supplied by the Camunda Cloud.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the next step in building a ICamundaCloudClient</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the next step in building a ICamundaCloudClient.</dd></dl>
 
 </div>
 </div>
@@ -179,7 +185,7 @@ ZEEBE_CLIENT_SECRET </li>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d5/df7/namespaceZeebe_1_1Client_1_1Api.html">Api</a></li><li class="navelem"><a class="el" href="../../dc/d04/namespaceZeebe_1_1Client_1_1Api_1_1Builder.html">Builder</a></li><li class="navelem"><a class="el" href="../../d7/d02/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilder.html">ICamundaCloudClientBuilder</a></li>
-    <li class="footer">Generated on Wed Sep 18 2024 18:53:44 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Sat Feb 8 2025 22:47:12 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

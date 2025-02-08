@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.7.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.8.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -110,7 +110,7 @@ Inheritance diagram for Zeebe.Client.Api.Builder.IZeebeSecureClientBuilder:</div
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a35881cce91811891e96bccd21d78ec86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html">IZeebeSecureClientBuilder</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html#a35881cce91811891e96bccd21d78ec86">AllowUntrustedCertificates</a> ()</td></tr>
-<tr class="memdesc:a35881cce91811891e96bccd21d78ec86"><td class="mdescLeft">&#160;</td><td class="mdescRight">DANGER: This allows untrusted certificates for the gRPC connection with <a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a>.  <br /></td></tr>
+<tr class="memdesc:a35881cce91811891e96bccd21d78ec86"><td class="mdescLeft">&#160;</td><td class="mdescRight">DANGER: This allows untrusted certificates for the gRPC connection with <a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a>. This setting tells the client to allow to use untrusted certificates in the underlying SocketHttpHandler. For further details see <a href="https://github.com/dotnet/runtime/issues/42482">https://github.com/dotnet/runtime/issues/42482</a>. This might be useful for testing.  <br /></td></tr>
 <tr class="separator:a35881cce91811891e96bccd21d78ec86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e54e81da971f5555863ef55aa222c5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html#a7e54e81da971f5555863ef55aa222c5f">UseAccessToken</a> (string accessToken)</td></tr>
 <tr class="memdesc:a7e54e81da971f5555863ef55aa222c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client should use the given access token to authenticate with.  <br /></td></tr>
@@ -123,7 +123,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6b4cee13545ef76638772add30fbd65d inherit pub_methods_interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the given time interval to determine when to send a keepalive ping to the gateway. The default is 30 seconds.  <br /></td></tr>
 <tr class="separator:a6b4cee13545ef76638772add30fbd65d inherit pub_methods_interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9277829317816183d43b78a2505a6140 inherit pub_methods_interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html#a9277829317816183d43b78a2505a6140">UseRetrySleepDurationProvider</a> (Func&lt; int, TimeSpan &gt; sleepDurationProvider)</td></tr>
-<tr class="memdesc:a9277829317816183d43b78a2505a6140 inherit pub_methods_interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the given duration provider for the send retries. On each retry, the duration to wait is calculated by calling <em>sleepDurationProvider</em>  with the current retry number (1 for first retry, 2 for second etc)  <br /></td></tr>
+<tr class="memdesc:a9277829317816183d43b78a2505a6140 inherit pub_methods_interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the given duration provider for the send retries. On each retry, the duration to wait is calculated by calling <em>sleepDurationProvider</em>  with the current retry number (1 for first retry, 2 for second etc).  <br /></td></tr>
 <tr class="separator:a9277829317816183d43b78a2505a6140 inherit pub_methods_interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ccb013a123c5515eec311e7b03340d1 inherit pub_methods_interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html">IZeebeClient</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html#a3ccb013a123c5515eec311e7b03340d1">Build</a> ()</td></tr>
 <tr class="memdesc:a3ccb013a123c5515eec311e7b03340d1 inherit pub_methods_interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the client with the given configuration.  <br /></td></tr>
@@ -145,9 +145,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>DANGER: This allows untrusted certificates for the gRPC connection with <a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a>. </p>
-<p>This setting tells the client to allow to use untrusted certificates in the underlying SocketHttpHandler. For further details see <a href="https://github.com/dotnet/runtime/issues/42482">https://github.com/dotnet/runtime/issues/42482</a>. This might be useful for testing.</p>
-<dl class="section return"><dt>Returns</dt><dd>the builder to create a secure client</dd></dl>
+<p>DANGER: This allows untrusted certificates for the gRPC connection with <a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a>. This setting tells the client to allow to use untrusted certificates in the underlying SocketHttpHandler. For further details see <a href="https://github.com/dotnet/runtime/issues/42482">https://github.com/dotnet/runtime/issues/42482</a>. This might be useful for testing. </p>
+<dl class="section return"><dt>Returns</dt><dd>the builder to create a secure client.</dd></dl>
 
 </div>
 </div>
@@ -170,11 +169,11 @@ Public Member Functions</h2></td></tr>
 <p>Client should use the given access token to authenticate with. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">accessToken</td><td>the access token which is used for authentication</td></tr>
+    <tr><td class="paramname">accessToken</td><td>the access token which is used for authentication.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the final client builder step</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the final client builder step.</dd></dl>
 
 </div>
 </div>
@@ -197,11 +196,11 @@ Public Member Functions</h2></td></tr>
 <p>Client should use an access token to authenticate with and the given supplier should be used to receive the token. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">supplier</td><td>the access token supplier which is called to supplied the access token</td></tr>
+    <tr><td class="paramname">supplier</td><td>the access token supplier which is called to supplied the access token.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the final client builder step</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the final client builder step.</dd></dl>
 
 </div>
 </div>
@@ -214,7 +213,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d5/df7/namespaceZeebe_1_1Client_1_1Api.html">Api</a></li><li class="navelem"><a class="el" href="../../dc/d04/namespaceZeebe_1_1Client_1_1Api_1_1Builder.html">Builder</a></li><li class="navelem"><a class="el" href="../../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html">IZeebeSecureClientBuilder</a></li>
-    <li class="footer">Generated on Wed Sep 18 2024 18:53:44 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Sat Feb 8 2025 22:47:12 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

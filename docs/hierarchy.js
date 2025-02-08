@@ -4,6 +4,8 @@ var hierarchy =
     [ "Zeebe.Client.Api.Commands.IActivateJobsCommandStep2", "d0/d9e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IActivateJobsCommandStep2.html", null ],
     [ "Zeebe.Client.Api.Responses.IActivateJobsResponse", "d5/d31/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IActivateJobsResponse.html", null ],
     [ "Zeebe.Client.Api.Misc.IAsyncRetryStrategy", "de/d82/interfaceZeebe_1_1Client_1_1Api_1_1Misc_1_1IAsyncRetryStrategy.html", null ],
+    [ "Zeebe.Client.Api.Commands.IBroadcastSignalCommandStep1", "d1/d78/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IBroadcastSignalCommandStep1.html", null ],
+    [ "Zeebe.Client.Api.Responses.IBroadcastSignalResponse", "d4/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IBroadcastSignalResponse.html", null ],
     [ "Zeebe.Client.Api.Responses.IBrokerInfo", "d7/dce/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IBrokerInfo.html", null ],
     [ "Zeebe.Client.Api.Builder.ICamundaCloudClientBuilder", "d7/d02/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilder.html", null ],
     [ "Zeebe.Client.Api.Builder.ICamundaCloudClientBuilderFinalStep", "d1/d61/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudClientBuilderFinalStep.html", null ],
@@ -16,8 +18,6 @@ var hierarchy =
     [ "Zeebe.Client.Api.Builder.ICamundaCloudTokenProviderBuilderStep4", "da/d5d/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderStep4.html", null ],
     [ "Zeebe.Client.Api.Responses.ICancelProcessInstanceResponse", "d9/d27/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ICancelProcessInstanceResponse.html", null ],
     [ "Zeebe.Client.Api.Responses.ICompleteJobResponse", "d3/d3e/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ICompleteJobResponse.html", null ],
-    [ "Zeebe.Client.Api.Commands.ICreateProcessInstanceCommandStep1", "dc/db3/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep1.html", null ],
-    [ "Zeebe.Client.Api.Commands.ICreateProcessInstanceCommandStep2", "df/d4a/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep2.html", null ],
     [ "Zeebe.Client.Api.Responses.IDecisionMetadata", "dc/dcf/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IDecisionMetadata.html", null ],
     [ "Zeebe.Client.Api.Responses.IDecisionRequirementsMetadata", "da/d64/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IDecisionRequirementsMetadata.html", null ],
     [ "Zeebe.Client.Api.Commands.IDeployResourceCommandStep1", "d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1.html", [
@@ -41,6 +41,9 @@ var hierarchy =
     [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IActivateJobsResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
       [ "Zeebe.Client.Api.Commands.IActivateJobsCommandStep3", "df/d94/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IActivateJobsCommandStep3.html", null ]
     ] ],
+    [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IBroadcastSignalResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
+      [ "Zeebe.Client.Api.Commands.IBroadcastSignalCommandStep2", "d1/d1e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IBroadcastSignalCommandStep2.html", null ]
+    ] ],
     [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< ICancelProcessInstanceResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
       [ "Zeebe.Client.Api.Commands.ICancelProcessInstanceCommandStep1", "d5/d79/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICancelProcessInstanceCommandStep1.html", null ]
     ] ],
@@ -60,12 +63,6 @@ var hierarchy =
       [ "Zeebe.Client.Api.Commands.IModifyProcessInstanceCommandStep2", "d3/d74/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IModifyProcessInstanceCommandStep2.html", [
         [ "Zeebe.Client.Api.Commands.IModifyProcessInstanceCommandStep3", "da/d1e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IModifyProcessInstanceCommandStep3.html", null ]
       ] ]
-    ] ],
-    [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IProcessInstanceResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
-      [ "Zeebe.Client.Api.Commands.ICreateProcessInstanceCommandStep3", "d0/db3/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep3.html", null ]
-    ] ],
-    [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IProcessInstanceResult >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
-      [ "Zeebe.Client.Api.Commands.ICreateProcessInstanceWithResultCommandStep1", "dd/dd6/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceWithResultCommandStep1.html", null ]
     ] ],
     [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IPublishMessageResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
       [ "Zeebe.Client.Api.Commands.IPublishMessageCommandStep3", "d5/d02/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep3.html", null ]
@@ -109,11 +106,14 @@ var hierarchy =
     [ "Zeebe.Client.Api.Commands.ISetVariablesCommandStep1", "d2/d5d/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ISetVariablesCommandStep1.html", null ],
     [ "Zeebe.Client.Api.Responses.ISetVariablesResponse", "d7/d1a/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ISetVariablesResponse.html", null ],
     [ "Zeebe.Client.Api.Commands.ITenantIdCommandStep< out T >", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html", null ],
-    [ "Zeebe.Client.Api.Commands.ITenantIdCommandStep< ICreateProcessInstanceCommandStep3 >", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html", [
-      [ "Zeebe.Client.Api.Commands.ICreateProcessInstanceCommandStep3", "d0/db3/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICreateProcessInstanceCommandStep3.html", null ]
-    ] ],
     [ "Zeebe.Client.Api.Commands.ITenantIdCommandStep< IDeployResourceCommandBuilderStep2 >", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html", [
       [ "Zeebe.Client.Api.Commands.IDeployResourceCommandBuilderStep2", "d4/d33/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandBuilderStep2.html", null ]
+    ] ],
+    [ "Zeebe.Client.Api.Commands.ITenantIdCommandStep< IEvaluateDecisionCommandStep2 >", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html", [
+      [ "Zeebe.Client.Api.Commands.IEvaluateDecisionCommandStep1.IEvaluateDecisionCommandStep2", "d9/d43/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IEvaluateDecisionCommandStep1_1_1IEvaluateDecisionCommandStep2.html", null ]
+    ] ],
+    [ "Zeebe.Client.Api.Commands.ITenantIdCommandStep< IPublishMessageCommandStep3 >", "da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html", [
+      [ "Zeebe.Client.Api.Commands.IPublishMessageCommandStep3", "d5/d02/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep3.html", null ]
     ] ],
     [ "Zeebe.Client.Api.Commands.ITenantIdsCommandStep< out T >", "d3/da8/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdsCommandStep.html", null ],
     [ "Zeebe.Client.Api.Commands.ITenantIdsCommandStep< IActivateJobsCommandStep3 >", "d3/da8/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdsCommandStep.html", [
