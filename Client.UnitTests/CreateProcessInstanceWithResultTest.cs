@@ -254,7 +254,7 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
 
         // when
         await ZeebeClient.NewCreateProcessInstanceCommand()
-            .AddStartInstruction("StartHere")
+            .StartBeforeElement("StartHere")
             .WithResult()
             .Send();
 
