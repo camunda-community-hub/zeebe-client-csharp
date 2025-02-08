@@ -247,6 +247,8 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
         {
             Request = new CreateProcessInstanceRequest
             {
+                BpmnProcessId = "process",
+                Version = -1,
                 StartInstructions = { new ProcessInstanceCreationStartInstruction { ElementId = "StartHere" } }
             },
             RequestTimeout = 20 * 1000
@@ -254,6 +256,8 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
 
         // when
         await ZeebeClient.NewCreateProcessInstanceCommand()
+            .BpmnProcessId("process")
+            .LatestVersion()
             .StartBeforeElement("StartHere")
             .WithResult()
             .Send();
