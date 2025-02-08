@@ -38,30 +38,6 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
     }
 
     [Test]
-    public async Task ShouldSendRequestWithStartInstructionAsExpected()
-    {
-        // given
-        var expectedRequest = new CreateProcessInstanceWithResultRequest
-        {
-            Request = new CreateProcessInstanceRequest
-            {
-                StartInstructions = { new ProcessInstanceCreationStartInstruction { ElementId = "StartHere" } }
-            },
-            RequestTimeout = 20 * 1000
-        };
-
-        // when
-        await ZeebeClient.NewCreateProcessInstanceCommand()
-            .AddStartInstruction("StartHere")
-            .WithResult()
-            .Send();
-
-        // then
-        var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
-        Assert.AreEqual(expectedRequest, request);
-    }
-
-    [Test]
     public void ShouldTimeoutRequest()
     {
         // given
@@ -257,6 +233,30 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
         .AddTenantId("tenant1")
         .WithResult()
         .Send();
+
+        // then
+        var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];
+        Assert.AreEqual(expectedRequest, request);
+    }
+
+    [Test]
+    public async Task ShouldSendRequestWithStartInstructionAsExpected()
+    {
+        // given
+        var expectedRequest = new CreateProcessInstanceWithResultRequest
+        {
+            Request = new CreateProcessInstanceRequest
+            {
+                StartInstructions = { new ProcessInstanceCreationStartInstruction { ElementId = "StartHere" } }
+            },
+            RequestTimeout = 20 * 1000
+        };
+
+        // when
+        await ZeebeClient.NewCreateProcessInstanceCommand()
+            .StartBeforeElement("StartHere")
+            .WithResult()
+            .Send();
 
         // then
         var request = TestService.Requests[typeof(CreateProcessInstanceWithResultRequest)][0];

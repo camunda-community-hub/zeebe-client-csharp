@@ -18,7 +18,7 @@ public interface ICreateProcessInstanceCommandStep1
     /// </summary>
     /// <param name="elementId">the BPMN element id from the process</param>
     /// <returns>the builder for this command</returns>
-    ICreateProcessInstanceCommandStep3 AddStartInstruction(string elementId);
+    ICreateProcessInstanceCommandStep3 StartBeforeElement(string elementId);
 
     /// <summary>
     /// Set the key of the process to create an instance of. The key is assigned by the broker while
