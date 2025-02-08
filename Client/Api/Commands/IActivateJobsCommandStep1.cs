@@ -24,8 +24,8 @@ public interface IActivateJobsCommandStep1
     /// <summary>
     ///     Set the type of jobs to work on.
     /// </summary>
-    /// <param name="jobType">the type of jobs (e.g. "payment")</param>
-    /// <returns>the builder for this command</returns>
+    /// <param name="jobType">the type of jobs (e.g. "payment").</param>
+    /// <returns>the builder for this command.</returns>
     IActivateJobsCommandStep2 JobType(string jobType);
 }
 
@@ -35,15 +35,16 @@ public interface IActivateJobsCommandStep2
     ///     Set the maximum of jobs to activate. If less jobs are available for activation the
     ///     command will return a list with fewer jobs.
     /// </summary>
-    /// <param name="maxJobsToActivate">the maximal number of jobs to activate</param>
-    /// <returns>the builder for this command</returns>
+    /// <param name="maxJobsToActivate">the maximal number of jobs to activate.</param>
+    /// <returns>the builder for this command.</returns>
     IActivateJobsCommandStep3 MaxJobsToActivate(int maxJobsToActivate);
 }
 
 public interface IActivateJobsCommandStep3 : ITenantIdsCommandStep<IActivateJobsCommandStep3>,
     IFinalCommandWithRetryStep<IActivateJobsResponse>
 {
-    /// <summary>
+    ///
+    /// <returns></returns><summary>
     ///     Set the time for how long a job is exclusively assigned for this subscription.
     ///     <para>
     ///         In this time, the job can not be assigned by other subscriptions to ensure that only one
@@ -57,7 +58,8 @@ public interface IActivateJobsCommandStep3 : ITenantIdsCommandStep<IActivateJobs
     /// </returns>
     IActivateJobsCommandStep3 Timeout(TimeSpan timeout);
 
-    /// <summary>
+    ///
+    /// <returns></returns><summary>
     ///     Set the name of the job worker.
     ///     <para>
     ///         This name is used to identify the worker which activated the jobs. Its main purpose is for
@@ -71,7 +73,8 @@ public interface IActivateJobsCommandStep3 : ITenantIdsCommandStep<IActivateJobs
     /// </returns>
     IActivateJobsCommandStep3 WorkerName(string workerName);
 
-    /// <summary>
+    ///
+    /// <returns></returns><summary>
     ///     Set a list of variable names which should be fetch on job activation.
     ///     <para>
     ///         The jobs which are activated by this command will only contain variables from this list.
@@ -84,7 +87,8 @@ public interface IActivateJobsCommandStep3 : ITenantIdsCommandStep<IActivateJobs
     /// </returns>
     IActivateJobsCommandStep3 FetchVariables(IList<string> fetchVariables);
 
-    /// <summary>
+    ///
+    /// <returns></returns><summary>
     ///     Set the polling timeout.
     ///     <para>
     ///         The activate jobs request will be completed when at least one job is activated or after the given
@@ -99,7 +103,8 @@ public interface IActivateJobsCommandStep3 : ITenantIdsCommandStep<IActivateJobs
     /// </returns>
     IActivateJobsCommandStep3 PollingTimeout(TimeSpan pollingTimeout);
 
-    /// <summary>
+    ///
+    /// <returns></returns><summary>
     ///     Set a list of variable names which should be fetch on job activation.
     ///     <para>
     ///         The jobs which are activated by this command will only contain variables from this list.

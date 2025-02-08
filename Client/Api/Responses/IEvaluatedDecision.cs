@@ -21,42 +21,42 @@ public interface IEvaluatedDecision
 {
     /// <returns>
     ///     the decision ID, as parsed during deployment; together with the versions forms a unique
-    ///     identifier for a specific decision
+    ///     identifier for a specific decision.
     /// </returns>
     string DecisionId { get; }
 
     /// <returns>
-    ///     the assigned decision version
+    ///     the assigned decision version.
     /// </returns>
     int DecisionVersion { get; }
 
     /// <returns>
-    ///     the assigned decision key, which acts as a unique identifier for this decision
+    ///     the assigned decision key, which acts as a unique identifier for this decision.
     /// </returns>
     long DecisionKey { get; }
 
     /// <returns>
-    ///     the name of the decision, as parsed during deployment
+    ///     the name of the decision, as parsed during deployment.
     /// </returns>
     string DecisionName { get; }
 
     /// <returns>
-    ///     the type of the evaluated decision
+    ///     the type of the evaluated decision.
     /// </returns>
     string DecisionType { get; }
 
     /// <returns>
-    ///     the output of the evaluated decision
+    ///     the output of the evaluated decision.
     /// </returns>
     string DecisionOutput { get; }
 
     /// <returns>
-    ///     the decision inputs that were evaluated within this decision evaluation
+    ///     the decision inputs that were evaluated within this decision evaluation.
     /// </returns>
     IList<IEvaluatedDecisionInput> EvaluatedInputs { get; }
 
     /// <returns>
-    ///     the decision rules that matched within this decision evaluation
+    ///     the decision rules that matched within this decision evaluation.
     /// </returns>
     IList<IMatchedDecisionRule> MatchedRules { get; }
 }

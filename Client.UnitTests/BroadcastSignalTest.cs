@@ -20,7 +20,7 @@ public class BroadcastSignalTest : BaseZeebeTest
             SignalName = "signalName",
             Variables = variables
         };
-    // when
+        // when
         _ = await ZeebeClient
         .NewBroadcastSignalCommand()
         .SignalName("signalName")

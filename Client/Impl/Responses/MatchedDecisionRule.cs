@@ -27,10 +27,10 @@ public class MatchedDecisionRule : IMatchedDecisionRule
 
         EvaluatedOutputs = new List<IEvaluatedDecisionOutput>();
         foreach (var evaluatedOutput in matchedDecisionRule.EvaluatedOutputs)
-    {
-      EvaluatedOutputs.Add(new EvaluatedDecisionOutput(evaluatedOutput));
+        {
+            EvaluatedOutputs.Add(new EvaluatedDecisionOutput(evaluatedOutput));
+        }
     }
-  }
 
     public string RuleId { get; }
     public int RuleIndex { get; }

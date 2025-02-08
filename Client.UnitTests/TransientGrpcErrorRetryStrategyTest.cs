@@ -94,17 +94,17 @@ public class TransientGrpcErrorRetryStrategyTest
         var countdownEvent = new CountdownEvent(2);
         var strategy = new TransientGrpcErrorRetryStrategy(retry => TimeSpan.FromSeconds(1));
 
-    // when
+        // when
         _ = strategy.DoWithRetry(() =>
     {
-      _ = countdownEvent.Signal();
-      if (retries == 3)
-      {
-        return Task.FromResult(retries);
-      }
+        _ = countdownEvent.Signal();
+        if (retries == 3)
+        {
+            return Task.FromResult(retries);
+        }
 
-      retries++;
-      throw new RpcException(new Status(StatusCode.ResourceExhausted, "resourceExhausted"));
+        retries++;
+        throw new RpcException(new Status(StatusCode.ResourceExhausted, "resourceExhausted"));
     });
         _ = countdownEvent.Wait(TimeSpan.FromMilliseconds(10));
 

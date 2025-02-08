@@ -64,7 +64,7 @@ public class PersistedAccessTokenCacheTest
             () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
                 DateTimeOffset.UtcNow.AddDays(1).ToUnixTimeMilliseconds())));
 
-    // when
+        // when
         _ = await accessTokenCache.Get("test");
         var token = await accessTokenCache.Get("test");
 
@@ -103,7 +103,7 @@ public class PersistedAccessTokenCacheTest
             () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
                 DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())));
 
-    // when
+        // when
         _ = await accessTokenCache.Get("test");
         var token = await accessTokenCache.Get("test");
 

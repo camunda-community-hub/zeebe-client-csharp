@@ -27,7 +27,7 @@ public interface IFailJobCommandStep1
     ///         worker. Otherwise, an incident is created for this job.
     ///     </para>
     /// </summary>
-    /// <param name="remainingRetries">the remaining retries of this job (e.g. "jobEvent.getRetries() - 1")</param>
+    /// <param name="remainingRetries">the remaining retries of this job (e.g. "jobEvent.getRetries() - 1").</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send it
     ///     to the broker.
@@ -37,7 +37,8 @@ public interface IFailJobCommandStep1
 
 public interface IFailJobCommandStep2 : IFinalCommandWithRetryStep<IFailJobResponse>
 {
-    /// <summary>
+    ///
+    /// <returns></returns><summary>
     ///     Set the error message of this failing job.
     ///     <para>If the retries are zero then this error message will be used for the incident creation.
     /// </summary>

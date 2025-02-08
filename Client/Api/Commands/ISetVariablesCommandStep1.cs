@@ -7,7 +7,7 @@ public interface ISetVariablesCommandStep1
     /// <summary>
     ///     Set the new variables of the element instance.
     /// </summary>
-    /// <param name="variables">the variables (JSON) as String</param>
+    /// <param name="variables">the variables (JSON) as String.</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send it
     ///     to the broker.
@@ -31,11 +31,11 @@ public interface ISetVariablesCommandStep2 : IFinalCommandWithRetryStep<ISetVari
     ///         <item>2 => `{ "bar" : 1 }`</item>
     ///     </list>
     ///     <para>
-    ///         If we send an update request with elementInstanceKey = 2, a new document of
+    ///         If we send an update request with elementInstanceKey = 2, a new document of.
     ///         <code>
     /// { "foo" : 5 }
     /// </code>
-    ///         and local is true, then scope 1 will be unchanged, and scope 2 will now be
+    ///         and local is true, then scope 1 will be unchanged, and scope 2 will now be.
     ///         <code>
     /// { "bar" : 1, "foo" 5 }
     /// </code>

@@ -25,7 +25,7 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
             RequestTimeout = 20 * 1000
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .BpmnProcessId("process")
         .LatestVersion()
@@ -44,8 +44,8 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
         TestService.AddRequestHandler(typeof(CreateProcessInstanceWithResultRequest),
             request =>
             {
-              _ = new EventWaitHandle(false, EventResetMode.AutoReset).WaitOne();
-              return null;
+                _ = new EventWaitHandle(false, EventResetMode.AutoReset).WaitOne();
+                return null;
             });
 
         // when
@@ -68,8 +68,8 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
         TestService.AddRequestHandler(typeof(CreateProcessInstanceWithResultRequest),
             request =>
             {
-              _ = new EventWaitHandle(false, EventResetMode.AutoReset).WaitOne();
-              return null;
+                _ = new EventWaitHandle(false, EventResetMode.AutoReset).WaitOne();
+                return null;
             });
 
         // when
@@ -99,7 +99,7 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
             RequestTimeout = 20 * 1000
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .BpmnProcessId("process")
         .Version(1)
@@ -124,7 +124,7 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
             RequestTimeout = 20 * 1000
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .ProcessDefinitionKey(1)
         .WithResult()
@@ -148,7 +148,7 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
             RequestTimeout = 123 * 1000
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .ProcessDefinitionKey(1)
         .WithResult()
@@ -173,7 +173,7 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
             RequestTimeout = 20 * 1000
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .ProcessDefinitionKey(1)
         .Variables("{\"foo\":1}")
@@ -200,7 +200,7 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
             RequestTimeout = 20 * 1000
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .BpmnProcessId("process")
         .LatestVersion()
@@ -227,7 +227,7 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
             RequestTimeout = 20 * 1000
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .ProcessDefinitionKey(1)
         .AddTenantId("tenant1")
@@ -255,7 +255,7 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
             FetchVariables = { "foo", "bar" }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .BpmnProcessId("process")
         .LatestVersion()
@@ -285,7 +285,7 @@ public class CreateProcessInstanceWithResultTest : BaseZeebeTest
             FetchVariables = { "foo", "bar" }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewCreateProcessInstanceCommand()
         .BpmnProcessId("process")
         .LatestVersion()

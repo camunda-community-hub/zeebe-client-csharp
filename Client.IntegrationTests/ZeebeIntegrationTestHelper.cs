@@ -14,7 +14,7 @@ using IContainer = DotNet.Testcontainers.Containers.IContainer;
 
 namespace Client.IntegrationTests;
 
-public class ZeebeIntegrationTestHelper
+public class ZeebeIntegrationTestHelper : IDisposable
 {
     public const string LatestVersion = "8.3.0";
 
@@ -278,5 +278,10 @@ public class ZeebeIntegrationTestHelper
             }
         }
         while (continueLoop);
+    }
+
+    public void Dispose()
+    {
+        throw new NotImplementedException();
     }
 }

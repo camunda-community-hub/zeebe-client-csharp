@@ -24,8 +24,8 @@ public interface IDeployResourceCommandStep1
     /// <summary>
     ///     Add the given resource to the deployment.
     /// </summary>
-    /// <param name="resourceBytes">the resource as byte array</param>
-    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
+    /// <param name="resourceBytes">the resource as byte array.</param>
+    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn").</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send it
     ///     to the broker.
@@ -35,9 +35,9 @@ public interface IDeployResourceCommandStep1
     /// <summary>
     ///     Add the given resource to the deployment.
     /// </summary>
-    /// <param name="resourceString">the resource as String</param>
-    /// <param name="encoding">the charset of the String</param>
-    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
+    /// <param name="resourceString">the resource as String.</param>
+    /// <param name="encoding">the charset of the String.</param>
+    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn").</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send it
     ///     to the broker.
@@ -48,8 +48,8 @@ public interface IDeployResourceCommandStep1
     /// <summary>
     ///     Add the given resource to the deployment.
     /// </summary>
-    /// <param name="resourceString">the resource as UTF-8-encoded String</param>
-    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
+    /// <param name="resourceString">the resource as UTF-8-encoded String.</param>
+    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn").</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send it
     ///     to the broker.
@@ -60,8 +60,8 @@ public interface IDeployResourceCommandStep1
     /// <summary>
     ///     Add the given resource to the deployment.
     /// </summary>
-    /// <param name="resourceStream">the resource as stream</param>
-    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn")</param>
+    /// <param name="resourceStream">the resource as stream.</param>
+    /// <param name="resourceName">the name of the resource (e.g. "process.bpmn").</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send it
     ///     to the broker.
@@ -72,7 +72,7 @@ public interface IDeployResourceCommandStep1
     /// <summary>
     ///     Add the given resource to the deployment.
     /// </summary>
-    /// <param name="filename">the absolute path of the resource (e.g. "~/wf/process.bpmn")</param>
+    /// <param name="filename">the absolute path of the resource (e.g. "~/wf/process.bpmn").</param>
     /// <returns>
     ///     the builder for this command. Call <see cref="IFinalCommandStep{T}.Send" /> to complete the command and send it
     ///     to the broker.

@@ -76,19 +76,19 @@ public class ActivatedJob(GatewayProtocol.ActivatedJob activatedJob) : IJob
     public override bool Equals(object obj)
     {
         if (ReferenceEquals(null, obj))
-    {
-      return false;
-    }
+        {
+            return false;
+        }
 
         if (ReferenceEquals(this, obj))
-    {
-      return true;
-    }
+        {
+            return true;
+        }
 
         if (obj.GetType() != GetType())
-    {
-      return false;
-    }
+        {
+            return false;
+        }
 
         return Equals((ActivatedJob)obj);
     }

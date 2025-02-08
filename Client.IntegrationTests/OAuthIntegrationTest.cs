@@ -10,7 +10,7 @@ public class OAuthIntegrationTest
     [OneTimeSetUp]
     public async Task Setup()
     {
-    _ = await testHelper.SetupIntegrationTest();
+        _ = await testHelper.SetupIntegrationTest();
     }
 
     [OneTimeTearDown]
@@ -39,10 +39,10 @@ public class OAuthIntegrationTest
     [Test]
     public Task ShouldFailWithUnauthenticatedClient()
     {
-    _ = Assert.ThrowsAsync<RpcException>(async () =>
-    {
-      _ = await testHelper.CreateZeebeClient().TopologyRequest().Send();
-    });
-    return Task.CompletedTask;
+        _ = Assert.ThrowsAsync<RpcException>(async () =>
+        {
+            _ = await testHelper.CreateZeebeClient().TopologyRequest().Send();
+        });
+        return Task.CompletedTask;
     }
 }

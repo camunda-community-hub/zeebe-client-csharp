@@ -32,7 +32,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
         .ActivateElement(TestElementId)
         .Send();
@@ -61,7 +61,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
         .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
         .Send();
@@ -89,7 +89,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
         .TerminateElement(TestElementInstanceKey)
         .Send();
@@ -125,7 +125,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
         .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
         .And()
@@ -172,7 +172,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
         .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
         .And()
@@ -215,7 +215,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
         .ActivateElement(TestElementId)
         .WithVariables(TestVariables, TestScopeId)
@@ -259,7 +259,7 @@ public class ModifyProcessInstanceTest : BaseZeebeTest
             }
         };
 
-    // when
+        // when
         _ = await ZeebeClient.NewModifyProcessInstanceCommand(TestProcessInstanceKey)
         .ActivateElement(TestElementId, TestAncestorElementInstanceKey)
         .WithVariables(TestVariables, TestScopeId)
