@@ -1,6 +1,7 @@
 var namespaceZeebe_1_1Client_1_1Api_1_1Responses =
 [
     [ "IActivateJobsResponse", "d5/d31/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IActivateJobsResponse.html", "d5/d31/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IActivateJobsResponse" ],
+    [ "IBroadcastSignalResponse", "d4/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IBroadcastSignalResponse.html", null ],
     [ "IBrokerInfo", "d7/dce/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IBrokerInfo.html", "d7/dce/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IBrokerInfo" ],
     [ "ICancelProcessInstanceResponse", "d9/d27/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ICancelProcessInstanceResponse.html", null ],
     [ "ICompleteJobResponse", "d3/d3e/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1ICompleteJobResponse.html", null ],

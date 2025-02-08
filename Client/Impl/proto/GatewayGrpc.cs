@@ -685,9 +685,12 @@ namespace GatewayProtocol {
       ///FAILED_PRECONDITION:
       ///- not all active elements in the given process instance are mapped to the elements in the target process definition
       ///- a mapping instruction changes the type of an element or event
+      ///- a mapping instruction changes the implementation of a task
+      ///- a mapping instruction detaches a boundary event from an active element
       ///- a mapping instruction refers to an unsupported element (i.e. some elements will be supported later on)
       ///- a mapping instruction refers to element in unsupported scenarios.
       ///(i.e. migration is not supported when process instance or target process elements contains event subscriptions)
+      ///- multiple mapping instructions target the same boundary event
       ///
       ///INVALID_ARGUMENT:
       ///- A `sourceElementId` does not refer to an element in the process instance's process definition
@@ -2163,9 +2166,12 @@ namespace GatewayProtocol {
       ///FAILED_PRECONDITION:
       ///- not all active elements in the given process instance are mapped to the elements in the target process definition
       ///- a mapping instruction changes the type of an element or event
+      ///- a mapping instruction changes the implementation of a task
+      ///- a mapping instruction detaches a boundary event from an active element
       ///- a mapping instruction refers to an unsupported element (i.e. some elements will be supported later on)
       ///- a mapping instruction refers to element in unsupported scenarios.
       ///(i.e. migration is not supported when process instance or target process elements contains event subscriptions)
+      ///- multiple mapping instructions target the same boundary event
       ///
       ///INVALID_ARGUMENT:
       ///- A `sourceElementId` does not refer to an element in the process instance's process definition
@@ -2197,9 +2203,12 @@ namespace GatewayProtocol {
       ///FAILED_PRECONDITION:
       ///- not all active elements in the given process instance are mapped to the elements in the target process definition
       ///- a mapping instruction changes the type of an element or event
+      ///- a mapping instruction changes the implementation of a task
+      ///- a mapping instruction detaches a boundary event from an active element
       ///- a mapping instruction refers to an unsupported element (i.e. some elements will be supported later on)
       ///- a mapping instruction refers to element in unsupported scenarios.
       ///(i.e. migration is not supported when process instance or target process elements contains event subscriptions)
+      ///- multiple mapping instructions target the same boundary event
       ///
       ///INVALID_ARGUMENT:
       ///- A `sourceElementId` does not refer to an element in the process instance's process definition
@@ -2229,9 +2238,12 @@ namespace GatewayProtocol {
       ///FAILED_PRECONDITION:
       ///- not all active elements in the given process instance are mapped to the elements in the target process definition
       ///- a mapping instruction changes the type of an element or event
+      ///- a mapping instruction changes the implementation of a task
+      ///- a mapping instruction detaches a boundary event from an active element
       ///- a mapping instruction refers to an unsupported element (i.e. some elements will be supported later on)
       ///- a mapping instruction refers to element in unsupported scenarios.
       ///(i.e. migration is not supported when process instance or target process elements contains event subscriptions)
+      ///- multiple mapping instructions target the same boundary event
       ///
       ///INVALID_ARGUMENT:
       ///- A `sourceElementId` does not refer to an element in the process instance's process definition
@@ -2263,9 +2275,12 @@ namespace GatewayProtocol {
       ///FAILED_PRECONDITION:
       ///- not all active elements in the given process instance are mapped to the elements in the target process definition
       ///- a mapping instruction changes the type of an element or event
+      ///- a mapping instruction changes the implementation of a task
+      ///- a mapping instruction detaches a boundary event from an active element
       ///- a mapping instruction refers to an unsupported element (i.e. some elements will be supported later on)
       ///- a mapping instruction refers to element in unsupported scenarios.
       ///(i.e. migration is not supported when process instance or target process elements contains event subscriptions)
+      ///- multiple mapping instructions target the same boundary event
       ///
       ///INVALID_ARGUMENT:
       ///- A `sourceElementId` does not refer to an element in the process instance's process definition

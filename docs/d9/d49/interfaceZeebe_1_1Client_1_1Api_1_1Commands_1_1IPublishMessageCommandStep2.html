@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.7.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.8.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('d9/d49/interfaceZeebe_1_1Client_1_1Api
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aaea1241ff4493092038763e23c59faf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d02/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep3.html">IPublishMessageCommandStep3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d49/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep2.html#aaea1241ff4493092038763e23c59faf8">CorrelationKey</a> (string correlationKey)</td></tr>
-<tr class="memdesc:aaea1241ff4493092038763e23c59faf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the correlation key of the message.  <br /></td></tr>
+<tr class="memdesc:aaea1241ff4493092038763e23c59faf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the correlation key of the message. This value will be used together with the message name to find matching message subscriptions.  <br /></td></tr>
 <tr class="separator:aaea1241ff4493092038763e23c59faf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -121,15 +121,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set the value of the correlation key of the message. </p>
-<p>This value will be used together with the message name to find matching message subscriptions.</p>
+<p>Set the value of the correlation key of the message. This value will be used together with the message name to find matching message subscriptions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">correlationKey</td><td>the correlation key value of the message.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the builder for this command</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this command.</dd></dl>
 
 </div>
 </div>
@@ -142,7 +141,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d5/df7/namespaceZeebe_1_1Client_1_1Api.html">Api</a></li><li class="navelem"><a class="el" href="../../d9/def/namespaceZeebe_1_1Client_1_1Api_1_1Commands.html">Commands</a></li><li class="navelem"><a class="el" href="../../d9/d49/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IPublishMessageCommandStep2.html">IPublishMessageCommandStep2</a></li>
-    <li class="footer">Generated on Wed Sep 18 2024 18:53:44 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Sat Feb 8 2025 22:47:12 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

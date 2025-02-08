@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.7.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.8.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -131,24 +131,23 @@ Cloud-Example</h1>
 <div class="line"><span class="keyword">using </span>NLog.Extensions.Logging;</div>
 <div class="line"><span class="keyword">using </span>Zeebe.Client.Impl.Builder;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>Client.Cloud.Example</div>
+<div class="line"><span class="keyword">namespace </span>Client.Cloud.Example;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>Program</div>
 <div class="line">{</div>
-<div class="line">    <span class="keyword">public</span> <span class="keyword">class </span>Program</div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> async Task Main(<span class="keywordtype">string</span>[] args)</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> async Task Main(<span class="keywordtype">string</span>[] args)</div>
-<div class="line">        {</div>
-<div class="line">            var zeebeClient =</div>
-<div class="line">                    CamundaCloudClientBuilder.Builder()</div>
-<div class="line">                        .UseClientId(<span class="stringliteral">&quot;ZEEBE_CLIENT_ID&quot;</span>)</div>
-<div class="line">                        .UseClientSecret(<span class="stringliteral">&quot;ZEEBE_CLIENT_SECRET&quot;</span>)</div>
-<div class="line">                        .UseContactPoint(<span class="stringliteral">&quot;ZEEBE_ADDRESS&quot;</span>)</div>
-<div class="line">                    .UseLoggerFactory(<span class="keyword">new</span> NLogLoggerFactory()) <span class="comment">// optional</span></div>
-<div class="line">                    .Build();</div>
+<div class="line">        var zeebeClient =</div>
+<div class="line">            CamundaCloudClientBuilder.Builder()</div>
+<div class="line">                .UseClientId(<span class="stringliteral">&quot;ZEEBE_CLIENT_ID&quot;</span>)</div>
+<div class="line">                .UseClientSecret(<span class="stringliteral">&quot;ZEEBE_CLIENT_SECRET&quot;</span>)</div>
+<div class="line">                .UseContactPoint(<span class="stringliteral">&quot;ZEEBE_ADDRESS&quot;</span>)</div>
+<div class="line">                .UseLoggerFactory(<span class="keyword">new</span> NLogLoggerFactory()) <span class="comment">// optional</span></div>
+<div class="line">                .Build();</div>
 <div class="line"> </div>
-<div class="line">            var topology = await zeebeClient.TopologyRequest().Send();</div>
+<div class="line">        var topology = await zeebeClient.TopologyRequest().Send();</div>
 <div class="line"> </div>
-<div class="line">            Console.WriteLine(<span class="stringliteral">&quot;Hello: &quot;</span> + topology);</div>
-<div class="line">        }</div>
+<div class="line">        Console.WriteLine(<span class="stringliteral">&quot;Hello: &quot;</span> + topology);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment --><h1><a class="anchor" id="Example"></a>
@@ -177,124 +176,124 @@ Example</h1>
 <div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="dd/db3/namespaceZeebe_1_1Client_1_1Api_1_1Responses.html">Zeebe.Client.Api.Responses</a>;</div>
 <div class="line"><span class="keyword">using </span><a class="code hl_namespace" href="db/d2d/namespaceZeebe_1_1Client_1_1Api_1_1Worker.html">Zeebe.Client.Api.Worker</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>Client.Examples</div>
+<div class="line"><span class="keyword">namespace </span>Client.Examples;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">internal</span> <span class="keyword">class </span>Program</div>
 <div class="line">{</div>
-<div class="line">    <span class="keyword">internal</span> <span class="keyword">class </span>Program</div>
+<div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> DemoProcessPath =</div>
+<div class="line">        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, <span class="stringliteral">&quot;Resources&quot;</span>, <span class="stringliteral">&quot;demo-process.bpmn&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> ZeebeUrl = <span class="stringliteral">&quot;0.0.0.0:26500&quot;</span>;</div>
+<div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> ProcessInstanceVariables = <span class="stringliteral">&quot;{\&quot;a\&quot;:\&quot;123\&quot;}&quot;</span>;</div>
+<div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> JobType = <span class="stringliteral">&quot;payment-service&quot;</span>;</div>
+<div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> WorkerName = Environment.MachineName;</div>
+<div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">long</span> WorkCount = 100L;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> async Task Main(<span class="keywordtype">string</span>[] args)</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> DemoProcessPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, <span class="stringliteral">&quot;Resources&quot;</span>, <span class="stringliteral">&quot;demo-process.bpmn&quot;</span>);</div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> ZeebeUrl = <span class="stringliteral">&quot;0.0.0.0:26500&quot;</span>;</div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> ProcessInstanceVariables = <span class="stringliteral">&quot;{\&quot;a\&quot;:\&quot;123\&quot;}&quot;</span>;</div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> JobType = <span class="stringliteral">&quot;payment-service&quot;</span>;</div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">string</span> WorkerName = Environment.MachineName;</div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> readonly <span class="keywordtype">long</span> WorkCount = 100L;</div>
+<div class="line">        <span class="comment">// create zeebe client</span></div>
+<div class="line">        var client = ZeebeClient.Builder()</div>
+<div class="line">            .UseLoggerFactory(<span class="keyword">new</span> NLogLoggerFactory())</div>
+<div class="line">            .UseGatewayAddress(ZeebeUrl)</div>
+<div class="line">            .UsePlainText()</div>
+<div class="line">            .Build();</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> async Task Main(<span class="keywordtype">string</span>[] args)</div>
+<div class="line">        var topology = await client.TopologyRequest()</div>
+<div class="line">            .Send();</div>
+<div class="line">        Console.WriteLine(topology);</div>
+<div class="line">        _ = await client.NewPublishMessageCommand()</div>
+<div class="line">        .MessageName(<span class="stringliteral">&quot;csharp&quot;</span>)</div>
+<div class="line">        .CorrelationKey(<span class="stringliteral">&quot;wow&quot;</span>)</div>
+<div class="line">        .Variables(<span class="stringliteral">&quot;{\&quot;realValue\&quot;:2}&quot;</span>)</div>
+<div class="line">        .Send();</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// deploy</span></div>
+<div class="line">        var deployResponse = await client.NewDeployCommand()</div>
+<div class="line">            .AddResourceFile(DemoProcessPath)</div>
+<div class="line">            .Send();</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// create process instance</span></div>
+<div class="line">        var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;</div>
+<div class="line"> </div>
+<div class="line">        var processInstance = await client</div>
+<div class="line">            .NewCreateProcessInstanceCommand()</div>
+<div class="line">            .ProcessDefinitionKey(processDefinitionKey)</div>
+<div class="line">            .Variables(ProcessInstanceVariables)</div>
+<div class="line">            .Send();</div>
+<div class="line"> </div>
+<div class="line">        _ = await client.NewSetVariablesCommand(processInstance.ProcessInstanceKey).Variables(<span class="stringliteral">&quot;{\&quot;wow\&quot;:\&quot;this\&quot;}&quot;</span>).Local()</div>
+<div class="line">        .Send();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">for</span> (var i = 0; i &lt; WorkCount; i++)</div>
 <div class="line">        {</div>
-<div class="line">            <span class="comment">// create zeebe client</span></div>
-<div class="line">            var client = ZeebeClient.Builder()</div>
-<div class="line">                .UseLoggerFactory(<span class="keyword">new</span> NLogLoggerFactory())</div>
-<div class="line">                .UseGatewayAddress(ZeebeUrl)</div>
-<div class="line">                .UsePlainText()</div>
-<div class="line">                .Build();</div>
-<div class="line"> </div>
-<div class="line">            var topology = await client.TopologyRequest()</div>
-<div class="line">                .Send();</div>
-<div class="line">            Console.WriteLine(topology);</div>
-<div class="line">            await client.NewPublishMessageCommand()</div>
-<div class="line">                .MessageName(<span class="stringliteral">&quot;csharp&quot;</span>)</div>
-<div class="line">                .CorrelationKey(<span class="stringliteral">&quot;wow&quot;</span>)</div>
-<div class="line">                .Variables(<span class="stringliteral">&quot;{\&quot;realValue\&quot;:2}&quot;</span>)</div>
-<div class="line">                .Send();</div>
-<div class="line"> </div>
-<div class="line">            <span class="comment">// deploy</span></div>
-<div class="line">            var deployResponse = await client.NewDeployCommand()</div>
-<div class="line">                .AddResourceFile(DemoProcessPath)</div>
-<div class="line">                .Send();</div>
-<div class="line"> </div>
-<div class="line">            <span class="comment">// create process instance</span></div>
-<div class="line">            var processDefinitionKey = deployResponse.Processes[0].ProcessDefinitionKey;</div>
-<div class="line"> </div>
-<div class="line">            var processInstance = await client</div>
+<div class="line">            _ = await client</div>
 <div class="line">                .NewCreateProcessInstanceCommand()</div>
 <div class="line">                .ProcessDefinitionKey(processDefinitionKey)</div>
 <div class="line">                .Variables(ProcessInstanceVariables)</div>
 <div class="line">                .Send();</div>
-<div class="line"> </div>
-<div class="line">            await client.NewSetVariablesCommand(processInstance.ProcessInstanceKey).Variables(<span class="stringliteral">&quot;{\&quot;wow\&quot;:\&quot;this\&quot;}&quot;</span>).Local().Send();</div>
-<div class="line"> </div>
-<div class="line">            <span class="keywordflow">for</span> (var i = 0; i &lt; WorkCount; i++)</div>
-<div class="line">            {</div>
-<div class="line">                await client</div>
-<div class="line">                    .NewCreateProcessInstanceCommand()</div>
-<div class="line">                    .ProcessDefinitionKey(processDefinitionKey)</div>
-<div class="line">                    .Variables(ProcessInstanceVariables)</div>
-<div class="line">                    .Send();</div>
-<div class="line">            }</div>
-<div class="line"> </div>
-<div class="line">            <span class="comment">// open job worker</span></div>
-<div class="line">            <span class="keyword">using</span> (var signal = <span class="keyword">new</span> EventWaitHandle(<span class="keyword">false</span>, EventResetMode.AutoReset))</div>
-<div class="line">            {</div>
-<div class="line">                client.NewWorker()</div>
-<div class="line">                      .JobType(JobType)</div>
-<div class="line">                      .Handler(HandleJob)</div>
-<div class="line">                      .MaxJobsActive(5)</div>
-<div class="line">                      .Name(WorkerName)</div>
-<div class="line">                      .AutoCompletion()</div>
-<div class="line">                      .PollInterval(TimeSpan.FromSeconds(1))</div>
-<div class="line">                      .Timeout(TimeSpan.FromSeconds(10))</div>
-<div class="line">                      .Open();</div>
-<div class="line"> </div>
-<div class="line">                <span class="comment">// blocks main thread, so that worker can run</span></div>
-<div class="line">                signal.WaitOne();</div>
-<div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">void</span> HandleJob(<a class="code hl_interface" href="df/d67/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient.html">IJobClient</a> jobClient, <a class="code hl_interface" href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html">IJob</a> job)</div>
+<div class="line">        <span class="comment">// open job worker</span></div>
+<div class="line">        <span class="keyword">using</span> (var signal = <span class="keyword">new</span> EventWaitHandle(<span class="keyword">false</span>, EventResetMode.AutoReset))</div>
 <div class="line">        {</div>
-<div class="line">            <span class="comment">// business logic</span></div>
-<div class="line">            var jobKey = job.<a class="code hl_property" href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html#a52dcaaf846ca91ad327b3c333fc7814c">Key</a>;</div>
-<div class="line">            Console.WriteLine(<span class="stringliteral">&quot;Handling job: &quot;</span> + job);</div>
+<div class="line">            _ = client.NewWorker()</div>
+<div class="line">                .JobType(JobType)</div>
+<div class="line">                .Handler(HandleJob)</div>
+<div class="line">                .MaxJobsActive(5)</div>
+<div class="line">                .Name(WorkerName)</div>
+<div class="line">                .AutoCompletion()</div>
+<div class="line">                .PollInterval(TimeSpan.FromSeconds(1))</div>
+<div class="line">                .Timeout(TimeSpan.FromSeconds(10))</div>
+<div class="line">                .Open();</div>
 <div class="line"> </div>
-<div class="line">            <span class="keywordflow">if</span> (jobKey % 3 == 0)</div>
-<div class="line">            {</div>
-<div class="line">                jobClient.<a class="code hl_function" href="df/d67/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient.html#a8c429fc86a8093c8cafa7ff39e6d517b">NewCompleteJobCommand</a>(jobKey)</div>
-<div class="line">                    .Variables(<span class="stringliteral">&quot;{\&quot;foo\&quot;:2}&quot;</span>)</div>
-<div class="line">                    .Send()</div>
-<div class="line">                    .GetAwaiter()</div>
-<div class="line">                    .GetResult();</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (jobKey % 2 == 0)</div>
-<div class="line">            {</div>
-<div class="line">                jobClient.<a class="code hl_function" href="df/d67/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient.html#af7c7675709c3a77d44c53e672ebe3b60">NewFailCommand</a>(jobKey)</div>
-<div class="line">                    .Retries(job.<a class="code hl_property" href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html#a40ef403c0f71d68748bc3a1f3e2057cb">Retries</a> - 1)</div>
-<div class="line">                    .ErrorMessage(<span class="stringliteral">&quot;Example fail&quot;</span>)</div>
-<div class="line">                    .Send()</div>
-<div class="line">                    .GetAwaiter()</div>
-<div class="line">                    .GetResult();</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">            {</div>
-<div class="line">                <span class="comment">// auto completion</span></div>
-<div class="line">            }</div>
+<div class="line">            <span class="comment">// blocks main thread, so that worker can run</span></div>
+<div class="line">            _ = signal.WaitOne();</div>
 <div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">void</span> HandleJob(<a class="code hl_interface" href="df/d67/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient.html">IJobClient</a> jobClient, <a class="code hl_interface" href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html">IJob</a> job)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// business logic</span></div>
+<div class="line">        var jobKey = job.<a class="code hl_property" href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html#a52dcaaf846ca91ad327b3c333fc7814c">Key</a>;</div>
+<div class="line">        Console.WriteLine(<span class="stringliteral">&quot;Handling job: &quot;</span> + job);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (jobKey % 3 == 0)</div>
+<div class="line">        {</div>
+<div class="line">            _ = jobClient.<a class="code hl_function" href="df/d67/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient.html#a8c429fc86a8093c8cafa7ff39e6d517b">NewCompleteJobCommand</a>(jobKey)</div>
+<div class="line">                .Variables(<span class="stringliteral">&quot;{\&quot;foo\&quot;:2}&quot;</span>)</div>
+<div class="line">                .Send()</div>
+<div class="line">                .GetAwaiter()</div>
+<div class="line">                .GetResult();</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (jobKey % 2 == 0)</div>
+<div class="line">        {</div>
+<div class="line">            _ = jobClient.<a class="code hl_function" href="df/d67/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient.html#af7c7675709c3a77d44c53e672ebe3b60">NewFailCommand</a>(jobKey)</div>
+<div class="line">                .Retries(job.<a class="code hl_property" href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html#a40ef403c0f71d68748bc3a1f3e2057cb">Retries</a> - 1)</div>
+<div class="line">                .ErrorMessage(<span class="stringliteral">&quot;Example fail&quot;</span>)</div>
+<div class="line">                .Send()</div>
+<div class="line">                .GetAwaiter()</div>
+<div class="line">                .GetResult();</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// auto completion</span></div>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="ttc" id="ainterfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob_html"><div class="ttname"><a href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html">Zeebe.Client.Api.Responses.IJob</a></div><div class="ttdef"><b>Definition</b> IJob.cs:21</div></div>
-<div class="ttc" id="ainterfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob_html_a40ef403c0f71d68748bc3a1f3e2057cb"><div class="ttname"><a href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html#a40ef403c0f71d68748bc3a1f3e2057cb">Zeebe.Client.Api.Responses.IJob.Retries</a></div><div class="ttdeci">int Retries</div><div class="ttdoc">remaining retries</div><div class="ttdef"><b>Definition</b> IJob.cs:50</div></div>
-<div class="ttc" id="ainterfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob_html_a52dcaaf846ca91ad327b3c333fc7814c"><div class="ttname"><a href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html#a52dcaaf846ca91ad327b3c333fc7814c">Zeebe.Client.Api.Responses.IJob.Key</a></div><div class="ttdeci">long Key</div><div class="ttdoc">The unique key of the job</div><div class="ttdef"><b>Definition</b> IJob.cs:23</div></div>
+<div class="ttc" id="ainterfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob_html_a40ef403c0f71d68748bc3a1f3e2057cb"><div class="ttname"><a href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html#a40ef403c0f71d68748bc3a1f3e2057cb">Zeebe.Client.Api.Responses.IJob.Retries</a></div><div class="ttdeci">int Retries</div><div class="ttdoc">remaining retries.</div><div class="ttdef"><b>Definition</b> IJob.cs:50</div></div>
+<div class="ttc" id="ainterfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob_html_a52dcaaf846ca91ad327b3c333fc7814c"><div class="ttname"><a href="dc/ddb/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IJob.html#a52dcaaf846ca91ad327b3c333fc7814c">Zeebe.Client.Api.Responses.IJob.Key</a></div><div class="ttdeci">long Key</div><div class="ttdoc">The unique key of the job.</div><div class="ttdef"><b>Definition</b> IJob.cs:23</div></div>
 <div class="ttc" id="ainterfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient_html"><div class="ttname"><a href="df/d67/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient.html">Zeebe.Client.Api.Worker.IJobClient</a></div><div class="ttdoc">A client with access to all job-related operation: complete a job mark a job as failed update the ret...</div><div class="ttdef"><b>Definition</b> IJobClient.cs:30</div></div>
 <div class="ttc" id="ainterfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient_html_a8c429fc86a8093c8cafa7ff39e6d517b"><div class="ttname"><a href="df/d67/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient.html#a8c429fc86a8093c8cafa7ff39e6d517b">Zeebe.Client.Api.Worker.IJobClient.NewCompleteJobCommand</a></div><div class="ttdeci">ICompleteJobCommandStep1 NewCompleteJobCommand(long jobKey)</div><div class="ttdoc">Command to complete a job.</div></div>
 <div class="ttc" id="ainterfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient_html_af7c7675709c3a77d44c53e672ebe3b60"><div class="ttname"><a href="df/d67/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobClient.html#af7c7675709c3a77d44c53e672ebe3b60">Zeebe.Client.Api.Worker.IJobClient.NewFailCommand</a></div><div class="ttdeci">IFailJobCommandStep1 NewFailCommand(long jobKey)</div><div class="ttdoc">Command to mark a job as failed.</div></div>
 <div class="ttc" id="anamespaceZeebe_1_1Client_1_1Api_1_1Responses_html"><div class="ttname"><a href="dd/db3/namespaceZeebe_1_1Client_1_1Api_1_1Responses.html">Zeebe.Client.Api.Responses</a></div><div class="ttdef"><b>Definition</b> IActivateJobsResponse.cs:18</div></div>
-<div class="ttc" id="anamespaceZeebe_1_1Client_1_1Api_1_1Worker_html"><div class="ttname"><a href="db/d2d/namespaceZeebe_1_1Client_1_1Api_1_1Worker.html">Zeebe.Client.Api.Worker</a></div><div class="ttdef"><b>Definition</b> IJobClient.cs:20</div></div>
-<div class="ttc" id="anamespaceZeebe_1_1Client_html"><div class="ttname"><a href="da/d88/namespaceZeebe_1_1Client.html">Zeebe.Client</a></div><div class="ttdef"><b>Definition</b> IAccessTokenSupplier.cs:4</div></div>
+<div class="ttc" id="anamespaceZeebe_1_1Client_1_1Api_1_1Worker_html"><div class="ttname"><a href="db/d2d/namespaceZeebe_1_1Client_1_1Api_1_1Worker.html">Zeebe.Client.Api.Worker</a></div><div class="ttdef"><b>Definition</b> IJobClient.cs:19</div></div>
+<div class="ttc" id="anamespaceZeebe_1_1Client_html"><div class="ttname"><a href="da/d88/namespaceZeebe_1_1Client.html">Zeebe.Client</a></div><div class="ttdef"><b>Definition</b> IAccessTokenSupplier.cs:3</div></div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Sep 18 2024 18:53:44 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Sat Feb 8 2025 22:47:12 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

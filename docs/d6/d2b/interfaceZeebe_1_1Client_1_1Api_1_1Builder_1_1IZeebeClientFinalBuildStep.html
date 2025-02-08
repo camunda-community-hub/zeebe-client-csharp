@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.7.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.8.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -113,7 +113,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6b4cee13545ef76638772add30fbd65d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the given time interval to determine when to send a keepalive ping to the gateway. The default is 30 seconds.  <br /></td></tr>
 <tr class="separator:a6b4cee13545ef76638772add30fbd65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9277829317816183d43b78a2505a6140"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html#a9277829317816183d43b78a2505a6140">UseRetrySleepDurationProvider</a> (Func&lt; int, TimeSpan &gt; sleepDurationProvider)</td></tr>
-<tr class="memdesc:a9277829317816183d43b78a2505a6140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the given duration provider for the send retries. On each retry, the duration to wait is calculated by calling <em>sleepDurationProvider</em>  with the current retry number (1 for first retry, 2 for second etc)  <br /></td></tr>
+<tr class="memdesc:a9277829317816183d43b78a2505a6140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the given duration provider for the send retries. On each retry, the duration to wait is calculated by calling <em>sleepDurationProvider</em>  with the current retry number (1 for first retry, 2 for second etc).  <br /></td></tr>
 <tr class="separator:a9277829317816183d43b78a2505a6140"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ccb013a123c5515eec311e7b03340d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html">IZeebeClient</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html#a3ccb013a123c5515eec311e7b03340d1">Build</a> ()</td></tr>
 <tr class="memdesc:a3ccb013a123c5515eec311e7b03340d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the client with the given configuration.  <br /></td></tr>
@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Builds the client with the given configuration. </p>
-<dl class="section return"><dt>Returns</dt><dd>the client which was build with the given configuration</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the client which was build with the given configuration.</dd></dl>
 
 </div>
 </div>
@@ -160,11 +160,11 @@ Public Member Functions</h2></td></tr>
 <p>This is an optional configuration.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">keepAlive</td><td>the timespan between keep alive requests</td></tr>
+    <tr><td class="paramname">keepAlive</td><td>the timespan between keep alive requests.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the final step builder</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the final step builder.</dd></dl>
 
 </div>
 </div>
@@ -184,15 +184,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Uses the given duration provider for the send retries. On each retry, the duration to wait is calculated by calling <em>sleepDurationProvider</em>  with the current retry number (1 for first retry, 2 for second etc) </p>
-<p>This is an optional configuration. Per default the wait time provider provides base two wait time, 2^1 seconds, 2^2 seconds, 2^3 seconds etc. until one minute is reached.</p>
+<p>Uses the given duration provider for the send retries. On each retry, the duration to wait is calculated by calling <em>sleepDurationProvider</em>  with the current retry number (1 for first retry, 2 for second etc). </p>
+<p>This is an optional configuration. Per default the wait time provider provides base two wait time, 2^1 seconds, 2^2 seconds, 2^3 seconds etc. until one minute is reached. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sleepDurationProvider</td><td>The function that provides the duration to wait for for a particular retry attempt.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the final step builder</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the final step builder.</dd></dl>
 
 </div>
 </div>
@@ -205,7 +205,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d5/df7/namespaceZeebe_1_1Client_1_1Api.html">Api</a></li><li class="navelem"><a class="el" href="../../dc/d04/namespaceZeebe_1_1Client_1_1Api_1_1Builder.html">Builder</a></li><li class="navelem"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a></li>
-    <li class="footer">Generated on Wed Sep 18 2024 18:53:44 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Sat Feb 8 2025 22:47:12 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>
