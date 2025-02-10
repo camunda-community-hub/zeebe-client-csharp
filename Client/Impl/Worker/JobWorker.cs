@@ -61,16 +61,20 @@ public sealed class JobWorker : IJobWorker
     }
 
     /// <inheritdoc />
+    [Obsolete("Use DisposeAsync instead.", false)]
     public void Dispose()
+    {
+        _ = DisposeAsync();
+    }
+
+    /// <inheritdoc />
+    public async ValueTask DisposeAsync()
     {
         source.Cancel();
         // delay disposing, since poll and handler take some time to close
-        _ = Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
-        .ContinueWith(t =>
-        {
-            logger?.LogError("Dispose source");
-            source.Dispose();
-        });
+        await Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2));
+        logger?.LogError("Dispose source");
+        source.Dispose();
         isRunning = false;
     }
 
