@@ -64,6 +64,7 @@ public class GatewayTestService : Gateway.GatewayBase
         typedRequestHandler.Add(typeof(EvaluateDecisionRequest), request => new EvaluateDecisionResponse());
         typedRequestHandler.Add(typeof(ModifyProcessInstanceRequest), request => new ModifyProcessInstanceResponse());
         typedRequestHandler.Add(typeof(BroadcastSignalRequest), request => new BroadcastSignalResponse());
+        typedRequestHandler.Add(typeof(DeleteResourceRequest), request => new DeleteResourceResponse());
 
         foreach (var pair in typedRequestHandler)
         {

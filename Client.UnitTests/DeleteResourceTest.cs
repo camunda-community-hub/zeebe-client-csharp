@@ -20,58 +20,57 @@ using GatewayProtocol;
 using Grpc.Core;
 using NUnit.Framework;
 
-namespace Zeebe.Client
+namespace Zeebe.Client;
+
+[TestFixture]
+public class DeleteResourcTest : BaseZeebeTest
 {
-    [TestFixture]
-    public class DeleteResourcTest : BaseZeebeTest
+    [Test]
+    public async Task ShouldSendRequestAsExpected()
     {
-        [Test]
-        public async Task ShouldSendRequestAsExpected()
+        // given
+        const int resourceKey = 123;
+        var expectedRequest = new DeleteResourceRequest
         {
-            // given
-            const int resourceKey = 123;
-            var expectedRequest = new DeleteResourceRequest
-            {
-                ResourceKey = resourceKey
-            };
+            ResourceKey = resourceKey
+        };
 
-            // when
-            await ZeebeClient.NewDeleteResourceCommand(resourceKey).Send();
+        // when
+        await ZeebeClient.NewDeleteResourceCommand(resourceKey).Send();
 
-            // then
-            var actualRequest = TestService.Requests[typeof(DeleteResourceRequest)][0];
+        // then
+        var actualRequest = TestService.Requests[typeof(DeleteResourceRequest)][0];
 
-            Assert.AreEqual(expectedRequest, actualRequest);
-        }
+        Assert.AreEqual(expectedRequest, actualRequest);
+    }
 
-        [Test]
-        public void ShouldTimeoutRequest()
-        {
-            // given
-            const int resourceKey = 123;
+    [Test]
+    public void ShouldTimeoutRequest()
+    {
+        // given
+        const int resourceKey = 123;
 
-            // when
-            var task = ZeebeClient.NewDeleteResourceCommand(resourceKey).Send(TimeSpan.Zero);
-            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException) aggregateException.InnerExceptions[0];
+        // when
+        var task = ZeebeClient.NewDeleteResourceCommand(resourceKey).Send(TimeSpan.Zero);
+        var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+        var rpcException = (RpcException) aggregateException.InnerExceptions[0];
 
-            // then
-            Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
-        }
+        // then
+        Assert.AreEqual(StatusCode.DeadlineExceeded, rpcException.Status.StatusCode);
+    }
 
-        [Test]
-        public void ShouldCancelRequest()
-        {
-            // given
-            const int resourceKey = 255;
+    [Test]
+    public void ShouldCancelRequest()
+    {
+        // given
+        const int resourceKey = 255;
 
-            // when
-            var task = ZeebeClient.NewCompleteJobCommand(resourceKey).Send(new CancellationTokenSource(TimeSpan.Zero).Token);
-            var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
-            var rpcException = (RpcException)aggregateException.InnerExceptions[0];
+        // when
+        var task = ZeebeClient.NewCompleteJobCommand(resourceKey).Send(new CancellationTokenSource(TimeSpan.Zero).Token);
+        var aggregateException = Assert.Throws<AggregateException>(() => task.Wait());
+        var rpcException = (RpcException)aggregateException.InnerExceptions[0];
 
-            // then
-            Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
-        }
+        // then
+        Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
     }
 }
