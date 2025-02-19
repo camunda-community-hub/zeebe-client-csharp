@@ -10,6 +10,7 @@ var searchData=
   ['addtenantid_7',['AddTenantId',['../da/d91/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ITenantIdCommandStep.html#a98067193e5fb0bb6b7e8966397997510',1,'Zeebe::Client::Api::Commands::ITenantIdCommandStep']]],
   ['allowuntrustedcertificates_8',['AllowUntrustedCertificates',['../d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html#a35881cce91811891e96bccd21d78ec86',1,'Zeebe::Client::Api::Builder::IZeebeSecureClientBuilder']]],
   ['and_9',['And',['../d3/d74/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IModifyProcessInstanceCommandStep2.html#a297584f1f4f24098abdfe9430bbb1c49',1,'Zeebe::Client::Api::Commands::IModifyProcessInstanceCommandStep2']]],
-  ['asyncjobhandler_10',['AsyncJobHandler',['../db/d2d/namespaceZeebe_1_1Client_1_1Api_1_1Worker.html#a1ed6b33bbf0290c4ac41ab22d01e52ca',1,'Zeebe::Client::Api::Worker']]],
-  ['autocompletion_11',['AutoCompletion',['../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html#ab5b0887bb1bb8afd2d1259b5c690205a',1,'Zeebe::Client::Api::Worker::IJobWorkerBuilderStep3']]]
+  ['api_20documentation_10',['API documentation',['../index.html#API',1,'']]],
+  ['asyncjobhandler_11',['AsyncJobHandler',['../db/d2d/namespaceZeebe_1_1Client_1_1Api_1_1Worker.html#a1ed6b33bbf0290c4ac41ab22d01e52ca',1,'Zeebe::Client::Api::Worker']]],
+  ['autocompletion_12',['AutoCompletion',['../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html#ab5b0887bb1bb8afd2d1259b5c690205a',1,'Zeebe::Client::Api::Worker::IJobWorkerBuilderStep3']]]
 ];

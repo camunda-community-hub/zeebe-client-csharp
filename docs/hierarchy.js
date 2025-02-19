@@ -50,6 +50,9 @@ var hierarchy =
     [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< ICompleteJobResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
       [ "Zeebe.Client.Api.Commands.ICompleteJobCommandStep1", "d2/d53/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICompleteJobCommandStep1.html", null ]
     ] ],
+    [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IDeleteResourceResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
+      [ "Zeebe.Client.Api.Commands.IDeleteResourceCommandStep1", "d4/db0/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeleteResourceCommandStep1.html", null ]
+    ] ],
     [ "Zeebe.Client.Api.Commands.IFinalCommandWithRetryStep< IDeployResourceResponse >", "d5/d5e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IFinalCommandWithRetryStep.html", [
       [ "Zeebe.Client.Api.Commands.IDeployResourceCommandBuilderStep2", "d4/d33/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandBuilderStep2.html", null ]
     ] ],

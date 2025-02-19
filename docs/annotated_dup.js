@@ -27,6 +27,7 @@ var annotated_dup =
             [ "IBroadcastSignalCommandStep2", "d1/d1e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IBroadcastSignalCommandStep2.html", "d1/d1e/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IBroadcastSignalCommandStep2" ],
             [ "ICancelProcessInstanceCommandStep1", "d5/d79/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICancelProcessInstanceCommandStep1.html", null ],
             [ "ICompleteJobCommandStep1", "d2/d53/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICompleteJobCommandStep1.html", "d2/d53/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1ICompleteJobCommandStep1" ],
+            [ "IDeleteResourceCommandStep1", "d4/db0/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeleteResourceCommandStep1.html", null ],
             [ "IDeployResourceCommandBuilderStep2", "d4/d33/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandBuilderStep2.html", null ],
             [ "IDeployResourceCommandStep1", "d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1.html", "d7/d77/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IDeployResourceCommandStep1" ],
             [ "IEvaluateDecisionCommandStep1", "d8/dda/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IEvaluateDecisionCommandStep1.html", "d8/dda/interfaceZeebe_1_1Client_1_1Api_1_1Commands_1_1IEvaluateDecisionCommandStep1" ],
