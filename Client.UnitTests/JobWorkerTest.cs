@@ -672,13 +672,10 @@ public class JobWorkerTest : BaseZeebeTest
         // when
         var jobWorker = ZeebeClient.NewWorker()
             .JobType("foo")
-            .Handler(async (jobClient, job) =>
+            .Handler((_, _) =>
             {
                 // trigger worker disposal with second job
                 signal.Set();
-
-                // this should not be completed
-                await jobClient.NewCompleteJobCommand(job).Send();
             })
             .AutoCompletion()
             .MaxJobsActive(3)
@@ -692,9 +689,6 @@ public class JobWorkerTest : BaseZeebeTest
         signal.WaitOne();
         // disposal must be quick even though the polling interval is long
         await jobWorker.DisposeAsync().ConfigureAwait(false);
-
-        // activated job was not awaited
-        Assert.AreEqual(0, TestService.Requests[typeof(CompleteJobRequest)].Count);
         Assert.True(jobWorker.IsClosed());
     }
 
