@@ -4,6 +4,7 @@ var interfaceZeebe_1_1Client_1_1IZeebeClient =
     [ "NewBroadcastSignalCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a9ec6c35906a8fb6cba8be17d90cc1f06", null ],
     [ "NewCancelInstanceCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a377d14ed8a060b6a652b24a369833c98", null ],
     [ "NewCreateProcessInstanceCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#ae4878e746b228217ce748cb59a2e86e4", null ],
+    [ "NewDeleteResourceCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a9edccc726cffc1ccd7fc7eab43c6a5e8", null ],
     [ "NewDeployCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#adb0cb5ee8719edc5cfa63ff99b8b5b19", null ],
     [ "NewEvaluateDecisionCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a874afc6171c09e250b4853ca190660f3", null ],
     [ "NewModifyProcessInstanceCommand", "d7/dd6/interfaceZeebe_1_1Client_1_1IZeebeClient.html#a23db90ff51873442dc60bf6f94057cd9", null ],
