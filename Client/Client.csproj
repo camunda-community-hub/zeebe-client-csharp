@@ -45,8 +45,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3"/>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.3"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4"/>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.4"/>
   </ItemGroup>
 
   <ItemGroup>
