@@ -13,6 +13,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
+#nullable enable
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,11 +37,12 @@ public sealed class JobWorker : IJobWorker
     private readonly JobActivator jobActivator;
     private readonly AsyncJobHandler jobHandler;
     private readonly JobWorkerBuilder jobWorkerBuilder;
-    private readonly ILogger<JobWorker> logger;
+    private readonly ILogger<JobWorker>? logger;
     private readonly int maxJobsActive;
     private readonly TimeSpan pollInterval;
+    private Task? pollingTask;
 
-    private readonly CancellationTokenSource source;
+    private readonly CancellationTokenSource source = new ();
     private readonly double thresholdJobsActivation;
 
     private int currentJobsActive;
@@ -49,7 +51,6 @@ public sealed class JobWorker : IJobWorker
     internal JobWorker(JobWorkerBuilder builder)
     {
         jobWorkerBuilder = builder;
-        source = new CancellationTokenSource();
         logger = builder.LoggerFactory?.CreateLogger<JobWorker>();
         jobHandler = jobWorkerBuilder.Handler();
         autoCompletion = builder.AutoCompletionEnabled();
@@ -61,16 +62,23 @@ public sealed class JobWorker : IJobWorker
     }
 
     /// <inheritdoc />
+    [Obsolete("Use DisposeAsync instead.", false)]
     public void Dispose()
     {
-        source.Cancel();
-        // delay disposing, since poll and handler take some time to close
-        _ = Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
-        .ContinueWith(t =>
+        _ = DisposeAsync();
+    }
+
+    /// <inheritdoc />
+    public async ValueTask DisposeAsync()
+    {
+        if (pollingTask != null)
         {
-            logger?.LogError("Dispose source");
-            source.Dispose();
-        });
+            source.Cancel();
+            await pollingTask;
+        }
+
+        logger?.LogInformation("JobWorker is now disposed");
+        source.Dispose();
         isRunning = false;
     }
 
@@ -104,14 +112,26 @@ public sealed class JobWorker : IJobWorker
         var output = new ActionBlock<IJob>(activatedJob => { _ = Interlocked.Decrement(ref currentJobsActive); },
             executionOptions);
 
-        _ = input.LinkTo(transformer);
-        _ = transformer.LinkTo(output);
+        var linkInputTransformer = input.LinkTo(transformer);
+        var linkTransformerOutput = transformer.LinkTo(output);
 
         // Start polling
-        _ = Task.Run(async () => await PollJobs(input, cancellationToken),
-        cancellationToken).ContinueWith(
-        t => logger?.LogError(t.Exception, "Job polling failed."),
-        TaskContinuationOptions.OnlyOnFaulted);
+        pollingTask = Task.Run(async () => await PollJobs(input, cancellationToken),
+            cancellationToken).ContinueWith(
+        t =>
+        {
+            if (t.IsFaulted)
+            {
+                logger?.LogError(t.Exception, "Job polling failed");
+            }
+            else if (t.IsCanceled)
+            {
+                logger?.LogInformation("Job polling Cancelled");
+            }
+
+            linkInputTransformer.Dispose();
+            linkTransformerOutput.Dispose();
+        }, CancellationToken.None);
 
         logger?.LogDebug(
             "Job worker ({worker}) for job type {type} has been opened.",
@@ -151,7 +171,7 @@ public sealed class JobWorker : IJobWorker
                 try
                 {
                     await jobActivator.SendActivateRequest(activateJobsRequest,
-                        async jobsResponse => await HandleActivationResponse(input, jobsResponse, jobCount),
+                        async jobsResponse => await HandleActivationResponse(input, jobsResponse, jobCount, cancellationToken),
                         null,
                         cancellationToken);
                 }
@@ -168,7 +188,8 @@ public sealed class JobWorker : IJobWorker
         }
     }
 
-    private async Task HandleActivationResponse(ITargetBlock<IJob> input, IActivateJobsResponse response, int jobCount)
+    private async Task HandleActivationResponse(ITargetBlock<IJob> input, IActivateJobsResponse response, int jobCount,
+        CancellationToken cancellationToken)
     {
         logger?.LogDebug(
             "Job worker ({worker}) activated {activatedCount} of {requestCount} successfully.",
@@ -178,8 +199,8 @@ public sealed class JobWorker : IJobWorker
 
         foreach (var job in response.Jobs)
         {
-            _ = await input.SendAsync(job);
-            _ = Interlocked.Increment(ref currentJobsActive);
+            await input.SendAsync(job, cancellationToken);
+            Interlocked.Increment(ref currentJobsActive);
         }
     }
 
@@ -224,8 +245,7 @@ public sealed class JobWorker : IJobWorker
                 "Job worker ({worker}) will auto complete job with key '{key}'",
                 activateJobsRequest.Worker,
                 activatedJob.Key);
-            _ = await jobClient.NewCompleteJobCommand(activatedJob)
-          .Send(cancellationToken);
+            await jobClient.NewCompleteJobCommand(activatedJob).Send(cancellationToken);
         }
     }
 
@@ -250,6 +270,6 @@ public sealed class JobWorker : IJobWorker
                     {
                         logger?.LogWarning(task.Exception, "Problem on failing job occured.");
                     }
-                }, cancellationToken);
+                }, CancellationToken.None);
     }
 }
