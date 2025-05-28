@@ -22,7 +22,7 @@ namespace Zeebe.Client.Api.Worker;
 ///     open, the worker continuously receives jobs from the broker and hands them to a registered
 ///     <see cref="JobHandler" />.
 /// </summary>
-public interface IJobWorker : IDisposable
+public interface IJobWorker : IDisposable, IAsyncDisposable
 {
     /// <returns>true if this registration is currently active and work items are being received for it.</returns>
     bool IsOpen();
