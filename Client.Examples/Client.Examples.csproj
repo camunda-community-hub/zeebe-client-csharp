@@ -15,7 +15,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6"/>
     <PackageReference Include="Newtonsoft.Json" version="13.0.3"/>
     <PackageReference Include="NLog" Version="6.0.1"/>
-    <PackageReference Include="NLog.Extensions.Logging" Version="6.0.0"/>
+    <PackageReference Include="NLog.Extensions.Logging" Version="6.0.1"/>
     <PackageReference Update="StyleCop.Analyzers" Version="1.1.118"/>
   </ItemGroup>
 
