@@ -32,6 +32,7 @@ public sealed class JobWorker : IJobWorker
         "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
 
     private readonly ActivateJobsRequest activateJobsRequest;
+    private readonly StreamActivatedJobsRequest streamActivateJobsRequest;
     private readonly bool autoCompletion;
     private readonly JobActivator jobActivator;
     private readonly AsyncJobHandler jobHandler;
@@ -55,6 +56,7 @@ public sealed class JobWorker : IJobWorker
         autoCompletion = builder.AutoCompletionEnabled();
         pollInterval = jobWorkerBuilder.PollInterval();
         activateJobsRequest = jobWorkerBuilder.Request;
+        streamActivateJobsRequest = jobWorkerBuilder.StreamRequest;
         jobActivator = jobWorkerBuilder.Activator;
         maxJobsActive = jobWorkerBuilder.Request.MaxJobsToActivate;
         thresholdJobsActivation = maxJobsActive * 0.6;
@@ -107,6 +109,14 @@ public sealed class JobWorker : IJobWorker
         _ = input.LinkTo(transformer);
         _ = transformer.LinkTo(output);
 
+        if (jobWorkerBuilder.GrpcStreamEnabled)
+        {
+            _ = Task.Run(async () => await StreamJobs(input, cancellationToken),
+                cancellationToken).ContinueWith(
+                t => logger?.LogError(t.Exception, "Job stream failed."),
+                TaskContinuationOptions.OnlyOnFaulted);
+        }
+
         // Start polling
         _ = Task.Run(async () => await PollJobs(input, cancellationToken),
         cancellationToken).ContinueWith(
@@ -117,6 +127,65 @@ public sealed class JobWorker : IJobWorker
             "Job worker ({worker}) for job type {type} has been opened.",
             activateJobsRequest.Worker,
             activateJobsRequest.Type);
+    }
+
+    private async Task StreamJobs(ITargetBlock<IJob> input, CancellationToken cancellationToken)
+    {
+        while (!source.IsCancellationRequested)
+        {
+            try
+            {
+                logger?.LogDebug(
+                    "Job worker stream ({worker}) for job type {type} is starting.",
+                    activateJobsRequest.Worker,
+                    activateJobsRequest.Type);
+
+                var stream = jobActivator.SendStreamActivateRequest(streamActivateJobsRequest);
+
+                logger?.LogDebug(
+                    "Job worker stream ({worker}) for job type {type} has been opened.",
+                    activateJobsRequest.Worker,
+                    activateJobsRequest.Type);
+
+                while (!source.IsCancellationRequested)
+                {
+                    var currentJobs = Thread.VolatileRead(ref currentJobsActive);
+
+                    if (currentJobs >= thresholdJobsActivation)
+                    {
+                        await Task.Delay(50, cancellationToken);
+                        continue;
+                    }
+
+                    if (!await stream.ResponseStream.MoveNext(cancellationToken))
+                    {
+                        logger?.LogDebug("Job stream MoveNext returned false; retrying shortly");
+                        await Task.Delay(50, cancellationToken);
+                        continue;
+                    }
+
+                    var grpcActivatedJob = stream.ResponseStream.Current;
+                    var activatedJob = new Zeebe.Client.Impl.Responses.ActivatedJob(grpcActivatedJob);
+                    var response = new Zeebe.Client.Impl.Responses.ActivateJobsResponses();
+                    response.Jobs.Add(activatedJob);
+
+                    var jobCount = maxJobsActive - currentJobs;
+                    activateJobsRequest.MaxJobsToActivate = jobCount;
+
+                    logger?.LogInformation(
+                        "Job stream: new task received for worker {worker} with key {key}",
+                        grpcActivatedJob.Worker,
+                        grpcActivatedJob.Key);
+
+                    await HandleActivationResponse(input, response, jobCount);
+                }
+            }
+            catch (RpcException rpcException)
+            {
+                LogRpcException(rpcException);
+                await Task.Delay(500, cancellationToken);
+            }
+        }
     }
 
     private ExecutionDataflowBlockOptions CreateExecutionOptions(CancellationToken cancellationToken)
