@@ -80,6 +80,53 @@ public class JobWorkerTest : BaseZeebeTest
     }
 
     [Test]
+    public void ShouldReceiveStreamedJobsWhenEnabled()
+    {
+        // given
+        var expectedStreamRequest = new StreamActivatedJobsRequest
+        {
+            Timeout = 123_000L,
+            Type = "foo",
+            Worker = "jobWorker"
+        };
+
+        TestService.AddRequestHandler(typeof(StreamActivatedJobsRequest), request => CreateExpectedResponse());
+
+        // when
+        var signal = new EventWaitHandle(false, EventResetMode.AutoReset);
+        var receivedJobs = new List<IJob>();
+        using (var jobWorker = ZeebeClient.NewWorker()
+                   .JobType("foo")
+                   .Handler((client, job) =>
+                   {
+                       receivedJobs.Add(job);
+                       if (receivedJobs.Count == 3)
+                       {
+                           _ = signal.Set();
+                       }
+                   })
+                   .MaxJobsActive(3)
+                   .Name("jobWorker")
+                   .StreamTimeout(TimeSpan.FromSeconds(123L))
+                   .PollInterval(TimeSpan.FromMilliseconds(100))
+                   .StreamEnabled(true)
+                   .Open())
+        {
+            Assert.True(jobWorker.IsOpen());
+            _ = signal.WaitOne();
+        }
+
+        // then
+        var actualRequest = TestService.Requests[typeof(StreamActivatedJobsRequest)][0];
+        Assert.AreEqual(expectedStreamRequest, actualRequest);
+
+        Assert.AreEqual(3, receivedJobs.Count);
+        AssertJob(receivedJobs[0], 1);
+        AssertJob(receivedJobs[1], 2);
+        AssertJob(receivedJobs[2], 3);
+    }
+
+    [Test]
     public void ShouldSendRequestWithTenantIdsListReceiveResponseAsExpected()
     {
         // given
