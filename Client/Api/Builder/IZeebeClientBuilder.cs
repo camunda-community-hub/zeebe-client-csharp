@@ -58,6 +58,11 @@ public interface IZeebeSecureClientBuilder : IZeebeClientFinalBuildStep
     /// <returns>the builder to create a secure client.</returns>
     IZeebeSecureClientBuilder AllowUntrustedCertificates();
 
+
+}
+
+public interface IZeebeClientFinalBuildStep
+{
     /// <summary>
     ///     Client should use the given access token to authenticate with.
     /// </summary>
@@ -72,10 +77,7 @@ public interface IZeebeSecureClientBuilder : IZeebeClientFinalBuildStep
     /// <param name="supplier">the access token supplier which is called to supplied the access token.</param>
     /// <returns>the final client builder step.</returns>
     IZeebeClientFinalBuildStep UseAccessTokenSupplier(IAccessTokenSupplier supplier);
-}
 
-public interface IZeebeClientFinalBuildStep
-{
     /// <summary>
     ///     Uses the given time interval to determine when to send a keepalive ping
     ///     to the gateway. The default is 30 seconds.

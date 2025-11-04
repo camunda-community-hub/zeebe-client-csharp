@@ -199,7 +199,7 @@ public class ZeebeIntegrationTestHelper : IDisposable
     private IContainer CreateKeyCloakContainer(INetwork network)
     {
         var containerBuilder = new ContainerBuilder()
-            .WithImage(new DockerImage("bitnami", "keycloak", "21.1.2"))
+            .WithImage(new DockerImage("bitnamilegacy", "keycloak", "21.1.2"))
             .WithName("integration-keycloak")
             .WithPortBinding("8080", true)
             .WithEnvironment("KEYCLOAK_HTTP_RELATIVE_PATH", "/auth")
