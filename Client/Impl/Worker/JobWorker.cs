@@ -31,6 +31,10 @@ public sealed class JobWorker : IJobWorker
     private const string JobFailMessage =
         "Job worker '{0}' tried to handle job of type '{1}', but exception occured '{2}'";
 
+    private const int StreamBackpressureDelayMs = 100;
+    private const int StreamNoDataDelayMs = 10;
+    private const int StreamErrorRetryDelayMs = 500;
+
     private readonly ActivateJobsRequest activateJobsRequest;
     private readonly StreamActivatedJobsRequest streamActivateJobsRequest;
     private readonly bool autoCompletion;
@@ -153,14 +157,14 @@ public sealed class JobWorker : IJobWorker
 
                     if (currentJobs >= thresholdJobsActivation)
                     {
-                        await Task.Delay(50, cancellationToken);
+                        await Task.Delay(StreamBackpressureDelayMs, cancellationToken);
                         continue;
                     }
 
                     if (!await stream.ResponseStream.MoveNext(cancellationToken))
                     {
                         logger?.LogDebug("Job stream MoveNext returned false; retrying shortly");
-                        await Task.Delay(50, cancellationToken);
+                        await Task.Delay(StreamNoDataDelayMs, cancellationToken);
                         continue;
                     }
 
@@ -169,7 +173,7 @@ public sealed class JobWorker : IJobWorker
                     var response = new Zeebe.Client.Impl.Responses.ActivateJobsResponses();
                     response.Jobs.Add(activatedJob);
 
-                    logger?.LogInformation(
+                    logger?.LogDebug(
                         "Job stream: new task received for worker {worker} with key {key}",
                         grpcActivatedJob.Worker,
                         grpcActivatedJob.Key);
@@ -180,7 +184,7 @@ public sealed class JobWorker : IJobWorker
             catch (RpcException rpcException)
             {
                 LogRpcException(rpcException);
-                await Task.Delay(500, cancellationToken);
+                await Task.Delay(StreamErrorRetryDelayMs, cancellationToken);
             }
         }
     }
