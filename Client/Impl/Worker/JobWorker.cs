@@ -169,15 +169,12 @@ public sealed class JobWorker : IJobWorker
                     var response = new Zeebe.Client.Impl.Responses.ActivateJobsResponses();
                     response.Jobs.Add(activatedJob);
 
-                    var jobCount = maxJobsActive - currentJobs;
-                    activateJobsRequest.MaxJobsToActivate = jobCount;
-
                     logger?.LogInformation(
                         "Job stream: new task received for worker {worker} with key {key}",
                         grpcActivatedJob.Worker,
                         grpcActivatedJob.Key);
 
-                    await HandleActivationResponse(input, response, jobCount);
+                    await HandleActivationResponse(input, response, null);
                 }
             }
             catch (RpcException rpcException)
@@ -237,13 +234,23 @@ public sealed class JobWorker : IJobWorker
         }
     }
 
-    private async Task HandleActivationResponse(ITargetBlock<IJob> input, IActivateJobsResponse response, int jobCount)
+    private async Task HandleActivationResponse(ITargetBlock<IJob> input, IActivateJobsResponse response, int? jobCount)
     {
-        logger?.LogDebug(
-            "Job worker ({worker}) activated {activatedCount} of {requestCount} successfully.",
-            activateJobsRequest.Worker,
-            response.Jobs.Count,
-            jobCount);
+        if (jobCount.HasValue)
+        {
+            logger?.LogDebug(
+                "Job worker ({worker}) activated {activatedCount} of {requestCount} successfully.",
+                activateJobsRequest.Worker,
+                response.Jobs.Count,
+                jobCount.Value);
+        }
+        else
+        {
+            logger?.LogDebug(
+                "Job worker ({worker}) activated {activatedCount} from stream successfully.",
+                activateJobsRequest.Worker,
+                response.Jobs.Count);
+        }
 
         foreach (var job in response.Jobs)
         {
