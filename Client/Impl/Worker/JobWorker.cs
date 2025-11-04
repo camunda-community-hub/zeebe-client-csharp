@@ -38,7 +38,9 @@ public sealed class JobWorker : IJobWorker
     private readonly JobWorkerBuilder jobWorkerBuilder;
     private readonly ILogger<JobWorker> logger;
     private readonly int maxJobsActive;
-    private readonly TimeSpan pollInterval;
+    private TimeSpan pollInterval;
+    private readonly TimeSpan initialPollInterval;
+    private readonly IBackoffSupplier backoffSupplier;
 
     private readonly CancellationTokenSource source;
     private readonly double thresholdJobsActivation;
@@ -54,10 +56,13 @@ public sealed class JobWorker : IJobWorker
         jobHandler = jobWorkerBuilder.Handler();
         autoCompletion = builder.AutoCompletionEnabled();
         pollInterval = jobWorkerBuilder.PollInterval();
+        initialPollInterval = pollInterval;
         activateJobsRequest = jobWorkerBuilder.Request;
         jobActivator = jobWorkerBuilder.Activator;
         maxJobsActive = jobWorkerBuilder.Request.MaxJobsToActivate;
         thresholdJobsActivation = maxJobsActive * 0.6;
+        backoffSupplier = jobWorkerBuilder.RetryBackoffSupplier ??
+                          new ExponentialBackoffBuilderImpl().Build();
     }
 
     /// <inheritdoc />
@@ -154,11 +159,19 @@ public sealed class JobWorker : IJobWorker
                         async jobsResponse => await HandleActivationResponse(input, jobsResponse, jobCount),
                         null,
                         cancellationToken);
+                    pollInterval = initialPollInterval;
                 }
                 catch (RpcException rpcException)
                 {
                     LogRpcException(rpcException);
-                    await Task.Delay(pollInterval, cancellationToken);
+                    if (rpcException.StatusCode == StatusCode.ResourceExhausted)
+                    {
+                        await Backoff(cancellationToken);
+                    }
+                    else
+                    {
+                        await Task.Delay(pollInterval, cancellationToken);
+                    }
                 }
             }
             else
@@ -166,6 +179,29 @@ public sealed class JobWorker : IJobWorker
                 await Task.Delay(pollInterval, cancellationToken);
             }
         }
+    }
+
+    /// <summary>
+    /// Updates pollInterval using the configured backoff supplier and waits for that delay.
+    /// Falls back to a default exponential supplier if the custom supplier throws.
+    /// </summary>
+    private async Task Backoff(CancellationToken cancellationToken)
+    {
+        var previousMs = Math.Max(0, (long)pollInterval.TotalMilliseconds);
+        long nextMs;
+        try
+        {
+            nextMs = backoffSupplier.SupplyRetryDelay(previousMs);
+        }
+        catch (Exception ex)
+        {
+            logger?.LogWarning(ex, "Backoff supplier failed; falling back to default backoff.");
+            var defaultSupplier = new ExponentialBackoffBuilderImpl().Build();
+            nextMs = defaultSupplier.SupplyRetryDelay(previousMs);
+        }
+
+        pollInterval = TimeSpan.FromMilliseconds(Math.Max(0, nextMs));
+        await Task.Delay(pollInterval, cancellationToken);
     }
 
     private async Task HandleActivationResponse(ITargetBlock<IJob> input, IActivateJobsResponse response, int jobCount)
