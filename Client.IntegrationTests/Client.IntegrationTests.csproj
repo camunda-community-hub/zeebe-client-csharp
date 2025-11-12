@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4"/>
     <PackageReference Include="NLog" Version="6.0.1"/>
     <PackageReference Include="NLog.Extensions.Logging" Version="6.0.1"/>
     <PackageReference Include="nunit" Version="3.14.0"/>
