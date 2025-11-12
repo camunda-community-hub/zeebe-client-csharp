@@ -41,7 +41,7 @@
     <PackageReference Include="Google.Protobuf" version="3.31.1"/>
     <PackageReference Include="Grpc.Auth" Version="2.71.0"/>
     <PackageReference Include="Grpc.Net.Client" Version="2.71.0"/>
-    <PackageReference Include="Grpc.Tools" version="2.72.0">
+    <PackageReference Include="Grpc.Tools" version="2.76.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
