@@ -6,7 +6,7 @@ jobs:
     name: Run unit tests
     runs-on: ubuntu-latest    
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.3.1
       with:
@@ -19,7 +19,7 @@ jobs:
     name: Run integration tests
     runs-on: ubuntu-latest    
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.3.1
       with:
@@ -37,7 +37,7 @@ jobs:
       checks: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - id: merge
         name: Merge PR
         run: gh pr merge ${{ github.event.pull_request.number }} --merge
