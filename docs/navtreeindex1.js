@@ -1,5 +1,9 @@
 var NAVTREEINDEX1 =
 {
+"d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html#a35881cce91811891e96bccd21d78ec86":[1,0,0,0,0,0,13,0],
+"d6/d64/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeSecureClientBuilder.html#a35881cce91811891e96bccd21d78ec86":[2,0,0,0,0,0,13,0],
+"d6/dd9/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderFinalStep.html":[1,0,0,0,0,0,6],
+"d6/dd9/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderFinalStep.html":[2,0,0,0,0,0,6],
 "d6/dd9/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderFinalStep.html#a271abbe17b8ff356a947780d4178c132":[1,0,0,0,0,0,6,1],
 "d6/dd9/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderFinalStep.html#a271abbe17b8ff356a947780d4178c132":[2,0,0,0,0,0,6,1],
 "d6/dd9/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1ICamundaCloudTokenProviderBuilderFinalStep.html#aafb55f3b1b1d1d1d39d1264894aaff22":[1,0,0,0,0,0,6,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX1 =
 "dd/d53/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IEvaluatedDecisionOutput.html#a10a93bdd8c94535c994b94d26f280896":[1,0,0,0,0,3,10,1],
 "dd/d53/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IEvaluatedDecisionOutput.html#a10a93bdd8c94535c994b94d26f280896":[2,0,0,0,0,3,10,1],
 "dd/d53/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IEvaluatedDecisionOutput.html#a614ffbe0acbd82548e404b7142c38ef6":[1,0,0,0,0,3,10,0],
-"dd/d53/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IEvaluatedDecisionOutput.html#a614ffbe0acbd82548e404b7142c38ef6":[2,0,0,0,0,3,10,0],
-"dd/d53/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IEvaluatedDecisionOutput.html#afaaf386991864e12a903a0cb41ee6eee":[1,0,0,0,0,3,10,2],
-"dd/d53/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IEvaluatedDecisionOutput.html#afaaf386991864e12a903a0cb41ee6eee":[2,0,0,0,0,3,10,2],
-"dd/db3/namespaceZeebe_1_1Client_1_1Api_1_1Responses.html":[1,0,0,0,0,3],
-"dd/db3/namespaceZeebe_1_1Client_1_1Api_1_1Responses.html#a1a9e862a4c86d9647570967f6001b9a2":[1,0,0,0,0,3,28]
+"dd/d53/interfaceZeebe_1_1Client_1_1Api_1_1Responses_1_1IEvaluatedDecisionOutput.html#a614ffbe0acbd82548e404b7142c38ef6":[2,0,0,0,0,3,10,0]
 };

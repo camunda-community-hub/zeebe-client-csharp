@@ -9,5 +9,7 @@ var interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3 =
     [ "Open", "d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html#ab3049749211dc9ee4b145c02e99952f8", null ],
     [ "PollingTimeout", "d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html#a61390bdd234664eca6f2756e12192aec", null ],
     [ "PollInterval", "d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html#a0bd0858260a6ec4d2397b0ff97645825", null ],
+    [ "StreamEnabled", "d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html#a9a3d4d16b9dac0127b98f4de5a0db10b", null ],
+    [ "StreamTimeout", "d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html#a40ffe2433e7386e585b52a9be5faba51", null ],
     [ "Timeout", "d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html#ae13a82bafc0d7c1ffe5b9b9273106843", null ]
 ];
