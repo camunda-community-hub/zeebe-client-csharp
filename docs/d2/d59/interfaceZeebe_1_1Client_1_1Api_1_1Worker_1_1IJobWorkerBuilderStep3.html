@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.9.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.10.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -119,6 +119,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae13a82bafc0d7c1ffe5b9b9273106843" id="r_ae13a82bafc0d7c1ffe5b9b9273106843"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html">IJobWorkerBuilderStep3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae13a82bafc0d7c1ffe5b9b9273106843">Timeout</a> (TimeSpan timeout)</td></tr>
 <tr class="memdesc:ae13a82bafc0d7c1ffe5b9b9273106843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the time for how long a job is exclusively assigned for this worker.  <br /></td></tr>
 <tr class="separator:ae13a82bafc0d7c1ffe5b9b9273106843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40ffe2433e7386e585b52a9be5faba51" id="r_a40ffe2433e7386e585b52a9be5faba51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html">IJobWorkerBuilderStep3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40ffe2433e7386e585b52a9be5faba51">StreamTimeout</a> (TimeSpan timeout)</td></tr>
+<tr class="memdesc:a40ffe2433e7386e585b52a9be5faba51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set streamed job lock timeout; returned jobs won’t be re-activated until it elapses.  <br /></td></tr>
+<tr class="separator:a40ffe2433e7386e585b52a9be5faba51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea7602ab97985620a6d8c2454e41ff3e" id="r_aea7602ab97985620a6d8c2454e41ff3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html">IJobWorkerBuilderStep3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea7602ab97985620a6d8c2454e41ff3e">Name</a> (string workerName)</td></tr>
 <tr class="memdesc:aea7602ab97985620a6d8c2454e41ff3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the name of the worker owner.  <br /></td></tr>
 <tr class="separator:aea7602ab97985620a6d8c2454e41ff3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,6 +146,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa4c868eed67e29b53888f89bf27b29a7" id="r_aa4c868eed67e29b53888f89bf27b29a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html">IJobWorkerBuilderStep3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4c868eed67e29b53888f89bf27b29a7">HandlerThreads</a> (byte threadCount)</td></tr>
 <tr class="memdesc:aa4c868eed67e29b53888f89bf27b29a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies how many handler threads are used by this job worker.  <br /></td></tr>
 <tr class="separator:aa4c868eed67e29b53888f89bf27b29a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a3d4d16b9dac0127b98f4de5a0db10b" id="r_a9a3d4d16b9dac0127b98f4de5a0db10b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html">IJobWorkerBuilderStep3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a3d4d16b9dac0127b98f4de5a0db10b">StreamEnabled</a> (bool streamEnabled)</td></tr>
+<tr class="memdesc:a9a3d4d16b9dac0127b98f4de5a0db10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable gRPC job streaming for this worker.  <br /></td></tr>
+<tr class="separator:a9a3d4d16b9dac0127b98f4de5a0db10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3049749211dc9ee4b145c02e99952f8" id="r_ab3049749211dc9ee4b145c02e99952f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dfe/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorker.html">IJobWorker</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3049749211dc9ee4b145c02e99952f8">Open</a> ()</td></tr>
 <tr class="memdesc:ab3049749211dc9ee4b145c02e99952f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the worker and start to work on available tasks.  <br /></td></tr>
 <tr class="separator:ab3049749211dc9ee4b145c02e99952f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -399,6 +405,58 @@ The memory used by the worker is linear with respect to this value.  </li>
 
 </div>
 </div>
+<a id="a9a3d4d16b9dac0127b98f4de5a0db10b" name="a9a3d4d16b9dac0127b98f4de5a0db10b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a3d4d16b9dac0127b98f4de5a0db10b">&#9670;&#160;</a></span>StreamEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html">IJobWorkerBuilderStep3</a> Zeebe.Client.Api.Worker.IJobWorkerBuilderStep3.StreamEnabled </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>streamEnabled</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable or disable gRPC job streaming for this worker. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">streamEnabled</td><td>true to enable job streaming; false to disable.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
+
+</div>
+</div>
+<a id="a40ffe2433e7386e585b52a9be5faba51" name="a40ffe2433e7386e585b52a9be5faba51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40ffe2433e7386e585b52a9be5faba51">&#9670;&#160;</a></span>StreamTimeout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html">IJobWorkerBuilderStep3</a> Zeebe.Client.Api.Worker.IJobWorkerBuilderStep3.StreamTimeout </td>
+          <td>(</td>
+          <td class="paramtype">TimeSpan</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set streamed job lock timeout; returned jobs won’t be re-activated until it elapses. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>the time as time span (e.g. "TimeSpan.FromMinutes(10)").</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the builder for this worker.</dd></dl>
+
+</div>
+</div>
 <a id="ae13a82bafc0d7c1ffe5b9b9273106843" name="ae13a82bafc0d7c1ffe5b9b9273106843"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae13a82bafc0d7c1ffe5b9b9273106843">&#9670;&#160;</a></span>Timeout()</h2>
 
@@ -435,7 +493,7 @@ The memory used by the worker is linear with respect to this value.  </li>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d5/df7/namespaceZeebe_1_1Client_1_1Api.html">Api</a></li><li class="navelem"><a class="el" href="../../db/d2d/namespaceZeebe_1_1Client_1_1Api_1_1Worker.html">Worker</a></li><li class="navelem"><a class="el" href="../../d2/d59/interfaceZeebe_1_1Client_1_1Api_1_1Worker_1_1IJobWorkerBuilderStep3.html">IJobWorkerBuilderStep3</a></li>
-    <li class="footer">Generated on Wed Feb 19 2025 08:53:56 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Nov 12 2025 10:30:39 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>
