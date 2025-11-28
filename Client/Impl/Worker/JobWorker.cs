@@ -190,7 +190,7 @@ public sealed class JobWorker : IJobWorker
             catch (RpcException rpcException)
             {
                 LogRpcException(rpcException);
-                await Task.Delay(StreamErrorRetryDelayMs, cancellationToken);
+                await Backoff(cancellationToken);
             }
         }
     }
@@ -235,14 +235,7 @@ public sealed class JobWorker : IJobWorker
                 catch (RpcException rpcException)
                 {
                     LogRpcException(rpcException);
-                    if (rpcException.StatusCode == StatusCode.ResourceExhausted)
-                    {
-                        await Backoff(cancellationToken);
-                    }
-                    else
-                    {
-                        await Task.Delay(pollInterval, cancellationToken);
-                    }
+                    await Backoff(cancellationToken);
                 }
             }
             else
