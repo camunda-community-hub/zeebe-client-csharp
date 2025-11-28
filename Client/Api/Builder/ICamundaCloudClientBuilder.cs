@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace Zeebe.Client.Api.Builder;
 
@@ -81,6 +82,23 @@ public interface ICamundaCloudClientBuilderFinalStep
     /// <param name="path">the path where to store the credentials, if null it uses the default "~/.zeebe" .</param>
     /// <returns>the fluent ICamundaCloudClientBuilderFinalStep.</returns>
     ICamundaCloudClientBuilderFinalStep UsePersistedStoragePath(string path);
+
+    /// <summary>
+    ///     Disables credentials cache persitence to file system.
+    /// </summary>
+    /// <returns>the fluent ICamundaCloudClientBuilderFinalStep.</returns>
+    ICamundaCloudClientBuilderFinalStep DisableCredentialsCachePersistence();
+
+    /// <summary>
+    ///     Use AccessToken due date tolerance to refresh token before due date.
+    ///     To compensate network latency and prevent server side rejection when the
+    ///     AccessToken due date is too close to UTC now, this option allows you to
+    ///     add a tolerance period to refresh the token slightly before due date.
+    ///     e.g. TimeSpan.FromSeconds(2) will refresh the token 2 seconds before due date.
+    /// </summary>
+    /// <param name="tolerance">The tolerance to apply to token due date</param>
+    /// <returns>The final step in building a CamundaCloudTokenProvider.</returns>
+    ICamundaCloudClientBuilderFinalStep UseAccessTokenDueDateTolerance(TimeSpan tolerance);
 
     /// <summary>
     ///     The IZeebeClient, which is setup entirely to talk with the defined Camunda Cloud cluster.

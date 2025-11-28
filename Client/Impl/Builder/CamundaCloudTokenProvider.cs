@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -31,10 +32,13 @@ public class CamundaCloudTokenProvider : IAccessTokenSupplier, IDisposable
         string clientSecret,
         string audience,
         string path = null,
-        ILoggerFactory loggerFactory = null)
+        ILoggerFactory loggerFactory = null,
+        bool persistedCredentialsCacheEnabled = true,
+        TimeSpan accessTokenDueDateTolerance = default)
     {
         persistedAccessTokenCache = new PersistedAccessTokenCache(path ?? ZeebeRootPath, FetchAccessToken,
-            loggerFactory?.CreateLogger<PersistedAccessTokenCache>());
+            loggerFactory?.CreateLogger<PersistedAccessTokenCache>(),
+            persistedCredentialsCacheEnabled, accessTokenDueDateTolerance);
         logger = loggerFactory?.CreateLogger<CamundaCloudTokenProvider>();
         this.authServer = authServer;
         this.clientId = clientId;
