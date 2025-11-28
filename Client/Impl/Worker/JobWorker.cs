@@ -46,6 +46,7 @@ public sealed class JobWorker : IJobWorker
     private TimeSpan pollInterval;
     private readonly TimeSpan initialPollInterval;
     private readonly IBackoffSupplier backoffSupplier;
+    private readonly IBackoffSupplier defaultBackoffSupplier;
 
     private readonly CancellationTokenSource source;
     private readonly double thresholdJobsActivation;
@@ -67,8 +68,8 @@ public sealed class JobWorker : IJobWorker
         jobActivator = jobWorkerBuilder.Activator;
         maxJobsActive = jobWorkerBuilder.Request.MaxJobsToActivate;
         thresholdJobsActivation = maxJobsActive * 0.6;
-        backoffSupplier = jobWorkerBuilder.RetryBackoffSupplier ??
-                          new ExponentialBackoffBuilderImpl().Build();
+        defaultBackoffSupplier = new ExponentialBackoffBuilderImpl().Build();
+        backoffSupplier = jobWorkerBuilder.RetryBackoffSupplier ?? defaultBackoffSupplier;
     }
 
     /// <inheritdoc />
@@ -266,8 +267,7 @@ public sealed class JobWorker : IJobWorker
         catch (Exception ex)
         {
             logger?.LogWarning(ex, "Backoff supplier failed; falling back to default backoff.");
-            var defaultSupplier = new ExponentialBackoffBuilderImpl().Build();
-            nextMs = defaultSupplier.SupplyRetryDelay(previousMs);
+            nextMs = defaultBackoffSupplier.SupplyRetryDelay(previousMs);
         }
 
         pollInterval = TimeSpan.FromMilliseconds(Math.Max(0, nextMs));
