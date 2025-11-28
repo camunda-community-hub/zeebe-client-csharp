@@ -48,6 +48,7 @@ public class GatewayTestService : Gateway.GatewayBase
         typedRequestHandler.Add(typeof(PublishMessageRequest), request => new PublishMessageResponse());
 
         typedRequestHandler.Add(typeof(ActivateJobsRequest), request => new ActivateJobsResponse());
+        typedRequestHandler.Add(typeof(StreamActivatedJobsRequest), request => new ActivateJobsResponse());
         typedRequestHandler.Add(typeof(CompleteJobRequest), request => new CompleteJobResponse());
         typedRequestHandler.Add(typeof(FailJobRequest), request => new FailJobResponse());
         typedRequestHandler.Add(typeof(UpdateJobRetriesRequest), request => new UpdateJobRetriesResponse());
@@ -98,6 +99,20 @@ public class GatewayTestService : Gateway.GatewayBase
         IServerStreamWriter<ActivateJobsResponse> responseStream, ServerCallContext context)
     {
         await responseStream.WriteAsync((ActivateJobsResponse)HandleRequest(request, context));
+    }
+
+    public override async Task StreamActivatedJobs(StreamActivatedJobsRequest request,
+        IServerStreamWriter<ActivatedJob> responseStream,
+        ServerCallContext context)
+    {
+        var response = HandleRequest(request, context);
+        if (response is ActivateJobsResponse activateJobsResponse)
+        {
+            foreach (var job in activateJobsResponse.Jobs)
+            {
+                await responseStream.WriteAsync(job);
+            }
+        }
     }
 
     public override Task<CompleteJobResponse> CompleteJob(CompleteJobRequest request, ServerCallContext context)

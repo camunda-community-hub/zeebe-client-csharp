@@ -60,4 +60,10 @@ public class BroadcastSignalCommand(GatewayClient client, IAsyncRetryStrategy as
     {
         return await asyncRetryStrategy.DoWithRetry(() => Send(timespan, token));
     }
+
+    public IBroadcastSignalCommandStep2 AddTenantId(string tenantId)
+    {
+        request.TenantId = tenantId;
+        return this;
+    }
 }

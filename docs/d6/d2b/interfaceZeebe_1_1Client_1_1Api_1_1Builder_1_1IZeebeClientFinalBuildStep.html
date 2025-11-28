@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../zeebe-logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.9.0</span>
+   <div id="projectname">Zeebe C# Client<span id="projectnumber">&#160;2.10.0</span>
    </div>
    <div id="projectbrief">C# Client to communicate with an Zeebe Gateway</div>
   </td>
@@ -116,6 +116,12 @@ Inheritance diagram for Zeebe.Client.Api.Builder.IZeebeClientFinalBuildStep:</di
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a6217658105d17c58fc16e44a08e16ddb" id="r_a6217658105d17c58fc16e44a08e16ddb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6217658105d17c58fc16e44a08e16ddb">UseAccessToken</a> (string accessToken)</td></tr>
+<tr class="memdesc:a6217658105d17c58fc16e44a08e16ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a> should use the given access token to authenticate with.  <br /></td></tr>
+<tr class="separator:a6217658105d17c58fc16e44a08e16ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af696050bc062a2b3f6b556861bbbc4a3" id="r_af696050bc062a2b3f6b556861bbbc4a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af696050bc062a2b3f6b556861bbbc4a3">UseAccessTokenSupplier</a> (<a class="el" href="../../d2/d24/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IAccessTokenSupplier.html">IAccessTokenSupplier</a> supplier)</td></tr>
+<tr class="memdesc:af696050bc062a2b3f6b556861bbbc4a3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a> should use an access token to authenticate with and the given supplier should be used to receive the token.  <br /></td></tr>
+<tr class="separator:af696050bc062a2b3f6b556861bbbc4a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b4cee13545ef76638772add30fbd65d" id="r_a6b4cee13545ef76638772add30fbd65d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b4cee13545ef76638772add30fbd65d">UseKeepAlive</a> (TimeSpan keepAlive)</td></tr>
 <tr class="memdesc:a6b4cee13545ef76638772add30fbd65d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the given time interval to determine when to send a keepalive ping to the gateway. The default is 30 seconds.  <br /></td></tr>
 <tr class="separator:a6b4cee13545ef76638772add30fbd65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,6 +150,58 @@ Public Member Functions</h2></td></tr>
 
 <p>Builds the client with the given configuration. </p>
 <dl class="section return"><dt>Returns</dt><dd>the client which was build with the given configuration.</dd></dl>
+
+</div>
+</div>
+<a id="a6217658105d17c58fc16e44a08e16ddb" name="a6217658105d17c58fc16e44a08e16ddb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6217658105d17c58fc16e44a08e16ddb">&#9670;&#160;</a></span>UseAccessToken()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a> Zeebe.Client.Api.Builder.IZeebeClientFinalBuildStep.UseAccessToken </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>accessToken</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a> should use the given access token to authenticate with. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">accessToken</td><td>the access token which is used for authentication.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the final client builder step.</dd></dl>
+
+</div>
+</div>
+<a id="af696050bc062a2b3f6b556861bbbc4a3" name="af696050bc062a2b3f6b556861bbbc4a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af696050bc062a2b3f6b556861bbbc4a3">&#9670;&#160;</a></span>UseAccessTokenSupplier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a> Zeebe.Client.Api.Builder.IZeebeClientFinalBuildStep.UseAccessTokenSupplier </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d24/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IAccessTokenSupplier.html">IAccessTokenSupplier</a></td>          <td class="paramname"><span class="paramname"><em>supplier</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a> should use an access token to authenticate with and the given supplier should be used to receive the token. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">supplier</td><td>the access token supplier which is called to supplied the access token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the final client builder step.</dd></dl>
 
 </div>
 </div>
@@ -210,7 +268,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d18/namespaceZeebe.html">Zeebe</a></li><li class="navelem"><a class="el" href="../../da/d88/namespaceZeebe_1_1Client.html">Client</a></li><li class="navelem"><a class="el" href="../../d5/df7/namespaceZeebe_1_1Client_1_1Api.html">Api</a></li><li class="navelem"><a class="el" href="../../dc/d04/namespaceZeebe_1_1Client_1_1Api_1_1Builder.html">Builder</a></li><li class="navelem"><a class="el" href="../../d6/d2b/interfaceZeebe_1_1Client_1_1Api_1_1Builder_1_1IZeebeClientFinalBuildStep.html">IZeebeClientFinalBuildStep</a></li>
-    <li class="footer">Generated on Wed Feb 19 2025 08:53:56 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="footer">Generated on Wed Nov 12 2025 10:30:39 for Zeebe C# Client by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

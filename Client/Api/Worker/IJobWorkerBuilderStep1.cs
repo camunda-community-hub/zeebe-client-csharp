@@ -116,6 +116,13 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     IJobWorkerBuilderStep3 Timeout(TimeSpan timeout);
 
     /// <summary>
+    ///     Set streamed job lock timeout; returned jobs won’t be re-activated until it elapses.
+    /// </summary>
+    /// <param name="timeout">the time as time span (e.g. "TimeSpan.FromMinutes(10)").</param>
+    /// <returns>the builder for this worker.</returns>
+    IJobWorkerBuilderStep3 StreamTimeout(TimeSpan timeout);
+
+    /// <summary>
     ///     Set the name of the worker owner.
     /// </summary>
     /// <para>
@@ -238,6 +245,13 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     /// <param name="backoffSupplier">The supplier used to compute the next retry delay in ms.</param>
     /// <returns>The builder for this worker.</returns>
     IJobWorkerBuilderStep3 BackoffSupplier(IBackoffSupplier backoffSupplier);
+
+    /// <summary>
+    ///     Enable or disable gRPC job streaming for this worker.
+    /// </summary>
+    /// <param name="streamEnabled">true to enable job streaming; false to disable.</param>
+    /// <returns>the builder for this worker.</returns>
+    IJobWorkerBuilderStep3 StreamEnabled(bool streamEnabled);
 
     /// <summary>
     ///     Open the worker and start to work on available tasks.

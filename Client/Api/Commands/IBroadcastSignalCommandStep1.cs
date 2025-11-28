@@ -27,7 +27,7 @@ public interface IBroadcastSignalCommandStep1
     IBroadcastSignalCommandStep2 SignalName(string signalName);
 }
 
-public interface IBroadcastSignalCommandStep2 : IFinalCommandWithRetryStep<IBroadcastSignalResponse>
+public interface IBroadcastSignalCommandStep2 : IFinalCommandWithRetryStep<IBroadcastSignalResponse>, ITenantIdCommandStep<IBroadcastSignalCommandStep2>
 {
     /// <summary>
     ///     Set the variables of the signal.

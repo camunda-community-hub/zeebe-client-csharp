@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-    <Version>2.9.0</Version>
+    <Version>2.10.0</Version>
     <Authors>Christopher Zell</Authors>
     <Company/>
     <Description>
@@ -14,13 +14,13 @@
     <PackageProjectUrl>https://github.com/zeebe-io/zeebe-client-csharp</PackageProjectUrl>
     <PackageTags>zeebe, zb, zb-csharp, zb-client, grpc</PackageTags>
 
-    <AssemblyVersion>2.9.0</AssemblyVersion>
-    <FileVersion>2.9.0</FileVersion>
+    <AssemblyVersion>2.10.0</AssemblyVersion>
+    <FileVersion>2.10.0</FileVersion>
     <PackageReleaseNotes>
 
       See release notes https://github.com/camunda-community-hub/zeebe-client-csharp/releases
 
-      This release is based on the Zeebe 8.6.8 release (https://github.com/zeebe-io/zeebe).
+      This release is based on the Zeebe 8.8.0 release (https://github.com/zeebe-io/zeebe).
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -30,23 +30,23 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>2.9.0</PackageVersion>
+    <PackageVersion>2.10.0</PackageVersion>
     <RootNamespace>Zeebe.Client</RootNamespace>
-    <Title>2.9.0</Title>
+    <Title>2.10.0</Title>
     <LangVersion>default</LangVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" version="3.31.1"/>
+    <PackageReference Include="Google.Protobuf" version="3.33.1"/>
     <PackageReference Include="Grpc.Auth" Version="2.71.0"/>
     <PackageReference Include="Grpc.Net.Client" Version="2.71.0"/>
-    <PackageReference Include="Grpc.Tools" version="2.72.0">
+    <PackageReference Include="Grpc.Tools" version="2.76.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6"/>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.6"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0"/>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0"/>
   </ItemGroup>
 
   <ItemGroup>

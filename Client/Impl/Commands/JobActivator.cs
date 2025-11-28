@@ -30,6 +30,12 @@ internal class JobActivator(GatewayClient client)
         }
     }
 
+    public AsyncServerStreamingCall<GatewayProtocol.ActivatedJob> SendStreamActivateRequest(
+        StreamActivatedJobsRequest request)
+    {
+        return client.StreamActivatedJobs(request);
+    }
+
     private static DateTime CalculateRequestTimeout(ActivateJobsRequest request)
     {
         // we need a higher request deadline then the long polling request timeout

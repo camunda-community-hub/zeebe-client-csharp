@@ -57,9 +57,13 @@ internal class ZeebePlainClientBuilder : IZeebeClientFinalBuildStep
 
         Address = address.StartsWith("http") ? address : $"http://{address}";
         this.loggerFactory = loggerFactory;
+        this.Credentials = ChannelCredentials.Insecure;
     }
 
     private string Address { get; }
+
+    private ChannelCredentials Credentials { get; set; }
+
 
     public IZeebeClientFinalBuildStep UseKeepAlive(TimeSpan keepAlive)
     {
@@ -73,9 +77,21 @@ internal class ZeebePlainClientBuilder : IZeebeClientFinalBuildStep
         return this;
     }
 
+    public IZeebeClientFinalBuildStep UseAccessToken(string accessToken)
+    {
+        Credentials = ChannelCredentials.Create(Credentials, GoogleGrpcCredentials.FromAccessToken(accessToken));
+        return this;
+    }
+
+    public IZeebeClientFinalBuildStep UseAccessTokenSupplier(IAccessTokenSupplier supplier)
+    {
+        Credentials = ChannelCredentials.Create(Credentials, supplier.ToCallCredentials());
+        return this;
+    }
+
     public IZeebeClient Build()
     {
-        return new ZeebeClient(Address, keepAlive, sleepDurationProvider, loggerFactory);
+        return new ZeebeClient(Address, Credentials, keepAlive, sleepDurationProvider, loggerFactory);
     }
 }
 

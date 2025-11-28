@@ -34,8 +34,10 @@ public class JobWorkerBuilder(
     private AsyncJobHandler asyncJobHandler;
     private bool autoCompletion;
     private TimeSpan pollInterval;
+    public bool GrpcStreamEnabled { get; private set; }
     internal JobActivator Activator { get; } = new (gatewayClient);
     internal ActivateJobsRequest Request { get; } = new ();
+    internal StreamActivatedJobsRequest StreamRequest { get; } = new ();
     internal byte ThreadCount { get; set; } = 1;
     internal ILoggerFactory LoggerFactory { get; } = loggerFactory;
     internal IJobClient JobClient { get; } = zeebeClient;
@@ -44,6 +46,7 @@ public class JobWorkerBuilder(
     public IJobWorkerBuilderStep2 JobType(string type)
     {
         Request.Type = type;
+        StreamRequest.Type = type;
         return this;
     }
 
@@ -62,6 +65,7 @@ public class JobWorkerBuilder(
     public IJobWorkerBuilderStep3 TenantIds(IList<string> tenantIds)
     {
         Request.TenantIds.AddRange(tenantIds);
+        StreamRequest.TenantIds.AddRange(tenantIds);
         return this;
     }
 
@@ -76,9 +80,16 @@ public class JobWorkerBuilder(
         return this;
     }
 
+    public IJobWorkerBuilderStep3 StreamTimeout(TimeSpan timeout)
+    {
+        StreamRequest.Timeout = (long)timeout.TotalMilliseconds;
+        return this;
+    }
+
     public IJobWorkerBuilderStep3 Name(string workerName)
     {
         Request.Worker = workerName;
+        StreamRequest.Worker = workerName;
         return this;
     }
 
@@ -91,12 +102,14 @@ public class JobWorkerBuilder(
     public IJobWorkerBuilderStep3 FetchVariables(IList<string> fetchVariables)
     {
         Request.FetchVariable.AddRange(fetchVariables);
+        StreamRequest.FetchVariable.AddRange(fetchVariables);
         return this;
     }
 
     public IJobWorkerBuilderStep3 FetchVariables(params string[] fetchVariables)
     {
         Request.FetchVariable.AddRange(fetchVariables);
+        StreamRequest.FetchVariable.AddRange(fetchVariables);
         return this;
     }
 
@@ -115,6 +128,12 @@ public class JobWorkerBuilder(
     public IJobWorkerBuilderStep3 AutoCompletion()
     {
         autoCompletion = true;
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 StreamEnabled(bool streamEnabled)
+    {
+        GrpcStreamEnabled = streamEnabled;
         return this;
     }
 

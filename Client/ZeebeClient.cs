@@ -101,6 +101,7 @@ public sealed class ZeebeClient : IZeebeClient
         {
             return GrpcChannel.ForAddress(address, new GrpcChannelOptions
             {
+                UnsafeUseInsecureChannelCallCredentials = true,
                 // https://learn.microsoft.com/en-us/dotnet/architecture/grpc-for-wcf-developers/channel-credentials#combine-channelcredentials-and-callcredentials
                 Credentials = credentials,
                 LoggerFactory = this.loggerFactory,
