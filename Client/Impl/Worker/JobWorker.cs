@@ -45,7 +45,8 @@ public sealed class JobWorker : IJobWorker
     private readonly int maxJobsActive;
     private readonly TimeSpan pollInterval;
 
-    private readonly CancellationTokenSource source;
+    private readonly CancellationTokenSource localCts;
+    private CancellationTokenSource? linkedCts;
     private readonly double thresholdJobsActivation;
 
     private int currentJobsActive;
@@ -54,7 +55,7 @@ public sealed class JobWorker : IJobWorker
     internal JobWorker(JobWorkerBuilder builder)
     {
         jobWorkerBuilder = builder;
-        source = new CancellationTokenSource();
+        localCts = new CancellationTokenSource();
         logger = builder.LoggerFactory?.CreateLogger<JobWorker>();
         jobHandler = jobWorkerBuilder.Handler();
         autoCompletion = builder.AutoCompletionEnabled();
@@ -69,13 +70,15 @@ public sealed class JobWorker : IJobWorker
     /// <inheritdoc />
     public void Dispose()
     {
-        source.Cancel();
+        localCts.Cancel();
         // delay disposing, since poll and handler take some time to close
         _ = Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
         .ContinueWith(t =>
         {
             logger?.LogError("Dispose source");
-            source.Dispose();
+            localCts.Dispose();
+            linkedCts?.Dispose();
+            linkedCts = null;
         });
         isRunning = false;
     }
@@ -96,10 +99,12 @@ public sealed class JobWorker : IJobWorker
     ///     Opens the configured JobWorker to activate jobs in the given poll interval
     ///     and handle with the given handler.
     /// </summary>
-    internal void Open()
+    /// <param name="stoppingToken">The host cancellation token.</param>
+    internal void Open(CancellationToken stoppingToken)
     {
         isRunning = true;
-        var cancellationToken = source.Token;
+        this.linkedCts = CancellationTokenSource.CreateLinkedTokenSource(stoppingToken, localCts.Token);
+        var cancellationToken = linkedCts.Token;
         var bufferOptions = CreateBufferOptions(cancellationToken);
         var executionOptions = CreateExecutionOptions(cancellationToken);
 
@@ -135,7 +140,7 @@ public sealed class JobWorker : IJobWorker
 
     private async Task StreamJobs(ITargetBlock<IJob> input, CancellationToken cancellationToken)
     {
-        while (!source.IsCancellationRequested)
+        while (!cancellationToken.IsCancellationRequested)
         {
             try
             {
@@ -151,7 +156,7 @@ public sealed class JobWorker : IJobWorker
                     activateJobsRequest.Worker,
                     activateJobsRequest.Type);
 
-                while (!source.IsCancellationRequested)
+                while (!cancellationToken.IsCancellationRequested)
                 {
                     var currentJobs = Thread.VolatileRead(ref currentJobsActive);
 
@@ -178,7 +183,7 @@ public sealed class JobWorker : IJobWorker
                         grpcActivatedJob.Worker,
                         grpcActivatedJob.Key);
 
-                    await HandleActivationResponse(input, response, null);
+                    await HandleActivationResponse(input, response, null, cancellationToken);
                 }
             }
             catch (RpcException rpcException)
@@ -210,7 +215,7 @@ public sealed class JobWorker : IJobWorker
 
     private async Task PollJobs(ITargetBlock<IJob> input, CancellationToken cancellationToken)
     {
-        while (!source.IsCancellationRequested)
+        while (!cancellationToken.IsCancellationRequested)
         {
             var currentJobs = Thread.VolatileRead(ref currentJobsActive);
             if (currentJobs < thresholdJobsActivation)
@@ -221,7 +226,7 @@ public sealed class JobWorker : IJobWorker
                 try
                 {
                     await jobActivator.SendActivateRequest(activateJobsRequest,
-                        async jobsResponse => await HandleActivationResponse(input, jobsResponse, jobCount),
+                        async jobsResponse => await HandleActivationResponse(input, jobsResponse, jobCount, cancellationToken),
                         null,
                         cancellationToken);
                 }
@@ -238,7 +243,11 @@ public sealed class JobWorker : IJobWorker
         }
     }
 
-    private async Task HandleActivationResponse(ITargetBlock<IJob> input, IActivateJobsResponse response, int? jobCount)
+    private async Task HandleActivationResponse(
+        ITargetBlock<IJob> input,
+        IActivateJobsResponse response,
+        int? jobCount,
+        CancellationToken cancellationToken)
     {
         if (jobCount.HasValue)
         {
@@ -258,7 +267,7 @@ public sealed class JobWorker : IJobWorker
 
         foreach (var job in response.Jobs)
         {
-            _ = await input.SendAsync(job);
+            _ = await input.SendAsync(job, cancellationToken);
             _ = Interlocked.Increment(ref currentJobsActive);
         }
     }
@@ -269,7 +278,7 @@ public sealed class JobWorker : IJobWorker
 
         try
         {
-            await jobHandler(jobClient, activatedJob);
+            await jobHandler(jobClient, activatedJob, cancellationToken);
             await TryToAutoCompleteJob(jobClient, activatedJob, cancellationToken);
         }
         catch (Exception exception)

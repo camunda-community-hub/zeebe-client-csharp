@@ -15,6 +15,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Zeebe.Client.Api.Commands;
 using Zeebe.Client.Api.Responses;
@@ -43,8 +44,9 @@ public delegate void JobHandler(IJobClient client, IJob activatedJob);
 /// </summary>
 /// <param name="client">the job client to complete or fail the job.</param>
 /// <param name="activatedJob">the job, which was activated by the worker.</param>
+/// <param name="cancellationToken">the token to cancel the job handler.</param>
 /// <returns>A <see cref="Task" /> representing the asynchronous operation.</returns>
-public delegate Task AsyncJobHandler(IJobClient client, IJob activatedJob);
+public delegate Task AsyncJobHandler(IJobClient client, IJob activatedJob, CancellationToken cancellationToken = default);
 
 public interface IJobWorkerBuilderStep2
 {
@@ -247,6 +249,7 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     /// <summary>
     ///     Open the worker and start to work on available tasks.
     /// </summary>
+    /// <param name="cancellationToken">the token to cancel the job worker.</param>
     /// <returns>the worker.</returns>
-    IJobWorker Open();
+    IJobWorker Open(CancellationToken cancellationToken = default);
 }

@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Microsoft.Extensions.Logging;
@@ -50,7 +51,7 @@ public class JobWorkerBuilder(
 
     public IJobWorkerBuilderStep3 Handler(JobHandler handler)
     {
-        asyncJobHandler = (c, j) => Task.Run(() => handler.Invoke(c, j));
+        asyncJobHandler = (c, j, cts) => Task.Run(() => handler.Invoke(c, j), cts);
         return this;
     }
 
@@ -147,11 +148,11 @@ public class JobWorkerBuilder(
         return this;
     }
 
-    public IJobWorker Open()
+    public IJobWorker Open(CancellationToken cancellationToken = default)
     {
         var worker = new JobWorker(this);
 
-        worker.Open();
+        worker.Open(cancellationToken);
 
         return worker;
     }
