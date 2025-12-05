@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using GatewayProtocol;
 using Microsoft.Extensions.Logging;
@@ -30,7 +31,7 @@ public class JobWorkerBuilder(
     ILoggerFactory loggerFactory = null)
     : IJobWorkerBuilderStep1, IJobWorkerBuilderStep2, IJobWorkerBuilderStep3
 {
-    private AsyncJobHandler asyncJobHandler;
+    private AsyncJobHandlerWithCancellationToken asyncJobHandler;
     private bool autoCompletion;
     private TimeSpan pollInterval;
     public bool GrpcStreamEnabled { get; private set; }
@@ -50,11 +51,17 @@ public class JobWorkerBuilder(
 
     public IJobWorkerBuilderStep3 Handler(JobHandler handler)
     {
-        asyncJobHandler = (c, j) => Task.Run(() => handler.Invoke(c, j));
+        asyncJobHandler = (jobClient, job, cancellationToken) => Task.Run(() => handler.Invoke(jobClient, job), cancellationToken);
         return this;
     }
 
     public IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler)
+    {
+        asyncJobHandler = (jobClient, job, cancellationToken) => handler(jobClient, job);
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 Handler(AsyncJobHandlerWithCancellationToken handler)
     {
         asyncJobHandler = handler;
         return this;
@@ -147,16 +154,16 @@ public class JobWorkerBuilder(
         return this;
     }
 
-    public IJobWorker Open()
+    public IJobWorker Open(CancellationToken cancellationToken = default)
     {
         var worker = new JobWorker(this);
 
-        worker.Open();
+        worker.Open(cancellationToken);
 
         return worker;
     }
 
-    internal AsyncJobHandler Handler()
+    internal AsyncJobHandlerWithCancellationToken Handler()
     {
         return asyncJobHandler;
     }
