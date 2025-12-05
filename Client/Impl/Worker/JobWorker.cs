@@ -43,7 +43,6 @@ public sealed class JobWorker : IJobWorker
     private readonly JobWorkerBuilder jobWorkerBuilder;
     private readonly ILogger<JobWorker> logger;
     private readonly int maxJobsActive;
-    private TimeSpan pollInterval;
     private readonly TimeSpan initialPollInterval;
     private readonly IBackoffSupplier backoffSupplier;
     private readonly IBackoffSupplier defaultBackoffSupplier;
@@ -61,8 +60,7 @@ public sealed class JobWorker : IJobWorker
         logger = builder.LoggerFactory?.CreateLogger<JobWorker>();
         jobHandler = jobWorkerBuilder.Handler();
         autoCompletion = builder.AutoCompletionEnabled();
-        pollInterval = jobWorkerBuilder.PollInterval();
-        initialPollInterval = pollInterval;
+        initialPollInterval = jobWorkerBuilder.PollInterval();
         activateJobsRequest = jobWorkerBuilder.Request;
         streamActivateJobsRequest = jobWorkerBuilder.StreamRequest;
         jobActivator = jobWorkerBuilder.Activator;
@@ -141,6 +139,7 @@ public sealed class JobWorker : IJobWorker
 
     private async Task StreamJobs(ITargetBlock<IJob> input, CancellationToken cancellationToken)
     {
+        var pollInterval = initialPollInterval;
         while (!source.IsCancellationRequested)
         {
             try
@@ -151,7 +150,7 @@ public sealed class JobWorker : IJobWorker
                     activateJobsRequest.Type);
 
                 var stream = jobActivator.SendStreamActivateRequest(streamActivateJobsRequest);
-
+                pollInterval = initialPollInterval;
                 logger?.LogDebug(
                     "Job worker stream ({worker}) for job type {type} has been opened.",
                     activateJobsRequest.Worker,
@@ -190,7 +189,7 @@ public sealed class JobWorker : IJobWorker
             catch (RpcException rpcException)
             {
                 LogRpcException(rpcException);
-                await Backoff(cancellationToken);
+                pollInterval = await Backoff(cancellationToken, pollInterval);
             }
         }
     }
@@ -216,6 +215,7 @@ public sealed class JobWorker : IJobWorker
 
     private async Task PollJobs(ITargetBlock<IJob> input, CancellationToken cancellationToken)
     {
+        var pollInterval = initialPollInterval;
         while (!source.IsCancellationRequested)
         {
             var currentJobs = Thread.VolatileRead(ref currentJobsActive);
@@ -235,7 +235,7 @@ public sealed class JobWorker : IJobWorker
                 catch (RpcException rpcException)
                 {
                     LogRpcException(rpcException);
-                    await Backoff(cancellationToken);
+                    pollInterval = await Backoff(cancellationToken, pollInterval);
                 }
             }
             else
@@ -249,9 +249,9 @@ public sealed class JobWorker : IJobWorker
     /// Updates pollInterval using the configured backoff supplier and waits for that delay.
     /// Falls back to a default exponential supplier if the custom supplier throws.
     /// </summary>
-    private async Task Backoff(CancellationToken cancellationToken)
+    private async Task<TimeSpan> Backoff(CancellationToken cancellationToken, TimeSpan currentPollinterval)
     {
-        var previousMs = Math.Max(0, (long)pollInterval.TotalMilliseconds);
+        var previousMs = Math.Max(0, (long)currentPollinterval.TotalMilliseconds);
         long nextMs;
         try
         {
@@ -263,8 +263,9 @@ public sealed class JobWorker : IJobWorker
             nextMs = defaultBackoffSupplier.SupplyRetryDelay(previousMs);
         }
 
-        pollInterval = TimeSpan.FromMilliseconds(Math.Max(0, nextMs));
-        await Task.Delay(pollInterval, cancellationToken);
+        currentPollinterval = TimeSpan.FromMilliseconds(Math.Max(0, nextMs));
+        await Task.Delay(currentPollinterval, cancellationToken);
+        return currentPollinterval;
     }
 
     private async Task HandleActivationResponse(ITargetBlock<IJob> input, IActivateJobsResponse response, int? jobCount)
