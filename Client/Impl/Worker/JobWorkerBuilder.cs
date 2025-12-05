@@ -51,13 +51,13 @@ public class JobWorkerBuilder(
 
     public IJobWorkerBuilderStep3 Handler(JobHandler handler)
     {
-        asyncJobHandler = (c, j, cts) => Task.Run(() => handler.Invoke(c, j), cts);
+        asyncJobHandler = (jobClient, job, cancellationToken) => Task.Run(() => handler.Invoke(jobClient, job), cancellationToken);
         return this;
     }
 
     public IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler)
     {
-        asyncJobHandler = (c, j, cts) => handler(c, j);
+        asyncJobHandler = (jobClient, job, cancellationToken) => handler(jobClient, job);
         return this;
     }
 

@@ -77,8 +77,8 @@ public sealed class JobWorker : IJobWorker
         {
             logger?.LogError("Dispose source");
             localCts.Dispose();
-            linkedCts?.Dispose();
-            linkedCts = null;
+            var currentLinkedCts = Interlocked.Exchange(ref this.linkedCts, null);
+            currentLinkedCts?.Dispose();
         });
         isRunning = false;
     }
@@ -99,18 +99,21 @@ public sealed class JobWorker : IJobWorker
     ///     Opens the configured JobWorker to activate jobs in the given poll interval
     ///     and handle with the given handler.
     /// </summary>
-    /// <param name="stoppingToken">The host cancellation token.</param>
-    internal void Open(CancellationToken stoppingToken)
+    /// <param name="cancellationToken">The host cancellation token.</param>
+    internal void Open(CancellationToken cancellationToken)
     {
         isRunning = true;
-        this.linkedCts = CancellationTokenSource.CreateLinkedTokenSource(stoppingToken, localCts.Token);
-        var cancellationToken = linkedCts.Token;
-        var bufferOptions = CreateBufferOptions(cancellationToken);
-        var executionOptions = CreateExecutionOptions(cancellationToken);
+
+        var newLinkedCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, localCts.Token);
+        var oldLinkedCts = Interlocked.Exchange(ref this.linkedCts, newLinkedCts);
+        oldLinkedCts?.Dispose();
+        var linkedCancellationToken = newLinkedCts.Token;
+        var bufferOptions = CreateBufferOptions(linkedCancellationToken);
+        var executionOptions = CreateExecutionOptions(linkedCancellationToken);
 
         var input = new BufferBlock<IJob>(bufferOptions);
         var transformer = new TransformBlock<IJob, IJob>(
-            async activatedJob => await HandleActivatedJob(activatedJob, cancellationToken),
+            async activatedJob => await HandleActivatedJob(activatedJob, linkedCancellationToken),
             executionOptions);
         var output = new ActionBlock<IJob>(activatedJob => { _ = Interlocked.Decrement(ref currentJobsActive); },
             executionOptions);
@@ -120,15 +123,15 @@ public sealed class JobWorker : IJobWorker
 
         if (jobWorkerBuilder.GrpcStreamEnabled)
         {
-            _ = Task.Run(async () => await StreamJobs(input, cancellationToken),
-                cancellationToken).ContinueWith(
+            _ = Task.Run(async () => await StreamJobs(input, linkedCancellationToken),
+                linkedCancellationToken).ContinueWith(
                 t => logger?.LogError(t.Exception, "Job stream failed."),
                 TaskContinuationOptions.OnlyOnFaulted);
         }
 
         // Start polling
-        _ = Task.Run(async () => await PollJobs(input, cancellationToken),
-        cancellationToken).ContinueWith(
+        _ = Task.Run(async () => await PollJobs(input, linkedCancellationToken),
+        linkedCancellationToken).ContinueWith(
         t => logger?.LogError(t.Exception, "Job polling failed."),
         TaskContinuationOptions.OnlyOnFaulted);
 
