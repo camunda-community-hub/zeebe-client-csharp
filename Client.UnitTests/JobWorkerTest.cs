@@ -12,14 +12,16 @@
 //     See the License for the specific language governing permissions and
 //     limitations under the License.
 
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using GatewayProtocol;
 using NLog;
 using NUnit.Framework;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Zeebe.Client.Api.Responses;
 
 namespace Zeebe.Client;
@@ -704,6 +706,62 @@ public class JobWorkerTest : BaseZeebeTest
         Assert.Contains(1, completeJobRequests);
         Assert.Contains(2, completeJobRequests);
         Assert.Contains(3, completeJobRequests);
+    }
+
+    [Test]
+    public void ShouldCancelAllJobsWhenHostIsCancelled()
+    {
+        // given
+        TestService.AddRequestHandler(typeof(ActivateJobsRequest), request => CreateExpectedResponse());
+        using var stoppingCts = new CancellationTokenSource();
+
+        // when
+        var startedJobs = new ConcurrentBag<IJob>();
+        var cancelledJobs = new ConcurrentBag<IJob>();
+        var completedJobs = new ConcurrentBag<IJob>();
+        using var jobWorker = ZeebeClient.NewWorker()
+            .JobType("foo")
+            .Handler(async (jobClient, job, cancellationToken) =>
+            {
+                startedJobs.Add(job);
+                try
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken);
+                }
+                catch (TaskCanceledException)
+                {
+                    cancelledJobs.Add(job);
+                }
+                finally
+                {
+                    completedJobs.Add(job);
+                }
+            })
+            .AutoCompletion()
+            .MaxJobsActive(3)
+            .Name("jobWorker")
+            .Timeout(TimeSpan.FromSeconds(123))
+            .PollInterval(TimeSpan.FromSeconds(10))
+            .PollingTimeout(TimeSpan.FromSeconds(10))
+            .HandlerThreads(3)
+            .Open(stoppingCts.Token);
+
+        Assert.True(jobWorker.IsOpen());
+
+        while (startedJobs.Count < 3)
+        {
+        }
+
+        stoppingCts.Cancel();
+
+        while (completedJobs.Count < 3)
+        {
+        }
+
+        // then
+        Assert.AreEqual(3, startedJobs.Count);
+        Assert.AreEqual(3, cancelledJobs.Count);
+        Assert.AreEqual(3, completedJobs.Count);
     }
 
     public static ActivateJobsResponse CreateExpectedResponse()
