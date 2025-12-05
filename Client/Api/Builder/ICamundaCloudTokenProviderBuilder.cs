@@ -68,7 +68,7 @@ public interface ICamundaCloudTokenProviderBuilderFinalStep
     ICamundaCloudTokenProviderBuilderFinalStep UsePath(string path);
 
     /// <summary>
-    ///     Disables credentials cache persitence to file system.
+    ///     Disables credentials cache persistence to file system.
     /// </summary>
     /// <returns>The final step in building a CamundaCloudTokenProvider.</returns>
     ICamundaCloudTokenProviderBuilderFinalStep DisableCredentialsCachePersistence();

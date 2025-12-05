@@ -1,14 +1,14 @@
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace Zeebe.Client.Impl.Misc;
 
-public class PersistedAccessTokenCache : IAccessTokenCache
+public class PersistedAccessTokenCache : IAccessTokenCache, IDisposable
 {
     private readonly IAccessTokenCache.AccessTokenResolverAsync accessTokenFetcherAsync;
 
@@ -20,6 +20,7 @@ public class PersistedAccessTokenCache : IAccessTokenCache
     private readonly bool persistedCredentialsCacheEnabled;
     private readonly SemaphoreSlim mutex = new SemaphoreSlim(1, 1);
     private readonly TimeSpan dueDateTolerance;
+    private bool disposedValue;
 
     public PersistedAccessTokenCache(
         string path,
@@ -111,20 +112,19 @@ public class PersistedAccessTokenCache : IAccessTokenCache
         // add {dueDateTolerance} to UTC now to compensate network latency
         // and prevent server rejection if due date is too close to now.
         // Meaning that token will be refreshed {dueDateTolerance} before expiration.
-        var now = DateTimeOffset.UtcNow.Add(this.dueDateTolerance).ToUnixTimeMilliseconds();
-        var dueDate = accessToken.DueDate;
+        var now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        var adjustedDueDate = accessToken.DueDate - (long)this.dueDateTolerance.TotalMilliseconds;
 
-        if (now < dueDate)
+        if (now < adjustedDueDate)
         {
             return true;
         }
 
-        var tolerance = (this.dueDateTolerance == default) ? string.Empty : $"(-{this.dueDateTolerance})";
         this.logger?.LogTrace(
-            "Access token is no longer valid (now: {Now} > dueTime{DueDateTolerance}: {DueTime}), request new one",
+            "Access token is no longer valid (now: {Now} > adjustedDueTime: {AdjustedDueTime} after applying tolerance: {Tolerance}), request new one",
             now,
-            tolerance,
-            dueDate);
+            adjustedDueDate,
+            this.dueDateTolerance);
 
         return false;
     }
@@ -157,5 +157,24 @@ public class PersistedAccessTokenCache : IAccessTokenCache
     private void WriteCredentials()
     {
         File.WriteAllText(this.TokenFileName, JsonConvert.SerializeObject(this.CachedCredentials));
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!disposedValue)
+        {
+            if (disposing)
+            {
+                this.mutex.Dispose();
+            }
+
+            disposedValue = true;
+        }
+    }
+
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
     }
 }

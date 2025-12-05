@@ -84,7 +84,7 @@ public interface ICamundaCloudClientBuilderFinalStep
     ICamundaCloudClientBuilderFinalStep UsePersistedStoragePath(string path);
 
     /// <summary>
-    ///     Disables credentials cache persitence to file system.
+    ///     Disables credentials cache persistence to file system.
     /// </summary>
     /// <returns>the fluent ICamundaCloudClientBuilderFinalStep.</returns>
     ICamundaCloudClientBuilderFinalStep DisableCredentialsCachePersistence();

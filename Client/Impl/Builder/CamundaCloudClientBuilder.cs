@@ -67,12 +67,14 @@ public class CamundaCloudClientBuilder : ICamundaCloudClientBuilder, ICamundaClo
         return this;
     }
 
+    /// <inheritdoc/>
     public ICamundaCloudClientBuilderFinalStep DisableCredentialsCachePersistence()
     {
         _ = camundaCloudTokenProviderBuilder.DisableCredentialsCachePersistence();
         return this;
     }
 
+    /// <inheritdoc/>
     public ICamundaCloudClientBuilderFinalStep UseAccessTokenDueDateTolerance(TimeSpan tolerance)
     {
         _ = camundaCloudTokenProviderBuilder.UseAccessTokenDueDateTolerance(tolerance);
