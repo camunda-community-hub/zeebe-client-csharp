@@ -75,7 +75,7 @@ public sealed class JobWorker : IJobWorker
     {
         source.Cancel();
         // delay disposing, since poll and handler take some time to close
-        _ = Task.Delay(TimeSpan.FromMilliseconds(pollInterval.TotalMilliseconds * 2))
+        _ = Task.Delay(TimeSpan.FromMilliseconds(initialPollInterval.TotalMilliseconds * 2))
         .ContinueWith(t =>
         {
             logger?.LogError("Dispose source");
