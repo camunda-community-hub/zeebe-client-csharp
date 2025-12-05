@@ -39,7 +39,7 @@ public sealed class JobWorker : IJobWorker
     private readonly StreamActivatedJobsRequest streamActivateJobsRequest;
     private readonly bool autoCompletion;
     private readonly JobActivator jobActivator;
-    private readonly AsyncJobHandler jobHandler;
+    private readonly AsyncJobHandlerWithCancellationToken jobHandler;
     private readonly JobWorkerBuilder jobWorkerBuilder;
     private readonly ILogger<JobWorker> logger;
     private readonly int maxJobsActive;

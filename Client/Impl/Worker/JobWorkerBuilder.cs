@@ -31,7 +31,7 @@ public class JobWorkerBuilder(
     ILoggerFactory loggerFactory = null)
     : IJobWorkerBuilderStep1, IJobWorkerBuilderStep2, IJobWorkerBuilderStep3
 {
-    private AsyncJobHandler asyncJobHandler;
+    private AsyncJobHandlerWithCancellationToken asyncJobHandler;
     private bool autoCompletion;
     private TimeSpan pollInterval;
     public bool GrpcStreamEnabled { get; private set; }
@@ -56,6 +56,12 @@ public class JobWorkerBuilder(
     }
 
     public IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler)
+    {
+        asyncJobHandler = (c, j, cts) => handler(c, j);
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 Handler(AsyncJobHandlerWithCancellationToken handler)
     {
         asyncJobHandler = handler;
         return this;
@@ -157,7 +163,7 @@ public class JobWorkerBuilder(
         return worker;
     }
 
-    internal AsyncJobHandler Handler()
+    internal AsyncJobHandlerWithCancellationToken Handler()
     {
         return asyncJobHandler;
     }

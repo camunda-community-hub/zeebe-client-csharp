@@ -44,9 +44,17 @@ public delegate void JobHandler(IJobClient client, IJob activatedJob);
 /// </summary>
 /// <param name="client">the job client to complete or fail the job.</param>
 /// <param name="activatedJob">the job, which was activated by the worker.</param>
+/// <returns>A <see cref="Task" /> representing the asynchronous operation.</returns>
+public delegate Task AsyncJobHandler(IJobClient client, IJob activatedJob);
+
+/// <summary>
+///     The asynchronous job handler which contains the business logic.
+/// </summary>
+/// <param name="client">the job client to complete or fail the job.</param>
+/// <param name="activatedJob">the job, which was activated by the worker.</param>
 /// <param name="cancellationToken">the token to cancel the job handler.</param>
 /// <returns>A <see cref="Task" /> representing the asynchronous operation.</returns>
-public delegate Task AsyncJobHandler(IJobClient client, IJob activatedJob, CancellationToken cancellationToken = default);
+public delegate Task AsyncJobHandlerWithCancellationToken(IJobClient client, IJob activatedJob, CancellationToken cancellationToken);
 
 public interface IJobWorkerBuilderStep2
 {
@@ -101,6 +109,33 @@ public interface IJobWorkerBuilderStep2
     /// <param name="handler">the handle to process the jobs.</param>
     /// <returns>the builder for this worker.</returns>
     IJobWorkerBuilderStep3 Handler(AsyncJobHandler handler);
+
+    /// <summary>
+    ///     Set an async handler to process the jobs asynchronously. At the end of the processing, the handler can
+    ///     complete the job or mark it as failed.
+    ///     This version of the handler supports a <see cref="CancellationToken"/> that can be used in underliying tasks.
+    /// </summary>
+    /// <example>
+    ///     <para>
+    ///         Example JobHandler implementation:
+    ///     </para>
+    ///     <code>
+    /// var handler = async (client, job, cancellationToken) =>
+    ///   {
+    ///     String json = job.Variables;
+    ///     // modify variables
+    ///
+    ///     await client
+    ///          .CompleteCommand(job.Key)
+    ///          .Variables(json)
+    ///          .Send(cancellationToken);
+    ///   };
+    /// </code>
+    /// </example>
+    /// The handler must be thread-safe.
+    /// <param name="handler">the handle to process the jobs.</param>
+    /// <returns>the builder for this worker.</returns>
+    IJobWorkerBuilderStep3 Handler(AsyncJobHandlerWithCancellationToken handler);
 }
 
 public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilderStep3>
