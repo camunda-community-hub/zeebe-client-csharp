@@ -41,7 +41,7 @@ internal sealed class ExponentialBackoffSupplier : IBackoffSupplier
         minDelayMs = minDelay.TotalMilliseconds;
         this.backoffFactor = backoffFactor;
         this.jitterFactor = jitterFactor;
-        this.random = random ?? new Random();
+        this.random = random ?? Random.Shared;
     }
 
     public long SupplyRetryDelay(long currentRetryDelay)
