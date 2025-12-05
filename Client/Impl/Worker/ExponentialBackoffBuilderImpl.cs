@@ -43,6 +43,8 @@ internal sealed class ExponentialBackoffBuilderImpl : IExponentialBackoffBuilder
 
     public IBackoffSupplier Build()
     {
+        if (minDelay > maxDelay)
+            throw new ArgumentException($"MinDelay ({minDelay}) cannot be greater than MaxDelay ({maxDelay})");
         return new ExponentialBackoffSupplier(minDelay, maxDelay, backoffFactor, jitterFactor, random);
     }
 }
