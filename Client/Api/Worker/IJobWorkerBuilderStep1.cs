@@ -238,8 +238,7 @@ public interface IJobWorkerBuilderStep3 : ITenantIdsCommandStep<IJobWorkerBuilde
     IJobWorkerBuilderStep3 HandlerThreads(byte threadCount);
 
     /// <summary>
-    ///     Configures a retry backoff supplier used when activate requests fail with
-    ///     gRPC StatusCode.ResourceExhausted. Only applied to polling retries and reset on success.
+    ///     Configures a retry backoff supplier used when requests fail.
     ///     Defaults to an exponential backoff (max 5000ms, min 50ms, factor 1.6, jitter 0.1) if not set.
     /// </summary>
     /// <param name="backoffSupplier">The supplier used to compute the next retry delay in ms.</param>
