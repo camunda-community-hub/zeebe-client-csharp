@@ -21,6 +21,7 @@ using GatewayProtocol;
 using Microsoft.Extensions.Logging;
 using Zeebe.Client.Api.Worker;
 using Zeebe.Client.Impl.Commands;
+using Zeebe.Client.Impl.Worker;
 
 namespace Zeebe.Client.Impl.Worker;
 
@@ -40,6 +41,7 @@ public class JobWorkerBuilder(
     internal byte ThreadCount { get; set; } = 1;
     internal ILoggerFactory LoggerFactory { get; } = loggerFactory;
     internal IJobClient JobClient { get; } = zeebeClient;
+    internal IBackoffSupplier RetryBackoffSupplier { get; private set; }
 
     public IJobWorkerBuilderStep2 JobType(string type)
     {
@@ -144,6 +146,12 @@ public class JobWorkerBuilder(
         }
 
         ThreadCount = threadCount;
+        return this;
+    }
+
+    public IJobWorkerBuilderStep3 BackoffSupplier(IBackoffSupplier backoffSupplier)
+    {
+        RetryBackoffSupplier = backoffSupplier;
         return this;
     }
 
