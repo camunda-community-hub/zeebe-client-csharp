@@ -78,7 +78,7 @@ public sealed class JobWorker : IJobWorker
         _ = Task.Delay(TimeSpan.FromMilliseconds(initialPollInterval.TotalMilliseconds * 2))
         .ContinueWith(t =>
         {
-            logger?.LogError("Dispose source");
+            logger?.LogDebug("Dispose source");
             source.Dispose();
         });
         isRunning = false;
