@@ -123,4 +123,26 @@ public class CamundaCloudTokenProviderTest
         // then
         Assert.AreEqual(2, MessageHandlerStub.RequestCount);
     }
+
+    [Test]
+    public void ShouldThrowArgumentExceptionForInvalidAccessTokenDueDateTolerance()
+    {
+        // given
+        var builder = new CamundaCloudTokenProviderBuilder();
+
+        // then
+        Assert.Throws<ArgumentException>(() => builder
+            .UseAccessTokenDueDateTolerance(TimeSpan.FromSeconds(-2)));
+    }
+
+    [Test]
+    public void ShouldNotThrowArgumentExceptionForValidAccessTokenDueDateTolerance()
+    {
+        // given
+        var builder = new CamundaCloudTokenProviderBuilder();
+
+        // then
+        Assert.DoesNotThrow(() => builder
+            .UseAccessTokenDueDateTolerance(TimeSpan.FromSeconds(2)));
+    }
 }
