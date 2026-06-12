@@ -60,4 +60,38 @@ public class BroadcastSignalTest : BaseZeebeTest
         // then
         Assert.AreEqual(StatusCode.Cancelled, rpcException.Status.StatusCode);
     }
+
+    [Test]
+    public async Task ShouldReceiveResponseWithKeyAndTenantId()
+    {
+        // given
+        const string variables = "{\"foo\":23}";
+        const string expectedTenantId = "tenant1";
+
+        // when
+        var response = await ZeebeClient
+            .NewBroadcastSignalCommand()
+            .SignalName("signalName")
+            .Variables(variables)
+            .AddTenantId(expectedTenantId)
+            .Send();
+
+        // then
+        Assert.AreEqual(9876543210L, response.Key);
+        Assert.AreEqual(expectedTenantId, response.TenantId);
+    }
+
+    [Test]
+    public async Task ShouldReceiveResponseWithDefaultTenantIdWhenNotSpecified()
+    {
+        // when
+        var response = await ZeebeClient
+            .NewBroadcastSignalCommand()
+            .SignalName("signalName")
+            .Send();
+
+        // then
+        Assert.AreEqual(9876543210L, response.Key);
+        Assert.AreEqual("<default>", response.TenantId);
+    }
 }
