@@ -45,7 +45,11 @@ public class GatewayTestService : Gateway.GatewayBase
     {
         typedRequestHandler.Add(typeof(TopologyRequest), request => new TopologyResponse());
 
-        typedRequestHandler.Add(typeof(PublishMessageRequest), request => new PublishMessageResponse());
+        typedRequestHandler.Add(typeof(PublishMessageRequest), request => new PublishMessageResponse
+        {
+            Key = 1234567890L,
+            TenantId = string.IsNullOrEmpty(((PublishMessageRequest)request).TenantId) ? "<default>" : ((PublishMessageRequest)request).TenantId
+        });
 
         typedRequestHandler.Add(typeof(ActivateJobsRequest), request => new ActivateJobsResponse());
         typedRequestHandler.Add(typeof(StreamActivatedJobsRequest), request => new ActivateJobsResponse());
@@ -64,7 +68,11 @@ public class GatewayTestService : Gateway.GatewayBase
             request => new CreateProcessInstanceWithResultResponse());
         typedRequestHandler.Add(typeof(EvaluateDecisionRequest), request => new EvaluateDecisionResponse());
         typedRequestHandler.Add(typeof(ModifyProcessInstanceRequest), request => new ModifyProcessInstanceResponse());
-        typedRequestHandler.Add(typeof(BroadcastSignalRequest), request => new BroadcastSignalResponse());
+        typedRequestHandler.Add(typeof(BroadcastSignalRequest), request => new BroadcastSignalResponse
+        {
+            Key = 9876543210L,
+            TenantId = string.IsNullOrEmpty(((BroadcastSignalRequest)request).TenantId) ? "<default>" : ((BroadcastSignalRequest)request).TenantId
+        });
         typedRequestHandler.Add(typeof(DeleteResourceRequest), request => new DeleteResourceResponse());
 
         foreach (var pair in typedRequestHandler)
