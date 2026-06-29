@@ -23,6 +23,7 @@ public class ZeebeIntegrationTestHelper : IDisposable
     private const ushort IdentityPort = 8084;
     private readonly string audience;
     public readonly ILoggerFactory LoggerFactory;
+    private readonly ILogger logger;
 
     private readonly string version;
     private IZeebeClient client;
@@ -39,6 +40,7 @@ public class ZeebeIntegrationTestHelper : IDisposable
         this.version = version;
         audience = Guid.NewGuid().ToString();
         LoggerFactory = new NLogLoggerFactory();
+        logger = LoggerFactory.CreateLogger<ZeebeIntegrationTestHelper>();
     }
 
     public static ZeebeIntegrationTestHelper Latest()
@@ -65,12 +67,11 @@ public class ZeebeIntegrationTestHelper : IDisposable
 
     public async Task<IZeebeClient> SetupIntegrationTest()
     {
-        TestcontainersSettings.Logger = LoggerFactory.CreateLogger<ZeebeIntegrationTestHelper>();
-
         if (withIdentity)
         {
             var network = new NetworkBuilder()
                 .WithName(Guid.NewGuid().ToString("D"))
+                .WithLogger(logger)
                 .Build();
 
             postgresContainer = CreatePostgresContainer(network);
@@ -124,6 +125,7 @@ public class ZeebeIntegrationTestHelper : IDisposable
     {
         var containerBuilder = new ContainerBuilder()
             .WithImage(new DockerImage("camunda", "zeebe", version))
+            .WithLogger(logger)
             .WithPortBinding(ZeebePort, true)
             .WithOutputConsumer(Consume.RedirectStdoutAndStderrToConsole())
             .WithEnvironment("ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT", count.ToString());
@@ -152,6 +154,7 @@ public class ZeebeIntegrationTestHelper : IDisposable
     {
         var containerBuilder = new ContainerBuilder()
             .WithImage("postgres")
+            .WithLogger(logger)
             .WithName("integration-postgres")
             .WithPortBinding(5432, true)
             .WithEnvironment("POSTGRES_DB", "bitnami_keycloak")
@@ -160,7 +163,7 @@ public class ZeebeIntegrationTestHelper : IDisposable
             .WithNetwork(network)
             .WithAutoRemove(true)
             .WithOutputConsumer(Consume.RedirectStdoutAndStderrToConsole())
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(5432));
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilInternalTcpPortIsAvailable(5432));
 
         return containerBuilder.Build();
     }
@@ -169,6 +172,7 @@ public class ZeebeIntegrationTestHelper : IDisposable
     {
         var containerBuilder = new ContainerBuilder()
             .WithImage(new DockerImage("camunda", "identity", version)) // identity and zeebe will have the same version
+            .WithLogger(logger)
             .WithName("integration-identity")
             .WithPortBinding(IdentityPort, true)
             .WithEnvironment("SERVER_PORT", IdentityPort.ToString())
@@ -200,6 +204,7 @@ public class ZeebeIntegrationTestHelper : IDisposable
     {
         var containerBuilder = new ContainerBuilder()
             .WithImage(new DockerImage("bitnamilegacy", "keycloak", "21.1.2"))
+            .WithLogger(logger)
             .WithName("integration-keycloak")
             .WithPortBinding("8080", true)
             .WithEnvironment("KEYCLOAK_HTTP_RELATIVE_PATH", "/auth")
