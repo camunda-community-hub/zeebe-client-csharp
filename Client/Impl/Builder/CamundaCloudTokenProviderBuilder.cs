@@ -19,6 +19,8 @@ namespace Zeebe.Client.Impl.Builder
         private string clientSecret;
         private ILoggerFactory loggerFactory;
         private string path;
+        private bool persistedCredentialsCacheEnabled = true;
+        private TimeSpan accessTokenDueDateTolerance = TimeSpan.Zero;
 
         /// <inheritdoc />
         public ICamundaCloudTokenProviderBuilder UseLoggerFactory(ILoggerFactory loggerFactory)
@@ -51,6 +53,25 @@ namespace Zeebe.Client.Impl.Builder
         }
 
         /// <inheritdoc />
+        public ICamundaCloudTokenProviderBuilderFinalStep DisableCredentialsCachePersistence()
+        {
+            this.persistedCredentialsCacheEnabled = false;
+            return this;
+        }
+
+        /// <inheritdoc />
+        public ICamundaCloudTokenProviderBuilderFinalStep UseAccessTokenDueDateTolerance(TimeSpan tolerance)
+        {
+            if (tolerance < TimeSpan.Zero)
+            {
+                throw new ArgumentException("AccessToken due date tolerance must be a positive time span", nameof(tolerance));
+            }
+
+            this.accessTokenDueDateTolerance = tolerance;
+            return this;
+        }
+
+        /// <inheritdoc />
         public CamundaCloudTokenProvider Build()
         {
             return new CamundaCloudTokenProvider(
@@ -59,7 +80,9 @@ namespace Zeebe.Client.Impl.Builder
                 clientSecret,
                 audience,
                 path,
-                loggerFactory);
+                loggerFactory,
+                persistedCredentialsCacheEnabled,
+                accessTokenDueDateTolerance);
         }
 
         /// <inheritdoc />
