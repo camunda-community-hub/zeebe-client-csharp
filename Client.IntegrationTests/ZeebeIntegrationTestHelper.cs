@@ -3,7 +3,6 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using DotNet.Testcontainers.Builders;
-using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Images;
 using DotNet.Testcontainers.Networks;
 using Microsoft.Extensions.Logging;
@@ -65,7 +64,7 @@ public class ZeebeIntegrationTestHelper : IDisposable
 
     public async Task<IZeebeClient> SetupIntegrationTest()
     {
-        TestcontainersSettings.Logger = LoggerFactory.CreateLogger<ZeebeIntegrationTestHelper>();
+        var logger = LoggerFactory.CreateLogger<ZeebeIntegrationTestHelper>();
 
         if (withIdentity)
         {
@@ -73,18 +72,18 @@ public class ZeebeIntegrationTestHelper : IDisposable
                 .WithName(Guid.NewGuid().ToString("D"))
                 .Build();
 
-            postgresContainer = CreatePostgresContainer(network);
+            postgresContainer = CreatePostgresContainer(network, logger);
             await postgresContainer.StartAsync();
-            keycloakContainer = CreateKeyCloakContainer(network);
+            keycloakContainer = CreateKeyCloakContainer(network, logger);
             await keycloakContainer.StartAsync();
 
-            identityContainer = CreateIdentityContainer(network);
+            identityContainer = CreateIdentityContainer(network, logger);
             await identityContainer.StartAsync();
-            zeebeContainer = CreateZeebeContainer(network);
+            zeebeContainer = CreateZeebeContainer(logger, network);
         }
         else
         {
-            zeebeContainer = CreateZeebeContainer();
+            zeebeContainer = CreateZeebeContainer(logger);
         }
 
         await zeebeContainer.StartAsync();
@@ -120,9 +119,10 @@ public class ZeebeIntegrationTestHelper : IDisposable
         zeebeContainer = null;
     }
 
-    private IContainer CreateZeebeContainer(INetwork network = null)
+    private IContainer CreateZeebeContainer(ILogger logger, INetwork network = null)
     {
         var containerBuilder = new ContainerBuilder()
+            .WithLogger(logger)
             .WithImage(new DockerImage("camunda", "zeebe", version))
             .WithPortBinding(ZeebePort, true)
             .WithOutputConsumer(Consume.RedirectStdoutAndStderrToConsole())
@@ -148,9 +148,10 @@ public class ZeebeIntegrationTestHelper : IDisposable
         return containerBuilder.Build();
     }
 
-    private IContainer CreatePostgresContainer(INetwork network)
+    private IContainer CreatePostgresContainer(INetwork network, ILogger logger)
     {
         var containerBuilder = new ContainerBuilder()
+            .WithLogger(logger)
             .WithImage("postgres")
             .WithName("integration-postgres")
             .WithPortBinding(5432, true)
@@ -165,9 +166,10 @@ public class ZeebeIntegrationTestHelper : IDisposable
         return containerBuilder.Build();
     }
 
-    private IContainer CreateIdentityContainer(INetwork network)
+    private IContainer CreateIdentityContainer(INetwork network, ILogger logger)
     {
         var containerBuilder = new ContainerBuilder()
+            .WithLogger(logger)
             .WithImage(new DockerImage("camunda", "identity", version)) // identity and zeebe will have the same version
             .WithName("integration-identity")
             .WithPortBinding(IdentityPort, true)
@@ -196,9 +198,10 @@ public class ZeebeIntegrationTestHelper : IDisposable
         return containerBuilder.Build();
     }
 
-    private IContainer CreateKeyCloakContainer(INetwork network)
+    private IContainer CreateKeyCloakContainer(INetwork network, ILogger logger)
     {
         var containerBuilder = new ContainerBuilder()
+            .WithLogger(logger)
             .WithImage(new DockerImage("bitnamilegacy", "keycloak", "21.1.2"))
             .WithName("integration-keycloak")
             .WithPortBinding("8080", true)
