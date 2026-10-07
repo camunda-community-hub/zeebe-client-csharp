@@ -46,8 +46,8 @@ public class BroadcastSignalCommand(GatewayClient client, IAsyncRetryStrategy as
     {
         var asyncReply =
             client.BroadcastSignalAsync(request, deadline: timeout?.FromUtcNow(), cancellationToken: token);
-        _ = await asyncReply.ResponseAsync;
-        return new BroadcastSignalResponse();
+        var response = await asyncReply.ResponseAsync;
+        return new BroadcastSignalResponse(response);
     }
 
     public async Task<IBroadcastSignalResponse> Send(CancellationToken cancellationToken)
