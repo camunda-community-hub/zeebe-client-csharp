@@ -143,4 +143,36 @@ public class PublishMessageTest : BaseZeebeTest
         var request = TestService.Requests[typeof(PublishMessageRequest)][0];
         Assert.AreEqual(expectedRequest, request);
     }
+
+    [Test]
+    public async Task ShouldReceiveResponseWithKeyAndTenantId()
+    {
+        // given
+        const string expectedTenantId = "tenant1";
+
+        // when
+        var response = await ZeebeClient.NewPublishMessageCommand()
+            .MessageName("test")
+            .CorrelationKey("123")
+            .AddTenantId(expectedTenantId)
+            .Send();
+
+        // then
+        Assert.AreEqual(1234567890L, response.Key);
+        Assert.AreEqual(expectedTenantId, response.TenantId);
+    }
+
+    [Test]
+    public async Task ShouldReceiveResponseWithDefaultTenantIdWhenNotSpecified()
+    {
+        // when
+        var response = await ZeebeClient.NewPublishMessageCommand()
+            .MessageName("test")
+            .CorrelationKey("123")
+            .Send();
+
+        // then
+        Assert.AreEqual(1234567890L, response.Key);
+        Assert.AreEqual("<default>", response.TenantId);
+    }
 }
