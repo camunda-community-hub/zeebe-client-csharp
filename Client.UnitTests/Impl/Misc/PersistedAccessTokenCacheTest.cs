@@ -113,6 +113,48 @@ public class PersistedAccessTokenCacheTest
     }
 
     [Test]
+    public async Task ShouldResolveNewTokenDuringDueDateTolerancePeriod()
+    {
+        // given
+        var expectedDueDateTolerance = TimeSpan.FromSeconds(30);
+        var fetchCounter = 0;
+        var accessTokenCache = new PersistedAccessTokenCache(
+            Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
+                DateTimeOffset.UtcNow.AddSeconds(15).ToUnixTimeMilliseconds())),
+            dueDateTolerance: expectedDueDateTolerance);
+
+        // when
+        _ = await accessTokenCache.Get("test");
+        var token = await accessTokenCache.Get("test");
+
+        // then
+        Assert.AreEqual("token-1", token);
+        Assert.AreEqual(2, fetchCounter);
+    }
+
+    [Test]
+    public async Task ShouldNotResolveNewTokenBeforeDueDateTolerancePeriod()
+    {
+        // given
+        var expectedDueDateTolerance = TimeSpan.FromSeconds(30);
+        var fetchCounter = 0;
+        var accessTokenCache = new PersistedAccessTokenCache(
+            Path.Combine(tempPath, TestContext.CurrentContext.Test.Name),
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
+                DateTimeOffset.UtcNow.AddSeconds(45).ToUnixTimeMilliseconds())),
+            dueDateTolerance: expectedDueDateTolerance);
+
+        // when
+        _ = await accessTokenCache.Get("test");
+        var token = await accessTokenCache.Get("test");
+
+        // then
+        Assert.AreEqual("token-0", token);
+        Assert.AreEqual(1, fetchCounter);
+    }
+
+    [Test]
     public async Task ShouldReflectTokenOnDiskAfterExpiry()
     {
         // given
@@ -161,6 +203,26 @@ public class PersistedAccessTokenCacheTest
         var content = await File.ReadAllTextAsync(fileNames[0]);
         Assert.That(content, Does.Contain(token));
         Assert.That(content, Does.Contain(audience));
+    }
+
+    [Test]
+    public async Task ShouldNotPersistTokenToDiskWhenDisabled()
+    {
+        // given
+        var audience = "test";
+        var fetchCounter = 0;
+        var path = Path.Combine(tempPath, TestContext.CurrentContext.Test.Name);
+        var accessTokenCache = new PersistedAccessTokenCache(path,
+            () => Task.FromResult(new AccessToken("token-" + fetchCounter++,
+                DateTimeOffset.UtcNow.AddDays(-1).ToUnixTimeMilliseconds())),
+            persistedCredentialsCacheEnabled: false);
+
+        // when
+        _ = await accessTokenCache.Get(audience);
+
+        // then
+        var persistedCacheDirectoryExists = Directory.Exists(path);
+        Assert.IsFalse(persistedCacheDirectoryExists);
     }
 
     [Test]
