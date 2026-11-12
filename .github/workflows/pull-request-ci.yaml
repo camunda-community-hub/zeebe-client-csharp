@@ -10,7 +10,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v6.1.0
       with:
-        dotnet-version: 10.x
+        dotnet-version: 11.x
     - name: Build
       run: dotnet build
     - name: Test
@@ -23,7 +23,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v6.1.0
       with:
-        dotnet-version: 10.x
+        dotnet-version: 11.x
     - name: Build
       run: dotnet build --configuration Release
     - name: Test
