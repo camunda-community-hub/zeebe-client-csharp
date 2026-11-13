@@ -31,10 +31,13 @@ public class CamundaCloudTokenProvider : IAccessTokenSupplier, IDisposable
         string clientSecret,
         string audience,
         string path = null,
-        ILoggerFactory loggerFactory = null)
+        ILoggerFactory loggerFactory = null,
+        bool persistedCredentialsCacheEnabled = true,
+        TimeSpan accessTokenDueDateTolerance = default)
     {
         persistedAccessTokenCache = new PersistedAccessTokenCache(path ?? ZeebeRootPath, FetchAccessToken,
-            loggerFactory?.CreateLogger<PersistedAccessTokenCache>());
+            loggerFactory?.CreateLogger<PersistedAccessTokenCache>(),
+            persistedCredentialsCacheEnabled, accessTokenDueDateTolerance);
         logger = loggerFactory?.CreateLogger<CamundaCloudTokenProvider>();
         this.authServer = authServer;
         this.clientId = clientId;
@@ -53,6 +56,7 @@ public class CamundaCloudTokenProvider : IAccessTokenSupplier, IDisposable
     {
         httpClient.Dispose();
         httpMessageHandler.Dispose();
+        this.persistedAccessTokenCache.Dispose();
     }
 
     public static CamundaCloudTokenProviderBuilder Builder()
